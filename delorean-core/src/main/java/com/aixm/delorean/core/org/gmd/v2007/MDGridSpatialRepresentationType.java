@@ -203,19 +203,6 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
         }
         final MDGridSpatialRepresentationType that = ((MDGridSpatialRepresentationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAxisDimensionProperties();
-            boolean rhsFieldIsSet = that.isSetAxisDimensionProperties();
-            List<MDDimensionPropertyType> lhsField;
-            lhsField = (this.isSetAxisDimensionProperties() ? this.getAxisDimensionProperties() : null);
-            List<MDDimensionPropertyType> rhsField;
-            rhsField = (that.isSetAxisDimensionProperties() ? that.getAxisDimensionProperties() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDimensionProperties", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDimensionProperties", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNumberOfDimensions();
             boolean rhsFieldIsSet = that.isSetNumberOfDimensions();
             IntegerPropertyType lhsField;
@@ -239,6 +226,19 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationParameterAvailability",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAxisDimensionProperties();
+            boolean rhsFieldIsSet = that.isSetAxisDimensionProperties();
+            List<MDDimensionPropertyType> lhsField;
+            lhsField = (this.isSetAxisDimensionProperties() ? this.getAxisDimensionProperties() : null);
+            List<MDDimensionPropertyType> rhsField;
+            rhsField = (that.isSetAxisDimensionProperties() ? that.getAxisDimensionProperties() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDimensionProperties", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDimensionProperties", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

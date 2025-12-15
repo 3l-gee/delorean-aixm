@@ -33,8 +33,8 @@ public class AIXM511 {
             Aixm511DatabaseFunction.class,
             new QName("http://www.aixm.aero/schema/5.1.1/message", "AIXMBasicMessage", "message"),
             "/schema/message/AIXM_BasicMessage.xsd",
-            "postgresql/pre-init.sql",
-            "postgresql/post-init.sql",
+            "/sql/pre-init.sql",
+            "/sql/post-init.sql",
             "hibernate/hibernate.cfg.xml",
             com.aixm.delorean.core.Delorean.class,
             com.aixm.delorean.aixm511.AIXM511.class

@@ -286,14 +286,14 @@ public class PTLocaleContainerType implements Serializable, Equals, HashCode, To
         }
         final PTLocaleContainerType that = ((PTLocaleContainerType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDescription();
-            boolean rhsFieldIsSet = that.isSetDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocalisedString();
+            boolean rhsFieldIsSet = that.isSetLocalisedString();
+            List<LocalisedCharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetLocalisedString() ? this.getLocalisedString() : null);
+            List<LocalisedCharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetLocalisedString() ? that.getLocalisedString() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localisedString", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localisedString", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -307,19 +307,6 @@ public class PTLocaleContainerType implements Serializable, Equals, HashCode, To
             rhsField = that.getLocale();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locale", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locale", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocalisedString();
-            boolean rhsFieldIsSet = that.isSetLocalisedString();
-            List<LocalisedCharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetLocalisedString() ? this.getLocalisedString() : null);
-            List<LocalisedCharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetLocalisedString() ? that.getLocalisedString() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localisedString", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localisedString", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -346,6 +333,19 @@ public class PTLocaleContainerType implements Serializable, Equals, HashCode, To
             rhsField = (that.isSetResponsibleParty() ? that.getResponsibleParty() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleParty", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleParty", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

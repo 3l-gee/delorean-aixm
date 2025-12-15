@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for RadioCommunicationOperationalStatusPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for RadioCommunicationOperationalStatusPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="RadioCommunicationOperationalStatusPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}RadioCommunicationOperationalStatus"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}RadioCommunicationOperationalStatus"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RadioCommunicationOperationalStatusPropertyType", propOrder = {"radioCommunicationOperationalStatus"})
+@XmlType(name = "RadioCommunicationOperationalStatusPropertyType", propOrder = {
+    "radioCommunicationOperationalStatus"
+})
 @Entity(name = "RadioCommunicationOperationalStatusPropertyType")
 @Table(name = "radiocommunicationoperationalstatus_pt", schema = "service")
-public class RadioCommunicationOperationalStatusPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class RadioCommunicationOperationalStatusPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "RadioCommunicationOperationalStatus", required = true)
@@ -58,12 +56,15 @@ public class RadioCommunicationOperationalStatusPropertyType extends AbstractAIX
 
     /**
      * Gets the value of the radioCommunicationOperationalStatus property.
-     *
-     * @return possible object is {@link RadioCommunicationOperationalStatusType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link RadioCommunicationOperationalStatusType }
+     *     
      */
     @OneToOne(targetEntity = RadioCommunicationOperationalStatusType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "radiocommunicationoperationalstatus_id", referencedColumnName = "hjid")
     public RadioCommunicationOperationalStatusType getRadioCommunicationOperationalStatus() {
         return radioCommunicationOperationalStatus;
@@ -71,10 +72,11 @@ public class RadioCommunicationOperationalStatusPropertyType extends AbstractAIX
 
     /**
      * Sets the value of the radioCommunicationOperationalStatus property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link RadioCommunicationOperationalStatusType }
-     *
+     *     allowed object is
+     *     {@link RadioCommunicationOperationalStatusType }
+     *     
      */
     public void setRadioCommunicationOperationalStatus(RadioCommunicationOperationalStatusType value) {
         this.radioCommunicationOperationalStatus = value;
@@ -82,13 +84,12 @@ public class RadioCommunicationOperationalStatusPropertyType extends AbstractAIX
 
     @Transient
     public boolean isSetRadioCommunicationOperationalStatus() {
-        return (this.radioCommunicationOperationalStatus != null);
+        return (this.radioCommunicationOperationalStatus!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -105,10 +106,8 @@ public class RadioCommunicationOperationalStatusPropertyType extends AbstractAIX
             lhsField = this.getRadioCommunicationOperationalStatus();
             RadioCommunicationOperationalStatusType rhsField;
             rhsField = that.getRadioCommunicationOperationalStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunicationOperationalStatus",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunicationOperationalStatus",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunicationOperationalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunicationOperationalStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -123,8 +122,7 @@ public class RadioCommunicationOperationalStatusPropertyType extends AbstractAIX
             boolean theFieldIsSet = this.isSetRadioCommunicationOperationalStatus();
             RadioCommunicationOperationalStatusType theField;
             theField = this.getRadioCommunicationOperationalStatus();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "radioCommunicationOperationalStatus",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "radioCommunicationOperationalStatus", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         return currentHashCode;

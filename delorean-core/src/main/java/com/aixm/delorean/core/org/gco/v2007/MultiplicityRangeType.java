@@ -117,19 +117,6 @@ public class MultiplicityRangeType extends AbstractObjectType implements Seriali
         }
         final MultiplicityRangeType that = ((MultiplicityRangeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUpper();
-            boolean rhsFieldIsSet = that.isSetUpper();
-            UnlimitedIntegerPropertyType lhsField;
-            lhsField = this.getUpper();
-            UnlimitedIntegerPropertyType rhsField;
-            rhsField = that.getUpper();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upper", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upper", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLower();
             boolean rhsFieldIsSet = that.isSetLower();
             IntegerPropertyType lhsField;
@@ -138,6 +125,19 @@ public class MultiplicityRangeType extends AbstractObjectType implements Seriali
             rhsField = that.getLower();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lower", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lower", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpper();
+            boolean rhsFieldIsSet = that.isSetUpper();
+            UnlimitedIntegerPropertyType lhsField;
+            lhsField = this.getUpper();
+            UnlimitedIntegerPropertyType rhsField;
+            rhsField = that.getUpper();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upper", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upper", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

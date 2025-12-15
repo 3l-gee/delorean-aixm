@@ -202,6 +202,19 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString {
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSeconds();
+            boolean rhsFieldIsSet = that.isSetSeconds();
+            BigDecimal lhsField;
+            lhsField = this.getSeconds();
+            BigDecimal rhsField;
+            rhsField = that.getSeconds();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seconds", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seconds", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMinutes();
             boolean rhsFieldIsSet = that.isSetMinutes();
             Integer lhsField;
@@ -223,19 +236,6 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString {
             rhsField = that.getDegrees();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degrees", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degrees", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSeconds();
-            boolean rhsFieldIsSet = that.isSetSeconds();
-            BigDecimal lhsField;
-            lhsField = this.getSeconds();
-            BigDecimal rhsField;
-            rhsField = that.getSeconds();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seconds", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seconds", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

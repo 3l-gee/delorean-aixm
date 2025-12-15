@@ -274,27 +274,14 @@ public class LISourceType extends AbstractObjectType implements Serializable {
         }
         final LISourceType that = ((LISourceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSourceReferenceSystem();
-            boolean rhsFieldIsSet = that.isSetSourceReferenceSystem();
-            MDReferenceSystemPropertyType lhsField;
-            lhsField = this.getSourceReferenceSystem();
-            MDReferenceSystemPropertyType rhsField;
-            rhsField = that.getSourceReferenceSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceReferenceSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceReferenceSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSourceStep();
-            boolean rhsFieldIsSet = that.isSetSourceStep();
-            List<LIProcessStepPropertyType> lhsField;
-            lhsField = (this.isSetSourceStep() ? this.getSourceStep() : null);
-            List<LIProcessStepPropertyType> rhsField;
-            rhsField = (that.isSetSourceStep() ? that.getSourceStep() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceStep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceStep", rhsField);
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -326,6 +313,19 @@ public class LISourceType extends AbstractObjectType implements Serializable {
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSourceStep();
+            boolean rhsFieldIsSet = that.isSetSourceStep();
+            List<LIProcessStepPropertyType> lhsField;
+            lhsField = (this.isSetSourceStep() ? this.getSourceStep() : null);
+            List<LIProcessStepPropertyType> rhsField;
+            rhsField = (that.isSetSourceStep() ? that.getSourceStep() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceStep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceStep", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSourceExtent();
             boolean rhsFieldIsSet = that.isSetSourceExtent();
             List<EXExtentPropertyType> lhsField;
@@ -339,14 +339,14 @@ public class LISourceType extends AbstractObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDescription();
-            boolean rhsFieldIsSet = that.isSetDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            boolean lhsFieldIsSet = this.isSetSourceReferenceSystem();
+            boolean rhsFieldIsSet = that.isSetSourceReferenceSystem();
+            MDReferenceSystemPropertyType lhsField;
+            lhsField = this.getSourceReferenceSystem();
+            MDReferenceSystemPropertyType rhsField;
+            rhsField = that.getSourceReferenceSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceReferenceSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceReferenceSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

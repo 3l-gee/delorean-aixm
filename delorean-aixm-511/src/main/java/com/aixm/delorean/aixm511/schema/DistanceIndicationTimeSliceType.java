@@ -1,6 +1,10 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -21,10 +25,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -32,35 +32,26 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for DistanceIndicationTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for DistanceIndicationTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="DistanceIndicationTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref=
-"{http://www.aixm.aero/schema/5.1.1}DistanceIndicationPropertyGroup"/>
+ *         <group ref="{http://www.aixm.aero/schema/5.1.1}DistanceIndicationPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractDistanceIndicationExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractDistanceIndicationExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -70,16 +61,30 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DistanceIndicationTimeSliceType", propOrder = {"distance", "minimumReceptionAltitude", "type", "fix",
-        "pointChoiceFixDesignatedPoint", "pointChoiceNavaidSystem", "pointChoicePosition", "pointChoiceRunwayPoint",
-        "pointChoiceAimingPoint", "pointChoiceAirportReferencePoint", "annotation", "extension"})
+@XmlType(name = "DistanceIndicationTimeSliceType", propOrder = {
+    "distance",
+    "minimumReceptionAltitude",
+    "type",
+    "fix",
+    "pointChoiceFixDesignatedPoint",
+    "pointChoiceNavaidSystem",
+    "pointChoicePosition",
+    "pointChoiceRunwayPoint",
+    "pointChoiceAimingPoint",
+    "pointChoiceAirportReferencePoint",
+    "annotation",
+    "extension"
+})
 @Entity(name = "DistanceIndicationTimeSliceType")
 @Table(name = "distanceindication_ts", schema = "navaids_point")
-public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class DistanceIndicationTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "distance", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -108,10 +113,11 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Gets the value of the distance property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getDistance() {
@@ -120,11 +126,11 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Sets the value of the distance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setDistance(JAXBElement<ValDistanceType> value) {
         this.distance = value;
@@ -132,15 +138,16 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetDistance() {
-        return (this.distance != null);
+        return (this.distance!= null);
     }
 
     /**
      * Gets the value of the minimumReceptionAltitude property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getMinimumReceptionAltitude() {
@@ -149,11 +156,11 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Sets the value of the minimumReceptionAltitude property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setMinimumReceptionAltitude(JAXBElement<ValDistanceVerticalType> value) {
         this.minimumReceptionAltitude = value;
@@ -161,15 +168,16 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetMinimumReceptionAltitude() {
-        return (this.minimumReceptionAltitude != null);
+        return (this.minimumReceptionAltitude!= null);
     }
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeDistanceIndicationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeDistanceIndicationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeDistanceIndicationType> getType() {
@@ -178,11 +186,11 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeDistanceIndicationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeDistanceIndicationType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeDistanceIndicationType> value) {
         this.type = value;
@@ -190,15 +198,16 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the fix property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getFix() {
@@ -207,11 +216,11 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Sets the value of the fix property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setFix(JAXBElement<DesignatedPointPropertyType> value) {
         this.fix = value;
@@ -219,15 +228,16 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetFix() {
-        return (this.fix != null);
+        return (this.fix!= null);
     }
 
     /**
      * Gets the value of the pointChoiceFixDesignatedPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getPointChoiceFixDesignatedPoint() {
@@ -236,11 +246,11 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Sets the value of the pointChoiceFixDesignatedPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setPointChoiceFixDesignatedPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.pointChoiceFixDesignatedPoint = value;
@@ -248,15 +258,16 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetPointChoiceFixDesignatedPoint() {
-        return (this.pointChoiceFixDesignatedPoint != null);
+        return (this.pointChoiceFixDesignatedPoint!= null);
     }
 
     /**
      * Gets the value of the pointChoiceNavaidSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getPointChoiceNavaidSystem() {
@@ -265,11 +276,11 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Sets the value of the pointChoiceNavaidSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setPointChoiceNavaidSystem(JAXBElement<NavaidPropertyType> value) {
         this.pointChoiceNavaidSystem = value;
@@ -277,15 +288,16 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetPointChoiceNavaidSystem() {
-        return (this.pointChoiceNavaidSystem != null);
+        return (this.pointChoiceNavaidSystem!= null);
     }
 
     /**
      * Gets the value of the pointChoicePosition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMPointPropertyType> getPointChoicePosition() {
@@ -294,11 +306,11 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Sets the value of the pointChoicePosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     public void setPointChoicePosition(JAXBElement<AIXMPointPropertyType> value) {
         this.pointChoicePosition = value;
@@ -306,15 +318,16 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetPointChoicePosition() {
-        return (this.pointChoicePosition != null);
+        return (this.pointChoicePosition!= null);
     }
 
     /**
      * Gets the value of the pointChoiceRunwayPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayCentrelinePointPropertyType> getPointChoiceRunwayPoint() {
@@ -323,11 +336,11 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Sets the value of the pointChoiceRunwayPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     public void setPointChoiceRunwayPoint(JAXBElement<RunwayCentrelinePointPropertyType> value) {
         this.pointChoiceRunwayPoint = value;
@@ -335,15 +348,16 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetPointChoiceRunwayPoint() {
-        return (this.pointChoiceRunwayPoint != null);
+        return (this.pointChoiceRunwayPoint!= null);
     }
 
     /**
      * Gets the value of the pointChoiceAimingPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TouchDownLiftOffPropertyType> getPointChoiceAimingPoint() {
@@ -352,11 +366,11 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Sets the value of the pointChoiceAimingPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     public void setPointChoiceAimingPoint(JAXBElement<TouchDownLiftOffPropertyType> value) {
         this.pointChoiceAimingPoint = value;
@@ -364,15 +378,16 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetPointChoiceAimingPoint() {
-        return (this.pointChoiceAimingPoint != null);
+        return (this.pointChoiceAimingPoint!= null);
     }
 
     /**
      * Gets the value of the pointChoiceAirportReferencePoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getPointChoiceAirportReferencePoint() {
@@ -381,11 +396,11 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Sets the value of the pointChoiceAirportReferencePoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setPointChoiceAirportReferencePoint(JAXBElement<AirportHeliportPropertyType> value) {
         this.pointChoiceAirportReferencePoint = value;
@@ -393,36 +408,39 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetPointChoiceAirportReferencePoint() {
-        return (this.pointChoiceAirportReferencePoint != null);
+        return (this.pointChoiceAirportReferencePoint!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_distanceindication_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "distanceindicationpropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "distanceindicationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -431,8 +449,8 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -440,7 +458,7 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -449,29 +467,29 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DistanceIndicationExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = DistanceIndicationExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_DISTANCE_INDICATIO_0")
     public List<DistanceIndicationExtensionType> getExtension() {
         if (extension == null) {
@@ -481,8 +499,8 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<DistanceIndicationExtensionType> extension) {
         this.extension = extension;
@@ -490,7 +508,7 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -499,137 +517,132 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "distance", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "distance_uom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "distance_nilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "distance", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "uom", column = @Column(name = "distance_uom")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "distance_nilreason"))
+    })
     public ValDistanceType getDistanceItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getDistance());
     }
 
     public void setDistanceItem(ValDistanceType target) {
-        setDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "distance"), DistanceIndicationTimeSliceType.class,
-                target));
+        setDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "distance"), DistanceIndicationTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "minimumreceptionaltitude", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "minimumreceptionaltitude_uom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "minimumreceptionaltitude_nilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "minimumreceptionaltitude", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "uom", column = @Column(name = "minimumreceptionaltitude_uom")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "minimumreceptionaltitude_nilreason"))
+    })
     public ValDistanceVerticalType getMinimumReceptionAltitudeItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getMinimumReceptionAltitude());
     }
 
     public void setMinimumReceptionAltitudeItem(ValDistanceVerticalType target) {
-        setMinimumReceptionAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "minimumReceptionAltitude"),
-                DistanceIndicationTimeSliceType.class, target));
+        setMinimumReceptionAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "minimumReceptionAltitude"), DistanceIndicationTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))
+    })
     public CodeDistanceIndicationType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDistanceIndicationType.class, this.getType());
     }
 
     public void setTypeItem(CodeDistanceIndicationType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeDistanceIndicationType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "type"), DistanceIndicationTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeDistanceIndicationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), DistanceIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "fix_id", referencedColumnName = "hjid")
     public DesignatedPointPropertyType getFixItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getFix());
     }
 
     public void setFixItem(DesignatedPointPropertyType target) {
-        setFix(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "fix"), DistanceIndicationTimeSliceType.class, target));
+        setFix(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "fix"), DistanceIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_fixdesignatedpoint_id", referencedColumnName = "hjid")
     public DesignatedPointPropertyType getPointChoiceFixDesignatedPointItem() {
-        return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class,
-                this.getPointChoiceFixDesignatedPoint());
+        return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getPointChoiceFixDesignatedPoint());
     }
 
     public void setPointChoiceFixDesignatedPointItem(DesignatedPointPropertyType target) {
-        setPointChoiceFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_fixDesignatedPoint"),
-                DistanceIndicationTimeSliceType.class, target));
+        setPointChoiceFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_fixDesignatedPoint"), DistanceIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_navaidsystem_id", referencedColumnName = "hjid")
     public NavaidPropertyType getPointChoiceNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getPointChoiceNavaidSystem());
     }
 
     public void setPointChoiceNavaidSystemItem(NavaidPropertyType target) {
-        setPointChoiceNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_navaidSystem"),
-                DistanceIndicationTimeSliceType.class, target));
+        setPointChoiceNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_navaidSystem"), DistanceIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_position_id", referencedColumnName = "hjid")
     public AIXMPointPropertyType getPointChoicePositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getPointChoicePosition());
     }
 
     public void setPointChoicePositionItem(AIXMPointPropertyType target) {
-        setPointChoicePosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_position"),
-                DistanceIndicationTimeSliceType.class, target));
+        setPointChoicePosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_position"), DistanceIndicationTimeSliceType.class, target));
     }
 
     @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_runwaypoint_id", referencedColumnName = "hjid")
     public RunwayCentrelinePointPropertyType getPointChoiceRunwayPointItem() {
-        return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class,
-                this.getPointChoiceRunwayPoint());
+        return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getPointChoiceRunwayPoint());
     }
 
     public void setPointChoiceRunwayPointItem(RunwayCentrelinePointPropertyType target) {
-        setPointChoiceRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_runwayPoint"),
-                DistanceIndicationTimeSliceType.class, target));
+        setPointChoiceRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_runwayPoint"), DistanceIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_aimingpoint_id", referencedColumnName = "hjid")
     public TouchDownLiftOffPropertyType getPointChoiceAimingPointItem() {
         return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getPointChoiceAimingPoint());
     }
 
     public void setPointChoiceAimingPointItem(TouchDownLiftOffPropertyType target) {
-        setPointChoiceAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_aimingPoint"),
-                DistanceIndicationTimeSliceType.class, target));
+        setPointChoiceAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_aimingPoint"), DistanceIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_airportreferencepoint_id", referencedColumnName = "hjid")
     public AirportHeliportPropertyType getPointChoiceAirportReferencePointItem() {
-        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class,
-                this.getPointChoiceAirportReferencePoint());
+        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getPointChoiceAirportReferencePoint());
     }
 
     public void setPointChoiceAirportReferencePointItem(AirportHeliportPropertyType target) {
-        setPointChoiceAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_airportReferencePoint"),
-                DistanceIndicationTimeSliceType.class, target));
+        setPointChoiceAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_airportReferencePoint"), DistanceIndicationTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -639,45 +652,6 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             return false;
         }
         final DistanceIndicationTimeSliceType that = ((DistanceIndicationTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getPointChoiceNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetPointChoiceAimingPoint();
             boolean rhsFieldIsSet = that.isSetPointChoiceAimingPoint();
@@ -692,14 +666,40 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFix();
-            boolean rhsFieldIsSet = that.isSetFix();
+            boolean lhsFieldIsSet = this.isSetPointChoiceFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceFixDesignatedPoint();
             JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getFix();
+            lhsField = this.getPointChoiceFixDesignatedPoint();
             JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getFix();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fix", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fix", rhsField);
+            rhsField = that.getPointChoiceFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getPointChoiceAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getPointChoiceAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getPointChoiceNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -718,16 +718,14 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointChoiceAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getPointChoiceAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getPointChoiceAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAirportReferencePoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAirportReferencePoint",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetMinimumReceptionAltitude();
+            boolean rhsFieldIsSet = that.isSetMinimumReceptionAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumReceptionAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumReceptionAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumReceptionAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumReceptionAltitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -736,9 +734,9 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<DistanceIndicationExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<DistanceIndicationExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -746,16 +744,14 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointChoiceFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getPointChoiceFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getPointChoiceFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceFixDesignatedPoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceFixDesignatedPoint",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -774,19 +770,6 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumReceptionAltitude();
-            boolean rhsFieldIsSet = that.isSetMinimumReceptionAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumReceptionAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumReceptionAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumReceptionAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumReceptionAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeDistanceIndicationType> lhsField;
@@ -795,6 +778,32 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFix();
+            boolean rhsFieldIsSet = that.isSetFix();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getFix();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getFix();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fix", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fix", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -872,21 +881,20 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             boolean theFieldIsSet = this.isSetPointChoiceAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> theField;
             theField = this.getPointChoiceAirportReferencePoint();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "pointChoiceAirportReferencePoint",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "pointChoiceAirportReferencePoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<DistanceIndicationExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -959,13 +967,13 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<DistanceIndicationExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

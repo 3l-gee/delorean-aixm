@@ -268,27 +268,14 @@ public class MDFormatType extends AbstractObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetName();
-            boolean rhsFieldIsSet = that.isSetName();
+            boolean lhsFieldIsSet = this.isSetVersion();
+            boolean rhsFieldIsSet = that.isSetVersion();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getName();
+            lhsField = this.getVersion();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFileDecompressionTechnique();
-            boolean rhsFieldIsSet = that.isSetFileDecompressionTechnique();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getFileDecompressionTechnique();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getFileDecompressionTechnique();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileDecompressionTechnique", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileDecompressionTechnique", rhsField);
+            rhsField = that.getVersion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -320,14 +307,27 @@ public class MDFormatType extends AbstractObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVersion();
-            boolean rhsFieldIsSet = that.isSetVersion();
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getVersion();
+            lhsField = this.getName();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getVersion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFileDecompressionTechnique();
+            boolean rhsFieldIsSet = that.isSetFileDecompressionTechnique();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getFileDecompressionTechnique();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getFileDecompressionTechnique();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileDecompressionTechnique", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileDecompressionTechnique", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

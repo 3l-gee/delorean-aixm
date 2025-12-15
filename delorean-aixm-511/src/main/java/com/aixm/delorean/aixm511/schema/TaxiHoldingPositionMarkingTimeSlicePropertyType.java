@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -38,41 +38,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TaxiHoldingPositionMarkingTimeSlicePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TaxiHoldingPositionMarkingTimeSlicePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TaxiHoldingPositionMarkingTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}TaxiHoldingPositionMarkingTimeSlice"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}TaxiHoldingPositionMarkingTimeSlice"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TaxiHoldingPositionMarkingTimeSlicePropertyType", propOrder = {"taxiHoldingPositionMarkingTimeSlice"})
-@FilterDef(name = "TSPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
+@XmlType(name = "TaxiHoldingPositionMarkingTimeSlicePropertyType", propOrder = {
+    "taxiHoldingPositionMarkingTimeSlice"
+})
+@FilterDef(name = "TSPHjidFilter", parameters = {
+    @ParamDef(name = "ids", type = Long.class)
+})
 @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "TaxiHoldingPositionMarkingTimeSlicePropertyType")
 @Table(name = "taxiholdingpositionmarking_tsp", schema = "airport_heliport")
-public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
+public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "TaxiHoldingPositionMarkingTimeSlice", required = true)
@@ -86,12 +84,15 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
 
     /**
      * Gets the value of the taxiHoldingPositionMarkingTimeSlice property.
-     *
-     * @return possible object is {@link TaxiHoldingPositionMarkingTimeSliceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link TaxiHoldingPositionMarkingTimeSliceType }
+     *     
      */
     @OneToOne(targetEntity = TaxiHoldingPositionMarkingTimeSliceType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
     public TaxiHoldingPositionMarkingTimeSliceType getTaxiHoldingPositionMarkingTimeSlice() {
         return taxiHoldingPositionMarkingTimeSlice;
@@ -99,10 +100,11 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
 
     /**
      * Sets the value of the taxiHoldingPositionMarkingTimeSlice property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link TaxiHoldingPositionMarkingTimeSliceType }
-     *
+     *     allowed object is
+     *     {@link TaxiHoldingPositionMarkingTimeSliceType }
+     *     
      */
     public void setTaxiHoldingPositionMarkingTimeSlice(TaxiHoldingPositionMarkingTimeSliceType value) {
         this.taxiHoldingPositionMarkingTimeSlice = value;
@@ -110,14 +112,16 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
 
     @Transient
     public boolean isSetTaxiHoldingPositionMarkingTimeSlice() {
-        return (this.taxiHoldingPositionMarkingTimeSlice != null);
+        return (this.taxiHoldingPositionMarkingTimeSlice!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -131,10 +135,11 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -142,7 +147,7 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -150,10 +155,12 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -164,21 +171,24 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -187,11 +197,12 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -210,9 +221,8 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -220,29 +230,27 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
         }
         final TaxiHoldingPositionMarkingTimeSlicePropertyType that = ((TaxiHoldingPositionMarkingTimeSlicePropertyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTaxiHoldingPositionMarkingTimeSlice();
             boolean rhsFieldIsSet = that.isSetTaxiHoldingPositionMarkingTimeSlice();
             TaxiHoldingPositionMarkingTimeSliceType lhsField;
             lhsField = this.getTaxiHoldingPositionMarkingTimeSlice();
             TaxiHoldingPositionMarkingTimeSliceType rhsField;
             rhsField = that.getTaxiHoldingPositionMarkingTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiHoldingPositionMarkingTimeSlice",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiHoldingPositionMarkingTimeSlice",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiHoldingPositionMarkingTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiHoldingPositionMarkingTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -267,14 +275,13 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
             boolean theFieldIsSet = this.isSetTaxiHoldingPositionMarkingTimeSlice();
             TaxiHoldingPositionMarkingTimeSliceType theField;
             theField = this.getTaxiHoldingPositionMarkingTimeSlice();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "taxiHoldingPositionMarkingTimeSlice",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "taxiHoldingPositionMarkingTimeSlice", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -312,7 +319,7 @@ public class TaxiHoldingPositionMarkingTimeSlicePropertyType implements Serializ
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

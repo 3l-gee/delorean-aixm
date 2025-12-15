@@ -143,19 +143,6 @@ public class PTLocaleType extends AbstractObjectType implements Serializable {
         }
         final PTLocaleType that = ((PTLocaleType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCountry();
-            boolean rhsFieldIsSet = that.isSetCountry();
-            CountryPropertyType lhsField;
-            lhsField = this.getCountry();
-            CountryPropertyType rhsField;
-            rhsField = that.getCountry();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCharacterEncoding();
             boolean rhsFieldIsSet = that.isSetCharacterEncoding();
             MDCharacterSetCodePropertyType lhsField;
@@ -177,6 +164,19 @@ public class PTLocaleType extends AbstractObjectType implements Serializable {
             rhsField = that.getLanguageCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "languageCode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "languageCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCountry();
+            boolean rhsFieldIsSet = that.isSetCountry();
+            CountryPropertyType lhsField;
+            lhsField = this.getCountry();
+            CountryPropertyType rhsField;
+            rhsField = that.getCountry();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

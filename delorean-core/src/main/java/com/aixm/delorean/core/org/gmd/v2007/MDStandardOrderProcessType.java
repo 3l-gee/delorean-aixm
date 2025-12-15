@@ -174,6 +174,19 @@ public class MDStandardOrderProcessType extends AbstractObjectType implements Se
         }
         final MDStandardOrderProcessType that = ((MDStandardOrderProcessType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTurnaround();
+            boolean rhsFieldIsSet = that.isSetTurnaround();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getTurnaround();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getTurnaround();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnaround", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnaround", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetFees();
             boolean rhsFieldIsSet = that.isSetFees();
             CharacterStringPropertyType lhsField;
@@ -195,19 +208,6 @@ public class MDStandardOrderProcessType extends AbstractObjectType implements Se
             rhsField = that.getPlannedAvailableDateTime();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "plannedAvailableDateTime", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "plannedAvailableDateTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTurnaround();
-            boolean rhsFieldIsSet = that.isSetTurnaround();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getTurnaround();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getTurnaround();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnaround", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnaround", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

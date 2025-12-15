@@ -173,32 +173,6 @@ public class TimeCalendarEraType extends DefinitionType implements Serializable 
         }
         final TimeCalendarEraType that = ((TimeCalendarEraType) object);
         {
-            boolean lhsFieldIsSet = this.isSetReferenceDate();
-            boolean rhsFieldIsSet = that.isSetReferenceDate();
-            String lhsField;
-            lhsField = this.getReferenceDate();
-            String rhsField;
-            rhsField = that.getReferenceDate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceDate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceDate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetJulianReference();
-            boolean rhsFieldIsSet = that.isSetJulianReference();
-            BigDecimal lhsField;
-            lhsField = this.getJulianReference();
-            BigDecimal rhsField;
-            rhsField = that.getJulianReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "julianReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "julianReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetReferenceEvent();
             boolean rhsFieldIsSet = that.isSetReferenceEvent();
             StringOrRefType lhsField;
@@ -212,6 +186,19 @@ public class TimeCalendarEraType extends DefinitionType implements Serializable 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetReferenceDate();
+            boolean rhsFieldIsSet = that.isSetReferenceDate();
+            String lhsField;
+            lhsField = this.getReferenceDate();
+            String rhsField;
+            rhsField = that.getReferenceDate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceDate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceDate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEpochOfUse();
             boolean rhsFieldIsSet = that.isSetEpochOfUse();
             TimePeriodPropertyType lhsField;
@@ -220,6 +207,19 @@ public class TimeCalendarEraType extends DefinitionType implements Serializable 
             rhsField = that.getEpochOfUse();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "epochOfUse", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "epochOfUse", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetJulianReference();
+            boolean rhsFieldIsSet = that.isSetJulianReference();
+            BigDecimal lhsField;
+            lhsField = this.getJulianReference();
+            BigDecimal rhsField;
+            rhsField = that.getJulianReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "julianReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "julianReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

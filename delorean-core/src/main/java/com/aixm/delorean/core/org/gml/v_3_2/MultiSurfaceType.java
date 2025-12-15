@@ -148,19 +148,6 @@ public class MultiSurfaceType extends AbstractGeometricAggregateType implements 
         }
         final MultiSurfaceType that = ((MultiSurfaceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSurfaceMember();
-            boolean rhsFieldIsSet = that.isSetSurfaceMember();
-            List<SurfacePropertyType> lhsField;
-            lhsField = (this.isSetSurfaceMember() ? this.getSurfaceMember() : null);
-            List<SurfacePropertyType> rhsField;
-            rhsField = (that.isSetSurfaceMember() ? that.getSurfaceMember() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceMember", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceMember", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSurfaceMembers();
             boolean rhsFieldIsSet = that.isSetSurfaceMembers();
             SurfaceArrayPropertyType lhsField;
@@ -169,6 +156,19 @@ public class MultiSurfaceType extends AbstractGeometricAggregateType implements 
             rhsField = that.getSurfaceMembers();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceMembers", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceMembers", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurfaceMember();
+            boolean rhsFieldIsSet = that.isSetSurfaceMember();
+            List<SurfacePropertyType> lhsField;
+            lhsField = (this.isSetSurfaceMember() ? this.getSurfaceMember() : null);
+            List<SurfacePropertyType> rhsField;
+            rhsField = (that.isSetSurfaceMember() ? that.getSurfaceMember() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceMember", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

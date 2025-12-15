@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for SurfaceCharacteristicsPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for SurfaceCharacteristicsPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="SurfaceCharacteristicsPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}SurfaceCharacteristics"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}SurfaceCharacteristics"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SurfaceCharacteristicsPropertyType", propOrder = {"surfaceCharacteristics"})
+@XmlType(name = "SurfaceCharacteristicsPropertyType", propOrder = {
+    "surfaceCharacteristics"
+})
 @Entity(name = "SurfaceCharacteristicsPropertyType")
 @Table(name = "surfacecharacteristics_pt", schema = "airport_heliport")
-public class SurfaceCharacteristicsPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class SurfaceCharacteristicsPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "SurfaceCharacteristics", required = true)
@@ -58,11 +56,15 @@ public class SurfaceCharacteristicsPropertyType extends AbstractAIXMPropertyType
 
     /**
      * Gets the value of the surfaceCharacteristics property.
-     *
-     * @return possible object is {@link SurfaceCharacteristicsType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link SurfaceCharacteristicsType }
+     *     
      */
-    @OneToOne(targetEntity = SurfaceCharacteristicsType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = SurfaceCharacteristicsType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "surfacecharacteristics_id", referencedColumnName = "hjid")
     public SurfaceCharacteristicsType getSurfaceCharacteristics() {
         return surfaceCharacteristics;
@@ -70,10 +72,11 @@ public class SurfaceCharacteristicsPropertyType extends AbstractAIXMPropertyType
 
     /**
      * Sets the value of the surfaceCharacteristics property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link SurfaceCharacteristicsType }
-     *
+     *     allowed object is
+     *     {@link SurfaceCharacteristicsType }
+     *     
      */
     public void setSurfaceCharacteristics(SurfaceCharacteristicsType value) {
         this.surfaceCharacteristics = value;
@@ -81,13 +84,12 @@ public class SurfaceCharacteristicsPropertyType extends AbstractAIXMPropertyType
 
     @Transient
     public boolean isSetSurfaceCharacteristics() {
-        return (this.surfaceCharacteristics != null);
+        return (this.surfaceCharacteristics!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

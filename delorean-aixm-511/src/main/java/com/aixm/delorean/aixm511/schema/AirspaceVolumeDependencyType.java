@@ -1,6 +1,10 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -21,10 +25,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -32,35 +32,26 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for AirspaceVolumeDependencyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AirspaceVolumeDependencyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AirspaceVolumeDependencyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref=
-"{http://www.aixm.aero/schema/5.1.1}AirspaceVolumeDependencyPropertyGroup"/>
+ *         <group ref="{http://www.aixm.aero/schema/5.1.1}AirspaceVolumeDependencyPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAirspaceVolumeDependencyExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractAirspaceVolumeDependencyExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -70,14 +61,22 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirspaceVolumeDependencyType", propOrder = {"dependency", "annotation", "theAirspace", "extension"})
+@XmlType(name = "AirspaceVolumeDependencyType", propOrder = {
+    "dependency",
+    "annotation",
+    "theAirspace",
+    "extension"
+})
 @Entity(name = "AirspaceVolumeDependencyType")
 @Table(name = "airspacevolumedependency", schema = "airspace")
-public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType implements Serializable {
+public class AirspaceVolumeDependencyType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "dependency", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -89,10 +88,11 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
 
     /**
      * Gets the value of the dependency property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAirspaceDependencyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAirspaceDependencyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAirspaceDependencyType> getDependency() {
@@ -101,11 +101,11 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
 
     /**
      * Sets the value of the dependency property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAirspaceDependencyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAirspaceDependencyType }{@code >}
+     *     
      */
     public void setDependency(JAXBElement<CodeAirspaceDependencyType> value) {
         this.dependency = value;
@@ -113,36 +113,39 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
 
     @Transient
     public boolean isSetDependency() {
-        return (this.dependency != null);
+        return (this.dependency!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_airspacevolumedependency_link", schema = "airspace", joinColumns = {
-            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "airspacevolumedependencypropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airspacevolumedependencypropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -151,8 +154,8 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -160,7 +163,7 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -169,11 +172,15 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
 
     /**
      * Gets the value of the theAirspace property.
-     *
-     * @return possible object is {@link AirspacePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AirspacePropertyType }
+     *     
      */
-    @ManyToOne(targetEntity = AirspacePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AirspacePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "theairspace_id", referencedColumnName = "hjid")
     public AirspacePropertyType getTheAirspace() {
         return theAirspace;
@@ -181,10 +188,11 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
 
     /**
      * Sets the value of the theAirspace property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AirspacePropertyType }
-     *
+     *     allowed object is
+     *     {@link AirspacePropertyType }
+     *     
      */
     public void setTheAirspace(AirspacePropertyType value) {
         this.theAirspace = value;
@@ -192,34 +200,34 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
 
     @Transient
     public boolean isSetTheAirspace() {
-        return (this.theAirspace != null);
+        return (this.theAirspace!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspaceVolumeDependencyTypeExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AirspaceVolumeDependencyTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_AIRSPACE_VOLUME_DE_0")
     public List<AirspaceVolumeDependencyTypeExtensionType> getExtension() {
         if (extension == null) {
@@ -229,8 +237,8 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<AirspaceVolumeDependencyTypeExtensionType> extension) {
         this.extension = extension;
@@ -238,7 +246,7 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -246,22 +254,21 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "dependency")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "dependency_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "dependency")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "dependency_nilreason"))
+    })
     public CodeAirspaceDependencyType getDependencyItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAirspaceDependencyType.class, this.getDependency());
     }
 
     public void setDependencyItem(CodeAirspaceDependencyType target) {
-        setDependency(XmlAdapterUtils.marshallJAXBElement(CodeAirspaceDependencyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "dependency"), AirspaceVolumeDependencyType.class,
-                target));
+        setDependency(XmlAdapterUtils.marshallJAXBElement(CodeAirspaceDependencyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "dependency"), AirspaceVolumeDependencyType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -271,6 +278,32 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
             return false;
         }
         final AirspaceVolumeDependencyType that = ((AirspaceVolumeDependencyType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetTheAirspace();
+            boolean rhsFieldIsSet = that.isSetTheAirspace();
+            AirspacePropertyType lhsField;
+            lhsField = this.getTheAirspace();
+            AirspacePropertyType rhsField;
+            rhsField = that.getTheAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetDependency();
             boolean rhsFieldIsSet = that.isSetDependency();
@@ -285,40 +318,14 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AirspaceVolumeDependencyTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<AirspaceVolumeDependencyTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheAirspace();
-            boolean rhsFieldIsSet = that.isSetTheAirspace();
-            AirspacePropertyType lhsField;
-            lhsField = this.getTheAirspace();
-            AirspacePropertyType rhsField;
-            rhsField = that.getTheAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -339,7 +346,7 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -353,7 +360,7 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirspaceVolumeDependencyTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -372,7 +379,7 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -384,7 +391,7 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirspaceVolumeDependencyTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

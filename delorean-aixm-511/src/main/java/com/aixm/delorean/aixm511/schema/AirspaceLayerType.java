@@ -1,6 +1,10 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -21,10 +25,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -32,35 +32,26 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for AirspaceLayerType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AirspaceLayerType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AirspaceLayerType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref=
-"{http://www.aixm.aero/schema/5.1.1}AirspaceLayerPropertyGroup"/>
+ *         <group ref="{http://www.aixm.aero/schema/5.1.1}AirspaceLayerPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAirspaceLayerExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractAirspaceLayerExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -70,15 +61,26 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirspaceLayerType", propOrder = {"upperLimit", "upperLimitReference", "lowerLimit",
-        "lowerLimitReference", "altitudeInterpretation", "discreteLevelSeries", "annotation", "extension"})
+@XmlType(name = "AirspaceLayerType", propOrder = {
+    "upperLimit",
+    "upperLimitReference",
+    "lowerLimit",
+    "lowerLimitReference",
+    "altitudeInterpretation",
+    "discreteLevelSeries",
+    "annotation",
+    "extension"
+})
 @Entity(name = "AirspaceLayerType")
 @Table(name = "airspacelayer", schema = "shared")
-public class AirspaceLayerType extends AbstractAIXMObjectType implements Serializable {
+public class AirspaceLayerType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "upperLimit", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -99,10 +101,11 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     /**
      * Gets the value of the upperLimit property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getUpperLimit() {
@@ -111,11 +114,11 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     /**
      * Sets the value of the upperLimit property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setUpperLimit(JAXBElement<ValDistanceVerticalType> value) {
         this.upperLimit = value;
@@ -123,15 +126,16 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     @Transient
     public boolean isSetUpperLimit() {
-        return (this.upperLimit != null);
+        return (this.upperLimit!= null);
     }
 
     /**
      * Gets the value of the upperLimitReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getUpperLimitReference() {
@@ -140,11 +144,11 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     /**
      * Sets the value of the upperLimitReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setUpperLimitReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.upperLimitReference = value;
@@ -152,15 +156,16 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     @Transient
     public boolean isSetUpperLimitReference() {
-        return (this.upperLimitReference != null);
+        return (this.upperLimitReference!= null);
     }
 
     /**
      * Gets the value of the lowerLimit property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getLowerLimit() {
@@ -169,11 +174,11 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     /**
      * Sets the value of the lowerLimit property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setLowerLimit(JAXBElement<ValDistanceVerticalType> value) {
         this.lowerLimit = value;
@@ -181,15 +186,16 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     @Transient
     public boolean isSetLowerLimit() {
-        return (this.lowerLimit != null);
+        return (this.lowerLimit!= null);
     }
 
     /**
      * Gets the value of the lowerLimitReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getLowerLimitReference() {
@@ -198,11 +204,11 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     /**
      * Sets the value of the lowerLimitReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setLowerLimitReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.lowerLimitReference = value;
@@ -210,15 +216,16 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     @Transient
     public boolean isSetLowerLimitReference() {
-        return (this.lowerLimitReference != null);
+        return (this.lowerLimitReference!= null);
     }
 
     /**
      * Gets the value of the altitudeInterpretation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAltitudeUseType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAltitudeUseType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAltitudeUseType> getAltitudeInterpretation() {
@@ -227,11 +234,11 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     /**
      * Sets the value of the altitudeInterpretation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAltitudeUseType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAltitudeUseType }{@code >}
+     *     
      */
     public void setAltitudeInterpretation(JAXBElement<CodeAltitudeUseType> value) {
         this.altitudeInterpretation = value;
@@ -239,15 +246,16 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     @Transient
     public boolean isSetAltitudeInterpretation() {
-        return (this.altitudeInterpretation != null);
+        return (this.altitudeInterpretation!= null);
     }
 
     /**
      * Gets the value of the discreteLevelSeries property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link StandardLevelColumnPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link StandardLevelColumnPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<StandardLevelColumnPropertyType> getDiscreteLevelSeries() {
@@ -256,11 +264,11 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     /**
      * Sets the value of the discreteLevelSeries property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link StandardLevelColumnPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link StandardLevelColumnPropertyType }{@code >}
+     *     
      */
     public void setDiscreteLevelSeries(JAXBElement<StandardLevelColumnPropertyType> value) {
         this.discreteLevelSeries = value;
@@ -268,36 +276,39 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     @Transient
     public boolean isSetDiscreteLevelSeries() {
-        return (this.discreteLevelSeries != null);
+        return (this.discreteLevelSeries!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_airspacelayer_link", schema = "shared", joinColumns = {
-            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "airspacelayerpropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airspacelayerpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -306,8 +317,8 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -315,7 +326,7 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -324,29 +335,29 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspaceLayerTypeExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AirspaceLayerTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_AIRSPACE_LAYER_TYP_0")
     public List<AirspaceLayerTypeExtensionType> getExtension() {
         if (extension == null) {
@@ -356,8 +367,8 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<AirspaceLayerTypeExtensionType> extension) {
         this.extension = extension;
@@ -365,7 +376,7 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -374,88 +385,86 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "upperlimit", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "upperlimit_uom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimit_nilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "upperlimit", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "uom", column = @Column(name = "upperlimit_uom")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimit_nilreason"))
+    })
     public ValDistanceVerticalType getUpperLimitItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getUpperLimit());
     }
 
     public void setUpperLimitItem(ValDistanceVerticalType target) {
-        setUpperLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "upperLimit"), AirspaceLayerType.class, target));
+        setUpperLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "upperLimit"), AirspaceLayerType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "upperlimitreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitreference_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "upperlimitreference")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitreference_nilreason"))
+    })
     public CodeVerticalReferenceType getUpperLimitReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getUpperLimitReference());
     }
 
     public void setUpperLimitReferenceItem(CodeVerticalReferenceType target) {
-        setUpperLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "upperLimitReference"), AirspaceLayerType.class,
-                target));
+        setUpperLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "upperLimitReference"), AirspaceLayerType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "lowerlimit", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "lowerlimit_uom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimit_nilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "lowerlimit", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "uom", column = @Column(name = "lowerlimit_uom")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimit_nilreason"))
+    })
     public ValDistanceVerticalType getLowerLimitItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getLowerLimit());
     }
 
     public void setLowerLimitItem(ValDistanceVerticalType target) {
-        setLowerLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimit"), AirspaceLayerType.class, target));
+        setLowerLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimit"), AirspaceLayerType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "lowerlimitreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitreference_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "lowerlimitreference")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitreference_nilreason"))
+    })
     public CodeVerticalReferenceType getLowerLimitReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getLowerLimitReference());
     }
 
     public void setLowerLimitReferenceItem(CodeVerticalReferenceType target) {
-        setLowerLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimitReference"), AirspaceLayerType.class,
-                target));
+        setLowerLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimitReference"), AirspaceLayerType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "altitudeinterpretation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "altitudeinterpretation_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "altitudeinterpretation")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "altitudeinterpretation_nilreason"))
+    })
     public CodeAltitudeUseType getAltitudeInterpretationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAltitudeUseType.class, this.getAltitudeInterpretation());
     }
 
     public void setAltitudeInterpretationItem(CodeAltitudeUseType target) {
-        setAltitudeInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeAltitudeUseType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "altitudeInterpretation"), AirspaceLayerType.class,
-                target));
+        setAltitudeInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeAltitudeUseType.class, new QName("http://www.aixm.aero/schema/5.1.1", "altitudeInterpretation"), AirspaceLayerType.class, target));
     }
 
     @ManyToOne(targetEntity = StandardLevelColumnPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "discretelevelseries_id", referencedColumnName = "hjid")
     public StandardLevelColumnPropertyType getDiscreteLevelSeriesItem() {
         return XmlAdapterUtils.unmarshallSource(StandardLevelColumnPropertyType.class, this.getDiscreteLevelSeries());
     }
 
     public void setDiscreteLevelSeriesItem(StandardLevelColumnPropertyType target) {
-        setDiscreteLevelSeries(XmlAdapterUtils.marshallJAXBElement(StandardLevelColumnPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "discreteLevelSeries"), AirspaceLayerType.class,
-                target));
+        setDiscreteLevelSeries(XmlAdapterUtils.marshallJAXBElement(StandardLevelColumnPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "discreteLevelSeries"), AirspaceLayerType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -465,58 +474,6 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
             return false;
         }
         final AirspaceLayerType that = ((AirspaceLayerType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimit();
-            boolean rhsFieldIsSet = that.isSetUpperLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getUpperLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getUpperLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDiscreteLevelSeries();
-            boolean rhsFieldIsSet = that.isSetDiscreteLevelSeries();
-            JAXBElement<StandardLevelColumnPropertyType> lhsField;
-            lhsField = this.getDiscreteLevelSeries();
-            JAXBElement<StandardLevelColumnPropertyType> rhsField;
-            rhsField = that.getDiscreteLevelSeries();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "discreteLevelSeries", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "discreteLevelSeries", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
-            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getLowerLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetUpperLimitReference();
             boolean rhsFieldIsSet = that.isSetUpperLimitReference();
@@ -544,6 +501,19 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDiscreteLevelSeries();
+            boolean rhsFieldIsSet = that.isSetDiscreteLevelSeries();
+            JAXBElement<StandardLevelColumnPropertyType> lhsField;
+            lhsField = this.getDiscreteLevelSeries();
+            JAXBElement<StandardLevelColumnPropertyType> rhsField;
+            rhsField = that.getDiscreteLevelSeries();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "discreteLevelSeries", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "discreteLevelSeries", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAltitudeInterpretation();
             boolean rhsFieldIsSet = that.isSetAltitudeInterpretation();
             JAXBElement<CodeAltitudeUseType> lhsField;
@@ -557,14 +527,53 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AirspaceLayerTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            lhsField = (this.isSetExtension()?this.getExtension():null);
             List<AirspaceLayerTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpperLimit();
+            boolean rhsFieldIsSet = that.isSetUpperLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getUpperLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getUpperLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
+            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getLowerLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -620,14 +629,14 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirspaceLayerTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -676,13 +685,13 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirspaceLayerTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

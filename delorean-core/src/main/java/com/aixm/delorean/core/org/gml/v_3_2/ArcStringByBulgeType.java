@@ -313,14 +313,14 @@ public class ArcStringByBulgeType extends AbstractCurveSegmentType implements Se
         }
         final ArcStringByBulgeType that = ((ArcStringByBulgeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetBulge();
-            boolean rhsFieldIsSet = that.isSetBulge();
-            List<Double> lhsField;
-            lhsField = (this.isSetBulge() ? this.getBulge() : null);
-            List<Double> rhsField;
-            rhsField = (that.isSetBulge() ? that.getBulge() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bulge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bulge", rhsField);
+            boolean lhsFieldIsSet = this.isSetNumArc();
+            boolean rhsFieldIsSet = that.isSetNumArc();
+            BigInteger lhsField;
+            lhsField = this.getNumArc();
+            BigInteger rhsField;
+            rhsField = that.getNumArc();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numArc", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numArc", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -339,19 +339,6 @@ public class ArcStringByBulgeType extends AbstractCurveSegmentType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNormal();
-            boolean rhsFieldIsSet = that.isSetNormal();
-            List<VectorType> lhsField;
-            lhsField = (this.isSetNormal() ? this.getNormal() : null);
-            List<VectorType> rhsField;
-            rhsField = (that.isSetNormal() ? that.getNormal() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "normal", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "normal", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCoordinates();
             boolean rhsFieldIsSet = that.isSetCoordinates();
             CoordinatesType lhsField;
@@ -360,19 +347,6 @@ public class ArcStringByBulgeType extends AbstractCurveSegmentType implements Se
             rhsField = that.getCoordinates();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNumArc();
-            boolean rhsFieldIsSet = that.isSetNumArc();
-            BigInteger lhsField;
-            lhsField = this.getNumArc();
-            BigInteger rhsField;
-            rhsField = that.getNumArc();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numArc", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numArc", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -388,6 +362,32 @@ public class ArcStringByBulgeType extends AbstractCurveSegmentType implements Se
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNormal();
+            boolean rhsFieldIsSet = that.isSetNormal();
+            List<VectorType> lhsField;
+            lhsField = (this.isSetNormal() ? this.getNormal() : null);
+            List<VectorType> rhsField;
+            rhsField = (that.isSetNormal() ? that.getNormal() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "normal", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "normal", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBulge();
+            boolean rhsFieldIsSet = that.isSetBulge();
+            List<Double> lhsField;
+            lhsField = (this.isSetBulge() ? this.getBulge() : null);
+            List<Double> rhsField;
+            rhsField = (that.isSetBulge() ? that.getBulge() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bulge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bulge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

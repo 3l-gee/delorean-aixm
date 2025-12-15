@@ -209,14 +209,14 @@ public class NodeType extends AbstractTopoPrimitiveType implements Serializable 
         }
         final NodeType that = ((NodeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAggregationType();
-            boolean rhsFieldIsSet = that.isSetAggregationType();
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointProperty();
+            boolean rhsFieldIsSet = that.isSetPointProperty();
+            PointPropertyType lhsField;
+            lhsField = this.getPointProperty();
+            PointPropertyType rhsField;
+            rhsField = that.getPointProperty();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointProperty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointProperty", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -235,6 +235,19 @@ public class NodeType extends AbstractTopoPrimitiveType implements Serializable 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDirectedEdge();
             boolean rhsFieldIsSet = that.isSetDirectedEdge();
             List<DirectedEdgePropertyType> lhsField;
@@ -243,19 +256,6 @@ public class NodeType extends AbstractTopoPrimitiveType implements Serializable 
             rhsField = (that.isSetDirectedEdge() ? that.getDirectedEdge() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointProperty();
-            boolean rhsFieldIsSet = that.isSetPointProperty();
-            PointPropertyType lhsField;
-            lhsField = this.getPointProperty();
-            PointPropertyType rhsField;
-            rhsField = that.getPointProperty();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointProperty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointProperty", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

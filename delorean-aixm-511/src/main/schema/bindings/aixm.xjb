@@ -36040,6 +36040,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:group[@name='AIXMBasicMessagePropertyGroup']//xs:element[@name='hasMember']">
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "BMMHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <hj:many-to-many>
         <orm:join-table name="message_member_link" schema="aixm">
           <orm:join-column name="message_hjid" referenced-column-name="hjid"/>
@@ -36048,8 +36049,10 @@
       </hj:many-to-many>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
+      <annox:annotate target="class">@org.hibernate.annotations.FilterDef(name = "BMMHjidFilter", parameters = @org.hibernate.annotations.ParamDef(name = "ids", type = Long.class))</annox:annotate>
+      <annox:annotate target="class">@org.hibernate.annotations.Filter(name = "BMMHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <hj:entity>
-        <orm:table name="basic_message_member_property" schema="aixm"/>
+        <orm:table name="message_member" schema="aixm"/>
       </hj:entity>
     </jaxb:bindings>
     <!-- section : auto -->

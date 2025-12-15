@@ -1,6 +1,10 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,46 +31,30 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for ConditionCombinationType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ConditionCombinationType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ConditionCombinationType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
  *       <sequence>
- *         <element name="timeInterval" type=
-"{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="specialDateAuthority" type=
-"{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <group ref=
-"{http://www.aixm.aero/schema/5.1.1}ConditionCombinationPropertyGroup"/>
+ *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <group ref="{http://www.aixm.aero/schema/5.1.1}ConditionCombinationPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractConditionCombinationExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractConditionCombinationExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -80,15 +64,27 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ConditionCombinationType", propOrder = {"timeInterval", "annotation", "specialDateAuthority",
-        "logicalOperator", "weather", "aircraft", "flight", "subCondition", "extension"})
+@XmlType(name = "ConditionCombinationType", propOrder = {
+    "timeInterval",
+    "annotation",
+    "specialDateAuthority",
+    "logicalOperator",
+    "weather",
+    "aircraft",
+    "flight",
+    "subCondition",
+    "extension"
+})
 @Entity(name = "ConditionCombinationType")
 @Table(name = "conditioncombination", schema = "airport_heliport")
-public class ConditionCombinationType extends AbstractPropertiesWithScheduleType implements Serializable {
+public class ConditionCombinationType
+    extends AbstractPropertiesWithScheduleType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(nillable = true)
@@ -111,31 +107,34 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     /**
      * Gets the value of the timeInterval property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the timeInterval property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the timeInterval property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getTimeInterval().add(newItem);
+     *    getTimeInterval().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TimesheetPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "timeinterval_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "conditioncombinationtype", referencedColumnName = "hjid")})
+        @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "conditioncombinationtype", referencedColumnName = "hjid")
+    })
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
             timeInterval = new ArrayList<>();
@@ -144,8 +143,8 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setTimeInterval(List<TimesheetPropertyType> timeInterval) {
         this.timeInterval = timeInterval;
@@ -153,7 +152,7 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     @Transient
     public boolean isSetTimeInterval() {
-        return ((this.timeInterval != null) && (!this.timeInterval.isEmpty()));
+        return ((this.timeInterval!= null)&&(!this.timeInterval.isEmpty()));
     }
 
     public void unsetTimeInterval() {
@@ -162,31 +161,34 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "conditioncombinationtype", referencedColumnName = "hjid")})
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "conditioncombinationtype", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -195,8 +197,8 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -204,7 +206,7 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -213,32 +215,34 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     /**
      * Gets the value of the specialDateAuthority property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the specialDateAuthority property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the specialDateAuthority property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getSpecialDateAuthority().add(newItem);
+     *    getSpecialDateAuthority().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link OrganisationAuthorityPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "specialdateauthority_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "conditioncombinationtype", referencedColumnName = "hjid")})
+        @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "conditioncombinationtype", referencedColumnName = "hjid")
+    })
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
             specialDateAuthority = new ArrayList<>();
@@ -247,8 +251,8 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setSpecialDateAuthority(List<OrganisationAuthorityPropertyType> specialDateAuthority) {
         this.specialDateAuthority = specialDateAuthority;
@@ -256,7 +260,7 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     @Transient
     public boolean isSetSpecialDateAuthority() {
-        return ((this.specialDateAuthority != null) && (!this.specialDateAuthority.isEmpty()));
+        return ((this.specialDateAuthority!= null)&&(!this.specialDateAuthority.isEmpty()));
     }
 
     public void unsetSpecialDateAuthority() {
@@ -265,10 +269,11 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     /**
      * Gets the value of the logicalOperator property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeLogicalOperatorType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeLogicalOperatorType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeLogicalOperatorType> getLogicalOperator() {
@@ -277,11 +282,11 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     /**
      * Sets the value of the logicalOperator property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeLogicalOperatorType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeLogicalOperatorType }{@code >}
+     *     
      */
     public void setLogicalOperator(JAXBElement<CodeLogicalOperatorType> value) {
         this.logicalOperator = value;
@@ -289,36 +294,39 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     @Transient
     public boolean isSetLogicalOperator() {
-        return (this.logicalOperator != null);
+        return (this.logicalOperator!= null);
     }
 
     /**
      * Gets the value of the weather property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the weather property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the weather property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getWeather().add(newItem);
+     *    getWeather().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MeteorologyPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = MeteorologyPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = MeteorologyPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "weather_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "weather", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "weather", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<MeteorologyPropertyType> getWeather() {
         if (weather == null) {
             weather = new ArrayList<>();
@@ -327,8 +335,8 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setWeather(List<MeteorologyPropertyType> weather) {
         this.weather = weather;
@@ -336,7 +344,7 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     @Transient
     public boolean isSetWeather() {
-        return ((this.weather != null) && (!this.weather.isEmpty()));
+        return ((this.weather!= null)&&(!this.weather.isEmpty()));
     }
 
     public void unsetWeather() {
@@ -345,32 +353,34 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     /**
      * Gets the value of the aircraft property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the aircraft property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the aircraft property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAircraft().add(newItem);
+     *    getAircraft().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AircraftCharacteristicPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @ManyToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "aircraft_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "aircraft", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "aircraft", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<AircraftCharacteristicPropertyType> getAircraft() {
         if (aircraft == null) {
             aircraft = new ArrayList<>();
@@ -379,8 +389,8 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAircraft(List<AircraftCharacteristicPropertyType> aircraft) {
         this.aircraft = aircraft;
@@ -388,7 +398,7 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     @Transient
     public boolean isSetAircraft() {
-        return ((this.aircraft != null) && (!this.aircraft.isEmpty()));
+        return ((this.aircraft!= null)&&(!this.aircraft.isEmpty()));
     }
 
     public void unsetAircraft() {
@@ -397,32 +407,34 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     /**
      * Gets the value of the flight property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the flight property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the flight property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getFlight().add(newItem);
+     *    getFlight().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link FlightCharacteristicPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @ManyToMany(targetEntity = FlightCharacteristicPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "flight_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "flight", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "flight", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<FlightCharacteristicPropertyType> getFlight() {
         if (flight == null) {
             flight = new ArrayList<>();
@@ -431,8 +443,8 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setFlight(List<FlightCharacteristicPropertyType> flight) {
         this.flight = flight;
@@ -440,7 +452,7 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     @Transient
     public boolean isSetFlight() {
-        return ((this.flight != null) && (!this.flight.isEmpty()));
+        return ((this.flight!= null)&&(!this.flight.isEmpty()));
     }
 
     public void unsetFlight() {
@@ -449,32 +461,34 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     /**
      * Gets the value of the subCondition property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the subCondition property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the subCondition property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getSubCondition().add(newItem);
+     *    getSubCondition().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ConditionCombinationPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @ManyToMany(targetEntity = ConditionCombinationPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "subcondition_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "subcondition", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "subcondition", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<ConditionCombinationPropertyType> getSubCondition() {
         if (subCondition == null) {
             subCondition = new ArrayList<>();
@@ -483,8 +497,8 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setSubCondition(List<ConditionCombinationPropertyType> subCondition) {
         this.subCondition = subCondition;
@@ -492,7 +506,7 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     @Transient
     public boolean isSetSubCondition() {
-        return ((this.subCondition != null) && (!this.subCondition.isEmpty()));
+        return ((this.subCondition!= null)&&(!this.subCondition.isEmpty()));
     }
 
     public void unsetSubCondition() {
@@ -501,29 +515,29 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ConditionCombinationTypeExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = ConditionCombinationTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_CONDITION_COMBINAT_0")
     public List<ConditionCombinationTypeExtensionType> getExtension() {
         if (extension == null) {
@@ -533,8 +547,8 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<ConditionCombinationTypeExtensionType> extension) {
         this.extension = extension;
@@ -542,7 +556,7 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -550,22 +564,21 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "logicaloperator")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "logicaloperator_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "logicaloperator")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "logicaloperator_nilreason"))
+    })
     public CodeLogicalOperatorType getLogicalOperatorItem() {
         return XmlAdapterUtils.unmarshallSource(CodeLogicalOperatorType.class, this.getLogicalOperator());
     }
 
     public void setLogicalOperatorItem(CodeLogicalOperatorType target) {
-        setLogicalOperator(XmlAdapterUtils.marshallJAXBElement(CodeLogicalOperatorType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "logicalOperator"), ConditionCombinationType.class,
-                target));
+        setLogicalOperator(XmlAdapterUtils.marshallJAXBElement(CodeLogicalOperatorType.class, new QName("http://www.aixm.aero/schema/5.1.1", "logicalOperator"), ConditionCombinationType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -576,12 +589,25 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
         }
         final ConditionCombinationType that = ((ConditionCombinationType) object);
         {
+            boolean lhsFieldIsSet = this.isSetFlight();
+            boolean rhsFieldIsSet = that.isSetFlight();
+            List<FlightCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetFlight()?this.getFlight():null);
+            List<FlightCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetFlight()?that.getFlight():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -589,27 +615,27 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWeather();
-            boolean rhsFieldIsSet = that.isSetWeather();
-            List<MeteorologyPropertyType> lhsField;
-            lhsField = (this.isSetWeather() ? this.getWeather() : null);
-            List<MeteorologyPropertyType> rhsField;
-            rhsField = (that.isSetWeather() ? that.getWeather() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weather", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weather", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ConditionCombinationTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ConditionCombinationTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -628,40 +654,14 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlight();
-            boolean rhsFieldIsSet = that.isSetFlight();
-            List<FlightCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetFlight() ? this.getFlight() : null);
-            List<FlightCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetFlight() ? that.getFlight() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ConditionCombinationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ConditionCombinationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSubCondition();
-            boolean rhsFieldIsSet = that.isSetSubCondition();
-            List<ConditionCombinationPropertyType> lhsField;
-            lhsField = (this.isSetSubCondition() ? this.getSubCondition() : null);
-            List<ConditionCombinationPropertyType> rhsField;
-            rhsField = (that.isSetSubCondition() ? that.getSubCondition() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subCondition", rhsField);
+            boolean lhsFieldIsSet = this.isSetWeather();
+            boolean rhsFieldIsSet = that.isSetWeather();
+            List<MeteorologyPropertyType> lhsField;
+            lhsField = (this.isSetWeather()?this.getWeather():null);
+            List<MeteorologyPropertyType> rhsField;
+            rhsField = (that.isSetWeather()?that.getWeather():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weather", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weather", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -670,9 +670,9 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
             boolean lhsFieldIsSet = this.isSetAircraft();
             boolean rhsFieldIsSet = that.isSetAircraft();
             List<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetAircraft() ? this.getAircraft() : null);
+            lhsField = (this.isSetAircraft()?this.getAircraft():null);
             List<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetAircraft() ? that.getAircraft() : null);
+            rhsField = (that.isSetAircraft()?that.getAircraft():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -680,14 +680,27 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            boolean lhsFieldIsSet = this.isSetSubCondition();
+            boolean rhsFieldIsSet = that.isSetSubCondition();
+            List<ConditionCombinationPropertyType> lhsField;
+            lhsField = (this.isSetSubCondition()?this.getSubCondition():null);
+            List<ConditionCombinationPropertyType> rhsField;
+            rhsField = (that.isSetSubCondition()?that.getSubCondition():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -701,21 +714,21 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
         {
             boolean theFieldIsSet = this.isSetTimeInterval();
             List<TimesheetPropertyType> theField;
-            theField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            theField = (this.isSetTimeInterval()?this.getTimeInterval():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "timeInterval", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            theField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "specialDateAuthority", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -729,35 +742,35 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
         {
             boolean theFieldIsSet = this.isSetWeather();
             List<MeteorologyPropertyType> theField;
-            theField = (this.isSetWeather() ? this.getWeather() : null);
+            theField = (this.isSetWeather()?this.getWeather():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "weather", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAircraft();
             List<AircraftCharacteristicPropertyType> theField;
-            theField = (this.isSetAircraft() ? this.getAircraft() : null);
+            theField = (this.isSetAircraft()?this.getAircraft():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aircraft", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlight();
             List<FlightCharacteristicPropertyType> theField;
-            theField = (this.isSetFlight() ? this.getFlight() : null);
+            theField = (this.isSetFlight()?this.getFlight():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "flight", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSubCondition();
             List<ConditionCombinationPropertyType> theField;
-            theField = (this.isSetSubCondition() ? this.getSubCondition() : null);
+            theField = (this.isSetSubCondition()?this.getSubCondition():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "subCondition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ConditionCombinationTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -770,19 +783,19 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
         {
             boolean theFieldIsSet = this.isSetTimeInterval();
             List<TimesheetPropertyType> theField;
-            theField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            theField = (this.isSetTimeInterval()?this.getTimeInterval():null);
             strategy.appendField(locator, this, "timeInterval", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            theField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
             strategy.appendField(locator, this, "specialDateAuthority", buffer, theField, theFieldIsSet);
         }
         {
@@ -794,31 +807,31 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
         {
             boolean theFieldIsSet = this.isSetWeather();
             List<MeteorologyPropertyType> theField;
-            theField = (this.isSetWeather() ? this.getWeather() : null);
+            theField = (this.isSetWeather()?this.getWeather():null);
             strategy.appendField(locator, this, "weather", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAircraft();
             List<AircraftCharacteristicPropertyType> theField;
-            theField = (this.isSetAircraft() ? this.getAircraft() : null);
+            theField = (this.isSetAircraft()?this.getAircraft():null);
             strategy.appendField(locator, this, "aircraft", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetFlight();
             List<FlightCharacteristicPropertyType> theField;
-            theField = (this.isSetFlight() ? this.getFlight() : null);
+            theField = (this.isSetFlight()?this.getFlight():null);
             strategy.appendField(locator, this, "flight", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSubCondition();
             List<ConditionCombinationPropertyType> theField;
-            theField = (this.isSetSubCondition() ? this.getSubCondition() : null);
+            theField = (this.isSetSubCondition()?this.getSubCondition():null);
             strategy.appendField(locator, this, "subCondition", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ConditionCombinationTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

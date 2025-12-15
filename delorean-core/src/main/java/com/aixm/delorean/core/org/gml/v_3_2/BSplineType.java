@@ -358,27 +358,14 @@ public class BSplineType extends AbstractCurveSegmentType implements Serializabl
         }
         final BSplineType that = ((BSplineType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCoordinates();
-            boolean rhsFieldIsSet = that.isSetCoordinates();
-            CoordinatesType lhsField;
-            lhsField = this.getCoordinates();
-            CoordinatesType rhsField;
-            rhsField = that.getCoordinates();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIsPolynomial();
-            boolean rhsFieldIsSet = that.isSetIsPolynomial();
-            boolean lhsField;
-            lhsField = (this.isSetIsPolynomial() ? this.getIsPolynomial() : false);
-            boolean rhsField;
-            rhsField = (that.isSetIsPolynomial() ? that.getIsPolynomial() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPolynomial", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPolynomial", rhsField);
+            boolean lhsFieldIsSet = this.isSetPosList();
+            boolean rhsFieldIsSet = that.isSetPosList();
+            DirectPositionListType lhsField;
+            lhsField = this.getPosList();
+            DirectPositionListType rhsField;
+            rhsField = that.getPosList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -397,27 +384,14 @@ public class BSplineType extends AbstractCurveSegmentType implements Serializabl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetInterpolation();
-            boolean rhsFieldIsSet = that.isSetInterpolation();
-            CurveInterpolationType lhsField;
-            lhsField = this.getInterpolation();
-            CurveInterpolationType rhsField;
-            rhsField = that.getInterpolation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPosList();
-            boolean rhsFieldIsSet = that.isSetPosList();
-            DirectPositionListType lhsField;
-            lhsField = this.getPosList();
-            DirectPositionListType rhsField;
-            rhsField = that.getPosList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+            boolean lhsFieldIsSet = this.isSetIsPolynomial();
+            boolean rhsFieldIsSet = that.isSetIsPolynomial();
+            boolean lhsField;
+            lhsField = (this.isSetIsPolynomial() ? this.getIsPolynomial() : false);
+            boolean rhsField;
+            rhsField = (that.isSetIsPolynomial() ? that.getIsPolynomial() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPolynomial", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPolynomial", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -459,6 +433,32 @@ public class BSplineType extends AbstractCurveSegmentType implements Serializabl
             rhsField = (that.isSetKnot() ? that.getKnot() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "knot", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "knot", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInterpolation();
+            boolean rhsFieldIsSet = that.isSetInterpolation();
+            CurveInterpolationType lhsField;
+            lhsField = this.getInterpolation();
+            CurveInterpolationType rhsField;
+            rhsField = that.getInterpolation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCoordinates();
+            boolean rhsFieldIsSet = that.isSetCoordinates();
+            CoordinatesType lhsField;
+            lhsField = this.getCoordinates();
+            CoordinatesType rhsField;
+            rhsField = that.getCoordinates();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

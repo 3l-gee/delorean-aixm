@@ -378,14 +378,14 @@ public class FaceType extends AbstractTopoPrimitiveType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUniversal();
-            boolean rhsFieldIsSet = that.isSetUniversal();
-            boolean lhsField;
-            lhsField = (this.isSetUniversal() ? this.getUniversal() : false);
-            boolean rhsField;
-            rhsField = (that.isSetUniversal() ? that.getUniversal() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "universal", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "universal", rhsField);
+            boolean lhsFieldIsSet = this.isSetIsolated();
+            boolean rhsFieldIsSet = that.isSetIsolated();
+            List<NodePropertyType> lhsField;
+            lhsField = (this.isSetIsolated() ? this.getIsolated() : null);
+            List<NodePropertyType> rhsField;
+            rhsField = (that.isSetIsolated() ? that.getIsolated() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isolated", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isolated", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -417,14 +417,14 @@ public class FaceType extends AbstractTopoPrimitiveType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIsolated();
-            boolean rhsFieldIsSet = that.isSetIsolated();
-            List<NodePropertyType> lhsField;
-            lhsField = (this.isSetIsolated() ? this.getIsolated() : null);
-            List<NodePropertyType> rhsField;
-            rhsField = (that.isSetIsolated() ? that.getIsolated() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isolated", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isolated", rhsField);
+            boolean lhsFieldIsSet = this.isSetUniversal();
+            boolean rhsFieldIsSet = that.isSetUniversal();
+            boolean lhsField;
+            lhsField = (this.isSetUniversal() ? this.getUniversal() : false);
+            boolean rhsField;
+            rhsField = (that.isSetUniversal() ? that.getUniversal() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "universal", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "universal", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

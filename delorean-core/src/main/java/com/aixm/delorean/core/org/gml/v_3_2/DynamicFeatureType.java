@@ -178,14 +178,14 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
         }
         final DynamicFeatureType that = ((DynamicFeatureType) object);
         {
-            boolean lhsFieldIsSet = this.isSetValidTime();
-            boolean rhsFieldIsSet = that.isSetValidTime();
-            TimePrimitivePropertyType lhsField;
-            lhsField = this.getValidTime();
-            TimePrimitivePropertyType rhsField;
-            rhsField = that.getValidTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
+            boolean lhsFieldIsSet = this.isSetDataSource();
+            boolean rhsFieldIsSet = that.isSetDataSource();
+            StringOrRefType lhsField;
+            lhsField = this.getDataSource();
+            StringOrRefType rhsField;
+            rhsField = that.getDataSource();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -204,14 +204,14 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDataSource();
-            boolean rhsFieldIsSet = that.isSetDataSource();
-            StringOrRefType lhsField;
-            lhsField = this.getDataSource();
-            StringOrRefType rhsField;
-            rhsField = that.getDataSource();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
+            boolean lhsFieldIsSet = this.isSetValidTime();
+            boolean rhsFieldIsSet = that.isSetValidTime();
+            TimePrimitivePropertyType lhsField;
+            lhsField = this.getValidTime();
+            TimePrimitivePropertyType rhsField;
+            rhsField = that.getValidTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

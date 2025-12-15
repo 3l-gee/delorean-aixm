@@ -28,19 +28,23 @@ import com.aixm.delorean.core.log.LogLevel;
 
 
 
-public class XmlBindingService<R, F> {
-    private final Class<R> root;
-    private final Class<F> feature;
+public class XmlBindingService<ROOT, FEATURE> {
+    private final Class<ROOT> rootClass;
+    private final Class<FEATURE> featureClass;
+    protected final Class<?> CoreResourceAnchorsClass;
+    protected final Class<?> AIXMResourceAnchorsClass;
     private JAXBContext context;
     private Unmarshaller unmarshaller;
     private Marshaller marshaller;
     private SchemaFactory schemaFactory;
     private Schema schema;
 
-    public XmlBindingService(Schema schema, Class<R> root, Class<F> feature) {
+    public XmlBindingService(Schema schema, Class<ROOT> root, Class<FEATURE> feature, Class<?> CoreResourceAnchorsClass, Class<?> AIXMResourceAnchorsClass) {
+        this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
+        this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
         this.schema = schema;
-        this.root = root;
-        this.feature = feature;
+        this.rootClass = root;
+        this.featureClass = feature;
         try {
             this.context = JAXBContext.newInstance(
                 root, 
@@ -167,7 +171,7 @@ public class XmlBindingService<R, F> {
     }
 
     @SuppressWarnings("unchecked")
-    public R unmarshal(InputStream xmlStream) {
+    public ROOT unmarshal(InputStream xmlStream) {
 
         // Unmarshal the XML content from the InputStream
         Object unmarshalledObject;
@@ -192,10 +196,10 @@ public class XmlBindingService<R, F> {
         }
 
         // Verify if the root element matches the expected type
-        JAXBElement<R> aixmElement;
-        if (this.root.isInstance(rootElement.getValue())) {
-            aixmElement = (JAXBElement<R>) rootElement;
-            return (R) aixmElement.getValue();
+        JAXBElement<ROOT> aixmElement;
+        if (this.rootClass.isInstance(rootElement.getValue())) {
+            aixmElement = (JAXBElement<ROOT>) rootElement;
+            return (ROOT) aixmElement.getValue();
 
         } else {
             ConsoleLogger.log(LogLevel.ERROR, "Inconsistent AIXM unmarshalling for: " + rootElement.getValue().getClass().getName());
@@ -205,7 +209,7 @@ public class XmlBindingService<R, F> {
     }
     
     
-    public void marshal(R record, FileOutputStream outputStream, Class<R> clazz, QName qName) {
+    public void marshal(ROOT record, FileOutputStream outputStream, Class<ROOT> clazz, QName qName) {
         if (record == null) {
             ConsoleLogger.log(LogLevel.ERROR, "Cannot marshal a null record of type: " + clazz.getName());
             return;
@@ -223,7 +227,7 @@ public class XmlBindingService<R, F> {
             XMLOutputFactory factory = XMLOutputFactory.newInstance();
             XMLStreamWriter standardWriter = factory.createXMLStreamWriter(outputStream, "UTF-8");
             XMLStreamWriter customWriter = new XMLWriterHelper(standardWriter);
-            JAXBElement<R> rootElement = new JAXBElement<>(qName, this.root, record);
+            JAXBElement<ROOT> rootElement = new JAXBElement<>(qName, this.rootClass, record);
             this.marshaller.marshal(rootElement, customWriter);
             customWriter.flush();
             customWriter.close();

@@ -1,6 +1,10 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,46 +31,30 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for OnlineContactType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for OnlineContactType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="OnlineContactType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
  *       <sequence>
- *         <element name="timeInterval" type=
-"{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="specialDateAuthority" type=
-"{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs
-="unbounded" minOccurs="0"/>
- *         <group ref=
-"{http://www.aixm.aero/schema/5.1.1}OnlineContactPropertyGroup"/>
+ *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <group ref="{http://www.aixm.aero/schema/5.1.1}OnlineContactPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractOnlineContactExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractOnlineContactExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -80,15 +64,26 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "OnlineContactType", propOrder = {"timeInterval", "annotation", "specialDateAuthority", "network",
-        "linkage", "protocol", "eMail", "extension"})
+@XmlType(name = "OnlineContactType", propOrder = {
+    "timeInterval",
+    "annotation",
+    "specialDateAuthority",
+    "network",
+    "linkage",
+    "protocol",
+    "eMail",
+    "extension"
+})
 @Entity(name = "OnlineContactType")
 @Table(name = "onlinecontact", schema = "shared")
-public class OnlineContactType extends AbstractPropertiesWithScheduleType implements Serializable {
+public class OnlineContactType
+    extends AbstractPropertiesWithScheduleType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(nillable = true)
@@ -109,31 +104,34 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     /**
      * Gets the value of the timeInterval property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the timeInterval property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the timeInterval property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getTimeInterval().add(newItem);
+     *    getTimeInterval().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TimesheetPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "timeinterval_onlinecontact_link", schema = "shared", joinColumns = {
-            @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "onlinecontacttype", referencedColumnName = "hjid")})
+        @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "onlinecontacttype", referencedColumnName = "hjid")
+    })
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
             timeInterval = new ArrayList<>();
@@ -142,8 +140,8 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setTimeInterval(List<TimesheetPropertyType> timeInterval) {
         this.timeInterval = timeInterval;
@@ -151,7 +149,7 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     @Transient
     public boolean isSetTimeInterval() {
-        return ((this.timeInterval != null) && (!this.timeInterval.isEmpty()));
+        return ((this.timeInterval!= null)&&(!this.timeInterval.isEmpty()));
     }
 
     public void unsetTimeInterval() {
@@ -160,31 +158,34 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_onlinecontact_link", schema = "shared", joinColumns = {
-            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "onlinecontacttype", referencedColumnName = "hjid")})
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "onlinecontacttype", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -193,8 +194,8 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -202,7 +203,7 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -211,32 +212,34 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     /**
      * Gets the value of the specialDateAuthority property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the specialDateAuthority property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the specialDateAuthority property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getSpecialDateAuthority().add(newItem);
+     *    getSpecialDateAuthority().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link OrganisationAuthorityPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "specialdateauthority_onlinecontact_link", schema = "shared", joinColumns = {
-            @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "onlinecontacttype", referencedColumnName = "hjid")})
+        @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "onlinecontacttype", referencedColumnName = "hjid")
+    })
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
             specialDateAuthority = new ArrayList<>();
@@ -245,8 +248,8 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setSpecialDateAuthority(List<OrganisationAuthorityPropertyType> specialDateAuthority) {
         this.specialDateAuthority = specialDateAuthority;
@@ -254,7 +257,7 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     @Transient
     public boolean isSetSpecialDateAuthority() {
-        return ((this.specialDateAuthority != null) && (!this.specialDateAuthority.isEmpty()));
+        return ((this.specialDateAuthority!= null)&&(!this.specialDateAuthority.isEmpty()));
     }
 
     public void unsetSpecialDateAuthority() {
@@ -263,10 +266,11 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     /**
      * Gets the value of the network property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeTelecomNetworkType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeTelecomNetworkType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeTelecomNetworkType> getNetwork() {
@@ -275,11 +279,11 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     /**
      * Sets the value of the network property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeTelecomNetworkType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeTelecomNetworkType }{@code >}
+     *     
      */
     public void setNetwork(JAXBElement<CodeTelecomNetworkType> value) {
         this.network = value;
@@ -287,15 +291,16 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     @Transient
     public boolean isSetNetwork() {
-        return (this.network != null);
+        return (this.network!= null);
     }
 
     /**
      * Gets the value of the linkage property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TextAddressType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextAddressType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextAddressType> getLinkage() {
@@ -304,11 +309,11 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     /**
      * Sets the value of the linkage property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TextAddressType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextAddressType }{@code >}
+     *     
      */
     public void setLinkage(JAXBElement<TextAddressType> value) {
         this.linkage = value;
@@ -316,15 +321,16 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     @Transient
     public boolean isSetLinkage() {
-        return (this.linkage != null);
+        return (this.linkage!= null);
     }
 
     /**
      * Gets the value of the protocol property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextNameType> getProtocol() {
@@ -333,11 +339,11 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     /**
      * Sets the value of the protocol property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
-     *            }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     *     
      */
     public void setProtocol(JAXBElement<TextNameType> value) {
         this.protocol = value;
@@ -345,15 +351,16 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     @Transient
     public boolean isSetProtocol() {
-        return (this.protocol != null);
+        return (this.protocol!= null);
     }
 
     /**
      * Gets the value of the eMail property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TextAddressType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TextAddressType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TextAddressType> getEMail() {
@@ -362,11 +369,11 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     /**
      * Sets the value of the eMail property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TextAddressType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TextAddressType }{@code >}
+     *     
      */
     public void setEMail(JAXBElement<TextAddressType> value) {
         this.eMail = value;
@@ -374,34 +381,34 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     @Transient
     public boolean isSetEMail() {
-        return (this.eMail != null);
+        return (this.eMail!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link OnlineContactTypeExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = OnlineContactTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_ONLINE_CONTACT_TYP_0")
     public List<OnlineContactTypeExtensionType> getExtension() {
         if (extension == null) {
@@ -411,8 +418,8 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<OnlineContactTypeExtensionType> extension) {
         this.extension = extension;
@@ -420,7 +427,7 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -428,60 +435,60 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "network")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "network_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "network")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "network_nilreason"))
+    })
     public CodeTelecomNetworkType getNetworkItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTelecomNetworkType.class, this.getNetwork());
     }
 
     public void setNetworkItem(CodeTelecomNetworkType target) {
-        setNetwork(XmlAdapterUtils.marshallJAXBElement(CodeTelecomNetworkType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "network"), OnlineContactType.class, target));
+        setNetwork(XmlAdapterUtils.marshallJAXBElement(CodeTelecomNetworkType.class, new QName("http://www.aixm.aero/schema/5.1.1", "network"), OnlineContactType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "linkage", columnDefinition = "VARCHAR", length = 500)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "linkage_nilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "linkage", columnDefinition = "VARCHAR", length = 500)),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "linkage_nilreason"))
+    })
     public TextAddressType getLinkageItem() {
         return XmlAdapterUtils.unmarshallSource(TextAddressType.class, this.getLinkage());
     }
 
     public void setLinkageItem(TextAddressType target) {
-        setLinkage(XmlAdapterUtils.marshallJAXBElement(TextAddressType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "linkage"), OnlineContactType.class, target));
+        setLinkage(XmlAdapterUtils.marshallJAXBElement(TextAddressType.class, new QName("http://www.aixm.aero/schema/5.1.1", "linkage"), OnlineContactType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "protocol", columnDefinition = "VARCHAR", length = 60)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "protocol_nilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "protocol", columnDefinition = "VARCHAR", length = 60)),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "protocol_nilreason"))
+    })
     public TextNameType getProtocolItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getProtocol());
     }
 
     public void setProtocolItem(TextNameType target) {
-        setProtocol(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "protocol"), OnlineContactType.class, target));
+        setProtocol(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "protocol"), OnlineContactType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "email", columnDefinition = "VARCHAR", length = 500)),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "email_nilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "email", columnDefinition = "VARCHAR", length = 500)),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "email_nilreason"))
+    })
     public TextAddressType getEMailItem() {
         return XmlAdapterUtils.unmarshallSource(TextAddressType.class, this.getEMail());
     }
 
     public void setEMailItem(TextAddressType target) {
-        setEMail(XmlAdapterUtils.marshallJAXBElement(TextAddressType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "eMail"), OnlineContactType.class, target));
+        setEMail(XmlAdapterUtils.marshallJAXBElement(TextAddressType.class, new QName("http://www.aixm.aero/schema/5.1.1", "eMail"), OnlineContactType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -492,12 +499,51 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
         }
         final OnlineContactType that = ((OnlineContactType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<OnlineContactTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<OnlineContactTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLinkage();
+            boolean rhsFieldIsSet = that.isSetLinkage();
+            JAXBElement<TextAddressType> lhsField;
+            lhsField = this.getLinkage();
+            JAXBElement<TextAddressType> rhsField;
+            rhsField = that.getLinkage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
             List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -544,53 +590,14 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<OnlineContactTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<OnlineContactTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
             List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
+            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLinkage();
-            boolean rhsFieldIsSet = that.isSetLinkage();
-            JAXBElement<TextAddressType> lhsField;
-            lhsField = this.getLinkage();
-            JAXBElement<TextAddressType> rhsField;
-            rhsField = that.getLinkage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -604,21 +611,21 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
         {
             boolean theFieldIsSet = this.isSetTimeInterval();
             List<TimesheetPropertyType> theField;
-            theField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            theField = (this.isSetTimeInterval()?this.getTimeInterval():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "timeInterval", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            theField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "specialDateAuthority", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -653,7 +660,7 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<OnlineContactTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -666,19 +673,19 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
         {
             boolean theFieldIsSet = this.isSetTimeInterval();
             List<TimesheetPropertyType> theField;
-            theField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            theField = (this.isSetTimeInterval()?this.getTimeInterval():null);
             strategy.appendField(locator, this, "timeInterval", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            theField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
             strategy.appendField(locator, this, "specialDateAuthority", buffer, theField, theFieldIsSet);
         }
         {
@@ -708,7 +715,7 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<OnlineContactTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

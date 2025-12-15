@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for HoldingPatternDurationPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for HoldingPatternDurationPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="HoldingPatternDurationPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}HoldingPatternDuration"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}HoldingPatternDuration"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "HoldingPatternDurationPropertyType", propOrder = {"holdingPatternDuration"})
+@XmlType(name = "HoldingPatternDurationPropertyType", propOrder = {
+    "holdingPatternDuration"
+})
 @Entity(name = "HoldingPatternDurationPropertyType")
 @Table(name = "holdingpatternduration_pt", schema = "holding")
-public class HoldingPatternDurationPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class HoldingPatternDurationPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "HoldingPatternDuration", required = true)
@@ -58,11 +56,15 @@ public class HoldingPatternDurationPropertyType extends AbstractAIXMPropertyType
 
     /**
      * Gets the value of the holdingPatternDuration property.
-     *
-     * @return possible object is {@link HoldingPatternDurationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link HoldingPatternDurationType }
+     *     
      */
-    @OneToOne(targetEntity = HoldingPatternDurationType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = HoldingPatternDurationType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "holdingpatternduration_id", referencedColumnName = "hjid")
     public HoldingPatternDurationType getHoldingPatternDuration() {
         return holdingPatternDuration;
@@ -70,10 +72,11 @@ public class HoldingPatternDurationPropertyType extends AbstractAIXMPropertyType
 
     /**
      * Sets the value of the holdingPatternDuration property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link HoldingPatternDurationType }
-     *
+     *     allowed object is
+     *     {@link HoldingPatternDurationType }
+     *     
      */
     public void setHoldingPatternDuration(HoldingPatternDurationType value) {
         this.holdingPatternDuration = value;
@@ -81,13 +84,12 @@ public class HoldingPatternDurationPropertyType extends AbstractAIXMPropertyType
 
     @Transient
     public boolean isSetHoldingPatternDuration() {
-        return (this.holdingPatternDuration != null);
+        return (this.holdingPatternDuration!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -166,19 +166,6 @@ public class DQDataQualityType extends AbstractObjectType implements Serializabl
         }
         final DQDataQualityType that = ((DQDataQualityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLineage();
-            boolean rhsFieldIsSet = that.isSetLineage();
-            LILineagePropertyType lhsField;
-            lhsField = this.getLineage();
-            LILineagePropertyType rhsField;
-            rhsField = that.getLineage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetReport();
             boolean rhsFieldIsSet = that.isSetReport();
             List<DQElementPropertyType> lhsField;
@@ -187,6 +174,19 @@ public class DQDataQualityType extends AbstractObjectType implements Serializabl
             rhsField = (that.isSetReport() ? that.getReport() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "report", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "report", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLineage();
+            boolean rhsFieldIsSet = that.isSetLineage();
+            LILineagePropertyType lhsField;
+            lhsField = this.getLineage();
+            LILineagePropertyType rhsField;
+            rhsField = that.getLineage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

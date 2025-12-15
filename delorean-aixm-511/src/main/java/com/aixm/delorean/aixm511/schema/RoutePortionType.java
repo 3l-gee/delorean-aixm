@@ -1,6 +1,10 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -17,10 +21,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -28,35 +28,26 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for RoutePortionType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for RoutePortionType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="RoutePortionType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref=
-"{http://www.aixm.aero/schema/5.1.1}RoutePortionPropertyGroup"/>
+ *         <group ref="{http://www.aixm.aero/schema/5.1.1}RoutePortionPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractRoutePortionExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractRoutePortionExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -66,19 +57,39 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RoutePortionType", propOrder = {"startFixDesignatedPoint", "startNavaidSystem", "startPosition",
-        "startRunwayPoint", "startAimingPoint", "startAirportReferencePoint", "intermediatePointFixDesignatedPoint",
-        "intermediatePointNavaidSystem", "intermediatePointPosition", "intermediatePointRunwayPoint",
-        "intermediatePointAimingPoint", "intermediatePointAirportReferencePoint", "referencedRoute",
-        "endFixDesignatedPoint", "endNavaidSystem", "endPosition", "endRunwayPoint", "endAimingPoint",
-        "endAirportReferencePoint", "annotation", "extension"})
+@XmlType(name = "RoutePortionType", propOrder = {
+    "startFixDesignatedPoint",
+    "startNavaidSystem",
+    "startPosition",
+    "startRunwayPoint",
+    "startAimingPoint",
+    "startAirportReferencePoint",
+    "intermediatePointFixDesignatedPoint",
+    "intermediatePointNavaidSystem",
+    "intermediatePointPosition",
+    "intermediatePointRunwayPoint",
+    "intermediatePointAimingPoint",
+    "intermediatePointAirportReferencePoint",
+    "referencedRoute",
+    "endFixDesignatedPoint",
+    "endNavaidSystem",
+    "endPosition",
+    "endRunwayPoint",
+    "endAimingPoint",
+    "endAirportReferencePoint",
+    "annotation",
+    "extension"
+})
 @Entity(name = "RoutePortionType")
 @Table(name = "routeportion", schema = "route")
-public class RoutePortionType extends AbstractAIXMObjectType implements Serializable {
+public class RoutePortionType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "start_fixDesignatedPoint", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -125,10 +136,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Gets the value of the startFixDesignatedPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getStartFixDesignatedPoint() {
@@ -137,11 +149,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the startFixDesignatedPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setStartFixDesignatedPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.startFixDesignatedPoint = value;
@@ -149,15 +161,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetStartFixDesignatedPoint() {
-        return (this.startFixDesignatedPoint != null);
+        return (this.startFixDesignatedPoint!= null);
     }
 
     /**
      * Gets the value of the startNavaidSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getStartNavaidSystem() {
@@ -166,11 +179,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the startNavaidSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setStartNavaidSystem(JAXBElement<NavaidPropertyType> value) {
         this.startNavaidSystem = value;
@@ -178,15 +191,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetStartNavaidSystem() {
-        return (this.startNavaidSystem != null);
+        return (this.startNavaidSystem!= null);
     }
 
     /**
      * Gets the value of the startPosition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMPointPropertyType> getStartPosition() {
@@ -195,11 +209,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the startPosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     public void setStartPosition(JAXBElement<AIXMPointPropertyType> value) {
         this.startPosition = value;
@@ -207,15 +221,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetStartPosition() {
-        return (this.startPosition != null);
+        return (this.startPosition!= null);
     }
 
     /**
      * Gets the value of the startRunwayPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayCentrelinePointPropertyType> getStartRunwayPoint() {
@@ -224,11 +239,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the startRunwayPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     public void setStartRunwayPoint(JAXBElement<RunwayCentrelinePointPropertyType> value) {
         this.startRunwayPoint = value;
@@ -236,15 +251,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetStartRunwayPoint() {
-        return (this.startRunwayPoint != null);
+        return (this.startRunwayPoint!= null);
     }
 
     /**
      * Gets the value of the startAimingPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TouchDownLiftOffPropertyType> getStartAimingPoint() {
@@ -253,11 +269,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the startAimingPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     public void setStartAimingPoint(JAXBElement<TouchDownLiftOffPropertyType> value) {
         this.startAimingPoint = value;
@@ -265,15 +281,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetStartAimingPoint() {
-        return (this.startAimingPoint != null);
+        return (this.startAimingPoint!= null);
     }
 
     /**
      * Gets the value of the startAirportReferencePoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getStartAirportReferencePoint() {
@@ -282,11 +299,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the startAirportReferencePoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setStartAirportReferencePoint(JAXBElement<AirportHeliportPropertyType> value) {
         this.startAirportReferencePoint = value;
@@ -294,15 +311,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetStartAirportReferencePoint() {
-        return (this.startAirportReferencePoint != null);
+        return (this.startAirportReferencePoint!= null);
     }
 
     /**
      * Gets the value of the intermediatePointFixDesignatedPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getIntermediatePointFixDesignatedPoint() {
@@ -311,11 +329,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the intermediatePointFixDesignatedPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setIntermediatePointFixDesignatedPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.intermediatePointFixDesignatedPoint = value;
@@ -323,15 +341,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetIntermediatePointFixDesignatedPoint() {
-        return (this.intermediatePointFixDesignatedPoint != null);
+        return (this.intermediatePointFixDesignatedPoint!= null);
     }
 
     /**
      * Gets the value of the intermediatePointNavaidSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getIntermediatePointNavaidSystem() {
@@ -340,11 +359,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the intermediatePointNavaidSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setIntermediatePointNavaidSystem(JAXBElement<NavaidPropertyType> value) {
         this.intermediatePointNavaidSystem = value;
@@ -352,15 +371,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetIntermediatePointNavaidSystem() {
-        return (this.intermediatePointNavaidSystem != null);
+        return (this.intermediatePointNavaidSystem!= null);
     }
 
     /**
      * Gets the value of the intermediatePointPosition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMPointPropertyType> getIntermediatePointPosition() {
@@ -369,11 +389,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the intermediatePointPosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     public void setIntermediatePointPosition(JAXBElement<AIXMPointPropertyType> value) {
         this.intermediatePointPosition = value;
@@ -381,15 +401,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetIntermediatePointPosition() {
-        return (this.intermediatePointPosition != null);
+        return (this.intermediatePointPosition!= null);
     }
 
     /**
      * Gets the value of the intermediatePointRunwayPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayCentrelinePointPropertyType> getIntermediatePointRunwayPoint() {
@@ -398,11 +419,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the intermediatePointRunwayPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     public void setIntermediatePointRunwayPoint(JAXBElement<RunwayCentrelinePointPropertyType> value) {
         this.intermediatePointRunwayPoint = value;
@@ -410,15 +431,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetIntermediatePointRunwayPoint() {
-        return (this.intermediatePointRunwayPoint != null);
+        return (this.intermediatePointRunwayPoint!= null);
     }
 
     /**
      * Gets the value of the intermediatePointAimingPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TouchDownLiftOffPropertyType> getIntermediatePointAimingPoint() {
@@ -427,11 +449,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the intermediatePointAimingPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     public void setIntermediatePointAimingPoint(JAXBElement<TouchDownLiftOffPropertyType> value) {
         this.intermediatePointAimingPoint = value;
@@ -439,15 +461,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetIntermediatePointAimingPoint() {
-        return (this.intermediatePointAimingPoint != null);
+        return (this.intermediatePointAimingPoint!= null);
     }
 
     /**
      * Gets the value of the intermediatePointAirportReferencePoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getIntermediatePointAirportReferencePoint() {
@@ -456,11 +479,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the intermediatePointAirportReferencePoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setIntermediatePointAirportReferencePoint(JAXBElement<AirportHeliportPropertyType> value) {
         this.intermediatePointAirportReferencePoint = value;
@@ -468,15 +491,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetIntermediatePointAirportReferencePoint() {
-        return (this.intermediatePointAirportReferencePoint != null);
+        return (this.intermediatePointAirportReferencePoint!= null);
     }
 
     /**
      * Gets the value of the referencedRoute property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RoutePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RoutePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RoutePropertyType> getReferencedRoute() {
@@ -485,11 +509,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the referencedRoute property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RoutePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RoutePropertyType }{@code >}
+     *     
      */
     public void setReferencedRoute(JAXBElement<RoutePropertyType> value) {
         this.referencedRoute = value;
@@ -497,15 +521,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetReferencedRoute() {
-        return (this.referencedRoute != null);
+        return (this.referencedRoute!= null);
     }
 
     /**
      * Gets the value of the endFixDesignatedPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<DesignatedPointPropertyType> getEndFixDesignatedPoint() {
@@ -514,11 +539,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the endFixDesignatedPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link DesignatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link DesignatedPointPropertyType }{@code >}
+     *     
      */
     public void setEndFixDesignatedPoint(JAXBElement<DesignatedPointPropertyType> value) {
         this.endFixDesignatedPoint = value;
@@ -526,15 +551,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetEndFixDesignatedPoint() {
-        return (this.endFixDesignatedPoint != null);
+        return (this.endFixDesignatedPoint!= null);
     }
 
     /**
      * Gets the value of the endNavaidSystem property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NavaidPropertyType> getEndNavaidSystem() {
@@ -543,11 +569,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the endNavaidSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NavaidPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NavaidPropertyType }{@code >}
+     *     
      */
     public void setEndNavaidSystem(JAXBElement<NavaidPropertyType> value) {
         this.endNavaidSystem = value;
@@ -555,15 +581,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetEndNavaidSystem() {
-        return (this.endNavaidSystem != null);
+        return (this.endNavaidSystem!= null);
     }
 
     /**
      * Gets the value of the endPosition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMPointPropertyType> getEndPosition() {
@@ -572,11 +599,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the endPosition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
      */
     public void setEndPosition(JAXBElement<AIXMPointPropertyType> value) {
         this.endPosition = value;
@@ -584,15 +611,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetEndPosition() {
-        return (this.endPosition != null);
+        return (this.endPosition!= null);
     }
 
     /**
      * Gets the value of the endRunwayPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayCentrelinePointPropertyType> getEndRunwayPoint() {
@@ -601,11 +629,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the endRunwayPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayCentrelinePointPropertyType }{@code >}
+     *     
      */
     public void setEndRunwayPoint(JAXBElement<RunwayCentrelinePointPropertyType> value) {
         this.endRunwayPoint = value;
@@ -613,15 +641,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetEndRunwayPoint() {
-        return (this.endRunwayPoint != null);
+        return (this.endRunwayPoint!= null);
     }
 
     /**
      * Gets the value of the endAimingPoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TouchDownLiftOffPropertyType> getEndAimingPoint() {
@@ -630,11 +659,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the endAimingPoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TouchDownLiftOffPropertyType }{@code >}
+     *     
      */
     public void setEndAimingPoint(JAXBElement<TouchDownLiftOffPropertyType> value) {
         this.endAimingPoint = value;
@@ -642,15 +671,16 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetEndAimingPoint() {
-        return (this.endAimingPoint != null);
+        return (this.endAimingPoint!= null);
     }
 
     /**
      * Gets the value of the endAirportReferencePoint property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getEndAirportReferencePoint() {
@@ -659,11 +689,11 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Sets the value of the endAirportReferencePoint property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setEndAirportReferencePoint(JAXBElement<AirportHeliportPropertyType> value) {
         this.endAirportReferencePoint = value;
@@ -671,36 +701,39 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetEndAirportReferencePoint() {
-        return (this.endAirportReferencePoint != null);
+        return (this.endAirportReferencePoint!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_routeportion_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "routeportionpropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "routeportionpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -709,8 +742,8 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -718,7 +751,7 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -727,28 +760,29 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RoutePortionTypeExtensionType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = RoutePortionTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = RoutePortionTypeExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_ROUTE_PORTION_TYPE_0")
     public List<RoutePortionTypeExtensionType> getExtension() {
         if (extension == null) {
@@ -758,8 +792,8 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<RoutePortionTypeExtensionType> extension) {
         this.extension = extension;
@@ -767,244 +801,244 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
         this.extension = null;
     }
 
-    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_fixdesignatedpoint_id", referencedColumnName = "hjid")
     public DesignatedPointPropertyType getStartFixDesignatedPointItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getStartFixDesignatedPoint());
     }
 
     public void setStartFixDesignatedPointItem(DesignatedPointPropertyType target) {
-        setStartFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "start_fixDesignatedPoint"), RoutePortionType.class,
-                target));
+        setStartFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_fixDesignatedPoint"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_navaidsystem_id", referencedColumnName = "hjid")
     public NavaidPropertyType getStartNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getStartNavaidSystem());
     }
 
     public void setStartNavaidSystemItem(NavaidPropertyType target) {
-        setStartNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "start_navaidSystem"), RoutePortionType.class, target));
+        setStartNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_navaidSystem"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_position_id", referencedColumnName = "hjid")
     public AIXMPointPropertyType getStartPositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getStartPosition());
     }
 
     public void setStartPositionItem(AIXMPointPropertyType target) {
-        setStartPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "start_position"), RoutePortionType.class, target));
+        setStartPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_position"), RoutePortionType.class, target));
     }
 
     @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_runwaypoint_id", referencedColumnName = "hjid")
     public RunwayCentrelinePointPropertyType getStartRunwayPointItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getStartRunwayPoint());
     }
 
     public void setStartRunwayPointItem(RunwayCentrelinePointPropertyType target) {
-        setStartRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "start_runwayPoint"), RoutePortionType.class, target));
+        setStartRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_runwayPoint"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_aimingpoint_id", referencedColumnName = "hjid")
     public TouchDownLiftOffPropertyType getStartAimingPointItem() {
         return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getStartAimingPoint());
     }
 
     public void setStartAimingPointItem(TouchDownLiftOffPropertyType target) {
-        setStartAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "start_aimingPoint"), RoutePortionType.class, target));
+        setStartAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_aimingPoint"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_airportreferencepoint_id", referencedColumnName = "hjid")
     public AirportHeliportPropertyType getStartAirportReferencePointItem() {
-        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class,
-                this.getStartAirportReferencePoint());
+        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getStartAirportReferencePoint());
     }
 
     public void setStartAirportReferencePointItem(AirportHeliportPropertyType target) {
-        setStartAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "start_airportReferencePoint"), RoutePortionType.class,
-                target));
+        setStartAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_airportReferencePoint"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_fixdesignatedpoint_id", referencedColumnName = "hjid")
     public DesignatedPointPropertyType getIntermediatePointFixDesignatedPointItem() {
-        return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class,
-                this.getIntermediatePointFixDesignatedPoint());
+        return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getIntermediatePointFixDesignatedPoint());
     }
 
     public void setIntermediatePointFixDesignatedPointItem(DesignatedPointPropertyType target) {
-        setIntermediatePointFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_fixDesignatedPoint"),
-                RoutePortionType.class, target));
+        setIntermediatePointFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_fixDesignatedPoint"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_navaidsystem_id", referencedColumnName = "hjid")
     public NavaidPropertyType getIntermediatePointNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getIntermediatePointNavaidSystem());
     }
 
     public void setIntermediatePointNavaidSystemItem(NavaidPropertyType target) {
-        setIntermediatePointNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_navaidSystem"),
-                RoutePortionType.class, target));
+        setIntermediatePointNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_navaidSystem"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_position_id", referencedColumnName = "hjid")
     public AIXMPointPropertyType getIntermediatePointPositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getIntermediatePointPosition());
     }
 
     public void setIntermediatePointPositionItem(AIXMPointPropertyType target) {
-        setIntermediatePointPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_position"), RoutePortionType.class,
-                target));
+        setIntermediatePointPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_position"), RoutePortionType.class, target));
     }
 
     @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_runwaypoint_id", referencedColumnName = "hjid")
     public RunwayCentrelinePointPropertyType getIntermediatePointRunwayPointItem() {
-        return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class,
-                this.getIntermediatePointRunwayPoint());
+        return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getIntermediatePointRunwayPoint());
     }
 
     public void setIntermediatePointRunwayPointItem(RunwayCentrelinePointPropertyType target) {
-        setIntermediatePointRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_runwayPoint"), RoutePortionType.class,
-                target));
+        setIntermediatePointRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_runwayPoint"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_aimingpoint_id", referencedColumnName = "hjid")
     public TouchDownLiftOffPropertyType getIntermediatePointAimingPointItem() {
-        return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class,
-                this.getIntermediatePointAimingPoint());
+        return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getIntermediatePointAimingPoint());
     }
 
     public void setIntermediatePointAimingPointItem(TouchDownLiftOffPropertyType target) {
-        setIntermediatePointAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_aimingPoint"), RoutePortionType.class,
-                target));
+        setIntermediatePointAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_aimingPoint"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_airportreferencepoint_id", referencedColumnName = "hjid")
     public AirportHeliportPropertyType getIntermediatePointAirportReferencePointItem() {
-        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class,
-                this.getIntermediatePointAirportReferencePoint());
+        return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getIntermediatePointAirportReferencePoint());
     }
 
     public void setIntermediatePointAirportReferencePointItem(AirportHeliportPropertyType target) {
-        setIntermediatePointAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_airportReferencePoint"),
-                RoutePortionType.class, target));
+        setIntermediatePointAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_airportReferencePoint"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = RoutePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = RoutePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "referencedroute_id", referencedColumnName = "hjid")
     public RoutePropertyType getReferencedRouteItem() {
         return XmlAdapterUtils.unmarshallSource(RoutePropertyType.class, this.getReferencedRoute());
     }
 
     public void setReferencedRouteItem(RoutePropertyType target) {
-        setReferencedRoute(XmlAdapterUtils.marshallJAXBElement(RoutePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "referencedRoute"), RoutePortionType.class, target));
+        setReferencedRoute(XmlAdapterUtils.marshallJAXBElement(RoutePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "referencedRoute"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_fixdesignatedpoint_id", referencedColumnName = "hjid")
     public DesignatedPointPropertyType getEndFixDesignatedPointItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getEndFixDesignatedPoint());
     }
 
     public void setEndFixDesignatedPointItem(DesignatedPointPropertyType target) {
-        setEndFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "end_fixDesignatedPoint"), RoutePortionType.class,
-                target));
+        setEndFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end_fixDesignatedPoint"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_navaidsystem_id", referencedColumnName = "hjid")
     public NavaidPropertyType getEndNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getEndNavaidSystem());
     }
 
     public void setEndNavaidSystemItem(NavaidPropertyType target) {
-        setEndNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "end_navaidSystem"), RoutePortionType.class, target));
+        setEndNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end_navaidSystem"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_position_id", referencedColumnName = "hjid")
     public AIXMPointPropertyType getEndPositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getEndPosition());
     }
 
     public void setEndPositionItem(AIXMPointPropertyType target) {
-        setEndPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "end_position"), RoutePortionType.class, target));
+        setEndPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end_position"), RoutePortionType.class, target));
     }
 
     @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_runwaypoint_id", referencedColumnName = "hjid")
     public RunwayCentrelinePointPropertyType getEndRunwayPointItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getEndRunwayPoint());
     }
 
     public void setEndRunwayPointItem(RunwayCentrelinePointPropertyType target) {
-        setEndRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "end_runwayPoint"), RoutePortionType.class, target));
+        setEndRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end_runwayPoint"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_aimingpoint_id", referencedColumnName = "hjid")
     public TouchDownLiftOffPropertyType getEndAimingPointItem() {
         return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getEndAimingPoint());
     }
 
     public void setEndAimingPointItem(TouchDownLiftOffPropertyType target) {
-        setEndAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "end_aimingPoint"), RoutePortionType.class, target));
+        setEndAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end_aimingPoint"), RoutePortionType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_airportreferencepoint_id", referencedColumnName = "hjid")
     public AirportHeliportPropertyType getEndAirportReferencePointItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getEndAirportReferencePoint());
     }
 
     public void setEndAirportReferencePointItem(AirportHeliportPropertyType target) {
-        setEndAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "end_airportReferencePoint"), RoutePortionType.class,
-                target));
+        setEndAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end_airportReferencePoint"), RoutePortionType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1015,14 +1049,14 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
         }
         final RoutePortionType that = ((RoutePortionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStartAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetStartAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getStartAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getStartAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAirportReferencePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAirportReferencePoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetEndNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetEndNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getEndNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getEndNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1041,232 +1075,14 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIntermediatePointFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetIntermediatePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getIntermediatePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getIntermediatePointFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointFixDesignatedPoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointFixDesignatedPoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetEndRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getEndRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getEndRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIntermediatePointPosition();
-            boolean rhsFieldIsSet = that.isSetIntermediatePointPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getIntermediatePointPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getIntermediatePointPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIntermediatePointNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetIntermediatePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getIntermediatePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getIntermediatePointNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointNavaidSystem",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointNavaidSystem",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetEndFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getEndFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getEndFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetStartFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getStartFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getStartFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIntermediatePointRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetIntermediatePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getIntermediatePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getIntermediatePointRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointRunwayPoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointRunwayPoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReferencedRoute();
-            boolean rhsFieldIsSet = that.isSetReferencedRoute();
-            JAXBElement<RoutePropertyType> lhsField;
-            lhsField = this.getReferencedRoute();
-            JAXBElement<RoutePropertyType> rhsField;
-            rhsField = that.getReferencedRoute();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referencedRoute", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referencedRoute", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetEndNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getEndNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getEndNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIntermediatePointAimingPoint();
-            boolean rhsFieldIsSet = that.isSetIntermediatePointAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getIntermediatePointAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getIntermediatePointAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointAimingPoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointAimingPoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartAimingPoint();
-            boolean rhsFieldIsSet = that.isSetStartAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getStartAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getStartAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartPosition();
-            boolean rhsFieldIsSet = that.isSetStartPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getStartPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getStartPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetIntermediatePointAirportReferencePoint();
             boolean rhsFieldIsSet = that.isSetIntermediatePointAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> lhsField;
             lhsField = this.getIntermediatePointAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> rhsField;
             rhsField = that.getIntermediatePointAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointAirportReferencePoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointAirportReferencePoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetStartRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getStartRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getStartRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RoutePortionTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RoutePortionTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndPosition();
-            boolean rhsFieldIsSet = that.isSetEndPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getEndPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getEndPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPosition", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointAirportReferencePoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1285,6 +1101,97 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RoutePortionTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<RoutePortionTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntermediatePointRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetIntermediatePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getIntermediatePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getIntermediatePointRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetEndFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getEndFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getEndFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntermediatePointNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetIntermediatePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getIntermediatePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getIntermediatePointNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntermediatePointPosition();
+            boolean rhsFieldIsSet = that.isSetIntermediatePointPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getIntermediatePointPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getIntermediatePointPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetEndRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getEndRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getEndRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEndAimingPoint();
             boolean rhsFieldIsSet = that.isSetEndAimingPoint();
             JAXBElement<TouchDownLiftOffPropertyType> lhsField;
@@ -1293,6 +1200,123 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
             rhsField = that.getEndAimingPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endAimingPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntermediatePointAimingPoint();
+            boolean rhsFieldIsSet = that.isSetIntermediatePointAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getIntermediatePointAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getIntermediatePointAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndPosition();
+            boolean rhsFieldIsSet = that.isSetEndPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getEndPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getEndPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetStartAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getStartAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getStartAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartPosition();
+            boolean rhsFieldIsSet = that.isSetStartPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getStartPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getStartPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetStartRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getStartRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getStartRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntermediatePointFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetIntermediatePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getIntermediatePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getIntermediatePointFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartAimingPoint();
+            boolean rhsFieldIsSet = that.isSetStartAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getStartAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getStartAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetStartFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getStartFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getStartFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReferencedRoute();
+            boolean rhsFieldIsSet = that.isSetReferencedRoute();
+            JAXBElement<RoutePropertyType> lhsField;
+            lhsField = this.getReferencedRoute();
+            JAXBElement<RoutePropertyType> rhsField;
+            rhsField = that.getReferencedRoute();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referencedRoute", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referencedRoute", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1349,8 +1373,7 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
             boolean theFieldIsSet = this.isSetIntermediatePointFixDesignatedPoint();
             JAXBElement<DesignatedPointPropertyType> theField;
             theField = this.getIntermediatePointFixDesignatedPoint();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "intermediatePointFixDesignatedPoint",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "intermediatePointFixDesignatedPoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -1385,8 +1408,7 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
             boolean theFieldIsSet = this.isSetIntermediatePointAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> theField;
             theField = this.getIntermediatePointAirportReferencePoint();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "intermediatePointAirportReferencePoint",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "intermediatePointAirportReferencePoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -1441,14 +1463,14 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RoutePortionTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1528,8 +1550,7 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
             boolean theFieldIsSet = this.isSetIntermediatePointAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> theField;
             theField = this.getIntermediatePointAirportReferencePoint();
-            strategy.appendField(locator, this, "intermediatePointAirportReferencePoint", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "intermediatePointAirportReferencePoint", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetReferencedRoute();
@@ -1576,13 +1597,13 @@ public class RoutePortionType extends AbstractAIXMObjectType implements Serializ
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RoutePortionTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -10,6 +10,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import com.aixm.delorean.core.Delorean;
+import com.aixm.delorean.core.DeloreanUtility;
 import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 import com.aixm.delorean.core.database.HibernateHelper;
 import com.aixm.delorean.core.database.MutationFeatureTimeslice;
@@ -20,6 +22,7 @@ import com.aixm.delorean.core.database.BasicMessage;
 
 import jakarta.persistence.Tuple;
 
+import com.aixm.delorean.aixm511.AIXM511;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
 import com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType;
@@ -157,11 +160,12 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
     );
 
     @Override
-    public Object predicateValidTimeslice(SessionFactory sessionFactory, Instant time) {
+    public Object predicateValidTimeslice(SessionFactory sessionFactory, List<Long> BasicMessageMemberIds , List<Long> TimeslicePropertyIds) {
         Session session = sessionFactory.openSession();
-        List<Long> validIds = Arrays.asList(23880L, 23881L);
-        session.enableFilter("TSPHjidFilter").setParameterList("ids", validIds);
-        Transaction transaction = null;
+
+        session.enableFilter("TSPHjidFilter").setParameterList("ids", TimeslicePropertyIds);
+        session.enableFilter("BMMHjidFilter").setParameterList("ids", BasicMessageMemberIds);
+        Transaction transaction = null; 
 
         try {
             transaction = session.beginTransaction();

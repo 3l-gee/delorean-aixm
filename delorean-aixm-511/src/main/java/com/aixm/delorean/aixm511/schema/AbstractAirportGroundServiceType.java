@@ -1,29 +1,24 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 
+
 /**
- * <p>
- * Java class for AbstractAirportGroundServiceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AbstractAirportGroundServiceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AbstractAirportGroundServiceType">
  *   <complexContent>
@@ -32,23 +27,30 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractAirportGroundServiceType")
-@XmlSeeAlso({AircraftGroundServiceType.class, AirportClearanceServiceType.class, AirportSuppliesServiceType.class,
-        FireFightingServiceType.class, PassengerServiceType.class})
+@XmlSeeAlso({
+    AircraftGroundServiceType.class,
+    AirportClearanceServiceType.class,
+    AirportSuppliesServiceType.class,
+    FireFightingServiceType.class,
+    PassengerServiceType.class
+})
 @Entity(name = "AbstractAirportGroundServiceType")
 @Table(name = "abstractairportgroundservice", schema = "public")
-public abstract class AbstractAirportGroundServiceType extends AbstractServiceType implements Serializable {
+public abstract class AbstractAirportGroundServiceType
+    extends AbstractServiceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

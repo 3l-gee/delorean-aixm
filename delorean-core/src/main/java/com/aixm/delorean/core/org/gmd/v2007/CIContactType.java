@@ -202,45 +202,6 @@ public class CIContactType extends AbstractObjectType implements Serializable {
         }
         final CIContactType that = ((CIContactType) object);
         {
-            boolean lhsFieldIsSet = this.isSetHoursOfService();
-            boolean rhsFieldIsSet = that.isSetHoursOfService();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getHoursOfService();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getHoursOfService();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hoursOfService", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hoursOfService", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetContactInstructions();
-            boolean rhsFieldIsSet = that.isSetContactInstructions();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getContactInstructions();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getContactInstructions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInstructions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInstructions", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOnlineResource();
-            boolean rhsFieldIsSet = that.isSetOnlineResource();
-            CIOnlineResourcePropertyType lhsField;
-            lhsField = this.getOnlineResource();
-            CIOnlineResourcePropertyType rhsField;
-            rhsField = that.getOnlineResource();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onlineResource", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onlineResource", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAddress();
             boolean rhsFieldIsSet = that.isSetAddress();
             CIAddressPropertyType lhsField;
@@ -262,6 +223,45 @@ public class CIContactType extends AbstractObjectType implements Serializable {
             rhsField = that.getPhone();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phone", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phone", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContactInstructions();
+            boolean rhsFieldIsSet = that.isSetContactInstructions();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getContactInstructions();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getContactInstructions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInstructions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInstructions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHoursOfService();
+            boolean rhsFieldIsSet = that.isSetHoursOfService();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getHoursOfService();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getHoursOfService();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hoursOfService", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hoursOfService", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOnlineResource();
+            boolean rhsFieldIsSet = that.isSetOnlineResource();
+            CIOnlineResourcePropertyType lhsField;
+            lhsField = this.getOnlineResource();
+            CIOnlineResourcePropertyType rhsField;
+            rhsField = that.getOnlineResource();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onlineResource", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onlineResource", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

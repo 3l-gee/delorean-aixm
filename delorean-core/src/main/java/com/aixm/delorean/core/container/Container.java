@@ -20,6 +20,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.PublicKey;
 import java.time.Instant;
+import java.time.format.DateTimeParseException;
 
 import javax.xml.namespace.QName;
 
@@ -222,11 +223,22 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         ConsoleLogger.log(LogLevel.INFO, "Extracted <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
-    public void predicate() {
+    public void predicate(String timeString) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }   
-        Instant time = Instant.now();
+
+        Instant time;
+        try {
+            time = Instant.parse(timeString); // expects full ISO-8601, e.g., "2022-01-01T00:00:00Z"
+        } catch (DateTimeParseException e) {
+            throw new DateTimeParseException(
+                "Instant requires a full ISO-8601 date-time (e.g., 2022-01-01T00:00:00Z)", 
+                timeString, 
+                e.getErrorIndex()
+            );
+        }
+
         this.message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time);
         String stats = this.deloreanEngine.statistics(this.message);
         ConsoleLogger.log(LogLevel.INFO, "Predicated <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);

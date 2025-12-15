@@ -311,19 +311,6 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString {
         }
         final RangeSetType that = ((RangeSetType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractScalarValueList();
-            boolean rhsFieldIsSet = that.isSetAbstractScalarValueList();
-            List<JAXBElement<?>> lhsField;
-            lhsField = (this.isSetAbstractScalarValueList() ? this.getAbstractScalarValueList() : null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (that.isSetAbstractScalarValueList() ? that.getAbstractScalarValueList() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractScalarValueList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractScalarValueList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValueArray();
             boolean rhsFieldIsSet = that.isSetValueArray();
             List<ValueArrayType> lhsField;
@@ -337,14 +324,14 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDataBlock();
-            boolean rhsFieldIsSet = that.isSetDataBlock();
-            DataBlockType lhsField;
-            lhsField = this.getDataBlock();
-            DataBlockType rhsField;
-            rhsField = that.getDataBlock();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataBlock", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataBlock", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractScalarValueList();
+            boolean rhsFieldIsSet = that.isSetAbstractScalarValueList();
+            List<JAXBElement<?>> lhsField;
+            lhsField = (this.isSetAbstractScalarValueList() ? this.getAbstractScalarValueList() : null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (that.isSetAbstractScalarValueList() ? that.getAbstractScalarValueList() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractScalarValueList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractScalarValueList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -358,6 +345,19 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString {
             rhsField = that.getFile();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "file", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "file", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataBlock();
+            boolean rhsFieldIsSet = that.isSetDataBlock();
+            DataBlockType lhsField;
+            lhsField = this.getDataBlock();
+            DataBlockType rhsField;
+            rhsField = that.getDataBlock();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataBlock", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataBlock", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

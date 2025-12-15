@@ -12,17 +12,18 @@ import javax.xml.validation.SchemaFactory;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 
-public class XMLBindingFactory<T, X> {
-        protected final Class<T> root;
-        protected final Class<X> feature;
-        protected final Schema schema;
-        protected final SchemaFactory schemaFactory;
+public class XMLBindingFactory<ROOT, FEATURE> {
+        protected final Class<ROOT> rootClass;
+        protected final Class<FEATURE> featureClass;
         protected final Class<?> CoreResourceAnchorsClass;
         protected final Class<?> AIXMResourceAnchorsClass;
+        protected final Schema schema;
+        protected final SchemaFactory schemaFactory;
 
-    public XMLBindingFactory(Class<T> root, Class<X> feature, String path, Class<?> CoreResourceAnchorsClass, Class<?> AIXMResourceAnchorsClass) {
-        this.root = root;
-        this.feature = feature;
+
+    public XMLBindingFactory(Class<ROOT> root, Class<FEATURE> feature, String path, Class<?> CoreResourceAnchorsClass, Class<?> AIXMResourceAnchorsClass) {
+        this.rootClass = root;
+        this.featureClass = feature;
         this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
         this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
         this.schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
@@ -34,12 +35,12 @@ public class XMLBindingFactory<T, X> {
         return this.schema;
     }
 
-    public Class<T> getRoot() {
-        return this.root;
+    public Class<ROOT> getRootClass() {
+        return this.rootClass;
     }
 
-    public Class<X> getFeature() {
-        return this.feature;
+    public Class<FEATURE> getFeatureClass() {
+        return this.featureClass;
     }
 
     public Class<?> getCoreResourceAnchorsClass() {
@@ -50,15 +51,18 @@ public class XMLBindingFactory<T, X> {
         return this.AIXMResourceAnchorsClass;
     }
 
-    public XmlBindingService<T, X> createXMLBinding() {
-        return new XmlBindingService<>(this.getSchema(), this.getRoot(), this.getFeature());
-
+    public XmlBindingService<ROOT, FEATURE> createXMLBinding() {
+        return new XmlBindingService<>(
+            this.getSchema(), 
+            this.getRootClass(), 
+            this.getFeatureClass(), 
+            this.getCoreResourceAnchorsClass(), 
+            this.getAIXMResourceAnchorsClass());
     }
     
     private Schema getSchemaFromPath(String path, SchemaFactory schemaFactory) {
 
         // the schem is expected to be in the target classpath
-
         InputStream inputStream = AIXMResourceAnchorsClass.getResourceAsStream(path);
         Source schemaSource = new StreamSource(inputStream);
         

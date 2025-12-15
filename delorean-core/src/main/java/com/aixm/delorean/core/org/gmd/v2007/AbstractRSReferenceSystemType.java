@@ -140,19 +140,6 @@ public abstract class AbstractRSReferenceSystemType extends AbstractObjectType i
         }
         final AbstractRSReferenceSystemType that = ((AbstractRSReferenceSystemType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDomainOfValidity();
-            boolean rhsFieldIsSet = that.isSetDomainOfValidity();
-            List<EXExtentPropertyType> lhsField;
-            lhsField = (this.isSetDomainOfValidity() ? this.getDomainOfValidity() : null);
-            List<EXExtentPropertyType> rhsField;
-            rhsField = (that.isSetDomainOfValidity() ? that.getDomainOfValidity() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetName();
             boolean rhsFieldIsSet = that.isSetName();
             RSIdentifierPropertyType lhsField;
@@ -161,6 +148,19 @@ public abstract class AbstractRSReferenceSystemType extends AbstractObjectType i
             rhsField = that.getName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDomainOfValidity();
+            boolean rhsFieldIsSet = that.isSetDomainOfValidity();
+            List<EXExtentPropertyType> lhsField;
+            lhsField = (this.isSetDomainOfValidity() ? this.getDomainOfValidity() : null);
+            List<EXExtentPropertyType> rhsField;
+            rhsField = (that.isSetDomainOfValidity() ? that.getDomainOfValidity() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

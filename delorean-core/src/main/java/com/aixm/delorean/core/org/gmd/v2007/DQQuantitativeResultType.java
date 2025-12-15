@@ -202,32 +202,6 @@ public class DQQuantitativeResultType extends AbstractDQResultType implements Se
         }
         final DQQuantitativeResultType that = ((DQQuantitativeResultType) object);
         {
-            boolean lhsFieldIsSet = this.isSetValueUnit();
-            boolean rhsFieldIsSet = that.isSetValueUnit();
-            UnitOfMeasurePropertyType lhsField;
-            lhsField = this.getValueUnit();
-            UnitOfMeasurePropertyType rhsField;
-            rhsField = that.getValueUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueUnit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetErrorStatistic();
-            boolean rhsFieldIsSet = that.isSetErrorStatistic();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getErrorStatistic();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getErrorStatistic();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "errorStatistic", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "errorStatistic", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValueType();
             boolean rhsFieldIsSet = that.isSetValueType();
             RecordTypePropertyType lhsField;
@@ -241,6 +215,19 @@ public class DQQuantitativeResultType extends AbstractDQResultType implements Se
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetValueUnit();
+            boolean rhsFieldIsSet = that.isSetValueUnit();
+            UnitOfMeasurePropertyType lhsField;
+            lhsField = this.getValueUnit();
+            UnitOfMeasurePropertyType rhsField;
+            rhsField = that.getValueUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueUnit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetValue();
             boolean rhsFieldIsSet = that.isSetValue();
             List<RecordPropertyType> lhsField;
@@ -249,6 +236,19 @@ public class DQQuantitativeResultType extends AbstractDQResultType implements Se
             rhsField = (that.isSetValue() ? that.getValue() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetErrorStatistic();
+            boolean rhsFieldIsSet = that.isSetErrorStatistic();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getErrorStatistic();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getErrorStatistic();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "errorStatistic", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "errorStatistic", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

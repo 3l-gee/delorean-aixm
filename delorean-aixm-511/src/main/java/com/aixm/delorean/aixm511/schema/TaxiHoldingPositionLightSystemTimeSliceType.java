@@ -1,6 +1,10 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -21,10 +25,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -32,37 +32,27 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for TaxiHoldingPositionLightSystemTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TaxiHoldingPositionLightSystemTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TaxiHoldingPositionLightSystemTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref=
-"{http://www.aixm.aero/schema/5.1.1}TaxiHoldingPositionLightSystemPropertyGroup"/>
+ *         <group ref="{http://www.aixm.aero/schema/5.1.1}TaxiHoldingPositionLightSystemPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractTaxiHoldingPositionLightSystemExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractGroundLightSystemExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractTaxiHoldingPositionLightSystemExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractGroundLightSystemExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -72,15 +62,27 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TaxiHoldingPositionLightSystemTimeSliceType", propOrder = {"emergencyLighting", "intensityLevel",
-        "colour", "element", "availability", "annotation", "type", "taxiHolding", "extension"})
+@XmlType(name = "TaxiHoldingPositionLightSystemTimeSliceType", propOrder = {
+    "emergencyLighting",
+    "intensityLevel",
+    "colour",
+    "element",
+    "availability",
+    "annotation",
+    "type",
+    "taxiHolding",
+    "extension"
+})
 @Entity(name = "TaxiHoldingPositionLightSystemTimeSliceType")
 @Table(name = "taxiholdingpositionlightsystem_ts", schema = "airport_heliport")
-public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class TaxiHoldingPositionLightSystemTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "emergencyLighting", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -103,10 +105,11 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     /**
      * Gets the value of the emergencyLighting property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeYesNoType> getEmergencyLighting() {
@@ -115,11 +118,11 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     /**
      * Sets the value of the emergencyLighting property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeYesNoType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
+     *     
      */
     public void setEmergencyLighting(JAXBElement<CodeYesNoType> value) {
         this.emergencyLighting = value;
@@ -127,15 +130,16 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     @Transient
     public boolean isSetEmergencyLighting() {
-        return (this.emergencyLighting != null);
+        return (this.emergencyLighting!= null);
     }
 
     /**
      * Gets the value of the intensityLevel property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeLightIntensityType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeLightIntensityType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeLightIntensityType> getIntensityLevel() {
@@ -144,11 +148,11 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     /**
      * Sets the value of the intensityLevel property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeLightIntensityType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeLightIntensityType }{@code >}
+     *     
      */
     public void setIntensityLevel(JAXBElement<CodeLightIntensityType> value) {
         this.intensityLevel = value;
@@ -156,15 +160,16 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     @Transient
     public boolean isSetIntensityLevel() {
-        return (this.intensityLevel != null);
+        return (this.intensityLevel!= null);
     }
 
     /**
      * Gets the value of the colour property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link CodeColourType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeColourType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeColourType> getColour() {
@@ -173,11 +178,11 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     /**
      * Sets the value of the colour property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeColourType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeColourType }{@code >}
+     *     
      */
     public void setColour(JAXBElement<CodeColourType> value) {
         this.colour = value;
@@ -185,36 +190,39 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     @Transient
     public boolean isSetColour() {
-        return (this.colour != null);
+        return (this.colour!= null);
     }
 
     /**
      * Gets the value of the element property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the element property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the element property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getElement().add(newItem);
+     *    getElement().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LightElementPropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = LightElementPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = LightElementPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "element_taxiholdingpositionlightsystem_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "element", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "taxiholdingpositionlightsystempropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "element", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "taxiholdingpositionlightsystempropertygroup", referencedColumnName = "hjid")
+    })
     public List<LightElementPropertyType> getElement() {
         if (element == null) {
             element = new ArrayList<>();
@@ -223,8 +231,8 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setElement(List<LightElementPropertyType> element) {
         this.element = element;
@@ -232,7 +240,7 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     @Transient
     public boolean isSetElement() {
-        return ((this.element != null) && (!this.element.isEmpty()));
+        return ((this.element!= null)&&(!this.element.isEmpty()));
     }
 
     public void unsetElement() {
@@ -241,32 +249,34 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     /**
      * Gets the value of the availability property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the availability property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the availability property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAvailability().add(newItem);
+     *    getAvailability().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link GroundLightingAvailabilityPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @ManyToMany(targetEntity = GroundLightingAvailabilityPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "availability_taxiholdingpositionlightsystem_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "availability", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "taxiholdingpositionlightsystempropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "taxiholdingpositionlightsystempropertygroup", referencedColumnName = "hjid")
+    })
     public List<GroundLightingAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -275,8 +285,8 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAvailability(List<GroundLightingAvailabilityPropertyType> availability) {
         this.availability = availability;
@@ -284,7 +294,7 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability != null) && (!this.availability.isEmpty()));
+        return ((this.availability!= null)&&(!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -293,31 +303,34 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_taxiholdingpositionlightsystem_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "taxiholdingpositionlightsystempropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "taxiholdingpositionlightsystempropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -326,8 +339,8 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -335,7 +348,7 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -344,10 +357,11 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeLightHoldingPositionType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeLightHoldingPositionType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeLightHoldingPositionType> getType() {
@@ -356,11 +370,11 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeLightHoldingPositionType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeLightHoldingPositionType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeLightHoldingPositionType> value) {
         this.type = value;
@@ -368,15 +382,16 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the taxiHolding property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link TaxiHoldingPositionPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link TaxiHoldingPositionPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<TaxiHoldingPositionPropertyType> getTaxiHolding() {
@@ -385,11 +400,11 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     /**
      * Sets the value of the taxiHolding property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link TaxiHoldingPositionPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link TaxiHoldingPositionPropertyType }{@code >}
+     *     
      */
     public void setTaxiHolding(JAXBElement<TaxiHoldingPositionPropertyType> value) {
         this.taxiHolding = value;
@@ -397,34 +412,34 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     @Transient
     public boolean isSetTaxiHolding() {
-        return (this.taxiHolding != null);
+        return (this.taxiHolding!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TaxiHoldingPositionLightSystemExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = TaxiHoldingPositionLightSystemExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_TAXI_HOLDING_POSIT_0")
     public List<TaxiHoldingPositionLightSystemExtensionType> getExtension() {
         if (extension == null) {
@@ -434,8 +449,8 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<TaxiHoldingPositionLightSystemExtensionType> extension) {
         this.extension = extension;
@@ -443,7 +458,7 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -451,74 +466,72 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "emergencylighting")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "emergencylighting_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "emergencylighting")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "emergencylighting_nilreason"))
+    })
     public CodeYesNoType getEmergencyLightingItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getEmergencyLighting());
     }
 
     public void setEmergencyLightingItem(CodeYesNoType target) {
-        setEmergencyLighting(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "emergencyLighting"),
-                TaxiHoldingPositionLightSystemTimeSliceType.class, target));
+        setEmergencyLighting(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "emergencyLighting"), TaxiHoldingPositionLightSystemTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "intensitylevel")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "intensitylevel_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "intensitylevel")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "intensitylevel_nilreason"))
+    })
     public CodeLightIntensityType getIntensityLevelItem() {
         return XmlAdapterUtils.unmarshallSource(CodeLightIntensityType.class, this.getIntensityLevel());
     }
 
     public void setIntensityLevelItem(CodeLightIntensityType target) {
-        setIntensityLevel(XmlAdapterUtils.marshallJAXBElement(CodeLightIntensityType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "intensityLevel"),
-                TaxiHoldingPositionLightSystemTimeSliceType.class, target));
+        setIntensityLevel(XmlAdapterUtils.marshallJAXBElement(CodeLightIntensityType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intensityLevel"), TaxiHoldingPositionLightSystemTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "colour")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "colour_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "colour")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "colour_nilreason"))
+    })
     public CodeColourType getColourItem() {
         return XmlAdapterUtils.unmarshallSource(CodeColourType.class, this.getColour());
     }
 
     public void setColourItem(CodeColourType target) {
-        setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "colour"),
-                TaxiHoldingPositionLightSystemTimeSliceType.class, target));
+        setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class, new QName("http://www.aixm.aero/schema/5.1.1", "colour"), TaxiHoldingPositionLightSystemTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))
+    })
     public CodeLightHoldingPositionType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeLightHoldingPositionType.class, this.getType());
     }
 
     public void setTypeItem(CodeLightHoldingPositionType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeLightHoldingPositionType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "type"),
-                TaxiHoldingPositionLightSystemTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeLightHoldingPositionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), TaxiHoldingPositionLightSystemTimeSliceType.class, target));
     }
 
     @ManyToOne(targetEntity = TaxiHoldingPositionPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "taxiholding_id", referencedColumnName = "hjid")
     public TaxiHoldingPositionPropertyType getTaxiHoldingItem() {
         return XmlAdapterUtils.unmarshallSource(TaxiHoldingPositionPropertyType.class, this.getTaxiHolding());
     }
 
     public void setTaxiHoldingItem(TaxiHoldingPositionPropertyType target) {
-        setTaxiHolding(XmlAdapterUtils.marshallJAXBElement(TaxiHoldingPositionPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "taxiHolding"),
-                TaxiHoldingPositionLightSystemTimeSliceType.class, target));
+        setTaxiHolding(XmlAdapterUtils.marshallJAXBElement(TaxiHoldingPositionPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "taxiHolding"), TaxiHoldingPositionLightSystemTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -529,6 +542,19 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
         }
         final TaxiHoldingPositionLightSystemTimeSliceType that = ((TaxiHoldingPositionLightSystemTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetEmergencyLighting();
+            boolean rhsFieldIsSet = that.isSetEmergencyLighting();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getEmergencyLighting();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getEmergencyLighting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emergencyLighting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emergencyLighting", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetIntensityLevel();
             boolean rhsFieldIsSet = that.isSetIntensityLevel();
             JAXBElement<CodeLightIntensityType> lhsField;
@@ -537,6 +563,58 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
             rhsField = that.getIntensityLevel();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intensityLevel", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intensityLevel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TaxiHoldingPositionLightSystemExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<TaxiHoldingPositionLightSystemExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<GroundLightingAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<GroundLightingAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElement();
+            boolean rhsFieldIsSet = that.isSetElement();
+            List<LightElementPropertyType> lhsField;
+            lhsField = (this.isSetElement()?this.getElement():null);
+            List<LightElementPropertyType> rhsField;
+            rhsField = (that.isSetElement()?that.getElement():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -555,19 +633,6 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TaxiHoldingPositionLightSystemExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TaxiHoldingPositionLightSystemExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeLightHoldingPositionType> lhsField;
@@ -581,19 +646,6 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetElement();
-            boolean rhsFieldIsSet = that.isSetElement();
-            List<LightElementPropertyType> lhsField;
-            lhsField = (this.isSetElement() ? this.getElement() : null);
-            List<LightElementPropertyType> rhsField;
-            rhsField = (that.isSetElement() ? that.getElement() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTaxiHolding();
             boolean rhsFieldIsSet = that.isSetTaxiHolding();
             JAXBElement<TaxiHoldingPositionPropertyType> lhsField;
@@ -602,45 +654,6 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
             rhsField = that.getTaxiHolding();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiHolding", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiHolding", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEmergencyLighting();
-            boolean rhsFieldIsSet = that.isSetEmergencyLighting();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getEmergencyLighting();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getEmergencyLighting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emergencyLighting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emergencyLighting", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<GroundLightingAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<GroundLightingAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -675,21 +688,21 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
         {
             boolean theFieldIsSet = this.isSetElement();
             List<LightElementPropertyType> theField;
-            theField = (this.isSetElement() ? this.getElement() : null);
+            theField = (this.isSetElement()?this.getElement():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "element", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<GroundLightingAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -710,7 +723,7 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<TaxiHoldingPositionLightSystemExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -741,19 +754,19 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
         {
             boolean theFieldIsSet = this.isSetElement();
             List<LightElementPropertyType> theField;
-            theField = (this.isSetElement() ? this.getElement() : null);
+            theField = (this.isSetElement()?this.getElement():null);
             strategy.appendField(locator, this, "element", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<GroundLightingAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability() ? this.getAvailability() : null);
+            theField = (this.isSetAvailability()?this.getAvailability():null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -771,7 +784,7 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<TaxiHoldingPositionLightSystemExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,10 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -21,10 +25,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -32,35 +32,26 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for ObstacleAreaTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ObstacleAreaTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ObstacleAreaTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref=
-"{http://www.aixm.aero/schema/5.1.1}ObstacleAreaPropertyGroup"/>
+ *         <group ref="{http://www.aixm.aero/schema/5.1.1}ObstacleAreaPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractObstacleAreaExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractObstacleAreaExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -70,16 +61,27 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ObstacleAreaTimeSliceType", propOrder = {"type", "obstructionIdSurfaceCondition",
-        "referenceOwnerOrganisation", "referenceOwnerRunway", "referenceOwnerAirport", "surfaceExtent", "obstacle",
-        "annotation", "extension"})
+@XmlType(name = "ObstacleAreaTimeSliceType", propOrder = {
+    "type",
+    "obstructionIdSurfaceCondition",
+    "referenceOwnerOrganisation",
+    "referenceOwnerRunway",
+    "referenceOwnerAirport",
+    "surfaceExtent",
+    "obstacle",
+    "annotation",
+    "extension"
+})
 @Entity(name = "ObstacleAreaTimeSliceType")
 @Table(name = "obstaclearea_ts", schema = "obstacle")
-public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class ObstacleAreaTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "type", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -102,10 +104,11 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeObstacleAreaType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeObstacleAreaType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeObstacleAreaType> getType() {
@@ -114,11 +117,11 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeObstacleAreaType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeObstacleAreaType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeObstacleAreaType> value) {
         this.type = value;
@@ -126,15 +129,16 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the obstructionIdSurfaceCondition property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeObstacleAssessmentSurfaceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeObstacleAssessmentSurfaceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeObstacleAssessmentSurfaceType> getObstructionIdSurfaceCondition() {
@@ -143,11 +147,11 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the obstructionIdSurfaceCondition property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeObstacleAssessmentSurfaceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeObstacleAssessmentSurfaceType }{@code >}
+     *     
      */
     public void setObstructionIdSurfaceCondition(JAXBElement<CodeObstacleAssessmentSurfaceType> value) {
         this.obstructionIdSurfaceCondition = value;
@@ -155,15 +159,16 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetObstructionIdSurfaceCondition() {
-        return (this.obstructionIdSurfaceCondition != null);
+        return (this.obstructionIdSurfaceCondition!= null);
     }
 
     /**
      * Gets the value of the referenceOwnerOrganisation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<OrganisationAuthorityPropertyType> getReferenceOwnerOrganisation() {
@@ -172,11 +177,11 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the referenceOwnerOrganisation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
+     *     
      */
     public void setReferenceOwnerOrganisation(JAXBElement<OrganisationAuthorityPropertyType> value) {
         this.referenceOwnerOrganisation = value;
@@ -184,15 +189,16 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetReferenceOwnerOrganisation() {
-        return (this.referenceOwnerOrganisation != null);
+        return (this.referenceOwnerOrganisation!= null);
     }
 
     /**
      * Gets the value of the referenceOwnerRunway property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link RunwayDirectionPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link RunwayDirectionPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<RunwayDirectionPropertyType> getReferenceOwnerRunway() {
@@ -201,11 +207,11 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the referenceOwnerRunway property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link RunwayDirectionPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link RunwayDirectionPropertyType }{@code >}
+     *     
      */
     public void setReferenceOwnerRunway(JAXBElement<RunwayDirectionPropertyType> value) {
         this.referenceOwnerRunway = value;
@@ -213,15 +219,16 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetReferenceOwnerRunway() {
-        return (this.referenceOwnerRunway != null);
+        return (this.referenceOwnerRunway!= null);
     }
 
     /**
      * Gets the value of the referenceOwnerAirport property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getReferenceOwnerAirport() {
@@ -230,11 +237,11 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the referenceOwnerAirport property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setReferenceOwnerAirport(JAXBElement<AirportHeliportPropertyType> value) {
         this.referenceOwnerAirport = value;
@@ -242,15 +249,16 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetReferenceOwnerAirport() {
-        return (this.referenceOwnerAirport != null);
+        return (this.referenceOwnerAirport!= null);
     }
 
     /**
      * Gets the value of the surfaceExtent property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMSurfacePropertyType> getSurfaceExtent() {
@@ -259,11 +267,11 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Sets the value of the surfaceExtent property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
      */
     public void setSurfaceExtent(JAXBElement<AIXMSurfacePropertyType> value) {
         this.surfaceExtent = value;
@@ -271,37 +279,39 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetSurfaceExtent() {
-        return (this.surfaceExtent != null);
+        return (this.surfaceExtent!= null);
     }
 
     /**
      * Gets the value of the obstacle property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the obstacle property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the obstacle property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getObstacle().add(newItem);
+     *    getObstacle().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link VerticalStructurePropertyType }
-     *
-     *
+     * 
+     * 
      */
     @ManyToMany(targetEntity = VerticalStructurePropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "obstacle_obstaclearea_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "obstacle", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "obstacleareapropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "obstacle", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "obstacleareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<VerticalStructurePropertyType> getObstacle() {
         if (obstacle == null) {
             obstacle = new ArrayList<>();
@@ -310,8 +320,8 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setObstacle(List<VerticalStructurePropertyType> obstacle) {
         this.obstacle = obstacle;
@@ -319,7 +329,7 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetObstacle() {
-        return ((this.obstacle != null) && (!this.obstacle.isEmpty()));
+        return ((this.obstacle!= null)&&(!this.obstacle.isEmpty()));
     }
 
     public void unsetObstacle() {
@@ -328,31 +338,34 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_obstaclearea_link", schema = "obstacle", joinColumns = {
-            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "obstacleareapropertygroup", referencedColumnName = "hjid")})
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "obstacleareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -361,8 +374,8 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -370,7 +383,7 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -379,28 +392,29 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ObstacleAreaExtensionType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = ObstacleAreaExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = ObstacleAreaExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_OBSTACLE_AREA_TIME_0")
     public List<ObstacleAreaExtensionType> getExtension() {
         if (extension == null) {
@@ -410,8 +424,8 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<ObstacleAreaExtensionType> extension) {
         this.extension = extension;
@@ -419,7 +433,7 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -427,85 +441,82 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))
+    })
     public CodeObstacleAreaType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeObstacleAreaType.class, this.getType());
     }
 
     public void setTypeItem(CodeObstacleAreaType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeObstacleAreaType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "type"), ObstacleAreaTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeObstacleAreaType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), ObstacleAreaTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "obstructionidsurfacecondition")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "obstructionidsurfacecondition_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "obstructionidsurfacecondition")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "obstructionidsurfacecondition_nilreason"))
+    })
     public CodeObstacleAssessmentSurfaceType getObstructionIdSurfaceConditionItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeObstacleAssessmentSurfaceType.class,
-                this.getObstructionIdSurfaceCondition());
+        return XmlAdapterUtils.unmarshallSource(CodeObstacleAssessmentSurfaceType.class, this.getObstructionIdSurfaceCondition());
     }
 
     public void setObstructionIdSurfaceConditionItem(CodeObstacleAssessmentSurfaceType target) {
-        setObstructionIdSurfaceCondition(XmlAdapterUtils.marshallJAXBElement(CodeObstacleAssessmentSurfaceType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "obstructionIdSurfaceCondition"),
-                ObstacleAreaTimeSliceType.class, target));
+        setObstructionIdSurfaceCondition(XmlAdapterUtils.marshallJAXBElement(CodeObstacleAssessmentSurfaceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "obstructionIdSurfaceCondition"), ObstacleAreaTimeSliceType.class, target));
     }
 
     @ManyToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "reference_ownerorganisation_id", referencedColumnName = "hjid")
     public OrganisationAuthorityPropertyType getReferenceOwnerOrganisationItem() {
-        return XmlAdapterUtils.unmarshallSource(OrganisationAuthorityPropertyType.class,
-                this.getReferenceOwnerOrganisation());
+        return XmlAdapterUtils.unmarshallSource(OrganisationAuthorityPropertyType.class, this.getReferenceOwnerOrganisation());
     }
 
     public void setReferenceOwnerOrganisationItem(OrganisationAuthorityPropertyType target) {
-        setReferenceOwnerOrganisation(XmlAdapterUtils.marshallJAXBElement(OrganisationAuthorityPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "reference_ownerOrganisation"),
-                ObstacleAreaTimeSliceType.class, target));
+        setReferenceOwnerOrganisation(XmlAdapterUtils.marshallJAXBElement(OrganisationAuthorityPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "reference_ownerOrganisation"), ObstacleAreaTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = RunwayDirectionPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = RunwayDirectionPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "reference_ownerrunway_id", referencedColumnName = "hjid")
     public RunwayDirectionPropertyType getReferenceOwnerRunwayItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayDirectionPropertyType.class, this.getReferenceOwnerRunway());
     }
 
     public void setReferenceOwnerRunwayItem(RunwayDirectionPropertyType target) {
-        setReferenceOwnerRunway(XmlAdapterUtils.marshallJAXBElement(RunwayDirectionPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "reference_ownerRunway"),
-                ObstacleAreaTimeSliceType.class, target));
+        setReferenceOwnerRunway(XmlAdapterUtils.marshallJAXBElement(RunwayDirectionPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "reference_ownerRunway"), ObstacleAreaTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "reference_ownerairport_id", referencedColumnName = "hjid")
     public AirportHeliportPropertyType getReferenceOwnerAirportItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getReferenceOwnerAirport());
     }
 
     public void setReferenceOwnerAirportItem(AirportHeliportPropertyType target) {
-        setReferenceOwnerAirport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "reference_ownerAirport"),
-                ObstacleAreaTimeSliceType.class, target));
+        setReferenceOwnerAirport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "reference_ownerAirport"), ObstacleAreaTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "surfaceextent_id", referencedColumnName = "hjid")
     public AIXMSurfacePropertyType getSurfaceExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getSurfaceExtent());
     }
 
     public void setSurfaceExtentItem(AIXMSurfacePropertyType target) {
-        setSurfaceExtent(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "surfaceExtent"), ObstacleAreaTimeSliceType.class,
-                target));
+        setSurfaceExtent(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "surfaceExtent"), ObstacleAreaTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -516,32 +527,6 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
         }
         final ObstacleAreaTimeSliceType that = ((ObstacleAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReferenceOwnerAirport();
-            boolean rhsFieldIsSet = that.isSetReferenceOwnerAirport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getReferenceOwnerAirport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getReferenceOwnerAirport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceOwnerAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceOwnerAirport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetReferenceOwnerOrganisation();
             boolean rhsFieldIsSet = that.isSetReferenceOwnerOrganisation();
             JAXBElement<OrganisationAuthorityPropertyType> lhsField;
@@ -550,47 +535,6 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
             rhsField = that.getReferenceOwnerOrganisation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceOwnerOrganisation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceOwnerOrganisation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfaceExtent();
-            boolean rhsFieldIsSet = that.isSetSurfaceExtent();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getSurfaceExtent();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getSurfaceExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceExtent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ObstacleAreaExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ObstacleAreaExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetObstructionIdSurfaceCondition();
-            boolean rhsFieldIsSet = that.isSetObstructionIdSurfaceCondition();
-            JAXBElement<CodeObstacleAssessmentSurfaceType> lhsField;
-            lhsField = this.getObstructionIdSurfaceCondition();
-            JAXBElement<CodeObstacleAssessmentSurfaceType> rhsField;
-            rhsField = that.getObstructionIdSurfaceCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstructionIdSurfaceCondition",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstructionIdSurfaceCondition",
-                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -609,14 +553,53 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ObstacleAreaExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ObstacleAreaExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetObstructionIdSurfaceCondition();
+            boolean rhsFieldIsSet = that.isSetObstructionIdSurfaceCondition();
+            JAXBElement<CodeObstacleAssessmentSurfaceType> lhsField;
+            lhsField = this.getObstructionIdSurfaceCondition();
+            JAXBElement<CodeObstacleAssessmentSurfaceType> rhsField;
+            rhsField = that.getObstructionIdSurfaceCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstructionIdSurfaceCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstructionIdSurfaceCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetObstacle();
             boolean rhsFieldIsSet = that.isSetObstacle();
             List<VerticalStructurePropertyType> lhsField;
-            lhsField = (this.isSetObstacle() ? this.getObstacle() : null);
+            lhsField = (this.isSetObstacle()?this.getObstacle():null);
             List<VerticalStructurePropertyType> rhsField;
-            rhsField = (that.isSetObstacle() ? that.getObstacle() : null);
+            rhsField = (that.isSetObstacle()?that.getObstacle():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -630,6 +613,32 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReferenceOwnerAirport();
+            boolean rhsFieldIsSet = that.isSetReferenceOwnerAirport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getReferenceOwnerAirport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getReferenceOwnerAirport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceOwnerAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceOwnerAirport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurfaceExtent();
+            boolean rhsFieldIsSet = that.isSetSurfaceExtent();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getSurfaceExtent();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getSurfaceExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -685,21 +694,21 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
         {
             boolean theFieldIsSet = this.isSetObstacle();
             List<VerticalStructurePropertyType> theField;
-            theField = (this.isSetObstacle() ? this.getObstacle() : null);
+            theField = (this.isSetObstacle()?this.getObstacle():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "obstacle", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ObstacleAreaExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -748,19 +757,19 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
         {
             boolean theFieldIsSet = this.isSetObstacle();
             List<VerticalStructurePropertyType> theField;
-            theField = (this.isSetObstacle() ? this.getObstacle() : null);
+            theField = (this.isSetObstacle()?this.getObstacle():null);
             strategy.appendField(locator, this, "obstacle", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ObstacleAreaExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

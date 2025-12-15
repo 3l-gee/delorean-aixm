@@ -249,6 +249,19 @@ public class FileType implements Serializable, Equals, HashCode, ToString {
         }
         final FileType that = ((FileType) object);
         {
+            boolean lhsFieldIsSet = this.isSetFileName();
+            boolean rhsFieldIsSet = that.isSetFileName();
+            String lhsField;
+            lhsField = this.getFileName();
+            String rhsField;
+            rhsField = that.getFileName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetFileStructure();
             boolean rhsFieldIsSet = that.isSetFileStructure();
             CodeType lhsField;
@@ -275,14 +288,14 @@ public class FileType implements Serializable, Equals, HashCode, ToString {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMimeType();
-            boolean rhsFieldIsSet = that.isSetMimeType();
-            String lhsField;
-            lhsField = this.getMimeType();
-            String rhsField;
-            rhsField = that.getMimeType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mimeType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mimeType", rhsField);
+            boolean lhsFieldIsSet = this.isSetRangeParameters();
+            boolean rhsFieldIsSet = that.isSetRangeParameters();
+            AssociationRoleType lhsField;
+            lhsField = this.getRangeParameters();
+            AssociationRoleType rhsField;
+            rhsField = that.getRangeParameters();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeParameters", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeParameters", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -301,27 +314,14 @@ public class FileType implements Serializable, Equals, HashCode, ToString {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFileName();
-            boolean rhsFieldIsSet = that.isSetFileName();
+            boolean lhsFieldIsSet = this.isSetMimeType();
+            boolean rhsFieldIsSet = that.isSetMimeType();
             String lhsField;
-            lhsField = this.getFileName();
+            lhsField = this.getMimeType();
             String rhsField;
-            rhsField = that.getFileName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRangeParameters();
-            boolean rhsFieldIsSet = that.isSetRangeParameters();
-            AssociationRoleType lhsField;
-            lhsField = this.getRangeParameters();
-            AssociationRoleType rhsField;
-            rhsField = that.getRangeParameters();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeParameters", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeParameters", rhsField);
+            rhsField = that.getMimeType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mimeType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mimeType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

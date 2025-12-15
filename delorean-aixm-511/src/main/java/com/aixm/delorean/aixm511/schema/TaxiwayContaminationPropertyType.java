@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for TaxiwayContaminationPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for TaxiwayContaminationPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="TaxiwayContaminationPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}TaxiwayContamination"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}TaxiwayContamination"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TaxiwayContaminationPropertyType", propOrder = {"taxiwayContamination"})
+@XmlType(name = "TaxiwayContaminationPropertyType", propOrder = {
+    "taxiwayContamination"
+})
 @Entity(name = "TaxiwayContaminationPropertyType")
 @Table(name = "taxiwaycontamination_pt", schema = "airport_heliport")
-public class TaxiwayContaminationPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class TaxiwayContaminationPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "TaxiwayContamination", required = true)
@@ -58,11 +56,15 @@ public class TaxiwayContaminationPropertyType extends AbstractAIXMPropertyType i
 
     /**
      * Gets the value of the taxiwayContamination property.
-     *
-     * @return possible object is {@link TaxiwayContaminationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link TaxiwayContaminationType }
+     *     
      */
-    @OneToOne(targetEntity = TaxiwayContaminationType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = TaxiwayContaminationType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "taxiwaycontamination_id", referencedColumnName = "hjid")
     public TaxiwayContaminationType getTaxiwayContamination() {
         return taxiwayContamination;
@@ -70,10 +72,11 @@ public class TaxiwayContaminationPropertyType extends AbstractAIXMPropertyType i
 
     /**
      * Sets the value of the taxiwayContamination property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link TaxiwayContaminationType }
-     *
+     *     allowed object is
+     *     {@link TaxiwayContaminationType }
+     *     
      */
     public void setTaxiwayContamination(TaxiwayContaminationType value) {
         this.taxiwayContamination = value;
@@ -81,13 +84,12 @@ public class TaxiwayContaminationPropertyType extends AbstractAIXMPropertyType i
 
     @Transient
     public boolean isSetTaxiwayContamination() {
-        return (this.taxiwayContamination != null);
+        return (this.taxiwayContamination!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

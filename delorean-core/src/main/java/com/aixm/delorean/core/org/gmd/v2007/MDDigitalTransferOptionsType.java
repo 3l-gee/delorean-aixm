@@ -210,6 +210,19 @@ public class MDDigitalTransferOptionsType extends AbstractObjectType implements 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetOffLine();
+            boolean rhsFieldIsSet = that.isSetOffLine();
+            MDMediumPropertyType lhsField;
+            lhsField = this.getOffLine();
+            MDMediumPropertyType rhsField;
+            rhsField = that.getOffLine();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offLine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offLine", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOnLine();
             boolean rhsFieldIsSet = that.isSetOnLine();
             List<CIOnlineResourcePropertyType> lhsField;
@@ -231,19 +244,6 @@ public class MDDigitalTransferOptionsType extends AbstractObjectType implements 
             rhsField = that.getTransferSize();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transferSize", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transferSize", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOffLine();
-            boolean rhsFieldIsSet = that.isSetOffLine();
-            MDMediumPropertyType lhsField;
-            lhsField = this.getOffLine();
-            MDMediumPropertyType rhsField;
-            rhsField = that.getOffLine();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offLine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offLine", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

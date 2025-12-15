@@ -246,6 +246,19 @@ public class LIProcessStepType extends AbstractObjectType implements Serializabl
         }
         final LIProcessStepType that = ((LIProcessStepType) object);
         {
+            boolean lhsFieldIsSet = this.isSetDateTime();
+            boolean rhsFieldIsSet = that.isSetDateTime();
+            DateTimePropertyType lhsField;
+            lhsField = this.getDateTime();
+            DateTimePropertyType rhsField;
+            rhsField = that.getDateTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRationale();
             boolean rhsFieldIsSet = that.isSetRationale();
             CharacterStringPropertyType lhsField;
@@ -259,14 +272,14 @@ public class LIProcessStepType extends AbstractObjectType implements Serializabl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDateTime();
-            boolean rhsFieldIsSet = that.isSetDateTime();
-            DateTimePropertyType lhsField;
-            lhsField = this.getDateTime();
-            DateTimePropertyType rhsField;
-            rhsField = that.getDateTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
+            boolean lhsFieldIsSet = this.isSetProcessor();
+            boolean rhsFieldIsSet = that.isSetProcessor();
+            List<CIResponsiblePartyPropertyType> lhsField;
+            lhsField = (this.isSetProcessor() ? this.getProcessor() : null);
+            List<CIResponsiblePartyPropertyType> rhsField;
+            rhsField = (that.isSetProcessor() ? that.getProcessor() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -293,19 +306,6 @@ public class LIProcessStepType extends AbstractObjectType implements Serializabl
             rhsField = that.getDescription();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProcessor();
-            boolean rhsFieldIsSet = that.isSetProcessor();
-            List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (this.isSetProcessor() ? this.getProcessor() : null);
-            List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (that.isSetProcessor() ? that.getProcessor() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -170,19 +170,6 @@ public class MDKeywordsType extends AbstractObjectType implements Serializable {
         }
         final MDKeywordsType that = ((MDKeywordsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            MDKeywordTypeCodePropertyType lhsField;
-            lhsField = this.getType();
-            MDKeywordTypeCodePropertyType rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetKeyword();
             boolean rhsFieldIsSet = that.isSetKeyword();
             List<CharacterStringPropertyType> lhsField;
@@ -204,6 +191,19 @@ public class MDKeywordsType extends AbstractObjectType implements Serializable {
             rhsField = that.getThesaurusName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "thesaurusName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "thesaurusName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            MDKeywordTypeCodePropertyType lhsField;
+            lhsField = this.getType();
+            MDKeywordTypeCodePropertyType rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

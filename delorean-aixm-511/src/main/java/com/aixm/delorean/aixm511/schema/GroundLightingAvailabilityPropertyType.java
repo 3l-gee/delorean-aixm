@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for GroundLightingAvailabilityPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for GroundLightingAvailabilityPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="GroundLightingAvailabilityPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}GroundLightingAvailability"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}GroundLightingAvailability"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GroundLightingAvailabilityPropertyType", propOrder = {"groundLightingAvailability"})
+@XmlType(name = "GroundLightingAvailabilityPropertyType", propOrder = {
+    "groundLightingAvailability"
+})
 @Entity(name = "GroundLightingAvailabilityPropertyType")
 @Table(name = "groundlightingavailability_pt", schema = "airport_heliport")
-public class GroundLightingAvailabilityPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class GroundLightingAvailabilityPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "GroundLightingAvailability", required = true)
@@ -58,11 +56,15 @@ public class GroundLightingAvailabilityPropertyType extends AbstractAIXMProperty
 
     /**
      * Gets the value of the groundLightingAvailability property.
-     *
-     * @return possible object is {@link GroundLightingAvailabilityType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link GroundLightingAvailabilityType }
+     *     
      */
-    @OneToOne(targetEntity = GroundLightingAvailabilityType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = GroundLightingAvailabilityType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "groundlightingavailability_id", referencedColumnName = "hjid")
     public GroundLightingAvailabilityType getGroundLightingAvailability() {
         return groundLightingAvailability;
@@ -70,10 +72,11 @@ public class GroundLightingAvailabilityPropertyType extends AbstractAIXMProperty
 
     /**
      * Sets the value of the groundLightingAvailability property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link GroundLightingAvailabilityType }
-     *
+     *     allowed object is
+     *     {@link GroundLightingAvailabilityType }
+     *     
      */
     public void setGroundLightingAvailability(GroundLightingAvailabilityType value) {
         this.groundLightingAvailability = value;
@@ -81,13 +84,12 @@ public class GroundLightingAvailabilityPropertyType extends AbstractAIXMProperty
 
     @Transient
     public boolean isSetGroundLightingAvailability() {
-        return (this.groundLightingAvailability != null);
+        return (this.groundLightingAvailability!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

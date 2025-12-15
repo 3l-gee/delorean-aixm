@@ -127,7 +127,7 @@ public class SimpleAixm511E2E {
     void databaseExtract() {
 
         // do
-        container.predicate();
+        container.predicate("2022-01-01T00:00:00Z");
 
         // check that
     }

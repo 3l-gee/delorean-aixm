@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ApronContaminationPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ApronContaminationPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ApronContaminationPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}ApronContamination"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}ApronContamination"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ApronContaminationPropertyType", propOrder = {"apronContamination"})
+@XmlType(name = "ApronContaminationPropertyType", propOrder = {
+    "apronContamination"
+})
 @Entity(name = "ApronContaminationPropertyType")
 @Table(name = "aproncontamination_pt", schema = "airport_heliport")
-public class ApronContaminationPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class ApronContaminationPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ApronContamination", required = true)
@@ -58,11 +56,15 @@ public class ApronContaminationPropertyType extends AbstractAIXMPropertyType imp
 
     /**
      * Gets the value of the apronContamination property.
-     *
-     * @return possible object is {@link ApronContaminationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ApronContaminationType }
+     *     
      */
-    @OneToOne(targetEntity = ApronContaminationType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ApronContaminationType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "aproncontamination_id", referencedColumnName = "hjid")
     public ApronContaminationType getApronContamination() {
         return apronContamination;
@@ -70,10 +72,11 @@ public class ApronContaminationPropertyType extends AbstractAIXMPropertyType imp
 
     /**
      * Sets the value of the apronContamination property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ApronContaminationType }
-     *
+     *     allowed object is
+     *     {@link ApronContaminationType }
+     *     
      */
     public void setApronContamination(ApronContaminationType value) {
         this.apronContamination = value;
@@ -81,13 +84,12 @@ public class ApronContaminationPropertyType extends AbstractAIXMPropertyType imp
 
     @Transient
     public boolean isSetApronContamination() {
-        return (this.apronContamination != null);
+        return (this.apronContamination!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

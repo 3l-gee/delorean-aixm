@@ -1,6 +1,10 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -21,10 +25,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -32,50 +32,32 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for ApronAreaUsageType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ApronAreaUsageType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ApronAreaUsageType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractUsageConditionType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractUsageConditionType">
  *       <sequence>
- *         <element name="type" type=
-"{http://www.aixm.aero/schema/5.1.1}CodeUsageLimitationType" minOccurs="0"/>
- *         <element name="priorPermission" type=
-"{http://www.aixm.aero/schema/5.1.1}ValDurationType" minOccurs="0"/>
- *         <element name="contact" type=
-"{http://www.aixm.aero/schema/5.1.1}ContactInformationPropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="selection" type=
-"{http://www.aixm.aero/schema/5.1.1}ConditionCombinationPropertyType" minOccurs=
-"0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <group ref=
-"{http://www.aixm.aero/schema/5.1.1}ApronAreaUsagePropertyGroup"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeUsageLimitationType" minOccurs="0"/>
+ *         <element name="priorPermission" type="{http://www.aixm.aero/schema/5.1.1}ValDurationType" minOccurs="0"/>
+ *         <element name="contact" type="{http://www.aixm.aero/schema/5.1.1}ContactInformationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="selection" type="{http://www.aixm.aero/schema/5.1.1}ConditionCombinationPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <group ref="{http://www.aixm.aero/schema/5.1.1}ApronAreaUsagePropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractUsageConditionExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AbstractApronAreaUsageExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractUsageConditionExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractApronAreaUsageExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -85,15 +67,24 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ApronAreaUsageType", propOrder = {"type", "priorPermission", "contact", "selection", "annotation",
-        "extension"})
+@XmlType(name = "ApronAreaUsageType", propOrder = {
+    "type",
+    "priorPermission",
+    "contact",
+    "selection",
+    "annotation",
+    "extension"
+})
 @Entity(name = "ApronAreaUsageType")
 @Table(name = "apronareausage", schema = "airport_heliport")
-public class ApronAreaUsageType extends AbstractUsageConditionType implements Serializable {
+public class ApronAreaUsageType
+    extends AbstractUsageConditionType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "type", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -110,10 +101,11 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     /**
      * Gets the value of the type property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeUsageLimitationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeUsageLimitationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeUsageLimitationType> getType() {
@@ -122,11 +114,11 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     /**
      * Sets the value of the type property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeUsageLimitationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeUsageLimitationType }{@code >}
+     *     
      */
     public void setType(JAXBElement<CodeUsageLimitationType> value) {
         this.type = value;
@@ -134,15 +126,16 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     @Transient
     public boolean isSetType() {
-        return (this.type != null);
+        return (this.type!= null);
     }
 
     /**
      * Gets the value of the priorPermission property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDurationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDurationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDurationType> getPriorPermission() {
@@ -151,11 +144,11 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     /**
      * Sets the value of the priorPermission property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDurationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDurationType }{@code >}
+     *     
      */
     public void setPriorPermission(JAXBElement<ValDurationType> value) {
         this.priorPermission = value;
@@ -163,37 +156,39 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     @Transient
     public boolean isSetPriorPermission() {
-        return (this.priorPermission != null);
+        return (this.priorPermission!= null);
     }
 
     /**
      * Gets the value of the contact property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the contact property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the contact property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getContact().add(newItem);
+     *    getContact().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ContactInformationPropertyType }
-     *
-     *
+     * 
+     * 
      */
     @ManyToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "contact_apronareausage_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "contact", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "apronareausagetype", referencedColumnName = "hjid")})
+        @JoinColumn(name = "contact", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "apronareausagetype", referencedColumnName = "hjid")
+    })
     public List<ContactInformationPropertyType> getContact() {
         if (contact == null) {
             contact = new ArrayList<>();
@@ -202,8 +197,8 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setContact(List<ContactInformationPropertyType> contact) {
         this.contact = contact;
@@ -211,7 +206,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     @Transient
     public boolean isSetContact() {
-        return ((this.contact != null) && (!this.contact.isEmpty()));
+        return ((this.contact!= null)&&(!this.contact.isEmpty()));
     }
 
     public void unsetContact() {
@@ -220,10 +215,11 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     /**
      * Gets the value of the selection property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ConditionCombinationPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ConditionCombinationPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ConditionCombinationPropertyType> getSelection() {
@@ -232,11 +228,11 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     /**
      * Sets the value of the selection property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ConditionCombinationPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ConditionCombinationPropertyType }{@code >}
+     *     
      */
     public void setSelection(JAXBElement<ConditionCombinationPropertyType> value) {
         this.selection = value;
@@ -244,36 +240,39 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     @Transient
     public boolean isSetSelection() {
-        return (this.selection != null);
+        return (this.selection!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_apronareausage_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "apronareausagetype", referencedColumnName = "hjid")})
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "apronareausagetype", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -282,8 +281,8 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -291,7 +290,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -300,29 +299,29 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ApronAreaUsageTypeExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = ApronAreaUsageTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_APRON_AREA_USAGE_T_0")
     public List<ApronAreaUsageTypeExtensionType> getExtension() {
         if (extension == null) {
@@ -332,8 +331,8 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<ApronAreaUsageTypeExtensionType> extension) {
         this.extension = extension;
@@ -341,7 +340,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -349,47 +348,47 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "type")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))
+    })
     public CodeUsageLimitationType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeUsageLimitationType.class, this.getType());
     }
 
     public void setTypeItem(CodeUsageLimitationType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeUsageLimitationType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "type"), ApronAreaUsageType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeUsageLimitationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), ApronAreaUsageType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "priorpermission", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "priorpermission_uom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "priorpermission_nilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "priorpermission", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "uom", column = @Column(name = "priorpermission_uom")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "priorpermission_nilreason"))
+    })
     public ValDurationType getPriorPermissionItem() {
         return XmlAdapterUtils.unmarshallSource(ValDurationType.class, this.getPriorPermission());
     }
 
     public void setPriorPermissionItem(ValDurationType target) {
-        setPriorPermission(XmlAdapterUtils.marshallJAXBElement(ValDurationType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "priorPermission"), ApronAreaUsageType.class, target));
+        setPriorPermission(XmlAdapterUtils.marshallJAXBElement(ValDurationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "priorPermission"), ApronAreaUsageType.class, target));
     }
 
     @ManyToOne(targetEntity = ConditionCombinationPropertyType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "selection_id", referencedColumnName = "hjid")
     public ConditionCombinationPropertyType getSelectionItem() {
         return XmlAdapterUtils.unmarshallSource(ConditionCombinationPropertyType.class, this.getSelection());
     }
 
     public void setSelectionItem(ConditionCombinationPropertyType target) {
-        setSelection(XmlAdapterUtils.marshallJAXBElement(ConditionCombinationPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1.1", "selection"), ApronAreaUsageType.class, target));
+        setSelection(XmlAdapterUtils.marshallJAXBElement(ConditionCombinationPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "selection"), ApronAreaUsageType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -400,27 +399,27 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
         }
         final ApronAreaUsageType that = ((ApronAreaUsageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSelection();
-            boolean rhsFieldIsSet = that.isSetSelection();
-            JAXBElement<ConditionCombinationPropertyType> lhsField;
-            lhsField = this.getSelection();
-            JAXBElement<ConditionCombinationPropertyType> rhsField;
-            rhsField = that.getSelection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selection", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApronAreaUsageTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ApronAreaUsageTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApronAreaUsageTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApronAreaUsageTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -439,14 +438,14 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPriorPermission();
-            boolean rhsFieldIsSet = that.isSetPriorPermission();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getPriorPermission();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getPriorPermission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
+            boolean lhsFieldIsSet = this.isSetSelection();
+            boolean rhsFieldIsSet = that.isSetSelection();
+            JAXBElement<ConditionCombinationPropertyType> lhsField;
+            lhsField = this.getSelection();
+            JAXBElement<ConditionCombinationPropertyType> rhsField;
+            rhsField = that.getSelection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -455,9 +454,9 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
             boolean lhsFieldIsSet = this.isSetContact();
             boolean rhsFieldIsSet = that.isSetContact();
             List<ContactInformationPropertyType> lhsField;
-            lhsField = (this.isSetContact() ? this.getContact() : null);
+            lhsField = (this.isSetContact()?this.getContact():null);
             List<ContactInformationPropertyType> rhsField;
-            rhsField = (that.isSetContact() ? that.getContact() : null);
+            rhsField = (that.isSetContact()?that.getContact():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -465,14 +464,14 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetPriorPermission();
+            boolean rhsFieldIsSet = that.isSetPriorPermission();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getPriorPermission();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getPriorPermission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -500,7 +499,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
         {
             boolean theFieldIsSet = this.isSetContact();
             List<ContactInformationPropertyType> theField;
-            theField = (this.isSetContact() ? this.getContact() : null);
+            theField = (this.isSetContact()?this.getContact():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "contact", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -514,14 +513,14 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ApronAreaUsageTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -546,7 +545,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
         {
             boolean theFieldIsSet = this.isSetContact();
             List<ContactInformationPropertyType> theField;
-            theField = (this.isSetContact() ? this.getContact() : null);
+            theField = (this.isSetContact()?this.getContact():null);
             strategy.appendField(locator, this, "contact", buffer, theField, theFieldIsSet);
         }
         {
@@ -558,13 +557,13 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ApronAreaUsageTypeExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

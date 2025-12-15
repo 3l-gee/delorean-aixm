@@ -157,19 +157,6 @@ public abstract class AbstractCoordinateSystemType extends IdentifiedObjectType 
         }
         final AbstractCoordinateSystemType that = ((AbstractCoordinateSystemType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAxis();
-            boolean rhsFieldIsSet = that.isSetAxis();
-            List<JAXBElement<CoordinateSystemAxisPropertyType>> lhsField;
-            lhsField = (this.isSetAxis() ? this.getAxis() : null);
-            List<JAXBElement<CoordinateSystemAxisPropertyType>> rhsField;
-            rhsField = (that.isSetAxis() ? that.getAxis() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axis", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axis", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAggregationType();
             boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
@@ -178,6 +165,19 @@ public abstract class AbstractCoordinateSystemType extends IdentifiedObjectType 
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAxis();
+            boolean rhsFieldIsSet = that.isSetAxis();
+            List<JAXBElement<CoordinateSystemAxisPropertyType>> lhsField;
+            lhsField = (this.isSetAxis() ? this.getAxis() : null);
+            List<JAXBElement<CoordinateSystemAxisPropertyType>> rhsField;
+            rhsField = (that.isSetAxis() ? that.getAxis() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axis", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axis", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -32,6 +32,8 @@ import com.aixm.delorean.core.DeloreanUtility;
 public class DatabaseBindingService<ROOT, FEATURE> {
     private final Class<ROOT> rootClass;
     private final Class<FEATURE> featureClass;
+    protected final Class<?> CoreResourceAnchorsClass;
+    protected final Class<?> AIXMResourceAnchorsClass;
     private String sqlPreInit;
     private String sqlPostInit;
     private SessionFactory sessionFactory;
@@ -39,11 +41,13 @@ public class DatabaseBindingService<ROOT, FEATURE> {
     private ConnectionStatus connectionStatus;
     protected AbstractDatabaseFunctions databaseHelper;
 
-    public DatabaseBindingService(Class<ROOT> rootClass, Class<FEATURE> featureClass, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, ConnectionStatus connectionStatus, AbstractDatabaseFunctions databaseHelper) {
+    public DatabaseBindingService(Class<ROOT> rootClass, Class<FEATURE> featureClass, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, ConnectionStatus connectionStatus, AbstractDatabaseFunctions databaseHelper, Class<?> CoreResourceAnchorsClass, Class<?> AIXMResourceAnchorsClass) {
         this.rootClass = rootClass;
         this.featureClass = featureClass;
-        this.sqlPreInit = this.inputStreamToSQL(Thread.currentThread().getContextClassLoader().getResourceAsStream(sqlPreInitPath));
-        this.sqlPostInit = this.inputStreamToSQL(Thread.currentThread().getContextClassLoader().getResourceAsStream(sqlPostInitPath));
+        this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
+        this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
+        this.sqlPreInit = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(sqlPreInitPath));
+        this.sqlPostInit = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(sqlPostInitPath));
         this.configuration = configuration;
         this.sessionFactory = null;
         this.connectionStatus = connectionStatus;
@@ -297,7 +301,19 @@ public class DatabaseBindingService<ROOT, FEATURE> {
             throw new IllegalArgumentException("Sessionfactory is not init");
         }
 
-        return this.databaseHelper.predicateValidTimeslice(this.sessionFactory, time);
+        Session session = sessionFactory.openSession();
+
+        String TSPIdsSQL = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream("/sql/time_slice_property_Ids.sql"));
+        Transaction TSPIdsTX = session.beginTransaction();
+        List<Long> TSPIds = session.createNativeQuery(TSPIdsSQL, Long.class).setParameter("time", time).getResultList();
+        TSPIdsTX.commit();
+
+        String BMMIdsSQL = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream("/sql/basic_message_member_ids.sql"));        
+        Transaction BMMIdsTX = session.beginTransaction();
+        List<Long> BMMIds = session.createNativeQuery(BMMIdsSQL, Long.class).setParameter("time", time).getResultList();
+        BMMIdsTX.commit();
+
+        return this.databaseHelper.predicateValidTimeslice(this.sessionFactory, BMMIds, TSPIds);
     }
 
     public void merge(Object object) {

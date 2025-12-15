@@ -287,19 +287,6 @@ public class MDApplicationSchemaInformationType extends AbstractObjectType imple
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSchemaAscii();
-            boolean rhsFieldIsSet = that.isSetSchemaAscii();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSchemaAscii();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSchemaAscii();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "schemaAscii", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "schemaAscii", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetConstraintLanguage();
             boolean rhsFieldIsSet = that.isSetConstraintLanguage();
             CharacterStringPropertyType lhsField;
@@ -308,19 +295,6 @@ public class MDApplicationSchemaInformationType extends AbstractObjectType imple
             rhsField = that.getConstraintLanguage();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "constraintLanguage", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "constraintLanguage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSchemaLanguage();
-            boolean rhsFieldIsSet = that.isSetSchemaLanguage();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSchemaLanguage();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSchemaLanguage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "schemaLanguage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "schemaLanguage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -349,6 +323,32 @@ public class MDApplicationSchemaInformationType extends AbstractObjectType imple
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "softwareDevelopmentFileFormat",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSchemaAscii();
+            boolean rhsFieldIsSet = that.isSetSchemaAscii();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSchemaAscii();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSchemaAscii();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "schemaAscii", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "schemaAscii", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSchemaLanguage();
+            boolean rhsFieldIsSet = that.isSetSchemaLanguage();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSchemaLanguage();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSchemaLanguage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "schemaLanguage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "schemaLanguage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

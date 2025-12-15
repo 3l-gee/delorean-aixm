@@ -163,19 +163,6 @@ public class KnotType implements Serializable, Equals, HashCode, ToString {
             }
         }
         {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getValue();
-            double rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMultiplicity();
             boolean rhsFieldIsSet = that.isSetMultiplicity();
             BigInteger lhsField;
@@ -184,6 +171,19 @@ public class KnotType implements Serializable, Equals, HashCode, ToString {
             rhsField = that.getMultiplicity();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "multiplicity", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "multiplicity", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getValue();
+            double rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

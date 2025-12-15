@@ -190,6 +190,19 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
         }
         final CoverageFunctionType that = ((CoverageFunctionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetCoverageMappingRule();
+            boolean rhsFieldIsSet = that.isSetCoverageMappingRule();
+            MappingRuleType lhsField;
+            lhsField = this.getCoverageMappingRule();
+            MappingRuleType rhsField;
+            rhsField = that.getCoverageMappingRule();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coverageMappingRule", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coverageMappingRule", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMappingRule();
             boolean rhsFieldIsSet = that.isSetMappingRule();
             StringOrRefType lhsField;
@@ -211,19 +224,6 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
             rhsField = that.getGridFunction();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridFunction", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridFunction", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCoverageMappingRule();
-            boolean rhsFieldIsSet = that.isSetCoverageMappingRule();
-            MappingRuleType lhsField;
-            lhsField = this.getCoverageMappingRule();
-            MappingRuleType rhsField;
-            rhsField = that.getCoverageMappingRule();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coverageMappingRule", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coverageMappingRule", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

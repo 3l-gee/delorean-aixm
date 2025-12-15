@@ -37,8 +37,22 @@ public class Delorean<R, F, T, O> {
         }
 
         QName qName = config.getQName();
-        XMLBindingFactory<ROOT, FEATURE> xmlFactory = new XMLBindingFactory<>(rootClass, featureClass, config.getSchemaPath(), config.getCoreResourceAnchorsClass(), config.getAIXMResourceAnchorsClass());
-        DatabaseBindingFactory<ROOT, FEATURE> databaseFactory = new DatabaseBindingFactory<>(rootClass, featureClass, config.getSqlPreInitPath(), config.getSqlPostInitPath(), config.getConfigurationPath(),  config.getCoreResourceAnchorsClass(), config.getAIXMResourceAnchorsClass(), databaseHelper);
+        XMLBindingFactory<ROOT, FEATURE> xmlFactory = new XMLBindingFactory<>(
+            rootClass,
+            featureClass, 
+            config.getSchemaPath(), 
+            config.getCoreResourceAnchorsClass(), 
+            config.getAIXMResourceAnchorsClass());
+            
+        DatabaseBindingFactory<ROOT, FEATURE> databaseFactory = new DatabaseBindingFactory<>(
+            rootClass, 
+            featureClass, 
+            config.getSqlPreInitPath(), 
+            config.getSqlPostInitPath(), 
+            config.getConfigurationPath(),  
+            config.getCoreResourceAnchorsClass(), 
+            config.getAIXMResourceAnchorsClass(), 
+            databaseHelper);
 
         return new ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT>(config.getName(), rootClass, featureClass, timeSliceClass, objectClass, qName, xmlFactory, databaseFactory, deloreanEngine, databaseHelper, config.getCoreResourceAnchorsClass(), config.getAIXMResourceAnchorsClass());
     }

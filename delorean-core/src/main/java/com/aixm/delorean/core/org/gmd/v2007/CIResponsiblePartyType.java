@@ -203,14 +203,14 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
         }
         final CIResponsiblePartyType that = ((CIResponsiblePartyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPositionName();
-            boolean rhsFieldIsSet = that.isSetPositionName();
+            boolean lhsFieldIsSet = this.isSetOrganisationName();
+            boolean rhsFieldIsSet = that.isSetOrganisationName();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getPositionName();
+            lhsField = this.getOrganisationName();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getPositionName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "positionName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "positionName", rhsField);
+            rhsField = that.getOrganisationName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "organisationName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "organisationName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -229,14 +229,14 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOrganisationName();
-            boolean rhsFieldIsSet = that.isSetOrganisationName();
+            boolean lhsFieldIsSet = this.isSetPositionName();
+            boolean rhsFieldIsSet = that.isSetPositionName();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getOrganisationName();
+            lhsField = this.getPositionName();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getOrganisationName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "organisationName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "organisationName", rhsField);
+            rhsField = that.getPositionName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "positionName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "positionName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

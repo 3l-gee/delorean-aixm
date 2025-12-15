@@ -132,19 +132,6 @@ public class MDPixelOrientationCodePropertyType implements Serializable, Equals,
         }
         final MDPixelOrientationCodePropertyType that = ((MDPixelOrientationCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMDPixelOrientationCode();
-            boolean rhsFieldIsSet = that.isSetMDPixelOrientationCode();
-            MDPixelOrientationCodeType lhsField;
-            lhsField = this.getMDPixelOrientationCode();
-            MDPixelOrientationCodeType rhsField;
-            rhsField = that.getMDPixelOrientationCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdPixelOrientationCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdPixelOrientationCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -153,6 +140,19 @@ public class MDPixelOrientationCodePropertyType implements Serializable, Equals,
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDPixelOrientationCode();
+            boolean rhsFieldIsSet = that.isSetMDPixelOrientationCode();
+            MDPixelOrientationCodeType lhsField;
+            lhsField = this.getMDPixelOrientationCode();
+            MDPixelOrientationCodeType rhsField;
+            rhsField = that.getMDPixelOrientationCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdPixelOrientationCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdPixelOrientationCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

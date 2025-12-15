@@ -290,32 +290,6 @@ public class MDMediumType extends AbstractObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVolumes();
-            boolean rhsFieldIsSet = that.isSetVolumes();
-            IntegerPropertyType lhsField;
-            lhsField = this.getVolumes();
-            IntegerPropertyType rhsField;
-            rhsField = that.getVolumes();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "volumes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "volumes", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetName();
-            boolean rhsFieldIsSet = that.isSetName();
-            MDMediumNameCodePropertyType lhsField;
-            lhsField = this.getName();
-            MDMediumNameCodePropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMediumNote();
             boolean rhsFieldIsSet = that.isSetMediumNote();
             CharacterStringPropertyType lhsField;
@@ -329,6 +303,19 @@ public class MDMediumType extends AbstractObjectType implements Serializable {
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetVolumes();
+            boolean rhsFieldIsSet = that.isSetVolumes();
+            IntegerPropertyType lhsField;
+            lhsField = this.getVolumes();
+            IntegerPropertyType rhsField;
+            rhsField = that.getVolumes();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "volumes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "volumes", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDensityUnits();
             boolean rhsFieldIsSet = that.isSetDensityUnits();
             CharacterStringPropertyType lhsField;
@@ -337,6 +324,19 @@ public class MDMediumType extends AbstractObjectType implements Serializable {
             rhsField = that.getDensityUnits();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "densityUnits", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "densityUnits", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
+            MDMediumNameCodePropertyType lhsField;
+            lhsField = this.getName();
+            MDMediumNameCodePropertyType rhsField;
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

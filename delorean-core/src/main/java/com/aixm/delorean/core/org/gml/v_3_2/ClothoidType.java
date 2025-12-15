@@ -177,6 +177,19 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
         }
         final ClothoidType that = ((ClothoidType) object);
         {
+            boolean lhsFieldIsSet = this.isSetScaleFactor();
+            boolean rhsFieldIsSet = that.isSetScaleFactor();
+            BigDecimal lhsField;
+            lhsField = this.getScaleFactor();
+            BigDecimal rhsField;
+            rhsField = that.getScaleFactor();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleFactor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleFactor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRefLocation();
             boolean rhsFieldIsSet = that.isSetRefLocation();
             RefLocation lhsField;
@@ -193,24 +206,11 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
             boolean lhsFieldIsSet = true;
             boolean rhsFieldIsSet = true;
             double lhsField;
-            lhsField = this.getStartParameter();
+            lhsField = this.getEndParameter();
             double rhsField;
-            rhsField = that.getStartParameter();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startParameter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startParameter", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetScaleFactor();
-            boolean rhsFieldIsSet = that.isSetScaleFactor();
-            BigDecimal lhsField;
-            lhsField = this.getScaleFactor();
-            BigDecimal rhsField;
-            rhsField = that.getScaleFactor();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleFactor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleFactor", rhsField);
+            rhsField = that.getEndParameter();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endParameter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endParameter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -219,11 +219,11 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
             boolean lhsFieldIsSet = true;
             boolean rhsFieldIsSet = true;
             double lhsField;
-            lhsField = this.getEndParameter();
+            lhsField = this.getStartParameter();
             double rhsField;
-            rhsField = that.getEndParameter();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endParameter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endParameter", rhsField);
+            rhsField = that.getStartParameter();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startParameter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startParameter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

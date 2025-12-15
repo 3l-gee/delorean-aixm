@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.aixm511.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,49 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for AirportHeliportResponsibilityOrganisationPropertyType complex
- * type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AirportHeliportResponsibilityOrganisationPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AirportHeliportResponsibilityOrganisationPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1.1}AirportHeliportResponsibilityOrganisation"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1.1}AirportHeliportResponsibilityOrganisation"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AirportHeliportResponsibilityOrganisationPropertyType", propOrder = {
-        "airportHeliportResponsibilityOrganisation"})
+    "airportHeliportResponsibilityOrganisation"
+})
 @Entity(name = "AirportHeliportResponsibilityOrganisationPropertyType")
 @Table(name = "airportheliportresponsibilityorganisation_pt", schema = "airport_heliport")
-public class AirportHeliportResponsibilityOrganisationPropertyType extends AbstractAIXMPropertyType
-        implements
-            Serializable {
+public class AirportHeliportResponsibilityOrganisationPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AirportHeliportResponsibilityOrganisation", required = true)
@@ -62,13 +56,15 @@ public class AirportHeliportResponsibilityOrganisationPropertyType extends Abstr
 
     /**
      * Gets the value of the airportHeliportResponsibilityOrganisation property.
-     *
-     * @return possible object is
-     *         {@link AirportHeliportResponsibilityOrganisationType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AirportHeliportResponsibilityOrganisationType }
+     *     
      */
     @OneToOne(targetEntity = AirportHeliportResponsibilityOrganisationType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "airportheliportresponsibilityorganisation_id", referencedColumnName = "hjid")
     public AirportHeliportResponsibilityOrganisationType getAirportHeliportResponsibilityOrganisation() {
         return airportHeliportResponsibilityOrganisation;
@@ -76,11 +72,11 @@ public class AirportHeliportResponsibilityOrganisationPropertyType extends Abstr
 
     /**
      * Sets the value of the airportHeliportResponsibilityOrganisation property.
-     *
+     * 
      * @param value
-     *            allowed object is
-     *            {@link AirportHeliportResponsibilityOrganisationType }
-     *
+     *     allowed object is
+     *     {@link AirportHeliportResponsibilityOrganisationType }
+     *     
      */
     public void setAirportHeliportResponsibilityOrganisation(AirportHeliportResponsibilityOrganisationType value) {
         this.airportHeliportResponsibilityOrganisation = value;
@@ -88,13 +84,12 @@ public class AirportHeliportResponsibilityOrganisationPropertyType extends Abstr
 
     @Transient
     public boolean isSetAirportHeliportResponsibilityOrganisation() {
-        return (this.airportHeliportResponsibilityOrganisation != null);
+        return (this.airportHeliportResponsibilityOrganisation!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -111,10 +106,8 @@ public class AirportHeliportResponsibilityOrganisationPropertyType extends Abstr
             lhsField = this.getAirportHeliportResponsibilityOrganisation();
             AirportHeliportResponsibilityOrganisationType rhsField;
             rhsField = that.getAirportHeliportResponsibilityOrganisation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "airportHeliportResponsibilityOrganisation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "airportHeliportResponsibilityOrganisation", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliportResponsibilityOrganisation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliportResponsibilityOrganisation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -129,8 +122,7 @@ public class AirportHeliportResponsibilityOrganisationPropertyType extends Abstr
             boolean theFieldIsSet = this.isSetAirportHeliportResponsibilityOrganisation();
             AirportHeliportResponsibilityOrganisationType theField;
             theField = this.getAirportHeliportResponsibilityOrganisation();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "airportHeliportResponsibilityOrganisation",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "airportHeliportResponsibilityOrganisation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         return currentHashCode;
@@ -143,8 +135,7 @@ public class AirportHeliportResponsibilityOrganisationPropertyType extends Abstr
             boolean theFieldIsSet = this.isSetAirportHeliportResponsibilityOrganisation();
             AirportHeliportResponsibilityOrganisationType theField;
             theField = this.getAirportHeliportResponsibilityOrganisation();
-            strategy.appendField(locator, this, "airportHeliportResponsibilityOrganisation", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "airportHeliportResponsibilityOrganisation", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

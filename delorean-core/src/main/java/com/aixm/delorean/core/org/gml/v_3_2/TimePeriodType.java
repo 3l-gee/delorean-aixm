@@ -256,19 +256,6 @@ public class TimePeriodType extends AbstractTimeGeometricPrimitiveType implement
         }
         final TimePeriodType that = ((TimePeriodType) object);
         {
-            boolean lhsFieldIsSet = this.isSetBegin();
-            boolean rhsFieldIsSet = that.isSetBegin();
-            TimeInstantPropertyType lhsField;
-            lhsField = this.getBegin();
-            TimeInstantPropertyType rhsField;
-            rhsField = that.getBegin();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "begin", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "begin", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             TimeIntervalLengthType lhsField;
@@ -295,6 +282,19 @@ public class TimePeriodType extends AbstractTimeGeometricPrimitiveType implement
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetEndPosition();
+            boolean rhsFieldIsSet = that.isSetEndPosition();
+            TimePositionType lhsField;
+            lhsField = this.getEndPosition();
+            TimePositionType rhsField;
+            rhsField = that.getEndPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEnd();
             boolean rhsFieldIsSet = that.isSetEnd();
             TimeInstantPropertyType lhsField;
@@ -308,14 +308,14 @@ public class TimePeriodType extends AbstractTimeGeometricPrimitiveType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEndPosition();
-            boolean rhsFieldIsSet = that.isSetEndPosition();
-            TimePositionType lhsField;
-            lhsField = this.getEndPosition();
-            TimePositionType rhsField;
-            rhsField = that.getEndPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPosition", rhsField);
+            boolean lhsFieldIsSet = this.isSetBegin();
+            boolean rhsFieldIsSet = that.isSetBegin();
+            TimeInstantPropertyType lhsField;
+            lhsField = this.getBegin();
+            TimeInstantPropertyType rhsField;
+            rhsField = that.getBegin();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "begin", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "begin", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

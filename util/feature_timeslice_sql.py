@@ -142,6 +142,7 @@ for querry in table_list:
     link_key = table + "type"
     query = f"""
     SELECT
+    aixm.message_member.hjid as m_hjid,
     aixm.aixm_feature.hjid as f_hjid,
     {schema}.{tsp}.hjid as tsp_hjid,
     aixm.aixm_timeslice.hjid as ts_hjid,
@@ -151,6 +152,7 @@ for querry in table_list:
     aixm.aixm_timeslice.valid_time_begin, 
     aixm.aixm_timeslice.valid_time_end
     FROM aixm.aixm_feature
+    INNER JOIN aixm.message_member ON aixm.aixm_feature.hjid = aixm.message_member.feature_id
     INNER JOIN {schema}.{link} ON aixm.aixm_feature.hjid = {schema}.{link}.timeslice
     INNER JOIN {schema}.{tsp} ON {schema}.{link}.{link_key} = {schema}.{tsp}.hjid
     INNER JOIN aixm.aixm_timeslice ON {schema}.{tsp}.ts_id = aixm.aixm_timeslice.hjid
