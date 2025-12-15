@@ -147,14 +147,14 @@ public abstract class AbstractGriddedSurfaceType extends AbstractParametricCurve
         }
         final AbstractGriddedSurfaceType that = ((AbstractGriddedSurfaceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPointGridRows();
-            boolean rhsFieldIsSet = that.isSetPointGridRows();
-            Rows lhsField;
-            lhsField = this.getPointGridRows();
-            Rows rhsField;
-            rhsField = that.getPointGridRows();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointGridRows", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointGridRows", rhsField);
+            boolean lhsFieldIsSet = this.isSetColumns();
+            boolean rhsFieldIsSet = that.isSetColumns();
+            BigInteger lhsField;
+            lhsField = this.getColumns();
+            BigInteger rhsField;
+            rhsField = that.getColumns();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "columns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "columns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -173,14 +173,14 @@ public abstract class AbstractGriddedSurfaceType extends AbstractParametricCurve
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetColumns();
-            boolean rhsFieldIsSet = that.isSetColumns();
-            BigInteger lhsField;
-            lhsField = this.getColumns();
-            BigInteger rhsField;
-            rhsField = that.getColumns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "columns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "columns", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointGridRows();
+            boolean rhsFieldIsSet = that.isSetPointGridRows();
+            Rows lhsField;
+            lhsField = this.getPointGridRows();
+            Rows rhsField;
+            rhsField = that.getPointGridRows();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointGridRows", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointGridRows", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

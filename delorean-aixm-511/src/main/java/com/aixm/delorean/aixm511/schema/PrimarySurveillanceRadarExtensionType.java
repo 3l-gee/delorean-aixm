@@ -279,6 +279,34 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
         }
         final PrimarySurveillanceRadarExtensionType that = ((PrimarySurveillanceRadarExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractPrimarySurveillanceRadarExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPrimarySurveillanceRadarExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPrimarySurveillanceRadarExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPrimarySurveillanceRadarExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractPrimarySurveillanceRadarExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractPrimarySurveillanceRadarExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractSurveillanceRadarExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSurveillanceRadarExtension();
             AbstractExtensionType lhsField;
@@ -304,34 +332,6 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadarEquipmentExtension",
                     rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractPrimarySurveillanceRadarExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPrimarySurveillanceRadarExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPrimarySurveillanceRadarExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPrimarySurveillanceRadarExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractPrimarySurveillanceRadarExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractPrimarySurveillanceRadarExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

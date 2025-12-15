@@ -59,7 +59,6 @@ public class IntermediateLegType extends AbstractApproachLegType implements Seri
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<IntermediateLegTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class IntermediateLegType extends AbstractApproachLegType implements Seri
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = IntermediateLegTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_intermediateleg_link", schema = "procedure", joinColumns = {

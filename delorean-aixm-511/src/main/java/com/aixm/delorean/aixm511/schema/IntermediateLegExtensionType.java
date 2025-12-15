@@ -279,6 +279,21 @@ public class IntermediateLegExtensionType implements Serializable, Equals, HashC
         }
         final IntermediateLegExtensionType that = ((IntermediateLegExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractIntermediateLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractIntermediateLegExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractIntermediateLegExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractIntermediateLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractIntermediateLegExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractIntermediateLegExtension",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
             AbstractExtensionType lhsField;
@@ -315,21 +330,6 @@ public class IntermediateLegExtensionType implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractIntermediateLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractIntermediateLegExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractIntermediateLegExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractIntermediateLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractIntermediateLegExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractIntermediateLegExtension",
-                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -259,21 +259,6 @@ public class ProcedureAvailabilityTypeExtensionType implements Serializable, Equ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractProcedureAvailabilityExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractProcedureAvailabilityExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractProcedureAvailabilityExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractProcedureAvailabilityExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractProcedureAvailabilityExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractProcedureAvailabilityExtension",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
@@ -284,6 +269,21 @@ public class ProcedureAvailabilityTypeExtensionType implements Serializable, Equ
                     "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
                     "abstractPropertiesWithScheduleExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractProcedureAvailabilityExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractProcedureAvailabilityExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractProcedureAvailabilityExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractProcedureAvailabilityExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractProcedureAvailabilityExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractProcedureAvailabilityExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

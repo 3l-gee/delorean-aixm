@@ -59,7 +59,6 @@ public class AirportClearanceServiceType extends AbstractAirportGroundServiceTyp
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<AirportClearanceServiceTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class AirportClearanceServiceType extends AbstractAirportGroundServiceTyp
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = AirportClearanceServiceTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_airportclearanceservice_link", schema = "service", joinColumns = {

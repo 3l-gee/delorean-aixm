@@ -59,7 +59,6 @@ public class ObstacleAreaType extends AbstractAIXMFeatureType implements Seriali
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<ObstacleAreaTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class ObstacleAreaType extends AbstractAIXMFeatureType implements Seriali
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = ObstacleAreaTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_obstaclearea_link", schema = "obstacle", joinColumns = {

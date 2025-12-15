@@ -58,7 +58,6 @@ public class TaxiHoldingPositionMarkingType extends AbstractMarkingType implemen
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<TaxiHoldingPositionMarkingTimeSlicePropertyType> timeSlice;
 
     /**
@@ -84,6 +83,7 @@ public class TaxiHoldingPositionMarkingType extends AbstractMarkingType implemen
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = TaxiHoldingPositionMarkingTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_taxiholdingpositionmarking_link", schema = "airport_heliport", joinColumns = {

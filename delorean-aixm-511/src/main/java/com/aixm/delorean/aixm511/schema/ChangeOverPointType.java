@@ -59,7 +59,6 @@ public class ChangeOverPointType extends AbstractAIXMFeatureType implements Seri
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<ChangeOverPointTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class ChangeOverPointType extends AbstractAIXMFeatureType implements Seri
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = ChangeOverPointTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_changeoverpoint_link", schema = "route", joinColumns = {

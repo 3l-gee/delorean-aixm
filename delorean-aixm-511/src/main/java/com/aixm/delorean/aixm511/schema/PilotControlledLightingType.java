@@ -59,7 +59,6 @@ public class PilotControlledLightingType extends AbstractAIXMFeatureType impleme
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<PilotControlledLightingTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class PilotControlledLightingType extends AbstractAIXMFeatureType impleme
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = PilotControlledLightingTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_pilotcontrolledlighting_link", schema = "service", joinColumns = {

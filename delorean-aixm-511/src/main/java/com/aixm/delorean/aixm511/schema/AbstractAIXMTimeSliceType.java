@@ -407,32 +407,6 @@ public abstract class AbstractAIXMTimeSliceType extends AbstractAIXMTimeSliceBas
         }
         final AbstractAIXMTimeSliceType that = ((AbstractAIXMTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetApprovalStatus();
-            boolean rhsFieldIsSet = that.isSetApprovalStatus();
-            String lhsField;
-            lhsField = this.getApprovalStatus();
-            String rhsField;
-            rhsField = that.getApprovalStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approvalStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approvalStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeSliceMetadata();
-            boolean rhsFieldIsSet = that.isSetTimeSliceMetadata();
-            FeatureTimeSliceMetadataPropertyType lhsField;
-            lhsField = this.getTimeSliceMetadata();
-            FeatureTimeSliceMetadataPropertyType rhsField;
-            rhsField = that.getTimeSliceMetadata();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSliceMetadata", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSliceMetadata", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFeatureLifetime();
             boolean rhsFieldIsSet = that.isSetFeatureLifetime();
             DeloreanTimeSliceType lhsField;
@@ -446,14 +420,14 @@ public abstract class AbstractAIXMTimeSliceType extends AbstractAIXMTimeSliceBas
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetInterpretation();
-            boolean rhsFieldIsSet = that.isSetInterpretation();
+            boolean lhsFieldIsSet = this.isSetApprovalStatus();
+            boolean rhsFieldIsSet = that.isSetApprovalStatus();
             String lhsField;
-            lhsField = this.getInterpretation();
+            lhsField = this.getApprovalStatus();
             String rhsField;
-            rhsField = that.getInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpretation", rhsField);
+            rhsField = that.getApprovalStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approvalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approvalStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -472,6 +446,19 @@ public abstract class AbstractAIXMTimeSliceType extends AbstractAIXMTimeSliceBas
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetInterpretation();
+            boolean rhsFieldIsSet = that.isSetInterpretation();
+            String lhsField;
+            lhsField = this.getInterpretation();
+            String rhsField;
+            rhsField = that.getInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSequenceNumber();
             boolean rhsFieldIsSet = that.isSetSequenceNumber();
             Long lhsField;
@@ -480,6 +467,19 @@ public abstract class AbstractAIXMTimeSliceType extends AbstractAIXMTimeSliceBas
             rhsField = that.getSequenceNumber();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceNumber", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeSliceMetadata();
+            boolean rhsFieldIsSet = that.isSetTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType lhsField;
+            lhsField = this.getTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType rhsField;
+            rhsField = that.getTimeSliceMetadata();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSliceMetadata", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSliceMetadata", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -225,14 +225,14 @@ public class GeodeticCRSType extends AbstractCRSType implements Serializable {
         }
         final GeodeticCRSType that = ((GeodeticCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetEllipsoidalCS();
-            boolean rhsFieldIsSet = that.isSetEllipsoidalCS();
-            JAXBElement<EllipsoidalCSPropertyType> lhsField;
-            lhsField = this.getEllipsoidalCS();
-            JAXBElement<EllipsoidalCSPropertyType> rhsField;
-            rhsField = that.getEllipsoidalCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ellipsoidalCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ellipsoidalCS", rhsField);
+            boolean lhsFieldIsSet = this.isSetCartesianCS();
+            boolean rhsFieldIsSet = that.isSetCartesianCS();
+            JAXBElement<CartesianCSPropertyType> lhsField;
+            lhsField = this.getCartesianCS();
+            JAXBElement<CartesianCSPropertyType> rhsField;
+            rhsField = that.getCartesianCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -264,14 +264,14 @@ public class GeodeticCRSType extends AbstractCRSType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCartesianCS();
-            boolean rhsFieldIsSet = that.isSetCartesianCS();
-            JAXBElement<CartesianCSPropertyType> lhsField;
-            lhsField = this.getCartesianCS();
-            JAXBElement<CartesianCSPropertyType> rhsField;
-            rhsField = that.getCartesianCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
+            boolean lhsFieldIsSet = this.isSetEllipsoidalCS();
+            boolean rhsFieldIsSet = that.isSetEllipsoidalCS();
+            JAXBElement<EllipsoidalCSPropertyType> lhsField;
+            lhsField = this.getEllipsoidalCS();
+            JAXBElement<EllipsoidalCSPropertyType> rhsField;
+            rhsField = that.getEllipsoidalCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ellipsoidalCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ellipsoidalCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -157,19 +157,6 @@ public class EllipsoidType extends IdentifiedObjectType implements Serializable 
         }
         final EllipsoidType that = ((EllipsoidType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSemiMajorAxis();
-            boolean rhsFieldIsSet = that.isSetSemiMajorAxis();
-            MeasureType lhsField;
-            lhsField = this.getSemiMajorAxis();
-            MeasureType rhsField;
-            rhsField = that.getSemiMajorAxis();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "semiMajorAxis", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "semiMajorAxis", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSecondDefiningParameterPropertyElement();
             boolean rhsFieldIsSet = that.isSetSecondDefiningParameterPropertyElement();
             SecondDefiningParameterPropertyElement lhsField;
@@ -180,6 +167,19 @@ public class EllipsoidType extends IdentifiedObjectType implements Serializable 
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "secondDefiningParameterPropertyElement",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSemiMajorAxis();
+            boolean rhsFieldIsSet = that.isSetSemiMajorAxis();
+            MeasureType lhsField;
+            lhsField = this.getSemiMajorAxis();
+            MeasureType rhsField;
+            rhsField = that.getSemiMajorAxis();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "semiMajorAxis", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "semiMajorAxis", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

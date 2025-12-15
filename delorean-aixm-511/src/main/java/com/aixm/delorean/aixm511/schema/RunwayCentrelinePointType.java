@@ -59,7 +59,6 @@ public class RunwayCentrelinePointType extends AbstractAIXMFeatureType implement
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<RunwayCentrelinePointTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class RunwayCentrelinePointType extends AbstractAIXMFeatureType implement
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = RunwayCentrelinePointTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_runwaycentrelinepoint_link", schema = "airport_heliport", joinColumns = {

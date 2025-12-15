@@ -59,7 +59,6 @@ public class RulesProceduresType extends AbstractAIXMFeatureType implements Seri
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<RulesProceduresTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class RulesProceduresType extends AbstractAIXMFeatureType implements Seri
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = RulesProceduresTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_rulesprocedures_link", schema = "rules_procedure", joinColumns = {

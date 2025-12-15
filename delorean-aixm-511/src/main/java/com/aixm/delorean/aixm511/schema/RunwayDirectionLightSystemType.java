@@ -59,7 +59,6 @@ public class RunwayDirectionLightSystemType extends AbstractGroundLightSystemTyp
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<RunwayDirectionLightSystemTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class RunwayDirectionLightSystemType extends AbstractGroundLightSystemTyp
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = RunwayDirectionLightSystemTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_runwaydirectionlightsystem_link", schema = "airport_heliport", joinColumns = {

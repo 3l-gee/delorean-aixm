@@ -379,32 +379,6 @@ public class FlightRestrictionLevelType extends AbstractAIXMObjectType implement
         }
         final FlightRestrictionLevelType that = ((FlightRestrictionLevelType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUpperLevel();
-            boolean rhsFieldIsSet = that.isSetUpperLevel();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getUpperLevel();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getUpperLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLevel", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUpperLevelReference();
             boolean rhsFieldIsSet = that.isSetUpperLevelReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
@@ -413,19 +387,6 @@ public class FlightRestrictionLevelType extends AbstractAIXMObjectType implement
             rhsField = that.getUpperLevelReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLevelReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLevelReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightRestrictionLevelTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FlightRestrictionLevelTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -452,6 +413,45 @@ public class FlightRestrictionLevelType extends AbstractAIXMObjectType implement
             rhsField = that.getLowerLevelReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLevelReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLevelReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpperLevel();
+            boolean rhsFieldIsSet = that.isSetUpperLevel();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getUpperLevel();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getUpperLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLevel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightRestrictionLevelTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FlightRestrictionLevelTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -158,19 +158,6 @@ public class TransformationType extends AbstractGeneralTransformationType implem
         }
         final TransformationType that = ((TransformationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetParameterValue();
-            boolean rhsFieldIsSet = that.isSetParameterValue();
-            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> lhsField;
-            lhsField = (this.isSetParameterValue() ? this.getParameterValue() : null);
-            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> rhsField;
-            rhsField = (that.isSetParameterValue() ? that.getParameterValue() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMethod();
             boolean rhsFieldIsSet = that.isSetMethod();
             JAXBElement<OperationMethodPropertyType> lhsField;
@@ -179,6 +166,19 @@ public class TransformationType extends AbstractGeneralTransformationType implem
             rhsField = that.getMethod();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "method", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "method", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetParameterValue();
+            boolean rhsFieldIsSet = that.isSetParameterValue();
+            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> lhsField;
+            lhsField = (this.isSetParameterValue() ? this.getParameterValue() : null);
+            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> rhsField;
+            rhsField = (that.isSetParameterValue() ? that.getParameterValue() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

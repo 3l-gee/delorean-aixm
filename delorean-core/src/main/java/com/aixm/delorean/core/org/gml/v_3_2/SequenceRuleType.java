@@ -184,14 +184,14 @@ public class SequenceRuleType implements Serializable, Equals, HashCode, ToStrin
         }
         final SequenceRuleType that = ((SequenceRuleType) object);
         {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            SequenceRuleEnumeration lhsField;
-            lhsField = this.getValue();
-            SequenceRuleEnumeration rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            boolean lhsFieldIsSet = this.isSetOrder();
+            boolean rhsFieldIsSet = that.isSetOrder();
+            IncrementOrder lhsField;
+            lhsField = this.getOrder();
+            IncrementOrder rhsField;
+            rhsField = that.getOrder();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "order", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "order", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -210,14 +210,14 @@ public class SequenceRuleType implements Serializable, Equals, HashCode, ToStrin
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOrder();
-            boolean rhsFieldIsSet = that.isSetOrder();
-            IncrementOrder lhsField;
-            lhsField = this.getOrder();
-            IncrementOrder rhsField;
-            rhsField = that.getOrder();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "order", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "order", rhsField);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            SequenceRuleEnumeration lhsField;
+            lhsField = this.getValue();
+            SequenceRuleEnumeration rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

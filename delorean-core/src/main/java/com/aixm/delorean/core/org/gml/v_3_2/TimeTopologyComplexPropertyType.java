@@ -46,9 +46,9 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *         <element ref="{http://www.opengis.net/gml/3.2}TimeTopologyComplex"/>
  *       </sequence>
  *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
- *       <attGroup ref=
 "{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
@@ -80,8 +80,6 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
      */
     @XmlElement(name = "TimeTopologyComplex")
     protected TimeTopologyComplexType timeTopologyComplex;
-    @XmlAttribute(name = "owns")
-    protected java.lang.Boolean owns;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
     @XmlAttribute(name = "remoteSchema", namespace = "http://www.opengis.net/gml/3.2")
@@ -101,6 +99,8 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
+    @XmlAttribute(name = "owns")
+    protected java.lang.Boolean owns;
 
     /**
      * A temporal topology complex shall be the connected acyclic directed graph
@@ -139,39 +139,6 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
 
     public boolean isSetTimeTopologyComplex() {
         return (this.timeTopologyComplex != null);
-    }
-
-    /**
-     * Gets the value of the owns property.
-     *
-     * @return possible object is {@link java.lang.Boolean }
-     *
-     */
-    public boolean getOwns() {
-        if (owns == null) {
-            return false;
-        } else {
-            return owns;
-        }
-    }
-
-    /**
-     * Sets the value of the owns property.
-     *
-     * @param value
-     *            allowed object is {@link java.lang.Boolean }
-     *
-     */
-    public void setOwns(boolean value) {
-        this.owns = value;
-    }
-
-    public boolean isSetOwns() {
-        return (this.owns != null);
-    }
-
-    public void unsetOwns() {
-        this.owns = null;
     }
 
     /**
@@ -374,6 +341,39 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
         return (this.actuate != null);
     }
 
+    /**
+     * Gets the value of the owns property.
+     *
+     * @return possible object is {@link java.lang.Boolean }
+     *
+     */
+    public boolean getOwns() {
+        if (owns == null) {
+            return false;
+        } else {
+            return owns;
+        }
+    }
+
+    /**
+     * Sets the value of the owns property.
+     *
+     * @param value
+     *            allowed object is {@link java.lang.Boolean }
+     *
+     */
+    public void setOwns(boolean value) {
+        this.owns = value;
+    }
+
+    public boolean isSetOwns() {
+        return (this.owns != null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -397,6 +397,32 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
         }
         final TimeTopologyComplexPropertyType that = ((TimeTopologyComplexPropertyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetArcrole();
             boolean rhsFieldIsSet = that.isSetArcrole();
             String lhsField;
@@ -410,14 +436,14 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
             String lhsField;
-            lhsField = this.getHref();
+            lhsField = this.getSimpleLinkTitle();
             String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -436,14 +462,14 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            boolean lhsFieldIsSet = this.isSetTimeTopologyComplex();
+            boolean rhsFieldIsSet = that.isSetTimeTopologyComplex();
+            TimeTopologyComplexType lhsField;
+            lhsField = this.getTimeTopologyComplex();
+            TimeTopologyComplexType rhsField;
+            rhsField = that.getTimeTopologyComplex();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeTopologyComplex", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeTopologyComplex", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -475,32 +501,6 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRemoteSchema();
             boolean rhsFieldIsSet = that.isSetRemoteSchema();
             String lhsField;
@@ -514,14 +514,14 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTimeTopologyComplex();
-            boolean rhsFieldIsSet = that.isSetTimeTopologyComplex();
-            TimeTopologyComplexType lhsField;
-            lhsField = this.getTimeTopologyComplex();
-            TimeTopologyComplexType rhsField;
-            rhsField = that.getTimeTopologyComplex();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeTopologyComplex", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeTopologyComplex", rhsField);
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -547,13 +547,6 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
             TimeTopologyComplexType theField;
             theField = this.getTimeTopologyComplex();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "timeTopologyComplex", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -612,6 +605,13 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "actuate", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns() ? this.getOwns() : false);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
         return currentHashCode;
     }
 
@@ -642,12 +642,6 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
             TimeTopologyComplexType theField;
             theField = this.getTimeTopologyComplex();
             strategy.appendField(locator, this, "timeTopologyComplex", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
-            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetNilReason();
@@ -696,6 +690,12 @@ public class TimeTopologyComplexPropertyType implements Serializable, Equals, Ha
             ActuateType theField;
             theField = this.getActuate();
             strategy.appendField(locator, this, "actuate", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns() ? this.getOwns() : false);
+            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

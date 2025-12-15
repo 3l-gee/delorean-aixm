@@ -59,7 +59,6 @@ public class RunwayVisualRangeType extends AbstractAIXMFeatureType implements Se
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<RunwayVisualRangeTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class RunwayVisualRangeType extends AbstractAIXMFeatureType implements Se
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = RunwayVisualRangeTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_runwayvisualrange_link", schema = "airport_heliport", joinColumns = {

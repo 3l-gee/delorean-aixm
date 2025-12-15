@@ -59,7 +59,6 @@ public class AirspaceBorderCrossingType extends AbstractAIXMFeatureType implemen
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<AirspaceBorderCrossingTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class AirspaceBorderCrossingType extends AbstractAIXMFeatureType implemen
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = AirspaceBorderCrossingTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_airspacebordercrossing_link", schema = "route", joinColumns = {

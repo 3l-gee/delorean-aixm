@@ -59,7 +59,6 @@ public class InitialLegType extends AbstractApproachLegType implements Serializa
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<InitialLegTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class InitialLegType extends AbstractApproachLegType implements Serializa
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = InitialLegTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_initialleg_link", schema = "procedure", joinColumns = {

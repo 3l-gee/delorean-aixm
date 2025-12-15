@@ -59,7 +59,6 @@ public class LocalizerType extends AbstractNavaidEquipmentType implements Serial
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<LocalizerTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class LocalizerType extends AbstractNavaidEquipmentType implements Serial
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = LocalizerTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_localizer_link", schema = "navaids_point", joinColumns = {

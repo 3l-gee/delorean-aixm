@@ -59,7 +59,6 @@ public class SeaplaneLandingAreaType extends AbstractAIXMFeatureType implements 
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<SeaplaneLandingAreaTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class SeaplaneLandingAreaType extends AbstractAIXMFeatureType implements 
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = SeaplaneLandingAreaTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_seaplanelandingarea_link", schema = "airport_heliport", joinColumns = {

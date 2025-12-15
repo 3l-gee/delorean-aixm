@@ -279,6 +279,32 @@ public class AircraftGroundServiceExtensionType implements Serializable, Equals,
         }
         final AircraftGroundServiceExtensionType that = ((AircraftGroundServiceExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractAircraftGroundServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractAircraftGroundServiceExtension();
             AbstractExtensionType lhsField;
@@ -294,19 +320,6 @@ public class AircraftGroundServiceExtensionType implements Serializable, Equals,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractAirportGroundServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractAirportGroundServiceExtension();
             AbstractExtensionType lhsField;
@@ -317,19 +330,6 @@ public class AircraftGroundServiceExtensionType implements Serializable, Equals,
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportGroundServiceExtension",
                     rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

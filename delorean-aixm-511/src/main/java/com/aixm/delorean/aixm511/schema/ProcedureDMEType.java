@@ -59,7 +59,6 @@ public class ProcedureDMEType extends AbstractAIXMFeatureType implements Seriali
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<ProcedureDMETimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class ProcedureDMEType extends AbstractAIXMFeatureType implements Seriali
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = ProcedureDMETimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_proceduredme_link", schema = "procedure", joinColumns = {

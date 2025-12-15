@@ -272,19 +272,6 @@ public class SurveillanceGroundStationType extends AbstractAIXMObjectType implem
         }
         final SurveillanceGroundStationType that = ((SurveillanceGroundStationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVideoMap();
-            boolean rhsFieldIsSet = that.isSetVideoMap();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getVideoMap();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getVideoMap();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "videoMap", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "videoMap", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<SurveillanceGroundStationTypeExtensionType> lhsField;
@@ -298,14 +285,14 @@ public class SurveillanceGroundStationType extends AbstractAIXMObjectType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTheUnit();
-            boolean rhsFieldIsSet = that.isSetTheUnit();
-            UnitPropertyType lhsField;
-            lhsField = this.getTheUnit();
-            UnitPropertyType rhsField;
-            rhsField = that.getTheUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theUnit", rhsField);
+            boolean lhsFieldIsSet = this.isSetVideoMap();
+            boolean rhsFieldIsSet = that.isSetVideoMap();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getVideoMap();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getVideoMap();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "videoMap", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "videoMap", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -319,6 +306,19 @@ public class SurveillanceGroundStationType extends AbstractAIXMObjectType implem
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheUnit();
+            boolean rhsFieldIsSet = that.isSetTheUnit();
+            UnitPropertyType lhsField;
+            lhsField = this.getTheUnit();
+            UnitPropertyType rhsField;
+            rhsField = that.getTheUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theUnit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

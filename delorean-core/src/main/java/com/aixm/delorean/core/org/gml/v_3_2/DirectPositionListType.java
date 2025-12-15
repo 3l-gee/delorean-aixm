@@ -342,14 +342,14 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCount();
-            boolean rhsFieldIsSet = that.isSetCount();
-            BigInteger lhsField;
-            lhsField = this.getCount();
-            BigInteger rhsField;
-            rhsField = that.getCount();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "count", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "count", rhsField);
+            boolean lhsFieldIsSet = this.isSetAxisLabels();
+            boolean rhsFieldIsSet = that.isSetAxisLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetAxisLabels() ? this.getAxisLabels() : null);
+            List<String> rhsField;
+            rhsField = (that.isSetAxisLabels() ? that.getAxisLabels() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -381,14 +381,14 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAxisLabels();
-            boolean rhsFieldIsSet = that.isSetAxisLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetAxisLabels() ? this.getAxisLabels() : null);
-            List<String> rhsField;
-            rhsField = (that.isSetAxisLabels() ? that.getAxisLabels() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
+            boolean lhsFieldIsSet = this.isSetCount();
+            boolean rhsFieldIsSet = that.isSetCount();
+            BigInteger lhsField;
+            lhsField = this.getCount();
+            BigInteger rhsField;
+            rhsField = that.getCount();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "count", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "count", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

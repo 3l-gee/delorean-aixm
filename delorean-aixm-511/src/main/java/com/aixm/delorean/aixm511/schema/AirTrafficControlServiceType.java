@@ -59,7 +59,6 @@ public class AirTrafficControlServiceType extends AbstractTrafficSeparationServi
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<AirTrafficControlServiceTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class AirTrafficControlServiceType extends AbstractTrafficSeparationServi
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = AirTrafficControlServiceTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_airtrafficcontrolservice_link", schema = "service", joinColumns = {

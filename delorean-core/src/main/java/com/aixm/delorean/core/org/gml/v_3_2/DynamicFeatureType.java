@@ -178,19 +178,6 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
         }
         final DynamicFeatureType that = ((DynamicFeatureType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDataSourceReference();
-            boolean rhsFieldIsSet = that.isSetDataSourceReference();
-            ReferenceType lhsField;
-            lhsField = this.getDataSourceReference();
-            ReferenceType rhsField;
-            rhsField = that.getDataSourceReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSourceReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSourceReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValidTime();
             boolean rhsFieldIsSet = that.isSetValidTime();
             TimePrimitivePropertyType lhsField;
@@ -204,14 +191,14 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHistory();
-            boolean rhsFieldIsSet = that.isSetHistory();
-            JAXBElement<HistoryPropertyType> lhsField;
-            lhsField = this.getHistory();
-            JAXBElement<HistoryPropertyType> rhsField;
-            rhsField = that.getHistory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "history", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "history", rhsField);
+            boolean lhsFieldIsSet = this.isSetDataSourceReference();
+            boolean rhsFieldIsSet = that.isSetDataSourceReference();
+            ReferenceType lhsField;
+            lhsField = this.getDataSourceReference();
+            ReferenceType rhsField;
+            rhsField = that.getDataSourceReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSourceReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSourceReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -225,6 +212,19 @@ public class DynamicFeatureType extends AbstractFeatureType implements Serializa
             rhsField = that.getDataSource();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHistory();
+            boolean rhsFieldIsSet = that.isSetHistory();
+            JAXBElement<HistoryPropertyType> lhsField;
+            lhsField = this.getHistory();
+            JAXBElement<HistoryPropertyType> rhsField;
+            rhsField = that.getHistory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "history", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "history", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

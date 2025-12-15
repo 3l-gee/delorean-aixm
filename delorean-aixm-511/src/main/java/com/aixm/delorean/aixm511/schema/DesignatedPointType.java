@@ -59,7 +59,6 @@ public class DesignatedPointType extends AbstractAIXMFeatureType implements Seri
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<DesignatedPointTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class DesignatedPointType extends AbstractAIXMFeatureType implements Seri
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = DesignatedPointTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_designatedpoint_link", schema = "navaids_point", joinColumns = {

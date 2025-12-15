@@ -246,14 +246,16 @@ public class VORExtensionType implements Serializable, Equals, HashCode, ToStrin
         }
         final VORExtensionType that = ((VORExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractVORExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractVORExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractVORExtension();
+            lhsField = this.getAbstractNavaidEquipmentExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractVORExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVORExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVORExtension", rhsField);
+            rhsField = that.getAbstractNavaidEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -272,16 +274,14 @@ public class VORExtensionType implements Serializable, Equals, HashCode, ToStrin
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractVORExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractVORExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentExtension();
+            lhsField = this.getAbstractVORExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension",
-                    rhsField);
+            rhsField = that.getAbstractVORExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVORExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVORExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

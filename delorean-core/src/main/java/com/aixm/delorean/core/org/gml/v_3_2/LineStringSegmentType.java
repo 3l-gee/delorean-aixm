@@ -180,14 +180,16 @@ public class LineStringSegmentType extends AbstractCurveSegmentType implements S
         }
         final LineStringSegmentType that = ((LineStringSegmentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPosList();
-            boolean rhsFieldIsSet = that.isSetPosList();
-            DirectPositionListType lhsField;
-            lhsField = this.getPosList();
-            DirectPositionListType rhsField;
-            rhsField = that.getPosList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+            boolean lhsFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
+            boolean rhsFieldIsSet = that.isSetPosOrPointPropertyOrPointRep();
+            List<JAXBElement<?>> lhsField;
+            lhsField = (this.isSetPosOrPointPropertyOrPointRep() ? this.getPosOrPointPropertyOrPointRep() : null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (that.isSetPosOrPointPropertyOrPointRep() ? that.getPosOrPointPropertyOrPointRep() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -206,16 +208,14 @@ public class LineStringSegmentType extends AbstractCurveSegmentType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
-            boolean rhsFieldIsSet = that.isSetPosOrPointPropertyOrPointRep();
-            List<JAXBElement<?>> lhsField;
-            lhsField = (this.isSetPosOrPointPropertyOrPointRep() ? this.getPosOrPointPropertyOrPointRep() : null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (that.isSetPosOrPointPropertyOrPointRep() ? that.getPosOrPointPropertyOrPointRep() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetPosList();
+            boolean rhsFieldIsSet = that.isSetPosList();
+            DirectPositionListType lhsField;
+            lhsField = this.getPosList();
+            DirectPositionListType rhsField;
+            rhsField = that.getPosList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

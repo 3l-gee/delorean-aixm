@@ -58,7 +58,6 @@ public class RunwayMarkingType extends AbstractMarkingType implements Serializab
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<RunwayMarkingTimeSlicePropertyType> timeSlice;
 
     /**
@@ -84,6 +83,7 @@ public class RunwayMarkingType extends AbstractMarkingType implements Serializab
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = RunwayMarkingTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_runwaymarking_link", schema = "airport_heliport", joinColumns = {

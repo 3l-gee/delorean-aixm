@@ -58,7 +58,6 @@ public class SearchRescueServiceType extends AbstractServiceType implements Seri
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<SearchRescueServiceTimeSlicePropertyType> timeSlice;
 
     /**
@@ -84,6 +83,7 @@ public class SearchRescueServiceType extends AbstractServiceType implements Seri
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = SearchRescueServiceTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_searchrescueservice_link", schema = "service", joinColumns = {

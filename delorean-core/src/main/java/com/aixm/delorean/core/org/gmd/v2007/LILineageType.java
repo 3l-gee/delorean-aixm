@@ -200,19 +200,6 @@ public class LILineageType extends AbstractObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetProcessStep();
-            boolean rhsFieldIsSet = that.isSetProcessStep();
-            List<LIProcessStepPropertyType> lhsField;
-            lhsField = (this.isSetProcessStep() ? this.getProcessStep() : null);
-            List<LIProcessStepPropertyType> rhsField;
-            rhsField = (that.isSetProcessStep() ? that.getProcessStep() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processStep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processStep", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSource();
             boolean rhsFieldIsSet = that.isSetSource();
             List<LISourcePropertyType> lhsField;
@@ -221,6 +208,19 @@ public class LILineageType extends AbstractObjectType implements Serializable {
             rhsField = (that.isSetSource() ? that.getSource() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "source", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "source", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetProcessStep();
+            boolean rhsFieldIsSet = that.isSetProcessStep();
+            List<LIProcessStepPropertyType> lhsField;
+            lhsField = (this.isSetProcessStep() ? this.getProcessStep() : null);
+            List<LIProcessStepPropertyType> rhsField;
+            rhsField = (that.isSetProcessStep() ? that.getProcessStep() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processStep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processStep", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

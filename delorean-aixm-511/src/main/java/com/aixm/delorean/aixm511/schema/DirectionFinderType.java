@@ -59,7 +59,6 @@ public class DirectionFinderType extends AbstractNavaidEquipmentType implements 
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<DirectionFinderTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class DirectionFinderType extends AbstractNavaidEquipmentType implements 
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = DirectionFinderTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_directionfinder_link", schema = "navaids_point", joinColumns = {

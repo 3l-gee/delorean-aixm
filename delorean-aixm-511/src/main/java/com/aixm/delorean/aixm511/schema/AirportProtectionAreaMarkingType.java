@@ -58,7 +58,6 @@ public class AirportProtectionAreaMarkingType extends AbstractMarkingType implem
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<AirportProtectionAreaMarkingTimeSlicePropertyType> timeSlice;
 
     /**
@@ -84,6 +83,7 @@ public class AirportProtectionAreaMarkingType extends AbstractMarkingType implem
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = AirportProtectionAreaMarkingTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_airportprotectionareamarking_link", schema = "airport_heliport", joinColumns = {

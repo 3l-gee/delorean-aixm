@@ -246,15 +246,15 @@ public class ManoeuvringAreaUsageTypeExtensionType implements Serializable, Equa
         }
         final ManoeuvringAreaUsageTypeExtensionType that = ((ManoeuvringAreaUsageTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractUsageConditionExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractUsageConditionExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractManoeuvringAreaUsageExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractManoeuvringAreaUsageExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractUsageConditionExtension();
+            lhsField = this.getAbstractManoeuvringAreaUsageExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractUsageConditionExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUsageConditionExtension",
+            rhsField = that.getAbstractManoeuvringAreaUsageExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractManoeuvringAreaUsageExtension",
                     lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUsageConditionExtension",
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractManoeuvringAreaUsageExtension",
                     rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
@@ -274,15 +274,15 @@ public class ManoeuvringAreaUsageTypeExtensionType implements Serializable, Equa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractManoeuvringAreaUsageExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractManoeuvringAreaUsageExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractUsageConditionExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractUsageConditionExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractManoeuvringAreaUsageExtension();
+            lhsField = this.getAbstractUsageConditionExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractManoeuvringAreaUsageExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractManoeuvringAreaUsageExtension",
+            rhsField = that.getAbstractUsageConditionExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUsageConditionExtension",
                     lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractManoeuvringAreaUsageExtension",
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUsageConditionExtension",
                     rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;

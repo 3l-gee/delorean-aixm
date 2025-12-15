@@ -59,7 +59,6 @@ public class RunwayType extends AbstractAIXMFeatureType implements Serializable 
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<RunwayTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class RunwayType extends AbstractAIXMFeatureType implements Serializable 
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = RunwayTimeSlicePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_runway_link", schema = "airport_heliport", joinColumns = {
             @JoinColumn(name = "timeslice", referencedColumnName = "hjid")}, inverseJoinColumns = {

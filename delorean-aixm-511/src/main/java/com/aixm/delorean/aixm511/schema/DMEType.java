@@ -59,7 +59,6 @@ public class DMEType extends AbstractNavaidEquipmentType implements Serializable
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<DMETimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class DMEType extends AbstractNavaidEquipmentType implements Serializable
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = DMETimeSlicePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_dme_link", schema = "navaids_point", joinColumns = {
             @JoinColumn(name = "timeslice", referencedColumnName = "hjid")}, inverseJoinColumns = {

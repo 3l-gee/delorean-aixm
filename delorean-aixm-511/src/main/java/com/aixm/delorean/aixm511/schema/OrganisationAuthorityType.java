@@ -59,7 +59,6 @@ public class OrganisationAuthorityType extends AbstractAIXMFeatureType implement
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<OrganisationAuthorityTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class OrganisationAuthorityType extends AbstractAIXMFeatureType implement
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = OrganisationAuthorityTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_organisationauthority_link", schema = "organisation", joinColumns = {

@@ -148,14 +148,14 @@ public class EXVerticalExtentType extends AbstractObjectType implements Serializ
         }
         final EXVerticalExtentType that = ((EXVerticalExtentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVerticalCRS();
-            boolean rhsFieldIsSet = that.isSetVerticalCRS();
-            SCCRSPropertyType lhsField;
-            lhsField = this.getVerticalCRS();
-            SCCRSPropertyType rhsField;
-            rhsField = that.getVerticalCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCRS", rhsField);
+            boolean lhsFieldIsSet = this.isSetMinimumValue();
+            boolean rhsFieldIsSet = that.isSetMinimumValue();
+            RealPropertyType lhsField;
+            lhsField = this.getMinimumValue();
+            RealPropertyType rhsField;
+            rhsField = that.getMinimumValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -174,14 +174,14 @@ public class EXVerticalExtentType extends AbstractObjectType implements Serializ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumValue();
-            boolean rhsFieldIsSet = that.isSetMinimumValue();
-            RealPropertyType lhsField;
-            lhsField = this.getMinimumValue();
-            RealPropertyType rhsField;
-            rhsField = that.getMinimumValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumValue", rhsField);
+            boolean lhsFieldIsSet = this.isSetVerticalCRS();
+            boolean rhsFieldIsSet = that.isSetVerticalCRS();
+            SCCRSPropertyType lhsField;
+            lhsField = this.getVerticalCRS();
+            SCCRSPropertyType rhsField;
+            rhsField = that.getVerticalCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCRS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

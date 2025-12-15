@@ -59,7 +59,6 @@ public class CheckpointVORType extends AbstractNavigationSystemCheckpointType im
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<CheckpointVORTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class CheckpointVORType extends AbstractNavigationSystemCheckpointType im
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = CheckpointVORTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_checkpointvor_link", schema = "navaids_point", joinColumns = {

@@ -119,19 +119,6 @@ public class MDRangeDimensionType extends AbstractObjectType implements Serializ
         }
         final MDRangeDimensionType that = ((MDRangeDimensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSequenceIdentifier();
-            boolean rhsFieldIsSet = that.isSetSequenceIdentifier();
-            MemberNamePropertyType lhsField;
-            lhsField = this.getSequenceIdentifier();
-            MemberNamePropertyType rhsField;
-            rhsField = that.getSequenceIdentifier();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceIdentifier", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceIdentifier", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDescriptor();
             boolean rhsFieldIsSet = that.isSetDescriptor();
             CharacterStringPropertyType lhsField;
@@ -140,6 +127,19 @@ public class MDRangeDimensionType extends AbstractObjectType implements Serializ
             rhsField = that.getDescriptor();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "descriptor", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "descriptor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSequenceIdentifier();
+            boolean rhsFieldIsSet = that.isSetSequenceIdentifier();
+            MemberNamePropertyType lhsField;
+            lhsField = this.getSequenceIdentifier();
+            MemberNamePropertyType rhsField;
+            rhsField = that.getSequenceIdentifier();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceIdentifier", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceIdentifier", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

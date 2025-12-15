@@ -274,19 +274,6 @@ public class LISourceType extends AbstractObjectType implements Serializable {
         }
         final LISourceType that = ((LISourceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetScaleDenominator();
-            boolean rhsFieldIsSet = that.isSetScaleDenominator();
-            MDRepresentativeFractionPropertyType lhsField;
-            lhsField = this.getScaleDenominator();
-            MDRepresentativeFractionPropertyType rhsField;
-            rhsField = that.getScaleDenominator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleDenominator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleDenominator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSourceReferenceSystem();
             boolean rhsFieldIsSet = that.isSetSourceReferenceSystem();
             MDReferenceSystemPropertyType lhsField;
@@ -295,32 +282,6 @@ public class LISourceType extends AbstractObjectType implements Serializable {
             rhsField = that.getSourceReferenceSystem();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceReferenceSystem", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceReferenceSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDescription();
-            boolean rhsFieldIsSet = that.isSetDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSourceExtent();
-            boolean rhsFieldIsSet = that.isSetSourceExtent();
-            List<EXExtentPropertyType> lhsField;
-            lhsField = (this.isSetSourceExtent() ? this.getSourceExtent() : null);
-            List<EXExtentPropertyType> rhsField;
-            rhsField = (that.isSetSourceExtent() ? that.getSourceExtent() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -339,6 +300,19 @@ public class LISourceType extends AbstractObjectType implements Serializable {
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetScaleDenominator();
+            boolean rhsFieldIsSet = that.isSetScaleDenominator();
+            MDRepresentativeFractionPropertyType lhsField;
+            lhsField = this.getScaleDenominator();
+            MDRepresentativeFractionPropertyType rhsField;
+            rhsField = that.getScaleDenominator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleDenominator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleDenominator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSourceCitation();
             boolean rhsFieldIsSet = that.isSetSourceCitation();
             CICitationPropertyType lhsField;
@@ -347,6 +321,32 @@ public class LISourceType extends AbstractObjectType implements Serializable {
             rhsField = that.getSourceCitation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceCitation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceCitation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSourceExtent();
+            boolean rhsFieldIsSet = that.isSetSourceExtent();
+            List<EXExtentPropertyType> lhsField;
+            lhsField = (this.isSetSourceExtent() ? this.getSourceExtent() : null);
+            List<EXExtentPropertyType> rhsField;
+            rhsField = (that.isSetSourceExtent() ? that.getSourceExtent() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

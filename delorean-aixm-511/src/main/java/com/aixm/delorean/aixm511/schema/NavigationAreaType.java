@@ -59,7 +59,6 @@ public class NavigationAreaType extends AbstractAIXMFeatureType implements Seria
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<NavigationAreaTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class NavigationAreaType extends AbstractAIXMFeatureType implements Seria
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = NavigationAreaTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_navigationarea_link", schema = "procedure", joinColumns = {

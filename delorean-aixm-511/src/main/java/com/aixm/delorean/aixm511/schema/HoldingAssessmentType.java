@@ -59,7 +59,6 @@ public class HoldingAssessmentType extends AbstractAIXMFeatureType implements Se
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<HoldingAssessmentTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class HoldingAssessmentType extends AbstractAIXMFeatureType implements Se
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = HoldingAssessmentTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_holdingassessment_link", schema = "shared", joinColumns = {

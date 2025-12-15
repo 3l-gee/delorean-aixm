@@ -59,7 +59,6 @@ public class AirportHeliportCollocationType extends AbstractAIXMFeatureType impl
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<AirportHeliportCollocationTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class AirportHeliportCollocationType extends AbstractAIXMFeatureType impl
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = AirportHeliportCollocationTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_airportheliportcollocation_link", schema = "airport_heliport", joinColumns = {

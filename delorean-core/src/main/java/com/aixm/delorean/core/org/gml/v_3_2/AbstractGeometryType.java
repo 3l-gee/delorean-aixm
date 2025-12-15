@@ -234,6 +234,19 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetUomLabels();
+            boolean rhsFieldIsSet = that.isSetUomLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetUomLabels() ? this.getUomLabels() : null);
+            List<String> rhsField;
+            rhsField = (that.isSetUomLabels() ? that.getUomLabels() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSrsName();
             boolean rhsFieldIsSet = that.isSetSrsName();
             String lhsField;
@@ -255,19 +268,6 @@ public abstract class AbstractGeometryType extends AbstractGMLType implements Se
             rhsField = (that.isSetAxisLabels() ? that.getAxisLabels() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUomLabels();
-            boolean rhsFieldIsSet = that.isSetUomLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetUomLabels() ? this.getUomLabels() : null);
-            List<String> rhsField;
-            rhsField = (that.isSetUomLabels() ? that.getUomLabels() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

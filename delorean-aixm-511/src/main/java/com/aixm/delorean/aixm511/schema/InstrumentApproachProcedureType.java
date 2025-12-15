@@ -59,7 +59,6 @@ public class InstrumentApproachProcedureType extends AbstractProcedureType imple
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<InstrumentApproachProcedureTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class InstrumentApproachProcedureType extends AbstractProcedureType imple
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = InstrumentApproachProcedureTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_instrumentapproachprocedure_link", schema = "procedure", joinColumns = {

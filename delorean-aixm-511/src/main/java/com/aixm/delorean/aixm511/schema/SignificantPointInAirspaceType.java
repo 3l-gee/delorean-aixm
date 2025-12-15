@@ -59,7 +59,6 @@ public class SignificantPointInAirspaceType extends AbstractAIXMFeatureType impl
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<SignificantPointInAirspaceTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class SignificantPointInAirspaceType extends AbstractAIXMFeatureType impl
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = SignificantPointInAirspaceTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_significantpointinairspace_link", schema = "navaids_point", joinColumns = {

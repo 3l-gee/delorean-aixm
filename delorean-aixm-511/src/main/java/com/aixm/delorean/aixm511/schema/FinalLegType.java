@@ -59,7 +59,6 @@ public class FinalLegType extends AbstractApproachLegType implements Serializabl
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<FinalLegTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class FinalLegType extends AbstractApproachLegType implements Serializabl
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = FinalLegTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_finalleg_link", schema = "procedure", joinColumns = {

@@ -246,21 +246,6 @@ public class MarkerBeaconExtensionType implements Serializable, Equals, HashCode
         }
         final MarkerBeaconExtensionType that = ((MarkerBeaconExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractMarkerBeaconExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractMarkerBeaconExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractMarkerBeaconExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractMarkerBeaconExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkerBeaconExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkerBeaconExtension",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
@@ -284,6 +269,21 @@ public class MarkerBeaconExtensionType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractMarkerBeaconExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractMarkerBeaconExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractMarkerBeaconExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractMarkerBeaconExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkerBeaconExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkerBeaconExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

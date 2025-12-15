@@ -59,7 +59,6 @@ public class RunwayBlastPadType extends AbstractAIXMFeatureType implements Seria
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<RunwayBlastPadTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class RunwayBlastPadType extends AbstractAIXMFeatureType implements Seria
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = RunwayBlastPadTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_runwayblastpad_link", schema = "airport_heliport", joinColumns = {

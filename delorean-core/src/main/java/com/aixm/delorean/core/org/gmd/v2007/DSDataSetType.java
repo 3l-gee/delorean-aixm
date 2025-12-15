@@ -162,19 +162,6 @@ public class DSDataSetType extends AbstractObjectType implements Serializable {
         }
         final DSDataSetType that = ((DSDataSetType) object);
         {
-            boolean lhsFieldIsSet = this.isSetHas();
-            boolean rhsFieldIsSet = that.isSetHas();
-            List<MDMetadataPropertyType> lhsField;
-            lhsField = (this.isSetHas() ? this.getHas() : null);
-            List<MDMetadataPropertyType> rhsField;
-            rhsField = (that.isSetHas() ? that.getHas() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "has", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "has", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPartOf();
             boolean rhsFieldIsSet = that.isSetPartOf();
             List<DSAggregatePropertyType> lhsField;
@@ -183,6 +170,19 @@ public class DSDataSetType extends AbstractObjectType implements Serializable {
             rhsField = (that.isSetPartOf() ? that.getPartOf() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "partOf", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "partOf", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHas();
+            boolean rhsFieldIsSet = that.isSetHas();
+            List<MDMetadataPropertyType> lhsField;
+            lhsField = (this.isSetHas() ? this.getHas() : null);
+            List<MDMetadataPropertyType> rhsField;
+            rhsField = (that.isSetHas() ? that.getHas() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "has", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "has", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

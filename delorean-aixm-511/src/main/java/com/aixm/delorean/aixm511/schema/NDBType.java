@@ -59,7 +59,6 @@ public class NDBType extends AbstractNavaidEquipmentType implements Serializable
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<NDBTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class NDBType extends AbstractNavaidEquipmentType implements Serializable
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = NDBTimeSlicePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_ndb_link", schema = "navaids_point", joinColumns = {
             @JoinColumn(name = "timeslice", referencedColumnName = "hjid")}, inverseJoinColumns = {

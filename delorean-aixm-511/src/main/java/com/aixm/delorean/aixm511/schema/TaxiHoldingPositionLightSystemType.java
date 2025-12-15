@@ -59,7 +59,6 @@ public class TaxiHoldingPositionLightSystemType extends AbstractGroundLightSyste
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<TaxiHoldingPositionLightSystemTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class TaxiHoldingPositionLightSystemType extends AbstractGroundLightSyste
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = TaxiHoldingPositionLightSystemTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_taxiholdingpositionlightsystem_link", schema = "airport_heliport", joinColumns = {

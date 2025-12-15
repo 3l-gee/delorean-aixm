@@ -59,7 +59,6 @@ public class StandardLevelColumnType extends AbstractAIXMFeatureType implements 
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<StandardLevelColumnTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class StandardLevelColumnType extends AbstractAIXMFeatureType implements 
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = StandardLevelColumnTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_standardlevelcolumn_link", schema = "shared", joinColumns = {

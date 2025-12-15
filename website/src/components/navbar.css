@@ -6,7 +6,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  /* gap: 2.5rem; */
   padding: 20px;
   /* background-color: var(--color-bg); */
   background-color: color-mix(in srgb, var(--color-bg) 85%, var(--color-secondary));
@@ -52,7 +52,7 @@
 }
 
 .navbar-icons a {
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .navbar-icons img {

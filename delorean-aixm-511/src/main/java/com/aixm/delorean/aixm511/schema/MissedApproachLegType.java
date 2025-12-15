@@ -59,7 +59,6 @@ public class MissedApproachLegType extends AbstractApproachLegType implements Se
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<MissedApproachLegTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class MissedApproachLegType extends AbstractApproachLegType implements Se
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = MissedApproachLegTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_missedapproachleg_link", schema = "procedure", joinColumns = {

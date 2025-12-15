@@ -249,6 +249,21 @@ public class SpecialNavigationStationStatusTypeExtensionType implements Serializ
         }
         final SpecialNavigationStationStatusTypeExtensionType that = ((SpecialNavigationStationStatusTypeExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractSpecialNavigationStationStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSpecialNavigationStationStatusExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSpecialNavigationStationStatusExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSpecialNavigationStationStatusExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractSpecialNavigationStationStatusExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractSpecialNavigationStationStatusExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
@@ -272,21 +287,6 @@ public class SpecialNavigationStationStatusTypeExtensionType implements Serializ
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractSpecialNavigationStationStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSpecialNavigationStationStatusExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSpecialNavigationStationStatusExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSpecialNavigationStationStatusExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractSpecialNavigationStationStatusExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractSpecialNavigationStationStatusExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

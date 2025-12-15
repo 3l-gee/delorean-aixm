@@ -466,6 +466,32 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
         }
         final AirspaceLayerType that = ((AirspaceLayerType) object);
         {
+            boolean lhsFieldIsSet = this.isSetUpperLimit();
+            boolean rhsFieldIsSet = that.isSetUpperLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getUpperLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getUpperLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDiscreteLevelSeries();
+            boolean rhsFieldIsSet = that.isSetDiscreteLevelSeries();
+            JAXBElement<StandardLevelColumnPropertyType> lhsField;
+            lhsField = this.getDiscreteLevelSeries();
+            JAXBElement<StandardLevelColumnPropertyType> rhsField;
+            rhsField = that.getDiscreteLevelSeries();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "discreteLevelSeries", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "discreteLevelSeries", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLowerLimitReference();
             boolean rhsFieldIsSet = that.isSetLowerLimitReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
@@ -500,32 +526,6 @@ public class AirspaceLayerType extends AbstractAIXMObjectType implements Seriali
             rhsField = that.getUpperLimitReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDiscreteLevelSeries();
-            boolean rhsFieldIsSet = that.isSetDiscreteLevelSeries();
-            JAXBElement<StandardLevelColumnPropertyType> lhsField;
-            lhsField = this.getDiscreteLevelSeries();
-            JAXBElement<StandardLevelColumnPropertyType> rhsField;
-            rhsField = that.getDiscreteLevelSeries();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "discreteLevelSeries", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "discreteLevelSeries", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimit();
-            boolean rhsFieldIsSet = that.isSetUpperLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getUpperLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getUpperLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -144,19 +144,6 @@ public class MultiPointType extends AbstractGeometricAggregateType implements Se
         }
         final MultiPointType that = ((MultiPointType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPointMembers();
-            boolean rhsFieldIsSet = that.isSetPointMembers();
-            PointArrayPropertyType lhsField;
-            lhsField = this.getPointMembers();
-            PointArrayPropertyType rhsField;
-            rhsField = that.getPointMembers();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointMembers", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointMembers", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPointMember();
             boolean rhsFieldIsSet = that.isSetPointMember();
             List<PointPropertyType> lhsField;
@@ -165,6 +152,19 @@ public class MultiPointType extends AbstractGeometricAggregateType implements Se
             rhsField = (that.isSetPointMember() ? that.getPointMember() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointMember", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointMembers();
+            boolean rhsFieldIsSet = that.isSetPointMembers();
+            PointArrayPropertyType lhsField;
+            lhsField = this.getPointMembers();
+            PointArrayPropertyType rhsField;
+            rhsField = that.getPointMembers();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointMembers", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointMembers", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -59,7 +59,6 @@ public class TerminalArrivalAreaType extends AbstractAIXMFeatureType implements 
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<TerminalArrivalAreaTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class TerminalArrivalAreaType extends AbstractAIXMFeatureType implements 
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = TerminalArrivalAreaTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_terminalarrivalarea_link", schema = "procedure", joinColumns = {

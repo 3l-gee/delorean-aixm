@@ -274,14 +274,14 @@ public class EdgeType extends AbstractTopoPrimitiveType implements Serializable 
         }
         final EdgeType that = ((EdgeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCurveProperty();
-            boolean rhsFieldIsSet = that.isSetCurveProperty();
-            CurvePropertyType lhsField;
-            lhsField = this.getCurveProperty();
-            CurvePropertyType rhsField;
-            rhsField = that.getCurveProperty();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveProperty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveProperty", rhsField);
+            boolean lhsFieldIsSet = this.isSetDirectedNode();
+            boolean rhsFieldIsSet = that.isSetDirectedNode();
+            List<DirectedNodePropertyType> lhsField;
+            lhsField = (this.isSetDirectedNode() ? this.getDirectedNode() : null);
+            List<DirectedNodePropertyType> rhsField;
+            rhsField = (that.isSetDirectedNode() ? that.getDirectedNode() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedNode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedNode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -300,14 +300,14 @@ public class EdgeType extends AbstractTopoPrimitiveType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAggregationType();
-            boolean rhsFieldIsSet = that.isSetAggregationType();
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            boolean lhsFieldIsSet = this.isSetCurveProperty();
+            boolean rhsFieldIsSet = that.isSetCurveProperty();
+            CurvePropertyType lhsField;
+            lhsField = this.getCurveProperty();
+            CurvePropertyType rhsField;
+            rhsField = that.getCurveProperty();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveProperty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveProperty", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -326,14 +326,14 @@ public class EdgeType extends AbstractTopoPrimitiveType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDirectedNode();
-            boolean rhsFieldIsSet = that.isSetDirectedNode();
-            List<DirectedNodePropertyType> lhsField;
-            lhsField = (this.isSetDirectedNode() ? this.getDirectedNode() : null);
-            List<DirectedNodePropertyType> rhsField;
-            rhsField = (that.isSetDirectedNode() ? that.getDirectedNode() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedNode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedNode", rhsField);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

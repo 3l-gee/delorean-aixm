@@ -59,7 +59,6 @@ public class DeicingAreaType extends AbstractAIXMFeatureType implements Serializ
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<DeicingAreaTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class DeicingAreaType extends AbstractAIXMFeatureType implements Serializ
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = DeicingAreaTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_deicingarea_link", schema = "airport_heliport", joinColumns = {

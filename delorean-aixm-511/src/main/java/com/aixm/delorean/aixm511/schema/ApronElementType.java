@@ -59,7 +59,6 @@ public class ApronElementType extends AbstractAIXMFeatureType implements Seriali
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<ApronElementTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class ApronElementType extends AbstractAIXMFeatureType implements Seriali
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = ApronElementTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_apronelement_link", schema = "airport_heliport", joinColumns = {

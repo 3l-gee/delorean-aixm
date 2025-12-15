@@ -174,6 +174,32 @@ public class MDSecurityConstraintsType extends MDConstraintsType implements Seri
         }
         final MDSecurityConstraintsType that = ((MDSecurityConstraintsType) object);
         {
+            boolean lhsFieldIsSet = this.isSetClassificationSystem();
+            boolean rhsFieldIsSet = that.isSetClassificationSystem();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getClassificationSystem();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getClassificationSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classificationSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classificationSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClassification();
+            boolean rhsFieldIsSet = that.isSetClassification();
+            MDClassificationCodePropertyType lhsField;
+            lhsField = this.getClassification();
+            MDClassificationCodePropertyType rhsField;
+            rhsField = that.getClassification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classification", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetUserNote();
             boolean rhsFieldIsSet = that.isSetUserNote();
             CharacterStringPropertyType lhsField;
@@ -195,32 +221,6 @@ public class MDSecurityConstraintsType extends MDConstraintsType implements Seri
             rhsField = that.getHandlingDescription();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "handlingDescription", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "handlingDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClassification();
-            boolean rhsFieldIsSet = that.isSetClassification();
-            MDClassificationCodePropertyType lhsField;
-            lhsField = this.getClassification();
-            MDClassificationCodePropertyType rhsField;
-            rhsField = that.getClassification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classification", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClassificationSystem();
-            boolean rhsFieldIsSet = that.isSetClassificationSystem();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getClassificationSystem();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getClassificationSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classificationSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classificationSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

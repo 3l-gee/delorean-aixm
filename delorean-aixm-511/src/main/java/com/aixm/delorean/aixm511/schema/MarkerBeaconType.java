@@ -59,7 +59,6 @@ public class MarkerBeaconType extends AbstractNavaidEquipmentType implements Ser
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<MarkerBeaconTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class MarkerBeaconType extends AbstractNavaidEquipmentType implements Ser
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = MarkerBeaconTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_markerbeacon_link", schema = "navaids_point", joinColumns = {

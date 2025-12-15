@@ -295,32 +295,6 @@ public class RunwayDeclaredDistanceType extends AbstractAIXMObjectType implement
         }
         final RunwayDeclaredDistanceType that = ((RunwayDeclaredDistanceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeDeclaredDistanceType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeDeclaredDistanceType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDeclaredValue();
-            boolean rhsFieldIsSet = that.isSetDeclaredValue();
-            List<RunwayDeclaredDistanceValuePropertyType> lhsField;
-            lhsField = (this.isSetDeclaredValue() ? this.getDeclaredValue() : null);
-            List<RunwayDeclaredDistanceValuePropertyType> rhsField;
-            rhsField = (that.isSetDeclaredValue() ? that.getDeclaredValue() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "declaredValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "declaredValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<RunwayDeclaredDistanceTypeExtensionType> lhsField;
@@ -342,6 +316,32 @@ public class RunwayDeclaredDistanceType extends AbstractAIXMObjectType implement
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeDeclaredDistanceType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeDeclaredDistanceType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDeclaredValue();
+            boolean rhsFieldIsSet = that.isSetDeclaredValue();
+            List<RunwayDeclaredDistanceValuePropertyType> lhsField;
+            lhsField = (this.isSetDeclaredValue() ? this.getDeclaredValue() : null);
+            List<RunwayDeclaredDistanceValuePropertyType> rhsField;
+            rhsField = (that.isSetDeclaredValue() ? that.getDeclaredValue() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "declaredValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "declaredValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

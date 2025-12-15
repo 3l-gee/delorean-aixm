@@ -59,7 +59,6 @@ public class AeronauticalGroundLightType extends AbstractAIXMFeatureType impleme
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<AeronauticalGroundLightTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class AeronauticalGroundLightType extends AbstractAIXMFeatureType impleme
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = AeronauticalGroundLightTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_aeronauticalgroundlight_link", schema = "navaids_point", joinColumns = {

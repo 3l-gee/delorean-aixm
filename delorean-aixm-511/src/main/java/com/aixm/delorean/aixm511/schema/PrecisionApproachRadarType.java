@@ -59,7 +59,6 @@ public class PrecisionApproachRadarType extends AbstractRadarEquipmentType imple
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<PrecisionApproachRadarTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class PrecisionApproachRadarType extends AbstractRadarEquipmentType imple
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = PrecisionApproachRadarTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_precisionapproachradar_link", schema = "surveillance", joinColumns = {

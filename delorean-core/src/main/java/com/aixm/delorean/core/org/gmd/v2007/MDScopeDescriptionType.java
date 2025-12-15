@@ -334,53 +334,14 @@ public class MDScopeDescriptionType implements Serializable, Equals, HashCode, T
         }
         final MDScopeDescriptionType that = ((MDScopeDescriptionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOther();
-            boolean rhsFieldIsSet = that.isSetOther();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getOther();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getOther();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "other", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "other", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAttributeInstances();
-            boolean rhsFieldIsSet = that.isSetAttributeInstances();
+            boolean lhsFieldIsSet = this.isSetAttributes();
+            boolean rhsFieldIsSet = that.isSetAttributes();
             List<ObjectReferencePropertyType> lhsField;
-            lhsField = (this.isSetAttributeInstances() ? this.getAttributeInstances() : null);
+            lhsField = (this.isSetAttributes() ? this.getAttributes() : null);
             List<ObjectReferencePropertyType> rhsField;
-            rhsField = (that.isSetAttributeInstances() ? that.getAttributeInstances() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "attributeInstances", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "attributeInstances", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDataset();
-            boolean rhsFieldIsSet = that.isSetDataset();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getDataset();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getDataset();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataset", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataset", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFeatures();
-            boolean rhsFieldIsSet = that.isSetFeatures();
-            List<ObjectReferencePropertyType> lhsField;
-            lhsField = (this.isSetFeatures() ? this.getFeatures() : null);
-            List<ObjectReferencePropertyType> rhsField;
-            rhsField = (that.isSetFeatures() ? that.getFeatures() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "features", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "features", rhsField);
+            rhsField = (that.isSetAttributes() ? that.getAttributes() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "attributes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "attributes", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -399,14 +360,53 @@ public class MDScopeDescriptionType implements Serializable, Equals, HashCode, T
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAttributes();
-            boolean rhsFieldIsSet = that.isSetAttributes();
+            boolean lhsFieldIsSet = this.isSetFeatures();
+            boolean rhsFieldIsSet = that.isSetFeatures();
             List<ObjectReferencePropertyType> lhsField;
-            lhsField = (this.isSetAttributes() ? this.getAttributes() : null);
+            lhsField = (this.isSetFeatures() ? this.getFeatures() : null);
             List<ObjectReferencePropertyType> rhsField;
-            rhsField = (that.isSetAttributes() ? that.getAttributes() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "attributes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "attributes", rhsField);
+            rhsField = (that.isSetFeatures() ? that.getFeatures() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "features", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "features", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAttributeInstances();
+            boolean rhsFieldIsSet = that.isSetAttributeInstances();
+            List<ObjectReferencePropertyType> lhsField;
+            lhsField = (this.isSetAttributeInstances() ? this.getAttributeInstances() : null);
+            List<ObjectReferencePropertyType> rhsField;
+            rhsField = (that.isSetAttributeInstances() ? that.getAttributeInstances() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "attributeInstances", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "attributeInstances", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOther();
+            boolean rhsFieldIsSet = that.isSetOther();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getOther();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getOther();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "other", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "other", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataset();
+            boolean rhsFieldIsSet = that.isSetDataset();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getDataset();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getDataset();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataset", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataset", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

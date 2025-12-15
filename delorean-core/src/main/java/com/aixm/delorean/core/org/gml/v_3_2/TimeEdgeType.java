@@ -143,19 +143,6 @@ public class TimeEdgeType extends AbstractTimeTopologyPrimitiveType implements S
         }
         final TimeEdgeType that = ((TimeEdgeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetEnd();
-            boolean rhsFieldIsSet = that.isSetEnd();
-            TimeNodePropertyType lhsField;
-            lhsField = this.getEnd();
-            TimeNodePropertyType rhsField;
-            rhsField = that.getEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "end", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "end", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtent();
             boolean rhsFieldIsSet = that.isSetExtent();
             TimePeriodPropertyType lhsField;
@@ -177,6 +164,19 @@ public class TimeEdgeType extends AbstractTimeTopologyPrimitiveType implements S
             rhsField = that.getStart();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEnd();
+            boolean rhsFieldIsSet = that.isSetEnd();
+            TimeNodePropertyType lhsField;
+            lhsField = this.getEnd();
+            TimeNodePropertyType rhsField;
+            rhsField = that.getEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "end", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "end", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -266,19 +266,6 @@ public class OperationMethodType extends IdentifiedObjectType implements Seriali
         }
         final OperationMethodType that = ((OperationMethodType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFormulaCitation();
-            boolean rhsFieldIsSet = that.isSetFormulaCitation();
-            FormulaCitation lhsField;
-            lhsField = this.getFormulaCitation();
-            FormulaCitation rhsField;
-            rhsField = that.getFormulaCitation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formulaCitation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formulaCitation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTargetDimensions();
             boolean rhsFieldIsSet = that.isSetTargetDimensions();
             BigInteger lhsField;
@@ -292,14 +279,14 @@ public class OperationMethodType extends IdentifiedObjectType implements Seriali
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSourceDimensions();
-            boolean rhsFieldIsSet = that.isSetSourceDimensions();
-            BigInteger lhsField;
-            lhsField = this.getSourceDimensions();
-            BigInteger rhsField;
-            rhsField = that.getSourceDimensions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceDimensions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceDimensions", rhsField);
+            boolean lhsFieldIsSet = this.isSetFormulaCitation();
+            boolean rhsFieldIsSet = that.isSetFormulaCitation();
+            FormulaCitation lhsField;
+            lhsField = this.getFormulaCitation();
+            FormulaCitation rhsField;
+            rhsField = that.getFormulaCitation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formulaCitation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formulaCitation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -326,6 +313,19 @@ public class OperationMethodType extends IdentifiedObjectType implements Seriali
             rhsField = that.getFormula();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formula", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formula", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSourceDimensions();
+            boolean rhsFieldIsSet = that.isSetSourceDimensions();
+            BigInteger lhsField;
+            lhsField = this.getSourceDimensions();
+            BigInteger rhsField;
+            rhsField = that.getSourceDimensions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceDimensions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceDimensions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

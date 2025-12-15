@@ -59,7 +59,6 @@ public class SecondarySurveillanceRadarType extends AbstractSurveillanceRadarTyp
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<SecondarySurveillanceRadarTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class SecondarySurveillanceRadarType extends AbstractSurveillanceRadarTyp
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = SecondarySurveillanceRadarTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_secondarysurveillanceradar_link", schema = "surveillance", joinColumns = {

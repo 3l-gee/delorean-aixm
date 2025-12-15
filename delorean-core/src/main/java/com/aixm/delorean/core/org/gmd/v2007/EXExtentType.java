@@ -240,32 +240,6 @@ public class EXExtentType extends AbstractObjectType implements Serializable {
         }
         final EXExtentType that = ((EXExtentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDescription();
-            boolean rhsFieldIsSet = that.isSetDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVerticalElement();
-            boolean rhsFieldIsSet = that.isSetVerticalElement();
-            List<EXVerticalExtentPropertyType> lhsField;
-            lhsField = (this.isSetVerticalElement() ? this.getVerticalElement() : null);
-            List<EXVerticalExtentPropertyType> rhsField;
-            rhsField = (that.isSetVerticalElement() ? that.getVerticalElement() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTemporalElement();
             boolean rhsFieldIsSet = that.isSetTemporalElement();
             List<EXTemporalExtentPropertyType> lhsField;
@@ -287,6 +261,32 @@ public class EXExtentType extends AbstractObjectType implements Serializable {
             rhsField = (that.isSetGeographicElement() ? that.getGeographicElement() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geographicElement", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geographicElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalElement();
+            boolean rhsFieldIsSet = that.isSetVerticalElement();
+            List<EXVerticalExtentPropertyType> lhsField;
+            lhsField = (this.isSetVerticalElement() ? this.getVerticalElement() : null);
+            List<EXVerticalExtentPropertyType> rhsField;
+            rhsField = (that.isSetVerticalElement() ? that.getVerticalElement() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

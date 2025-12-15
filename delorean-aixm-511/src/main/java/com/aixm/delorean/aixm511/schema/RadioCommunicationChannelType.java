@@ -59,7 +59,6 @@ public class RadioCommunicationChannelType extends AbstractAIXMFeatureType imple
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<RadioCommunicationChannelTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class RadioCommunicationChannelType extends AbstractAIXMFeatureType imple
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = RadioCommunicationChannelTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_radiocommunicationchannel_link", schema = "service", joinColumns = {

@@ -186,19 +186,6 @@ public class TimeNodeType extends AbstractTimeTopologyPrimitiveType implements S
         }
         final TimeNodeType that = ((TimeNodeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPosition();
-            boolean rhsFieldIsSet = that.isSetPosition();
-            TimeInstantPropertyType lhsField;
-            lhsField = this.getPosition();
-            TimeInstantPropertyType rhsField;
-            rhsField = that.getPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNextEdge();
             boolean rhsFieldIsSet = that.isSetNextEdge();
             List<TimeEdgePropertyType> lhsField;
@@ -220,6 +207,19 @@ public class TimeNodeType extends AbstractTimeTopologyPrimitiveType implements S
             rhsField = (that.isSetPreviousEdge() ? that.getPreviousEdge() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "previousEdge", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "previousEdge", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPosition();
+            boolean rhsFieldIsSet = that.isSetPosition();
+            TimeInstantPropertyType lhsField;
+            lhsField = this.getPosition();
+            TimeInstantPropertyType rhsField;
+            rhsField = that.getPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

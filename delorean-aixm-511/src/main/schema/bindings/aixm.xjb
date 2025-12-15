@@ -2033,7 +2033,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AerialRefuellingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_aerialrefuelling_link" schema="aerial_refuelling">
@@ -2310,7 +2310,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirportHeliportType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_airportheliport_link" schema="airport_heliport">
@@ -2423,7 +2423,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirportHeliportCollocationType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_airportheliportcollocation_link" schema="airport_heliport">
@@ -2631,7 +2631,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirportHotSpotType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_airporthotspot_link" schema="airport_heliport">
@@ -2682,7 +2682,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AltimeterSourceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_altimetersource_link" schema="airport_heliport">
@@ -2886,7 +2886,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='NonMovementAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_nonmovementarea_link" schema="airport_heliport">
@@ -2966,7 +2966,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SurveyControlPointType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_surveycontrolpoint_link" schema="airport_heliport">
@@ -3031,7 +3031,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='WorkAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_workarea_link" schema="airport_heliport">
@@ -3144,7 +3144,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AircraftStandType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_aircraftstand_link" schema="airport_heliport">
@@ -3195,7 +3195,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ApronType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_apron_link" schema="airport_heliport">
@@ -3392,7 +3392,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ApronElementType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_apronelement_link" schema="airport_heliport">
@@ -3443,7 +3443,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='DeicingAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_deicingarea_link" schema="airport_heliport">
@@ -3494,7 +3494,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PassengerLoadingBridgeType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_passengerloadingbridge_link" schema="airport_heliport">
@@ -3545,7 +3545,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RoadType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_road_link" schema="airport_heliport">
@@ -3596,7 +3596,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_touchdownliftoff_link" schema="airport_heliport">
@@ -3647,7 +3647,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffSafeAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_touchdownliftoffsafearea_link" schema="airport_heliport">
@@ -3704,7 +3704,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ApproachLightingSystemType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_approachlightingsystem_link" schema="airport_heliport">
@@ -3761,7 +3761,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ApronLightSystemType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_apronlightsystem_link" schema="airport_heliport">
@@ -3891,7 +3891,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='GuidanceLineLightSystemType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_guidancelinelightsystem_link" schema="airport_heliport">
@@ -3977,7 +3977,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayDirectionLightSystemType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_runwaydirectionlightsystem_link" schema="airport_heliport">
@@ -4034,7 +4034,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayProtectAreaLightSystemType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_runwayprotectarealightsystem_link" schema="airport_heliport">
@@ -4091,7 +4091,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TaxiHoldingPositionLightSystemType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_taxiholdingpositionlightsystem_link" schema="airport_heliport">
@@ -4148,7 +4148,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TaxiwayLightSystemType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_taxiwaylightsystem_link" schema="airport_heliport">
@@ -4205,7 +4205,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffLightSystemType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_touchdownliftofflightsystem_link" schema="airport_heliport">
@@ -4262,7 +4262,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirportProtectionAreaMarkingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_airportprotectionareamarking_link" schema="airport_heliport">
@@ -4319,7 +4319,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ApronMarkingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_apronmarking_link" schema="airport_heliport">
@@ -4376,7 +4376,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='DeicingAreaMarkingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_deicingareamarking_link" schema="airport_heliport">
@@ -4433,7 +4433,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='GuidanceLineMarkingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_guidancelinemarking_link" schema="airport_heliport">
@@ -4530,7 +4530,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayMarkingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_runwaymarking_link" schema="airport_heliport">
@@ -4587,7 +4587,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='StandMarkingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_standmarking_link" schema="airport_heliport">
@@ -4644,7 +4644,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TaxiHoldingPositionMarkingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_taxiholdingpositionmarking_link" schema="airport_heliport">
@@ -4701,7 +4701,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TaxiwayMarkingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_taxiwaymarking_link" schema="airport_heliport">
@@ -4758,7 +4758,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffMarkingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_touchdownliftoffmarking_link" schema="airport_heliport">
@@ -4815,7 +4815,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ArrestingGearType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_arrestinggear_link" schema="airport_heliport">
@@ -5041,7 +5041,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_runway_link" schema="airport_heliport">
@@ -5092,7 +5092,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayBlastPadType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_runwayblastpad_link" schema="airport_heliport">
@@ -5143,7 +5143,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayCentrelinePointType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_runwaycentrelinepoint_link" schema="airport_heliport">
@@ -5285,7 +5285,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayDirectionType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_runwaydirection_link" schema="airport_heliport">
@@ -5336,7 +5336,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayElementType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_runwayelement_link" schema="airport_heliport">
@@ -5387,7 +5387,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayProtectAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_runwayprotectarea_link" schema="airport_heliport">
@@ -5444,7 +5444,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RunwayVisualRangeType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_runwayvisualrange_link" schema="airport_heliport">
@@ -5495,7 +5495,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='VisualGlideSlopeIndicatorType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_visualglideslopeindicator_link" schema="airport_heliport">
@@ -5552,7 +5552,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FloatingDockSiteType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_floatingdocksite_link" schema="airport_heliport">
@@ -5603,7 +5603,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='MarkingBuoyType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_markingbuoy_link" schema="airport_heliport">
@@ -5654,7 +5654,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SeaplaneLandingAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_seaplanelandingarea_link" schema="airport_heliport">
@@ -5705,7 +5705,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SeaplaneRampSiteType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_seaplanerampsite_link" schema="airport_heliport">
@@ -7053,7 +7053,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='GuidanceLineType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_guidanceline_link" schema="airport_heliport">
@@ -7104,7 +7104,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TaxiHoldingPositionType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_taxiholdingposition_link" schema="airport_heliport">
@@ -7155,7 +7155,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TaxiwayType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_taxiway_link" schema="airport_heliport">
@@ -7206,7 +7206,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TaxiwayElementType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_taxiwayelement_link" schema="airport_heliport">
@@ -7257,7 +7257,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirspaceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_airspace_link" schema="airspace">
@@ -7519,7 +7519,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AuthorityForAirspaceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_authorityforairspace_link" schema="airspace">
@@ -7570,7 +7570,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='GeoBorderType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_geoborder_link" schema="airspace">
@@ -7621,7 +7621,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='HoldingPatternType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_holdingpattern_link" schema="holding">
@@ -7730,7 +7730,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='UnplannedHoldingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_unplannedholding_link" schema="holding">
@@ -7868,7 +7868,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AzimuthType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_azimuth_link" schema="navaids_point">
@@ -7925,7 +7925,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CheckpointINSType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_checkpointins_link" schema="navaids_point">
@@ -7982,7 +7982,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CheckpointVORType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_checkpointvor_link" schema="navaids_point">
@@ -8039,7 +8039,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='DirectionFinderType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_directionfinder_link" schema="navaids_point">
@@ -8096,7 +8096,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='DMEType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_dme_link" schema="navaids_point">
@@ -8153,7 +8153,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevationType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_elevation_link" schema="navaids_point">
@@ -8210,7 +8210,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='GlidepathType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_glidepath_link" schema="navaids_point">
@@ -8267,7 +8267,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='LocalizerType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_localizer_link" schema="navaids_point">
@@ -8324,7 +8324,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='MarkerBeaconType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_markerbeacon_link" schema="navaids_point">
@@ -8381,7 +8381,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='NavaidType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_navaid_link" schema="navaids_point">
@@ -8607,7 +8607,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='NDBType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_ndb_link" schema="navaids_point">
@@ -8664,7 +8664,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SDFType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_sdf_link" schema="navaids_point">
@@ -8721,7 +8721,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SpecialNavigationStationType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_specialnavigationstation_link" schema="navaids_point">
@@ -8834,7 +8834,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SpecialNavigationSystemType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_specialnavigationsystem_link" schema="navaids_point">
@@ -8885,7 +8885,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TACANType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_tacan_link" schema="navaids_point">
@@ -8942,7 +8942,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='VORType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_vor_link" schema="navaids_point">
@@ -8999,7 +8999,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AngleIndicationType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_angleindication_link" schema="navaids_point">
@@ -9079,7 +9079,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='DistanceIndicationType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_distanceindication_link" schema="navaids_point">
@@ -9451,7 +9451,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='DesignatedPointType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_designatedpoint_link" schema="navaids_point">
@@ -9502,7 +9502,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SignificantPointInAirspaceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_significantpointinairspace_link" schema="navaids_point">
@@ -9553,7 +9553,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AeronauticalGroundLightType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_aeronauticalgroundlight_link" schema="navaids_point">
@@ -9662,7 +9662,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ObstacleAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_obstaclearea_link" schema="obstacle">
@@ -9713,7 +9713,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='VerticalStructureType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_verticalstructure_link" schema="obstacle">
@@ -9888,7 +9888,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='OrganisationAuthorityType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_organisationauthority_link" schema="organisation">
@@ -9968,7 +9968,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='UnitType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_unit_link" schema="organisation">
@@ -10255,7 +10255,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='InstrumentApproachProcedureType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_instrumentapproachprocedure_link" schema="procedure">
@@ -10341,7 +10341,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TerminalArrivalAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_terminalarrivalarea_link" schema="procedure">
@@ -10450,7 +10450,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CirclingAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_circlingarea_link" schema="procedure">
@@ -10650,7 +10650,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='StandardInstrumentArrivalType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_standardinstrumentarrival_link" schema="procedure">
@@ -10736,7 +10736,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='NavigationAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_navigationarea_link" schema="procedure">
@@ -10845,7 +10845,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='StandardInstrumentDepartureType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_standardinstrumentdeparture_link" schema="procedure">
@@ -10902,7 +10902,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SafeAltitudeAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_safealtitudearea_link" schema="procedure">
@@ -10993,7 +10993,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ArrivalFeederLegType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_arrivalfeederleg_link" schema="procedure">
@@ -11056,7 +11056,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ArrivalLegType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_arrivalleg_link" schema="procedure">
@@ -11113,7 +11113,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='DepartureLegType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_departureleg_link" schema="procedure">
@@ -11170,7 +11170,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FinalLegType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_finalleg_link" schema="procedure">
@@ -11262,7 +11262,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='InitialLegType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_initialleg_link" schema="procedure">
@@ -11325,7 +11325,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='IntermediateLegType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_intermediateleg_link" schema="procedure">
@@ -11417,7 +11417,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='MissedApproachLegType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_missedapproachleg_link" schema="procedure">
@@ -11480,7 +11480,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='NavigationAreaRestrictionType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_navigationarearestriction_link" schema="procedure">
@@ -11542,7 +11542,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ProcedureDMEType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_proceduredme_link" schema="procedure">
@@ -11724,7 +11724,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ChangeOverPointType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_changeoverpoint_link" schema="route">
@@ -11775,7 +11775,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RouteType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_route_link" schema="route">
@@ -11888,7 +11888,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RouteDMEType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_routedme_link" schema="route">
@@ -11968,7 +11968,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RouteSegmentType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_routesegment_link" schema="route">
@@ -12019,7 +12019,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirspaceBorderCrossingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_airspacebordercrossing_link" schema="route">
@@ -12292,7 +12292,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FlightRestrictionType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_flightrestriction_link" schema="route">
@@ -12430,7 +12430,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RulesProceduresType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_rulesprocedures_link" schema="rules_procedure">
@@ -12481,7 +12481,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AircraftGroundServiceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_aircraftgroundservice_link" schema="service">
@@ -12544,7 +12544,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirportClearanceServiceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_airportclearanceservice_link" schema="service">
@@ -12618,7 +12618,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirportSuppliesServiceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_airportsuppliesservice_link" schema="service">
@@ -12681,7 +12681,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirTrafficControlServiceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_airtrafficcontrolservice_link" schema="service">
@@ -12744,7 +12744,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AirTrafficManagementServiceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_airtrafficmanagementservice_link" schema="service">
@@ -12830,7 +12830,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FireFightingServiceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_firefightingservice_link" schema="service">
@@ -12922,7 +12922,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='GroundTrafficControlServiceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_groundtrafficcontrolservice_link" schema="service">
@@ -12985,7 +12985,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='InformationServiceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_informationservice_link" schema="service">
@@ -13129,7 +13129,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PassengerServiceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_passengerservice_link" schema="service">
@@ -13192,7 +13192,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PilotControlledLightingType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_pilotcontrolledlighting_link" schema="service">
@@ -13243,7 +13243,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RadioCommunicationChannelType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_radiocommunicationchannel_link" schema="service">
@@ -13356,7 +13356,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SearchRescueServiceType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_searchrescueservice_link" schema="service">
@@ -13948,7 +13948,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RadioFrequencyAreaType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_radiofrequencyarea_link" schema="shared">
@@ -14013,7 +14013,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SpecialDateType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_specialdate_link" schema="shared">
@@ -14122,7 +14122,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='StandardLevelColumnType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_standardlevelcolumn_link" schema="shared">
@@ -14173,7 +14173,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='StandardLevelSectorType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_standardlevelsector_link" schema="shared">
@@ -14224,7 +14224,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='StandardLevelTableType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_standardleveltable_link" schema="shared">
@@ -14304,7 +14304,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='HoldingAssessmentType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_holdingassessment_link" schema="shared">
@@ -14442,7 +14442,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PrecisionApproachRadarType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_precisionapproachradar_link" schema="surveillance">
@@ -14499,7 +14499,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PrimarySurveillanceRadarType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_primarysurveillanceradar_link" schema="surveillance">
@@ -14602,7 +14602,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='RadarSystemType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_radarsystem_link" schema="surveillance">
@@ -14682,7 +14682,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SecondarySurveillanceRadarType']//xs:element[@name='timeSlice']">
-      <annox:annotate target="field">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
+      <annox:annotate target="getter">@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")</annox:annotate>
       <!-- Types -->
       <hj:many-to-many>
         <orm:join-table name="timeslice_secondarysurveillanceradar_link" schema="surveillance">

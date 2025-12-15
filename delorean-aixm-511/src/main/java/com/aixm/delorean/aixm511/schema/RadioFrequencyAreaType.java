@@ -59,7 +59,6 @@ public class RadioFrequencyAreaType extends AbstractAIXMFeatureType implements S
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<RadioFrequencyAreaTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class RadioFrequencyAreaType extends AbstractAIXMFeatureType implements S
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = RadioFrequencyAreaTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_radiofrequencyarea_link", schema = "shared", joinColumns = {

@@ -446,19 +446,6 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
         }
         final ContactInformationType that = ((ContactInformationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNetworkNode();
-            boolean rhsFieldIsSet = that.isSetNetworkNode();
-            List<OnlineContactPropertyType> lhsField;
-            lhsField = (this.isSetNetworkNode() ? this.getNetworkNode() : null);
-            List<OnlineContactPropertyType> rhsField;
-            rhsField = (that.isSetNetworkNode() ? that.getNetworkNode() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "networkNode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "networkNode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<ContactInformationTypeExtensionType> lhsField;
@@ -498,14 +485,27 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetTitle();
+            boolean rhsFieldIsSet = that.isSetTitle();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getTitle();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNetworkNode();
+            boolean rhsFieldIsSet = that.isSetNetworkNode();
+            List<OnlineContactPropertyType> lhsField;
+            lhsField = (this.isSetNetworkNode() ? this.getNetworkNode() : null);
+            List<OnlineContactPropertyType> rhsField;
+            rhsField = (that.isSetNetworkNode() ? that.getNetworkNode() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "networkNode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "networkNode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -524,14 +524,14 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTitle();
-            boolean rhsFieldIsSet = that.isSetTitle();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getTitle();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

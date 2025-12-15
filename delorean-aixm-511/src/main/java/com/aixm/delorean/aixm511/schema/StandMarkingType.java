@@ -58,7 +58,6 @@ public class StandMarkingType extends AbstractMarkingType implements Serializabl
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<StandMarkingTimeSlicePropertyType> timeSlice;
 
     /**
@@ -84,6 +83,7 @@ public class StandMarkingType extends AbstractMarkingType implements Serializabl
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = StandMarkingTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_standmarking_link", schema = "airport_heliport", joinColumns = {

@@ -59,7 +59,6 @@ public class TaxiHoldingPositionType extends AbstractAIXMFeatureType implements 
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<TaxiHoldingPositionTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class TaxiHoldingPositionType extends AbstractAIXMFeatureType implements 
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = TaxiHoldingPositionTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_taxiholdingposition_link", schema = "airport_heliport", joinColumns = {

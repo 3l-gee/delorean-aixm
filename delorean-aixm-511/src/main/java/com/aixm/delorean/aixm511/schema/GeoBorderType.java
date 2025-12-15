@@ -59,7 +59,6 @@ public class GeoBorderType extends AbstractAIXMFeatureType implements Serializab
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<GeoBorderTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class GeoBorderType extends AbstractAIXMFeatureType implements Serializab
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = GeoBorderTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_geoborder_link", schema = "airspace", joinColumns = {

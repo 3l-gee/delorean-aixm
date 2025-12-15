@@ -59,7 +59,6 @@ public class VisualGlideSlopeIndicatorType extends AbstractGroundLightSystemType
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<VisualGlideSlopeIndicatorTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class VisualGlideSlopeIndicatorType extends AbstractGroundLightSystemType
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = VisualGlideSlopeIndicatorTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_visualglideslopeindicator_link", schema = "airport_heliport", joinColumns = {

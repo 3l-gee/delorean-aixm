@@ -206,7 +206,7 @@ class FieldHandler:
 
         # special case timeslice filter
         if element.attrib.get("name") == "timeSlice":
-            node.append(Annox.field_add(HyperJAXB.orm_tsp_filter()))
+            node.append(Annox.getter_add(HyperJAXB.orm_tsp_filter()))
 
         # spacial cases name must be renamed to aixmName
         if element.attrib.get("name") == "name":

@@ -23,7 +23,7 @@ class Coordinator:
         self.export_xjb()
         Content.save_transposition()
 
-        self.save_entity_class(Content.get_entity(), "entities.txt")
+        self.save_entity_class(Content.get_entity(), "entities.txt.log")
 
     def export_file(self, file_path, content):
         with open(file_path, 'w') as f:

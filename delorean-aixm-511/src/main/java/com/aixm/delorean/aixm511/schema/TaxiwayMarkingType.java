@@ -58,7 +58,6 @@ public class TaxiwayMarkingType extends AbstractMarkingType implements Serializa
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<TaxiwayMarkingTimeSlicePropertyType> timeSlice;
 
     /**
@@ -84,6 +83,7 @@ public class TaxiwayMarkingType extends AbstractMarkingType implements Serializa
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = TaxiwayMarkingTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_taxiwaymarking_link", schema = "airport_heliport", joinColumns = {

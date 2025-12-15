@@ -59,7 +59,6 @@ public class DepartureLegType extends AbstractSegmentLegType implements Serializ
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<DepartureLegTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class DepartureLegType extends AbstractSegmentLegType implements Serializ
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = DepartureLegTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_departureleg_link", schema = "procedure", joinColumns = {

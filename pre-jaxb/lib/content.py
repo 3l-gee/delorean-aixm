@@ -80,7 +80,7 @@ class Content(metaclass=SingletonMeta):
         for key, value in Content().content.items():
             output = output | value["simple_type"]["transposition"]
 
-        with open('transposition.json', 'w') as fp:
+        with open('transposition.json.log', 'w') as fp:
             json.dump(output, fp, indent=4)
     
     @staticmethod

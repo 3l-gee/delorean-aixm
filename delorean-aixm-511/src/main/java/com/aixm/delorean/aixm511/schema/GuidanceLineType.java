@@ -59,7 +59,6 @@ public class GuidanceLineType extends AbstractAIXMFeatureType implements Seriali
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<GuidanceLineTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class GuidanceLineType extends AbstractAIXMFeatureType implements Seriali
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = GuidanceLineTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_guidanceline_link", schema = "airport_heliport", joinColumns = {

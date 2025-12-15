@@ -59,7 +59,6 @@ public class TouchDownLiftOffType extends AbstractAIXMFeatureType implements Ser
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<TouchDownLiftOffTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class TouchDownLiftOffType extends AbstractAIXMFeatureType implements Ser
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = TouchDownLiftOffTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_touchdownliftoff_link", schema = "airport_heliport", joinColumns = {

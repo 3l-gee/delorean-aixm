@@ -161,19 +161,6 @@ public class CITelephoneType extends AbstractObjectType implements Serializable 
         }
         final CITelephoneType that = ((CITelephoneType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVoice();
-            boolean rhsFieldIsSet = that.isSetVoice();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetVoice() ? this.getVoice() : null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetVoice() ? that.getVoice() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "voice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "voice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFacsimile();
             boolean rhsFieldIsSet = that.isSetFacsimile();
             List<CharacterStringPropertyType> lhsField;
@@ -182,6 +169,19 @@ public class CITelephoneType extends AbstractObjectType implements Serializable 
             rhsField = (that.isSetFacsimile() ? that.getFacsimile() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facsimile", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facsimile", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVoice();
+            boolean rhsFieldIsSet = that.isSetVoice();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetVoice() ? this.getVoice() : null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetVoice() ? that.getVoice() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "voice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "voice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

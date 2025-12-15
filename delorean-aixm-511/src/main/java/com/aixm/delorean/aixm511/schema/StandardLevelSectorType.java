@@ -59,7 +59,6 @@ public class StandardLevelSectorType extends AbstractAIXMFeatureType implements 
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<StandardLevelSectorTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class StandardLevelSectorType extends AbstractAIXMFeatureType implements 
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = StandardLevelSectorTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_standardlevelsector_link", schema = "shared", joinColumns = {

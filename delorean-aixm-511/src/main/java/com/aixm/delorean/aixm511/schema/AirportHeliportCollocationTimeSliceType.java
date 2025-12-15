@@ -330,19 +330,6 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
         }
         final AirportHeliportCollocationTimeSliceType that = ((AirportHeliportCollocationTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDependentAirport();
-            boolean rhsFieldIsSet = that.isSetDependentAirport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getDependentAirport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getDependentAirport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependentAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependentAirport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AirportHeliportCollocationExtensionType> lhsField;
@@ -364,6 +351,19 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDependentAirport();
+            boolean rhsFieldIsSet = that.isSetDependentAirport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getDependentAirport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getDependentAirport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependentAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependentAirport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

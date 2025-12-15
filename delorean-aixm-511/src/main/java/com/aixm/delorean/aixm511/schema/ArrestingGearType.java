@@ -59,7 +59,6 @@ public class ArrestingGearType extends AbstractAIXMFeatureType implements Serial
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<ArrestingGearTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class ArrestingGearType extends AbstractAIXMFeatureType implements Serial
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = ArrestingGearTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_arrestinggear_link", schema = "airport_heliport", joinColumns = {

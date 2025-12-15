@@ -59,7 +59,6 @@ public class AuthorityForAirspaceType extends AbstractAIXMFeatureType implements
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<AuthorityForAirspaceTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class AuthorityForAirspaceType extends AbstractAIXMFeatureType implements
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = AuthorityForAirspaceTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_authorityforairspace_link", schema = "airspace", joinColumns = {

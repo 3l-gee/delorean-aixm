@@ -58,7 +58,6 @@ public class TouchDownLiftOffMarkingType extends AbstractMarkingType implements 
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<TouchDownLiftOffMarkingTimeSlicePropertyType> timeSlice;
 
     /**
@@ -84,6 +83,7 @@ public class TouchDownLiftOffMarkingType extends AbstractMarkingType implements 
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = TouchDownLiftOffMarkingTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_touchdownliftoffmarking_link", schema = "airport_heliport", joinColumns = {

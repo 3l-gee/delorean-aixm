@@ -23,6 +23,9 @@ export function Navbar({ onNavigate , onCleanBackground}) {
 
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const logoSrc = lightTheme
+    ? "/src/assets/logo/delorean-aixm-logo-big-light.png"
+    : "/src/assets/logo/delorean-aixm-logo-big-dark.png";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,11 +50,11 @@ export function Navbar({ onNavigate , onCleanBackground}) {
           onClick={() => onCleanBackground(false)}
         >
           <img
-            src="/src/assets/logo/delorean-aixm-logo-big-transparent.png"
+            src={logoSrc}
             alt="Delorean AIXM Logo"
             className="navbar-logo-image"
-            width="600"
-            height="auto"
+            width="520"
+            height="60"
           />
         </Link>
       <div className="navbar-links">

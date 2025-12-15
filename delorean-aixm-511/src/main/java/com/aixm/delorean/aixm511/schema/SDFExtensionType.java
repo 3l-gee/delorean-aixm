@@ -259,19 +259,6 @@ public class SDFExtensionType implements Serializable, Equals, HashCode, ToStrin
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSDFExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSDFExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSDFExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSDFExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSDFExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSDFExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
@@ -282,6 +269,19 @@ public class SDFExtensionType implements Serializable, Equals, HashCode, ToStrin
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSDFExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSDFExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSDFExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSDFExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSDFExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSDFExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

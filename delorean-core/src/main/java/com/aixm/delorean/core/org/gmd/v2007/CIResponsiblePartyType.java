@@ -216,19 +216,6 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            CIRoleCodePropertyType lhsField;
-            lhsField = this.getRole();
-            CIRoleCodePropertyType rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetContactInfo();
             boolean rhsFieldIsSet = that.isSetContactInfo();
             CIContactPropertyType lhsField;
@@ -263,6 +250,19 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
             rhsField = that.getIndividualName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "individualName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "individualName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            CIRoleCodePropertyType lhsField;
+            lhsField = this.getRole();
+            CIRoleCodePropertyType rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

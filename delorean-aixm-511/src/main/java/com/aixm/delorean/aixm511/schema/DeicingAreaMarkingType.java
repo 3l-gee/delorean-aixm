@@ -58,7 +58,6 @@ public class DeicingAreaMarkingType extends AbstractMarkingType implements Seria
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<DeicingAreaMarkingTimeSlicePropertyType> timeSlice;
 
     /**
@@ -84,6 +83,7 @@ public class DeicingAreaMarkingType extends AbstractMarkingType implements Seria
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = DeicingAreaMarkingTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_deicingareamarking_link", schema = "airport_heliport", joinColumns = {

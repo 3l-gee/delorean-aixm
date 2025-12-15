@@ -59,7 +59,6 @@ public class ApronType extends AbstractAIXMFeatureType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<ApronTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class ApronType extends AbstractAIXMFeatureType implements Serializable {
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = ApronTimeSlicePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_apron_link", schema = "airport_heliport", joinColumns = {
             @JoinColumn(name = "timeslice", referencedColumnName = "hjid")}, inverseJoinColumns = {

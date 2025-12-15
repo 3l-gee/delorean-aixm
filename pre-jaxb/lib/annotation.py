@@ -781,6 +781,14 @@ class Annox:
     def field_remove(annotation):
         return f'''<annox:removeAnnotation target="field">{annotation}</annox:annotate>'''
     
+    @staticmethod
+    def getter_add(annotation):
+        return f'''<annox:annotate target="getter">{annotation}</annox:annotate>'''
+
+    @staticmethod
+    def getter_remove(annotation):
+        return f'''<annox:removeAnnotation target="getter">{annotation}</annox:annotate>'''
+    
 class HyperJAXB:
     
     @staticmethod

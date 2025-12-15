@@ -22,42 +22,40 @@
 
 .shape {
   position: absolute;
-  border-radius: 50%;
   transform-origin: center center;
   animation: none !important;
-  filter: blur(100px);
   transform: translate(var(--radius-x), var(--radius-y));
   transition: transform 2s ease;
 }
 
-.shape1 { background: #486ada; }
-.shape2 { background: #48a4da; }
-.shape3 { background: #3678c4; }
-.shape4 { background: #d42d57; }
-.shape5 { background: #6445d4; }
-.shape6 { background: #9c78ff; }
-.shape7 { background: #5144c9; }
+.shape1 { background: #4e31925d; }
+.shape2 { background: #2a608065; }
+.shape3 { background: #1d3b5e62; }
+.shape4 { background: #83171750; }
+.shape5 { background: #46338d57; }
+.shape6 { background: #135f2357; }
+.shape7 { background: #20455e56; }
 
 [data-theme="dark"] .shape1 { 
-  background: #486ada; 
+  background: #007dd138; 
 }
 [data-theme="dark"] .shape2 { 
-  background: #48a4da; 
+  background: #097bbd3d; 
 }
 [data-theme="dark"] .shape3 { 
-  background: #3678c4; 
+  background: #0da71a3f; 
 }
 [data-theme="dark"] .shape4 { 
-  background: #d42d57; 
+  background: #b608333a; 
 }
 [data-theme="dark"] .shape5 { 
-  background: #6445d4; 
+  background: #999b1538; 
 }
 [data-theme="dark"] .shape6 { 
-  background: #9c78ff; 
+  background: #3d0ebd2f; 
 }
 [data-theme="dark"] .shape7 { 
-  background: #5144c9; 
+  background: #2213a836; 
 }
 
 

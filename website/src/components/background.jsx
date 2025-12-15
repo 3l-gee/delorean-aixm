@@ -37,12 +37,12 @@ export function Background({ page, clean}) {
       const anim = el.getAnimations()[0];
       if (!anim) return;
 
-      const stages = [40, 80, 30, 10, 5, 1]; // last one is reset
+      const stages = [15, 30, 10, 5, 2, 1]; // last one is reset
       let delay = 0;
 
       stages.forEach((rate) => {
         setTimeout(() => anim.updatePlaybackRate(rate), delay);
-        delay += 100; // 1/10 sec per stage
+        delay += 300; // 1/10 sec per stage
       });
     });
   };
@@ -51,8 +51,8 @@ export function Background({ page, clean}) {
     const randomPositions = Array.from({ length: 7 }, () => ({
       top: 40 + randomOffset(25) + "vh",
       left: 40 + randomOffset(40) + "vw",
-      width: Math.random() * 50 + 50 + "px",
-      height: Math.random() * 50 + 300 + "px",
+      width: Math.random() * 100 + 120 + "px",
+      height: Math.random() * 100 + 120 + "px",
       duration: Math.random() * 90 + 45 + "s",
       radius: randomRadius(),
     }));

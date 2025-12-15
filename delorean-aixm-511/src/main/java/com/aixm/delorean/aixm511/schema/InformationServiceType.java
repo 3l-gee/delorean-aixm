@@ -58,7 +58,6 @@ public class InformationServiceType extends AbstractServiceType implements Seria
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<InformationServiceTimeSlicePropertyType> timeSlice;
 
     /**
@@ -84,6 +83,7 @@ public class InformationServiceType extends AbstractServiceType implements Seria
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = InformationServiceTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_informationservice_link", schema = "service", joinColumns = {

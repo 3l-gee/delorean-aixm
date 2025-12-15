@@ -249,21 +249,6 @@ public class TouchDownLiftOffContaminationTypeExtensionType implements Serializa
         }
         final TouchDownLiftOffContaminationTypeExtensionType that = ((TouchDownLiftOffContaminationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffContaminationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffContaminationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTouchDownLiftOffContaminationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTouchDownLiftOffContaminationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractTouchDownLiftOffContaminationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractTouchDownLiftOffContaminationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractSurfaceContaminationExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSurfaceContaminationExtension();
             AbstractExtensionType lhsField;
@@ -274,6 +259,21 @@ public class TouchDownLiftOffContaminationTypeExtensionType implements Serializa
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfaceContaminationExtension",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffContaminationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffContaminationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTouchDownLiftOffContaminationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTouchDownLiftOffContaminationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractTouchDownLiftOffContaminationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractTouchDownLiftOffContaminationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

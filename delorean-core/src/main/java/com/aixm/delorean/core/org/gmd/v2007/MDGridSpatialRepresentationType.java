@@ -203,19 +203,6 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
         }
         final MDGridSpatialRepresentationType that = ((MDGridSpatialRepresentationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNumberOfDimensions();
-            boolean rhsFieldIsSet = that.isSetNumberOfDimensions();
-            IntegerPropertyType lhsField;
-            lhsField = this.getNumberOfDimensions();
-            IntegerPropertyType rhsField;
-            rhsField = that.getNumberOfDimensions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberOfDimensions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberOfDimensions", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAxisDimensionProperties();
             boolean rhsFieldIsSet = that.isSetAxisDimensionProperties();
             List<MDDimensionPropertyType> lhsField;
@@ -229,14 +216,14 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCellGeometry();
-            boolean rhsFieldIsSet = that.isSetCellGeometry();
-            MDCellGeometryCodePropertyType lhsField;
-            lhsField = this.getCellGeometry();
-            MDCellGeometryCodePropertyType rhsField;
-            rhsField = that.getCellGeometry();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cellGeometry", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cellGeometry", rhsField);
+            boolean lhsFieldIsSet = this.isSetNumberOfDimensions();
+            boolean rhsFieldIsSet = that.isSetNumberOfDimensions();
+            IntegerPropertyType lhsField;
+            lhsField = this.getNumberOfDimensions();
+            IntegerPropertyType rhsField;
+            rhsField = that.getNumberOfDimensions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberOfDimensions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberOfDimensions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -252,6 +239,19 @@ public class MDGridSpatialRepresentationType extends AbstractMDSpatialRepresenta
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationParameterAvailability",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCellGeometry();
+            boolean rhsFieldIsSet = that.isSetCellGeometry();
+            MDCellGeometryCodePropertyType lhsField;
+            lhsField = this.getCellGeometry();
+            MDCellGeometryCodePropertyType rhsField;
+            rhsField = that.getCellGeometry();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cellGeometry", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cellGeometry", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

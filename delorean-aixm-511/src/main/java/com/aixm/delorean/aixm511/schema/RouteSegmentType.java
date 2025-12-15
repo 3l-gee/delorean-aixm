@@ -59,7 +59,6 @@ public class RouteSegmentType extends AbstractAIXMFeatureType implements Seriali
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<RouteSegmentTimeSlicePropertyType> timeSlice;
 
     /**
@@ -85,6 +84,7 @@ public class RouteSegmentType extends AbstractAIXMFeatureType implements Seriali
      *
      *
      */
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     @ManyToMany(targetEntity = RouteSegmentTimeSlicePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_routesegment_link", schema = "route", joinColumns = {

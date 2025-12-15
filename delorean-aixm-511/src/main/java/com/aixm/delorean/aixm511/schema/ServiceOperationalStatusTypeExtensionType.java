@@ -247,16 +247,16 @@ public class ServiceOperationalStatusTypeExtensionType implements Serializable, 
         }
         final ServiceOperationalStatusTypeExtensionType that = ((ServiceOperationalStatusTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractServiceOperationalStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractServiceOperationalStatusExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPropertiesWithScheduleExtension();
+            lhsField = this.getAbstractServiceOperationalStatusExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPropertiesWithScheduleExtension();
+            rhsField = that.getAbstractServiceOperationalStatusExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractPropertiesWithScheduleExtension", lhsField);
+                    "abstractServiceOperationalStatusExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractPropertiesWithScheduleExtension", rhsField);
+                    "abstractServiceOperationalStatusExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -275,16 +275,16 @@ public class ServiceOperationalStatusTypeExtensionType implements Serializable, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractServiceOperationalStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractServiceOperationalStatusExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractServiceOperationalStatusExtension();
+            lhsField = this.getAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractServiceOperationalStatusExtension();
+            rhsField = that.getAbstractPropertiesWithScheduleExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractServiceOperationalStatusExtension", lhsField);
+                    "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractServiceOperationalStatusExtension", rhsField);
+                    "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
