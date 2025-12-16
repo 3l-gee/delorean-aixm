@@ -142,6 +142,30 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
     }
 
+    private ROOT doUnmarshal(String path) {
+        if (this.xmlBinding == null) {
+            throw new RuntimeException("XMLBinding is not set");
+        }
+
+        ROOT message = null;
+        
+        InputStream xmlStream;
+        if (path.toLowerCase().endsWith(".zip")) {
+            xmlStream = DeloreanUtility.absPathZipToInputStream(path);
+        } else {
+            xmlStream = DeloreanUtility.absPathToInputStream(path);
+        }
+
+        if (xmlStream == null) {
+            return message;
+        } 
+
+        message = (ROOT) this.xmlBinding.unmarshal(xmlStream);
+        String stats = this.deloreanEngine.statistics(this.message);
+        ConsoleLogger.log(LogLevel.INFO, "Unmarshalled <" + rootClass.getSimpleName() + "> from: " + path + " stats: " + stats);
+        return message;
+    }
+
     public void marshal(String path) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
@@ -204,15 +228,16 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         ConsoleLogger.log(LogLevel.INFO, "Merged <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
-    public void integrate() {
-        if (this.databaseBinding == null) {
-            throw new RuntimeException("DatabaseBinding is not set");
-        }   
-        this.databaseBinding.integrate(this.message);
-        String stats = this.databaseBinding.statistics();
+    @SuppressWarnings("unchecked")
+    public void integrate(String path) {
+        
+        ROOT newMessage = this.doUnmarshal(path);
+        ROOT oldMessage = this.doPredicate(Instant.MAX);
+
         ConsoleLogger.log(LogLevel.INFO, "Integrated <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
+    @SuppressWarnings("unchecked")
     public void extract(Object id) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
@@ -223,6 +248,7 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         ConsoleLogger.log(LogLevel.INFO, "Extracted <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
+    @SuppressWarnings("unchecked")
     public void predicate(String timeString) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
@@ -244,6 +270,19 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         ConsoleLogger.log(LogLevel.INFO, "Predicated <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
+    @SuppressWarnings("unchecked")
+    private ROOT doPredicate(Instant time) {
+        if (this.databaseBinding == null) {
+            throw new RuntimeException("DatabaseBinding is not set");
+        } 
+
+        ROOT message = null;
+
+        message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time);
+        String stats = this.deloreanEngine.statistics(this.message);
+        ConsoleLogger.log(LogLevel.INFO, "Predicated <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        return message;
+    }
 
     // public void serialization(String path) {
 

@@ -17,9 +17,9 @@ public abstract class AbstractEngine {
 
     public abstract Object merge(Object object);
 
-    public abstract Object integrate(Class<?> type, Object oldObj, Object newObj);
+    public abstract Object integrate(Object oldMessage, Object newMessage);
 
-    public abstract Object delta(Class<?> type, Object oldObj, Object newObj);
+    public abstract Object delta(Object oldMessage, Object newMessage);
 
     public static boolean isDifferent(Object oldObj, Object newObj) {
         // A: both missing → no change

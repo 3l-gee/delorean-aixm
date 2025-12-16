@@ -7,7 +7,9 @@ import "./navbar.css";
 import GithubIcon from "../assets/github.svg";
 import LinkedinIcon from "../assets/linkedin.svg";
 import MastodonIcon from "../assets/mastodon.svg";
-import AtIcon from "../assets/at.svg"
+import AtIcon from "../assets/at.svg";
+import DeloreanIconLight from "../assets/logo/delorean-aixm-logo-big-light.png";
+import DeloreanIconDark from "../assets/logo/delorean-aixm-logo-big-dark.png";
 
 
 export function Navbar({ onNavigate , onCleanBackground}) {
@@ -24,8 +26,8 @@ export function Navbar({ onNavigate , onCleanBackground}) {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const logoSrc = lightTheme
-    ? "../assets/logo/delorean-aixm-logo-big-light.png"
-    : "../assets/logo/delorean-aixm-logo-big-dark.png";
+    ? DeloreanIconLight
+    : DeloreanIconDark
 
   useEffect(() => {
     const handleScroll = () => {

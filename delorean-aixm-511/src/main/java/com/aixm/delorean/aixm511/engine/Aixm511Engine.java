@@ -2,7 +2,10 @@ package com.aixm.delorean.aixm511.engine;
 
 import java.lang.reflect.Field;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
@@ -10,6 +13,8 @@ import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
 import com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType;
 import com.aixm.delorean.core.database.MutationFeatureTimeslice;
 import com.aixm.delorean.core.engine.TemporalityInspector;
+import com.aixm.delorean.core.log.ConsoleLogger;
+import com.aixm.delorean.core.log.LogLevel;
 
 import jakarta.xml.bind.JAXBElement;
 
@@ -69,19 +74,77 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
     }
 
     @Override
-    public Object integrate(Class<?> type, Object oldObj, Object newObj) {
-        if (AbstractAIXMTimeSliceType.class.isAssignableFrom(type) == false) {
-            throw new RuntimeException("Unsupported type for integration: " + type);
+    public Object integrate(Object oldObject, Object newObject) {
+        AIXMBasicMessageType oldMessage = (AIXMBasicMessageType) oldObject;
+        AIXMBasicMessageType newMessage = (AIXMBasicMessageType) newObject;
+
+        Map<String, AbstractAIXMFeatureType> mapIdFeature = new HashMap<>();
+
+        for (BasicMessageMemberAIXMPropertyType member : oldMessage.getHasMember()) {
+
+            AbstractAIXMFeatureType feature = member.getAbstractAIXMFeatureValue();
+            if (feature == null || feature.getIdentifier() == null) {
+                continue;
+            }
+
+            String identifier = feature.getIdentifier().getValue();
+            if (identifier == null || identifier.isBlank()) {
+                continue;
+            }
+
+            AbstractAIXMFeatureType previous = mapIdFeature.putIfAbsent(identifier, feature);
+
+            if (previous != null) {
+                ConsoleLogger.log(LogLevel.WARN, "Duplicate AIXM feature identifier detected: " + identifier
+                );
+            }
         }
-        AbstractAIXMTimeSliceType oldTS = (AbstractAIXMTimeSliceType) oldObj;
-        AbstractAIXMTimeSliceType newTS = (AbstractAIXMTimeSliceType) newObj;
-        @SuppressWarnings("unchecked")
-        Object result = integrateAixmTimeSlice((Class<? extends AbstractAIXMTimeSliceType>) type, oldTS, newTS);
-        return result;
+
+        List<BasicMessageMemberAIXMPropertyType> incomingMembers = new ArrayList<>(newMessage.getHasMember());
+        newMessage.unsetHasMember();
+
+        for (BasicMessageMemberAIXMPropertyType member  : incomingMembers) {
+
+            AbstractAIXMFeatureType newFeature = member.getAbstractAIXMFeatureValue();
+            if (newFeature == null || newFeature.getIdentifier() == null) {
+                continue;
+            }
+
+            String identifier = newFeature.getIdentifier().getValue();
+            if (identifier == null || identifier.isBlank()) {
+                continue;
+            }
+
+            AbstractAIXMFeatureType oldFeature = mapIdFeature.get(identifier);
+
+            if (oldFeature != null) {
+                // Existing feature 
+
+            } else {
+                // New feature
+                newMessage.getHasMember().add(member);
+            }
+
+            AbstractAIXMFeatureType oldFeature = mapIdFeature.get(identifier);
+            Class<?> clazz = member.getAbstractAIXMFeatureValue().getClass();
+            AbstractAIXMFeatureType newFeature = member.getAbstractAIXMFeatureValue();
+            AbstractAIXMFeatureType oldFeature = member.get(newFeature.getIdentifier().getValue());
+        }
+
+            if (AbstractAIXMTimeSliceType.class.isAssignableFrom(clazz) == false) {
+                throw new RuntimeException("Unsupported type for integration: " + type);
+            }
+            AbstractAIXMTimeSliceType oldTS = (AbstractAIXMTimeSliceType) oldObj;
+            AbstractAIXMTimeSliceType newTS = (AbstractAIXMTimeSliceType) newObj;
+            @SuppressWarnings("unchecked")
+            Object result = integrateAixmTimeSlice((Class<? extends AbstractAIXMTimeSliceType>) type, oldTS, newTS);
+            return result;
+
+        }
     }
 
     @Override
-    public Object delta(Class<?> type, Object oldObj, Object newObj) {
+    public Object delta(Object oldMessage, Object newMessage) {
         if (AbstractAIXMTimeSliceType.class.isAssignableFrom(type) == false) {
             throw new RuntimeException("Unsupported type for integration: " + type);
         }
@@ -93,27 +156,27 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
     }
 
     
-    private <CT extends AbstractAIXMTimeSliceType> CT integrateAixmTimeSlice(Class<CT> type, AbstractAIXMTimeSliceType oldObj, AbstractAIXMTimeSliceType newObj) {
-        CT result;
+    private <TSTYPE extends AbstractAIXMTimeSliceType> TSTYPE integrateAixmFeature(Class<FTYPE> featureType, Class<TSTYPE> timeSliceType, AbstractAIXMTimeSliceType oldTimeSlice, AbstractAIXMTimeSliceType newTimeSlice) {
+        TSTYPE result;
         try {
-            result = type.getDeclaredConstructor().newInstance();
+            result = timeSliceType.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
-            throw new RuntimeException("Failed to instantiate " + type, e);
+            throw new RuntimeException("Failed to instantiate " + timeSliceType, e);
         }
 
-        result.setId(newObj.getId());
+        result.setId(newTimeSlice.getId());
         result.setInterpretation("BASELINE");
-        result.setSequenceNumber(newObj.getSequenceNumber());
-        result.setCorrectionNumber(newObj.getCorrectionNumber());
-        result.setTimeSliceMetadata(newObj.getTimeSliceMetadata());
-        result.setValidTime(newObj.getValidTime());
-        result.setFeatureLifetime(oldObj.getFeatureLifetime());
+        result.setSequenceNumber(newTimeSlice.getSequenceNumber());
+        result.setCorrectionNumber(newTimeSlice.getCorrectionNumber());
+        result.setTimeSliceMetadata(newTimeSlice.getTimeSliceMetadata());
+        result.setValidTime(newTimeSlice.getValidTime());
+        result.setFeatureLifetime(oldTimeSlice.getFeatureLifetime());
 
-        for (Field field : type.getDeclaredFields()) {
+        for (Field field : timeSliceType.getDeclaredFields()) {
             try {
                 field.setAccessible(true);
-                Object oldVal = field.get(oldObj);
-                Object newVal = field.get(newObj);
+                Object oldVal = field.get(oldTimeSlice);
+                Object newVal = field.get(newTimeSlice);
 
                 if (field.getName().equals("serialVersionUID")) {
                     continue;
