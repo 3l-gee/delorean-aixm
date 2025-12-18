@@ -3,6 +3,7 @@ package com.aixm.delorean.aixm511.engine;
 import java.lang.reflect.Field;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,7 +70,6 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
 
     @Override
     public Object merge(Object object) {
-
         return null;
     }
 
@@ -154,15 +154,84 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
         Object result = deltaAixmTimeSlice((Class<? extends AbstractAIXMTimeSliceType>) type, oldTS, newTS);
         return result;
     }
-
     
-    private <TSTYPE extends AbstractAIXMTimeSliceType> TSTYPE integrateAixmFeature(Class<FTYPE> featureType, Class<TSTYPE> timeSliceType, AbstractAIXMTimeSliceType oldTimeSlice, AbstractAIXMTimeSliceType newTimeSlice) {
-        TSTYPE result;
-        try {
-            result = timeSliceType.getDeclaredConstructor().newInstance();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to instantiate " + timeSliceType, e);
+    private <FTYPE extends AbstractAIXMFeatureType> FTYPE integrateAixmFeature(Class<FTYPE> featureType, Class<TSTYPE> timeSliceType, AbstractAIXMFeatureType currentFeature, AbstractAIXMFeatureType newPartialFeature) {
+        FTYPE outputFeature; 
+
+        Comparator<AbstractAIXMTimeSliceType> timeSliceComparator = Comparator.comparing(
+            AbstractAIXMTimeSliceType::getSequenceNumber,Comparator.nullsLast(Long::compare))
+            .thenComparing(
+                AbstractAIXMTimeSliceType::getCorrectionNumber,Comparator.nullsLast(Long::compare)
+            );
+
+        List<AbstractAIXMTimeSliceType> listNewPartialTimeSlice = Aixm511TimeSliceEngine.invokeTimeSlice(newPartialFeature);
+        List<AbstractAIXMTimeSliceType> listCurrentTimeSlice = Aixm511TimeSliceEngine.invokeTimeSlice(currentFeature);
+
+        listNewPartialTimeSlice.sort(timeSliceComparator);
+        listCurrentTimeSlice.sort(timeSliceComparator);
+
+        AbstractAIXMTimeSliceType currentTimeSlice = listCurrentTimeSlice.getLast();
+
+        for (AbstractAIXMTimeSliceType newTimeSlice: listNewPartialTimeSlice) {
+
+            try {
+                TSTYPE newCompletedTimeSlice = timeSliceType.getDeclaredConstructor().newInstance();
+            } catch (Exception e) {
+                throw new RuntimeException("Failed to instantiate " + timeSliceType, e);
+            }
+
+            newCompletedTimeSlice.setId(newTimeSlice.getId());
+            newCompletedTimeSlice.setInterpretation("BASELINE");
+            newCompletedTimeSlice.setSequenceNumber(newTimeSlice.getSequenceNumber());
+            newCompletedTimeSlice.setCorrectionNumber(newTimeSlice.getCorrectionNumber());
+            newCompletedTimeSlice.setTimeSliceMetadata(newTimeSlice.getTimeSliceMetadata());
+            newCompletedTimeSlice.setValidTime(newTimeSlice.getValidTime());
+            newCompletedTimeSlice.setFeatureLifetime(currentTimeSlice.getFeatureLifetime());
+
+            for (Field field : timeSliceType.getDeclaredFields()) {
+                try {
+                    field.setAccessible(true);
+                    Object currentVal = field.get(currentTimeSlice);
+                    Object newVal = field.get(newTimeSlice);
+
+                    if (field.getName().equals("serialVersionUID")) {
+                        continue;
+
+                    } else if (currentVal == null && newVal == null) {
+                        continue;
+
+                    } else if (currentVal == null && newVal != null) {
+                        field.set(newCompletedTimeSlice, newVal);
+
+                    } else if (currentVal != null && newVal == null) {
+                        field.set(newCompletedTimeSlice, currentVal);
+
+                    } else if (currentVal instanceof JAXBElement<?> || newVal instanceof JAXBElement<?>) {
+                        if (isDifferent(currentVal, newVal)) {
+                            field.set(newCompletedTimeSlice, newVal);
+                        } else {
+                            field.set(newCompletedTimeSlice, currentVal);
+                        }
+                        
+                    } else if (currentVal instanceof List<?> || newVal instanceof List<?>) {
+                        if (isDifferent(currentVal, newVal)) {
+                            field.set(newCompletedTimeSlice, newVal);
+                        } else {
+                            field.set(newCompletedTimeSlice, currentVal);
+                        }
+
+                    } else {
+                        throw new RuntimeException("AXIM feature should only contain JAXBElement or List fields, got : " + field.getName() + " / " + currentVal.getClass());
+                    }
+
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException("Failed to access field " + field.getName(), e);
+
+                }
+            }
         }
+
+
 
         result.setId(newTimeSlice.getId());
         result.setInterpretation("BASELINE");
