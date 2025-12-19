@@ -74,89 +74,81 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
     }
 
     @Override
-    public Object integrate(Object oldObject, Object newObject) {
-        AIXMBasicMessageType oldMessage = (AIXMBasicMessageType) oldObject;
-        AIXMBasicMessageType newMessage = (AIXMBasicMessageType) newObject;
+    public Object integrate(Object currentObject, Object newPartialObject) {
+        AIXMBasicMessageType currentMessage = (AIXMBasicMessageType) currentObject;
+        AIXMBasicMessageType newPartialMessage = (AIXMBasicMessageType) newPartialObject;
 
-        Map<String, AbstractAIXMFeatureType> mapIdFeature = new HashMap<>();
+        Map<String, AbstractAIXMFeatureType> currentIdsFeatures = new HashMap<>();
 
-        for (BasicMessageMemberAIXMPropertyType member : oldMessage.getHasMember()) {
+        for (BasicMessageMemberAIXMPropertyType currentMember : currentMessage.getHasMember()) {
 
-            AbstractAIXMFeatureType feature = member.getAbstractAIXMFeatureValue();
-            if (feature == null || feature.getIdentifier() == null) {
+            AbstractAIXMFeatureType currentFeature = currentMember.getAbstractAIXMFeatureValue();
+            if (currentFeature == null || currentFeature.getIdentifier() == null) {
                 continue;
             }
 
-            String identifier = feature.getIdentifier().getValue();
-            if (identifier == null || identifier.isBlank()) {
+            String currentIdentifier = currentFeature.getIdentifier().getValue();
+            if (currentIdentifier == null || currentIdentifier.isBlank()) {
                 continue;
             }
 
-            AbstractAIXMFeatureType previous = mapIdFeature.putIfAbsent(identifier, feature);
+            AbstractAIXMFeatureType previous = currentIdsFeatures.putIfAbsent(currentIdentifier, currentFeature);
 
             if (previous != null) {
-                ConsoleLogger.log(LogLevel.WARN, "Duplicate AIXM feature identifier detected: " + identifier
+                ConsoleLogger.log(LogLevel.WARN, "Duplicate AIXM feature identifier detected: " + currentIdentifier
                 );
             }
         }
 
-        List<BasicMessageMemberAIXMPropertyType> incomingMembers = new ArrayList<>(newMessage.getHasMember());
-        newMessage.unsetHasMember();
+        List<BasicMessageMemberAIXMPropertyType> newPartialMembers = new ArrayList<>(newPartialMessage.getHasMember());
+        newPartialMessage.unsetHasMember();
 
-        for (BasicMessageMemberAIXMPropertyType member  : incomingMembers) {
+        for (BasicMessageMemberAIXMPropertyType newPartialMember  : newPartialMembers) {
 
-            AbstractAIXMFeatureType newFeature = member.getAbstractAIXMFeatureValue();
-            if (newFeature == null || newFeature.getIdentifier() == null) {
+            AbstractAIXMFeatureType newPartialFeature = newPartialMember.getAbstractAIXMFeatureValue();
+            if (newPartialFeature == null || newPartialFeature.getIdentifier() == null) {
                 continue;
             }
 
-            String identifier = newFeature.getIdentifier().getValue();
-            if (identifier == null || identifier.isBlank()) {
+            String newPartialIdentifier = newPartialFeature.getIdentifier().getValue();
+            if (newPartialIdentifier == null || newPartialIdentifier.isBlank()) {
                 continue;
             }
 
-            AbstractAIXMFeatureType oldFeature = mapIdFeature.get(identifier);
+            AbstractAIXMFeatureType currentFeature = currentIdsFeatures.get(newPartialIdentifier);
 
-            if (oldFeature != null) {
+            if (currentFeature != null) {
                 // Existing feature 
-
+                Aixm511Engine.integrateAixmFeature(newPartialMember.getClass(), currentFeature, newPartialMember);
             } else {
                 // New feature
-                newMessage.getHasMember().add(member);
+                newPartialMessage.getHasMember().add(newPartialMember);
             }
-
-            AbstractAIXMFeatureType oldFeature = mapIdFeature.get(identifier);
-            Class<?> clazz = member.getAbstractAIXMFeatureValue().getClass();
-            AbstractAIXMFeatureType newFeature = member.getAbstractAIXMFeatureValue();
-            AbstractAIXMFeatureType oldFeature = member.get(newFeature.getIdentifier().getValue());
-        }
-
-            if (AbstractAIXMTimeSliceType.class.isAssignableFrom(clazz) == false) {
-                throw new RuntimeException("Unsupported type for integration: " + type);
-            }
-            AbstractAIXMTimeSliceType oldTS = (AbstractAIXMTimeSliceType) oldObj;
-            AbstractAIXMTimeSliceType newTS = (AbstractAIXMTimeSliceType) newObj;
-            @SuppressWarnings("unchecked")
-            Object result = integrateAixmTimeSlice((Class<? extends AbstractAIXMTimeSliceType>) type, oldTS, newTS);
-            return result;
-
         }
     }
 
     @Override
     public Object delta(Object oldMessage, Object newMessage) {
-        if (AbstractAIXMTimeSliceType.class.isAssignableFrom(type) == false) {
-            throw new RuntimeException("Unsupported type for integration: " + type);
-        }
-        AbstractAIXMTimeSliceType oldTS = (AbstractAIXMTimeSliceType) oldObj;
-        AbstractAIXMTimeSliceType newTS = (AbstractAIXMTimeSliceType) newObj;
-        @SuppressWarnings("unchecked")
-        Object result = deltaAixmTimeSlice((Class<? extends AbstractAIXMTimeSliceType>) type, oldTS, newTS);
-        return result;
+        return null;
     }
+    // @Override
+    // public Object delta(Object oldMessage, Object newMessage) {
+    //     if (AbstractAIXMTimeSliceType.class.isAssignableFrom(type) == false) {
+    //         throw new RuntimeException("Unsupported type for integration: " + type);
+    //     }
+    //     AbstractAIXMTimeSliceType oldTS = (AbstractAIXMTimeSliceType) oldObj;
+    //     AbstractAIXMTimeSliceType newTS = (AbstractAIXMTimeSliceType) newObj;
+    //     @SuppressWarnings("unchecked")
+    //     Object result = deltaAixmTimeSlice((Class<? extends AbstractAIXMTimeSliceType>) type, oldTS, newTS);
+    //     return result;
+    // }
     
-    private <FTYPE extends AbstractAIXMFeatureType> FTYPE integrateAixmFeature(Class<FTYPE> featureType, Class<TSTYPE> timeSliceType, AbstractAIXMFeatureType currentFeature, AbstractAIXMFeatureType newPartialFeature) {
+    private <FTYPE extends AbstractAIXMFeatureType> FTYPE integrateAixmFeature(Class<FTYPE> featureType, AbstractAIXMFeatureType currentFeature, AbstractAIXMFeatureType newPartialFeature) {
         FTYPE outputFeature; 
+
+        if (featureType != currentFeature.getClass() && featureType != newPartialFeature.getClass() && currentFeature.getClass() != newPartialFeature.getClass()) {
+            throw new IllegalArgumentException("Identifier <" + currentFeature.getIdentifier() + "> does not map to the same AIXM type, new : " + newPartialFeature.getClass() + " current : " + currentFeature.getClass(), e);
+        }
 
         Comparator<AbstractAIXMTimeSliceType> timeSliceComparator = Comparator.comparing(
             AbstractAIXMTimeSliceType::getSequenceNumber,Comparator.nullsLast(Long::compare))
@@ -166,6 +158,7 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
 
         List<AbstractAIXMTimeSliceType> listNewPartialTimeSlice = Aixm511TimeSliceEngine.invokeTimeSlice(newPartialFeature);
         List<AbstractAIXMTimeSliceType> listCurrentTimeSlice = Aixm511TimeSliceEngine.invokeTimeSlice(currentFeature);
+        Class<? extends AbstractAIXMTimeSliceType> timeSliceType = listNewPartialTimeSlice.getFirst().getClass();
 
         listNewPartialTimeSlice.sort(timeSliceComparator);
         listCurrentTimeSlice.sort(timeSliceComparator);
@@ -174,8 +167,9 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
 
         for (AbstractAIXMTimeSliceType newTimeSlice: listNewPartialTimeSlice) {
 
+            AbstractAIXMTimeSliceType  newCompletedTimeSlice;
             try {
-                TSTYPE newCompletedTimeSlice = timeSliceType.getDeclaredConstructor().newInstance();
+                newCompletedTimeSlice = timeSliceType.getDeclaredConstructor().newInstance();
             } catch (Exception e) {
                 throw new RuntimeException("Failed to instantiate " + timeSliceType, e);
             }
@@ -231,59 +225,7 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
             }
         }
 
-
-
-        result.setId(newTimeSlice.getId());
-        result.setInterpretation("BASELINE");
-        result.setSequenceNumber(newTimeSlice.getSequenceNumber());
-        result.setCorrectionNumber(newTimeSlice.getCorrectionNumber());
-        result.setTimeSliceMetadata(newTimeSlice.getTimeSliceMetadata());
-        result.setValidTime(newTimeSlice.getValidTime());
-        result.setFeatureLifetime(oldTimeSlice.getFeatureLifetime());
-
-        for (Field field : timeSliceType.getDeclaredFields()) {
-            try {
-                field.setAccessible(true);
-                Object oldVal = field.get(oldTimeSlice);
-                Object newVal = field.get(newTimeSlice);
-
-                if (field.getName().equals("serialVersionUID")) {
-                    continue;
-
-                } else if (oldVal == null && newVal == null) {
-                    continue;
-
-                } else if (oldVal == null && newVal != null) {
-                    field.set(result, newVal);
-
-                } else if (oldVal != null && newVal == null) {
-                    field.set(result, oldVal);
-
-                } else if (oldVal instanceof JAXBElement<?> || newVal instanceof JAXBElement<?>) {
-                    if (isDifferent(oldVal, newVal)) {
-                        field.set(result, newVal);
-                    } else {
-                        field.set(result, oldVal);
-                    }
-                    
-                } else if (oldVal instanceof List<?> || newVal instanceof List<?>) {
-                    if (isDifferent(oldVal, newVal)) {
-                        field.set(result, newVal);
-                    } else {
-                        field.set(result, oldVal);
-                    }
-
-                } else {
-                    throw new RuntimeException("AXIM feature should only contain JAXBElement or List fields, got : " + field.getName() + " / " + oldVal.getClass());
-                }
-
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException("Failed to access field " + field.getName(), e);
-
-            }
-        }
-
-        return result;
+        return outputFeature;
     }
 
     public <CT extends AbstractAIXMTimeSliceType> CT deltaAixmTimeSlice(Class<CT> type, AbstractAIXMTimeSliceType oldObj, AbstractAIXMTimeSliceType newObj) {
