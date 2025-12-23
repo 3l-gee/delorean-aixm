@@ -1,17 +1,13 @@
 package com.aixm.delorean.aixm511.database;
 
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.locationtech.jts.index.bintree.Root;
 
-import com.aixm.delorean.core.Delorean;
-import com.aixm.delorean.core.DeloreanUtility;
 import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 import com.aixm.delorean.core.database.HibernateHelper;
 import com.aixm.delorean.core.database.MutationFeatureTimeslice;
@@ -22,14 +18,14 @@ import com.aixm.delorean.core.database.BasicMessage;
 
 import jakarta.persistence.Tuple;
 
-import com.aixm.delorean.aixm511.AIXM511;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType;
+import com.aixm.delorean.aixm511.schema.AbstractAIXMObjectType;
 import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
 import com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
 
 
-public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
+public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicMessageType, AbstractAIXMFeatureType, AbstractAIXMTimeSliceType, AbstractAIXMObjectType> {
 
     private static List<String> featureList = List.of(
         "aerial_refuelling.aerialrefuelling",
@@ -160,7 +156,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
     );
 
     @Override
-    public Object predicateValidTimeslice(SessionFactory sessionFactory, List<Long> BasicMessageMemberIds , List<Long> TimeslicePropertyIds) {
+    public AIXMBasicMessageType predicateValidTimeslice(List<Long> BasicMessageMemberIds , List<Long> TimeslicePropertyIds, SessionFactory sessionFactory) {
         Session session = sessionFactory.openSession();
 
         session.enableFilter("TSPHjidFilter").setParameterList("ids", TimeslicePropertyIds);
@@ -187,15 +183,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
     }
 
     @Override
-    public void merge(SessionFactory sessionFactory, Object object) {
-
-        if (!(object instanceof AIXMBasicMessageType)) {
-        // Handle incorrect object type, e.g., throw IllegalArgumentException or log and return
-            ConsoleLogger.log(LogLevel.ERROR, "Object is not an AIXMBasicMessageType: " + object.getClass().getName());
-            return;
-        }
-        
-        AIXMBasicMessageType message = (AIXMBasicMessageType) object;
+    public void merge(AIXMBasicMessageType message, SessionFactory sessionFactory) {
         Session session = sessionFactory.openSession();
         List<MutationFeatureTimeslice> mutationFeatureTimeslices = new ArrayList<>();
 
@@ -268,7 +256,6 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
     }
 
     private static <T extends AbstractAIXMFeatureType> MutationFeatureTimeslice extractTimeslice(BasicMessageMemberAIXMPropertyType basicMessageMember, MutationFeatureTimeslice existing, Session session){
-
         AbstractAIXMTimeSliceType ts;
         List<Object> tsps = new ArrayList<>(); // Ensure tsps is a valid List
         AbstractAIXMFeatureType abstractFeature = basicMessageMember.getAbstractAIXMFeatureValue(); 

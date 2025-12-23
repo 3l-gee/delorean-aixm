@@ -1,23 +1,34 @@
 package com.aixm.delorean.core.database;
 
-import javax.xml.validation.Schema;
-
 import org.hibernate.cfg.Configuration;
 
-
-public class DatabaseBindingFactory<ROOT, FEATURE> {
+public class DatabaseBindingFactory<ROOT, FEATURE, TIMESLICE, OBJECT> {
     protected final Class<ROOT> rootClass;
     protected final Class<FEATURE> featureClass;
+    protected final Class<TIMESLICE> timeSliceClass;
+    protected final Class<OBJECT> objectClass;
     protected final Class<?> CoreResourceAnchorsClass;
     protected final Class<?> AIXMResourceAnchorsClass;
     protected String sqlPreInitPath;
     protected String sqlPostInitPath;
     protected Configuration configuration;
-    protected AbstractDatabaseFunctions databaseHelper;
+    protected AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> databaseHelper;
 
-    public DatabaseBindingFactory(Class<ROOT> rootClass, Class<FEATURE> featureClass, String sqlPreInitPath, String sqlPostInitPath, String configurationPath, Class<?> CoreResourceAnchorsClass, Class<?> AIXMResourceAnchorsClass, AbstractDatabaseFunctions databaseHelper) {
+    public DatabaseBindingFactory(
+        Class<ROOT> rootClass,
+        Class<FEATURE> featureClass, 
+        Class<TIMESLICE> timeSliceClass, 
+        Class<OBJECT> objectClass, 
+        String sqlPreInitPath, 
+        String sqlPostInitPath, 
+        String configurationPath, 
+        Class<?> CoreResourceAnchorsClass, 
+        Class<?> AIXMResourceAnchorsClass, 
+        AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> databaseHelper) {
         this.rootClass = rootClass;
         this.featureClass = featureClass;
+        this.timeSliceClass = timeSliceClass;
+        this.objectClass = objectClass;
         this.sqlPreInitPath = sqlPreInitPath;
         this.sqlPostInitPath = sqlPostInitPath;
         this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
@@ -32,6 +43,14 @@ public class DatabaseBindingFactory<ROOT, FEATURE> {
 
     public Class<FEATURE> getFeatureClass() {
         return this.featureClass;
+    }
+
+    public Class<TIMESLICE> getTimeSliceClass() {
+        return this.timeSliceClass;
+    }
+
+    public Class<OBJECT> getObjectClasss() {
+        return this.objectClass;
     }
 
     public Class<?> getCoreResourceAnchorsClass() {
@@ -54,14 +73,16 @@ public class DatabaseBindingFactory<ROOT, FEATURE> {
         return this.configuration;
     }
 
-    public AbstractDatabaseFunctions getDatabaseHelper() {
+    public AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> getDatabaseHelper() {
         return this.databaseHelper;
     }
 
-    public DatabaseBindingService<ROOT, FEATURE> createDatabaseBinding() {
+    public DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> createDatabaseBinding() {
         return new DatabaseBindingService<>(
             this.getRootClass(), 
             this.getFeatureClass(), 
+            this.getTimeSliceClass(),
+            this.getObjectClasss(),
             this.getSqlPreInitPath(), 
             this.getSqlPostInitPath(), 
             this.getConfiguration(), 

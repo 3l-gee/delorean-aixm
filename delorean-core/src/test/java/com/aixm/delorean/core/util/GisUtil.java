@@ -1,4 +1,4 @@
-package com.aixm.delorean.util;
+package com.aixm.delorean.core.util;
 
 import java.util.List;
 

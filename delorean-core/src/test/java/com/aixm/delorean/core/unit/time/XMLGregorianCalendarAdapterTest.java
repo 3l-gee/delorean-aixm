@@ -1,4 +1,4 @@
-package com.aixm.delorean.unit.time;
+package com.aixm.delorean.core.unit.time;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,8 +12,8 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeParseException;
 
-import com.aixm.delorean.util.JaxbUtil;
-import com.aixm.delorean.util.XMLGregorianCalendarWrapper;
+import com.aixm.delorean.core.util.JaxbUtil;
+import com.aixm.delorean.core.util.XMLGregorianCalendarWrapper;
 
 import java.util.stream.Stream;
 import jakarta.xml.bind.UnmarshalException;

@@ -1,4 +1,4 @@
-package com.aixm.delorean.unit.gis;
+package com.aixm.delorean.core.unit.gis;
 
 
 import org.junit.jupiter.api.*;
@@ -14,8 +14,8 @@ import com.aixm.delorean.core.gis.type.Surface;
 import com.aixm.delorean.core.gis.type.components.GeometricType;
 import com.aixm.delorean.core.gis.type.gml.GmlSurfaceType;
 import com.aixm.delorean.core.org.gml.v_3_2.SurfaceType;
-import com.aixm.delorean.util.GisUtil;
-import com.aixm.delorean.util.JaxbUtil;
+import com.aixm.delorean.core.util.GisUtil;
+import com.aixm.delorean.core.util.JaxbUtil;
 
 import java.util.stream.Stream;
 

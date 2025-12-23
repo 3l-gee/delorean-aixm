@@ -1,4 +1,4 @@
-package com.aixm.delorean.unit.time;
+package com.aixm.delorean.core.unit.time;
 
 public class TimeSliceTest {
     

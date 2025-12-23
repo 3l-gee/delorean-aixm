@@ -4,22 +4,22 @@ import java.util.Objects;
 
 import jakarta.xml.bind.JAXBElement;
 
-public abstract class AbstractEngine {
+public abstract class AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
     public AbstractEngine() {
     }
 
-    public abstract void info(Object container);
+    public abstract void info(ROOT message);
 
-    public abstract String statistics(Object container);
+    public abstract String statistics(ROOT message);
 
-    public abstract Object filter(Object container, String filterExpression);
+    public abstract ROOT filter(ROOT message, String filterExpression);
 
-    public abstract Object merge(Object object);
+    public abstract ROOT merge(ROOT message);
 
-    public abstract Object integrate(Object oldMessage, Object newMessage);
+    public abstract ROOT integrate(ROOT oldMessage, ROOT newMessage);
 
-    public abstract Object delta(Object oldMessage, Object newMessage);
+    public abstract ROOT delta(ROOT oldMessage, ROOT newMessage);
 
     public static boolean isDifferent(Object oldObj, Object newObj) {
         // A: both missing → no change

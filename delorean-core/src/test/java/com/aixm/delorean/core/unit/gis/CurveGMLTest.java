@@ -1,4 +1,4 @@
-package com.aixm.delorean.unit.gis;
+package com.aixm.delorean.core.unit.gis;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,8 +19,8 @@ import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
 
 import java.math.BigDecimal;
 
-import com.aixm.delorean.util.GisUtil;
-import com.aixm.delorean.util.JaxbUtil;
+import com.aixm.delorean.core.util.GisUtil;
+import com.aixm.delorean.core.util.JaxbUtil;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveType;
 import com.aixm.delorean.core.unit.AngleUom;
 import com.aixm.delorean.core.unit.DistanceUom;

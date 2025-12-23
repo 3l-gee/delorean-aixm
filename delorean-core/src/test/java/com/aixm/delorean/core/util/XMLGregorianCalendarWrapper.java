@@ -1,4 +1,4 @@
-package com.aixm.delorean.util;
+package com.aixm.delorean.core.util;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlValue;

@@ -1032,6 +1032,9 @@
 		<jaxb:bindings node="//xs:complexType[@name='TimePeriodPropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
+		<jaxb:bindings node="//xs:complexType[@name='TimePositionType']">
+			<hj:ignored/>
+		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='TimeIntervalLengthType']">
 			<hj:ignored/>
 		</jaxb:bindings>

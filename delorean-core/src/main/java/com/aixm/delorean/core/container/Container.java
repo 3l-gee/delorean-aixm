@@ -1,35 +1,21 @@
 package com.aixm.delorean.core.container;
 
 import com.aixm.delorean.core.xml.XmlBindingService;
-import com.aixm.delorean.core.xml.XMLConfig;
-import com.aixm.delorean.core.Delorean;
-import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 import com.aixm.delorean.core.database.DatabaseBindingService;
-import com.aixm.delorean.core.database.DatabaseConfig;
 import com.aixm.delorean.core.engine.AbstractEngine;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
-import com.aixm.delorean.core.qgis.QgisProjectBinding;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.security.PublicKey;
 import java.time.Instant;
 import java.time.format.DateTimeParseException;
 
 import javax.xml.namespace.QName;
-
 import com.aixm.delorean.core.DeloreanUtility;
 
-import org.hibernate.Session;
-import org.locationtech.jts.awt.PointShapeFactory.X;
-
 public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
+    protected final String id;
     protected String name;
     protected final QName qName;
     protected final Class<ROOT> rootClass;
@@ -39,16 +25,21 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
     protected ROOT message;
     protected MessageType messageType;
     protected XmlBindingService<ROOT, FEATURE> xmlBinding;
-    protected DatabaseBindingService<ROOT, FEATURE> databaseBinding;
-    protected AbstractEngine deloreanEngine;
+    protected DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> databaseBinding;
+    protected AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> deloreanEngine;
 
-    public Container(Class<ROOT> rootClass, Class<FEATURE> featureClass, Class<TIMESLICE> timeSliceClass, Class<OBJECT> objectClass, QName qName) {
+    public Container(Class<ROOT> rootClass, Class<FEATURE> featureClass, Class<TIMESLICE> timeSliceClass, Class<OBJECT> objectClass, QName qName, String id) {
         this.rootClass = rootClass;
         this.featureClass = featureClass;
         this.timeSliceClass = timeSliceClass;
         this.objectClass = objectClass;
         this.qName = qName;
+        this.id = id;
 
+    }
+
+    public String getId() {
+        return this.id;
     }
 
     public String getName() {
@@ -103,19 +94,19 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         return this.xmlBinding;
     }
 
-    public void setDatabaseBinding(DatabaseBindingService<ROOT, FEATURE> databaseBinding) {
+    public void setDatabaseBinding(DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> databaseBinding) {
         this.databaseBinding = databaseBinding;
     }
 
-    public DatabaseBindingService<ROOT, FEATURE> getDatabaseBinding() {
+    public DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> getDatabaseBinding() {
         return this.databaseBinding;
     }
 
-    public void setDeloreanEngine(AbstractEngine deloreanEngine) {
+    public void setDeloreanEngine(AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> deloreanEngine) {
         this.deloreanEngine = deloreanEngine;
     }
 
-    public AbstractEngine getDeloreanEngine() {
+    public AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> getDeloreanEngine() {
         return this.deloreanEngine;
     }
 
@@ -228,16 +219,14 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         ConsoleLogger.log(LogLevel.INFO, "Merged <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
-    @SuppressWarnings("unchecked")
     public void integrate(String path) {
         
         ROOT newMessage = this.doUnmarshal(path);
         ROOT oldMessage = this.doPredicate(Instant.MAX);
-
-        ConsoleLogger.log(LogLevel.INFO, "Integrated <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        this.message = this.deloreanEngine.integrate(oldMessage, newMessage);
+        // ConsoleLogger.log(LogLevel.INFO, "Integrated <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
-    @SuppressWarnings("unchecked")
     public void extract(Object id) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
@@ -248,21 +237,33 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         ConsoleLogger.log(LogLevel.INFO, "Extracted <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
-    @SuppressWarnings("unchecked")
     public void predicate(String timeString) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }   
 
         Instant time;
-        try {
-            time = Instant.parse(timeString); // expects full ISO-8601, e.g., "2022-01-01T00:00:00Z"
-        } catch (DateTimeParseException e) {
-            throw new DateTimeParseException(
-                "Instant requires a full ISO-8601 date-time (e.g., 2022-01-01T00:00:00Z)", 
-                timeString, 
-                e.getErrorIndex()
-            );
+
+        switch (timeString.trim().toUpperCase()) {
+            case "MAX":
+                time = Instant.MAX;
+                break;
+
+            case "MIN":
+                time = Instant.MIN;
+                break;
+
+            default:
+                try {
+                    // expects full ISO-8601, e.g. "2022-01-01T00:00:00Z"
+                    time = Instant.parse(timeString);
+                } catch (DateTimeParseException e) {
+                    throw new DateTimeParseException(
+                        "Time must be ISO-8601 (e.g. 2022-01-01T00:00:00Z) or one of [MIN, MAX]",
+                        timeString,
+                        e.getErrorIndex()
+                    );
+                }
         }
 
         this.message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time);

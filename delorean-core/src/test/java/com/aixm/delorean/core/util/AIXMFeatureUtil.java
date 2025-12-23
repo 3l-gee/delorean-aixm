@@ -1,4 +1,4 @@
-package com.aixm.delorean.util;
+package com.aixm.delorean.core.util;
 
 import com.aixm.delorean.core.org.gml.v_3_2.CodeWithAuthorityType;
 import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType;

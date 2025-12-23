@@ -6,6 +6,8 @@ import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.container.ContainerWarehouse;
 import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
 
+import java.util.List;
+
 import javax.xml.namespace.QName;
 
 import com.aixm.delorean.aixm511.engine.Aixm511Engine;
@@ -72,5 +74,9 @@ public class AIXM511 {
     /** Removes the container by its id */
     public static void removeContainerById(String id) {
         warehouse().removeContainer(id);
+    }
+
+    public static List<String> listContainerId() {
+        return warehouse().listContainerId();
     }
 }

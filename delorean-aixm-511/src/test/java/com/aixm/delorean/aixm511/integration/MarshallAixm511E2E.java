@@ -51,7 +51,7 @@ public class MarshallAixm511E2E {
         assertThat(xmlBinding).isNotNull();
 
         // ciontainer has Database binding
-        DatabaseBindingService<?,?> dbBinding = container.getDatabaseBinding();
+        DatabaseBindingService<?,?,?,?> dbBinding = container.getDatabaseBinding();
         assertThat(dbBinding).isNotNull();
 
         // container has Delorean engine

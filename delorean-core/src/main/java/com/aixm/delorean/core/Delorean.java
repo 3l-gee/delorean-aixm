@@ -20,16 +20,16 @@ public class Delorean<R, F, T, O> {
         Class<TIMESLICE> timeSliceClass = (Class<TIMESLICE>) config.getTimeSliceClass();
         Class<OBJECT> objectClass = (Class<OBJECT>) config.getObjectClass();
 
-        Class<AbstractEngine> engineClass = (Class<AbstractEngine>) config.getDeloreanEngineClass();
-        AbstractEngine deloreanEngine;
+        Class<? extends AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT>> engineClass = (Class<? extends AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT>>) config.getDeloreanEngineClass();
+        AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> deloreanEngine;
         try {
             deloreanEngine = engineClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             throw new RuntimeException("Failed to instantiate DeloreanEngine: " + engineClass + e.getMessage(), e);
         }
 
-        Class<AbstractDatabaseFunctions> databaseHelperClass = (Class<AbstractDatabaseFunctions>) config.getDatabaseHelperClass();
-        AbstractDatabaseFunctions databaseHelper;
+        Class<? extends AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT>> databaseHelperClass = (Class<? extends AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT>>) config.getDatabaseHelperClass();
+        AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> databaseHelper;
         try {
             databaseHelper = databaseHelperClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
@@ -44,9 +44,11 @@ public class Delorean<R, F, T, O> {
             config.getCoreResourceAnchorsClass(), 
             config.getAIXMResourceAnchorsClass());
             
-        DatabaseBindingFactory<ROOT, FEATURE> databaseFactory = new DatabaseBindingFactory<>(
+        DatabaseBindingFactory<ROOT, FEATURE, TIMESLICE, OBJECT> databaseFactory = new DatabaseBindingFactory<>(
             rootClass, 
             featureClass, 
+            timeSliceClass,
+            objectClass,
             config.getSqlPreInitPath(), 
             config.getSqlPostInitPath(), 
             config.getConfigurationPath(),  

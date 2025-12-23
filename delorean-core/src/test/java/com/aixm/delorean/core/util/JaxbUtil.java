@@ -1,4 +1,4 @@
-package com.aixm.delorean.util;
+package com.aixm.delorean.core.util;
 
 import java.io.StringReader;
 import java.io.StringWriter;

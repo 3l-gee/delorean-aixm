@@ -2,21 +2,19 @@ package com.aixm.delorean.core.database;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 
-public abstract class AbstractDatabaseFunctions {
+public abstract class AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
-    public abstract void merge(SessionFactory sessionFactory, Object object);
+    public abstract void merge(ROOT message, SessionFactory sessionFactory);
 
-    public abstract Object predicateValidTimeslice(SessionFactory sessionFactory, List<Long> BasicMessageMemberIds , List<Long> TimeslicePropertyIds);
+    public abstract ROOT predicateValidTimeslice(List<Long> BasicMessageMemberIds , List<Long> TimeslicePropertyIds, SessionFactory sessionFactory);
 
     public String inputStreamToSQL(InputStream inputStream) {
         try {
@@ -27,5 +25,4 @@ public abstract class AbstractDatabaseFunctions {
             return null;
         }
     }
-    
 }

@@ -6,11 +6,8 @@ import org.hibernate.cfg.Configuration;
 
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
-import com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType;
 
 import org.hibernate.Transaction;
-
-import jakarta.persistence.Tuple;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -24,26 +21,37 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.function.Function;
-import java.util.Arrays;
 
-
-import com.aixm.delorean.core.DeloreanUtility;
-
-public class DatabaseBindingService<ROOT, FEATURE> {
+public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
     private final Class<ROOT> rootClass;
     private final Class<FEATURE> featureClass;
-    protected final Class<?> CoreResourceAnchorsClass;
-    protected final Class<?> AIXMResourceAnchorsClass;
+    private final Class<TIMESLICE> timeSliceClass;
+    private final Class<OBJECT> objectClass;
+    private final Class<?> CoreResourceAnchorsClass;
+    private final Class<?> AIXMResourceAnchorsClass;
     private String sqlPreInit;
     private String sqlPostInit;
     private SessionFactory sessionFactory;
     private Configuration configuration;
     private ConnectionStatus connectionStatus;
-    protected AbstractDatabaseFunctions databaseHelper;
+    private AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> databaseHelper;
 
-    public DatabaseBindingService(Class<ROOT> rootClass, Class<FEATURE> featureClass, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, ConnectionStatus connectionStatus, AbstractDatabaseFunctions databaseHelper, Class<?> CoreResourceAnchorsClass, Class<?> AIXMResourceAnchorsClass) {
+    public DatabaseBindingService(
+        Class<ROOT> rootClass,
+        Class<FEATURE> featureClass, 
+        Class<TIMESLICE> timeSliceClass, 
+        Class<OBJECT> objectClass, 
+        String sqlPreInitPath, 
+        String sqlPostInitPath, 
+        Configuration configuration,
+        ConnectionStatus connectionStatus, 
+        AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT>  databaseHelper, 
+        Class<?> CoreResourceAnchorsClass, 
+        Class<?> AIXMResourceAnchorsClass) {
         this.rootClass = rootClass;
         this.featureClass = featureClass;
+        this.timeSliceClass = timeSliceClass;
+        this.objectClass = objectClass;
         this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
         this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
         this.sqlPreInit = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream(sqlPreInitPath));
@@ -254,22 +262,22 @@ public class DatabaseBindingService<ROOT, FEATURE> {
         this.sessionFactory.close();
     }
 
-    public void persist(Object object) {
+    public void persist(ROOT message) {
         if (this.sessionFactory == null){
             throw new IllegalArgumentException("sessionfactory is not init");
         }
 
         try (Session session = sessionFactory.openSession()) {
             HibernateHelper.doInTransaction(session, s -> {
-                s.persist(object);
+                s.persist(message);
                 return null;
             });
         } catch (Exception ex) {
-            throw new RuntimeException("Failed to persist " + object.getClass().getName(), ex);
+            throw new RuntimeException("Failed to persist " + message.getClass().getName(), ex);
         }
     }
 
-    public Object extract(Class<ROOT> structure, Object id) {
+    public ROOT extract(Class<ROOT> structure, Object id) {
         if (this.sessionFactory == null){
             throw new IllegalArgumentException("sessionfactory is not init");
         }
@@ -280,7 +288,7 @@ public class DatabaseBindingService<ROOT, FEATURE> {
         try {
             transaction = session.beginTransaction();
 
-            Object object = session.find(structure, id);
+            ROOT object = session.find(structure, id);
 
             transaction.commit();
             return object;
@@ -296,7 +304,7 @@ public class DatabaseBindingService<ROOT, FEATURE> {
         }
     }
 
-    public Object predicateValidTimeslice(Class<ROOT> structure, Instant time) {
+    public ROOT predicateValidTimeslice(Class<ROOT> structure, Instant time) {
         if (this.sessionFactory == null){
             throw new IllegalArgumentException("Sessionfactory is not init");
         }
@@ -313,23 +321,23 @@ public class DatabaseBindingService<ROOT, FEATURE> {
         List<Long> BMMIds = session.createNativeQuery(BMMIdsSQL, Long.class).setParameter("time", time).getResultList();
         BMMIdsTX.commit();
 
-        return this.databaseHelper.predicateValidTimeslice(this.sessionFactory, BMMIds, TSPIds);
+        return this.databaseHelper.predicateValidTimeslice(BMMIds, TSPIds, this.sessionFactory);
     }
 
-    public void merge(Object object) {
+    public void merge(ROOT message) {
         if (this.sessionFactory == null){
             throw new IllegalArgumentException("Sessionfactory is not init");
         }
 
-        this.databaseHelper.merge(this.sessionFactory, object);
+        this.databaseHelper.merge(message, this.sessionFactory);
     }
 
-    public void integrate(Object object) {
+    public void integrate(ROOT message) {
         if (this.sessionFactory == null){
             throw new IllegalArgumentException("Sessionfactory is not init");
         }
 
-        this.databaseHelper.merge(this.sessionFactory, object);
+        this.databaseHelper.merge(message, this.sessionFactory);
     }
 
     // public Object export(Class<T> structure, Object id) {

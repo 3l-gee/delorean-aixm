@@ -3,8 +3,6 @@ package org.jvnet.hyperjaxb.xml.bind.annotation.adapters;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.List;
 
 import javax.xml.namespace.QName;
 import org.jvnet.hyperjaxb.item.Converter;

@@ -15,6 +15,7 @@
     <description>Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more.</description>
     <url>https://github.com/3l-gee/delorean-aixm</url>
     <inceptionYear>2024</inceptionYear>
+    
     <developers>
         <developer>
             <id>3l-gee</id>
@@ -25,6 +26,14 @@
             </roles>
         </developer>
     </developers>
+
+    <licenses>
+        <license>
+            <name>GNU General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

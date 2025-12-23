@@ -1,6 +1,8 @@
 package com.aixm.delorean.core.container;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -12,18 +14,18 @@ import com.aixm.delorean.core.xml.XMLBindingFactory;
 import com.aixm.delorean.core.engine.AbstractEngine;
 import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 
-public class ContainerWarehouse<R, F, T, O> {
+public class ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT> {
     protected String name;
-    protected final Class<R> rootClass;
-    protected final Class<F> featureClass;
-    protected final Class<T> timeSliceClass;
-    protected final Class<O> objectClass;
+    protected final Class<ROOT> rootClass;
+    protected final Class<FEATURE> featureClass;
+    protected final Class<TIMESLICE> timeSliceClass;
+    protected final Class<OBJECT> objectClass;
     protected final QName qName;
-    protected final XMLBindingFactory<R, F> xmlFactory;
-    protected final DatabaseBindingFactory<R, F> databaseFactory;
-    protected final AbstractEngine deloreanEngine;
-    protected final AbstractDatabaseFunctions databaseHelper;
-    protected Map<String, Container<R, F, T, O>> containers;
+    protected final XMLBindingFactory<ROOT, FEATURE> xmlFactory;
+    protected final DatabaseBindingFactory<ROOT, FEATURE, TIMESLICE, OBJECT> databaseFactory;
+    protected final AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> deloreanEngine;
+    protected final AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> databaseHelper;
+    protected Map<String, Container<ROOT, FEATURE, TIMESLICE, OBJECT>> containers;
     protected String lastUsedContainerId; 
     protected final Class<?> CoreResourceAnchorsClass;
     protected final Class<?> AIXMResourceAnchorsClass;
@@ -31,15 +33,15 @@ public class ContainerWarehouse<R, F, T, O> {
 
     public ContainerWarehouse(
         String name, 
-        Class<R> rootClass,
-        Class<F> featureClass, 
-        Class<T> timeSliceClass, 
-        Class<O> objectClass, 
+        Class<ROOT> rootClass,
+        Class<FEATURE> featureClass, 
+        Class<TIMESLICE> timeSliceClass, 
+        Class<OBJECT> objectClass, 
         QName qName, 
-        XMLBindingFactory<R, F> xmlFactory, 
-        DatabaseBindingFactory<R, F> databaseFactory, 
-        AbstractEngine deloreanEngine,
-        AbstractDatabaseFunctions databaseHelper,
+        XMLBindingFactory<ROOT, FEATURE> xmlFactory, 
+        DatabaseBindingFactory<ROOT, FEATURE, TIMESLICE, OBJECT> databaseFactory, 
+        AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> deloreanEngine,
+        AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> databaseHelper,
         Class<?> CoreResourceAnchorsClass,
         Class<?> AIXMResourceAnchorsClass
     ) {
@@ -64,22 +66,22 @@ public class ContainerWarehouse<R, F, T, O> {
     }
 
     public void createNewContainer() {
-        Container<R, F, T, O> container = new Container<R, F, T, O>(this.rootClass, this.featureClass, this.timeSliceClass, this.objectClass, this.qName);
+        String id = UUID.randomUUID().toString().substring(0, 6);
+        Container<ROOT, FEATURE, TIMESLICE, OBJECT> container = new Container<ROOT, FEATURE, TIMESLICE, OBJECT>(this.rootClass, this.featureClass, this.timeSliceClass, this.objectClass, this.qName, id);
         container.setXmlBinding(this.xmlFactory.createXMLBinding());
         container.setDatabaseBinding(this.databaseFactory.createDatabaseBinding());
         container.setDeloreanEngine(this.deloreanEngine);
-
-        String id = UUID.randomUUID().toString().substring(0, 6);
+        
         this.containers.put(id, container);
         this.lastUsedContainerId = id;
     }
 
     public void removeContainer(String id) {
         this.containers.remove(id);
-        this.lastUsedContainerId = id; 
+        this.lastUsedContainerId = null; 
     }
 
-    public Container<R, F, T, O> getContainerById(String id) {
+    public Container<ROOT, FEATURE, TIMESLICE, OBJECT> getContainerById(String id) {
         if (!this.containers.containsKey(id)) {
             return null;
         }
@@ -87,9 +89,9 @@ public class ContainerWarehouse<R, F, T, O> {
         return this.containers.get(id);
     }
 
-    public Container<R, F, T, O> getContainerByName(String name) {
-        for (Map.Entry<String, Container<R, F, T, O>> entry : this.containers.entrySet()) {
-            if (entry.getValue().getName().equals(name)) {
+    public Container<ROOT, FEATURE, TIMESLICE, OBJECT> getContainerByName(String name) {
+        for (Map.Entry<String, Container<ROOT, FEATURE, TIMESLICE, OBJECT>> entry : this.containers.entrySet()) {
+            if (entry.getValue().getId().equals(name)) {
                 this.lastUsedContainerId = entry.getKey();
                 return entry.getValue();
             }
@@ -102,10 +104,24 @@ public class ContainerWarehouse<R, F, T, O> {
     }
 
     public String getLastUsedContainerId() {
+        if (this.lastUsedContainerId == null) {
+            throw new IllegalStateException(
+                "No container has been created or selected yet"
+            );
+        }
         return this.lastUsedContainerId;
     }
 
-    public Container<R, F, T, O> getLastUsedContainer() {
+    public Container<ROOT, FEATURE, TIMESLICE, OBJECT> getLastUsedContainer() {
         return this.containers.get(this.lastUsedContainerId);
+    }
+
+    public List<String> listContainerId() {
+        List<String> output = new ArrayList<>();
+        for (Map.Entry<String, Container<ROOT, FEATURE, TIMESLICE, OBJECT>> entry : this.containers.entrySet()) {
+            output.add(entry.getKey());
+        }
+
+        return output;
     }
 }

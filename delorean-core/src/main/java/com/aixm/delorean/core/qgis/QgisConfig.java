@@ -1,8 +1,5 @@
 package com.aixm.delorean.core.qgis;
 
-import com.aixm.delorean.core.database.DatabaseConfig;
-import com.aixm.delorean.core.qgis.PostgresLayerConfig;
-
 import java.util.List;
 
 public enum QgisConfig {

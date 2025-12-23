@@ -1,4 +1,4 @@
-package com.aixm.delorean.unit.time;
+package com.aixm.delorean.core.unit.time;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,11 +12,11 @@ import com.aixm.delorean.core.schema.a5_2.aixm.CodeNavaidDesignatorType;
 import com.aixm.delorean.core.schema.a5_2.aixm.NotePropertyType;
 import com.aixm.delorean.core.schema.a5_2.aixm.NoteType;
 import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
-import com.aixm.delorean.util.JaxbUtil;
+import com.aixm.delorean.core.util.JaxbUtil;
 
 import jakarta.xml.bind.JAXBElement;
 
-import com.aixm.delorean.util.AIXMFeatureUtil;
+import com.aixm.delorean.core.util.AIXMFeatureUtil;
 import com.aixm.delorean.core.time.helper.TemporalityHelper;
 
 import java.util.stream.Stream;
