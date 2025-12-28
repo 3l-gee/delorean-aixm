@@ -59,10 +59,6 @@ public class ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.deloreanEngine = deloreanEngine;
         this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
         this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
-
-         // create the first container
-        this.createNewContainer();
-        
     }
 
     public void createNewContainer() {

@@ -18,6 +18,5 @@
         <class>com.aixm.delorean.core.org.gml.v_3_2.Row</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.Rows</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.StringOrRefType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.TimePositionType</class>
     </persistence-unit>
 </persistence>

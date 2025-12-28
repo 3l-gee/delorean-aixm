@@ -3,6 +3,7 @@ package com.aixm.delorean.core;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.AccessDeniedException;
@@ -10,7 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
@@ -71,29 +72,25 @@ public class DeloreanUtility {
             ConsoleLogger.log(LogLevel.ERROR, "File path must end with .zip: " + filePath);
             return null;
         }
-        
-        Path path = Paths.get(filePath);
-
+    
         try {
-            ZipFile zipFile = new ZipFile(path.toFile());
-                
-            if (!zipFile.entries().hasMoreElements()) {
-                ConsoleLogger.log(LogLevel.ERROR,"ZIP file is empty: " + filePath);
+            FileInputStream fis = new FileInputStream(filePath);
+            ZipInputStream zis = new ZipInputStream(fis);
+            
+            ZipEntry entry = zis.getNextEntry();
+            
+            if (entry == null) {
+                ConsoleLogger.log(LogLevel.ERROR, "ZIP file is empty: " + filePath);
+                zis.close();
                 return null;
             }
-                
-            ZipEntry firstEntry = zipFile.entries().nextElement();
-                
-            return zipFile.getInputStream(firstEntry);
-                
-        } catch (SecurityException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Access denied for file at path: " + filePath);
-            return null;
-        } catch (FileNotFoundException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "File not found at path: " + filePath);
-            return null;
-        } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "An unexpected I/O error occurred while accessing: " + filePath + " - " + e.getMessage());
+
+            // Return the ZipInputStream itself. 
+            // When the caller closes this, it closes the FileInputStream too.
+            return zis; 
+            
+        } catch (IOException e) {
+            ConsoleLogger.log(LogLevel.ERROR, "I/O error: " + e.getMessage());
             return null;
         }
     }

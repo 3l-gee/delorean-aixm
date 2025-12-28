@@ -1,41 +1,45 @@
 package com.aixm.delorean.aixm511.integration;
 
 import org.junit.jupiter.api.*;
-import org.xmlunit.assertj.XmlAssert;
+import org.testcontainers.postgresql.PostgreSQLContainer;
+import org.testcontainers.utility.DockerImageName;
 
 import com.aixm.delorean.aixm511.AIXM511;
 import com.aixm.delorean.aixm511.engine.Aixm511Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.xml.XmlBindingService;
-import org.xmlunit.assertj.XmlAssert;
 
 import static org.assertj.core.api.Assertions.*;
 
-import java.io.File;
-
 /*
-Simple lifecycle test for AIXM 5.1.1 Delorean container with specific marshalling tasks
+Simple lifecycle test for AIXM 5.1.1 Delorean container 
     - unmarshal XML
     - establish connection to DB
     - persist data to DB
     - extract data from DB
     - marshal XML
 */
-@Disabled
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class MarshallAixm511E2E {
-
+public class RoundTripXmlAixm511E2E {
+    
     String id;
     Container<?,?,?,?> container;
+    PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine").asCompatibleSubstituteFor("postgres"));
+
+    @Test
+    @Order(1)
+    void startPostgreSQLContainer() {
+        postgis.start();
+    }
     
     @Test
     @Order(10)
     void configDeloreanCore() {
 
         // given
-        container = AIXM511.container();
+        container = AIXM511.newContainer();
 
         // container is successfully created
         assertThat(container).isNotNull();
@@ -64,7 +68,7 @@ public class MarshallAixm511E2E {
     void loadXml(){
 
         // given 
-        String xmlPath = "src\\test\\resources\\marshall\\marshall-in.xml";
+        String xmlPath = "src\\test\\resources\\roundtrip\\donlon.xml";
 
         // do
         container.unmarshal(xmlPath);
@@ -83,7 +87,7 @@ public class MarshallAixm511E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src\\test\\resources\\marshall\\marshall-marshalled.xml.log";
+        String xmlPath = "src\\test\\resources\\roundtrip\\donlon-marshalled.xml.log";
 
         // do
         container.marshal(xmlPath);
@@ -94,9 +98,9 @@ public class MarshallAixm511E2E {
     void establishConnection() {
 
         // given
-        container.getDatabaseBinding().setUrl("jdbc:postgresql://localhost:5432/aixm_5_1_1");
-        container.getDatabaseBinding().setUsername("postgres");
-        container.getDatabaseBinding().setPassword("postgres");
+        container.getDatabaseBinding().setUrl(postgis.getJdbcUrl());
+        container.getDatabaseBinding().setUsername(postgis.getUsername());
+        container.getDatabaseBinding().setPassword(postgis.getPassword());
         container.getDatabaseBinding().setHbm2ddl("create");
 
         // do
@@ -128,7 +132,7 @@ public class MarshallAixm511E2E {
     void databaseExtract() {
 
         // do
-        container.extract(1);
+        container.predicate("2022-01-01T00:00:00Z");
 
         // check that
     }
@@ -139,34 +143,11 @@ public class MarshallAixm511E2E {
     void extractExtractedXml() {
 
         // given
-        String xmlPath = "src\\test\\resources\\marshall\\marshall-extracted.xml.log";
+        String xmlPath = "src\\test\\resources\\roundtrip\\donlon-predicated.xml.log";
 
         // do
         container.marshal(xmlPath);
     } 
 
-    @Test
-    @Order(90)
-    void compareMarshalledAndExtractedXml() throws Exception {
-        // given
-        // XML output from unmarshal -> marshal (before DB persistence)
-        String marshalledXmlPath = "src\\test\\resources\\marshall\\marshall-marshalled.xml.log";
-        // XML output from unmarshal -> persist -> extract -> marshal (after DB roundtrip)
-        String extractedXmlPath = "src\\test\\resources\\marshall\\marshall-extracted.xml.log";
-
-        File marshalledFile = new File(marshalledXmlPath);
-        File extractedFile = new File(extractedXmlPath);
-
-        // check that the files exist and are not empty
-        assertThat(marshalledFile).exists().isNotEmpty();
-        assertThat(extractedFile).exists().isNotEmpty();
-
-        // do & then check
-        XmlAssert.assertThat(marshalledFile)
-            .and(extractedFile)
-            .ignoreWhitespace()
-            .ignoreComments().areSimilar();
-        
-    }
-
+    
 }

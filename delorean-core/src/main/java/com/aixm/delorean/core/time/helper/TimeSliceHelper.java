@@ -54,26 +54,26 @@ public class TimeSliceHelper {
     }
 
     public static DeloreanTimeSliceType parseFeatureLifetime(TimePrimitivePropertyType lifeTime){
-        if (lifeTime != null) {
-            JAXBElement<? extends AbstractTimePrimitiveType> abstractTimePrimitive = lifeTime.getAbstractTimePrimitive();
-            if (abstractTimePrimitive.getValue() instanceof TimeEdgeType) {
-                return parseTimeEdgeType((TimeEdgeType) abstractTimePrimitive.getValue());
-
-            } else if (abstractTimePrimitive.getValue() instanceof TimeInstantType) {
-                return parseTimeInstantType((TimeInstantType) abstractTimePrimitive.getValue());
-
-            } else if (abstractTimePrimitive.getValue() instanceof TimeNodeType) {
-                return parseTimeNodeType((TimeNodeType) abstractTimePrimitive.getValue());
-
-            } else if (abstractTimePrimitive.getValue() instanceof TimePeriodType) {
-                return parseTimePeriodType((TimePeriodType) abstractTimePrimitive.getValue());
-
-            } else {
-                throw new IllegalArgumentException("Unsupported type " + abstractTimePrimitive.getValue().getClass().getName());
-            }
+        if (lifeTime == null) {
+            return null;
         }
-        throw new IllegalArgumentException("ValidTime cannot be null");
 
+        JAXBElement<? extends AbstractTimePrimitiveType> abstractTimePrimitive = lifeTime.getAbstractTimePrimitive();
+        if (abstractTimePrimitive.getValue() instanceof TimeEdgeType) {
+            return parseTimeEdgeType((TimeEdgeType) abstractTimePrimitive.getValue());
+
+        } else if (abstractTimePrimitive.getValue() instanceof TimeInstantType) {
+            return parseTimeInstantType((TimeInstantType) abstractTimePrimitive.getValue());
+
+        } else if (abstractTimePrimitive.getValue() instanceof TimeNodeType) {
+            return parseTimeNodeType((TimeNodeType) abstractTimePrimitive.getValue());
+
+        } else if (abstractTimePrimitive.getValue() instanceof TimePeriodType) {
+            return parseTimePeriodType((TimePeriodType) abstractTimePrimitive.getValue());
+
+        } else {
+            throw new IllegalArgumentException("Unsupported type " + abstractTimePrimitive.getValue().getClass().getName());
+        }
     }
 
     public static TimePrimitivePropertyType printFeatureLifetime(DeloreanTimeSliceType aixmTime){

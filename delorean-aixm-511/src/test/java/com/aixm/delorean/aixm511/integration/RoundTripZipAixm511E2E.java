@@ -1,6 +1,8 @@
 package com.aixm.delorean.aixm511.integration;
 
 import org.junit.jupiter.api.*;
+import org.testcontainers.postgresql.PostgreSQLContainer;
+import org.testcontainers.utility.DockerImageName;
 
 import com.aixm.delorean.aixm511.AIXM511;
 import com.aixm.delorean.aixm511.engine.Aixm511Engine;
@@ -10,9 +12,6 @@ import com.aixm.delorean.core.xml.XmlBindingService;
 
 import static org.assertj.core.api.Assertions.*;
 
-import java.time.Instant;
-
-
 /*
 Simple lifecycle test for AIXM 5.1.1 Delorean container 
     - unmarshal XML
@@ -21,20 +20,26 @@ Simple lifecycle test for AIXM 5.1.1 Delorean container
     - extract data from DB
     - marshal XML
 */
-
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class SimpleAixm511E2E {
+public class RoundTripZipAixm511E2E {
     
     String id;
     Container<?,?,?,?> container;
+    PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine").asCompatibleSubstituteFor("postgres"));
+
+    @Test
+    @Order(1)
+    void startPostgreSQLContainer() {
+        postgis.start();
+    }
     
     @Test
     @Order(10)
     void configDeloreanCore() {
 
         // given
-        container = AIXM511.container();
+        container = AIXM511.newContainer();
 
         // container is successfully created
         assertThat(container).isNotNull();
@@ -63,7 +68,7 @@ public class SimpleAixm511E2E {
     void loadXml(){
 
         // given 
-        String xmlPath = "src\\test\\resources\\donlon-in.xml";
+        String xmlPath = "src\\test\\resources\\roundtrip\\donlon.zip";
 
         // do
         container.unmarshal(xmlPath);
@@ -82,7 +87,7 @@ public class SimpleAixm511E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src\\test\\resources\\donlon-marshalled.xml.log";
+        String xmlPath = "src\\test\\resources\\roundtrip\\donlon-marshalled.zip";
 
         // do
         container.marshal(xmlPath);
@@ -93,9 +98,9 @@ public class SimpleAixm511E2E {
     void establishConnection() {
 
         // given
-        container.getDatabaseBinding().setUrl("jdbc:postgresql://localhost:5432/aixm_5_1_1");
-        container.getDatabaseBinding().setUsername("postgres");
-        container.getDatabaseBinding().setPassword("postgres");
+        container.getDatabaseBinding().setUrl(postgis.getJdbcUrl());
+        container.getDatabaseBinding().setUsername(postgis.getUsername());
+        container.getDatabaseBinding().setPassword(postgis.getPassword());
         container.getDatabaseBinding().setHbm2ddl("create");
 
         // do
@@ -138,7 +143,7 @@ public class SimpleAixm511E2E {
     void extractExtractedXml() {
 
         // given
-        String xmlPath = "src\\test\\resources\\donlon-extracted.xml.log";
+        String xmlPath = "src\\test\\resources\\roundtrip\\donlon-extracted.zip";
 
         // do
         container.marshal(xmlPath);

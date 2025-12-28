@@ -7,7 +7,7 @@ import com.aixm.delorean.core.xml.XMLBindingFactory;
 import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 import javax.xml.namespace.QName;
 
-public class Delorean<R, F, T, O> {
+public class Delorean<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
     private Delorean() {
         // Prevent instantiation without configuration

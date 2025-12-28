@@ -32,7 +32,7 @@ public class SurfaceGMLTest {
 
     static Stream<Arguments> ParseValidGMLSurface() {
         return Stream.of(
-                        Arguments.of(
+            Arguments.of(
                 """
                 <gml:Surface gml:id="s1" srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:patches>

@@ -1,18 +1,15 @@
-package com.aixm.delorean.aixm511.integration;
+package com.aixm.delorean.aixm511.unit.gis;
 
 import org.junit.jupiter.api.*;
-import org.xmlunit.assertj.XmlAssert;
 
 import com.aixm.delorean.aixm511.AIXM511;
 import com.aixm.delorean.aixm511.engine.Aixm511Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.xml.XmlBindingService;
-import org.xmlunit.assertj.XmlAssert;
 
 import static org.assertj.core.api.Assertions.*;
 
-import java.io.File;
 import java.util.List;
 
 /*
@@ -23,10 +20,9 @@ Simple lifecycle test for AIXM 5.1.1 Delorean container with specific marshallin
     - extract data from DB
     - marshal XML
 */
-@Disabled
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class GenericAIXM511Test {
+public class ContainerAIXM511Test {
     String firstContainerID;
     String secondContainerID;
     Container<?,?,?,?> firstContainer;
@@ -37,7 +33,7 @@ public class GenericAIXM511Test {
     void configDeloreanCore() {
 
         // given
-        firstContainer = AIXM511.container();
+        firstContainer = AIXM511.newContainer();
 
         // container is successfully created
         assertThat(firstContainer).isNotNull();
@@ -107,7 +103,7 @@ public class GenericAIXM511Test {
     }
 
     @Test
-    @Order(2)
+    @Order(3)
     void removeFirstContainer() {
 
         AIXM511.removeContainerById(firstContainerID);
