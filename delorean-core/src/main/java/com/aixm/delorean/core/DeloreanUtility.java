@@ -97,9 +97,6 @@ public class DeloreanUtility {
 
     /**
      * Provides a FileOutputStream for writing data to a file on the disk.
-     * **NOTE:** Writing directly into a ZIP archive is complex and usually requires 
-     * creating a ZipOutputStream, which is a different pattern than a simple FileOutputStream. 
-     * This method focuses on writing to a regular file path.
      * * @param filePath The path where the file should be created/overwritten.
      * @return The FileOutputStream for writing.
      * @throws Exception If the file cannot be created or an I/O error occurs.

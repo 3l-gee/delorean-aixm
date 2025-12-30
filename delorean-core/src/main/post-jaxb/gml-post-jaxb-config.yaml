@@ -6,7 +6,7 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.Embedded',
-          '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "valid_time_begin", columnDefinition = "TIMESTAMP")),@jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "valid_time_end", columnDefinition = "TIMESTAMP")), @jakarta.persistence.AttributeOverride(name = "timePeriodId", column = @jakarta.persistence.Column(name = "valid_time_id"))})'
+          '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "valid_time_begin", columnDefinition = "TIMESTAMPTZ")),@jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "valid_time_end", columnDefinition = "TIMESTAMPTZ")), @jakarta.persistence.AttributeOverride(name = "timePeriodId", column = @jakarta.persistence.Column(name = "valid_time_id"))})'
         ]
 
   - where: 

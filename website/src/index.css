@@ -8,7 +8,7 @@
   font-weight: 400;
 
   /* 3-color rule */
-  --color-bg: #ffffff ;
+  --color-bg: #efefef ;
   --color-primary: #647b96;
   --color-secondary: #1e293b;
 
@@ -23,7 +23,7 @@
 
 /* Dark mode */
 [data-theme="dark"] {
-  --color-bg: #000000;
+  --color-bg: #1c1b20;
   --color-primary: #647b96;
   --color-secondary: #e5e7eb;
 

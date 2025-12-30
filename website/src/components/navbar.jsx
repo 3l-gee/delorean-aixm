@@ -8,8 +8,7 @@ import GithubIcon from "../assets/github.svg";
 import LinkedinIcon from "../assets/linkedin.svg";
 import MastodonIcon from "../assets/mastodon.svg";
 import AtIcon from "../assets/at.svg";
-import DeloreanIconLight from "../assets/logo/delorean-aixm-logo-big-light.png";
-import DeloreanIconDark from "../assets/logo/delorean-aixm-logo-big-dark.png";
+import DeloreanIcon from "../assets/logo/delorean-aixm-logo-big.svg";
 
 
 export function Navbar({ onNavigate , onCleanBackground}) {
@@ -25,9 +24,6 @@ export function Navbar({ onNavigate , onCleanBackground}) {
 
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const logoSrc = lightTheme
-    ? DeloreanIconLight
-    : DeloreanIconDark
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,16 +41,16 @@ export function Navbar({ onNavigate , onCleanBackground}) {
   }, [lastScrollY]);
 
   return (
-    <div className={`navbar ${show ? "show" : "hide"}`}>
+    <div className={`navbar ${show ? "show" : "hide"} icons`}>
         <Link
           href="/"
           className="navbar-logo no-underline text-inherit cursor-pointer bg-transparent border-none p-0 m-0 text-left"
           onClick={() => onCleanBackground(false)}
         >
           <img
-            src={logoSrc}
+            src={DeloreanIcon}
             alt="Delorean AIXM Logo"
-            className="navbar-logo-image"
+            className=""
             width="520"
             height="60"
           />

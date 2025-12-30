@@ -6,66 +6,7 @@
   height: 100%;
   overflow: hidden;
   z-index: -1;
-}
+  background: radial-gradient(color-mix(in lab, var(--color-primary) 25%, var(--color-bg) 75%), var(--color-bg));
 
-.orbit-container {
-  position: absolute;
-  animation: orbit var(--duration) linear infinite;
-  transform-origin: center center;
-}
-
-.rotation-container{
-  animation: none !important;
-  animation: rotate var(--duration) linear infinite;
-  transform-origin: center center;
-} 
-
-.shape {
-  position: absolute;
-  transform-origin: center center;
-  animation: none !important;
-  transform: translate(var(--radius-x), var(--radius-y));
-  transition: transform 2s ease;
-}
-
-.shape1 { background: #4e31925d; }
-.shape2 { background: #2a608065; }
-.shape3 { background: #1d3b5e62; }
-.shape4 { background: #83171750; }
-.shape5 { background: #46338d57; }
-.shape6 { background: #135f2357; }
-.shape7 { background: #20455e56; }
-
-[data-theme="dark"] .shape1 { 
-  background: #007dd138; 
-}
-[data-theme="dark"] .shape2 { 
-  background: #097bbd3d; 
-}
-[data-theme="dark"] .shape3 { 
-  background: #0da71a3f; 
-}
-[data-theme="dark"] .shape4 { 
-  background: #b608333a; 
-}
-[data-theme="dark"] .shape5 { 
-  background: #999b1538; 
-}
-[data-theme="dark"] .shape6 { 
-  background: #3d0ebd2f; 
-}
-[data-theme="dark"] .shape7 { 
-  background: #2213a836; 
-}
-
-
-/* Move shapes without rotation */
-@keyframes orbit {
-  0%   { transform: rotate(0deg) translateX(var(--radius)) }
-  100% { transform: rotate(360deg) translateX(var(--radius))}
-}
-
-@keyframes rotate {
-  0%   { transform: rotate(0deg) }
-  100% { transform: rotate(360deg) }
+  
 }

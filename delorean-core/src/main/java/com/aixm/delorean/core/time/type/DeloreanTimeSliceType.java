@@ -13,10 +13,10 @@ public class DeloreanTimeSliceType implements Serializable {
     @Column(name = "time_period_id", length = 255)
     protected String timePeriodId;
 
-    @Column(name = "begin_position", columnDefinition = "TIMESTAMP")
+    @Column(name = "begin_position", columnDefinition = "TIMESTAMPTZ")
     protected Instant beginPosition;
     
-    @Column(name = "end_position", columnDefinition = "TIMESTAMP")
+    @Column(name = "end_position", columnDefinition = "TIMESTAMPTZ")
     protected Instant endPosition;
     
     public void setTimePeriodId(String timePeriodId) {

@@ -95,34 +95,30 @@ export function Features({ onNavigate }) {
       <h2 className="text-4xl font-bold tracking-tight">Rendering</h2>
       <p>
         Leveraging the robust PostgreSQL ecosystem, Delorean
-        creates views that combine temporal and geographic data, these views mirror the AIXM structure as closely as possible, preserving
+        creates views that combine temporal and geographic data. These views mirror the AIXM structure as closely as possible, preserving
         feature groups and including all features and objects defined in the dataset.
       </p>
 
       <p>
-        Once inside QGIS, this representation of AIXM data becomes fully interactive. Users can take
-        advantage of QGIS's wide range of tools to process, analyze, 
+        Once loaded into a GIS platform, this representation of AIXM data becomes fully interactive. Users can take
+        advantage of a wide range of GIS tools to process, analyze,
         transform, and publish aeronautical data into different formats
-        or services. This turns static XML into actionable geospatial layers that fit naturally into
+        or services. This turns static XML into actionable geospatial layers that integrate seamlessly into
         existing GIS workflows.
       </p>
 
       <p>
         To achieve this, Delorean preprocesses the extended GML geometries found in AIXM
-        before loading them into QGIS. AIXM relies on GML to express complex spatial constructs—
+        before loading them into the GIS system. AIXM relies on GML to express complex spatial constructs—
         including multi-geometries, polygons with holes, and temporally bounded shapes—that cannot be
-        consumed directly by most GIS tools. Delorean translates these into 
-        PostGIS-compatible geometries, ensuring that QGIS can render and manipulate them
+        consumed directly by most GIS tools. Delorean translates these into
+        PostGIS-compatible geometries, ensuring that the GIS platform can render and manipulate them
         accurately while preserving both spatial precision and temporal context.
       </p>
       <div className="flex space-x-8">
         <Button 
           label="GML Rendering" 
           href="/features/gml" 
-        />
-        <Button 
-          label="QGIS Interaction" 
-          href="/features/qgis" 
         />
       </div>
     </div>

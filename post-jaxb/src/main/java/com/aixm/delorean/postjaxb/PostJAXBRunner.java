@@ -124,7 +124,6 @@ public class PostJAXBRunner {
             throw new SecurityException("Could not verify real path: " + rawInputPath + " (" + e.getMessage() + ")");
         }
     }
-
     /*
 
     */

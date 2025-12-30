@@ -31,6 +31,7 @@
   font-family: monospace;
   font-size: 8px;
   line-height: 1.2;
+  filter: invert();
 }
 
 /* middle links */
@@ -58,3 +59,4 @@
 .navbar-icons img {
   display: block;
 }
+

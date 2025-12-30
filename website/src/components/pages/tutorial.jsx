@@ -39,12 +39,11 @@ export function Tutorial() {
     <div className="flex space-y-8">
     <div className="space-y-6 flex-2">
         <h2 className="text-4xl font-bold tracking-tight">System Requirements</h2>
-        <p>Delorean is a Java-based application that integrates with PostgreSQL, PostGIS, and QGIS. The following minimum versions are required:</p>
+        <p>Delorean is a Java-based application that integrates with PostgreSQL and PostGIS. The following minimum versions are required:</p>
         <ul className="list-disc list-inside space-y-2">
-            <li>Java Runtime Environment (JRE) 17 or later</li>
+            <li>Java Runtime Environment (JRE) 21 or later</li>
             <li>PostgreSQL 15 or later</li>
             <li>PostGIS 3.2 or later</li>
-            <li>QGIS 3.20 or later</li>
         </ul>
     </div>
       <div className="flex flex-col flex-1 w-full h-full space-y-4 pl-6 text-base leading-relaxed justify-center items-center">
@@ -59,11 +58,6 @@ export function Tutorial() {
                 label = "postgresql.org/download"
                 url = "https://www.postgresql.org/download/"
                 icon = {PostgresqlIcon}
-            />
-            <LinkIcon 
-                label = "qgis.org/download"
-                url = "https://qgis.org/download/"
-                icon = {QgisIcon}
             />
         </ul>
       </div>
