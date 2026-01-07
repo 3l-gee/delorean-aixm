@@ -68,7 +68,7 @@ public class RoundTripZipAixm511E2E {
     void loadXml(){
 
         // given 
-        String xmlPath = "src\\test\\resources\\roundtrip\\donlon.zip";
+        String xmlPath = "src/test/resources/roundtrip/donlon.zip";
 
         // do
         container.unmarshal(xmlPath);
@@ -87,7 +87,7 @@ public class RoundTripZipAixm511E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src\\test\\resources\\roundtrip\\donlon-marshalled.xml.log";
+        String xmlPath = "src/test/resources/roundtrip/donlon-marshalled.xml.log";
 
         // do
         container.marshal(xmlPath);
@@ -143,7 +143,7 @@ public class RoundTripZipAixm511E2E {
     void extractExtractedXml() {
 
         // given
-        String xmlPath = "src\\test\\resources\\roundtrip\\donlon-extracted.xml.log";
+        String xmlPath = "src/test/resources/roundtrip/donlon-extracted.xml.log";
 
         // do
         container.marshal(xmlPath);

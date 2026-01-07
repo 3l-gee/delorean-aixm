@@ -3,6 +3,8 @@ package com.aixm.delorean.postjaxb.unit;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.jupiter.api.io.TempDir;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,6 +12,7 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.aixm.delorean.postjaxb.PostJAXBRunner;
+
 
 public class PathSanitizerTest {
 
@@ -36,20 +39,48 @@ public class PathSanitizerTest {
         assertNotNull(resolved);
         assertTrue(resolved.startsWith(projectRoot));
     }
-    
+
     // -----------------------------
-    // Negative cases (invalid paths)
+    // Negative cases - common invalid paths
     // -----------------------------
     @ParameterizedTest
     @ValueSource(strings = {
             "../outside",          // attempt to escape project
             "../../etc/passwd",
             "/../absolute/escape", // absolute escape
-            "//server/share/file", // UNC
-            "C:\\Windows",         // absolute path NOT under project
             "\0bad"                // null byte injection
     })
-    void testSanitizePath_InvalidPaths(String input) {
+    void testSanitizePath_CommonInvalidPaths(String input) {
+        assertThrows(Exception.class, () -> {
+            PostJAXBRunner.sanitizePath(input);
+        });
+    }
+
+    // -----------------------------
+    // Negative paths only relevant on Linux/macOS
+    // -----------------------------
+    @EnabledOnOs({OS.LINUX, OS.MAC})
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "/etc/passwd",          // absolute path on Unix
+            "//server/share/file"   // UNC style on Unix (treated as absolute escape)
+    })
+    void testSanitizePath_UnixInvalidPaths(String input) {
+        assertThrows(Exception.class, () -> {
+            PostJAXBRunner.sanitizePath(input);
+        });
+    }
+
+    // -----------------------------
+    // Negative paths only relevant on Windows
+    // -----------------------------
+    @EnabledOnOs(OS.WINDOWS)
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "C:\\Windows",          // absolute path NOT under project
+            "D:\\SomeFolder"        // another example
+    })
+    void testSanitizePath_WindowsInvalidPaths(String input) {
         assertThrows(Exception.class, () -> {
             PostJAXBRunner.sanitizePath(input);
         });

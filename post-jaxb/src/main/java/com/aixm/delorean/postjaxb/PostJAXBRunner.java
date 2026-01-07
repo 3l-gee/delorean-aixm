@@ -17,7 +17,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.DirectoryNotEmptyException;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 import java.nio.file.LinkOption;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
@@ -87,22 +89,31 @@ public class PostJAXBRunner {
             throw new IllegalArgumentException("Path is empty");
         }
 
-        // Block null-byte injection
+        // Null-byte check
         if (rawInputPath.indexOf('\0') >= 0) {
             throw new SecurityException("Invalid path (null byte): " + rawInputPath);
         }
 
-        // Normalize slashes (Windows compatibility)
-        rawInputPath = rawInputPath.replace('\\', '/');
+        // Parse path safely
+        Path inputPath;
+        try {
+            inputPath = Path.of(rawInputPath);
+        } catch (InvalidPathException e) {
+            throw new SecurityException("Invalid path syntax: " + rawInputPath);
+        }
 
-        // Block UNC paths (\\server\share)
-        if (rawInputPath.startsWith("//")) {
+        // Reject absolute paths
+        if (inputPath.isAbsolute()) {
+            throw new SecurityException("Absolute paths not allowed: " + rawInputPath);
+        }
+
+        // UNC paths check
+        Path root = inputPath.getRoot();
+        if (root != null && root.toString().startsWith("\\\\")) {
             throw new SecurityException("UNC paths not allowed: " + rawInputPath);
         }
 
-        Path inputPath = Paths.get(rawInputPath);
-
-        // Resolve inside project
+        // Resolve inside project root
         Path resolved = PROJECT_ROOT.resolve(inputPath).normalize();
 
         // Bound check
@@ -110,18 +121,23 @@ public class PostJAXBRunner {
             throw new SecurityException("Path escapes project root: " + rawInputPath);
         }
 
-        // Prevent symlink escape
+        // Symlink escape check
         try {
-            Path real = resolved.toRealPath(LinkOption.NOFOLLOW_LINKS);
-            if (!real.startsWith(PROJECT_ROOT)) {
+            Path realRoot = PROJECT_ROOT.toRealPath();
+            Path realResolved = resolved.toRealPath(LinkOption.NOFOLLOW_LINKS);
+
+            if (!realResolved.startsWith(realRoot)) {
                 throw new SecurityException("Symlink escape detected: " + rawInputPath);
             }
-            return real;
+
+            return realResolved;
+
         } catch (NoSuchFileException e) {
             return resolved;
+
         } catch (IOException e) {
             // It's safer to block the operation entirely if the path cannot be verified.
-            throw new SecurityException("Could not verify real path: " + rawInputPath + " (" + e.getMessage() + ")");
+            throw new SecurityException("Could not verify real path: " + rawInputPath + " : " + e.getMessage());
         }
     }
     /*
