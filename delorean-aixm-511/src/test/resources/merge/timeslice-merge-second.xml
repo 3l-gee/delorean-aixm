@@ -45,6 +45,7 @@
   xsi:schemaLocation="http://www.aixm.aero/schema/5.1.1/message http://www.aixm.aero/schema/5.1.1/message/AIXM_BasicMessage.xsd" 
   gml:id="DONLON_EADA_AirportHeliport_Baseline">
   <message:hasMember>
+    <!-- Update (sequenceNumber)-->
     <aixm:AirportHeliport gml:id="uuid.556d7442-402d-467b-81af-09f2eed71cf7">
       <gml:identifier codeSpace="urn:uuid:">556d7442-402d-467b-81af-09f2eed71cf7</gml:identifier>
       <aixm:timeSlice>
@@ -65,7 +66,7 @@
             </gml:TimePeriod>
           </aixm:featureLifetime>
           <aixm:designator>EADA</aixm:designator>
-          <aixm:name>AKVIN/AKVIN</aixm:name>
+          <aixm:name>AKVIN/AKVIN/DELOREAN</aixm:name>
           <aixm:locationIndicatorICAO>EADA</aixm:locationIndicatorICAO>
           <aixm:designatorIATA>AKV</aixm:designatorIATA>
           <aixm:type>AD</aixm:type>

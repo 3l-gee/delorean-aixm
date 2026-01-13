@@ -23,7 +23,8 @@ import java.io.File;
 public class MergeAixm511E2E {
 
     String id;
-    Container<?,?,?,?> container;
+    Container<?,?,?,?> AContainer;
+    Container<?,?,?,?> BContainer;
     PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine").asCompatibleSubstituteFor("postgres"));
 
     @Test
@@ -34,46 +35,46 @@ public class MergeAixm511E2E {
 
     @Test
     @Order(10)
-    void configDeloreanCore() {
+    void configAContainerDeloreanCore() {
 
         // given
-        container = AIXM511.newContainer();
+        AContainer = AIXM511.newContainer();
 
         // container is successfully created
-        assertThat(container).isNotNull();
+        assertThat(AContainer).isNotNull();
     }
 
     @Test
     @Order(20)
-    void loadXml(){
+    void loadFirstXml(){
 
         // given 
-        String xmlPath = "src/test/resources/roundtrip/donlon.xml";
+        String xmlPath = "src/test/resources/merge/timeslice-merge-first.xml";
 
         // do
-        container.unmarshal(xmlPath);
+        AContainer.unmarshal(xmlPath);
 
     }
 
     @Test
     @Order(30)
-    void info(){
+    void infoFirst(){
         // do
-        container.info();
+        AContainer.info();
     }
 
     @Test
     @Order(40)
-    void establishConnection() {
+    void establishAConnection() {
 
         // given
-        container.getDatabaseBinding().setUrl(postgis.getJdbcUrl());
-        container.getDatabaseBinding().setUsername(postgis.getUsername());
-        container.getDatabaseBinding().setPassword(postgis.getPassword());
-        container.getDatabaseBinding().setHbm2ddl("create");
+        AContainer.getDatabaseBinding().setUrl(postgis.getJdbcUrl());
+        AContainer.getDatabaseBinding().setUsername(postgis.getUsername());
+        AContainer.getDatabaseBinding().setPassword(postgis.getPassword());
+        AContainer.getDatabaseBinding().setHbm2ddl("create");
 
         // do
-        container.startup();
+        AContainer.startup();
 
         // check that 
         // the dbconfig is of the right dbconfig 
@@ -83,12 +84,12 @@ public class MergeAixm511E2E {
 
     @Test
     @Order(50)
-    void persisteData() {
+    void persisteFirst() {
 
         // given
 
         // do
-        container.persist();
+        AContainer.persist();
         
         // check that 
         // the dbconfig is of the right dbconfig 
@@ -98,24 +99,144 @@ public class MergeAixm511E2E {
 
     @Test
     @Order(60)
-    void databaseExtract() {
+    void loadSecondXml(){
+
+        // given 
+        String xmlPath = "src/test/resources/merge/timeslice-merge-second.xml";
 
         // do
-        container.predicate("2022-01-01T00:00:00Z");
+        AContainer.unmarshal(xmlPath);
+
+    }
+
+    @Test
+    @Order(70)
+    void infoSecond(){
+        // do
+        AContainer.info();
+    }
+
+    @Test
+    @Order(80)
+    void mergeSecond() {
+
+        // given
+
+        // do
+        AContainer.merge();
+        
+        // check that 
+        // the dbconfig is of the right dbconfig 
+        // assertThat(app.containerWarehouse.getContainer(containerID).databaseBinding).isEqualTo(dbConfig);
+
+    }
+
+    @Test
+    @Order(90)
+    void configBContainerDeloreanCore() {
+
+        // given
+        BContainer = AIXM511.newContainer();
+
+        // container is successfully created
+        assertThat(BContainer).isNotNull();
+    }
+
+    @Test
+    @Order(100)
+    void loadThirdXml(){
+
+        // given 
+        String xmlPath = "src/test/resources/merge/timeslice-merge-third.xml";
+
+        // do
+        BContainer.unmarshal(xmlPath);
+
+    }
+
+    @Test
+    @Order(110)
+    void infoThird(){
+        // do
+        BContainer.info();
+    }
+
+    @Test
+    @Order(120)
+    void establishBConnection() {
+
+        // given
+        BContainer.getDatabaseBinding().setUrl(postgis.getJdbcUrl());
+        BContainer.getDatabaseBinding().setUsername(postgis.getUsername());
+        BContainer.getDatabaseBinding().setPassword(postgis.getPassword());
+        BContainer.getDatabaseBinding().setHbm2ddl("none");
+
+        // do
+        BContainer.startup();
+
+        // check that 
+        // the dbconfig is of the right dbconfig 
+        // assertThat(app.containerWarehouse.getContainer(containerID).databaseBinding).isEqualTo(dbConfig);
+
+    }
+
+    @Test
+    @Order(130)
+    void mergeThird() {
+
+        // given
+
+        // do
+        BContainer.merge();
+        
+        // check that 
+        // the dbconfig is of the right dbconfig 
+        // assertThat(app.containerWarehouse.getContainer(containerID).databaseBinding).isEqualTo(dbConfig);
+
+    }
+
+    @Test
+    @Order(140)
+    void predicateAll() {
+
+        // do
+        BContainer.predicate("2022-01-01T00:00:00Z");
 
         // check that
     }
 
 
     @Test
-    @Order(70)
-    void extractExtractedXml() {
+    @Order(150)
+    void extractAll() {
 
         // given
-        String xmlPath = "src/test/resources/roundtrip/donlon-predicated.xml.log";
+        String xmlPath = "src/test/resources/merge/timeslice-merge-all.xml.log";
 
         // do
-        container.marshal(xmlPath);
+        BContainer.marshal(xmlPath);
+    }
+
+    @Test
+    @Order(160)
+    void predicateLast() {
+
+        // do
+        BContainer.predicate("2026-06-01T00:00:00Z");
+
+        // check that
+    }
+
+
+    @Test
+    @Order(170)
+    void extractLast() {
+
+        // given
+        String xmlPath = "src/test/resources/merge/timeslice-merge-last.xml.log";
+
+        // do
+        BContainer.marshal(xmlPath);
     } 
 
 
