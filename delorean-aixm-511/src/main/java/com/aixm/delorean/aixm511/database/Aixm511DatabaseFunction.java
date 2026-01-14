@@ -230,7 +230,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
 
         // 5. Link new BasicMessageMemberAIXMPropertyType to 
         Transaction linkTransaction = session.beginTransaction();
-        BasicMessage result = session.createQuery("SELECT new com.aixm.delorean.core.database.BasicMessage(aixm.aixm_message.hjid, aixm.aixm_message.id) FROM aixm.aixm_message", BasicMessage.class).setMaxResults(1).getSingleResult();
+        BasicMessage result = session.createQuery("SELECT new com.aixm.delorean.core.database.BasicMessage(m.hjid, m.id) FROM AIXMBasicMessageType m", BasicMessage.class).setMaxResults(1).getSingleResult();
 
         Long messageHjid = result.hjid();
         String messageId = result.id();

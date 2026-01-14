@@ -57,15 +57,17 @@ public class SurfaceGMLTest {
                 GisUtil.GMLSurface(
                     "s1",
                     null,
-                    GisUtil.ring(null,
-                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
+                    null,
+                    null,
+                    GisUtil.polygon(0L,
+                        GisUtil.ring(null,
+                            GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
+                                )
                             )
                         )
-                    ),
-                    null,
-                    null
+                    )
                 )
             ), // Surface with one PolygonPatch and one exterior Ring with one Curve pos list
             Arguments.of(
@@ -119,26 +121,28 @@ public class SurfaceGMLTest {
                 GisUtil.GMLSurface(
                     "s2",
                     null,
-                    GisUtil.ring(null,
-                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
-                            )
-                        )
-                    ),
                     null,
                     null,
-                    GisUtil.ring(0L,
-                        GisUtil.GMLCurve("i1", 0L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(47.457661694315526 8.500405759632237, 47.44362506469117 8.5869315810565, 47.38261839625727 8.564957389137748, 47.38261839625727 8.564957389137748, 47.457661694315526 8.500405759632237)")
+                    GisUtil.polygon(0L,
+                        GisUtil.ring(null,
+                            GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
+                                )
                             )
-                        )
-                    ),
-                    GisUtil.ring(1L,
-                        GisUtil.GMLCurve("i2", 0L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(47.56581942557537 8.383867948906243, 47.5709303379544 8.415345303858395, 47.576918419662654 8.394814759365808, 47.56581942557537 8.383867948906243)")
+                        ),
+                        GisUtil.ring(0L,
+                            GisUtil.GMLCurve("i1", 0L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(47.457661694315526 8.500405759632237, 47.44362506469117 8.5869315810565, 47.38261839625727 8.564957389137748, 47.38261839625727 8.564957389137748, 47.457661694315526 8.500405759632237)")
+                                )
+                            )
+                        ),
+                        GisUtil.ring(1L,
+                            GisUtil.GMLCurve("i2", 0L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(47.56581942557537 8.383867948906243, 47.5709303379544 8.415345303858395, 47.576918419662654 8.394814759365808, 47.56581942557537 8.383867948906243)")
+                                )
                             )
                         )
                     )
@@ -169,15 +173,17 @@ public class SurfaceGMLTest {
                 GisUtil.GMLSurface(
                     "s1",
                     null,
-                    GisUtil.ring(null,
-                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
+                    null,
+                    null,
+                    GisUtil.polygon(0L,
+                        GisUtil.ring(null,
+                            GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
+                                )
                             )
                         )
-                    ),
-                    null,
-                    null
+                    )
                 )
             ), // Surface with one PolygonPatch and one exterior Ring with one Curve pos list with explicit srsName
             Arguments.of(
@@ -231,26 +237,28 @@ public class SurfaceGMLTest {
                 GisUtil.GMLSurface(
                     "s2",
                     null,
-                    GisUtil.ring(null,
-                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
-                            )
-                        )
-                    ),
                     null,
                     null,
-                    GisUtil.ring(0L,
-                        GisUtil.GMLCurve("i1", 0L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(47.457661694315526 8.500405759632237, 47.44362506469117 8.5869315810565, 47.38261839625727 8.564957389137748, 47.38261839625727 8.564957389137748, 47.457661694315526 8.500405759632237)")
+                    GisUtil.polygon(0L,
+                        GisUtil.ring(null,
+                            GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
+                                )
                             )
-                        )
-                    ),
-                    GisUtil.ring(1L,
-                        GisUtil.GMLCurve("i2", 0L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(47.56581942557537 8.383867948906243, 47.5709303379544 8.415345303858395, 47.576918419662654 8.394814759365808, 47.56581942557537 8.383867948906243)")
+                        ),
+                        GisUtil.ring(0L,
+                            GisUtil.GMLCurve("i1", 0L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(47.457661694315526 8.500405759632237, 47.44362506469117 8.5869315810565, 47.38261839625727 8.564957389137748, 47.38261839625727 8.564957389137748, 47.457661694315526 8.500405759632237)")
+                                )
+                            )
+                        ),
+                        GisUtil.ring(1L,
+                            GisUtil.GMLCurve("i2", 0L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(47.56581942557537 8.383867948906243, 47.5709303379544 8.415345303858395, 47.576918419662654 8.394814759365808, 47.56581942557537 8.383867948906243)")
+                                )
                             )
                         )
                     )
@@ -283,15 +291,17 @@ public class SurfaceGMLTest {
                 GisUtil.GMLSurface(
                     "s1",
                     null,
-                    GisUtil.ring(null,
-                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
+                    null,
+                    null,
+                    GisUtil.polygon(0L,
+                        GisUtil.ring(null,
+                            GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
+                                )
                             )
                         )
-                    ),
-                    null,
-                    null
+                    )
                 ),
                 """
                 <gml:Surface gml:id="s1" srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
@@ -319,26 +329,28 @@ public class SurfaceGMLTest {
                 GisUtil.GMLSurface(
                     "s2",
                     null,
-                    GisUtil.ring(null,
-                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
-                            )
-                        )
-                    ),
                     null,
                     null,
-                    GisUtil.ring(0L,
-                        GisUtil.GMLCurve("i1", 0L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(47.457661694315526 8.500405759632237, 47.44362506469117 8.5869315810565, 47.38261839625727 8.564957389137748, 47.38261839625727 8.564957389137748, 47.457661694315526 8.500405759632237)")
+                    GisUtil.polygon(0L,
+                        GisUtil.ring(null,
+                            GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
+                                )
                             )
-                        )
-                    ),
-                    GisUtil.ring(0L,
-                        GisUtil.GMLCurve("i2", 1L, GeometricType.GML, null,
-                            GisUtil.line(0L,
-                                GisUtil.posList("4326", "LINESTRING(47.56581942557537 8.383867948906243, 47.5709303379544 8.415345303858395, 47.576918419662654 8.394814759365808, 47.56581942557537 8.383867948906243)")
+                        ),
+                        GisUtil.ring(0L,
+                            GisUtil.GMLCurve("i1", 0L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(47.457661694315526 8.500405759632237, 47.44362506469117 8.5869315810565, 47.38261839625727 8.564957389137748, 47.38261839625727 8.564957389137748, 47.457661694315526 8.500405759632237)")
+                                )
+                            )
+                        ),
+                        GisUtil.ring(0L,
+                            GisUtil.GMLCurve("i2", 1L, GeometricType.GML, null,
+                                GisUtil.line(0L,
+                                    GisUtil.posList("4326", "LINESTRING(47.56581942557537 8.383867948906243, 47.5709303379544 8.415345303858395, 47.576918419662654 8.394814759365808, 47.56581942557537 8.383867948906243)")
+                                )
                             )
                         )
                     )

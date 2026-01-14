@@ -1,6 +1,9 @@
 package com.aixm.delorean.core.gis.helper;
 
+import java.util.Comparator;
+
 import com.aixm.delorean.core.gis.type.Ring;
+import com.aixm.delorean.core.gis.type.Segment;
 import com.aixm.delorean.core.gis.type.components.GeometricProperty;
 import com.aixm.delorean.core.gis.type.components.GeometricType;
 import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
@@ -83,6 +86,9 @@ public class RingGmlHelper {
         if (ring == null) {
             throw new IllegalArgumentException("Ring cannot be null.");
         }
+
+        // sort curves by index
+        ring.getGmlCurve().sort(Comparator.comparing(GmlCurveType::getIndex));
 
         // C. Coordinates printing
         for (GmlCurveType curve : ring.getGmlCurve()) {

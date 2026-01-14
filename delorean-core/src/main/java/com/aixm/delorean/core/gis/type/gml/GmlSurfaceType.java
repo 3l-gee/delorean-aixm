@@ -3,7 +3,7 @@ package com.aixm.delorean.core.gis.type.gml;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aixm.delorean.core.gis.type.Ring;
+import com.aixm.delorean.core.gis.type.Polygon;
 import com.aixm.delorean.core.gis.type.components.GeometricProperty;
 import com.aixm.delorean.core.gis.type.components.GeometricType;
 import jakarta.persistence.AttributeOverrides;
@@ -12,8 +12,6 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.Access;
-import jakarta.persistence.AccessType;
 
 @Entity(name = "GmlSurfaceType")
 @Table(name = "gml_surface", schema = "gml")
@@ -66,10 +64,8 @@ public class GmlSurfaceType extends com.aixm.delorean.core.gis.type.Surface impl
 
         List<String> epsgCodes = new ArrayList<>();
 
-        epsgCodes.addAll(exterior.aggregateEpsgCode());
-
-        for (Ring ring : getInterior()) {
-            epsgCodes.addAll(ring.aggregateEpsgCode());
+        for (Polygon polygon : getPolygon()) {
+            epsgCodes.addAll(polygon.aggregateEpsgCode());
         }
 
         if (epsgCodes.isEmpty()) {

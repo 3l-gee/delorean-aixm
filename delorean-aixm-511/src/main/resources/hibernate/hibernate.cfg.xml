@@ -42,6 +42,7 @@
         <mapping class="com.aixm.delorean.core.gis.type.LineString"/>
         <mapping class="com.aixm.delorean.core.gis.type.Ring"/>
         <mapping class="com.aixm.delorean.core.gis.type.Circle"/>
+        <mapping class="com.aixm.delorean.core.gis.type.Polygon"/>
         <mapping class="com.aixm.delorean.core.gis.type.Segment"/>
         <mapping class="com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType"/>

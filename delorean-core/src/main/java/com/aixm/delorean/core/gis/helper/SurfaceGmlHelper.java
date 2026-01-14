@@ -2,6 +2,8 @@ package com.aixm.delorean.core.gis.helper;
 
 import com.aixm.delorean.core.gis.type.Ring;
 import com.aixm.delorean.core.gis.type.Surface;
+import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
+import com.aixm.delorean.core.gis.type.Polygon;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractRingPropertyType;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractSurfacePatchType;
 import com.aixm.delorean.core.org.gml.v_3_2.ConeType;
@@ -19,6 +21,7 @@ import jakarta.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class SurfaceGmlHelper {
@@ -40,10 +43,6 @@ public class SurfaceGmlHelper {
             throw new IllegalArgumentException("<gml:SurfaceType> Content <gml:patches> can not be null.");
         }
 
-        if (surface.getPatches().getValue().getAbstractSurfacePatch().size() != 1) {
-            throw new IllegalArgumentException("<gml:SurfaceType> Content <gml:patches> must contain exactly one patch.");
-        }
-
         if (surface.getSrsName() == null) {
             throw new IllegalArgumentException("<gml:SurfaceType> must specify an srsName.");
         }
@@ -52,10 +51,10 @@ public class SurfaceGmlHelper {
         String geometrySrsName = surface.getSrsName();
 
         // C. patches parsing
-        PolygonPatchType polygonPatch = null;
+        List<PolygonPatchType> polygonPatchList = new ArrayList<>();
         for (JAXBElement<? extends AbstractSurfacePatchType> patchElement : surface.getPatches().getValue().getAbstractSurfacePatch()) {
             if (patchElement.getValue().getClass() == PolygonPatchType.class) {
-                polygonPatch = (PolygonPatchType) patchElement.getValue();
+                polygonPatchList.add((PolygonPatchType) patchElement.getValue());
             } else if (patchElement.getValue().getClass() == RectangleType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3ED7 : RectangleType is not supported");
 
@@ -76,37 +75,44 @@ public class SurfaceGmlHelper {
             }
         }
 
-        // D. Exterior ring parsing
-        RingType exteriorRing;
-        if (polygonPatch.getExterior().getAbstractRing().getValue().getClass() == RingType.class) {
-            exteriorRing = (RingType) polygonPatch.getExterior().getAbstractRing().getValue();
-            Ring parsed = RingGmlHelper.parseRing(exteriorRing, geometrySrsName);
-            result.setExterior(parsed);
+        Long polygonPatchIndex = 0L;
+        for (PolygonPatchType polygonPatch : polygonPatchList) {
+            Polygon polygon = new Polygon();
+            // D. Exterior ring parsing
+            RingType exteriorRing;
+            if (polygonPatch.getExterior().getAbstractRing().getValue().getClass() == RingType.class) {
+                exteriorRing = (RingType) polygonPatch.getExterior().getAbstractRing().getValue();
+                Ring parsed = RingGmlHelper.parseRing(exteriorRing, geometrySrsName);
+                polygon.setExterior(parsed);
 
-        } else if (polygonPatch.getExterior().getAbstractRing().getValue().getClass() == LinearRingType.class) {
-            throw new IllegalArgumentException("AIXM-5.1_RULE-1A3ED6 : LinearRingType is not supported");
-
-        } else {
-            throw new IllegalArgumentException("Unsupported type : " + polygonPatch.getExterior().getAbstractRing().getValue().getClass().getName());
-        }
-
-        // E. Interior rings parsing
-        RingType interiorRing;
-        Long interiorRingIndex = 0L;
-        for (AbstractRingPropertyType ringElement : polygonPatch.getInterior()) {
-            if (ringElement.getAbstractRing().getValue().getClass() == RingType.class) {
-                interiorRing = (RingType) ringElement.getAbstractRing().getValue();
-                Ring parsed = RingGmlHelper.parseRing(interiorRing, geometrySrsName);
-                parsed.setIndex(interiorRingIndex);
-                result.getInterior().add(parsed);
-
-            } else if (ringElement.getAbstractRing().getValue().getClass() == LinearRingType.class) {
-                throw new IllegalArgumentException("AIXM-5.1_RULE-1A3ED4 : LinearRingType is not supported");
+            } else if (polygonPatch.getExterior().getAbstractRing().getValue().getClass() == LinearRingType.class) {
+                throw new IllegalArgumentException("AIXM-5.1_RULE-1A3ED6 : LinearRingType is not supported");
 
             } else {
-                throw new IllegalArgumentException("Unsupported type : " + ringElement.getAbstractRing().getValue().getClass().getName());
+                throw new IllegalArgumentException("Unsupported type : " + polygonPatch.getExterior().getAbstractRing().getValue().getClass().getName());
             }
-            interiorRingIndex++;
+
+            // E. Interior rings parsing
+            RingType interiorRing;
+            Long interiorRingIndex = 0L;
+            for (AbstractRingPropertyType ringElement : polygonPatch.getInterior()) {
+                if (ringElement.getAbstractRing().getValue().getClass() == RingType.class) {
+                    interiorRing = (RingType) ringElement.getAbstractRing().getValue();
+                    Ring parsed = RingGmlHelper.parseRing(interiorRing, geometrySrsName);
+                    parsed.setIndex(interiorRingIndex);
+                    polygon.getInterior().add(parsed);
+
+                } else if (ringElement.getAbstractRing().getValue().getClass() == LinearRingType.class) {
+                    throw new IllegalArgumentException("AIXM-5.1_RULE-1A3ED4 : LinearRingType is not supported");
+
+                } else {
+                    throw new IllegalArgumentException("Unsupported type : " + ringElement.getAbstractRing().getValue().getClass().getName());
+                }
+                interiorRingIndex++;
+            }
+            polygon.setIndex(polygonPatchIndex);
+            result.getPolygon().add(polygon);
+            polygonPatchIndex++;
         }
 
         // F. carry the AbstractGMLType attributes futrher
@@ -127,11 +133,11 @@ public class SurfaceGmlHelper {
 
         // A. Sanity Check
         if (surface == null) {
-            throw new IllegalArgumentException("Surface cannot be null.");
+            throw new IllegalArgumentException("<gml:SurfaceType> cannot be null.");
         }
 
-        if (surface.getExterior() == null) {
-            throw new IllegalArgumentException("Surface exterior ring cannot be null.");
+        if (surface.getPolygon() == null || surface.getPolygon().isEmpty()) {
+            throw new IllegalArgumentException("<gml:SurfaceType> Content <gml:patches> can not be null or empty.");
         }
 
         // B. Collect all SRS names
@@ -150,34 +156,39 @@ public class SurfaceGmlHelper {
 
         String srsName = SRSValidationHelper.printSrsName(epsgCode.get(0));
 
-        // C. Coordinates printing exterior
+        // sort polygones by index
+        surface.getPolygon().sort(Comparator.comparing(Polygon::getIndex));
 
-        // C.1 build Exterior Ring
-        RingType exteriorRing = RingGmlHelper.printRing(surface.getExterior());
-        AbstractRingPropertyType exteriorRingProperty = new AbstractRingPropertyType();
-        exteriorRingProperty.setAbstractRing(new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "Ring"), RingType.class, exteriorRing)); 
+        SurfacePatchArrayPropertyType surfacePatchArray = new SurfacePatchArrayPropertyType();
+        for (Polygon polygon : surface.getPolygon()) {
+            // C. Coordinates printing exterior
 
-        // C.2 build Interior Rings
-        List<AbstractRingPropertyType> interiorRingsProperties = new ArrayList<>();
-        for (Ring interiorRing : surface.getInterior()) {
-            RingType interiorRingGml = RingGmlHelper.printRing(interiorRing);
-            AbstractRingPropertyType interiorRingProperty = new AbstractRingPropertyType();
-            interiorRingProperty.setAbstractRing(new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "Ring"), RingType.class, interiorRingGml)); 
-            interiorRingsProperties.add(interiorRingProperty);
+            // C.1 build Exterior Ring
+            RingType exteriorRing = RingGmlHelper.printRing(polygon.getExterior());
+            AbstractRingPropertyType exteriorRingProperty = new AbstractRingPropertyType();
+            exteriorRingProperty.setAbstractRing(new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "Ring"), RingType.class, exteriorRing)); 
+
+            // C.2 build Interior Rings
+            List<AbstractRingPropertyType> interiorRingsProperties = new ArrayList<>();
+            for (Ring interiorRing : polygon.getInterior()) {
+                RingType interiorRingGml = RingGmlHelper.printRing(interiorRing);
+                AbstractRingPropertyType interiorRingProperty = new AbstractRingPropertyType();
+                interiorRingProperty.setAbstractRing(new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "Ring"), RingType.class, interiorRingGml)); 
+                interiorRingsProperties.add(interiorRingProperty);
+            }
+
+            // C.3 build Polygon Patch
+            PolygonPatchType polygonPatch = new PolygonPatchType();
+            polygonPatch.setExterior(exteriorRingProperty);
+            polygonPatch.getInterior().addAll(interiorRingsProperties);
+            JAXBElement<PolygonPatchType> polygonPatchElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "PolygonPatch"), PolygonPatchType.class, polygonPatch);
+
+            // C.4 build PolygonPatchType
+            surfacePatchArray.getAbstractSurfacePatch().add(polygonPatchElement);
         }
 
-        // C.3 build Polygon Patch
-        PolygonPatchType polygonPatch = new PolygonPatchType();
-        polygonPatch.setExterior(exteriorRingProperty);
-        polygonPatch.getInterior().addAll(interiorRingsProperties);
-        JAXBElement<PolygonPatchType> polygonPatchElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "PolygonPatch"), PolygonPatchType.class, polygonPatch);
-
-        // C.4 build PolygonPatchType
-        SurfacePatchArrayPropertyType surfacePatchArray = new SurfacePatchArrayPropertyType();
-        surfacePatchArray.getAbstractSurfacePatch().add(polygonPatchElement);
-        JAXBElement<SurfacePatchArrayPropertyType> surfacePatchArrayElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "patches"), SurfacePatchArrayPropertyType.class, surfacePatchArray);
-
         // C.5 build SurfaceType
+        JAXBElement<SurfacePatchArrayPropertyType> surfacePatchArrayElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "patches"), SurfacePatchArrayPropertyType.class, surfacePatchArray);
         result.setPatches(surfacePatchArrayElement);
 
         // D. carry the AbstractGMLType attributes further

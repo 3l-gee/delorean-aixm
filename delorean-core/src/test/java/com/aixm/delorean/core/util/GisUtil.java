@@ -1,5 +1,6 @@
 package com.aixm.delorean.core.util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.aixm.delorean.core.gis.type.Arc;
@@ -8,6 +9,7 @@ import com.aixm.delorean.core.gis.type.LineString;
 import com.aixm.delorean.core.gis.type.Ring;
 import com.aixm.delorean.core.gis.type.Segment;
 import com.aixm.delorean.core.gis.type.Circle;
+import com.aixm.delorean.core.gis.type.Polygon;
 import com.aixm.delorean.core.gis.type.components.AngleType;
 import com.aixm.delorean.core.gis.type.components.GeometricType;
 import com.aixm.delorean.core.gis.type.components.DistanceType;
@@ -37,26 +39,33 @@ public class GisUtil {
         GmlCurveType c = new GmlCurveType();
         c.setId(id);
         c.setIndex(index);
-        c.setSegments(List.of(segments));
+        c.setSegments(new ArrayList<>(List.of(segments)));
         c.setGeometricType(geometricType);
         c.setGeometricProperty(geometricProperty);
         return c;
     }
     
-    public static GmlSurfaceType GMLSurface(String id, Long index, Ring exterior, GeometricType geometricType, GeometricProperty geometricProperty, Ring... interior) {
+    public static GmlSurfaceType GMLSurface(String id, Long index, GeometricType geometricType, GeometricProperty geometricProperty, Polygon... polygon) {
         GmlSurfaceType s = new GmlSurfaceType();
         s.setId(id);
-        s.setExterior(exterior);
-        s.setInterior(List.of(interior));
+        s.setPolygon(new ArrayList<>(List.of(polygon)));
         s.setGeometricType(geometricType);
         s.setGeometricProperty(geometricProperty);
+        return s;
+    }
+
+    public static Polygon polygon(Long index, Ring exterior, Ring... interior) {
+        Polygon s = new Polygon();
+        s.setIndex(index);
+        s.setExterior(exterior);
+        s.setInterior(new ArrayList<>(List.of(interior)));
         return s;
     }
 
     public static Ring ring(Long index, GmlCurveType... curves) {
         Ring r = new Ring();
         r.setIndex(index);
-        r.setGmlCurve(List.of(curves));
+        r.setGmlCurve(new ArrayList<>(List.of(curves)));
         return r;
     }
 
@@ -85,7 +94,7 @@ public class GisUtil {
         a.setIndex(index);
         a.setSegmentType(SegmentType.LINE);
         a.setPosList(posList);
-        a.setGmlPoint(List.of(gmlPoints));
+        a.setGmlPoint(new ArrayList<>(List.of(gmlPoints)));
         return a;
     }
 
@@ -94,7 +103,7 @@ public class GisUtil {
         a.setIndex(index);
         a.setSegmentType(SegmentType.GEODESIC);
         a.setPosList(posList);
-        a.setGmlPoint(List.of(gmlPoints));
+        a.setGmlPoint(new ArrayList<>(List.of(gmlPoints)));
         return a;
     }
 

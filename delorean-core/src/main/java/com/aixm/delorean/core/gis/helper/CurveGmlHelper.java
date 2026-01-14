@@ -34,6 +34,8 @@ import jakarta.xml.bind.JAXBElement;
 import java.util.List;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Comparator;
+
 import javax.xml.namespace.QName;
 
 import com.aixm.delorean.core.gis.type.Curve;
@@ -657,6 +659,9 @@ public class CurveGmlHelper {
         if (segments == null || segments.isEmpty()) {
             throw new IllegalArgumentException("<gml:CurveSegmentArrayPropertyType> segments cannot be null or empty.");
         }
+
+        // sort segments by index
+        segments.sort(Comparator.comparing(Segment::getIndex));
 
         // Check that all DirectPosition lists have the same EPSG code
         for (Segment segment : segments) {

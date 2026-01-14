@@ -20,14 +20,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Entity(name="Surface")
 @Table(name = "surface", schema = "gml")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Surface extends AbstractGMLType {
 
     protected Long hjid;
-    protected Ring exterior;
-    protected List<Ring> interior;
+    protected List<Polygon> polygon;
 
     @Id
     @Column(name = "HJID")
@@ -41,36 +40,24 @@ public class Surface extends AbstractGMLType {
         this.hjid = value;
     }
 
-    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "exterior_id")
-    public Ring getExterior() {
-        return exterior;
-    }
-
-    public void setExterior(Ring value) {
-        this.exterior = value;
-    }
-
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "interior_id")
-    public List<Ring> getInterior() {
-        if (interior == null) {
-            interior = new ArrayList<>();
+    @JoinColumn(name = "polygon_id")
+    public List<Polygon> getPolygon() {
+        if (polygon == null) {
+            polygon = new ArrayList<>();
         }
-        return interior;
+        return polygon;
     }
 
-    public void setInterior(List<Ring> value) {
-        this.interior = value;
+    public void setPolygon(List<Polygon> value) {
+        this.polygon = value;
     }
 
     public List<String> aggregateEpsgCode() {
         List<String> epsgCodes = new ArrayList<>();
 
-        epsgCodes.addAll(exterior.aggregateEpsgCode());
-
-        for (Ring ring : getInterior()) {
-            epsgCodes.addAll(ring.aggregateEpsgCode());
+        for (Polygon polygon : getPolygon()) {
+            epsgCodes.addAll(polygon.aggregateEpsgCode());
         }
 
         if (epsgCodes.isEmpty()) {

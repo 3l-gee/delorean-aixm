@@ -1,22 +1,30 @@
 package com.aixm.delorean.aixm511.util;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.aixm.delorean.aixm511.gis.type.AixmElevatedCurveType;
 import com.aixm.delorean.aixm511.gis.type.AixmCurveType;
+import com.aixm.delorean.aixm511.gis.type.AixmElevatedPointType;
 import com.aixm.delorean.aixm511.gis.type.AixmPointType;
+import com.aixm.delorean.aixm511.gis.type.AixmElevatedSurfaceType;
 import com.aixm.delorean.aixm511.gis.type.AixmSurfaceType;
 import com.aixm.delorean.aixm511.schema.ValDistanceType;
+import com.aixm.delorean.aixm511.schema.ValDistanceVerticalType;
 import com.aixm.delorean.aixm511.schema.NotePropertyType;
+import com.aixm.delorean.aixm511.schema.ValDistanceSignedType;
+import com.aixm.delorean.aixm511.schema.CodeVerticalDatumType;
 import com.aixm.delorean.core.gis.type.Arc;
+import com.aixm.delorean.core.gis.type.Circle;
 import com.aixm.delorean.core.gis.type.Geodesic;
 import com.aixm.delorean.core.gis.type.LineString;
+import com.aixm.delorean.core.gis.type.Polygon;
 import com.aixm.delorean.core.gis.type.Ring;
 import com.aixm.delorean.core.gis.type.Segment;
-import com.aixm.delorean.core.gis.type.Circle;
 import com.aixm.delorean.core.gis.type.components.AngleType;
-import com.aixm.delorean.core.gis.type.components.GeometricType;
 import com.aixm.delorean.core.gis.type.components.DistanceType;
 import com.aixm.delorean.core.gis.type.components.GeometricProperty;
+import com.aixm.delorean.core.gis.type.components.GeometricType;
 import com.aixm.delorean.core.gis.type.components.HrefType;
 import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.gis.type.components.PosList;
@@ -36,13 +44,16 @@ public class GisAIXM511Util {
         return p;
     }
 
-    public static GmlPointType GMLPoint(String id, Long index, Pos pos, GeometricType geometricType, GeometricProperty geometricProperty) {
-        GmlPointType p = new GmlPointType();
+    public static AixmElevatedPointType AIXMElevatedPoint(String id , Pos pos, ValDistanceVerticalType elevation, ValDistanceSignedType geoidUndulation, CodeVerticalDatumType verticalDatum, ValDistanceType horizontalAccuracy, ValDistanceType verticalAccuracy,  List<NotePropertyType> annotation) {
+        AixmElevatedPointType p = new AixmElevatedPointType();
         p.setId(id);
-        p.setIndex(index);
         p.setPos(pos);
-        p.setGeometricProperty(geometricProperty);
-        p.setGeometricType(geometricType);
+        p.setElevationItem(elevation);
+        p.setGeoidUndulationItem(geoidUndulation);
+        p.setVerticalDatumItem(verticalDatum);
+        p.setHorizontalAccuracyItem(horizontalAccuracy);
+        p.setVerticalAccuracyItem(verticalAccuracy);
+        p.setAnnotation(annotation);
         return p;
     }
 
@@ -55,40 +66,84 @@ public class GisAIXM511Util {
         return c;
     }
 
-    public static GmlCurveType GMLCurve(String id, Long index, GeometricType geometricType, GeometricProperty geometricProperty, Segment... segments) {
-        GmlCurveType c = new GmlCurveType();
+    public static AixmElevatedCurveType AIXMElevatedCurve(String id , ValDistanceVerticalType elevation, ValDistanceSignedType geoidUndulation, CodeVerticalDatumType verticalDatum, ValDistanceType horizontalAccuracy, ValDistanceType verticalAccuracy, List<NotePropertyType> annotation, Segment... segments) {
+        AixmElevatedCurveType c = new AixmElevatedCurveType();
         c.setId(id);
-        c.setIndex(index);
+        c.setElevationItem(elevation);
+        c.setGeoidUndulationItem(geoidUndulation);
+        c.setVerticalDatumItem(verticalDatum);
+        c.setHorizontalAccuracyItem(horizontalAccuracy);
+        c.setVerticalAccuracyItem(verticalAccuracy);
+        c.setHorizontalAccuracyItem(horizontalAccuracy);
+        c.setAnnotation(annotation);
         c.setSegments(List.of(segments));
-        c.setGeometricType(geometricType);
-        c.setGeometricProperty(geometricProperty);
         return c;
     }
 
-    public static AixmSurfaceType AIXMSurface(String id , Ring exterior, ValDistanceType horizontalAccuracy, List<NotePropertyType> annotation, Ring... interior) {
+    public static AixmSurfaceType AIXMSurface(String id , ValDistanceType horizontalAccuracy, List<NotePropertyType> annotation, Polygon... polygon) {
         AixmSurfaceType s = new AixmSurfaceType();
         s.setId(id);
-        s.setExterior(exterior);
-        s.setInterior(List.of(interior));
+        s.setPolygon(new ArrayList<>(List.of(polygon)));
         s.setHorizontalAccuracyItem(horizontalAccuracy);
         s.setAnnotation(annotation);
         return s;
     }
+
+    public static AixmElevatedSurfaceType AIXMElevatedSurface(String id , ValDistanceVerticalType elevation, ValDistanceSignedType geoidUndulation, CodeVerticalDatumType verticalDatum, ValDistanceType horizontalAccuracy, ValDistanceType verticalAccuracy, List<NotePropertyType> annotation, Polygon... polygon) {
+        AixmElevatedSurfaceType s = new AixmElevatedSurfaceType();
+        s.setId(id);
+        s.setElevationItem(elevation);
+        s.setGeoidUndulationItem(geoidUndulation);
+        s.setVerticalDatumItem(verticalDatum);
+        s.setHorizontalAccuracyItem(horizontalAccuracy);
+        s.setVerticalAccuracyItem(verticalAccuracy);
+        s.setHorizontalAccuracyItem(horizontalAccuracy);
+        s.setAnnotation(annotation);
+        s.setPolygon(new ArrayList<>(List.of(polygon)));
+        return s;
+    }
+
+        public static GmlPointType GMLPoint(String id, Long index, Pos pos, GeometricType geometricType, GeometricProperty geometricProperty) {
+        GmlPointType p = new GmlPointType();
+        p.setId(id);
+        p.setIndex(index);
+        p.setPos(pos);
+        p.setGeometricProperty(geometricProperty);
+        p.setGeometricType(geometricType);
+        return p;
+    }
+
+    public static GmlCurveType GMLCurve(String id, Long index, GeometricType geometricType, GeometricProperty geometricProperty, Segment... segments) {
+        GmlCurveType c = new GmlCurveType();
+        c.setId(id);
+        c.setIndex(index);
+        c.setSegments(new ArrayList<>(List.of(segments)));
+        c.setGeometricType(geometricType);
+        c.setGeometricProperty(geometricProperty);
+        return c;
+    }
     
-    public static GmlSurfaceType GMLSurface(String id, Long index, Ring exterior, GeometricType geometricType, GeometricProperty geometricProperty, Ring... interior) {
+    public static GmlSurfaceType GMLSurface(String id, Long index, GeometricType geometricType, GeometricProperty geometricProperty, Polygon... polygon) {
         GmlSurfaceType s = new GmlSurfaceType();
         s.setId(id);
-        s.setExterior(exterior);
-        s.setInterior(List.of(interior));
+        s.setPolygon(new ArrayList<>(List.of(polygon)));
         s.setGeometricType(geometricType);
         s.setGeometricProperty(geometricProperty);
+        return s;
+    }
+
+    public static Polygon polygon(Long index, Ring exterior, Ring... interior) {
+        Polygon s = new Polygon();
+        s.setIndex(index);
+        s.setExterior(exterior);
+        s.setInterior(new ArrayList<>(List.of(interior)));
         return s;
     }
 
     public static Ring ring(Long index, GmlCurveType... curves) {
         Ring r = new Ring();
         r.setIndex(index);
-        r.setGmlCurve(List.of(curves));
+        r.setGmlCurve(new ArrayList<>(List.of(curves)));
         return r;
     }
 
@@ -117,7 +172,7 @@ public class GisAIXM511Util {
         a.setIndex(index);
         a.setSegmentType(SegmentType.LINE);
         a.setPosList(posList);
-        a.setGmlPoint(List.of(gmlPoints));
+        a.setGmlPoint(new ArrayList<>(List.of(gmlPoints)));
         return a;
     }
 
@@ -126,7 +181,7 @@ public class GisAIXM511Util {
         a.setIndex(index);
         a.setSegmentType(SegmentType.GEODESIC);
         a.setPosList(posList);
-        a.setGmlPoint(List.of(gmlPoints));
+        a.setGmlPoint(new ArrayList<>(List.of(gmlPoints)));
         return a;
     }
 
