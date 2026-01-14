@@ -48,7 +48,7 @@
 .navbar-icons {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 20px;
   padding-left: 10px;
 }
 

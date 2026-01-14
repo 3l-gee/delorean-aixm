@@ -7,6 +7,8 @@ import "./navbar.css";
 import GithubIcon from "../assets/github.svg";
 import LinkedinIcon from "../assets/linkedin.svg";
 import MastodonIcon from "../assets/mastodon.svg";
+import XIcon from "../assets/x.png";
+import BlueSkyIcon from "../assets/bluesky.png";
 import AtIcon from "../assets/at.svg";
 import DeloreanIcon from "../assets/logo/delorean-aixm-logo-big.svg";
 
@@ -90,15 +92,23 @@ export function Navbar({ onNavigate , onCleanBackground}) {
         </a>
 
         <a
-          href="https://www.linkedin.com/in/raphaelgerth/"
+          href="https://bsky.app/profile/delorean-aixm.bsky.social"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={LinkedinIcon} alt="LinkedIn" className="w-[40px] h-[40px]" />
+          <img src={BlueSkyIcon} alt="BlueSky" className="w-[35px] h-[35px]" />
         </a>
 
         <a
-          href="https://mastodon.social/@3l_gee"
+          href="https://x.com/delorean_aixm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={XIcon} alt="X" className="w-[35px] h-[35px]" />
+        </a>
+
+        <a
+          href="https://mastodon.social/@delorean_aixm"
           target="_blank"
           rel="noopener noreferrer"
         >
