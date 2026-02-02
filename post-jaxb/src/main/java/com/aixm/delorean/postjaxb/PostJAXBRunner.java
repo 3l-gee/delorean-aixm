@@ -102,11 +102,6 @@ public class PostJAXBRunner {
             throw new SecurityException("Invalid path syntax: " + rawInputPath);
         }
 
-        // Reject absolute paths
-        if (inputPath.isAbsolute()) {
-            throw new SecurityException("Absolute paths not allowed: " + rawInputPath);
-        }
-
         // UNC paths check
         Path root = inputPath.getRoot();
         if (root != null && root.toString().startsWith("\\\\")) {

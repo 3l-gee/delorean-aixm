@@ -77,8 +77,8 @@ public class PathSanitizerTest {
     @EnabledOnOs(OS.WINDOWS)
     @ParameterizedTest
     @ValueSource(strings = {
-            "C:\\Windows",          // absolute path NOT under project
-            "D:\\SomeFolder"        // another example
+            "C:\\Windows",          // not under project
+            "D:\\SomeFolder"
     })
     void testSanitizePath_WindowsInvalidPaths(String input) {
         assertThrows(Exception.class, () -> {
