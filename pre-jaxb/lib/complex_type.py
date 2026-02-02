@@ -1,6 +1,7 @@
 from .annotation import Jaxb, HyperJAXB, Annox
-from .view import View
+from .schema import Schema
 from .content import Content
+from .config import Config
 from .field_handler import FieldHandler
 from .annotation import Tag
 from .orm_handler import OrmHandler
@@ -22,11 +23,11 @@ class ComplexType:
         if element is None :    
             return node
 
-        if element.attrib["name"] in Content.get_ignore():
+        if element.attrib["name"] in Config().get_ignore():
             return node
 
-        schema = View.get_schema(element.attrib.get("name"))
-        suffix = View.get_suffix(element.attrib.get("name"))
+        schema = Schema.get_schema(element.attrib.get("name"))
+        suffix = Schema.get_suffix(element.attrib.get("name"))
 
         node.append(Jaxb.complex(element.attrib["name"]))
         node.extend(ComplexType.class_writer(element, schema, suffix))
@@ -42,8 +43,8 @@ class ComplexType:
         node = []
 
         # Abstract types are entity and have a inheritance strategy
-        if element.attrib.get("name") in Content.get_abstract().keys() :
-            Content.append_entity(element.attrib["name"])
+        if element.attrib.get("name") in Config().get_abstract() :
+            Content().append_entity(element.attrib["name"])
             node.append(HyperJAXB.hj_entity_start())
             node.append(HyperJAXB.table(element.attrib["name"],schema,suffix))
             node.append(HyperJAXB.inhertiance())
@@ -51,7 +52,7 @@ class ComplexType:
             return node
 
         # Types that are embeddable 
-        if element.attrib.get("name") in Content.get_embed().keys():
+        if element.attrib.get("name") in Config().get_embedded().keys():
             node.append(HyperJAXB.embeddabl_start())
             if not element.find(Tag.simple_content) :
                 node.append(HyperJAXB.embeddable_end())

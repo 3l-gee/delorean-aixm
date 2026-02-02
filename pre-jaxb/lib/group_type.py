@@ -1,5 +1,5 @@
 from .annotation import Jaxb
-from .content import Content
+from .config import Config
 from .field_handler import FieldHandler
 
 
@@ -20,7 +20,7 @@ class GroupType:
             print("element is None : ", element, type)
             return node
 
-        if element.attrib["name"] in Content.get_ignore().keys():
+        if element.attrib["name"] in Config().get_ignore():
             return node
 
         parent_xpath = Jaxb.group_xpath(element.attrib.get("name"))

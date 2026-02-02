@@ -1,529 +1,16 @@
 import re
 from enum import Enum
 from unicodedata import name
+from .config import Config
 
 TABLE = []
-
-class Strategy(Enum):
-    abstract = "abstract"
-    feature = "feature"
-    data_type = "data_type"
-    other = "other"
-    debug = "debug"
 
 class Xpath(Enum):
     RELATIVE= "/xs:"
     ABSOLUTE= "xs:"
     GLOBAL =  "//xs:"
 
-SQL_NON_RESERVED_KEY_WORD = [
-    "ABORT",
-    "ABSENT",
-    "ABSOLUTE",
-    "ACCESS",
-    "ACTION",
-    "ADD",
-    "ADMIN",
-    "AFTER",
-    "AGGREGATE",
-    "ALSO",
-    "ALTER",
-    "ALWAYS",
-    "ASENSITIVE",
-    "ASSERTION",
-    "ASSIGNMENT",
-    "AT",
-    "ATOMIC",
-    "ATTACH",
-    "ATTRIBUTE",
-    "BACKWARD",
-    "BEFORE",
-    "BEGIN",
-    "BETWEEN",
-    "BIGINT",
-    "BIT",
-    "BOOLEAN",
-    "BREADTH",
-    "BY",
-    "CACHE",
-    "CALL",
-    "CALLED",
-    "CASCADE",
-    "CASCADED",
-    "CATALOG",
-    "CHAIN",
-    "CHAR",
-    "CHARACTER",
-    "CHARACTERISTICS",
-    "CHECKPOINT",
-    "CLASS",
-    "CLOSE",
-    "CLUSTER",
-    "COALESCE",
-    "COLUMNS",
-    "COMMENT",
-    "COMMENTS",
-    "COMMIT",
-    "COMMITTED",
-    "COMPRESSION",
-    "CONDITIONAL",
-    "CONFIGURATION",
-    "CONFLICT",
-    "CONNECTION",
-    "CONSTRAINTS",
-    "CONTENT",
-    "CONTINUE",
-    "CONVERSION",
-    "COPY",
-    "COST",
-    "CSV",
-    "CUBE",
-    "CURRENT",
-    "CURSOR",
-    "CYCLE",
-    "DATA",
-    "DATABASE",
-    "DAY",
-    "DEALLOCATE",
-    "DEC",
-    "DECIMAL",
-    "DECLARE",
-    "DEFAULTS",
-    "DEFERRED",
-    "DEFINER",
-    "DELETE",
-    "DELIMITER",
-    "DELIMITERS",
-    "DEPENDS",
-    "DEPTH",
-    "DETACH",
-    "DICTIONARY",
-    "DISABLE",
-    "DISCARD",
-    "DOCUMENT",
-    "DOMAIN",
-    "DOUBLE",
-    "DROP",
-    "EACH",
-    "EMPTY",
-    "ENABLE",
-    "ENCODING",
-    "ENCRYPTED",
-    "ENUM",
-    "ERROR",
-    "ESCAPE",
-    "EVENT",
-    "EXCLUDE",
-    "EXCLUDING",
-    "EXCLUSIVE",
-    "EXECUTE",
-    "EXISTS",
-    "EXPLAIN",
-    "EXPRESSION",
-    "EXTENSION",
-    "EXTERNAL",
-    "EXTRACT",
-    "FAMILY",
-    "FILTER",
-    "FINALIZE",
-    "FIRST",
-    "FLOAT",
-    "FOLLOWING",
-    "FORCE",
-    "FORMAT",
-    "FORWARD",
-    "FUNCTION",
-    "FUNCTIONS",
-    "GENERATED",
-    "GLOBAL",
-    "GRANTED",
-    "GREATEST",
-    "GROUPING",
-    "GROUPS",
-    "HANDLER",
-    "HEADER",
-    "HOLD",
-    "HOUR",
-    "IDENTITY",
-    "IF",
-    "IMMEDIATE",
-    "IMMUTABLE",
-    "IMPLICIT",
-    "IMPORT",
-    "INCLUDE",
-    "INCLUDING",
-    "INCREMENT",
-    "INDENT",
-    "INDEX",
-    "INDEXES",
-    "INHERIT",
-    "INHERITS",
-    "INLINE",
-    "INOUT",
-    "INPUT",
-    "INSENSITIVE",
-    "INSERT",
-    "INSTEAD",
-    "INT",
-    "INTEGER",
-    "INTERVAL",
-    "INVOKER",
-    "ISOLATION",
-    "JSON",
-    "JSON_ARRAY",
-    "JSON_ARRAYAGG",
-    "JSON_EXISTS",
-    "JSON_OBJECT",
-    "JSON_OBJECTAGG",
-    "JSON_QUERY",
-    "JSON_SCALAR",
-    "JSON_SERIALIZE",
-    "JSON_TABLE",
-    "JSON_VALUE",
-    "KEEP",
-    "KEY",
-    "KEYS",
-    "LABEL",
-    "LANGUAGE",
-    "LARGE",
-    "LAST",
-    "LEAKPROOF",
-    "LEAST",
-    "LEVEL",
-    "LISTEN",
-    "LOAD",
-    "LOCAL",
-    "LOCATION",
-    "LOCK",
-    "LOCKED",
-    "LOGGED",
-    "MAPPING",
-    "MATCH",
-    "MATCHED",
-    "MATERIALIZED",
-    "MAXVALUE",
-    "MERGE",
-    "MERGE_ACTION",
-    "METHOD",
-    "MINUTE",
-    "MINVALUE",
-    "MODE",
-    "MONTH",
-    "MOVE",
-    "NAME",
-    "NAMES",
-    "NATIONAL",
-    "NCHAR",
-    "NESTED",
-    "NEW",
-    "NEXT",
-    "NFC",
-    "NFD",
-    "NFKC",
-    "NFKD",
-    "NO",
-    "NONE",
-    "NORMALIZE",
-    "NORMALIZED",
-    "NOTHING",
-    "NOTIFY",
-    "NOWAIT",
-    "NULLIF",
-    "NULLS",
-    "NUMERIC",
-    "OBJECT",
-    "OF",
-    "OFF",
-    "OIDS",
-    "OLD",
-    "OMIT",
-    "OPERATOR",
-    "OPTION",
-    "OPTIONS",
-    "ORDINALITY",
-    "OTHERS",
-    "OUT",
-    "OVER",
-    "OVERLAY",
-    "OVERRIDING",
-    "OWNED",
-    "OWNER",
-    "PARALLEL",
-    "PARAMETER",
-    "PARSER",
-    "PARTIAL",
-    "PARTITION",
-    "PASSING",
-    "PASSWORD",
-    "PATH",
-    "PLAN",
-    "PLANS",
-    "POLICY",
-    "POSITION",
-    "PRECEDING",
-    "PRECISION",
-    "PREPARE",
-    "PREPARED",
-    "PRESERVE",
-    "PRIOR",
-    "PRIVILEGES",
-    "PROCEDURAL",
-    "PROCEDURE",
-    "PROCEDURES",
-    "PROGRAM",
-    "PUBLICATION",
-    "QUOTE",
-    "QUOTES",
-    "RANGE",
-    "READ",
-    "REAL",
-    "REASSIGN",
-    "RECHECK",
-    "RECURSIVE",
-    "REF",
-    "REFERENCING",
-    "REFRESH",
-    "REINDEX",
-    "RELATIVE",
-    "RELEASE",
-    "RENAME",
-    "REPEATABLE",
-    "REPLACE",
-    "REPLICA",
-    "RESET",
-    "RESTART",
-    "RESTRICT",
-    "RETURN",
-    "RETURNS",
-    "REVOKE",
-    "ROLE",
-    "ROLLBACK",
-    "ROLLUP",
-    "ROUTINE",
-    "ROUTINES",
-    "ROW",
-    "ROWS",
-    "RULE",
-    "SAVEPOINT",
-    "SCALAR",
-    "SCHEMA",
-    "SCHEMAS",
-    "SCROLL",
-    "SEARCH",
-    "SECOND",
-    "SECURITY",
-    "SEQUENCE",
-    "SEQUENCES",
-    "SERIALIZABLE",
-    "SERVER",
-    "SESSION",
-    "SET",
-    "SETOF",
-    "SETS",
-    "SHARE",
-    "SHOW",
-    "SIMPLE",
-    "SKIP",
-    "SMALLINT",
-    "SNAPSHOT",
-    "SOURCE",
-    "SQL",
-    "STABLE",
-    "STANDALONE",
-    "START",
-    "STATEMENT",
-    "STATISTICS",
-    "STDIN",
-    "STDOUT",
-    "STORAGE",
-    "STORED",
-    "STRICT",
-    "STRING",
-    "STRIP",
-    "SUBSCRIPTION",
-    "SUBSTRING",
-    "SUPPORT",
-    "SYSID",
-    "SYSTEM",
-    "TABLES",
-    "TABLESPACE",
-    "TARGET",
-    "TEMP",
-    "TEMPLATE",
-    "TEMPORARY",
-    "TEXT",
-    "TIES",
-    "TIME",
-    "TIMESTAMP",
-    "TRANSACTION",
-    "TRANSFORM",
-    "TREAT",
-    "TRIGGER",
-    "TRIM",
-    "TRUNCATE",
-    "TRUSTED",
-    "TYPE",
-    "TYPES",
-    "UESCAPE",
-    "UNBOUNDED",
-    "UNCOMMITTED",
-    "UNCONDITIONAL",
-    "UNENCRYPTED",
-    "UNKNOWN",
-    "UNLISTEN",
-    "UNLOGGED",
-    "UNTIL",
-    "UPDATE",
-    "VACUUM",
-    "VALID",
-    "VALIDATE",
-    "VALIDATOR",
-    "VALUE",
-    "VALUES",
-    "VARCHAR",
-    "VARYING",
-    "VERSION",
-    "VIEW",
-    "VIEWS",
-    "VOLATILE",
-    "WHITESPACE",
-    "WITHIN",
-    "WITHOUT",
-    "WORK",
-    "WRAPPER",
-    "WRITE",
-    "XML",
-    "XMLATTRIBUTES",
-    "XMLCONCAT",
-    "XMLELEMENT",
-    "XMLEXISTS",
-    "XMLFOREST",
-    "XMLNAMESPACES",
-    "XMLPARSE",
-    "XMLPI",
-    "XMLROOT",
-    "XMLSERIALIZE",
-    "XMLTABLE",
-    "YEAR",
-    "YES",
-    "ZONE"
-]
-
-SQL_RESERVED_KEY_WORD = [
-    "ALL",
-    "ANALYSE",
-    "ANALYZE",
-    "AND",
-    "ANY",
-    "ARRAY",
-    "AS",
-    "ASC",
-    "ASYMMETRIC",
-    "AUTHORIZATION",
-    "BINARY",
-    "BOTH",
-    "CASE",
-    "CAST",
-    "CHECK",
-    "COLLATE",
-    "COLLATION",
-    "COLUMN",
-    "CONCURRENTLY",
-    "CONSTRAINT",
-    "CREATE",
-    "CROSS",
-    "CURRENT_CATALOG",
-    "CURRENT_DATE",
-    "CURRENT_ROLE",
-    "CURRENT_SCHEMA",
-    "CURRENT_TIME",
-    "CURRENT_TIMESTAMP",
-    "CURRENT_USER",
-    "DEFAULT",
-    "DEFERRABLE",
-    "DESC",
-    "DISTINCT",
-    "DO",
-    "ELSE",
-    "END",
-    "EXCEPT",
-    "FALSE",
-    "FETCH",
-    "FOR",
-    "FOREIGN",
-    "FREEZE",
-    "FROM",
-    "FULL",
-    "GRANT",
-    "GROUP",
-    "HAVING",
-    "ILIKE",
-    "IN",
-    "INITIALLY",
-    "INNER",
-    "INTERSECT",
-    "INTO",
-    "IS",
-    "ISNULL",
-    "JOIN",
-    "LATERAL",
-    "LEADING",
-    "LEFT",
-    "LIKE",
-    "LIMIT",
-    "LOCALTIME",
-    "LOCALTIMESTAMP",
-    "NATURAL",
-    "NOT",
-    "NOTNULL",
-    "NULL",
-    "OFFSET",
-    "ON",
-    "ONLY",
-    "OR",
-    "ORDER",
-    "OUTER",
-    "OVERLAPS",
-    "PLACING",
-    "PRIMARY",
-    "REFERENCES",
-    "RETURNING",
-    "RIGHT",
-    "SELECT",
-    "SESSION_USER",
-    "SIMILAR",
-    "SOME",
-    "SYMMETRIC",
-    "SYSTEM_USER",
-    "TABLE",
-    "TABLESAMPLE",
-    "THEN",
-    "TO",
-    "TRAILING",
-    "TRUE",
-    "UNION",
-    "UNIQUE",
-    "USER",
-    "USING",
-    "VARIADIC",
-    "VERBOSE",
-    "WHEN",
-    "WHERE",
-    "WINDOW",
-    "WITH"
-]
-
 class Util:
-    @staticmethod
-    def modify_forbiden_key_word(name):
-        if name.upper() in SQL_NON_RESERVED_KEY_WORD:
-            name = '\"' + name + '\"'
-    
-        if name.upper() in SQL_RESERVED_KEY_WORD:
-            name += "_"
-
-        name.replace("-", "_")
-        return name
 
     @staticmethod
     def snake_case_table(name, name_type=str):
@@ -534,35 +21,7 @@ class Util:
             names = [Util.snake_case_table(n, list) for n in name]
             return "_".join(names)
         else : 
-            value = Util.replace_name(name)
-
-            try: 
-                value = value.split(':')[-1]
-            except:
-                pass
-
-            s1 = re.sub('(.)([A-Z][a-z]+)', r'\1\2', value)
-            result = re.sub('([a-z0-9])([A-Z])', r'\1\2', s1).lower()
-            if name_type is str:
-                result = Util.modify_forbiden_key_word(result)
-            return result.strip('\"')
-        
-    @staticmethod
-    def replace_name(name):  
-        replacements = {
-            "TimeSlicePropertyType": "_Tsp",
-            "PropertyGroup": "",
-            "PropertyType": "_Pt",
-            "TimeSliceType": "_Ts",
-            "Extension" : "_Ext",
-            "Type": "",
-            "-" : "_",
-        }
-        
-        for key, value in replacements.items():
-            name = name.replace(key, value)
-
-        return name    
+            return Config().generate_database_name(name)
 
     @staticmethod
     def snake_case_column(name, name_type=str):
@@ -570,18 +29,7 @@ class Util:
             names = [Util.snake_case_column(n, list) for n in name]
             return "_".join(names)
         else :
-            value = name
-
-            try: 
-                value = value.split(':')[-1]
-            except:
-                pass
-
-            s1 = re.sub('(.)([A-Z][a-z]+)', r'\1\2', value)
-            result = re.sub('([a-z0-9])([A-Z])', r'\1\2', s1).lower().replace("_base_type", "").replace("_type", "")
-            if name_type is str:
-                result = Util.modify_forbiden_key_word(result)
-            return result.strip('\"')
+            return Config().generate_database_name(name)
     
     @staticmethod
     def bool_str(value):
@@ -809,11 +257,17 @@ class HyperJAXB:
     
     @staticmethod
     def orm_join_column(name):
-        return f'''<orm:join-column name="{Util.snake_case_column(str(name + "_id"))}" referenced-column-name="hjid" />'''
+        join_column_name = Util.snake_case_column(str(name + "_id")).replace('"', '')
+
+        return f'''<orm:join-column name="{join_column_name}" referenced-column-name="hjid" />'''
     
     @staticmethod 
     def orm_join_table(schema, join_column_name, inverse_join_column_name):
-        return f'''<orm:join-table name="{Util.snake_case_table([join_column_name, inverse_join_column_name, "link"])}" schema="{schema}"><orm:join-column name="{Util.snake_case_column(str(join_column_name))}" referenced-column-name="hjid" /><orm:inverse-join-column name="{Util.snake_case_column(str(inverse_join_column_name))}" referenced-column-name="hjid" /></orm:join-table>'''
+        join_table_name = Util.snake_case_table([join_column_name, inverse_join_column_name, "link"]).replace('"', '')
+        join_column_name = Util.snake_case_column(str(join_column_name)).replace('"', '')
+        inverse_join_column_name = Util.snake_case_column(str(inverse_join_column_name)).replace('"', '')
+
+        return f'''<orm:join-table name="{join_table_name}" schema="{schema}"><orm:join-column name="{join_column_name}" referenced-column-name="hjid" /><orm:inverse-join-column name="{inverse_join_column_name}" referenced-column-name="hjid" /></orm:join-table>'''
     
     @staticmethod
     def hj_embedded_start():
@@ -825,9 +279,12 @@ class HyperJAXB:
     
     @staticmethod
     def attribute_override(name, column, constraints=None):
+        column = Util.snake_case_column(column)
+        column = column.replace('"', '')
+
         if constraints is None :
-            return f'''<orm:attribute-override name="{str(name)}"><orm:column name="{Util.snake_case_column(str(column))}" /></orm:attribute-override>'''
-        return f'''<orm:attribute-override name="{str(name)}"><orm:column name="{Util.snake_case_column(str(column))}" {constraints} /></orm:attribute-override>'''
+            return f'''<orm:attribute-override name="{str(name)}"><orm:column name="{str(column)}" /></orm:attribute-override>'''
+        return f'''<orm:attribute-override name="{str(name)}"><orm:column name="{str(column)}" {constraints} /></orm:attribute-override>'''
     
     @staticmethod
     def embeddabl_start():
@@ -879,7 +336,9 @@ class HyperJAXB:
     
     @staticmethod
     def table(name, schema, prefix=None, suffix=None):
-        return f'<orm:table name = "{Util.snake_case_table([prefix, name, suffix])}" schema = "{schema}" />'
+        join_table_name = Util.snake_case_table([prefix, name, suffix]).replace('"', '')
+        
+        return f'<orm:table name = "{join_table_name}" schema = "{schema}" />'
     
     @staticmethod
     def hj_many_to_one_start():
@@ -1021,64 +480,64 @@ class Constraint:
         # Format the annotation string using f-strings
         return f'@jakarta.validation.constraints.Pattern(regexp = "{escaped_value}", message = "{message + " : " + escaped_value}")'
 
-class Relation:
+# class Relation:
 
-    @staticmethod
-    def inhertiance():
-        return f'<orm:inheritance strategy="JOINED" />'
+#     @staticmethod
+#     def inhertiance():
+#         return f'<orm:inheritance strategy="JOINED" />'
         
-    @staticmethod
-    def one_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   
-        return f'@jakarta.persistence.OneToOne(cascade={cascade}, fetch={fetch})'
+#     @staticmethod
+#     def one_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   
+#         return f'@jakarta.persistence.OneToOne(cascade={cascade}, fetch={fetch})'
     
-    @staticmethod
-    def one_to_one_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):   
-        return f'@jakarta.persistence.OneToOne(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
+#     @staticmethod
+#     def one_to_one_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):   
+#         return f'@jakarta.persistence.OneToOne(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
 
-    @staticmethod
-    def one_to_many(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   
-        return f'@jakarta.persistence.OneToMany(cascade={cascade}, fetch={fetch})'
+#     @staticmethod
+#     def one_to_many(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   
+#         return f'@jakarta.persistence.OneToMany(cascade={cascade}, fetch={fetch})'
     
-    @staticmethod
-    def one_to_many_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):   
-        return f'@jakarta.persistence.OneToMany(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
+#     @staticmethod
+#     def one_to_many_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):   
+#         return f'@jakarta.persistence.OneToMany(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
     
-    @staticmethod
-    def many_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):  
-        return f'@jakarta.persistence.ManyToOne(cascade={cascade}, fetch={fetch})'
+#     @staticmethod
+#     def many_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):  
+#         return f'@jakarta.persistence.ManyToOne(cascade={cascade}, fetch={fetch})'
 
-    @staticmethod
-    def many_to_one_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):  
-        return f'@jakarta.persistence.ManyToOne(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
+#     @staticmethod
+#     def many_to_one_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):  
+#         return f'@jakarta.persistence.ManyToOne(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
     
-    @staticmethod
-    def many_to_many(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):  
-        return f'@jakarta.persistence.ManyToMany(cascade={cascade}, fetch={fetch})'
+#     @staticmethod
+#     def many_to_many(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):  
+#         return f'@jakarta.persistence.ManyToMany(cascade={cascade}, fetch={fetch})'
     
-    @staticmethod
-    def many_to_many_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):  
-        return f'@jakarta.persistence.ManyToMany(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
+#     @staticmethod
+#     def many_to_many_with_orphan_removal(cascade="CascadeType.ALL", fetch="FetchType.EAGER", orphanRemoval=False):  
+#         return f'@jakarta.persistence.ManyToMany(cascade={cascade}, fetch={fetch}, orphanRemoval={Util.bool_str(orphanRemoval)})'
     
-    @staticmethod
-    def join_column(name, referenced_column_name="id"):
-        return f'@jakarta.persistence.JoinColumn(name="{Util.snake_case(str(name + "_id"))}", referencedColumnName="{referenced_column_name}")'
+#     @staticmethod
+#     def join_column(name, referenced_column_name="id"):
+#         return f'@jakarta.persistence.JoinColumn(name="{Util.snake_case(str(name + "_id"))}", referencedColumnName="{referenced_column_name}")'
     
-    @staticmethod
-    def join_table(name1, name2, join_columns, inverse_join_columns):
-        return f'@jakarta.persistence.JoinTable(name = "{Util.snake_case_table([name1, name2])}", joinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(str(join_columns + "_id"))}"), inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(str(inverse_join_columns + "_id"))}"))'    
-    @staticmethod
-    def collection_element():
-        return f'@jakarta.persistence.ElementCollection'
+#     @staticmethod
+#     def join_table(name1, name2, join_columns, inverse_join_columns):
+#         return f'@jakarta.persistence.JoinTable(name = "{Util.snake_case_table([name1, name2])}", joinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(str(join_columns + "_id"))}"), inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(str(inverse_join_columns + "_id"))}"))'    
+#     @staticmethod
+#     def collection_element():
+#         return f'@jakarta.persistence.ElementCollection'
     
-    @staticmethod
-    def collection_table(name, parent=None):
-        if parent is None :
-            return f'@jakarta.persistence.CollectionTable(name = "{Util.snake_case(str(name + "_col"))}")'
-        else :
-            return f'@jakarta.persistence.CollectionTable(name = "{Util.snake_case(name)}, joinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(parent)}_id"))'
+#     @staticmethod
+#     def collection_table(name, parent=None):
+#         if parent is None :
+#             return f'@jakarta.persistence.CollectionTable(name = "{Util.snake_case(str(name + "_col"))}")'
+#         else :
+#             return f'@jakarta.persistence.CollectionTable(name = "{Util.snake_case(name)}, joinColumns = @jakarta.persistence.JoinColumn(name = "{Util.snake_case(parent)}_id"))'
 
 class Jpa:
-    relation = Relation
+    # relation = Relation
     constraint = Constraint
     entity = '''<hj:entity/>'''
     super = '''<hj:mapped-superclass/>'''

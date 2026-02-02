@@ -13,8 +13,9 @@ class SingletonMeta(type):
         if cls in cls._instances:
             del cls._instances[cls]
 
-class View(metaclass=SingletonMeta):
-    def __init__(self, yaml_path: str):
+class Schema(metaclass=SingletonMeta):
+    
+    def __init__(self, yaml_path: str, verbose: bool = False):
         """Initialize View with a YAML file containing schema definitions."""
         self.schema = self._load_yaml(yaml_path)
         self.feature_to_schema = {}
@@ -35,6 +36,8 @@ class View(metaclass=SingletonMeta):
                     "schema": value.get("schema"),
                     "suffix": value.get("suffix"),
                 }
+            
+        print("[INFO] Schema initialized, Features:", len(self.feature_to_schema.keys()))
 
     @staticmethod
     def _load_yaml(path: str) -> dict:
@@ -45,7 +48,7 @@ class View(metaclass=SingletonMeta):
     @staticmethod
     def get_schema(name_ori: str):
         """Return schema name for a given feature."""
-        instance = View._instances.get(View)
+        instance = Schema._instances.get(Schema)
         if instance is None:
             raise RuntimeError("View instance not initialized. Call View(yaml_path) first.")
 
@@ -62,7 +65,7 @@ class View(metaclass=SingletonMeta):
     @staticmethod
     def get_suffix(name_ori: str):
         """Return suffix for a given feature."""
-        instance = View._instances.get(View)
+        instance = Schema._instances.get(Schema)
         if instance is None:
             raise RuntimeError("View instance not initialized. Call View(yaml_path) first.")
 

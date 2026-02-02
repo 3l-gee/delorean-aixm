@@ -1,11 +1,16 @@
 from lib.coordinator import Coordinator
 from lib.annotation import Tag, Strategy
-from lib.view import View
+
 from lib.content import Content
+import argparse
+from pathlib import Path
 
 
 
-View(yaml_path="pre-jaxb/view.yaml")
+# View(yaml_path="pre-jaxb/view.yaml")
+# Config(path="pre-jaxb/config_a5_1_1.yaml")
+
+# Config.generate_database_name("SurfaceCharacteristicsPropertyType")
 
 config = {
     "ignore": [
@@ -132,7 +137,6 @@ message = {
     "package" : "com.aixm.delorean.aixm511.schema.message",
     "manual" : "pre-jaxb/manual/a5_1_1/AIXM_BasicMessage.xjb"
 }
-
 
 
 out = Coordinator(config, [data_types, feature, abstract, message])

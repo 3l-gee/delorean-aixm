@@ -1,4 +1,4 @@
-from .content import Content
+from .config import Config
 from .annotation import Annox, Jpa, Tag, Jaxb
 
 
@@ -29,16 +29,16 @@ class SimpleType:
         if element_name in graph["inheritance"].keys() :
             return node
         
-        if element_name in Content.get_ignore():
+        if element_name in Config().get_ignore():
             return node
             
-        if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() :
+        if element.attrib.get("name") in Config().get_transient() or element.attrib.get("ref") in Config().get_transient() :
             node.append(Jaxb.simple(element.attrib["name"]))
             node.append(Annox.field_add(Jpa.transient))
             node.append(Jaxb.end)
             return node
             
-        if element.attrib.get("type") in Content.get_transient():
+        if element.attrib.get("type") in Config().get_transient():
             node.append(Jaxb.simple(element.attrib["name"]))
             node.append(Annox.field_add(Jpa.transient))
             node.append(Jaxb.end)

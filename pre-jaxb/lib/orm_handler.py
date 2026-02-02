@@ -2,8 +2,9 @@ from platform import node
 import re
 import xml.etree.ElementTree as ET
 
-from .view import View
-from .annotation import HyperJAXB, Jaxb
+from .schema import Schema
+from .annotation import HyperJAXB
+from .config import Config
 from .content import Content
 
 class OrmHandler: 
@@ -63,7 +64,7 @@ class OrmHandler:
     def constraint_generator_attribute_override(type) -> dict:
         POSTGRES_VARCHAR_LIMIT = 4000
 
-        constraints = Content.get_transposition(type)
+        constraints = Content().get_transposition(type)
 
         if constraints is None:
             return None
@@ -122,7 +123,7 @@ class OrmHandler:
         if maxOccurs.lower() == "unbounded":
             raise KeyError("Embeded types cannot be collections")
 
-        embeded_fields = Content().get_embed_by_type(type)
+        embeded_fields = Config().get_embed_by_type(type)
         base_type = type.replace("Type","BaseType")
         constraints = OrmHandler.constraint_generator_attribute_override(base_type)
 
@@ -158,7 +159,7 @@ class OrmHandler:
         if maxOccurs == "unbounded":
             if parent_name == "":
                 raise KeyError("Parent element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
-            schema = View.get_schema(parent_name)
+            schema = Schema.get_schema(parent_name)
             res.append(HyperJAXB.hj_many_to_many_start())
             res.append(HyperJAXB.orm_join_table(schema, name, parent_name))
             res.append(HyperJAXB.hj_many_to_many_end())
@@ -231,8 +232,36 @@ class OrmHandler:
             raise KeyError("Element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
         name = parent.attrib["name"]
 
-        schema = View.get_schema(name)
-        suffix = View.get_suffix(name)
+        schema = Schema.get_schema(name)
+        suffix = Schema.get_suffix(name)
+
+        if "TimeSliceType" in name:
+            extension_name = name.replace("TimeSliceType", "Extension")
+            res.append(HyperJAXB.hj_many_to_many_start())
+            res.append(HyperJAXB.orm_join_table(suffix, extension_name, name))
+            res.append(HyperJAXB.hj_many_to_many_end())
+            return res
+
+        elif "Type" in name:
+            extension_name = name.replace("Type", "Extension")
+            res.append(HyperJAXB.hj_many_to_many_start())
+            res.append(HyperJAXB.orm_join_table(suffix, extension_name, name))
+            res.append(HyperJAXB.hj_many_to_many_end())
+            return res
+
+        else:
+            raise KeyError("Unknown inline complex type", ET.tostring(parent, encoding='unicode', method='xml'))
+    
+    @staticmethod
+    def inline_complex_class(parent):
+        res = ["<!-- Complex-->"]
+
+        if "name" not in parent.attrib:
+            raise KeyError("Element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
+        name = parent.attrib["name"]
+
+        schema = Schema.get_schema(name)
+        suffix = Schema.get_suffix(name)
 
         if "TimeSliceType" in name:
             extension_name = name.replace("TimeSliceType", "Extension")

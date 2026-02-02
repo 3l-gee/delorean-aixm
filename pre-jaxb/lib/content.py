@@ -1,11 +1,15 @@
-from typing import List
+from typing import List, Dict, Optional
+from dataclasses import dataclass, field
 import json
-from .xsd import Xsd
-from .annotation import Strategy, Tag, Util
+import yaml
+import re
 
+from .struct import SchemaSection, Strategy
+from .xsd import Xsd
+from .annotation import Tag, Util
+from .config import Config
 
 class SingletonMeta(type):
-
     _instances = {}
 
     def __call__(cls, *args, **kwargs):
@@ -19,22 +23,24 @@ class SingletonMeta(type):
             del cls._instances[cls]
     
 class Content(metaclass=SingletonMeta): 
-    def __init__(self, xsds: List[Xsd], config ): 
+    def __init__(self, path: str, verbose: bool = False): 
         self.content: dict = {}
         self.entity: dict = {}
-        self.abstract: dict = {item: {} for item in config["abstract"]}
-        self.embed: dict = {item: {} for item in config["embed"]}
-        self.ignore: dict = {item: {} for item in config["ignore"]}
-        self.transient: dict = {item: {} for item in config["transient"]}
-        self.output_path = config["output_path"]
-        self.version = config["version"]
-        for xsd in xsds:
+
+        with open(path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f)
+            
+        self.xsd: Dict[str, Xsd] = {}
+        for section_key, section_values in data.get("xsd", {}).items():
+            self.xsd[section_key] = Xsd(SchemaSection(**section_values))
+
+        for title, xsd in self.xsd.items():
             simple_type_content = xsd.get_simple_type()
             inherit_graph = Content._build_inheritance_graph(simple_type_content)
             attrib_graph = Content._build_attribute_graph(xsd.get_complex_type())
             transposition = Content._build_transposition(simple_type_content, inherit_graph)
             if xsd.strategy == Strategy.data_type:
-                self.embed = {**self.embed, **Content._extract_embed(xsd.root, transposition)}
+                Config().embedded = {**Config().embedded, **Content._extract_embedded(xsd.root, transposition)}
 
             self.content[xsd.name] = {
                 "strategy" : xsd.strategy,
@@ -53,21 +59,20 @@ class Content(metaclass=SingletonMeta):
                     "type" : xsd.get_groups(),
                 }
             }
+        
+        print("[INFO] Content initialized, XSDs:", len(self.xsd.keys()))
 
-
-    def get_embed_by_type(self, type):
-        type = type.replace("aixm:", "")
-        if type in Content().embed:
-            return Content().embed[type]
-        else:
-            raise KeyError(f"Embedable type {type} not found in embed dictionary.")
 
     @staticmethod
-    def get_content():
+    def get_content() -> dict:
         return Content().content
     
     @staticmethod
-    def get_transposition(type):
+    def get_xsd() -> Dict[str, Xsd]:
+        return Content().xsd
+    
+    @staticmethod
+    def get_transposition(type) -> dict:
         output = {}
         for key, value in Content().content.items():
             output = output | value["simple_type"]["transposition"]
@@ -75,7 +80,7 @@ class Content(metaclass=SingletonMeta):
         return output.get(type)
     
     @staticmethod
-    def save_transposition():
+    def save_transposition() -> None:
         output = {}
         for key, value in Content().content.items():
             output = output | value["simple_type"]["transposition"]
@@ -84,35 +89,11 @@ class Content(metaclass=SingletonMeta):
             json.dump(output, fp, indent=4)
     
     @staticmethod
-    def get_entity():
+    def get_entity() -> dict:
         return Content().entity
     
-    @staticmethod
-    def get_abstract():
-        return Content().abstract
-    
-    @staticmethod
-    def get_embed():
-        return Content().embed
-    
-    @staticmethod
-    def get_ignore():
-        return Content().ignore
-    
-    @staticmethod
-    def get_transient():
-        return Content().transient
-        
-    @staticmethod
-    def get_output_path():
-        return Content().output_path
-    
-    @staticmethod
-    def get_version():
-        return Content().version
-    
     @classmethod
-    def append_entity(cls, new_entity):
+    def append_entity(cls, new_entity) -> None:
         cls().entity[new_entity] = {}
 
     @staticmethod
@@ -153,7 +134,7 @@ class Content(metaclass=SingletonMeta):
         return res
 
     @staticmethod
-    def _build_transposition(type: list,  graph):
+    def _build_transposition(type: list,  graph) -> dict:
         transposition = {}
         dict = {}
         for element in type:
@@ -171,7 +152,7 @@ class Content(metaclass=SingletonMeta):
         return transposition
     
     @staticmethod
-    def _graph_traversal(element, name, graph, dict=None):
+    def _graph_traversal(element, name, graph, dict=None) -> dict:
         if dict is None:
             dict = {}
 
@@ -186,12 +167,12 @@ class Content(metaclass=SingletonMeta):
         return dict
     
     @staticmethod
-    def _export_file(file_path, content):
+    def _export_file(file_path, content) -> None:
         with open(file_path, 'w') as f:
             f.write(json.dumps(content, indent=4))
     
     @staticmethod
-    def _extract_embed(root, transposition):
+    def _extract_embedded(root, transposition) -> dict:
         res = {}
         complexType = root.findall(Tag.complex_type) or []
         for element in complexType:

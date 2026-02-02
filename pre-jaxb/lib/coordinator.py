@@ -11,26 +11,24 @@ from .complex_type import ComplexType
 from .group_type import GroupType
 from .annotation import Jaxb
 from .xsd import Xsd
+from .schema import Schema
+from .config import Config
 
 class Coordinator:
-    def __init__(self, config_dict: dict, xsds_dict: List[dict]): 
-        Content.reset_instance()
-        self.xsds = [Xsd(xsd) for xsd in xsds_dict]
-        Content(self.xsds, config_dict)
+    def __init__(self, schema_path: str, config_path: str, content_path: str, verbose: bool = False): 
+        
+        Schema(schema_path, verbose=verbose)
+        Config(config_path, verbose=verbose)
+        Content(content_path, verbose=verbose)
+        self.xsds = []
+        self.xjb = {}
 
-        self.xjb = self.init_xjb(self.xsds)
-        self.generate_xjb()
-        self.export_xjb()
-        Content.save_transposition()
-
-        self.save_entity_class(Content.get_entity(), "entities.txt.log")
-
-    def export_file(self, file_path, content):
+    def export_file(self, file_path, content) -> None:
         with open(file_path, 'w') as f:
             f.write(json.dumps(content, indent=4))
         
                                                     
-    def generate_xjb(self):
+    def generate_xjb(self, verbose: bool = False) -> None:
         for key, value in Content.get_content().items() :
             self.xjb[key]["auto"]["default"].extend(
                 SimpleType.generate_simple_types(value["simple_type"]["type"], value["simple_type"]["graph"]))
@@ -43,29 +41,31 @@ class Coordinator:
             self.xjb[key]["auto"]["default"].extend(
                 GroupType.generate_groupe_types(value["group"]["type"]))
 
-    def init_xjb(self, xsds: List[Xsd]):
+    def initialize_xjb(self, verbose: bool = False) -> None:
+        print("[INFO] Initializing XJB structure")
         res = {}
-        for xsd in xsds:
+        for key, xsd in Content().get_xsd().items():
             start_annotations = [
                 Jaxb.schema(xsd.name + ".xsd")
             ]
             if xsd.package is not None:
-                start_annotations.extend([
+                start_annotations += [
                     Jaxb.binding_start,
                     Jaxb.package(xsd.package),
-                    Jaxb.binding_end
-                ])  
+                    Jaxb.binding_end,
+                ]
             
             res[xsd.name] = {
                 "start": start_annotations,
-                "manual": {"default": self.init_manual(xsd.manual)},
+                "manual": {"default": self._init_manual(xsd.manual)},
                 "auto": {"default": []},
                 "end": [Jaxb.end]
             }
 
-        return res
+        print("[INFO] XJB structure initialized : ", list(res.keys()))
+        self.xjb = res
     
-    def init_manual(self, file_path):
+    def _init_manual(self, file_path) -> List[str]:
         main = etree.XMLParser(remove_blank_text=True, huge_tree=True)
         tree = etree.parse(file_path, main)
         root = tree.getroot()
@@ -92,9 +92,9 @@ class Coordinator:
                         return res[:-1]
         return res[:-1]
 
-    def export_xjb(self):
-        os.makedirs(os.path.dirname(Content.get_output_path()), exist_ok=True)
-        with open(Content.get_output_path(), 'w') as f:
+    def export_xjb(self, verbose: bool = False) -> None:
+        os.makedirs(os.path.dirname(Config().get_output_path()), exist_ok=True)
+        with open(Config().get_output_path(), 'w') as f:
             f.write(Jaxb.start)
             for xjb in self.xjb:
                 for annotation in self.xjb[xjb]["start"]:
@@ -119,29 +119,15 @@ class Coordinator:
 
             f.write(Jaxb.end)
 
-        self.format_xml(Content.get_output_path())
+        self.format_xml(Config().get_output_path())
 
-    def format_xml(self, file_path):
+    def format_xml(self, file_path) -> None:
         main = etree.XMLParser(remove_blank_text=True, huge_tree=True)
         tree = etree.parse(file_path, main)
-        root = tree.getroot()
 
-        for xsd in self.xsds:
-            xjb_manual = xsd.manual
-            xsd_name = xsd.name
-            branch = etree.parse(xjb_manual, main)
-            for binding in branch.getroot().findall(".//jaxb:bindings", namespaces = branch.getroot().nsmap): 
-                schema_location = binding.get("schemaLocation")
-                node = binding.get("node")
+        tree.write(file_path, pretty_print=True, encoding='utf-8', xml_declaration=True)
 
-                match = tree.xpath(
-                    f""".//jaxb:bindings[@schemaLocation="{xsd_name}.xsd"]""",
-                    namespaces=root.nsmap,
-                )
-
-            tree.write(file_path, pretty_print=True, encoding='utf-8', xml_declaration=True)
-
-    def save_entity_class(self, entities, filename="output.txt"):
+    def save_entity_class(self, entities, filename="output.txt") -> None:
         sorted_entities = sorted(
             entities,
             key=lambda x: (not x.startswith("Message"), not x.startswith("Abstract"), x)
