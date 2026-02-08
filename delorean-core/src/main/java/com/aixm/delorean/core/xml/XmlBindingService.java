@@ -158,7 +158,7 @@ public class XmlBindingService<ROOT, FEATURE> {
             long timeSliceCount = count2.longValue();
             
             // 5. Format and return the statistics
-            return new String("F: " + featureCount + " / TS: " + timeSliceCount);
+            return new String("F: " + featureCount + " / T: " + timeSliceCount);
 
         } catch (Exception e) {
             e.printStackTrace();

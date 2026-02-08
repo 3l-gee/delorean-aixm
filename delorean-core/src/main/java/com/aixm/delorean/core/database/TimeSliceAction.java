@@ -2,8 +2,8 @@ package com.aixm.delorean.core.database;
     
     
 public enum TimeSliceAction{
-    NEW,
+    NEW_FEATURE,
     NOTHING,
-    CHANGE,
+    VERSION,
     CORRECTION
 }

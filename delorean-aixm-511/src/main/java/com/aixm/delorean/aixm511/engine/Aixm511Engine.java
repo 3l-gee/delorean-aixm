@@ -56,7 +56,7 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
 
         }
 
-        return new String("F: " + featureCount + " / TS: " + timeSliceCount);
+        return new String("F: " + featureCount + " / T: " + timeSliceCount);
     }
 
     @Override

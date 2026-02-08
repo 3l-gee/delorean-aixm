@@ -2,8 +2,12 @@ package com.aixm.delorean.aixm511.integration;
 
 import org.junit.jupiter.api.*;
 import org.testcontainers.utility.DockerImageName;
+import org.testcontainers.containers.Container.ExecResult;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 import org.xmlunit.assertj.XmlAssert;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import com.aixm.delorean.aixm511.AIXM511;
 import com.aixm.delorean.aixm511.engine.Aixm511Engine;
@@ -14,6 +18,9 @@ import com.aixm.delorean.core.xml.XmlBindingService;
 import static org.assertj.core.api.Assertions.*;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.StandardOpenOption;
 
 /*
 <
@@ -239,5 +246,50 @@ public class MergeAixm511E2E {
         BContainer.marshal(xmlPath);
     } 
 
+    @Test
+    @Order(180)
+    void dumpDatabaseData() {
 
+        // do
+        ExecResult result;
+        try {
+            result = postgis.execInContainer(
+                "pg_dump",
+                "--data-only",
+                "--no-owner",
+                "--no-privileges",
+                "--no-comments",
+                "-U", postgis.getUsername(),
+                postgis.getDatabaseName()
+            );
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException("Failed to execute pg_dump", e);
+        }
+
+
+        if (result.getExitCode() != 0) {
+            throw new IllegalStateException(
+                "pg_dump failed:\n" + result.getStderr()
+            );
+        }
+
+        Path outDir = Paths.get(
+            "src/test/java/com/aixm/delorean/aixm511/out"
+        );
+
+        Path dataFile = outDir.resolve("merge-data.sql");
+
+        try {
+            Files.createDirectories(outDir);
+            Files.writeString(
+                dataFile,
+                result.getStdout(),
+                StandardCharsets.UTF_8,
+                StandardOpenOption.CREATE,
+                StandardOpenOption.TRUNCATE_EXISTING
+            );
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to write data dump", e);
+        }
+    }
 }

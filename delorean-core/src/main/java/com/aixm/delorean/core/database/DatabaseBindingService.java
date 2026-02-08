@@ -107,8 +107,8 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         };
 
         // Define SQL queries
-        String featureSql = "SELECT COUNT(DISTINCT id) FROM AIXM.AIXM_FEATURE";
-        String timeSliceSql = "SELECT COUNT(DISTINCT id) FROM AIXM.aixm_timeslice";
+        String featureSql = "SELECT COUNT(DISTINCT hjid) FROM axim.aixm_feature";
+        String timeSliceSql = "SELECT COUNT(DISTINCT hjid) FROM aixm.aixm_timeslice";
 
         Integer featureCount = 0;
         Integer timeSliceCount = 0;
@@ -130,7 +130,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         }
 
         // Format and return the result string
-        return new String("F: " + featureCount + " / TS: " + timeSliceCount);
+        return new String("F: " + featureCount + " / T: " + timeSliceCount);
     }
     
     public String inputStreamToSQL(InputStream inputStream) {
@@ -311,17 +311,17 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
         Session session = sessionFactory.openSession();
 
-        String TSPIdsSQL = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream("/sql/time_slice_property_Ids.sql"));
-        Transaction TSPIdsTX = session.beginTransaction();
-        List<Long> TSPIds = session.createNativeQuery(TSPIdsSQL, Long.class).setParameter("time", time).getResultList();
-        TSPIdsTX.commit();
+        String TPIdsSQL = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream("/sql/time_slice_property_Ids.sql"));
+        Transaction TPIdsTX = session.beginTransaction();
+        List<Long> TPIds = session.createNativeQuery(TPIdsSQL, Long.class).setParameter("time", time).getResultList();
+        TPIdsTX.commit();
 
         String BMMIdsSQL = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream("/sql/basic_message_member_ids.sql"));        
         Transaction BMMIdsTX = session.beginTransaction();
         List<Long> BMMIds = session.createNativeQuery(BMMIdsSQL, Long.class).setParameter("time", time).getResultList();
         BMMIdsTX.commit();
 
-        return this.databaseHelper.predicateValidTimeslice(BMMIds, TSPIds, this.sessionFactory);
+        return this.databaseHelper.predicateValidTimeslice(BMMIds, TPIds, this.sessionFactory);
     }
 
     public void merge(ROOT message) {

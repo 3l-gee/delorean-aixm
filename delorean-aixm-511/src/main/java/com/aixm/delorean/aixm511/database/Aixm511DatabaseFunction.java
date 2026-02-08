@@ -159,7 +159,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
     public AIXMBasicMessageType predicateValidTimeslice(List<Long> BasicMessageMemberIds , List<Long> TimeslicePropertyIds, SessionFactory sessionFactory) {
         Session session = sessionFactory.openSession();
 
-        session.enableFilter("TSPHjidFilter").setParameterList("ids", TimeslicePropertyIds);
+        session.enableFilter("TPHjidFilter").setParameterList("ids", TimeslicePropertyIds);
         session.enableFilter("BMMHjidFilter").setParameterList("ids", BasicMessageMemberIds);
         Transaction transaction = null; 
 
@@ -228,7 +228,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         }
         updateTransaction.commit();
 
-        // 5. Link new BasicMessageMemberAIXMPropertyType to 
+        // 5. Link new BasicMessageMemberAIXMPropertyType to curent message
         Transaction linkTransaction = session.beginTransaction();
         BasicMessage result = session.createQuery("SELECT new com.aixm.delorean.core.database.BasicMessage(m.hjid, m.id) FROM AIXMBasicMessageType m", BasicMessage.class).setMaxResults(1).getSingleResult();
 
@@ -286,57 +286,62 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
     }
 
     private static MutationFeatureTimeslice mergeTimeSlice(
-            AbstractAIXMTimeSliceType ts,
-            Object tsp,
+            AbstractAIXMTimeSliceType timeSlice,
+            Object timeSliceProperty,
             AbstractAIXMFeatureType feature,
             MutationFeatureTimeslice existing,
-            BasicMessageMemberAIXMPropertyType bmm,
+            BasicMessageMemberAIXMPropertyType basicMessageMember,
             Session session) {
         // 1. malformed timeslice are ignored
-        if (ts == null) {
+        if (timeSlice == null) {
+            ConsoleLogger.log(LogLevel.WARN, "Malformed timeslice for feature [" + feature.getClass().getSimpleName() + "] : " +  feature.getIdentifier());
             return existing;
         }
 
-        int incomingSeq = ts.getSequenceNumber().intValue();
-        int incomingCorr = ts.getCorrectionNumber().intValue();
+        int incomingSeq = timeSlice.getSequenceNumber().intValue();
+        int incomingCorr = timeSlice.getCorrectionNumber().intValue();
 
         // 2. new feature are persited at the basic message level
         if (existing == null) {
-            session.persist(bmm);
+            session.persist(basicMessageMember);
             HibernateHelper.doWithoutTransaction(session, s -> {
-                s.persist(bmm);
+                s.persist(basicMessageMember);
                 return null;
             });
+            ConsoleLogger.log(LogLevel.DEBUG, "New feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
             return existing;
 
         // 3. new changes are merged on the existing feature
         } else if (incomingSeq > existing.getSequenceNumber()) {
-            // 3.a missing timesclice result in an error
+            // 3.a missing timeslice result in an error
             if (incomingSeq != existing.getSequenceNumber() + 1) {
                 ConsoleLogger.log(LogLevel.WARN, "Missing Timeslice for feature [" + feature.getClass().getSimpleName() + "] : " +  existing.getIdentifier() + " between sequence numbers: " + existing.getSequenceNumber() + " and " + incomingSeq);
             }
             HibernateHelper.doWithoutTransaction(session, s -> {
-                s.persist(tsp);
+                s.persist(timeSliceProperty);
                 return null;
             });
-            existing.setAction(TimeSliceAction.CHANGE);
-            existing.setTimeSlicePropertyObject(tsp);
-            existing.setNewTimeSliceStart(ts.getValidTime().getBeginPosition());
+            existing.setAction(TimeSliceAction.VERSION);
+            existing.setTimeSlicePropertyObject(timeSliceProperty);
+            existing.setNewTimeSliceStart(timeSlice.getValidTime().getBeginPosition());
+            ConsoleLogger.log(LogLevel.DEBUG, "Version change for feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
             return existing;
 
         
         // 4. correction changes are merged on the existing feature
         } else if (incomingSeq == existing.getSequenceNumber() && incomingCorr > existing.getCorrectionNumber()) {
             HibernateHelper.doWithoutTransaction(session, s -> {
-                s.persist(tsp);
+                s.persist(timeSliceProperty);
                 return null;
             });
             existing.setAction(TimeSliceAction.CORRECTION);
-            existing.setTimeSlicePropertyObject(tsp);
+            existing.setTimeSlicePropertyObject(timeSliceProperty);
+            ConsoleLogger.log(LogLevel.DEBUG, "Correction change for feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
             return existing;
 
         } else {
             existing.setAction(TimeSliceAction.NOTHING);
+            ConsoleLogger.log(LogLevel.DEBUG, "No change for feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
             return existing;
 
         }
@@ -345,7 +350,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
     private static List<MutationFeatureTimeslice> generateTimesliceAction(Session session, List<String> featureList){
         List<MutationFeatureTimeslice> featureTimeslices = new ArrayList<>();
         for (String name : featureList) {
-            String sql = Aixm511DatabaseFunction.querryValidTimeslice(name);
+            String sql = Aixm511DatabaseFunction.queryValidTimeslice(name);
             List<Tuple> tuples = session.createNativeQuery(sql, Tuple.class).getResultList();
             featureTimeslices.addAll(tuples.stream()
                 .map(t -> new MutationFeatureTimeslice(
@@ -363,41 +368,50 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         return featureTimeslices;
     }
 
-    private static String querryValidTimeslice(String featureSchemaName) {
-        String schema = featureSchemaName.split("\\.")[0];
-        String feature = featureSchemaName.split("\\.")[1];
+    private static String queryValidTimeslice(String featureSchemaName) {
+        String[] parts = featureSchemaName.split("\\.");
+        String schema = parts[0];
+        String feature = parts[1];
 
-        String timeSlice =  feature + "_ts";
-        String timeSliceProperty = feature + "_tsp";
-        String featureTimeSliceLink = "timeslice_" + feature + "_link";
-        String featureType = feature + "type";
+        String featureTable              = schema + "." + feature + "_f";
+        String timeSliceTable            = schema + "." + feature + "_t";
+        String timeSlicePropertyTable    = schema + "." + feature + "_tp";
+        String timeSliceTableJoinColumn  = feature + "timeslice_hjid";
 
-        String sql = """
+        /* concrete exemple with dme : 
+        SELECT 
+        *
+        FROM aixm.aixm_feature
+        INNER JOIN navaids_point.dme_f ON aixm.aixm_feature.hjid = navaids_point.dme_f.hjid
+        INNER JOIN navaids_point.dme_tp ON aixm.aixm_feature.hjid = navaids_point.dme_tp.timeslice_hjid
+        INNER JOIN navaids_point.dme_t ON navaids_point.dme_tp.dmetimeslice_hjid = navaids_point.dme_t.hjid
+        INNER JOIN aixm.aixm_timeslice ON navaids_point.dme_t.hjid = aixm.aixm_timeslice.hjid
+        */
+
+        return """
             SELECT DISTINCT ON (aixm.aixm_feature.id)
                 aixm.aixm_feature.id,
-                aixm.aixm_timeslice.sequence_number as sequence_number,
-                aixm.aixm_timeslice.correction_number as correction_number,
-                aixm.aixm_feature.hjid as feature_id,
-                aixm.aixm_timeslice.hjid as timeslice_id,
-                %1$s.%2$s.hjid as timeslice_property_id
+                aixm.aixm_timeslice.sequence_number,
+                aixm.aixm_timeslice.correction_number,
+                aixm.aixm_feature.hjid  AS feature_id,
+                aixm.aixm_timeslice.hjid AS timeslice_id,
+                %2$s.hjid AS timeslice_property_id
             FROM aixm.aixm_feature
-            INNER JOIN %1$s.%5$s
-            ON aixm.aixm_feature.hjid = %1$s.%5$s.hjid
-            INNER JOIN %1$s.%4$s
-            ON aixm.aixm_feature.hjid = %1$s.%4$s.timeslice
-            INNER JOIN %1$s.%2$s
-            ON %1$s.%4$s.%3$s = %1$s.%2$s.hjid
-            INNER JOIN %1$s.%6$s
-            ON %1$s.%2$s.ts_id = %1$s.%6$s.hjid
-            INNER JOIN aixm.aixm_timeslice
-            ON %1$s.%6$s.hjid = aixm.aixm_timeslice.hjid
-            -- WHERE
-            --	aixm.aixm_feature.approval_status = 'APPROVED'
-            --	AND 
-            --	aixm.aixm_timeslice.approval_status = 'APPROVED'
-            ORDER BY id, sequence_number DESC, correction_number DESC;
-        """.formatted(schema, timeSliceProperty, featureType, featureTimeSliceLink, feature, timeSlice);
-
-        return sql;
+            INNER JOIN %1$s ON aixm.aixm_feature.hjid = %1$s.hjid
+            INNER JOIN %2$s ON aixm.aixm_feature.hjid = %2$s.timeslice_hjid
+            INNER JOIN %3$s ON %2$s.%4$s = %3$s.hjid
+            INNER JOIN aixm.aixm_timeslice ON %3$s.hjid = aixm.aixm_timeslice.hjid
+            -- WHERE 
+            -- aixm.aixm_feature.approval_status = 'APPROVED' 
+            -- AND 
+            -- aixm.aixm_timeslice.approval_status = 'APPROVED' 
+            ORDER BY aixm.aixm_feature.id, aixm.aixm_timeslice.sequence_number DESC, aixm.aixm_timeslice.correction_number DESC;
+            """
+            .formatted(
+                featureTable,             // %1$s
+                timeSlicePropertyTable,   // %2$s
+                timeSliceTable,           // %3$s
+                timeSliceTableJoinColumn  // %4$s
+            );
     }
 }

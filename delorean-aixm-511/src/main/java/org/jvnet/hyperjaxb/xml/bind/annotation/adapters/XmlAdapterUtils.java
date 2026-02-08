@@ -196,10 +196,7 @@ public class XmlAdapterUtils
 			return false;
 	}
 
-	public static <ValueType, BoundType> JAXBElement<BoundType> marshallJAXBElement(
-		Class<? extends XmlAdapter<BoundType, ValueType>> xmlAdapterClass, Class<BoundType> declaredType, QName name,
-		Class<?> scope, ValueType v)
-	{
+	public static <ValueType, BoundType> JAXBElement<BoundType> marshallJAXBElement(Class<? extends XmlAdapter<BoundType, ValueType>> xmlAdapterClass, Class<BoundType> declaredType, QName name, Class<?> scope, ValueType v) {
 		try
 		{	
 			// Case 1 — object itself is null → null
@@ -244,7 +241,7 @@ public class XmlAdapterUtils
 			}
 
 			// Case 2C — illegal state
-			System.out.println("Warning: Illegal combination: value=" + value + ", nilReason=" + nilReason + "for : " + v.getClass().getName());
+			System.out.println("[Warning] Illegal combination: value=" + value + ", nilReason=" + nilReason + " for : " + v.getClass().getName());
 			final XmlAdapter<BoundType, ValueType> xmlAdapter = getXmlAdapter(xmlAdapterClass);
 			return new JAXBElement<BoundType>(name, declaredType, scope, xmlAdapter.marshal(v));
 			//
@@ -298,7 +295,7 @@ public class XmlAdapterUtils
 		}
 
 		// Case 2C — illegal state
-		System.out.println("Warning: Illegal combination: value=" + value + ", nilReason=" + nilReason + "for : " + v.getClass().getName());
+		System.out.println("[Warning] Illegal combination: value=" + value + ", nilReason=" + nilReason + " for : " + v.getClass().getName());
 		return new JAXBElement<>(name, declaredType, scope, v);
 		//
 		// throw new IllegalStateException(

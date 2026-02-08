@@ -16,7 +16,7 @@ public class XMLGregorianCalendarHelper {
 
     public static OffsetDateTime parseXMLGregorianCalendar(javax.xml.datatype.XMLGregorianCalendar value) throws IllegalArgumentException {
         if (value == null) {
-
+            return null;
         }
 
         // XMLGregorianCalendar distinguishes between date, time, and datetime
@@ -39,7 +39,7 @@ public class XMLGregorianCalendarHelper {
 
     public static XMLGregorianCalendar printXMLGregorianCalendar(OffsetDateTime value) throws javax.xml.datatype.DatatypeConfigurationException, IllegalArgumentException {
         if (value == null) {
-            throw new IllegalArgumentException("Input OffsetDateTime is null");
+            return null;
         }
 
         // Get a reference to the factory
