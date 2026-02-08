@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "TaxiHoldingPositionTimeSlicePropertyType", propOrder = {
     "taxiHoldingPositionTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "TaxiHoldingPositionTimeSlicePropertyType")
-@Table(name = "taxiholdingposition_tsp", schema = "airport_heliport")
+@Table(name = "taxiholdingposition_tp", schema = "airport_heliport")
 public class TaxiHoldingPositionTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class TaxiHoldingPositionTimeSlicePropertyType implements Serializable, E
     @OneToOne(targetEntity = TaxiHoldingPositionTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "taxiholdingpositiontimeslice_hjid", referencedColumnName = "hjid")
     public TaxiHoldingPositionTimeSliceType getTaxiHoldingPositionTimeSlice() {
         return taxiHoldingPositionTimeSlice;
     }
@@ -230,19 +230,6 @@ public class TaxiHoldingPositionTimeSlicePropertyType implements Serializable, E
         }
         final TaxiHoldingPositionTimeSlicePropertyType that = ((TaxiHoldingPositionTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTaxiHoldingPositionTimeSlice();
             boolean rhsFieldIsSet = that.isSetTaxiHoldingPositionTimeSlice();
             TaxiHoldingPositionTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class TaxiHoldingPositionTimeSlicePropertyType implements Serializable, E
             rhsField = that.getTaxiHoldingPositionTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiHoldingPositionTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiHoldingPositionTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

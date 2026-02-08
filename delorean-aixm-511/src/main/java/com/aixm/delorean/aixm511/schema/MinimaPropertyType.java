@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "minima"
 })
 @Entity(name = "MinimaPropertyType")
-@Table(name = "minima_pt", schema = "procedure")
+@Table(name = "minima_p", schema = "procedure")
 public class MinimaPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class MinimaPropertyType
     @OneToOne(targetEntity = MinimaType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "minima_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "minima_hjid", referencedColumnName = "hjid")
     public MinimaType getMinima() {
         return minima;
     }

@@ -223,19 +223,6 @@ public class MDLegalConstraintsType extends MDConstraintsType implements Seriali
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOtherConstraints();
-            boolean rhsFieldIsSet = that.isSetOtherConstraints();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetOtherConstraints() ? this.getOtherConstraints() : null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetOtherConstraints() ? that.getOtherConstraints() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "otherConstraints", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "otherConstraints", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUseConstraints();
             boolean rhsFieldIsSet = that.isSetUseConstraints();
             List<MDRestrictionCodePropertyType> lhsField;
@@ -244,6 +231,19 @@ public class MDLegalConstraintsType extends MDConstraintsType implements Seriali
             rhsField = (that.isSetUseConstraints() ? that.getUseConstraints() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "useConstraints", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "useConstraints", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOtherConstraints();
+            boolean rhsFieldIsSet = that.isSetOtherConstraints();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetOtherConstraints() ? this.getOtherConstraints() : null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetOtherConstraints() ? that.getOtherConstraints() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "otherConstraints", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "otherConstraints", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

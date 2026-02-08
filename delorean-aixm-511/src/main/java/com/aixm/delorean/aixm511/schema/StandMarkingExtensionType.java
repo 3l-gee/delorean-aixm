@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractMarkingExtension"
 })
 @Entity(name = "StandMarkingExtensionType")
-@Table(name = "standmarking_ext", schema = "airport_heliport")
+@Table(name = "standmarking_e", schema = "airport_heliport")
 public class StandMarkingExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractstandmarkingextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractstandmarkingextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractStandMarkingExtension() {
         return abstractStandMarkingExtension;
     }
@@ -123,7 +123,7 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmarkingextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmarkingextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMarkingExtension() {
         return abstractMarkingExtension;
     }
@@ -273,19 +273,6 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractStandMarkingExtension();
             boolean rhsFieldIsSet = that.isSetAbstractStandMarkingExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
             rhsField = that.getAbstractStandMarkingExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandMarkingExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandMarkingExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

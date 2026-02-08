@@ -37,7 +37,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     RunwayProtectAreaType.class
 })
 @Entity(name = "AbstractAirportHeliportProtectionAreaType")
-@Table(name = "abstractairportheliportprotectionarea", schema = "public")
+@Table(name = "abstractairportheliportprotectionareatype", schema = "public")
 public abstract class AbstractAirportHeliportProtectionAreaType
     extends AbstractAIXMFeatureType
     implements Serializable

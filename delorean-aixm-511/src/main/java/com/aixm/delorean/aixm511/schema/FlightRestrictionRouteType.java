@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,10 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}FlightRestrictionRoutePropertyGroup"/>
+ *         <element name="priorPermission" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="routeElement" type="{http://www.aixm.aero/schema/5.1.1}FlightRoutingElementPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="contact" type="{http://www.aixm.aero/schema/5.1.1}ContactInformationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -72,7 +74,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "FlightRestrictionRouteType")
-@Table(name = "flightrestrictionroute", schema = "route")
+@Table(name = "flightrestrictionroute_o", schema = "route")
 public class FlightRestrictionRouteType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -141,13 +143,13 @@ public class FlightRestrictionRouteType
      * 
      * 
      */
-    @ManyToMany(targetEntity = FlightRoutingElementPropertyType.class, cascade = {
+    @OneToMany(targetEntity = FlightRoutingElementPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "routeelement_flightrestrictionroute_link", schema = "route", joinColumns = {
-        @JoinColumn(name = "routeelement", referencedColumnName = "hjid")
+    @JoinTable(name = "flightrestrictionroute_o_routeelement_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightrestrictionroute_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "flightrestrictionroutepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "routeelement_hjid", referencedColumnName = "hjid")
     })
     public List<FlightRoutingElementPropertyType> getRouteElement() {
         if (routeElement == null) {
@@ -195,13 +197,13 @@ public class FlightRestrictionRouteType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "contact_flightrestrictionroute_link", schema = "route", joinColumns = {
-        @JoinColumn(name = "contact", referencedColumnName = "hjid")
+    @JoinTable(name = "flightrestrictionroute_o_contact_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightrestrictionroute_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "flightrestrictionroutepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "contact_hjid", referencedColumnName = "hjid")
     })
     public List<ContactInformationPropertyType> getContact() {
         if (contact == null) {
@@ -249,13 +251,13 @@ public class FlightRestrictionRouteType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_flightrestrictionroute_link", schema = "route", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "flightrestrictionroute_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightrestrictionroute_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "flightrestrictionroutepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -306,7 +308,7 @@ public class FlightRestrictionRouteType
     @OneToMany(targetEntity = FlightRestrictionRouteTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_FLIGHT_RESTRICTION_2")
+    @JoinColumn(name = "flightrestrictionroute_e_hjid", referencedColumnName = "hjid")
     public List<FlightRestrictionRouteTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -370,19 +372,6 @@ public class FlightRestrictionRouteType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetContact();
             boolean rhsFieldIsSet = that.isSetContact();
             List<ContactInformationPropertyType> lhsField;
@@ -396,14 +385,14 @@ public class FlightRestrictionRouteType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPriorPermission();
-            boolean rhsFieldIsSet = that.isSetPriorPermission();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getPriorPermission();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getPriorPermission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -417,6 +406,19 @@ public class FlightRestrictionRouteType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPriorPermission();
+            boolean rhsFieldIsSet = that.isSetPriorPermission();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getPriorPermission();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getPriorPermission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

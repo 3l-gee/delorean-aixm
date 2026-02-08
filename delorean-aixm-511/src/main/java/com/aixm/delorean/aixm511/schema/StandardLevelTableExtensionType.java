@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractStandardLevelTableExtension"
 })
 @Entity(name = "StandardLevelTableExtensionType")
-@Table(name = "standardleveltable_ext", schema = "shared")
+@Table(name = "standardleveltable_e", schema = "shared")
 public class StandardLevelTableExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class StandardLevelTableExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractstandardleveltableextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractstandardleveltableextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractStandardLevelTableExtension() {
         return abstractStandardLevelTableExtension;
     }
@@ -223,19 +223,6 @@ public class StandardLevelTableExtensionType implements Serializable, Equals, Ha
         }
         final StandardLevelTableExtensionType that = ((StandardLevelTableExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractStandardLevelTableExtension();
             boolean rhsFieldIsSet = that.isSetAbstractStandardLevelTableExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class StandardLevelTableExtensionType implements Serializable, Equals, Ha
             rhsField = that.getAbstractStandardLevelTableExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandardLevelTableExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandardLevelTableExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

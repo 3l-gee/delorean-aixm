@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "linguisticNote"
 })
 @Entity(name = "LinguisticNotePropertyType")
-@Table(name = "linguisticnote_pt", schema = "note")
+@Table(name = "linguisticnote_p", schema = "note")
 public class LinguisticNotePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class LinguisticNotePropertyType
     @OneToOne(targetEntity = LinguisticNoteType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "linguisticnote_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "linguisticnote_hjid", referencedColumnName = "hjid")
     public LinguisticNoteType getLinguisticNote() {
         return linguisticNote;
     }

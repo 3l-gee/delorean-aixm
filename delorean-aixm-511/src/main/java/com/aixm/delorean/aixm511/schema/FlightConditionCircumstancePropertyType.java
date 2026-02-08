@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "flightConditionCircumstance"
 })
 @Entity(name = "FlightConditionCircumstancePropertyType")
-@Table(name = "flightconditioncircumstance_pt", schema = "route")
+@Table(name = "flightconditioncircumstance_p", schema = "route")
 public class FlightConditionCircumstancePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class FlightConditionCircumstancePropertyType
     @OneToOne(targetEntity = FlightConditionCircumstanceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "flightconditioncircumstance_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "flightconditioncircumstance_hjid", referencedColumnName = "hjid")
     public FlightConditionCircumstanceType getFlightConditionCircumstance() {
         return flightConditionCircumstance;
     }

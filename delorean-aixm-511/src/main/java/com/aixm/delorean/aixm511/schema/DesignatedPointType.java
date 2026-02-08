@@ -8,8 +8,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -48,7 +47,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "timeSlice"
 })
 @Entity(name = "DesignatedPointType")
-@Table(name = "designatedpoint", schema = "navaids_point")
+@Table(name = "designatedpoint_f", schema = "navaids_point")
 public class DesignatedPointType
     extends AbstractAIXMFeatureType
     implements Serializable
@@ -80,15 +79,11 @@ public class DesignatedPointType
      * 
      * 
      */
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
-    @ManyToMany(targetEntity = DesignatedPointTimeSlicePropertyType.class, cascade = {
+    @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+    @OneToMany(targetEntity = DesignatedPointTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "timeslice_designatedpoint_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "timeslice", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "designatedpointtype", referencedColumnName = "hjid")
-    })
+    @JoinColumn(name = "timeslice_hjid", referencedColumnName = "hjid")
     public List<DesignatedPointTimeSlicePropertyType> getTimeSlice() {
         if (timeSlice == null) {
             timeSlice = new ArrayList<>();

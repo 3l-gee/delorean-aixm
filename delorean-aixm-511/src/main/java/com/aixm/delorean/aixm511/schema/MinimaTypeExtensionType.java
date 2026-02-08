@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractMinimaExtension"
 })
 @Entity(name = "MinimaTypeExtensionType")
-@Table(name = "minima_ext", schema = "procedure")
+@Table(name = "minima_e", schema = "procedure")
 public class MinimaTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class MinimaTypeExtensionType implements Serializable, Equals, HashCode, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractminimaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractminimaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMinimaExtension() {
         return abstractMinimaExtension;
     }
@@ -223,19 +223,6 @@ public class MinimaTypeExtensionType implements Serializable, Equals, HashCode, 
         }
         final MinimaTypeExtensionType that = ((MinimaTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractMinimaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractMinimaExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractMinimaExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractMinimaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMinimaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMinimaExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class MinimaTypeExtensionType implements Serializable, Equals, HashCode, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractMinimaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractMinimaExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractMinimaExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractMinimaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMinimaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMinimaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

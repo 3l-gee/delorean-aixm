@@ -257,32 +257,6 @@ public abstract class AbstractDatumType extends IdentifiedObjectType implements 
         }
         final AbstractDatumType that = ((AbstractDatumType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnchorDefinition();
-            boolean rhsFieldIsSet = that.isSetAnchorDefinition();
-            JAXBElement<CodeType> lhsField;
-            lhsField = this.getAnchorDefinition();
-            JAXBElement<CodeType> rhsField;
-            rhsField = that.getAnchorDefinition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "anchorDefinition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "anchorDefinition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRealizationEpoch();
-            boolean rhsFieldIsSet = that.isSetRealizationEpoch();
-            XMLGregorianCalendar lhsField;
-            lhsField = this.getRealizationEpoch();
-            XMLGregorianCalendar rhsField;
-            rhsField = that.getRealizationEpoch();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "realizationEpoch", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "realizationEpoch", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDomainOfValidity();
             boolean rhsFieldIsSet = that.isSetDomainOfValidity();
             DomainOfValidity lhsField;
@@ -304,6 +278,32 @@ public abstract class AbstractDatumType extends IdentifiedObjectType implements 
             rhsField = (that.isSetScope() ? that.getScope() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnchorDefinition();
+            boolean rhsFieldIsSet = that.isSetAnchorDefinition();
+            JAXBElement<CodeType> lhsField;
+            lhsField = this.getAnchorDefinition();
+            JAXBElement<CodeType> rhsField;
+            rhsField = that.getAnchorDefinition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "anchorDefinition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "anchorDefinition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRealizationEpoch();
+            boolean rhsFieldIsSet = that.isSetRealizationEpoch();
+            XMLGregorianCalendar lhsField;
+            lhsField = this.getRealizationEpoch();
+            XMLGregorianCalendar rhsField;
+            rhsField = that.getRealizationEpoch();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "realizationEpoch", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "realizationEpoch", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

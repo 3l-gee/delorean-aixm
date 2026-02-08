@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AeronauticalGroundLightTimeSlicePropertyType", propOrder = {
     "aeronauticalGroundLightTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AeronauticalGroundLightTimeSlicePropertyType")
-@Table(name = "aeronauticalgroundlight_tsp", schema = "navaids_point")
+@Table(name = "aeronauticalgroundlight_tp", schema = "navaids_point")
 public class AeronauticalGroundLightTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class AeronauticalGroundLightTimeSlicePropertyType implements Serializabl
     @OneToOne(targetEntity = AeronauticalGroundLightTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "aeronauticalgroundlighttimeslice_hjid", referencedColumnName = "hjid")
     public AeronauticalGroundLightTimeSliceType getAeronauticalGroundLightTimeSlice() {
         return aeronauticalGroundLightTimeSlice;
     }

@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RunwayBlastPadTimeSlicePropertyType", propOrder = {
     "runwayBlastPadTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "RunwayBlastPadTimeSlicePropertyType")
-@Table(name = "runwayblastpad_tsp", schema = "airport_heliport")
+@Table(name = "runwayblastpad_tp", schema = "airport_heliport")
 public class RunwayBlastPadTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class RunwayBlastPadTimeSlicePropertyType implements Serializable, Equals
     @OneToOne(targetEntity = RunwayBlastPadTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "runwayblastpadtimeslice_hjid", referencedColumnName = "hjid")
     public RunwayBlastPadTimeSliceType getRunwayBlastPadTimeSlice() {
         return runwayBlastPadTimeSlice;
     }
@@ -230,19 +230,6 @@ public class RunwayBlastPadTimeSlicePropertyType implements Serializable, Equals
         }
         final RunwayBlastPadTimeSlicePropertyType that = ((RunwayBlastPadTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRunwayBlastPadTimeSlice();
             boolean rhsFieldIsSet = that.isSetRunwayBlastPadTimeSlice();
             RunwayBlastPadTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class RunwayBlastPadTimeSlicePropertyType implements Serializable, Equals
             rhsField = that.getRunwayBlastPadTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayBlastPadTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayBlastPadTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

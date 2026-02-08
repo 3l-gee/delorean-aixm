@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractRunwayBlastPadExtension"
 })
 @Entity(name = "RunwayBlastPadExtensionType")
-@Table(name = "runwayblastpad_ext", schema = "airport_heliport")
+@Table(name = "runwayblastpad_e", schema = "airport_heliport")
 public class RunwayBlastPadExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class RunwayBlastPadExtensionType implements Serializable, Equals, HashCo
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwayblastpadextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwayblastpadextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayBlastPadExtension() {
         return abstractRunwayBlastPadExtension;
     }
@@ -223,19 +223,6 @@ public class RunwayBlastPadExtensionType implements Serializable, Equals, HashCo
         }
         final RunwayBlastPadExtensionType that = ((RunwayBlastPadExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractRunwayBlastPadExtension();
             boolean rhsFieldIsSet = that.isSetAbstractRunwayBlastPadExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class RunwayBlastPadExtensionType implements Serializable, Equals, HashCo
             rhsField = that.getAbstractRunwayBlastPadExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayBlastPadExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayBlastPadExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

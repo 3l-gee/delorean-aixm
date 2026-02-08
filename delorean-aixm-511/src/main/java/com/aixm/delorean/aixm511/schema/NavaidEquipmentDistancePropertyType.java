@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "navaidEquipmentDistance"
 })
 @Entity(name = "NavaidEquipmentDistancePropertyType")
-@Table(name = "navaidequipmentdistance_pt", schema = "airport_heliport")
+@Table(name = "navaidequipmentdistance_p", schema = "airport_heliport")
 public class NavaidEquipmentDistancePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class NavaidEquipmentDistancePropertyType
     @OneToOne(targetEntity = NavaidEquipmentDistanceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navaidequipmentdistance_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "navaidequipmentdistance_hjid", referencedColumnName = "hjid")
     public NavaidEquipmentDistanceType getNavaidEquipmentDistance() {
         return navaidEquipmentDistance;
     }

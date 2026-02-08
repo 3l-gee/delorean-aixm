@@ -8,8 +8,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -48,7 +47,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "timeSlice"
 })
 @Entity(name = "TaxiHoldingPositionLightSystemType")
-@Table(name = "taxiholdingpositionlightsystem", schema = "airport_heliport")
+@Table(name = "taxiholdingpositionlightsystem_f", schema = "airport_heliport")
 public class TaxiHoldingPositionLightSystemType
     extends AbstractGroundLightSystemType
     implements Serializable
@@ -80,15 +79,11 @@ public class TaxiHoldingPositionLightSystemType
      * 
      * 
      */
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
-    @ManyToMany(targetEntity = TaxiHoldingPositionLightSystemTimeSlicePropertyType.class, cascade = {
+    @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+    @OneToMany(targetEntity = TaxiHoldingPositionLightSystemTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "timeslice_taxiholdingpositionlightsystem_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "timeslice", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "taxiholdingpositionlightsystemtype", referencedColumnName = "hjid")
-    })
+    @JoinColumn(name = "timeslice_hjid", referencedColumnName = "hjid")
     public List<TaxiHoldingPositionLightSystemTimeSlicePropertyType> getTimeSlice() {
         if (timeSlice == null) {
             timeSlice = new ArrayList<>();

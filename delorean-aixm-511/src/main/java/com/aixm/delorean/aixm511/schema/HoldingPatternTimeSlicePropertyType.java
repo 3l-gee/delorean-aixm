@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "HoldingPatternTimeSlicePropertyType", propOrder = {
     "holdingPatternTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "HoldingPatternTimeSlicePropertyType")
-@Table(name = "holdingpattern_tsp", schema = "holding")
+@Table(name = "holdingpattern_tp", schema = "holding")
 public class HoldingPatternTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class HoldingPatternTimeSlicePropertyType implements Serializable, Equals
     @OneToOne(targetEntity = HoldingPatternTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "holdingpatterntimeslice_hjid", referencedColumnName = "hjid")
     public HoldingPatternTimeSliceType getHoldingPatternTimeSlice() {
         return holdingPatternTimeSlice;
     }

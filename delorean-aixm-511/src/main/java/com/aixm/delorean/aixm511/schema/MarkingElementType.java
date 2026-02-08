@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,14 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}MarkingElementPropertyGroup"/>
+ *         <element name="colour" type="{http://www.aixm.aero/schema/5.1.1}CodeColourType" minOccurs="0"/>
+ *         <element name="style" type="{http://www.aixm.aero/schema/5.1.1}CodeMarkingStyleType" minOccurs="0"/>
+ *         <choice>
+ *           <element name="extent_curveExtent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedCurvePropertyType" minOccurs="0"/>
+ *           <element name="extent_surfaceExtent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedSurfacePropertyType" minOccurs="0"/>
+ *           <element name="extent_location" type="{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *         </choice>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -75,7 +81,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "MarkingElementType")
-@Table(name = "markingelement", schema = "airport_heliport")
+@Table(name = "markingelement_o", schema = "airport_heliport")
 public class MarkingElementType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -268,13 +274,13 @@ public class MarkingElementType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_markingelement_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "markingelement_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "markingelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "markingelementpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -325,7 +331,7 @@ public class MarkingElementType
     @OneToMany(targetEntity = MarkingElementTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_MARKING_ELEMENT_TY_0")
+    @JoinColumn(name = "markingelement_e_hjid", referencedColumnName = "hjid")
     public List<MarkingElementTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -376,10 +382,14 @@ public class MarkingElementType
         setStyle(XmlAdapterUtils.marshallJAXBElement(CodeMarkingStyleType.class, new QName("http://www.aixm.aero/schema/5.1.1", "style"), MarkingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedCurvePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedCurvePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_curveextent_id", referencedColumnName = "hjid")
+    @JoinTable(name = "markingelement_o_extent_curveextent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "markingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_curveextent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedCurvePropertyType getExtentCurveExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedCurvePropertyType.class, this.getExtentCurveExtent());
     }
@@ -388,10 +398,14 @@ public class MarkingElementType
         setExtentCurveExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedCurvePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extent_curveExtent"), MarkingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_surfaceextent_id", referencedColumnName = "hjid")
+    @JoinTable(name = "markingelement_o_extent_surfaceextent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "markingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_surfaceextent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedSurfacePropertyType getExtentSurfaceExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedSurfacePropertyType.class, this.getExtentSurfaceExtent());
     }
@@ -400,10 +414,14 @@ public class MarkingElementType
         setExtentSurfaceExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extent_surfaceExtent"), MarkingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_location_id", referencedColumnName = "hjid")
+    @JoinTable(name = "markingelement_o_extent_location_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "markingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getExtentLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getExtentLocation());
     }
@@ -438,32 +456,6 @@ public class MarkingElementType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtentCurveExtent();
-            boolean rhsFieldIsSet = that.isSetExtentCurveExtent();
-            JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
-            lhsField = this.getExtentCurveExtent();
-            JAXBElement<AIXMElevatedCurvePropertyType> rhsField;
-            rhsField = that.getExtentCurveExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentCurveExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentCurveExtent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetStyle();
             boolean rhsFieldIsSet = that.isSetStyle();
             JAXBElement<CodeMarkingStyleType> lhsField;
@@ -490,6 +482,19 @@ public class MarkingElementType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtentCurveExtent();
+            boolean rhsFieldIsSet = that.isSetExtentCurveExtent();
+            JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
+            lhsField = this.getExtentCurveExtent();
+            JAXBElement<AIXMElevatedCurvePropertyType> rhsField;
+            rhsField = that.getExtentCurveExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentCurveExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentCurveExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetColour();
             boolean rhsFieldIsSet = that.isSetColour();
             JAXBElement<CodeColourType> lhsField;
@@ -511,6 +516,19 @@ public class MarkingElementType
             rhsField = that.getExtentSurfaceExtent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentSurfaceExtent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentSurfaceExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

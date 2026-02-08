@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractManoeuvringAreaAvailabilityExtension"
 })
 @Entity(name = "ManoeuvringAreaAvailabilityTypeExtensionType")
-@Table(name = "manoeuvringareaavailability_ext", schema = "airport_heliport")
+@Table(name = "manoeuvringareaavailability_e", schema = "airport_heliport")
 public class ManoeuvringAreaAvailabilityTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class ManoeuvringAreaAvailabilityTypeExtensionType implements Serializabl
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class ManoeuvringAreaAvailabilityTypeExtensionType implements Serializabl
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmanoeuvringareaavailabilityextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmanoeuvringareaavailabilityextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractManoeuvringAreaAvailabilityExtension() {
         return abstractManoeuvringAreaAvailabilityExtension;
     }
@@ -260,19 +260,6 @@ public class ManoeuvringAreaAvailabilityTypeExtensionType implements Serializabl
         }
         final ManoeuvringAreaAvailabilityTypeExtensionType that = ((ManoeuvringAreaAvailabilityTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPropertiesWithScheduleExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractManoeuvringAreaAvailabilityExtension();
             boolean rhsFieldIsSet = that.isSetAbstractManoeuvringAreaAvailabilityExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class ManoeuvringAreaAvailabilityTypeExtensionType implements Serializabl
             rhsField = that.getAbstractManoeuvringAreaAvailabilityExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractManoeuvringAreaAvailabilityExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractManoeuvringAreaAvailabilityExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPropertiesWithScheduleExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPropertiesWithScheduleExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

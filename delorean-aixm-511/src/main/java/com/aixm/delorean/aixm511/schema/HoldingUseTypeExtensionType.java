@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractHoldingUseExtension"
 })
 @Entity(name = "HoldingUseTypeExtensionType")
-@Table(name = "holdinguse_ext", schema = "procedure")
+@Table(name = "holdinguse_e", schema = "procedure")
 public class HoldingUseTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class HoldingUseTypeExtensionType implements Serializable, Equals, HashCo
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractholdinguseextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractholdinguseextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractHoldingUseExtension() {
         return abstractHoldingUseExtension;
     }
@@ -223,19 +223,6 @@ public class HoldingUseTypeExtensionType implements Serializable, Equals, HashCo
         }
         final HoldingUseTypeExtensionType that = ((HoldingUseTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractHoldingUseExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractHoldingUseExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractHoldingUseExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractHoldingUseExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractHoldingUseExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractHoldingUseExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class HoldingUseTypeExtensionType implements Serializable, Equals, HashCo
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractHoldingUseExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractHoldingUseExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractHoldingUseExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractHoldingUseExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractHoldingUseExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractHoldingUseExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

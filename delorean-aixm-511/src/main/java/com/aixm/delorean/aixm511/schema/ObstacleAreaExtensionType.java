@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractObstacleAreaExtension"
 })
 @Entity(name = "ObstacleAreaExtensionType")
-@Table(name = "obstaclearea_ext", schema = "obstacle")
+@Table(name = "obstaclearea_e", schema = "obstacle")
 public class ObstacleAreaExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class ObstacleAreaExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractobstacleareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractobstacleareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractObstacleAreaExtension() {
         return abstractObstacleAreaExtension;
     }
@@ -223,19 +223,6 @@ public class ObstacleAreaExtensionType implements Serializable, Equals, HashCode
         }
         final ObstacleAreaExtensionType that = ((ObstacleAreaExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractObstacleAreaExtension();
             boolean rhsFieldIsSet = that.isSetAbstractObstacleAreaExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class ObstacleAreaExtensionType implements Serializable, Equals, HashCode
             rhsField = that.getAbstractObstacleAreaExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractObstacleAreaExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractObstacleAreaExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

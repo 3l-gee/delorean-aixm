@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,9 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}AirspaceVolumeDependencyPropertyGroup"/>
+ *         <element name="dependency" type="{http://www.aixm.aero/schema/5.1.1}CodeAirspaceDependencyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="theAirspace" type="{http://www.aixm.aero/schema/5.1.1}AirspacePropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -72,7 +73,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "AirspaceVolumeDependencyType")
-@Table(name = "airspacevolumedependency", schema = "airspace")
+@Table(name = "airspacevolumedependency_o", schema = "airspace")
 public class AirspaceVolumeDependencyType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -138,13 +139,13 @@ public class AirspaceVolumeDependencyType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_airspacevolumedependency_link", schema = "airspace", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "airspacevolumedependency_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airspacevolumedependency_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airspacevolumedependencypropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -178,10 +179,14 @@ public class AirspaceVolumeDependencyType
      *     {@link AirspacePropertyType }
      *     
      */
-    @ManyToOne(targetEntity = AirspacePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "theairspace_id", referencedColumnName = "hjid")
+    @JoinTable(name = "airspacevolumedependency_o_theairspace_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airspacevolumedependency_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "theairspace_hjid", referencedColumnName = "hjid")
+    })
     public AirspacePropertyType getTheAirspace() {
         return theAirspace;
     }
@@ -228,7 +233,7 @@ public class AirspaceVolumeDependencyType
     @OneToMany(targetEntity = AirspaceVolumeDependencyTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIRSPACE_VOLUME_DE_0")
+    @JoinColumn(name = "airspacevolumedependency_e_hjid", referencedColumnName = "hjid")
     public List<AirspaceVolumeDependencyTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -279,19 +284,6 @@ public class AirspaceVolumeDependencyType
         }
         final AirspaceVolumeDependencyType that = ((AirspaceVolumeDependencyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheAirspace();
-            boolean rhsFieldIsSet = that.isSetTheAirspace();
-            AirspacePropertyType lhsField;
-            lhsField = this.getTheAirspace();
-            AirspacePropertyType rhsField;
-            rhsField = that.getTheAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -305,14 +297,14 @@ public class AirspaceVolumeDependencyType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDependency();
-            boolean rhsFieldIsSet = that.isSetDependency();
-            JAXBElement<CodeAirspaceDependencyType> lhsField;
-            lhsField = this.getDependency();
-            JAXBElement<CodeAirspaceDependencyType> rhsField;
-            rhsField = that.getDependency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependency", rhsField);
+            boolean lhsFieldIsSet = this.isSetTheAirspace();
+            boolean rhsFieldIsSet = that.isSetTheAirspace();
+            AirspacePropertyType lhsField;
+            lhsField = this.getTheAirspace();
+            AirspacePropertyType rhsField;
+            rhsField = that.getTheAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -326,6 +318,19 @@ public class AirspaceVolumeDependencyType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDependency();
+            boolean rhsFieldIsSet = that.isSetDependency();
+            JAXBElement<CodeAirspaceDependencyType> lhsField;
+            lhsField = this.getDependency();
+            JAXBElement<CodeAirspaceDependencyType> rhsField;
+            rhsField = that.getDependency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependency", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

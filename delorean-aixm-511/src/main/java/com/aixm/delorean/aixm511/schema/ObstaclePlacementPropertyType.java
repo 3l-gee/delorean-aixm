@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "obstaclePlacement"
 })
 @Entity(name = "ObstaclePlacementPropertyType")
-@Table(name = "obstacleplacement_pt", schema = "shared")
+@Table(name = "obstacleplacement_p", schema = "shared")
 public class ObstaclePlacementPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ObstaclePlacementPropertyType
     @OneToOne(targetEntity = ObstaclePlacementType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "obstacleplacement_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "obstacleplacement_hjid", referencedColumnName = "hjid")
     public ObstaclePlacementType getObstaclePlacement() {
         return obstaclePlacement;
     }

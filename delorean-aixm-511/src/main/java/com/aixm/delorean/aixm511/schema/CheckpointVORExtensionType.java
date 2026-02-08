@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractNavigationSystemCheckpointExtension"
 })
 @Entity(name = "CheckpointVORExtensionType")
-@Table(name = "checkpointvor_ext", schema = "navaids_point")
+@Table(name = "checkpointvor_e", schema = "navaids_point")
 public class CheckpointVORExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class CheckpointVORExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractcheckpointvorextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractcheckpointvorextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractCheckpointVORExtension() {
         return abstractCheckpointVORExtension;
     }
@@ -123,7 +123,7 @@ public class CheckpointVORExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavigationsystemcheckpointextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavigationsystemcheckpointextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavigationSystemCheckpointExtension() {
         return abstractNavigationSystemCheckpointExtension;
     }
@@ -260,19 +260,6 @@ public class CheckpointVORExtensionType implements Serializable, Equals, HashCod
         }
         final CheckpointVORExtensionType that = ((CheckpointVORExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractCheckpointVORExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractCheckpointVORExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractCheckpointVORExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractCheckpointVORExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCheckpointVORExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCheckpointVORExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractNavigationSystemCheckpointExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavigationSystemCheckpointExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class CheckpointVORExtensionType implements Serializable, Equals, HashCod
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractCheckpointVORExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractCheckpointVORExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractCheckpointVORExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractCheckpointVORExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCheckpointVORExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCheckpointVORExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

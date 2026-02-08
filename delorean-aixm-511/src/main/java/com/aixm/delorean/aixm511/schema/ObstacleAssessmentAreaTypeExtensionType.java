@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractObstacleAssessmentAreaExtension"
 })
 @Entity(name = "ObstacleAssessmentAreaTypeExtensionType")
-@Table(name = "obstacleassessmentarea_ext", schema = "shared")
+@Table(name = "obstacleassessmentarea_e", schema = "shared")
 public class ObstacleAssessmentAreaTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class ObstacleAssessmentAreaTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractobstacleassessmentareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractobstacleassessmentareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractObstacleAssessmentAreaExtension() {
         return abstractObstacleAssessmentAreaExtension;
     }

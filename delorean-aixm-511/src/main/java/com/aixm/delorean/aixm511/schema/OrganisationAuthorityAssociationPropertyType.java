@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "organisationAuthorityAssociation"
 })
 @Entity(name = "OrganisationAuthorityAssociationPropertyType")
-@Table(name = "organisationauthorityassociation_pt", schema = "organisation")
+@Table(name = "organisationauthorityassociation_p", schema = "organisation")
 public class OrganisationAuthorityAssociationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class OrganisationAuthorityAssociationPropertyType
     @OneToOne(targetEntity = OrganisationAuthorityAssociationType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "organisationauthorityassociation_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "organisationauthorityassociation_hjid", referencedColumnName = "hjid")
     public OrganisationAuthorityAssociationType getOrganisationAuthorityAssociation() {
         return organisationAuthorityAssociation;
     }

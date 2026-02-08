@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractWorkAreaExtension"
 })
 @Entity(name = "WorkAreaExtensionType")
-@Table(name = "workarea_ext", schema = "airport_heliport")
+@Table(name = "workarea_e", schema = "airport_heliport")
 public class WorkAreaExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class WorkAreaExtensionType implements Serializable, Equals, HashCode, To
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractworkareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractworkareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractWorkAreaExtension() {
         return abstractWorkAreaExtension;
     }

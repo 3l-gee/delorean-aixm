@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractUnplannedHoldingExtension"
 })
 @Entity(name = "UnplannedHoldingExtensionType")
-@Table(name = "unplannedholding_ext", schema = "holding")
+@Table(name = "unplannedholding_e", schema = "holding")
 public class UnplannedHoldingExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class UnplannedHoldingExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractunplannedholdingextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractunplannedholdingextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractUnplannedHoldingExtension() {
         return abstractUnplannedHoldingExtension;
     }

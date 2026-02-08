@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "DeicingAreaMarkingTimeSlicePropertyType", propOrder = {
     "deicingAreaMarkingTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "DeicingAreaMarkingTimeSlicePropertyType")
-@Table(name = "deicingareamarking_tsp", schema = "airport_heliport")
+@Table(name = "deicingareamarking_tp", schema = "airport_heliport")
 public class DeicingAreaMarkingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class DeicingAreaMarkingTimeSlicePropertyType implements Serializable, Eq
     @OneToOne(targetEntity = DeicingAreaMarkingTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "deicingareamarkingtimeslice_hjid", referencedColumnName = "hjid")
     public DeicingAreaMarkingTimeSliceType getDeicingAreaMarkingTimeSlice() {
         return deicingAreaMarkingTimeSlice;
     }

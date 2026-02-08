@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "StandardLevelTableTimeSlicePropertyType", propOrder = {
     "standardLevelTableTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "StandardLevelTableTimeSlicePropertyType")
-@Table(name = "standardleveltable_tsp", schema = "shared")
+@Table(name = "standardleveltable_tp", schema = "shared")
 public class StandardLevelTableTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class StandardLevelTableTimeSlicePropertyType implements Serializable, Eq
     @OneToOne(targetEntity = StandardLevelTableTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "standardleveltabletimeslice_hjid", referencedColumnName = "hjid")
     public StandardLevelTableTimeSliceType getStandardLevelTableTimeSlice() {
         return standardLevelTableTimeSlice;
     }
@@ -230,19 +230,6 @@ public class StandardLevelTableTimeSlicePropertyType implements Serializable, Eq
         }
         final StandardLevelTableTimeSlicePropertyType that = ((StandardLevelTableTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStandardLevelTableTimeSlice();
-            boolean rhsFieldIsSet = that.isSetStandardLevelTableTimeSlice();
-            StandardLevelTableTimeSliceType lhsField;
-            lhsField = this.getStandardLevelTableTimeSlice();
-            StandardLevelTableTimeSliceType rhsField;
-            rhsField = that.getStandardLevelTableTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardLevelTableTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardLevelTableTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class StandardLevelTableTimeSlicePropertyType implements Serializable, Eq
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStandardLevelTableTimeSlice();
+            boolean rhsFieldIsSet = that.isSetStandardLevelTableTimeSlice();
+            StandardLevelTableTimeSliceType lhsField;
+            lhsField = this.getStandardLevelTableTimeSlice();
+            StandardLevelTableTimeSliceType rhsField;
+            rhsField = that.getStandardLevelTableTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardLevelTableTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardLevelTableTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

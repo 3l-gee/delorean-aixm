@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,21 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}ArrestingGearPropertyGroup"/>
+ *         <element name="status" type="{http://www.aixm.aero/schema/5.1.1}CodeStatusOperationsType" minOccurs="0"/>
+ *         <element name="length" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="width" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="engageDevice" type="{http://www.aixm.aero/schema/5.1.1}CodeArrestingGearEngageDeviceType" minOccurs="0"/>
+ *         <element name="absorbType" type="{http://www.aixm.aero/schema/5.1.1}CodeArrestingGearEnergyAbsorbType" minOccurs="0"/>
+ *         <element name="bidirectional" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="runwayDirection" type="{http://www.aixm.aero/schema/5.1.1}RunwayDirectionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="surfaceProperties" type="{http://www.aixm.aero/schema/5.1.1}SurfaceCharacteristicsPropertyType" minOccurs="0"/>
+ *         <choice>
+ *           <element name="extent_surfaceExtent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedSurfacePropertyType" minOccurs="0"/>
+ *           <element name="extent_curveExtent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedCurvePropertyType" minOccurs="0"/>
+ *           <element name="extent_pointExtent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *         </choice>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -82,7 +95,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "ArrestingGearTimeSliceType")
-@Table(name = "arrestinggear_ts", schema = "airport_heliport")
+@Table(name = "arrestinggear_t", schema = "airport_heliport")
 public class ArrestingGearTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -349,13 +362,13 @@ public class ArrestingGearTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = RunwayDirectionPropertyType.class, cascade = {
+    @OneToMany(targetEntity = RunwayDirectionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "runwaydirection_arrestinggear_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "runwaydirection", referencedColumnName = "hjid")
+    @JoinTable(name = "arrestinggear_t_runwaydirection_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "arrestinggearpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "runwaydirection_hjid", referencedColumnName = "hjid")
     })
     public List<RunwayDirectionPropertyType> getRunwayDirection() {
         if (runwayDirection == null) {
@@ -523,13 +536,13 @@ public class ArrestingGearTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_arrestinggear_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "arrestinggear_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "arrestinggearpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -580,7 +593,7 @@ public class ArrestingGearTimeSliceType
     @OneToMany(targetEntity = ArrestingGearExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_ARRESTING_GEAR_TIM_0")
+    @JoinColumn(name = "arrestinggear_e_hjid", referencedColumnName = "hjid")
     public List<ArrestingGearExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -620,7 +633,7 @@ public class ArrestingGearTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "length", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "length")),
         @AttributeOverride(name = "uom", column = @Column(name = "length_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "length_nilreason"))
     })
@@ -634,7 +647,7 @@ public class ArrestingGearTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "width", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "width")),
         @AttributeOverride(name = "uom", column = @Column(name = "width_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "width_nilreason"))
     })
@@ -687,7 +700,7 @@ public class ArrestingGearTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "location", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "location")),
         @AttributeOverride(name = "uom", column = @Column(name = "location_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "location_nilreason"))
     })
@@ -699,10 +712,14 @@ public class ArrestingGearTimeSliceType
         setLocation(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "location"), ArrestingGearTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = SurfaceCharacteristicsPropertyType.class, cascade = {
+    @OneToOne(targetEntity = SurfaceCharacteristicsPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "surfaceproperties_id", referencedColumnName = "hjid")
+    @JoinTable(name = "arrestinggear_t_surfaceproperties_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "surfaceproperties_hjid", referencedColumnName = "hjid")
+    })
     public SurfaceCharacteristicsPropertyType getSurfacePropertiesItem() {
         return XmlAdapterUtils.unmarshallSource(SurfaceCharacteristicsPropertyType.class, this.getSurfaceProperties());
     }
@@ -711,10 +728,14 @@ public class ArrestingGearTimeSliceType
         setSurfaceProperties(XmlAdapterUtils.marshallJAXBElement(SurfaceCharacteristicsPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "surfaceProperties"), ArrestingGearTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_surfaceextent_id", referencedColumnName = "hjid")
+    @JoinTable(name = "arrestinggear_t_extent_surfaceextent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_surfaceextent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedSurfacePropertyType getExtentSurfaceExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedSurfacePropertyType.class, this.getExtentSurfaceExtent());
     }
@@ -723,10 +744,14 @@ public class ArrestingGearTimeSliceType
         setExtentSurfaceExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extent_surfaceExtent"), ArrestingGearTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedCurvePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedCurvePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_curveextent_id", referencedColumnName = "hjid")
+    @JoinTable(name = "arrestinggear_t_extent_curveextent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_curveextent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedCurvePropertyType getExtentCurveExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedCurvePropertyType.class, this.getExtentCurveExtent());
     }
@@ -735,10 +760,14 @@ public class ArrestingGearTimeSliceType
         setExtentCurveExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedCurvePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extent_curveExtent"), ArrestingGearTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_pointextent_id", referencedColumnName = "hjid")
+    @JoinTable(name = "arrestinggear_t_extent_pointextent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "arrestinggear_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_pointextent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getExtentPointExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getExtentPointExtent());
     }
@@ -773,14 +802,27 @@ public class ArrestingGearTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtentCurveExtent();
-            boolean rhsFieldIsSet = that.isSetExtentCurveExtent();
-            JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
-            lhsField = this.getExtentCurveExtent();
-            JAXBElement<AIXMElevatedCurvePropertyType> rhsField;
-            rhsField = that.getExtentCurveExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentCurveExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentCurveExtent", rhsField);
+            boolean lhsFieldIsSet = this.isSetRunwayDirection();
+            boolean rhsFieldIsSet = that.isSetRunwayDirection();
+            List<RunwayDirectionPropertyType> lhsField;
+            lhsField = (this.isSetRunwayDirection()?this.getRunwayDirection():null);
+            List<RunwayDirectionPropertyType> rhsField;
+            rhsField = (that.isSetRunwayDirection()?that.getRunwayDirection():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbsorbType();
+            boolean rhsFieldIsSet = that.isSetAbsorbType();
+            JAXBElement<CodeArrestingGearEnergyAbsorbType> lhsField;
+            lhsField = this.getAbsorbType();
+            JAXBElement<CodeArrestingGearEnergyAbsorbType> rhsField;
+            rhsField = that.getAbsorbType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "absorbType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "absorbType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -812,14 +854,27 @@ public class ArrestingGearTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtentSurfaceExtent();
-            boolean rhsFieldIsSet = that.isSetExtentSurfaceExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = this.getExtentSurfaceExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = that.getExtentSurfaceExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentSurfaceExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentSurfaceExtent", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtentPointExtent();
+            boolean rhsFieldIsSet = that.isSetExtentPointExtent();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getExtentPointExtent();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getExtentPointExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentPointExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentPointExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStatus();
+            boolean rhsFieldIsSet = that.isSetStatus();
+            JAXBElement<CodeStatusOperationsType> lhsField;
+            lhsField = this.getStatus();
+            JAXBElement<CodeStatusOperationsType> rhsField;
+            rhsField = that.getStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -851,6 +906,19 @@ public class ArrestingGearTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtentCurveExtent();
+            boolean rhsFieldIsSet = that.isSetExtentCurveExtent();
+            JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
+            lhsField = this.getExtentCurveExtent();
+            JAXBElement<AIXMElevatedCurvePropertyType> rhsField;
+            rhsField = that.getExtentCurveExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentCurveExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentCurveExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<ArrestingGearExtensionType> lhsField;
@@ -864,53 +932,14 @@ public class ArrestingGearTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStatus();
-            boolean rhsFieldIsSet = that.isSetStatus();
-            JAXBElement<CodeStatusOperationsType> lhsField;
-            lhsField = this.getStatus();
-            JAXBElement<CodeStatusOperationsType> rhsField;
-            rhsField = that.getStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRunwayDirection();
-            boolean rhsFieldIsSet = that.isSetRunwayDirection();
-            List<RunwayDirectionPropertyType> lhsField;
-            lhsField = (this.isSetRunwayDirection()?this.getRunwayDirection():null);
-            List<RunwayDirectionPropertyType> rhsField;
-            rhsField = (that.isSetRunwayDirection()?that.getRunwayDirection():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
-            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
-            lhsField = this.getSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
-            rhsField = that.getSurfaceProperties();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtentPointExtent();
-            boolean rhsFieldIsSet = that.isSetExtentPointExtent();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getExtentPointExtent();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getExtentPointExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentPointExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentPointExtent", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtentSurfaceExtent();
+            boolean rhsFieldIsSet = that.isSetExtentSurfaceExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = this.getExtentSurfaceExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = that.getExtentSurfaceExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentSurfaceExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentSurfaceExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -929,14 +958,14 @@ public class ArrestingGearTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbsorbType();
-            boolean rhsFieldIsSet = that.isSetAbsorbType();
-            JAXBElement<CodeArrestingGearEnergyAbsorbType> lhsField;
-            lhsField = this.getAbsorbType();
-            JAXBElement<CodeArrestingGearEnergyAbsorbType> rhsField;
-            rhsField = that.getAbsorbType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "absorbType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "absorbType", rhsField);
+            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
+            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
+            lhsField = this.getSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
+            rhsField = that.getSurfaceProperties();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

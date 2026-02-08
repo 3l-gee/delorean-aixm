@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractGeoBorderExtension"
 })
 @Entity(name = "GeoBorderExtensionType")
-@Table(name = "geoborder_ext", schema = "airspace")
+@Table(name = "geoborder_e", schema = "airspace")
 public class GeoBorderExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class GeoBorderExtensionType implements Serializable, Equals, HashCode, T
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractgeoborderextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractgeoborderextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGeoBorderExtension() {
         return abstractGeoBorderExtension;
     }
@@ -223,19 +223,6 @@ public class GeoBorderExtensionType implements Serializable, Equals, HashCode, T
         }
         final GeoBorderExtensionType that = ((GeoBorderExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractGeoBorderExtension();
             boolean rhsFieldIsSet = that.isSetAbstractGeoBorderExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class GeoBorderExtensionType implements Serializable, Equals, HashCode, T
             rhsField = that.getAbstractGeoBorderExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeoBorderExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeoBorderExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,12 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}MarkingBuoyPropertyGroup"/>
+ *         <element name="designator" type="{http://www.aixm.aero/schema/5.1.1}CodeBuoyDesignatorType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeBuoyType" minOccurs="0"/>
+ *         <element name="colour" type="{http://www.aixm.aero/schema/5.1.1}CodeColourType" minOccurs="0"/>
+ *         <element name="theSeaplaneLandingArea" type="{http://www.aixm.aero/schema/5.1.1}SeaplaneLandingAreaPropertyType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -75,7 +79,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "MarkingBuoyTimeSliceType")
-@Table(name = "markingbuoy_ts", schema = "airport_heliport")
+@Table(name = "markingbuoy_t", schema = "airport_heliport")
 public class MarkingBuoyTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -268,13 +272,13 @@ public class MarkingBuoyTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_markingbuoy_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "markingbuoy_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "markingbuoy_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "markingbuoypropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -325,7 +329,7 @@ public class MarkingBuoyTimeSliceType
     @OneToMany(targetEntity = MarkingBuoyExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_MARKING_BUOY_TIME__0")
+    @JoinColumn(name = "markingbuoy_e_hjid", referencedColumnName = "hjid")
     public List<MarkingBuoyExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -352,7 +356,7 @@ public class MarkingBuoyTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "designator")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "designator_nilreason"))
     })
     public CodeBuoyDesignatorType getDesignatorItem() {
@@ -389,10 +393,14 @@ public class MarkingBuoyTimeSliceType
         setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class, new QName("http://www.aixm.aero/schema/5.1.1", "colour"), MarkingBuoyTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = SeaplaneLandingAreaPropertyType.class, cascade = {
+    @OneToOne(targetEntity = SeaplaneLandingAreaPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "theseaplanelandingarea_id", referencedColumnName = "hjid")
+    @JoinTable(name = "markingbuoy_t_theseaplanelandingarea_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "markingbuoy_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "theseaplanelandingarea_hjid", referencedColumnName = "hjid")
+    })
     public SeaplaneLandingAreaPropertyType getTheSeaplaneLandingAreaItem() {
         return XmlAdapterUtils.unmarshallSource(SeaplaneLandingAreaPropertyType.class, this.getTheSeaplaneLandingArea());
     }
@@ -401,10 +409,14 @@ public class MarkingBuoyTimeSliceType
         setTheSeaplaneLandingArea(XmlAdapterUtils.marshallJAXBElement(SeaplaneLandingAreaPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "theSeaplaneLandingArea"), MarkingBuoyTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "location_id", referencedColumnName = "hjid")
+    @JoinTable(name = "markingbuoy_t_location_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "markingbuoy_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
@@ -426,6 +438,19 @@ public class MarkingBuoyTimeSliceType
         }
         final MarkingBuoyTimeSliceType that = ((MarkingBuoyTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetColour();
+            boolean rhsFieldIsSet = that.isSetColour();
+            JAXBElement<CodeColourType> lhsField;
+            lhsField = this.getColour();
+            JAXBElement<CodeColourType> rhsField;
+            rhsField = that.getColour();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDesignator();
             boolean rhsFieldIsSet = that.isSetDesignator();
             JAXBElement<CodeBuoyDesignatorType> lhsField;
@@ -434,19 +459,6 @@ public class MarkingBuoyTimeSliceType
             rhsField = that.getDesignator();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -465,32 +477,6 @@ public class MarkingBuoyTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<MarkingBuoyExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<MarkingBuoyExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheSeaplaneLandingArea();
-            boolean rhsFieldIsSet = that.isSetTheSeaplaneLandingArea();
-            JAXBElement<SeaplaneLandingAreaPropertyType> lhsField;
-            lhsField = this.getTheSeaplaneLandingArea();
-            JAXBElement<SeaplaneLandingAreaPropertyType> rhsField;
-            rhsField = that.getTheSeaplaneLandingArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSeaplaneLandingArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSeaplaneLandingArea", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLocation();
             boolean rhsFieldIsSet = that.isSetLocation();
             JAXBElement<AIXMElevatedPointPropertyType> lhsField;
@@ -504,14 +490,40 @@ public class MarkingBuoyTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetColour();
-            boolean rhsFieldIsSet = that.isSetColour();
-            JAXBElement<CodeColourType> lhsField;
-            lhsField = this.getColour();
-            JAXBElement<CodeColourType> rhsField;
-            rhsField = that.getColour();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<MarkingBuoyExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<MarkingBuoyExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheSeaplaneLandingArea();
+            boolean rhsFieldIsSet = that.isSetTheSeaplaneLandingArea();
+            JAXBElement<SeaplaneLandingAreaPropertyType> lhsField;
+            lhsField = this.getTheSeaplaneLandingArea();
+            JAXBElement<SeaplaneLandingAreaPropertyType> rhsField;
+            rhsField = that.getTheSeaplaneLandingArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSeaplaneLandingArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSeaplaneLandingArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "postalAddress"
 })
 @Entity(name = "PostalAddressPropertyType")
-@Table(name = "postaladdress_pt", schema = "shared")
+@Table(name = "postaladdress_p", schema = "shared")
 public class PostalAddressPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class PostalAddressPropertyType
     @OneToOne(targetEntity = PostalAddressType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "postaladdress_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "postaladdress_hjid", referencedColumnName = "hjid")
     public PostalAddressType getPostalAddress() {
         return postalAddress;
     }

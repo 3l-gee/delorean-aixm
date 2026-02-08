@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "obstacleAssessmentArea"
 })
 @Entity(name = "ObstacleAssessmentAreaPropertyType")
-@Table(name = "obstacleassessmentarea_pt", schema = "shared")
+@Table(name = "obstacleassessmentarea_p", schema = "shared")
 public class ObstacleAssessmentAreaPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ObstacleAssessmentAreaPropertyType
     @OneToOne(targetEntity = ObstacleAssessmentAreaType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "obstacleassessmentarea_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "obstacleassessmentarea_hjid", referencedColumnName = "hjid")
     public ObstacleAssessmentAreaType getObstacleAssessmentArea() {
         return obstacleAssessmentArea;
     }

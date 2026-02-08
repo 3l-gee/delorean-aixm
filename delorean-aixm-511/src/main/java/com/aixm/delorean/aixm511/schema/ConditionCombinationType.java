@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -45,7 +44,11 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}ConditionCombinationPropertyGroup"/>
+ *         <element name="logicalOperator" type="{http://www.aixm.aero/schema/5.1.1}CodeLogicalOperatorType" minOccurs="0"/>
+ *         <element name="weather" type="{http://www.aixm.aero/schema/5.1.1}MeteorologyPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="aircraft" type="{http://www.aixm.aero/schema/5.1.1}AircraftCharacteristicPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="flight" type="{http://www.aixm.aero/schema/5.1.1}FlightCharacteristicPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="subCondition" type="{http://www.aixm.aero/schema/5.1.1}ConditionCombinationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -80,7 +83,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "ConditionCombinationType")
-@Table(name = "conditioncombination", schema = "airport_heliport")
+@Table(name = "conditioncombinationtype", schema = "airport_heliport")
 public class ConditionCombinationType
     extends AbstractPropertiesWithScheduleType
     implements Serializable
@@ -127,13 +130,13 @@ public class ConditionCombinationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {
+    @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "timeinterval_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")
+    @JoinTable(name = "conditioncombinationtype_timeinterval_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "conditioncombinationtype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "conditioncombinationtype", referencedColumnName = "hjid")
+        @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")
     })
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -181,13 +184,13 @@ public class ConditionCombinationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "conditioncombinationtype_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "conditioncombinationtype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "conditioncombinationtype", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -235,13 +238,13 @@ public class ConditionCombinationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "specialdateauthority_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")
+    @JoinTable(name = "conditioncombinationtype_specialdateauthority_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "conditioncombinationtype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "conditioncombinationtype", referencedColumnName = "hjid")
+        @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")
     })
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -319,13 +322,13 @@ public class ConditionCombinationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = MeteorologyPropertyType.class, cascade = {
+    @OneToMany(targetEntity = MeteorologyPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "weather_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "weather", referencedColumnName = "hjid")
+    @JoinTable(name = "conditioncombinationtype_weather_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "conditioncombinationtype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "weather_hjid", referencedColumnName = "hjid")
     })
     public List<MeteorologyPropertyType> getWeather() {
         if (weather == null) {
@@ -373,13 +376,13 @@ public class ConditionCombinationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "aircraft_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "aircraft", referencedColumnName = "hjid")
+    @JoinTable(name = "conditioncombinationtype_aircraft_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "conditioncombinationtype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "aircraft_hjid", referencedColumnName = "hjid")
     })
     public List<AircraftCharacteristicPropertyType> getAircraft() {
         if (aircraft == null) {
@@ -427,13 +430,13 @@ public class ConditionCombinationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = FlightCharacteristicPropertyType.class, cascade = {
+    @OneToMany(targetEntity = FlightCharacteristicPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flight_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "flight", referencedColumnName = "hjid")
+    @JoinTable(name = "conditioncombinationtype_flight_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "conditioncombinationtype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "flight_hjid", referencedColumnName = "hjid")
     })
     public List<FlightCharacteristicPropertyType> getFlight() {
         if (flight == null) {
@@ -481,13 +484,13 @@ public class ConditionCombinationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ConditionCombinationPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ConditionCombinationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "subcondition_conditioncombination_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "subcondition", referencedColumnName = "hjid")
+    @JoinTable(name = "conditioncombinationtype_subcondition_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "conditioncombinationtype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "conditioncombinationpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "subcondition_hjid", referencedColumnName = "hjid")
     })
     public List<ConditionCombinationPropertyType> getSubCondition() {
         if (subCondition == null) {
@@ -538,7 +541,7 @@ public class ConditionCombinationType
     @OneToMany(targetEntity = ConditionCombinationTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_CONDITION_COMBINAT_0")
+    @JoinColumn(name = "conditioncombination_e_hjid", referencedColumnName = "hjid")
     public List<ConditionCombinationTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -589,53 +592,14 @@ public class ConditionCombinationType
         }
         final ConditionCombinationType that = ((ConditionCombinationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFlight();
-            boolean rhsFieldIsSet = that.isSetFlight();
-            List<FlightCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetFlight()?this.getFlight():null);
-            List<FlightCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetFlight()?that.getFlight():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ConditionCombinationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ConditionCombinationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetWeather();
+            boolean rhsFieldIsSet = that.isSetWeather();
+            List<MeteorologyPropertyType> lhsField;
+            lhsField = (this.isSetWeather()?this.getWeather():null);
+            List<MeteorologyPropertyType> rhsField;
+            rhsField = (that.isSetWeather()?that.getWeather():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weather", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weather", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -654,27 +618,14 @@ public class ConditionCombinationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWeather();
-            boolean rhsFieldIsSet = that.isSetWeather();
-            List<MeteorologyPropertyType> lhsField;
-            lhsField = (this.isSetWeather()?this.getWeather():null);
-            List<MeteorologyPropertyType> rhsField;
-            rhsField = (that.isSetWeather()?that.getWeather():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weather", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weather", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAircraft();
-            boolean rhsFieldIsSet = that.isSetAircraft();
-            List<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetAircraft()?this.getAircraft():null);
-            List<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetAircraft()?that.getAircraft():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -693,6 +644,45 @@ public class ConditionCombinationType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAircraft();
+            boolean rhsFieldIsSet = that.isSetAircraft();
+            List<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetAircraft()?this.getAircraft():null);
+            List<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetAircraft()?that.getAircraft():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlight();
+            boolean rhsFieldIsSet = that.isSetFlight();
+            List<FlightCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetFlight()?this.getFlight():null);
+            List<FlightCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetFlight()?that.getFlight():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -701,6 +691,19 @@ public class ConditionCombinationType
             rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ConditionCombinationTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ConditionCombinationTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,9 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}StandardLevelTablePropertyGroup"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}CodeLevelTableDesignatorType" minOccurs="0"/>
+ *         <element name="standardICAO" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -71,7 +72,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "StandardLevelTableTimeSliceType")
-@Table(name = "standardleveltable_ts", schema = "shared")
+@Table(name = "standardleveltable_t", schema = "shared")
 public class StandardLevelTableTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -168,13 +169,13 @@ public class StandardLevelTableTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_standardleveltable_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "standardleveltable_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "standardleveltable_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "standardleveltablepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -225,7 +226,7 @@ public class StandardLevelTableTimeSliceType
     @OneToMany(targetEntity = StandardLevelTableExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_STANDARD_LEVEL_TAB_0")
+    @JoinColumn(name = "standardleveltable_e_hjid", referencedColumnName = "hjid")
     public List<StandardLevelTableExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -302,6 +303,19 @@ public class StandardLevelTableTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetStandardICAO();
+            boolean rhsFieldIsSet = that.isSetStandardICAO();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getStandardICAO();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getStandardICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardICAO", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<StandardLevelTableExtensionType> lhsField;
@@ -323,19 +337,6 @@ public class StandardLevelTableTimeSliceType
             rhsField = that.getAixmName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStandardICAO();
-            boolean rhsFieldIsSet = that.isSetStandardICAO();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getStandardICAO();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getStandardICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardICAO", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

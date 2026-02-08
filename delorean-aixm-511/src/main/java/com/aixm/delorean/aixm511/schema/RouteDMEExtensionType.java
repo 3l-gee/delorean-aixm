@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractRouteDMEExtension"
 })
 @Entity(name = "RouteDMEExtensionType")
-@Table(name = "routedme_ext", schema = "route")
+@Table(name = "routedme_e", schema = "route")
 public class RouteDMEExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class RouteDMEExtensionType implements Serializable, Equals, HashCode, To
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractroutedmeextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractroutedmeextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRouteDMEExtension() {
         return abstractRouteDMEExtension;
     }

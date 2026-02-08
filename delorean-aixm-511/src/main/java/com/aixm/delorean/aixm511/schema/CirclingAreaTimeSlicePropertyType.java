@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "CirclingAreaTimeSlicePropertyType", propOrder = {
     "circlingAreaTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "CirclingAreaTimeSlicePropertyType")
-@Table(name = "circlingarea_tsp", schema = "procedure")
+@Table(name = "circlingarea_tp", schema = "procedure")
 public class CirclingAreaTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class CirclingAreaTimeSlicePropertyType implements Serializable, Equals, 
     @OneToOne(targetEntity = CirclingAreaTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "circlingareatimeslice_hjid", referencedColumnName = "hjid")
     public CirclingAreaTimeSliceType getCirclingAreaTimeSlice() {
         return circlingAreaTimeSlice;
     }
@@ -230,19 +230,6 @@ public class CirclingAreaTimeSlicePropertyType implements Serializable, Equals, 
         }
         final CirclingAreaTimeSlicePropertyType that = ((CirclingAreaTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCirclingAreaTimeSlice();
             boolean rhsFieldIsSet = that.isSetCirclingAreaTimeSlice();
             CirclingAreaTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class CirclingAreaTimeSlicePropertyType implements Serializable, Equals, 
             rhsField = that.getCirclingAreaTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "circlingAreaTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "circlingAreaTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

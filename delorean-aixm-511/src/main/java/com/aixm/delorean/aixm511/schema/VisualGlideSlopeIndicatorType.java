@@ -8,8 +8,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -48,7 +47,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "timeSlice"
 })
 @Entity(name = "VisualGlideSlopeIndicatorType")
-@Table(name = "visualglideslopeindicator", schema = "airport_heliport")
+@Table(name = "visualglideslopeindicator_f", schema = "airport_heliport")
 public class VisualGlideSlopeIndicatorType
     extends AbstractGroundLightSystemType
     implements Serializable
@@ -80,15 +79,11 @@ public class VisualGlideSlopeIndicatorType
      * 
      * 
      */
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
-    @ManyToMany(targetEntity = VisualGlideSlopeIndicatorTimeSlicePropertyType.class, cascade = {
+    @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+    @OneToMany(targetEntity = VisualGlideSlopeIndicatorTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "timeslice_visualglideslopeindicator_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "timeslice", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "visualglideslopeindicatortype", referencedColumnName = "hjid")
-    })
+    @JoinColumn(name = "timeslice_hjid", referencedColumnName = "hjid")
     public List<VisualGlideSlopeIndicatorTimeSlicePropertyType> getTimeSlice() {
         if (timeSlice == null) {
             timeSlice = new ArrayList<>();

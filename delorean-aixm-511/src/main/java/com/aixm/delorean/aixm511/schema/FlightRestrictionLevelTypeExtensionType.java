@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractFlightRestrictionLevelExtension"
 })
 @Entity(name = "FlightRestrictionLevelTypeExtensionType")
-@Table(name = "flightrestrictionlevel_ext", schema = "route")
+@Table(name = "flightrestrictionlevel_e", schema = "route")
 public class FlightRestrictionLevelTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class FlightRestrictionLevelTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractflightrestrictionlevelextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractflightrestrictionlevelextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightRestrictionLevelExtension() {
         return abstractFlightRestrictionLevelExtension;
     }

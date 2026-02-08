@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,8 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}StandardLevelPropertyGroup"/>
+ *         <element name="verticalDistance" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -70,7 +70,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "StandardLevelType")
-@Table(name = "standardlevel", schema = "shared")
+@Table(name = "standardlevel_o", schema = "shared")
 public class StandardLevelType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -135,13 +135,13 @@ public class StandardLevelType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_standardlevel_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "standardlevel_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "standardlevel_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "standardlevelpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -192,7 +192,7 @@ public class StandardLevelType
     @OneToMany(targetEntity = StandardLevelTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_STANDARD_LEVEL_TYP_0")
+    @JoinColumn(name = "standardlevel_e_hjid", referencedColumnName = "hjid")
     public List<StandardLevelTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -219,7 +219,7 @@ public class StandardLevelType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "verticaldistance", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "verticaldistance")),
         @AttributeOverride(name = "uom", column = @Column(name = "verticaldistance_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "verticaldistance_nilreason"))
     })
@@ -244,19 +244,6 @@ public class StandardLevelType
         }
         final StandardLevelType that = ((StandardLevelType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<StandardLevelTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<StandardLevelTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVerticalDistance();
             boolean rhsFieldIsSet = that.isSetVerticalDistance();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -265,6 +252,19 @@ public class StandardLevelType
             rhsField = that.getVerticalDistance();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDistance", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDistance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<StandardLevelTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<StandardLevelTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

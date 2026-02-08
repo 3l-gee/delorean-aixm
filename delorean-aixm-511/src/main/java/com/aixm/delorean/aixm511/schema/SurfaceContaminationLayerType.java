@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,10 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}SurfaceContaminationLayerPropertyGroup"/>
+ *         <element name="layerOrder" type="{http://www.aixm.aero/schema/5.1.1}NoSequenceType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeContaminationType" minOccurs="0"/>
+ *         <element name="extent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedSurfacePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -72,7 +74,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "SurfaceContaminationLayerType")
-@Table(name = "surfacecontaminationlayer", schema = "airport_heliport")
+@Table(name = "surfacecontaminationlayer_o", schema = "airport_heliport")
 public class SurfaceContaminationLayerType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -171,13 +173,13 @@ public class SurfaceContaminationLayerType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
+    @OneToMany(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "extent_surfacecontaminationlayer_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "extent", referencedColumnName = "hjid")
+    @JoinTable(name = "surfacecontaminationlayer_o_extent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "surfacecontaminationlayer_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "surfacecontaminationlayerpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
     })
     public List<AIXMElevatedSurfacePropertyType> getExtent() {
         if (extent == null) {
@@ -225,13 +227,13 @@ public class SurfaceContaminationLayerType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_surfacecontaminationlayer_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "surfacecontaminationlayer_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "surfacecontaminationlayer_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "surfacecontaminationlayerpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -282,7 +284,7 @@ public class SurfaceContaminationLayerType
     @OneToMany(targetEntity = SurfaceContaminationLayerTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_SURFACE_CONTAMINAT_0")
+    @JoinColumn(name = "surfacecontaminationlayer_e_hjid", referencedColumnName = "hjid")
     public List<SurfaceContaminationLayerTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -346,6 +348,32 @@ public class SurfaceContaminationLayerType
         }
         final SurfaceContaminationLayerType that = ((SurfaceContaminationLayerType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SurfaceContaminationLayerTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SurfaceContaminationLayerTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            List<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = (this.isSetExtent()?this.getExtent():null);
+            List<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = (that.isSetExtent()?that.getExtent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -367,32 +395,6 @@ public class SurfaceContaminationLayerType
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            List<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = (this.isSetExtent()?this.getExtent():null);
-            List<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = (that.isSetExtent()?that.getExtent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SurfaceContaminationLayerTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SurfaceContaminationLayerTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

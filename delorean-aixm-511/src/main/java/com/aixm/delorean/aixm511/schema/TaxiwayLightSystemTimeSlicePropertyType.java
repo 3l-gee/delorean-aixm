@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "TaxiwayLightSystemTimeSlicePropertyType", propOrder = {
     "taxiwayLightSystemTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "TaxiwayLightSystemTimeSlicePropertyType")
-@Table(name = "taxiwaylightsystem_tsp", schema = "airport_heliport")
+@Table(name = "taxiwaylightsystem_tp", schema = "airport_heliport")
 public class TaxiwayLightSystemTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class TaxiwayLightSystemTimeSlicePropertyType implements Serializable, Eq
     @OneToOne(targetEntity = TaxiwayLightSystemTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "taxiwaylightsystemtimeslice_hjid", referencedColumnName = "hjid")
     public TaxiwayLightSystemTimeSliceType getTaxiwayLightSystemTimeSlice() {
         return taxiwayLightSystemTimeSlice;
     }
@@ -230,19 +230,6 @@ public class TaxiwayLightSystemTimeSlicePropertyType implements Serializable, Eq
         }
         final TaxiwayLightSystemTimeSlicePropertyType that = ((TaxiwayLightSystemTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTaxiwayLightSystemTimeSlice();
             boolean rhsFieldIsSet = that.isSetTaxiwayLightSystemTimeSlice();
             TaxiwayLightSystemTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class TaxiwayLightSystemTimeSlicePropertyType implements Serializable, Eq
             rhsField = that.getTaxiwayLightSystemTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiwayLightSystemTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiwayLightSystemTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

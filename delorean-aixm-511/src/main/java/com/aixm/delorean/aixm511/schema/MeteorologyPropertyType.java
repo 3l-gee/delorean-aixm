@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "meteorology"
 })
 @Entity(name = "MeteorologyPropertyType")
-@Table(name = "meteorology_pt", schema = "shared")
+@Table(name = "meteorology_p", schema = "shared")
 public class MeteorologyPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class MeteorologyPropertyType
     @OneToOne(targetEntity = MeteorologyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "meteorology_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "meteorology_hjid", referencedColumnName = "hjid")
     public MeteorologyType getMeteorology() {
         return meteorology;
     }

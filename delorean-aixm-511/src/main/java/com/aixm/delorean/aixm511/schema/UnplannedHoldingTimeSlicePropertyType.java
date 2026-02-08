@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "UnplannedHoldingTimeSlicePropertyType", propOrder = {
     "unplannedHoldingTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "UnplannedHoldingTimeSlicePropertyType")
-@Table(name = "unplannedholding_tsp", schema = "holding")
+@Table(name = "unplannedholding_tp", schema = "holding")
 public class UnplannedHoldingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class UnplannedHoldingTimeSlicePropertyType implements Serializable, Equa
     @OneToOne(targetEntity = UnplannedHoldingTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "unplannedholdingtimeslice_hjid", referencedColumnName = "hjid")
     public UnplannedHoldingTimeSliceType getUnplannedHoldingTimeSlice() {
         return unplannedHoldingTimeSlice;
     }
@@ -230,19 +230,6 @@ public class UnplannedHoldingTimeSlicePropertyType implements Serializable, Equa
         }
         final UnplannedHoldingTimeSlicePropertyType that = ((UnplannedHoldingTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUnplannedHoldingTimeSlice();
             boolean rhsFieldIsSet = that.isSetUnplannedHoldingTimeSlice();
             UnplannedHoldingTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class UnplannedHoldingTimeSlicePropertyType implements Serializable, Equa
             rhsField = that.getUnplannedHoldingTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unplannedHoldingTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unplannedHoldingTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

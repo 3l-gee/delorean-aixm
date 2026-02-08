@@ -10,9 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -39,7 +38,12 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}CirclingAreaPropertyGroup"/>
+ *         <element name="extent" type="{http://www.aixm.aero/schema/5.1.1}SurfacePropertyType" minOccurs="0"/>
+ *         <element name="approach" type="{http://www.aixm.aero/schema/5.1.1}InstrumentApproachProcedurePropertyType" minOccurs="0"/>
+ *         <element name="condition" type="{http://www.aixm.aero/schema/5.1.1}ApproachConditionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="aircraftCategory" type="{http://www.aixm.aero/schema/5.1.1}AircraftCharacteristicPropertyType" minOccurs="0"/>
+ *         <element name="designSurface" type="{http://www.aixm.aero/schema/5.1.1}ObstacleAssessmentAreaPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -71,7 +75,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "CirclingAreaTimeSliceType")
-@Table(name = "circlingarea_ts", schema = "procedure")
+@Table(name = "circlingarea_t", schema = "procedure")
 public class CirclingAreaTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -174,13 +178,13 @@ public class CirclingAreaTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ApproachConditionPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ApproachConditionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "condition_circlingarea_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "condition", referencedColumnName = "hjid")
+    @JoinTable(name = "circlingarea_t_condition_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "circlingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "circlingareapropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "condition_hjid", referencedColumnName = "hjid")
     })
     public List<ApproachConditionPropertyType> getCondition() {
         if (condition == null) {
@@ -258,13 +262,13 @@ public class CirclingAreaTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ObstacleAssessmentAreaPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ObstacleAssessmentAreaPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "designsurface_circlingarea_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "designsurface", referencedColumnName = "hjid")
+    @JoinTable(name = "circlingarea_t_designsurface_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "circlingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "circlingareapropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "designsurface_hjid", referencedColumnName = "hjid")
     })
     public List<ObstacleAssessmentAreaPropertyType> getDesignSurface() {
         if (designSurface == null) {
@@ -312,13 +316,13 @@ public class CirclingAreaTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_circlingarea_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "circlingarea_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "circlingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "circlingareapropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -369,7 +373,7 @@ public class CirclingAreaTimeSliceType
     @OneToMany(targetEntity = CirclingAreaExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_CIRCLING_AREA_TIME_0")
+    @JoinColumn(name = "circlingarea_e_hjid", referencedColumnName = "hjid")
     public List<CirclingAreaExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -394,10 +398,14 @@ public class CirclingAreaTimeSliceType
         this.extension = null;
     }
 
-    @ManyToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_id", referencedColumnName = "hjid")
+    @JoinTable(name = "circlingarea_t_extent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "circlingarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMSurfacePropertyType getExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getExtent());
     }
@@ -406,10 +414,14 @@ public class CirclingAreaTimeSliceType
         setExtent(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extent"), CirclingAreaTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = InstrumentApproachProcedurePropertyType.class, cascade = {
+    @OneToOne(targetEntity = InstrumentApproachProcedurePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "approach_id", referencedColumnName = "hjid")
+    @JoinTable(name = "circlingarea_t_approach_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "circlingarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "approach_hjid", referencedColumnName = "hjid")
+    })
     public InstrumentApproachProcedurePropertyType getApproachItem() {
         return XmlAdapterUtils.unmarshallSource(InstrumentApproachProcedurePropertyType.class, this.getApproach());
     }
@@ -418,10 +430,14 @@ public class CirclingAreaTimeSliceType
         setApproach(XmlAdapterUtils.marshallJAXBElement(InstrumentApproachProcedurePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "approach"), CirclingAreaTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "aircraftcategory_id", referencedColumnName = "hjid")
+    @JoinTable(name = "circlingarea_t_aircraftcategory_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "circlingarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "aircraftcategory_hjid", referencedColumnName = "hjid")
+    })
     public AircraftCharacteristicPropertyType getAircraftCategoryItem() {
         return XmlAdapterUtils.unmarshallSource(AircraftCharacteristicPropertyType.class, this.getAircraftCategory());
     }
@@ -456,53 +472,14 @@ public class CirclingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCondition();
-            boolean rhsFieldIsSet = that.isSetCondition();
-            List<ApproachConditionPropertyType> lhsField;
-            lhsField = (this.isSetCondition()?this.getCondition():null);
-            List<ApproachConditionPropertyType> rhsField;
-            rhsField = (that.isSetCondition()?that.getCondition():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignSurface();
-            boolean rhsFieldIsSet = that.isSetDesignSurface();
-            List<ObstacleAssessmentAreaPropertyType> lhsField;
-            lhsField = (this.isSetDesignSurface()?this.getDesignSurface():null);
-            List<ObstacleAssessmentAreaPropertyType> rhsField;
-            rhsField = (that.isSetDesignSurface()?that.getDesignSurface():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designSurface", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designSurface", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<CirclingAreaExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<CirclingAreaExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -521,14 +498,53 @@ public class CirclingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignSurface();
+            boolean rhsFieldIsSet = that.isSetDesignSurface();
+            List<ObstacleAssessmentAreaPropertyType> lhsField;
+            lhsField = (this.isSetDesignSurface()?this.getDesignSurface():null);
+            List<ObstacleAssessmentAreaPropertyType> rhsField;
+            rhsField = (that.isSetDesignSurface()?that.getDesignSurface():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designSurface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designSurface", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCondition();
+            boolean rhsFieldIsSet = that.isSetCondition();
+            List<ApproachConditionPropertyType> lhsField;
+            lhsField = (this.isSetCondition()?this.getCondition():null);
+            List<ApproachConditionPropertyType> rhsField;
+            rhsField = (that.isSetCondition()?that.getCondition():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<CirclingAreaExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<CirclingAreaExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

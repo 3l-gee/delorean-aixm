@@ -141,19 +141,6 @@ public class CISeriesType extends AbstractObjectType implements Serializable {
         }
         final CISeriesType that = ((CISeriesType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPage();
-            boolean rhsFieldIsSet = that.isSetPage();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getPage();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getPage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "page", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "page", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetIssueIdentification();
             boolean rhsFieldIsSet = that.isSetIssueIdentification();
             CharacterStringPropertyType lhsField;
@@ -162,6 +149,19 @@ public class CISeriesType extends AbstractObjectType implements Serializable {
             rhsField = that.getIssueIdentification();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "issueIdentification", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "issueIdentification", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPage();
+            boolean rhsFieldIsSet = that.isSetPage();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getPage();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getPage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "page", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "page", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

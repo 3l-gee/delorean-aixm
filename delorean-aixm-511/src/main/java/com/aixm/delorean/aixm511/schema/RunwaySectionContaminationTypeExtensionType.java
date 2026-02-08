@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractRunwaySectionContaminationExtension"
 })
 @Entity(name = "RunwaySectionContaminationTypeExtensionType")
-@Table(name = "runwaysectioncontamination_ext", schema = "airport_heliport")
+@Table(name = "runwaysectioncontamination_e", schema = "airport_heliport")
 public class RunwaySectionContaminationTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class RunwaySectionContaminationTypeExtensionType implements Serializable
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsurfacecontaminationextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsurfacecontaminationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurfaceContaminationExtension() {
         return abstractSurfaceContaminationExtension;
     }
@@ -123,7 +123,7 @@ public class RunwaySectionContaminationTypeExtensionType implements Serializable
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwaysectioncontaminationextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwaysectioncontaminationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwaySectionContaminationExtension() {
         return abstractRunwaySectionContaminationExtension;
     }
@@ -260,14 +260,14 @@ public class RunwaySectionContaminationTypeExtensionType implements Serializable
         }
         final RunwaySectionContaminationTypeExtensionType that = ((RunwaySectionContaminationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractRunwaySectionContaminationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRunwaySectionContaminationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRunwaySectionContaminationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRunwaySectionContaminationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwaySectionContaminationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwaySectionContaminationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class RunwaySectionContaminationTypeExtensionType implements Serializable
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRunwaySectionContaminationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRunwaySectionContaminationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRunwaySectionContaminationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRunwaySectionContaminationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwaySectionContaminationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwaySectionContaminationExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractVerticalStructurePartExtension"
 })
 @Entity(name = "VerticalStructurePartTypeExtensionType")
-@Table(name = "verticalstructurepart_ext", schema = "obstacle")
+@Table(name = "verticalstructurepart_e", schema = "obstacle")
 public class VerticalStructurePartTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class VerticalStructurePartTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class VerticalStructurePartTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractverticalstructurepartextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractverticalstructurepartextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractVerticalStructurePartExtension() {
         return abstractVerticalStructurePartExtension;
     }
@@ -260,6 +260,19 @@ public class VerticalStructurePartTypeExtensionType implements Serializable, Equ
         }
         final VerticalStructurePartTypeExtensionType that = ((VerticalStructurePartTypeExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractVerticalStructurePartExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractVerticalStructurePartExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractVerticalStructurePartExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractVerticalStructurePartExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVerticalStructurePartExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVerticalStructurePartExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,19 +294,6 @@ public class VerticalStructurePartTypeExtensionType implements Serializable, Equ
             rhsField = that.getAbstractPropertiesWithScheduleExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractVerticalStructurePartExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractVerticalStructurePartExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractVerticalStructurePartExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractVerticalStructurePartExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVerticalStructurePartExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVerticalStructurePartExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

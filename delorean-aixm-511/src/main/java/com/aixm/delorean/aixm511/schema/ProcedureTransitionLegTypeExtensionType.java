@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractProcedureTransitionLegExtension"
 })
 @Entity(name = "ProcedureTransitionLegTypeExtensionType")
-@Table(name = "proceduretransitionleg_ext", schema = "procedure")
+@Table(name = "proceduretransitionleg_e", schema = "procedure")
 public class ProcedureTransitionLegTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class ProcedureTransitionLegTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractproceduretransitionlegextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractproceduretransitionlegextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractProcedureTransitionLegExtension() {
         return abstractProcedureTransitionLegExtension;
     }

@@ -76,8 +76,8 @@ public abstract class AbstractTimeSliceType extends AbstractGMLType implements S
      */
     @jakarta.persistence.Embedded
     @jakarta.persistence.AttributeOverrides({
-            @jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "valid_time_begin", columnDefinition = "TIMESTAMP")),
-            @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "valid_time_end", columnDefinition = "TIMESTAMP")),
+            @jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "valid_time_begin", columnDefinition = "TIMESTAMPTZ")),
+            @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "valid_time_end", columnDefinition = "TIMESTAMPTZ")),
             @jakarta.persistence.AttributeOverride(name = "timePeriodId", column = @jakarta.persistence.Column(name = "valid_time_id"))})
     public DeloreanTimeSliceType getValidTime() {
         return validTime;
@@ -152,19 +152,6 @@ public abstract class AbstractTimeSliceType extends AbstractGMLType implements S
         }
         final AbstractTimeSliceType that = ((AbstractTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDataSource();
-            boolean rhsFieldIsSet = that.isSetDataSource();
-            StringOrRefType lhsField;
-            lhsField = this.getDataSource();
-            StringOrRefType rhsField;
-            rhsField = that.getDataSource();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValidTime();
             boolean rhsFieldIsSet = that.isSetValidTime();
             DeloreanTimeSliceType lhsField;
@@ -173,6 +160,19 @@ public abstract class AbstractTimeSliceType extends AbstractGMLType implements S
             rhsField = that.getValidTime();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataSource();
+            boolean rhsFieldIsSet = that.isSetDataSource();
+            StringOrRefType lhsField;
+            lhsField = this.getDataSource();
+            StringOrRefType rhsField;
+            rhsField = that.getDataSource();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

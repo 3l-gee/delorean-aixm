@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RunwayMarkingTimeSlicePropertyType", propOrder = {
     "runwayMarkingTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "RunwayMarkingTimeSlicePropertyType")
-@Table(name = "runwaymarking_tsp", schema = "airport_heliport")
+@Table(name = "runwaymarking_tp", schema = "airport_heliport")
 public class RunwayMarkingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class RunwayMarkingTimeSlicePropertyType implements Serializable, Equals,
     @OneToOne(targetEntity = RunwayMarkingTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "runwaymarkingtimeslice_hjid", referencedColumnName = "hjid")
     public RunwayMarkingTimeSliceType getRunwayMarkingTimeSlice() {
         return runwayMarkingTimeSlice;
     }
@@ -230,19 +230,6 @@ public class RunwayMarkingTimeSlicePropertyType implements Serializable, Equals,
         }
         final RunwayMarkingTimeSlicePropertyType that = ((RunwayMarkingTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRunwayMarkingTimeSlice();
-            boolean rhsFieldIsSet = that.isSetRunwayMarkingTimeSlice();
-            RunwayMarkingTimeSliceType lhsField;
-            lhsField = this.getRunwayMarkingTimeSlice();
-            RunwayMarkingTimeSliceType rhsField;
-            rhsField = that.getRunwayMarkingTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayMarkingTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayMarkingTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class RunwayMarkingTimeSlicePropertyType implements Serializable, Equals,
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRunwayMarkingTimeSlice();
+            boolean rhsFieldIsSet = that.isSetRunwayMarkingTimeSlice();
+            RunwayMarkingTimeSliceType lhsField;
+            lhsField = this.getRunwayMarkingTimeSlice();
+            RunwayMarkingTimeSliceType rhsField;
+            rhsField = that.getRunwayMarkingTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayMarkingTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayMarkingTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

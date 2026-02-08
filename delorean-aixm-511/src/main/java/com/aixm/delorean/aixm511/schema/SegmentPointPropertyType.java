@@ -47,7 +47,7 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
     "abstractSegmentPoint"
 })
 @Entity(name = "SegmentPointPropertyType")
-@Table(name = "segmentpoint_pt", schema = "navaids_point")
+@Table(name = "segmentpoint_p", schema = "navaids_point")
 public class SegmentPointPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable

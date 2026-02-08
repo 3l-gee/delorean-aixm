@@ -8,8 +8,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -48,7 +47,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "timeSlice"
 })
 @Entity(name = "SearchRescueServiceType")
-@Table(name = "searchrescueservice", schema = "service")
+@Table(name = "searchrescueservice_f", schema = "service")
 public class SearchRescueServiceType
     extends AbstractServiceType
     implements Serializable
@@ -80,15 +79,11 @@ public class SearchRescueServiceType
      * 
      * 
      */
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
-    @ManyToMany(targetEntity = SearchRescueServiceTimeSlicePropertyType.class, cascade = {
+    @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+    @OneToMany(targetEntity = SearchRescueServiceTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "timeslice_searchrescueservice_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "timeslice", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "searchrescueservicetype", referencedColumnName = "hjid")
-    })
+    @JoinColumn(name = "timeslice_hjid", referencedColumnName = "hjid")
     public List<SearchRescueServiceTimeSlicePropertyType> getTimeSlice() {
         if (timeSlice == null) {
             timeSlice = new ArrayList<>();

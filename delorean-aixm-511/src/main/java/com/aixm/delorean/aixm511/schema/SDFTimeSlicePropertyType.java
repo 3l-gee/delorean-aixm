@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SDFTimeSlicePropertyType", propOrder = {
     "sdfTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "SDFTimeSlicePropertyType")
-@Table(name = "sdf_tsp", schema = "navaids_point")
+@Table(name = "sdf_tp", schema = "navaids_point")
 public class SDFTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class SDFTimeSlicePropertyType implements Serializable, Equals, HashCode,
     @OneToOne(targetEntity = SDFTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "sdftimeslice_hjid", referencedColumnName = "hjid")
     public SDFTimeSliceType getSDFTimeSlice() {
         return sdfTimeSlice;
     }

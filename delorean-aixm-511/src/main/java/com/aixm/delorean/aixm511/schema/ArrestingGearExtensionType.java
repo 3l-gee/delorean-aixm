@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractArrestingGearExtension"
 })
 @Entity(name = "ArrestingGearExtensionType")
-@Table(name = "arrestinggear_ext", schema = "airport_heliport")
+@Table(name = "arrestinggear_e", schema = "airport_heliport")
 public class ArrestingGearExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class ArrestingGearExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractarrestinggearextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractarrestinggearextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractArrestingGearExtension() {
         return abstractArrestingGearExtension;
     }
@@ -223,19 +223,6 @@ public class ArrestingGearExtensionType implements Serializable, Equals, HashCod
         }
         final ArrestingGearExtensionType that = ((ArrestingGearExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractArrestingGearExtension();
             boolean rhsFieldIsSet = that.isSetAbstractArrestingGearExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class ArrestingGearExtensionType implements Serializable, Equals, HashCod
             rhsField = that.getAbstractArrestingGearExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractArrestingGearExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrestingGearExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

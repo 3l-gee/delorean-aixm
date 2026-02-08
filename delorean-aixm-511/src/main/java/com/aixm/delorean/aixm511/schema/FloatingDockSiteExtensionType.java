@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractFloatingDockSiteExtension"
 })
 @Entity(name = "FloatingDockSiteExtensionType")
-@Table(name = "floatingdocksite_ext", schema = "airport_heliport")
+@Table(name = "floatingdocksite_e", schema = "airport_heliport")
 public class FloatingDockSiteExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class FloatingDockSiteExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractfloatingdocksiteextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractfloatingdocksiteextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFloatingDockSiteExtension() {
         return abstractFloatingDockSiteExtension;
     }

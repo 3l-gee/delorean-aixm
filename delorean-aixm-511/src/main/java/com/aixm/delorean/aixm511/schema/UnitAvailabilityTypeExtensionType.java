@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractUnitAvailabilityExtension"
 })
 @Entity(name = "UnitAvailabilityTypeExtensionType")
-@Table(name = "unitavailability_ext", schema = "organisation")
+@Table(name = "unitavailability_e", schema = "organisation")
 public class UnitAvailabilityTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class UnitAvailabilityTypeExtensionType implements Serializable, Equals, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class UnitAvailabilityTypeExtensionType implements Serializable, Equals, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractunitavailabilityextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractunitavailabilityextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractUnitAvailabilityExtension() {
         return abstractUnitAvailabilityExtension;
     }
@@ -273,19 +273,6 @@ public class UnitAvailabilityTypeExtensionType implements Serializable, Equals, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractUnitAvailabilityExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractUnitAvailabilityExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractUnitAvailabilityExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractUnitAvailabilityExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUnitAvailabilityExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUnitAvailabilityExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class UnitAvailabilityTypeExtensionType implements Serializable, Equals, 
             rhsField = that.getAbstractPropertiesWithScheduleExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractUnitAvailabilityExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractUnitAvailabilityExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractUnitAvailabilityExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractUnitAvailabilityExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUnitAvailabilityExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUnitAvailabilityExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

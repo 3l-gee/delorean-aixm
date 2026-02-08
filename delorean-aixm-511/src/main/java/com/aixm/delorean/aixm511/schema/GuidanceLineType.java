@@ -8,8 +8,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -48,7 +47,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "timeSlice"
 })
 @Entity(name = "GuidanceLineType")
-@Table(name = "guidanceline", schema = "airport_heliport")
+@Table(name = "guidanceline_f", schema = "airport_heliport")
 public class GuidanceLineType
     extends AbstractAIXMFeatureType
     implements Serializable
@@ -80,15 +79,11 @@ public class GuidanceLineType
      * 
      * 
      */
-    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
-    @ManyToMany(targetEntity = GuidanceLineTimeSlicePropertyType.class, cascade = {
+    @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
+    @OneToMany(targetEntity = GuidanceLineTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "timeslice_guidanceline_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "timeslice", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinetype", referencedColumnName = "hjid")
-    })
+    @JoinColumn(name = "timeslice_hjid", referencedColumnName = "hjid")
     public List<GuidanceLineTimeSlicePropertyType> getTimeSlice() {
         if (timeSlice == null) {
             timeSlice = new ArrayList<>();

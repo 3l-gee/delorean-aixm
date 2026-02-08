@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractSafeAltitudeAreaExtension"
 })
 @Entity(name = "SafeAltitudeAreaExtensionType")
-@Table(name = "safealtitudearea_ext", schema = "procedure")
+@Table(name = "safealtitudearea_e", schema = "procedure")
 public class SafeAltitudeAreaExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class SafeAltitudeAreaExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsafealtitudeareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsafealtitudeareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSafeAltitudeAreaExtension() {
         return abstractSafeAltitudeAreaExtension;
     }

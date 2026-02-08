@@ -54,10 +54,10 @@ public class DateType implements Serializable, Equals, HashCode, ToString
 {
 
     private static final long serialVersionUID = 20251104L;
- @jakarta.xml.bind.annotation.XmlValue @jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)
-   protected
+    @jakarta.xml.bind.annotation.XmlValue 
+    @jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)
+    protected OffsetDateTime value;
     
-    OffsetDateTime value;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
 
@@ -69,7 +69,7 @@ public class DateType implements Serializable, Equals, HashCode, ToString
      *     {@link String }
      *     
      */
-@jakarta.persistence.Basic
+    @jakarta.persistence.Basic
     public OffsetDateTime getValue() {
         return value;
     }

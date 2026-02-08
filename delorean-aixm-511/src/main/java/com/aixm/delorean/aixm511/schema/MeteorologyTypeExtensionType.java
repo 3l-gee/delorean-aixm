@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractMeteorologyExtension"
 })
 @Entity(name = "MeteorologyTypeExtensionType")
-@Table(name = "meteorology_ext", schema = "shared")
+@Table(name = "meteorology_e", schema = "shared")
 public class MeteorologyTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class MeteorologyTypeExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmeteorologyextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmeteorologyextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMeteorologyExtension() {
         return abstractMeteorologyExtension;
     }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "unitAvailability"
 })
 @Entity(name = "UnitAvailabilityPropertyType")
-@Table(name = "unitavailability_pt", schema = "organisation")
+@Table(name = "unitavailability_p", schema = "organisation")
 public class UnitAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class UnitAvailabilityPropertyType
     @OneToOne(targetEntity = UnitAvailabilityType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "unitavailability_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "unitavailability_hjid", referencedColumnName = "hjid")
     public UnitAvailabilityType getUnitAvailability() {
         return unitAvailability;
     }

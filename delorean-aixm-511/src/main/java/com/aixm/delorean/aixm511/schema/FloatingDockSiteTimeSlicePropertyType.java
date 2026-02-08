@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "FloatingDockSiteTimeSlicePropertyType", propOrder = {
     "floatingDockSiteTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "FloatingDockSiteTimeSlicePropertyType")
-@Table(name = "floatingdocksite_tsp", schema = "airport_heliport")
+@Table(name = "floatingdocksite_tp", schema = "airport_heliport")
 public class FloatingDockSiteTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class FloatingDockSiteTimeSlicePropertyType implements Serializable, Equa
     @OneToOne(targetEntity = FloatingDockSiteTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "floatingdocksitetimeslice_hjid", referencedColumnName = "hjid")
     public FloatingDockSiteTimeSliceType getFloatingDockSiteTimeSlice() {
         return floatingDockSiteTimeSlice;
     }

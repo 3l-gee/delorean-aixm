@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractMarkingExtension"
 })
 @Entity(name = "TouchDownLiftOffMarkingExtensionType")
-@Table(name = "touchdownliftoffmarking_ext", schema = "airport_heliport")
+@Table(name = "touchdownliftoffmarking_e", schema = "airport_heliport")
 public class TouchDownLiftOffMarkingExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class TouchDownLiftOffMarkingExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttouchdownliftoffmarkingextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttouchdownliftoffmarkingextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTouchDownLiftOffMarkingExtension() {
         return abstractTouchDownLiftOffMarkingExtension;
     }
@@ -123,7 +123,7 @@ public class TouchDownLiftOffMarkingExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmarkingextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmarkingextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMarkingExtension() {
         return abstractMarkingExtension;
     }
@@ -273,19 +273,6 @@ public class TouchDownLiftOffMarkingExtensionType implements Serializable, Equal
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffMarkingExtension();
             boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffMarkingExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class TouchDownLiftOffMarkingExtensionType implements Serializable, Equal
             rhsField = that.getAbstractTouchDownLiftOffMarkingExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTouchDownLiftOffMarkingExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTouchDownLiftOffMarkingExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

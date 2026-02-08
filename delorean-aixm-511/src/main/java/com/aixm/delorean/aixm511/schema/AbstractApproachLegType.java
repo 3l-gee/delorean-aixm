@@ -40,7 +40,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     MissedApproachLegType.class
 })
 @Entity(name = "AbstractApproachLegType")
-@Table(name = "abstractapproachleg", schema = "public")
+@Table(name = "abstractapproachlegtype", schema = "public")
 public abstract class AbstractApproachLegType
     extends AbstractSegmentLegType
     implements Serializable

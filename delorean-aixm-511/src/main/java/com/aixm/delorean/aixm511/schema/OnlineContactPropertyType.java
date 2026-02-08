@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "onlineContact"
 })
 @Entity(name = "OnlineContactPropertyType")
-@Table(name = "onlinecontact_pt", schema = "shared")
+@Table(name = "onlinecontact_p", schema = "shared")
 public class OnlineContactPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class OnlineContactPropertyType
     @OneToOne(targetEntity = OnlineContactType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "onlinecontact_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "onlinecontact_hjid", referencedColumnName = "hjid")
     public OnlineContactType getOnlineContact() {
         return onlineContact;
     }

@@ -37,7 +37,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     GroundTrafficControlServiceType.class
 })
 @Entity(name = "AbstractTrafficSeparationServiceType")
-@Table(name = "abstracttrafficseparationservice", schema = "public")
+@Table(name = "abstracttrafficseparationservicetype", schema = "public")
 public abstract class AbstractTrafficSeparationServiceType
     extends AbstractServiceType
     implements Serializable

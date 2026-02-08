@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "holdingPatternDistance"
 })
 @Entity(name = "HoldingPatternDistancePropertyType")
-@Table(name = "holdingpatterndistance_pt", schema = "holding")
+@Table(name = "holdingpatterndistance_p", schema = "holding")
 public class HoldingPatternDistancePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class HoldingPatternDistancePropertyType
     @OneToOne(targetEntity = HoldingPatternDistanceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "holdingpatterndistance_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "holdingpatterndistance_hjid", referencedColumnName = "hjid")
     public HoldingPatternDistanceType getHoldingPatternDistance() {
         return holdingPatternDistance;
     }

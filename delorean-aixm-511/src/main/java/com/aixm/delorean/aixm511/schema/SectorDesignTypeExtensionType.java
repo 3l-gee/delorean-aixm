@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractSectorDesignExtension"
 })
 @Entity(name = "SectorDesignTypeExtensionType")
-@Table(name = "sectordesign_ext", schema = "procedure")
+@Table(name = "sectordesign_e", schema = "procedure")
 public class SectorDesignTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class SectorDesignTypeExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsectordesignextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsectordesignextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSectorDesignExtension() {
         return abstractSectorDesignExtension;
     }
@@ -223,19 +223,6 @@ public class SectorDesignTypeExtensionType implements Serializable, Equals, Hash
         }
         final SectorDesignTypeExtensionType that = ((SectorDesignTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractSectorDesignExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSectorDesignExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class SectorDesignTypeExtensionType implements Serializable, Equals, Hash
             rhsField = that.getAbstractSectorDesignExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSectorDesignExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSectorDesignExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

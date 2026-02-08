@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "altitudeAdjustment"
 })
 @Entity(name = "AltitudeAdjustmentPropertyType")
-@Table(name = "altitudeadjustment_pt", schema = "shared")
+@Table(name = "altitudeadjustment_p", schema = "shared")
 public class AltitudeAdjustmentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AltitudeAdjustmentPropertyType
     @OneToOne(targetEntity = AltitudeAdjustmentType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "altitudeadjustment_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "altitudeadjustment_hjid", referencedColumnName = "hjid")
     public AltitudeAdjustmentType getAltitudeAdjustment() {
         return altitudeAdjustment;
     }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "nitrogen"
 })
 @Entity(name = "NitrogenPropertyType")
-@Table(name = "nitrogen_pt", schema = "service")
+@Table(name = "nitrogen_p", schema = "service")
 public class NitrogenPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class NitrogenPropertyType
     @OneToOne(targetEntity = NitrogenType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "nitrogen_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "nitrogen_hjid", referencedColumnName = "hjid")
     public NitrogenType getNitrogen() {
         return nitrogen;
     }

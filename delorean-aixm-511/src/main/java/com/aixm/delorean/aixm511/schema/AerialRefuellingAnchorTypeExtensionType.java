@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAerialRefuellingAnchorExtension"
 })
 @Entity(name = "AerialRefuellingAnchorTypeExtensionType")
-@Table(name = "aerialrefuellinganchor_ext", schema = "aerial_refuelling")
+@Table(name = "aerialrefuellinganchor_e", schema = "aerial_refuelling")
 public class AerialRefuellingAnchorTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AerialRefuellingAnchorTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaerialrefuellinganchorextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaerialrefuellinganchorextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAerialRefuellingAnchorExtension() {
         return abstractAerialRefuellingAnchorExtension;
     }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "pointReference"
 })
 @Entity(name = "PointReferencePropertyType")
-@Table(name = "pointreference_pt", schema = "navaids_point")
+@Table(name = "pointreference_p", schema = "navaids_point")
 public class PointReferencePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class PointReferencePropertyType
     @OneToOne(targetEntity = PointReferenceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointreference_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "pointreference_hjid", referencedColumnName = "hjid")
     public PointReferenceType getPointReference() {
         return pointReference;
     }

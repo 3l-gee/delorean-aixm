@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractLandingTakeoffAreaCollectionExtension"
 })
 @Entity(name = "LandingTakeoffAreaCollectionTypeExtensionType")
-@Table(name = "landingtakeoffareacollection_ext", schema = "procedure")
+@Table(name = "landingtakeoffareacollection_e", schema = "procedure")
 public class LandingTakeoffAreaCollectionTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class LandingTakeoffAreaCollectionTypeExtensionType implements Serializab
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractlandingtakeoffareacollectionextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractlandingtakeoffareacollectionextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractLandingTakeoffAreaCollectionExtension() {
         return abstractLandingTakeoffAreaCollectionExtension;
     }

@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RunwayVisualRangeTimeSlicePropertyType", propOrder = {
     "runwayVisualRangeTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "RunwayVisualRangeTimeSlicePropertyType")
-@Table(name = "runwayvisualrange_tsp", schema = "airport_heliport")
+@Table(name = "runwayvisualrange_tp", schema = "airport_heliport")
 public class RunwayVisualRangeTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class RunwayVisualRangeTimeSlicePropertyType implements Serializable, Equ
     @OneToOne(targetEntity = RunwayVisualRangeTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "runwayvisualrangetimeslice_hjid", referencedColumnName = "hjid")
     public RunwayVisualRangeTimeSliceType getRunwayVisualRangeTimeSlice() {
         return runwayVisualRangeTimeSlice;
     }
@@ -230,19 +230,6 @@ public class RunwayVisualRangeTimeSlicePropertyType implements Serializable, Equ
         }
         final RunwayVisualRangeTimeSlicePropertyType that = ((RunwayVisualRangeTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRunwayVisualRangeTimeSlice();
             boolean rhsFieldIsSet = that.isSetRunwayVisualRangeTimeSlice();
             RunwayVisualRangeTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class RunwayVisualRangeTimeSlicePropertyType implements Serializable, Equ
             rhsField = that.getRunwayVisualRangeTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRangeTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRangeTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

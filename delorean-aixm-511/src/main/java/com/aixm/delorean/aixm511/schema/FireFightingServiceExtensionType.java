@@ -65,7 +65,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractServiceExtension"
 })
 @Entity(name = "FireFightingServiceExtensionType")
-@Table(name = "firefightingservice_ext", schema = "service")
+@Table(name = "firefightingservice_e", schema = "service")
 public class FireFightingServiceExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -94,7 +94,7 @@ public class FireFightingServiceExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractfirefightingserviceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractfirefightingserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFireFightingServiceExtension() {
         return abstractFireFightingServiceExtension;
     }
@@ -127,7 +127,7 @@ public class FireFightingServiceExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairportgroundserviceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairportgroundserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportGroundServiceExtension() {
         return abstractAirportGroundServiceExtension;
     }
@@ -160,7 +160,7 @@ public class FireFightingServiceExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractserviceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
     }
@@ -297,6 +297,32 @@ public class FireFightingServiceExtensionType implements Serializable, Equals, H
         }
         final FireFightingServiceExtensionType that = ((FireFightingServiceExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractFireFightingServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractFireFightingServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractFireFightingServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractFireFightingServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFireFightingServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFireFightingServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -318,32 +344,6 @@ public class FireFightingServiceExtensionType implements Serializable, Equals, H
             rhsField = that.getAbstractAirportGroundServiceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportGroundServiceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportGroundServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractFireFightingServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractFireFightingServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractFireFightingServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractFireFightingServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFireFightingServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFireFightingServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

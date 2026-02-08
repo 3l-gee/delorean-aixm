@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractNonMovementAreaExtension"
 })
 @Entity(name = "NonMovementAreaExtensionType")
-@Table(name = "nonmovementarea_ext", schema = "airport_heliport")
+@Table(name = "nonmovementarea_e", schema = "airport_heliport")
 public class NonMovementAreaExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class NonMovementAreaExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnonmovementareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnonmovementareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNonMovementAreaExtension() {
         return abstractNonMovementAreaExtension;
     }
@@ -223,19 +223,6 @@ public class NonMovementAreaExtensionType implements Serializable, Equals, HashC
         }
         final NonMovementAreaExtensionType that = ((NonMovementAreaExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNonMovementAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNonMovementAreaExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNonMovementAreaExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNonMovementAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNonMovementAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNonMovementAreaExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class NonMovementAreaExtensionType implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNonMovementAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNonMovementAreaExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNonMovementAreaExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNonMovementAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNonMovementAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNonMovementAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

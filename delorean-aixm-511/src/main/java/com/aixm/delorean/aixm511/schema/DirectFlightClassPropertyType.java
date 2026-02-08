@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "directFlightClass"
 })
 @Entity(name = "DirectFlightClassPropertyType")
-@Table(name = "directflightclass_pt", schema = "route")
+@Table(name = "directflightclass_p", schema = "route")
 public class DirectFlightClassPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class DirectFlightClassPropertyType
     @OneToOne(targetEntity = DirectFlightClassType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "directflightclass_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "directflightclass_hjid", referencedColumnName = "hjid")
     public DirectFlightClassType getDirectFlightClass() {
         return directFlightClass;
     }

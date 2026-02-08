@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MarkerBeaconTimeSlicePropertyType", propOrder = {
     "markerBeaconTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "MarkerBeaconTimeSlicePropertyType")
-@Table(name = "markerbeacon_tsp", schema = "navaids_point")
+@Table(name = "markerbeacon_tp", schema = "navaids_point")
 public class MarkerBeaconTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class MarkerBeaconTimeSlicePropertyType implements Serializable, Equals, 
     @OneToOne(targetEntity = MarkerBeaconTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "markerbeacontimeslice_hjid", referencedColumnName = "hjid")
     public MarkerBeaconTimeSliceType getMarkerBeaconTimeSlice() {
         return markerBeaconTimeSlice;
     }
@@ -230,19 +230,6 @@ public class MarkerBeaconTimeSlicePropertyType implements Serializable, Equals, 
         }
         final MarkerBeaconTimeSlicePropertyType that = ((MarkerBeaconTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMarkerBeaconTimeSlice();
-            boolean rhsFieldIsSet = that.isSetMarkerBeaconTimeSlice();
-            MarkerBeaconTimeSliceType lhsField;
-            lhsField = this.getMarkerBeaconTimeSlice();
-            MarkerBeaconTimeSliceType rhsField;
-            rhsField = that.getMarkerBeaconTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markerBeaconTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markerBeaconTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class MarkerBeaconTimeSlicePropertyType implements Serializable, Equals, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkerBeaconTimeSlice();
+            boolean rhsFieldIsSet = that.isSetMarkerBeaconTimeSlice();
+            MarkerBeaconTimeSliceType lhsField;
+            lhsField = this.getMarkerBeaconTimeSlice();
+            MarkerBeaconTimeSliceType rhsField;
+            rhsField = that.getMarkerBeaconTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markerBeaconTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markerBeaconTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

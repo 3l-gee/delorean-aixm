@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,22 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}AngleIndicationPropertyGroup"/>
+ *         <element name="angle" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="angleType" type="{http://www.aixm.aero/schema/5.1.1}CodeBearingType" minOccurs="0"/>
+ *         <element name="indicationDirection" type="{http://www.aixm.aero/schema/5.1.1}CodeDirectionReferenceType" minOccurs="0"/>
+ *         <element name="trueAngle" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="cardinalDirection" type="{http://www.aixm.aero/schema/5.1.1}CodeCardinalDirectionType" minOccurs="0"/>
+ *         <element name="minimumReceptionAltitude" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="fix" type="{http://www.aixm.aero/schema/5.1.1}DesignatedPointPropertyType" minOccurs="0"/>
+ *         <choice>
+ *           <element name="pointChoice_fixDesignatedPoint" type="{http://www.aixm.aero/schema/5.1.1}DesignatedPointPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_navaidSystem" type="{http://www.aixm.aero/schema/5.1.1}NavaidPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_position" type="{http://www.aixm.aero/schema/5.1.1}PointPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_runwayPoint" type="{http://www.aixm.aero/schema/5.1.1}RunwayCentrelinePointPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_aimingPoint" type="{http://www.aixm.aero/schema/5.1.1}TouchDownLiftOffPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_airportReferencePoint" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *         </choice>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -83,7 +97,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "AngleIndicationTimeSliceType")
-@Table(name = "angleindication_ts", schema = "navaids_point")
+@Table(name = "angleindication_t", schema = "navaids_point")
 public class AngleIndicationTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -532,13 +546,13 @@ public class AngleIndicationTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_angleindication_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "angleindication_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "angleindication_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "angleindicationpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -589,7 +603,7 @@ public class AngleIndicationTimeSliceType
     @OneToMany(targetEntity = AngleIndicationExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_ANGLE_INDICATION_T_0")
+    @JoinColumn(name = "angleindication_e_hjid", referencedColumnName = "hjid")
     public List<AngleIndicationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -616,7 +630,7 @@ public class AngleIndicationTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "angle", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "angle")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "angle_nilreason"))
     })
     public ValBearingType getAngleItem() {
@@ -655,7 +669,7 @@ public class AngleIndicationTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "trueangle", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "trueangle")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "trueangle_nilreason"))
     })
     public ValBearingType getTrueAngleItem() {
@@ -681,7 +695,7 @@ public class AngleIndicationTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "minimumreceptionaltitude", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "minimumreceptionaltitude")),
         @AttributeOverride(name = "uom", column = @Column(name = "minimumreceptionaltitude_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "minimumreceptionaltitude_nilreason"))
     })
@@ -693,10 +707,14 @@ public class AngleIndicationTimeSliceType
         setMinimumReceptionAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "minimumReceptionAltitude"), AngleIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "fix_id", referencedColumnName = "hjid")
+    @JoinTable(name = "angleindication_t_fix_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "angleindication_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "fix_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getFixItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getFix());
     }
@@ -705,10 +723,14 @@ public class AngleIndicationTimeSliceType
         setFix(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "fix"), AngleIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointchoice_fixdesignatedpoint_id", referencedColumnName = "hjid")
+    @JoinTable(name = "angleindication_t_pointchoice_fixdesignatedpoint_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "angleindication_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoice_fixdesignatedpoint_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getPointChoiceFixDesignatedPointItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getPointChoiceFixDesignatedPoint());
     }
@@ -717,10 +739,14 @@ public class AngleIndicationTimeSliceType
         setPointChoiceFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_fixDesignatedPoint"), AngleIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
+    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointchoice_navaidsystem_id", referencedColumnName = "hjid")
+    @JoinTable(name = "angleindication_t_pointchoice_navaidsystem_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "angleindication_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoice_navaidsystem_hjid", referencedColumnName = "hjid")
+    })
     public NavaidPropertyType getPointChoiceNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getPointChoiceNavaidSystem());
     }
@@ -729,10 +755,14 @@ public class AngleIndicationTimeSliceType
         setPointChoiceNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_navaidSystem"), AngleIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointchoice_position_id", referencedColumnName = "hjid")
+    @JoinTable(name = "angleindication_t_pointchoice_position_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "angleindication_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoice_position_hjid", referencedColumnName = "hjid")
+    })
     public AIXMPointPropertyType getPointChoicePositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getPointChoicePosition());
     }
@@ -741,10 +771,14 @@ public class AngleIndicationTimeSliceType
         setPointChoicePosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_position"), AngleIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointchoice_runwaypoint_id", referencedColumnName = "hjid")
+    @JoinTable(name = "angleindication_t_pointchoice_runwaypoint_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "angleindication_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoice_runwaypoint_hjid", referencedColumnName = "hjid")
+    })
     public RunwayCentrelinePointPropertyType getPointChoiceRunwayPointItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getPointChoiceRunwayPoint());
     }
@@ -753,10 +787,14 @@ public class AngleIndicationTimeSliceType
         setPointChoiceRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_runwayPoint"), AngleIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointchoice_aimingpoint_id", referencedColumnName = "hjid")
+    @JoinTable(name = "angleindication_t_pointchoice_aimingpoint_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "angleindication_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoice_aimingpoint_hjid", referencedColumnName = "hjid")
+    })
     public TouchDownLiftOffPropertyType getPointChoiceAimingPointItem() {
         return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getPointChoiceAimingPoint());
     }
@@ -765,10 +803,14 @@ public class AngleIndicationTimeSliceType
         setPointChoiceAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_aimingPoint"), AngleIndicationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointchoice_airportreferencepoint_id", referencedColumnName = "hjid")
+    @JoinTable(name = "angleindication_t_pointchoice_airportreferencepoint_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "angleindication_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointchoice_airportreferencepoint_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getPointChoiceAirportReferencePointItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getPointChoiceAirportReferencePoint());
     }
@@ -790,14 +832,14 @@ public class AngleIndicationTimeSliceType
         }
         final AngleIndicationTimeSliceType that = ((AngleIndicationTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetIndicationDirection();
-            boolean rhsFieldIsSet = that.isSetIndicationDirection();
-            JAXBElement<CodeDirectionReferenceType> lhsField;
-            lhsField = this.getIndicationDirection();
-            JAXBElement<CodeDirectionReferenceType> rhsField;
-            rhsField = that.getIndicationDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "indicationDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "indicationDirection", rhsField);
+            boolean lhsFieldIsSet = this.isSetTrueAngle();
+            boolean rhsFieldIsSet = that.isSetTrueAngle();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getTrueAngle();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getTrueAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueAngle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -829,19 +871,6 @@ public class AngleIndicationTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAngle();
-            boolean rhsFieldIsSet = that.isSetAngle();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getAngle();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPointChoiceAirportReferencePoint();
             boolean rhsFieldIsSet = that.isSetPointChoiceAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> lhsField;
@@ -868,19 +897,6 @@ public class AngleIndicationTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointChoiceAimingPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getPointChoiceAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getPointChoiceAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMinimumReceptionAltitude();
             boolean rhsFieldIsSet = that.isSetMinimumReceptionAltitude();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -894,66 +910,27 @@ public class AngleIndicationTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointChoiceRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getPointChoiceRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getPointChoiceRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceRunwayPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointChoiceAimingPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getPointChoiceAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getPointChoiceAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAimingPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCardinalDirection();
-            boolean rhsFieldIsSet = that.isSetCardinalDirection();
-            JAXBElement<CodeCardinalDirectionType> lhsField;
-            lhsField = this.getCardinalDirection();
-            JAXBElement<CodeCardinalDirectionType> rhsField;
-            rhsField = that.getCardinalDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cardinalDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cardinalDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTrueAngle();
-            boolean rhsFieldIsSet = that.isSetTrueAngle();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getTrueAngle();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getTrueAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueAngle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFix();
-            boolean rhsFieldIsSet = that.isSetFix();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getFix();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getFix();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fix", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fix", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getPointChoiceNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
+            boolean lhsFieldIsSet = this.isSetIndicationDirection();
+            boolean rhsFieldIsSet = that.isSetIndicationDirection();
+            JAXBElement<CodeDirectionReferenceType> lhsField;
+            lhsField = this.getIndicationDirection();
+            JAXBElement<CodeDirectionReferenceType> rhsField;
+            rhsField = that.getIndicationDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "indicationDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "indicationDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -972,6 +949,58 @@ public class AngleIndicationTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetFix();
+            boolean rhsFieldIsSet = that.isSetFix();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getFix();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getFix();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fix", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fix", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getPointChoiceRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getPointChoiceRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAngle();
+            boolean rhsFieldIsSet = that.isSetAngle();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getAngle();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCardinalDirection();
+            boolean rhsFieldIsSet = that.isSetCardinalDirection();
+            JAXBElement<CodeCardinalDirectionType> lhsField;
+            lhsField = this.getCardinalDirection();
+            JAXBElement<CodeCardinalDirectionType> rhsField;
+            rhsField = that.getCardinalDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cardinalDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cardinalDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AngleIndicationExtensionType> lhsField;
@@ -980,6 +1009,19 @@ public class AngleIndicationTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getPointChoiceNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

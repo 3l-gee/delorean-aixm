@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractProcedureExtension"
 })
 @Entity(name = "StandardInstrumentDepartureExtensionType")
-@Table(name = "standardinstrumentdeparture_ext", schema = "procedure")
+@Table(name = "standardinstrumentdeparture_e", schema = "procedure")
 public class StandardInstrumentDepartureExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class StandardInstrumentDepartureExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractstandardinstrumentdepartureextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractstandardinstrumentdepartureextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractStandardInstrumentDepartureExtension() {
         return abstractStandardInstrumentDepartureExtension;
     }
@@ -123,7 +123,7 @@ public class StandardInstrumentDepartureExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractprocedureextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractprocedureextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractProcedureExtension() {
         return abstractProcedureExtension;
     }
@@ -273,19 +273,6 @@ public class StandardInstrumentDepartureExtensionType implements Serializable, E
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractProcedureExtension();
             boolean rhsFieldIsSet = that.isSetAbstractProcedureExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class StandardInstrumentDepartureExtensionType implements Serializable, E
             rhsField = that.getAbstractProcedureExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractProcedureExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractProcedureExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

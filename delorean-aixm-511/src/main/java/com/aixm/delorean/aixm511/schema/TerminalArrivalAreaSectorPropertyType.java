@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "terminalArrivalAreaSector"
 })
 @Entity(name = "TerminalArrivalAreaSectorPropertyType")
-@Table(name = "terminalarrivalareasector_pt", schema = "procedure")
+@Table(name = "terminalarrivalareasector_p", schema = "procedure")
 public class TerminalArrivalAreaSectorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class TerminalArrivalAreaSectorPropertyType
     @OneToOne(targetEntity = TerminalArrivalAreaSectorType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "terminalarrivalareasector_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "terminalarrivalareasector_hjid", referencedColumnName = "hjid")
     public TerminalArrivalAreaSectorType getTerminalArrivalAreaSector() {
         return terminalArrivalAreaSector;
     }

@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "DepartureLegTimeSlicePropertyType", propOrder = {
     "departureLegTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "DepartureLegTimeSlicePropertyType")
-@Table(name = "departureleg_tsp", schema = "procedure")
+@Table(name = "departureleg_tp", schema = "procedure")
 public class DepartureLegTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class DepartureLegTimeSlicePropertyType implements Serializable, Equals, 
     @OneToOne(targetEntity = DepartureLegTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "departurelegtimeslice_hjid", referencedColumnName = "hjid")
     public DepartureLegTimeSliceType getDepartureLegTimeSlice() {
         return departureLegTimeSlice;
     }

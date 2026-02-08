@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "reflector"
 })
 @Entity(name = "ReflectorPropertyType")
-@Table(name = "reflector_pt", schema = "surveillance")
+@Table(name = "reflector_p", schema = "surveillance")
 public class ReflectorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ReflectorPropertyType
     @OneToOne(targetEntity = ReflectorType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "reflector_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "reflector_hjid", referencedColumnName = "hjid")
     public ReflectorType getReflector() {
         return reflector;
     }

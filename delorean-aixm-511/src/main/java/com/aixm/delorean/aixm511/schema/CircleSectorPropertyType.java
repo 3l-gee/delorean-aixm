@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "circleSector"
 })
 @Entity(name = "CircleSectorPropertyType")
-@Table(name = "circlesector_pt", schema = "shared")
+@Table(name = "circlesector_p", schema = "shared")
 public class CircleSectorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class CircleSectorPropertyType
     @OneToOne(targetEntity = CircleSectorType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "circlesector_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "circlesector_hjid", referencedColumnName = "hjid")
     public CircleSectorType getCircleSector() {
         return circleSector;
     }

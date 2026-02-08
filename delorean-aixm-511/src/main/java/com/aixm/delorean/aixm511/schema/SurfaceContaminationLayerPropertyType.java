@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "surfaceContaminationLayer"
 })
 @Entity(name = "SurfaceContaminationLayerPropertyType")
-@Table(name = "surfacecontaminationlayer_pt", schema = "airport_heliport")
+@Table(name = "surfacecontaminationlayer_p", schema = "airport_heliport")
 public class SurfaceContaminationLayerPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class SurfaceContaminationLayerPropertyType
     @OneToOne(targetEntity = SurfaceContaminationLayerType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "surfacecontaminationlayer_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "surfacecontaminationlayer_hjid", referencedColumnName = "hjid")
     public SurfaceContaminationLayerType getSurfaceContaminationLayer() {
         return surfaceContaminationLayer;
     }

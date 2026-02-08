@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "flightCharacteristic"
 })
 @Entity(name = "FlightCharacteristicPropertyType")
-@Table(name = "flightcharacteristic_pt", schema = "shared")
+@Table(name = "flightcharacteristic_p", schema = "shared")
 public class FlightCharacteristicPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class FlightCharacteristicPropertyType
     @OneToOne(targetEntity = FlightCharacteristicType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "flightcharacteristic_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "flightcharacteristic_hjid", referencedColumnName = "hjid")
     public FlightCharacteristicType getFlightCharacteristic() {
         return flightCharacteristic;
     }

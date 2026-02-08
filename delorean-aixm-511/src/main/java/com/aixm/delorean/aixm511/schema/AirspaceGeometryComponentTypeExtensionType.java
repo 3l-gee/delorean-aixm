@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAirspaceGeometryComponentExtension"
 })
 @Entity(name = "AirspaceGeometryComponentTypeExtensionType")
-@Table(name = "airspacegeometrycomponent_ext", schema = "airspace")
+@Table(name = "airspacegeometrycomponent_e", schema = "airspace")
 public class AirspaceGeometryComponentTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AirspaceGeometryComponentTypeExtensionType implements Serializable,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairspacegeometrycomponentextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairspacegeometrycomponentextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirspaceGeometryComponentExtension() {
         return abstractAirspaceGeometryComponentExtension;
     }
@@ -223,19 +223,6 @@ public class AirspaceGeometryComponentTypeExtensionType implements Serializable,
         }
         final AirspaceGeometryComponentTypeExtensionType that = ((AirspaceGeometryComponentTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirspaceGeometryComponentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirspaceGeometryComponentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirspaceGeometryComponentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirspaceGeometryComponentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceGeometryComponentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceGeometryComponentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AirspaceGeometryComponentTypeExtensionType implements Serializable,
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirspaceGeometryComponentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirspaceGeometryComponentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirspaceGeometryComponentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirspaceGeometryComponentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceGeometryComponentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceGeometryComponentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

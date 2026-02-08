@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "navigationAreaSector"
 })
 @Entity(name = "NavigationAreaSectorPropertyType")
-@Table(name = "navigationareasector_pt", schema = "procedure")
+@Table(name = "navigationareasector_p", schema = "procedure")
 public class NavigationAreaSectorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class NavigationAreaSectorPropertyType
     @OneToOne(targetEntity = NavigationAreaSectorType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navigationareasector_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "navigationareasector_hjid", referencedColumnName = "hjid")
     public NavigationAreaSectorType getNavigationAreaSector() {
         return navigationAreaSector;
     }

@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractEnRouteSegmentPointExtension"
 })
 @Entity(name = "EnRouteSegmentPointTypeExtensionType")
-@Table(name = "enroutesegmentpoint_ext", schema = "navaids_point")
+@Table(name = "enroutesegmentpoint_e", schema = "navaids_point")
 public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsegmentpointextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsegmentpointextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentPointExtension() {
         return abstractSegmentPointExtension;
     }
@@ -123,7 +123,7 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractenroutesegmentpointextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractenroutesegmentpointextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractEnRouteSegmentPointExtension() {
         return abstractEnRouteSegmentPointExtension;
     }
@@ -260,14 +260,14 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
         }
         final EnRouteSegmentPointTypeExtensionType that = ((EnRouteSegmentPointTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractEnRouteSegmentPointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractEnRouteSegmentPointExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractEnRouteSegmentPointExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractEnRouteSegmentPointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEnRouteSegmentPointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEnRouteSegmentPointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractEnRouteSegmentPointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractEnRouteSegmentPointExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractEnRouteSegmentPointExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractEnRouteSegmentPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEnRouteSegmentPointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEnRouteSegmentPointExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

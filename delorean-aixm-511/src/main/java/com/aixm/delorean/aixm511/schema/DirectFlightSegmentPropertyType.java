@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "directFlightSegment"
 })
 @Entity(name = "DirectFlightSegmentPropertyType")
-@Table(name = "directflightsegment_pt", schema = "route")
+@Table(name = "directflightsegment_p", schema = "route")
 public class DirectFlightSegmentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class DirectFlightSegmentPropertyType
     @OneToOne(targetEntity = DirectFlightSegmentType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "directflightsegment_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "directflightsegment_hjid", referencedColumnName = "hjid")
     public DirectFlightSegmentType getDirectFlightSegment() {
         return directFlightSegment;
     }

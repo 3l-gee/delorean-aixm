@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -45,7 +44,8 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}AirspaceLayerClassPropertyGroup"/>
+ *         <element name="classification" type="{http://www.aixm.aero/schema/5.1.1}CodeAirspaceClassificationType" minOccurs="0"/>
+ *         <element name="associatedLevels" type="{http://www.aixm.aero/schema/5.1.1}AirspaceLayerPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -77,7 +77,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "AirspaceLayerClassType")
-@Table(name = "airspacelayerclass", schema = "airspace")
+@Table(name = "airspacelayerclasstype", schema = "airspace")
 public class AirspaceLayerClassType
     extends AbstractPropertiesWithScheduleType
     implements Serializable
@@ -118,13 +118,13 @@ public class AirspaceLayerClassType
      * 
      * 
      */
-    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {
+    @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "timeinterval_airspacelayerclass_link", schema = "airspace", joinColumns = {
-        @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")
+    @JoinTable(name = "airspacelayerclasstype_timeinterval_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airspacelayerclasstype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airspacelayerclasstype", referencedColumnName = "hjid")
+        @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")
     })
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -172,13 +172,13 @@ public class AirspaceLayerClassType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_airspacelayerclass_link", schema = "airspace", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "airspacelayerclasstype_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airspacelayerclasstype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airspacelayerclasstype", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -226,13 +226,13 @@ public class AirspaceLayerClassType
      * 
      * 
      */
-    @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "specialdateauthority_airspacelayerclass_link", schema = "airspace", joinColumns = {
-        @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")
+    @JoinTable(name = "airspacelayerclasstype_specialdateauthority_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airspacelayerclasstype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airspacelayerclasstype", referencedColumnName = "hjid")
+        @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")
     })
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -310,13 +310,13 @@ public class AirspaceLayerClassType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "associatedlevels_airspacelayerclass_link", schema = "airspace", joinColumns = {
-        @JoinColumn(name = "associatedlevels", referencedColumnName = "hjid")
+    @JoinTable(name = "airspacelayerclasstype_associatedlevels_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airspacelayerclasstype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airspacelayerclasspropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "associatedlevels_hjid", referencedColumnName = "hjid")
     })
     public List<AirspaceLayerPropertyType> getAssociatedLevels() {
         if (associatedLevels == null) {
@@ -367,7 +367,7 @@ public class AirspaceLayerClassType
     @OneToMany(targetEntity = AirspaceLayerClassTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIRSPACE_LAYER_CLA_0")
+    @JoinColumn(name = "airspacelayerclass_e_hjid", referencedColumnName = "hjid")
     public List<AirspaceLayerClassTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -418,53 +418,14 @@ public class AirspaceLayerClassType
         }
         final AirspaceLayerClassType that = ((AirspaceLayerClassType) object);
         {
-            boolean lhsFieldIsSet = this.isSetClassification();
-            boolean rhsFieldIsSet = that.isSetClassification();
-            JAXBElement<CodeAirspaceClassificationType> lhsField;
-            lhsField = this.getClassification();
-            JAXBElement<CodeAirspaceClassificationType> rhsField;
-            rhsField = that.getClassification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classification", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceLayerClassTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AirspaceLayerClassTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAssociatedLevels();
+            boolean rhsFieldIsSet = that.isSetAssociatedLevels();
+            List<AirspaceLayerPropertyType> lhsField;
+            lhsField = (this.isSetAssociatedLevels()?this.getAssociatedLevels():null);
+            List<AirspaceLayerPropertyType> rhsField;
+            rhsField = (that.isSetAssociatedLevels()?that.getAssociatedLevels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedLevels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedLevels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -483,14 +444,53 @@ public class AirspaceLayerClassType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedLevels();
-            boolean rhsFieldIsSet = that.isSetAssociatedLevels();
-            List<AirspaceLayerPropertyType> lhsField;
-            lhsField = (this.isSetAssociatedLevels()?this.getAssociatedLevels():null);
-            List<AirspaceLayerPropertyType> rhsField;
-            rhsField = (that.isSetAssociatedLevels()?that.getAssociatedLevels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedLevels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedLevels", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClassification();
+            boolean rhsFieldIsSet = that.isSetClassification();
+            JAXBElement<CodeAirspaceClassificationType> lhsField;
+            lhsField = this.getClassification();
+            JAXBElement<CodeAirspaceClassificationType> rhsField;
+            rhsField = that.getClassification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classification", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceLayerClassTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AirspaceLayerClassTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

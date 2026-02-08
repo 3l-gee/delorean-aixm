@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "PassengerLoadingBridgeTimeSlicePropertyType", propOrder = {
     "passengerLoadingBridgeTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "PassengerLoadingBridgeTimeSlicePropertyType")
-@Table(name = "passengerloadingbridge_tsp", schema = "airport_heliport")
+@Table(name = "passengerloadingbridge_tp", schema = "airport_heliport")
 public class PassengerLoadingBridgeTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class PassengerLoadingBridgeTimeSlicePropertyType implements Serializable
     @OneToOne(targetEntity = PassengerLoadingBridgeTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "passengerloadingbridgetimeslice_hjid", referencedColumnName = "hjid")
     public PassengerLoadingBridgeTimeSliceType getPassengerLoadingBridgeTimeSlice() {
         return passengerLoadingBridgeTimeSlice;
     }
@@ -230,19 +230,6 @@ public class PassengerLoadingBridgeTimeSlicePropertyType implements Serializable
         }
         final PassengerLoadingBridgeTimeSlicePropertyType that = ((PassengerLoadingBridgeTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPassengerLoadingBridgeTimeSlice();
-            boolean rhsFieldIsSet = that.isSetPassengerLoadingBridgeTimeSlice();
-            PassengerLoadingBridgeTimeSliceType lhsField;
-            lhsField = this.getPassengerLoadingBridgeTimeSlice();
-            PassengerLoadingBridgeTimeSliceType rhsField;
-            rhsField = that.getPassengerLoadingBridgeTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengerLoadingBridgeTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengerLoadingBridgeTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class PassengerLoadingBridgeTimeSlicePropertyType implements Serializable
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPassengerLoadingBridgeTimeSlice();
+            boolean rhsFieldIsSet = that.isSetPassengerLoadingBridgeTimeSlice();
+            PassengerLoadingBridgeTimeSliceType lhsField;
+            lhsField = this.getPassengerLoadingBridgeTimeSlice();
+            PassengerLoadingBridgeTimeSliceType rhsField;
+            rhsField = that.getPassengerLoadingBridgeTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengerLoadingBridgeTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengerLoadingBridgeTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

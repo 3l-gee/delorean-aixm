@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "navaidComponent"
 })
 @Entity(name = "NavaidComponentPropertyType")
-@Table(name = "navaidcomponent_pt", schema = "navaids_point")
+@Table(name = "navaidcomponent_p", schema = "navaids_point")
 public class NavaidComponentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class NavaidComponentPropertyType
     @OneToOne(targetEntity = NavaidComponentType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navaidcomponent_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "navaidcomponent_hjid", referencedColumnName = "hjid")
     public NavaidComponentType getNavaidComponent() {
         return navaidComponent;
     }

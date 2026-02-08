@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RouteTimeSlicePropertyType", propOrder = {
     "routeTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "RouteTimeSlicePropertyType")
-@Table(name = "route_tsp", schema = "route")
+@Table(name = "route_tp", schema = "route")
 public class RouteTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class RouteTimeSlicePropertyType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = RouteTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "routetimeslice_hjid", referencedColumnName = "hjid")
     public RouteTimeSliceType getRouteTimeSlice() {
         return routeTimeSlice;
     }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "departureArrivalCondition"
 })
 @Entity(name = "DepartureArrivalConditionPropertyType")
-@Table(name = "departurearrivalcondition_pt", schema = "procedure")
+@Table(name = "departurearrivalcondition_p", schema = "procedure")
 public class DepartureArrivalConditionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class DepartureArrivalConditionPropertyType
     @OneToOne(targetEntity = DepartureArrivalConditionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "departurearrivalcondition_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "departurearrivalcondition_hjid", referencedColumnName = "hjid")
     public DepartureArrivalConditionType getDepartureArrivalCondition() {
         return departureArrivalCondition;
     }

@@ -65,7 +65,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractSegmentLegExtension"
 })
 @Entity(name = "MissedApproachLegExtensionType")
-@Table(name = "missedapproachleg_ext", schema = "procedure")
+@Table(name = "missedapproachleg_e", schema = "procedure")
 public class MissedApproachLegExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -94,7 +94,7 @@ public class MissedApproachLegExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmissedapproachlegextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmissedapproachlegextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMissedApproachLegExtension() {
         return abstractMissedApproachLegExtension;
     }
@@ -127,7 +127,7 @@ public class MissedApproachLegExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapproachlegextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapproachlegextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachLegExtension() {
         return abstractApproachLegExtension;
     }
@@ -160,7 +160,7 @@ public class MissedApproachLegExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsegmentlegextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsegmentlegextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentLegExtension() {
         return abstractSegmentLegExtension;
     }
@@ -297,19 +297,6 @@ public class MissedApproachLegExtensionType implements Serializable, Equals, Has
         }
         final MissedApproachLegExtensionType that = ((MissedApproachLegExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
             AbstractExtensionType lhsField;
@@ -318,6 +305,19 @@ public class MissedApproachLegExtensionType implements Serializable, Equals, Has
             rhsField = that.getAbstractSegmentLegExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

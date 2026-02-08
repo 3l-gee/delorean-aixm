@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractApproachAltitudeTableExtension"
 })
 @Entity(name = "ApproachAltitudeTableTypeExtensionType")
-@Table(name = "approachaltitudetable_ext", schema = "procedure")
+@Table(name = "approachaltitudetable_e", schema = "procedure")
 public class ApproachAltitudeTableTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class ApproachAltitudeTableTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapproachaltitudetableextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapproachaltitudetableextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachAltitudeTableExtension() {
         return abstractApproachAltitudeTableExtension;
     }
@@ -223,19 +223,6 @@ public class ApproachAltitudeTableTypeExtensionType implements Serializable, Equ
         }
         final ApproachAltitudeTableTypeExtensionType that = ((ApproachAltitudeTableTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractApproachAltitudeTableExtension();
             boolean rhsFieldIsSet = that.isSetAbstractApproachAltitudeTableExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class ApproachAltitudeTableTypeExtensionType implements Serializable, Equ
             rhsField = that.getAbstractApproachAltitudeTableExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachAltitudeTableExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachAltitudeTableExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

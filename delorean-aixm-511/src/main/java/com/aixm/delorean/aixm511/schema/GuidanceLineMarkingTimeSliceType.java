@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,11 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}GuidanceLineMarkingPropertyGroup"/>
+ *         <element name="markingICAOStandard" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="condition" type="{http://www.aixm.aero/schema/5.1.1}CodeMarkingConditionType" minOccurs="0"/>
+ *         <element name="element" type="{http://www.aixm.aero/schema/5.1.1}MarkingElementPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="markedGuidanceLine" type="{http://www.aixm.aero/schema/5.1.1}GuidanceLinePropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -75,7 +78,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "GuidanceLineMarkingTimeSliceType")
-@Table(name = "guidancelinemarking_ts", schema = "airport_heliport")
+@Table(name = "guidancelinemarking_t", schema = "airport_heliport")
 public class GuidanceLineMarkingTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -176,13 +179,13 @@ public class GuidanceLineMarkingTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = MarkingElementPropertyType.class, cascade = {
+    @OneToMany(targetEntity = MarkingElementPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "element_guidancelinemarking_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "element", referencedColumnName = "hjid")
+    @JoinTable(name = "guidancelinemarking_t_element_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidancelinemarking_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinemarkingpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "element_hjid", referencedColumnName = "hjid")
     })
     public List<MarkingElementPropertyType> getElement() {
         if (element == null) {
@@ -230,13 +233,13 @@ public class GuidanceLineMarkingTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_guidancelinemarking_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "guidancelinemarking_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidancelinemarking_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinemarkingpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -317,7 +320,7 @@ public class GuidanceLineMarkingTimeSliceType
     @OneToMany(targetEntity = GuidanceLineMarkingExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_GUIDANCE_LINE_MARK_0")
+    @JoinColumn(name = "guidancelinemarking_e_hjid", referencedColumnName = "hjid")
     public List<GuidanceLineMarkingExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -368,10 +371,14 @@ public class GuidanceLineMarkingTimeSliceType
         setCondition(XmlAdapterUtils.marshallJAXBElement(CodeMarkingConditionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "condition"), GuidanceLineMarkingTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = GuidanceLinePropertyType.class, cascade = {
+    @OneToOne(targetEntity = GuidanceLinePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "markedguidanceline_id", referencedColumnName = "hjid")
+    @JoinTable(name = "guidancelinemarking_t_markedguidanceline_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidancelinemarking_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "markedguidanceline_hjid", referencedColumnName = "hjid")
+    })
     public GuidanceLinePropertyType getMarkedGuidanceLineItem() {
         return XmlAdapterUtils.unmarshallSource(GuidanceLinePropertyType.class, this.getMarkedGuidanceLine());
     }
@@ -392,6 +399,32 @@ public class GuidanceLineMarkingTimeSliceType
             return false;
         }
         final GuidanceLineMarkingTimeSliceType that = ((GuidanceLineMarkingTimeSliceType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMarkingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkedGuidanceLine();
+            boolean rhsFieldIsSet = that.isSetMarkedGuidanceLine();
+            JAXBElement<GuidanceLinePropertyType> lhsField;
+            lhsField = this.getMarkedGuidanceLine();
+            JAXBElement<GuidanceLinePropertyType> rhsField;
+            rhsField = that.getMarkedGuidanceLine();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedGuidanceLine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedGuidanceLine", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetElement();
             boolean rhsFieldIsSet = that.isSetElement();
@@ -414,32 +447,6 @@ public class GuidanceLineMarkingTimeSliceType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarkedGuidanceLine();
-            boolean rhsFieldIsSet = that.isSetMarkedGuidanceLine();
-            JAXBElement<GuidanceLinePropertyType> lhsField;
-            lhsField = this.getMarkedGuidanceLine();
-            JAXBElement<GuidanceLinePropertyType> rhsField;
-            rhsField = that.getMarkedGuidanceLine();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedGuidanceLine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedGuidanceLine", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMarkingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

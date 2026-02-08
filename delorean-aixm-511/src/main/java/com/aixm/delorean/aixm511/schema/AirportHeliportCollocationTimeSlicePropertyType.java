@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AirportHeliportCollocationTimeSlicePropertyType", propOrder = {
     "airportHeliportCollocationTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AirportHeliportCollocationTimeSlicePropertyType")
-@Table(name = "airportheliportcollocation_tsp", schema = "airport_heliport")
+@Table(name = "airportheliportcollocation_tp", schema = "airport_heliport")
 public class AirportHeliportCollocationTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class AirportHeliportCollocationTimeSlicePropertyType implements Serializ
     @OneToOne(targetEntity = AirportHeliportCollocationTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "airportheliportcollocationtimeslice_hjid", referencedColumnName = "hjid")
     public AirportHeliportCollocationTimeSliceType getAirportHeliportCollocationTimeSlice() {
         return airportHeliportCollocationTimeSlice;
     }
@@ -230,19 +230,6 @@ public class AirportHeliportCollocationTimeSlicePropertyType implements Serializ
         }
         final AirportHeliportCollocationTimeSlicePropertyType that = ((AirportHeliportCollocationTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAirportHeliportCollocationTimeSlice();
-            boolean rhsFieldIsSet = that.isSetAirportHeliportCollocationTimeSlice();
-            AirportHeliportCollocationTimeSliceType lhsField;
-            lhsField = this.getAirportHeliportCollocationTimeSlice();
-            AirportHeliportCollocationTimeSliceType rhsField;
-            rhsField = that.getAirportHeliportCollocationTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliportCollocationTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliportCollocationTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class AirportHeliportCollocationTimeSlicePropertyType implements Serializ
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAirportHeliportCollocationTimeSlice();
+            boolean rhsFieldIsSet = that.isSetAirportHeliportCollocationTimeSlice();
+            AirportHeliportCollocationTimeSliceType lhsField;
+            lhsField = this.getAirportHeliportCollocationTimeSlice();
+            AirportHeliportCollocationTimeSliceType rhsField;
+            rhsField = that.getAirportHeliportCollocationTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliportCollocationTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliportCollocationTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

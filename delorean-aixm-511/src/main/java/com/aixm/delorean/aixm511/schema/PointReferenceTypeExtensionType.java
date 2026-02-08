@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractPointReferenceExtension"
 })
 @Entity(name = "PointReferenceTypeExtensionType")
-@Table(name = "pointreference_ext", schema = "navaids_point")
+@Table(name = "pointreference_e", schema = "navaids_point")
 public class PointReferenceTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class PointReferenceTypeExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpointreferenceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpointreferenceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPointReferenceExtension() {
         return abstractPointReferenceExtension;
     }
@@ -223,19 +223,6 @@ public class PointReferenceTypeExtensionType implements Serializable, Equals, Ha
         }
         final PointReferenceTypeExtensionType that = ((PointReferenceTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPointReferenceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPointReferenceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPointReferenceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPointReferenceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPointReferenceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPointReferenceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class PointReferenceTypeExtensionType implements Serializable, Equals, Ha
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractPointReferenceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPointReferenceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPointReferenceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPointReferenceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPointReferenceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPointReferenceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

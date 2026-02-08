@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "markingElement"
 })
 @Entity(name = "MarkingElementPropertyType")
-@Table(name = "markingelement_pt", schema = "airport_heliport")
+@Table(name = "markingelement_p", schema = "airport_heliport")
 public class MarkingElementPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class MarkingElementPropertyType
     @OneToOne(targetEntity = MarkingElementType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "markingelement_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "markingelement_hjid", referencedColumnName = "hjid")
     public MarkingElementType getMarkingElement() {
         return markingElement;
     }

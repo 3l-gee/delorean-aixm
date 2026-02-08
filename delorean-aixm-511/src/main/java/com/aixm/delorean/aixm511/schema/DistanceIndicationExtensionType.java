@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractDistanceIndicationExtension"
 })
 @Entity(name = "DistanceIndicationExtensionType")
-@Table(name = "distanceindication_ext", schema = "navaids_point")
+@Table(name = "distanceindication_e", schema = "navaids_point")
 public class DistanceIndicationExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class DistanceIndicationExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractdistanceindicationextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractdistanceindicationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDistanceIndicationExtension() {
         return abstractDistanceIndicationExtension;
     }
@@ -223,19 +223,6 @@ public class DistanceIndicationExtensionType implements Serializable, Equals, Ha
         }
         final DistanceIndicationExtensionType that = ((DistanceIndicationExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDistanceIndicationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDistanceIndicationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDistanceIndicationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDistanceIndicationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDistanceIndicationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDistanceIndicationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class DistanceIndicationExtensionType implements Serializable, Equals, Ha
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractDistanceIndicationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDistanceIndicationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDistanceIndicationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDistanceIndicationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDistanceIndicationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDistanceIndicationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

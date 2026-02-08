@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "StandMarkingTimeSlicePropertyType", propOrder = {
     "standMarkingTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "StandMarkingTimeSlicePropertyType")
-@Table(name = "standmarking_tsp", schema = "airport_heliport")
+@Table(name = "standmarking_tp", schema = "airport_heliport")
 public class StandMarkingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class StandMarkingTimeSlicePropertyType implements Serializable, Equals, 
     @OneToOne(targetEntity = StandMarkingTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "standmarkingtimeslice_hjid", referencedColumnName = "hjid")
     public StandMarkingTimeSliceType getStandMarkingTimeSlice() {
         return standMarkingTimeSlice;
     }

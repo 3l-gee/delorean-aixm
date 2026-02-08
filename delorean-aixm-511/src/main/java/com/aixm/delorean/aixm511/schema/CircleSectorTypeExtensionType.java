@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractCircleSectorExtension"
 })
 @Entity(name = "CircleSectorTypeExtensionType")
-@Table(name = "circlesector_ext", schema = "shared")
+@Table(name = "circlesector_e", schema = "shared")
 public class CircleSectorTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class CircleSectorTypeExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractcirclesectorextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractcirclesectorextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractCircleSectorExtension() {
         return abstractCircleSectorExtension;
     }
@@ -223,19 +223,6 @@ public class CircleSectorTypeExtensionType implements Serializable, Equals, Hash
         }
         final CircleSectorTypeExtensionType that = ((CircleSectorTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractCircleSectorExtension();
             boolean rhsFieldIsSet = that.isSetAbstractCircleSectorExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class CircleSectorTypeExtensionType implements Serializable, Equals, Hash
             rhsField = that.getAbstractCircleSectorExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCircleSectorExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCircleSectorExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

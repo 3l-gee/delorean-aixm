@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "TerminalArrivalAreaTimeSlicePropertyType", propOrder = {
     "terminalArrivalAreaTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "TerminalArrivalAreaTimeSlicePropertyType")
-@Table(name = "terminalarrivalarea_tsp", schema = "procedure")
+@Table(name = "terminalarrivalarea_tp", schema = "procedure")
 public class TerminalArrivalAreaTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class TerminalArrivalAreaTimeSlicePropertyType implements Serializable, E
     @OneToOne(targetEntity = TerminalArrivalAreaTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "terminalarrivalareatimeslice_hjid", referencedColumnName = "hjid")
     public TerminalArrivalAreaTimeSliceType getTerminalArrivalAreaTimeSlice() {
         return terminalArrivalAreaTimeSlice;
     }

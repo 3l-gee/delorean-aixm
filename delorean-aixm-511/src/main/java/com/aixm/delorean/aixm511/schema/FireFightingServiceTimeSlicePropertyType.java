@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "FireFightingServiceTimeSlicePropertyType", propOrder = {
     "fireFightingServiceTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "FireFightingServiceTimeSlicePropertyType")
-@Table(name = "firefightingservice_tsp", schema = "service")
+@Table(name = "firefightingservice_tp", schema = "service")
 public class FireFightingServiceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class FireFightingServiceTimeSlicePropertyType implements Serializable, E
     @OneToOne(targetEntity = FireFightingServiceTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "firefightingservicetimeslice_hjid", referencedColumnName = "hjid")
     public FireFightingServiceTimeSliceType getFireFightingServiceTimeSlice() {
         return fireFightingServiceTimeSlice;
     }

@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,19 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}RadioCommunicationChannelPropertyGroup"/>
+ *         <element name="mode" type="{http://www.aixm.aero/schema/5.1.1}CodeCommunicationModeType" minOccurs="0"/>
+ *         <element name="rank" type="{http://www.aixm.aero/schema/5.1.1}CodeFacilityRankingType" minOccurs="0"/>
+ *         <element name="frequencyTransmission" type="{http://www.aixm.aero/schema/5.1.1}ValFrequencyType" minOccurs="0"/>
+ *         <element name="frequencyReception" type="{http://www.aixm.aero/schema/5.1.1}ValFrequencyType" minOccurs="0"/>
+ *         <element name="channel" type="{http://www.aixm.aero/schema/5.1.1}CodeCommunicationChannelType" minOccurs="0"/>
+ *         <element name="logon" type="{http://www.aixm.aero/schema/5.1.1}TextDesignatorType" minOccurs="0"/>
+ *         <element name="emissionType" type="{http://www.aixm.aero/schema/5.1.1}CodeRadioEmissionType" minOccurs="0"/>
+ *         <element name="selectiveCall" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="flightChecked" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="trafficDirection" type="{http://www.aixm.aero/schema/5.1.1}CodeCommunicationDirectionType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}RadioCommunicationOperationalStatusPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -81,7 +92,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "RadioCommunicationChannelTimeSliceType")
-@Table(name = "radiocommunicationchannel_ts", schema = "service")
+@Table(name = "radiocommunicationchannel_t", schema = "service")
 public class RadioCommunicationChannelTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -438,13 +449,13 @@ public class RadioCommunicationChannelTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "location_radiocommunicationchannel_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "location", referencedColumnName = "hjid")
+    @JoinTable(name = "radiocommunicationchannel_t_location_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "radiocommunicationchannel_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "radiocommunicationchannelpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
     })
     public List<AIXMElevatedPointPropertyType> getLocation() {
         if (location == null) {
@@ -492,13 +503,13 @@ public class RadioCommunicationChannelTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = RadioCommunicationOperationalStatusPropertyType.class, cascade = {
+    @OneToMany(targetEntity = RadioCommunicationOperationalStatusPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "availability_radiocommunicationchannel_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    @JoinTable(name = "radiocommunicationchannel_t_availability_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "radiocommunicationchannel_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "radiocommunicationchannelpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
     })
     public List<RadioCommunicationOperationalStatusPropertyType> getAvailability() {
         if (availability == null) {
@@ -546,13 +557,13 @@ public class RadioCommunicationChannelTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_radiocommunicationchannel_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "radiocommunicationchannel_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "radiocommunicationchannel_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "radiocommunicationchannelpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -603,7 +614,7 @@ public class RadioCommunicationChannelTimeSliceType
     @OneToMany(targetEntity = RadioCommunicationChannelExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_RADIO_COMMUNICATIO_0")
+    @JoinColumn(name = "radiocommunicationchannel_e_hjid", referencedColumnName = "hjid")
     public List<RadioCommunicationChannelExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -656,7 +667,7 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "frequencytransmission", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "frequencytransmission")),
         @AttributeOverride(name = "uom", column = @Column(name = "frequencytransmission_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "frequencytransmission_nilreason"))
     })
@@ -670,7 +681,7 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "frequencyreception", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "frequencyreception")),
         @AttributeOverride(name = "uom", column = @Column(name = "frequencyreception_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "frequencyreception_nilreason"))
     })
@@ -697,7 +708,7 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "logon", columnDefinition = "VARCHAR", length = 16)),
+        @AttributeOverride(name = "value", column = @Column(name = "logon")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "logon_nilreason"))
     })
     public TextDesignatorType getLogonItem() {
@@ -773,27 +784,14 @@ public class RadioCommunicationChannelTimeSliceType
         }
         final RadioCommunicationChannelTimeSliceType that = ((RadioCommunicationChannelTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSelectiveCall();
-            boolean rhsFieldIsSet = that.isSetSelectiveCall();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getSelectiveCall();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getSelectiveCall();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selectiveCall", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selectiveCall", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFrequencyReception();
-            boolean rhsFieldIsSet = that.isSetFrequencyReception();
-            JAXBElement<ValFrequencyType> lhsField;
-            lhsField = this.getFrequencyReception();
-            JAXBElement<ValFrequencyType> rhsField;
-            rhsField = that.getFrequencyReception();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequencyReception", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequencyReception", rhsField);
+            boolean lhsFieldIsSet = this.isSetLogon();
+            boolean rhsFieldIsSet = that.isSetLogon();
+            JAXBElement<TextDesignatorType> lhsField;
+            lhsField = this.getLogon();
+            JAXBElement<TextDesignatorType> rhsField;
+            rhsField = that.getLogon();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "logon", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "logon", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -812,14 +810,14 @@ public class RadioCommunicationChannelTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightChecked();
-            boolean rhsFieldIsSet = that.isSetFlightChecked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlightChecked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlightChecked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
+            boolean lhsFieldIsSet = this.isSetFrequencyReception();
+            boolean rhsFieldIsSet = that.isSetFrequencyReception();
+            JAXBElement<ValFrequencyType> lhsField;
+            lhsField = this.getFrequencyReception();
+            JAXBElement<ValFrequencyType> rhsField;
+            rhsField = that.getFrequencyReception();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequencyReception", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequencyReception", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -838,32 +836,6 @@ public class RadioCommunicationChannelTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFrequencyTransmission();
-            boolean rhsFieldIsSet = that.isSetFrequencyTransmission();
-            JAXBElement<ValFrequencyType> lhsField;
-            lhsField = this.getFrequencyTransmission();
-            JAXBElement<ValFrequencyType> rhsField;
-            rhsField = that.getFrequencyTransmission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequencyTransmission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequencyTransmission", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTrafficDirection();
-            boolean rhsFieldIsSet = that.isSetTrafficDirection();
-            JAXBElement<CodeCommunicationDirectionType> lhsField;
-            lhsField = this.getTrafficDirection();
-            JAXBElement<CodeCommunicationDirectionType> rhsField;
-            rhsField = that.getTrafficDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trafficDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trafficDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMode();
             boolean rhsFieldIsSet = that.isSetMode();
             JAXBElement<CodeCommunicationModeType> lhsField;
@@ -872,45 +844,6 @@ public class RadioCommunicationChannelTimeSliceType
             rhsField = that.getMode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLogon();
-            boolean rhsFieldIsSet = that.isSetLogon();
-            JAXBElement<TextDesignatorType> lhsField;
-            lhsField = this.getLogon();
-            JAXBElement<TextDesignatorType> rhsField;
-            rhsField = that.getLogon();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "logon", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "logon", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetChannel();
-            boolean rhsFieldIsSet = that.isSetChannel();
-            JAXBElement<CodeCommunicationChannelType> lhsField;
-            lhsField = this.getChannel();
-            JAXBElement<CodeCommunicationChannelType> rhsField;
-            rhsField = that.getChannel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "channel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "channel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -929,14 +862,14 @@ public class RadioCommunicationChannelTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            List<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = (this.isSetLocation()?this.getLocation():null);
-            List<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = (that.isSetLocation()?that.getLocation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightChecked();
+            boolean rhsFieldIsSet = that.isSetFlightChecked();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlightChecked();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlightChecked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -950,6 +883,84 @@ public class RadioCommunicationChannelTimeSliceType
             rhsField = (that.isSetAvailability()?that.getAvailability():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrequencyTransmission();
+            boolean rhsFieldIsSet = that.isSetFrequencyTransmission();
+            JAXBElement<ValFrequencyType> lhsField;
+            lhsField = this.getFrequencyTransmission();
+            JAXBElement<ValFrequencyType> rhsField;
+            rhsField = that.getFrequencyTransmission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequencyTransmission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequencyTransmission", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetChannel();
+            boolean rhsFieldIsSet = that.isSetChannel();
+            JAXBElement<CodeCommunicationChannelType> lhsField;
+            lhsField = this.getChannel();
+            JAXBElement<CodeCommunicationChannelType> rhsField;
+            rhsField = that.getChannel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "channel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "channel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSelectiveCall();
+            boolean rhsFieldIsSet = that.isSetSelectiveCall();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getSelectiveCall();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getSelectiveCall();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selectiveCall", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selectiveCall", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTrafficDirection();
+            boolean rhsFieldIsSet = that.isSetTrafficDirection();
+            JAXBElement<CodeCommunicationDirectionType> lhsField;
+            lhsField = this.getTrafficDirection();
+            JAXBElement<CodeCommunicationDirectionType> rhsField;
+            rhsField = that.getTrafficDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trafficDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trafficDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            List<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = (this.isSetLocation()?this.getLocation():null);
+            List<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = (that.isSetLocation()?that.getLocation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractLightElementStatusExtension"
 })
 @Entity(name = "LightElementStatusTypeExtensionType")
-@Table(name = "lightelementstatus_ext", schema = "shared")
+@Table(name = "lightelementstatus_e", schema = "shared")
 public class LightElementStatusTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class LightElementStatusTypeExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class LightElementStatusTypeExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractlightelementstatusextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractlightelementstatusextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractLightElementStatusExtension() {
         return abstractLightElementStatusExtension;
     }
@@ -273,19 +273,6 @@ public class LightElementStatusTypeExtensionType implements Serializable, Equals
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractLightElementStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractLightElementStatusExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractLightElementStatusExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractLightElementStatusExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLightElementStatusExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLightElementStatusExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -294,6 +281,19 @@ public class LightElementStatusTypeExtensionType implements Serializable, Equals
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractLightElementStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractLightElementStatusExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractLightElementStatusExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractLightElementStatusExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLightElementStatusExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLightElementStatusExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,28 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}LocalizerPropertyGroup"/>
+ *         <element name="designator" type="{http://www.aixm.aero/schema/5.1.1}CodeNavaidDesignatorType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="emissionClass" type="{http://www.aixm.aero/schema/5.1.1}CodeRadioEmissionType" minOccurs="0"/>
+ *         <element name="mobile" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="magneticVariation" type="{http://www.aixm.aero/schema/5.1.1}ValMagneticVariationType" minOccurs="0"/>
+ *         <element name="magneticVariationAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
+ *         <element name="dateMagneticVariation" type="{http://www.aixm.aero/schema/5.1.1}DateYearType" minOccurs="0"/>
+ *         <element name="flightChecked" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="authority" type="{http://www.aixm.aero/schema/5.1.1}AuthorityForNavaidEquipmentPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="monitoring" type="{http://www.aixm.aero/schema/5.1.1}NavaidEquipmentMonitoringPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}NavaidOperationalStatusPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="frequency" type="{http://www.aixm.aero/schema/5.1.1}ValFrequencyType" minOccurs="0"/>
+ *         <element name="magneticBearing" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="magneticBearingAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
+ *         <element name="trueBearing" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="trueBearingAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
+ *         <element name="declination" type="{http://www.aixm.aero/schema/5.1.1}ValMagneticVariationType" minOccurs="0"/>
+ *         <element name="widthCourse" type="{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
+ *         <element name="widthCourseAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
+ *         <element name="backCourseUsable" type="{http://www.aixm.aero/schema/5.1.1}CodeILSBackCourseType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -92,7 +112,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "LocalizerTimeSliceType")
-@Table(name = "localizer_ts", schema = "navaids_point")
+@Table(name = "localizer_t", schema = "navaids_point")
 public class LocalizerTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -437,13 +457,13 @@ public class LocalizerTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AuthorityForNavaidEquipmentPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AuthorityForNavaidEquipmentPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "authority_localizer_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "authority", referencedColumnName = "hjid")
+    @JoinTable(name = "localizer_t_authority_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "localizerpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "authority_hjid", referencedColumnName = "hjid")
     })
     public List<AuthorityForNavaidEquipmentPropertyType> getAuthority() {
         if (authority == null) {
@@ -491,13 +511,13 @@ public class LocalizerTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NavaidEquipmentMonitoringPropertyType.class, cascade = {
+    @OneToMany(targetEntity = NavaidEquipmentMonitoringPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "monitoring_localizer_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "monitoring", referencedColumnName = "hjid")
+    @JoinTable(name = "localizer_t_monitoring_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "localizerpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "monitoring_hjid", referencedColumnName = "hjid")
     })
     public List<NavaidEquipmentMonitoringPropertyType> getMonitoring() {
         if (monitoring == null) {
@@ -545,13 +565,13 @@ public class LocalizerTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NavaidOperationalStatusPropertyType.class, cascade = {
+    @OneToMany(targetEntity = NavaidOperationalStatusPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "availability_localizer_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    @JoinTable(name = "localizer_t_availability_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "localizerpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
     })
     public List<NavaidOperationalStatusPropertyType> getAvailability() {
         if (availability == null) {
@@ -599,13 +619,13 @@ public class LocalizerTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_localizer_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "localizer_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "localizerpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -926,7 +946,7 @@ public class LocalizerTimeSliceType
     @OneToMany(targetEntity = LocalizerExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_LOCALIZER_TIME_SLI_0")
+    @JoinColumn(name = "localizer_e_hjid", referencedColumnName = "hjid")
     public List<LocalizerExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -953,7 +973,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 4)),
+        @AttributeOverride(name = "value", column = @Column(name = "designator")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "designator_nilreason"))
     })
     public CodeNavaidDesignatorType getDesignatorItem() {
@@ -966,7 +986,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
+        @AttributeOverride(name = "value", column = @Column(name = "name")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "name_nilreason"))
     })
     public TextNameType getAixmNameItem() {
@@ -1005,7 +1025,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "magneticvariation", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "magneticvariation")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "magneticvariation_nilreason"))
     })
     public ValMagneticVariationType getMagneticVariationItem() {
@@ -1018,7 +1038,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "magneticvariationaccuracy", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "magneticvariationaccuracy")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "magneticvariationaccuracy_nilreason"))
     })
     public ValAngleType getMagneticVariationAccuracyItem() {
@@ -1031,7 +1051,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "datemagneticvariation", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "datemagneticvariation")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "datemagneticvariation_nilreason"))
     })
     public DateYearType getDateMagneticVariationItem() {
@@ -1055,10 +1075,14 @@ public class LocalizerTimeSliceType
         setFlightChecked(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "flightChecked"), LocalizerTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "location_id", referencedColumnName = "hjid")
+    @JoinTable(name = "localizer_t_location_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "localizer_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
@@ -1069,7 +1093,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "frequency", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "frequency")),
         @AttributeOverride(name = "uom", column = @Column(name = "frequency_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "frequency_nilreason"))
     })
@@ -1083,7 +1107,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "magneticbearing", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "magneticbearing")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "magneticbearing_nilreason"))
     })
     public ValBearingType getMagneticBearingItem() {
@@ -1096,7 +1120,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "magneticbearingaccuracy", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "magneticbearingaccuracy")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "magneticbearingaccuracy_nilreason"))
     })
     public ValAngleType getMagneticBearingAccuracyItem() {
@@ -1109,7 +1133,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "truebearing", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "truebearing")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "truebearing_nilreason"))
     })
     public ValBearingType getTrueBearingItem() {
@@ -1122,7 +1146,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "truebearingaccuracy", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "truebearingaccuracy")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "truebearingaccuracy_nilreason"))
     })
     public ValAngleType getTrueBearingAccuracyItem() {
@@ -1135,7 +1159,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "declination", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "declination")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "declination_nilreason"))
     })
     public ValMagneticVariationType getDeclinationItem() {
@@ -1148,7 +1172,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "widthcourse", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "widthcourse")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "widthcourse_nilreason"))
     })
     public ValAngleType getWidthCourseItem() {
@@ -1161,7 +1185,7 @@ public class LocalizerTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "widthcourseaccuracy", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "widthcourseaccuracy")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "widthcourseaccuracy_nilreason"))
     })
     public ValAngleType getWidthCourseAccuracyItem() {
@@ -1211,27 +1235,92 @@ public class LocalizerTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEmissionClass();
-            boolean rhsFieldIsSet = that.isSetEmissionClass();
-            JAXBElement<CodeRadioEmissionType> lhsField;
-            lhsField = this.getEmissionClass();
-            JAXBElement<CodeRadioEmissionType> rhsField;
-            rhsField = that.getEmissionClass();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emissionClass", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emissionClass", rhsField);
+            boolean lhsFieldIsSet = this.isSetBackCourseUsable();
+            boolean rhsFieldIsSet = that.isSetBackCourseUsable();
+            JAXBElement<CodeILSBackCourseType> lhsField;
+            lhsField = this.getBackCourseUsable();
+            JAXBElement<CodeILSBackCourseType> rhsField;
+            rhsField = that.getBackCourseUsable();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "backCourseUsable", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "backCourseUsable", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<LocalizerExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<LocalizerExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAuthority();
+            boolean rhsFieldIsSet = that.isSetAuthority();
+            List<AuthorityForNavaidEquipmentPropertyType> lhsField;
+            lhsField = (this.isSetAuthority()?this.getAuthority():null);
+            List<AuthorityForNavaidEquipmentPropertyType> rhsField;
+            rhsField = (that.isSetAuthority()?that.getAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDateMagneticVariation();
+            boolean rhsFieldIsSet = that.isSetDateMagneticVariation();
+            JAXBElement<DateYearType> lhsField;
+            lhsField = this.getDateMagneticVariation();
+            JAXBElement<DateYearType> rhsField;
+            rhsField = that.getDateMagneticVariation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateMagneticVariation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateMagneticVariation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMagneticBearingAccuracy();
+            boolean rhsFieldIsSet = that.isSetMagneticBearingAccuracy();
+            JAXBElement<ValAngleType> lhsField;
+            lhsField = this.getMagneticBearingAccuracy();
+            JAXBElement<ValAngleType> rhsField;
+            rhsField = that.getMagneticBearingAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticBearingAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticBearingAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTrueBearing();
+            boolean rhsFieldIsSet = that.isSetTrueBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getTrueBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getTrueBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTrueBearingAccuracy();
+            boolean rhsFieldIsSet = that.isSetTrueBearingAccuracy();
+            JAXBElement<ValAngleType> lhsField;
+            lhsField = this.getTrueBearingAccuracy();
+            JAXBElement<ValAngleType> rhsField;
+            rhsField = that.getTrueBearingAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearingAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearingAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightChecked();
+            boolean rhsFieldIsSet = that.isSetFlightChecked();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlightChecked();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlightChecked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1250,6 +1339,58 @@ public class LocalizerTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<LocalizerExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<LocalizerExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<NavaidOperationalStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<NavaidOperationalStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrequency();
+            boolean rhsFieldIsSet = that.isSetFrequency();
+            JAXBElement<ValFrequencyType> lhsField;
+            lhsField = this.getFrequency();
+            JAXBElement<ValFrequencyType> rhsField;
+            rhsField = that.getFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequency", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMagneticBearing();
             boolean rhsFieldIsSet = that.isSetMagneticBearing();
             JAXBElement<ValBearingType> lhsField;
@@ -1258,6 +1399,19 @@ public class LocalizerTimeSliceType
             rhsField = that.getMagneticBearing();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticBearing", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticBearing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDeclination();
+            boolean rhsFieldIsSet = that.isSetDeclination();
+            JAXBElement<ValMagneticVariationType> lhsField;
+            lhsField = this.getDeclination();
+            JAXBElement<ValMagneticVariationType> rhsField;
+            rhsField = that.getDeclination();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "declination", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "declination", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1289,183 +1443,14 @@ public class LocalizerTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMagneticBearingAccuracy();
-            boolean rhsFieldIsSet = that.isSetMagneticBearingAccuracy();
+            boolean lhsFieldIsSet = this.isSetWidthCourse();
+            boolean rhsFieldIsSet = that.isSetWidthCourse();
             JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getMagneticBearingAccuracy();
+            lhsField = this.getWidthCourse();
             JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getMagneticBearingAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticBearingAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticBearingAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTrueBearingAccuracy();
-            boolean rhsFieldIsSet = that.isSetTrueBearingAccuracy();
-            JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getTrueBearingAccuracy();
-            JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getTrueBearingAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearingAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearingAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFrequency();
-            boolean rhsFieldIsSet = that.isSetFrequency();
-            JAXBElement<ValFrequencyType> lhsField;
-            lhsField = this.getFrequency();
-            JAXBElement<ValFrequencyType> rhsField;
-            rhsField = that.getFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequency", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTrueBearing();
-            boolean rhsFieldIsSet = that.isSetTrueBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getTrueBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getTrueBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDeclination();
-            boolean rhsFieldIsSet = that.isSetDeclination();
-            JAXBElement<ValMagneticVariationType> lhsField;
-            lhsField = this.getDeclination();
-            JAXBElement<ValMagneticVariationType> rhsField;
-            rhsField = that.getDeclination();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "declination", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "declination", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetBackCourseUsable();
-            boolean rhsFieldIsSet = that.isSetBackCourseUsable();
-            JAXBElement<CodeILSBackCourseType> lhsField;
-            lhsField = this.getBackCourseUsable();
-            JAXBElement<CodeILSBackCourseType> rhsField;
-            rhsField = that.getBackCourseUsable();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "backCourseUsable", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "backCourseUsable", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMobile();
-            boolean rhsFieldIsSet = that.isSetMobile();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMobile();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMobile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mobile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mobile", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightChecked();
-            boolean rhsFieldIsSet = that.isSetFlightChecked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlightChecked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlightChecked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMagneticVariationAccuracy();
-            boolean rhsFieldIsSet = that.isSetMagneticVariationAccuracy();
-            JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getMagneticVariationAccuracy();
-            JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getMagneticVariationAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariationAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariationAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDateMagneticVariation();
-            boolean rhsFieldIsSet = that.isSetDateMagneticVariation();
-            JAXBElement<DateYearType> lhsField;
-            lhsField = this.getDateMagneticVariation();
-            JAXBElement<DateYearType> rhsField;
-            rhsField = that.getDateMagneticVariation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateMagneticVariation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateMagneticVariation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMonitoring();
-            boolean rhsFieldIsSet = that.isSetMonitoring();
-            List<NavaidEquipmentMonitoringPropertyType> lhsField;
-            lhsField = (this.isSetMonitoring()?this.getMonitoring():null);
-            List<NavaidEquipmentMonitoringPropertyType> rhsField;
-            rhsField = (that.isSetMonitoring()?that.getMonitoring():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "monitoring", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "monitoring", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAuthority();
-            boolean rhsFieldIsSet = that.isSetAuthority();
-            List<AuthorityForNavaidEquipmentPropertyType> lhsField;
-            lhsField = (this.isSetAuthority()?this.getAuthority():null);
-            List<AuthorityForNavaidEquipmentPropertyType> rhsField;
-            rhsField = (that.isSetAuthority()?that.getAuthority():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<NavaidOperationalStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<NavaidOperationalStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            rhsField = that.getWidthCourse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "widthCourse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "widthCourse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1484,14 +1469,53 @@ public class LocalizerTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWidthCourse();
-            boolean rhsFieldIsSet = that.isSetWidthCourse();
+            boolean lhsFieldIsSet = this.isSetMagneticVariationAccuracy();
+            boolean rhsFieldIsSet = that.isSetMagneticVariationAccuracy();
             JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getWidthCourse();
+            lhsField = this.getMagneticVariationAccuracy();
             JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getWidthCourse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "widthCourse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "widthCourse", rhsField);
+            rhsField = that.getMagneticVariationAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariationAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariationAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEmissionClass();
+            boolean rhsFieldIsSet = that.isSetEmissionClass();
+            JAXBElement<CodeRadioEmissionType> lhsField;
+            lhsField = this.getEmissionClass();
+            JAXBElement<CodeRadioEmissionType> rhsField;
+            rhsField = that.getEmissionClass();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emissionClass", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emissionClass", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMonitoring();
+            boolean rhsFieldIsSet = that.isSetMonitoring();
+            List<NavaidEquipmentMonitoringPropertyType> lhsField;
+            lhsField = (this.isSetMonitoring()?this.getMonitoring():null);
+            List<NavaidEquipmentMonitoringPropertyType> rhsField;
+            rhsField = (that.isSetMonitoring()?that.getMonitoring():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "monitoring", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "monitoring", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMobile();
+            boolean rhsFieldIsSet = that.isSetMobile();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMobile();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMobile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mobile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mobile", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

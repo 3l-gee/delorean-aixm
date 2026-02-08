@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractLinguisticNoteExtension"
 })
 @Entity(name = "LinguisticNoteTypeExtensionType")
-@Table(name = "linguisticnote_ext", schema = "note")
+@Table(name = "linguisticnote_e", schema = "note")
 public class LinguisticNoteTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class LinguisticNoteTypeExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractlinguisticnoteextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractlinguisticnoteextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractLinguisticNoteExtension() {
         return abstractLinguisticNoteExtension;
     }

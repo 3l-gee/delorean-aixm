@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAeronauticalGroundLightExtension"
 })
 @Entity(name = "AeronauticalGroundLightExtensionType")
-@Table(name = "aeronauticalgroundlight_ext", schema = "navaids_point")
+@Table(name = "aeronauticalgroundlight_e", schema = "navaids_point")
 public class AeronauticalGroundLightExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AeronauticalGroundLightExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaeronauticalgroundlightextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaeronauticalgroundlightextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAeronauticalGroundLightExtension() {
         return abstractAeronauticalGroundLightExtension;
     }

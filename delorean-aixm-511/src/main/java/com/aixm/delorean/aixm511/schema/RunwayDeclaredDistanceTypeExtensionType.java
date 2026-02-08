@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractRunwayDeclaredDistanceExtension"
 })
 @Entity(name = "RunwayDeclaredDistanceTypeExtensionType")
-@Table(name = "runwaydeclareddistance_ext", schema = "airport_heliport")
+@Table(name = "runwaydeclareddistance_e", schema = "airport_heliport")
 public class RunwayDeclaredDistanceTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class RunwayDeclaredDistanceTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwaydeclareddistanceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwaydeclareddistanceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayDeclaredDistanceExtension() {
         return abstractRunwayDeclaredDistanceExtension;
     }
@@ -223,19 +223,6 @@ public class RunwayDeclaredDistanceTypeExtensionType implements Serializable, Eq
         }
         final RunwayDeclaredDistanceTypeExtensionType that = ((RunwayDeclaredDistanceTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractRunwayDeclaredDistanceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractRunwayDeclaredDistanceExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class RunwayDeclaredDistanceTypeExtensionType implements Serializable, Eq
             rhsField = that.getAbstractRunwayDeclaredDistanceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayDeclaredDistanceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayDeclaredDistanceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

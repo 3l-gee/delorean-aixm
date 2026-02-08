@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "surfaceCharacteristics"
 })
 @Entity(name = "SurfaceCharacteristicsPropertyType")
-@Table(name = "surfacecharacteristics_pt", schema = "airport_heliport")
+@Table(name = "surfacecharacteristics_p", schema = "airport_heliport")
 public class SurfaceCharacteristicsPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class SurfaceCharacteristicsPropertyType
     @OneToOne(targetEntity = SurfaceCharacteristicsType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "surfacecharacteristics_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "surfacecharacteristics_hjid", referencedColumnName = "hjid")
     public SurfaceCharacteristicsType getSurfaceCharacteristics() {
         return surfaceCharacteristics;
     }

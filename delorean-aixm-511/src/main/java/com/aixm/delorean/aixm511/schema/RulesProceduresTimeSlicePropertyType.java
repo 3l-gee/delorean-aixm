@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RulesProceduresTimeSlicePropertyType", propOrder = {
     "rulesProceduresTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "RulesProceduresTimeSlicePropertyType")
-@Table(name = "rulesprocedures_tsp", schema = "rules_procedure")
+@Table(name = "rulesprocedures_tp", schema = "rules_procedure")
 public class RulesProceduresTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class RulesProceduresTimeSlicePropertyType implements Serializable, Equal
     @OneToOne(targetEntity = RulesProceduresTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "rulesprocedurestimeslice_hjid", referencedColumnName = "hjid")
     public RulesProceduresTimeSliceType getRulesProceduresTimeSlice() {
         return rulesProceduresTimeSlice;
     }

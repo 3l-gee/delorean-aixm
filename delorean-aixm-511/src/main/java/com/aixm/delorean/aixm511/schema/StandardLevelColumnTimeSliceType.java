@@ -15,9 +15,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -44,7 +43,12 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}StandardLevelColumnPropertyGroup"/>
+ *         <element name="series" type="{http://www.aixm.aero/schema/5.1.1}CodeLevelSeriesType" minOccurs="0"/>
+ *         <element name="unitOfMeasurement" type="{http://www.aixm.aero/schema/5.1.1}CodeDistanceVerticalUomType" minOccurs="0"/>
+ *         <element name="separation" type="{http://www.aixm.aero/schema/5.1.1}CodeRVSMType" minOccurs="0"/>
+ *         <element name="level" type="{http://www.aixm.aero/schema/5.1.1}StandardLevelPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="levelTable" type="{http://www.aixm.aero/schema/5.1.1}StandardLevelTablePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -76,7 +80,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "StandardLevelColumnTimeSliceType")
-@Table(name = "standardlevelcolumn_ts", schema = "shared")
+@Table(name = "standardlevelcolumn_t", schema = "shared")
 public class StandardLevelColumnTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -209,13 +213,13 @@ public class StandardLevelColumnTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = StandardLevelPropertyType.class, cascade = {
+    @OneToMany(targetEntity = StandardLevelPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "level_standardlevelcolumn_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "level", referencedColumnName = "hjid")
+    @JoinTable(name = "standardlevelcolumn_t_level_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "standardlevelcolumn_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "standardlevelcolumnpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "level_hjid", referencedColumnName = "hjid")
     })
     public List<StandardLevelPropertyType> getLevel() {
         if (level == null) {
@@ -293,13 +297,13 @@ public class StandardLevelColumnTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_standardlevelcolumn_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "standardlevelcolumn_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "standardlevelcolumn_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "standardlevelcolumnpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -350,7 +354,7 @@ public class StandardLevelColumnTimeSliceType
     @OneToMany(targetEntity = StandardLevelColumnExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_STANDARD_LEVEL_COL_0")
+    @JoinColumn(name = "standardlevelcolumn_e_hjid", referencedColumnName = "hjid")
     public List<StandardLevelColumnExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -411,10 +415,14 @@ public class StandardLevelColumnTimeSliceType
         setSeparation(XmlAdapterUtils.marshallJAXBElement(CodeRVSMType.class, new QName("http://www.aixm.aero/schema/5.1.1", "separation"), StandardLevelColumnTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = StandardLevelTablePropertyType.class, cascade = {
+    @OneToOne(targetEntity = StandardLevelTablePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "leveltable_id", referencedColumnName = "hjid")
+    @JoinTable(name = "standardlevelcolumn_t_leveltable_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "standardlevelcolumn_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "leveltable_hjid", referencedColumnName = "hjid")
+    })
     public StandardLevelTablePropertyType getLevelTableItem() {
         return XmlAdapterUtils.unmarshallSource(StandardLevelTablePropertyType.class, this.getLevelTable());
     }
@@ -436,27 +444,14 @@ public class StandardLevelColumnTimeSliceType
         }
         final StandardLevelColumnTimeSliceType that = ((StandardLevelColumnTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLevel();
-            boolean rhsFieldIsSet = that.isSetLevel();
-            List<StandardLevelPropertyType> lhsField;
-            lhsField = (this.isSetLevel()?this.getLevel():null);
-            List<StandardLevelPropertyType> rhsField;
-            rhsField = (that.isSetLevel()?that.getLevel():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<StandardLevelColumnExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<StandardLevelColumnExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -475,27 +470,14 @@ public class StandardLevelColumnTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<StandardLevelColumnExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<StandardLevelColumnExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSeries();
-            boolean rhsFieldIsSet = that.isSetSeries();
-            JAXBElement<CodeLevelSeriesType> lhsField;
-            lhsField = this.getSeries();
-            JAXBElement<CodeLevelSeriesType> rhsField;
-            rhsField = that.getSeries();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "series", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "series", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -509,6 +491,32 @@ public class StandardLevelColumnTimeSliceType
             rhsField = that.getUnitOfMeasurement();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitOfMeasurement", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitOfMeasurement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLevel();
+            boolean rhsFieldIsSet = that.isSetLevel();
+            List<StandardLevelPropertyType> lhsField;
+            lhsField = (this.isSetLevel()?this.getLevel():null);
+            List<StandardLevelPropertyType> rhsField;
+            rhsField = (that.isSetLevel()?that.getLevel():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSeries();
+            boolean rhsFieldIsSet = that.isSetSeries();
+            JAXBElement<CodeLevelSeriesType> lhsField;
+            lhsField = this.getSeries();
+            JAXBElement<CodeLevelSeriesType> rhsField;
+            rhsField = that.getSeries();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "series", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "series", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

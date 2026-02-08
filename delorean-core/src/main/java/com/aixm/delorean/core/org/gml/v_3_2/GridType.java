@@ -223,19 +223,6 @@ public class GridType extends AbstractGeometryType implements Serializable {
         }
         final GridType that = ((GridType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDimension();
-            boolean rhsFieldIsSet = that.isSetDimension();
-            BigInteger lhsField;
-            lhsField = this.getDimension();
-            BigInteger rhsField;
-            rhsField = that.getDimension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAxisName();
             boolean rhsFieldIsSet = that.isSetAxisName();
             List<String> lhsField;
@@ -244,6 +231,19 @@ public class GridType extends AbstractGeometryType implements Serializable {
             rhsField = (that.isSetAxisName() ? that.getAxisName() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGridAxisLabels();
+            boolean rhsFieldIsSet = that.isSetGridAxisLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetGridAxisLabels() ? this.getGridAxisLabels() : null);
+            List<String> rhsField;
+            rhsField = (that.isSetGridAxisLabels() ? that.getGridAxisLabels() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridAxisLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridAxisLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -262,14 +262,14 @@ public class GridType extends AbstractGeometryType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGridAxisLabels();
-            boolean rhsFieldIsSet = that.isSetGridAxisLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetGridAxisLabels() ? this.getGridAxisLabels() : null);
-            List<String> rhsField;
-            rhsField = (that.isSetGridAxisLabels() ? that.getGridAxisLabels() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridAxisLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridAxisLabels", rhsField);
+            boolean lhsFieldIsSet = this.isSetDimension();
+            boolean rhsFieldIsSet = that.isSetDimension();
+            BigInteger lhsField;
+            lhsField = this.getDimension();
+            BigInteger rhsField;
+            rhsField = that.getDimension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

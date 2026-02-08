@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractDeicingAreaExtension"
 })
 @Entity(name = "DeicingAreaExtensionType")
-@Table(name = "deicingarea_ext", schema = "airport_heliport")
+@Table(name = "deicingarea_e", schema = "airport_heliport")
 public class DeicingAreaExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class DeicingAreaExtensionType implements Serializable, Equals, HashCode,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractdeicingareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractdeicingareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDeicingAreaExtension() {
         return abstractDeicingAreaExtension;
     }
@@ -223,19 +223,6 @@ public class DeicingAreaExtensionType implements Serializable, Equals, HashCode,
         }
         final DeicingAreaExtensionType that = ((DeicingAreaExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDeicingAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDeicingAreaExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDeicingAreaExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDeicingAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDeicingAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDeicingAreaExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class DeicingAreaExtensionType implements Serializable, Equals, HashCode,
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractDeicingAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDeicingAreaExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDeicingAreaExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDeicingAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDeicingAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDeicingAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

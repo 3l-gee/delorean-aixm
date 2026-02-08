@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,9 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}NotePropertyGroup"/>
+ *         <element name="propertyName" type="{http://www.aixm.aero/schema/5.1.1}TextPropertyNameType" minOccurs="0"/>
+ *         <element name="purpose" type="{http://www.aixm.aero/schema/5.1.1}CodeNotePurposeType" minOccurs="0"/>
+ *         <element name="translatedNote" type="{http://www.aixm.aero/schema/5.1.1}LinguisticNotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -71,7 +72,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "NoteType")
-@Table(name = "note", schema = "note")
+@Table(name = "note_o", schema = "note")
 public class NoteType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -168,13 +169,13 @@ public class NoteType
      * 
      * 
      */
-    @ManyToMany(targetEntity = LinguisticNotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = LinguisticNotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "translatednote_note_link", schema = "note", joinColumns = {
-        @JoinColumn(name = "translatednote", referencedColumnName = "hjid")
+    @JoinTable(name = "note_o_translatednote_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "note_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "notepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "translatednote_hjid", referencedColumnName = "hjid")
     })
     public List<LinguisticNotePropertyType> getTranslatedNote() {
         if (translatedNote == null) {
@@ -225,7 +226,7 @@ public class NoteType
     @OneToMany(targetEntity = NoteTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_NOTE_TYPE_HJID")
+    @JoinColumn(name = "note_e_hjid", referencedColumnName = "hjid")
     public List<NoteTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -289,27 +290,14 @@ public class NoteType
         }
         final NoteType that = ((NoteType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NoteTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<NoteTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPurpose();
-            boolean rhsFieldIsSet = that.isSetPurpose();
-            JAXBElement<CodeNotePurposeType> lhsField;
-            lhsField = this.getPurpose();
-            JAXBElement<CodeNotePurposeType> rhsField;
-            rhsField = that.getPurpose();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "purpose", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "purpose", rhsField);
+            boolean lhsFieldIsSet = this.isSetPropertyName();
+            boolean rhsFieldIsSet = that.isSetPropertyName();
+            JAXBElement<TextPropertyNameType> lhsField;
+            lhsField = this.getPropertyName();
+            JAXBElement<TextPropertyNameType> rhsField;
+            rhsField = that.getPropertyName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "propertyName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "propertyName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -328,14 +316,27 @@ public class NoteType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPropertyName();
-            boolean rhsFieldIsSet = that.isSetPropertyName();
-            JAXBElement<TextPropertyNameType> lhsField;
-            lhsField = this.getPropertyName();
-            JAXBElement<TextPropertyNameType> rhsField;
-            rhsField = that.getPropertyName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "propertyName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "propertyName", rhsField);
+            boolean lhsFieldIsSet = this.isSetPurpose();
+            boolean rhsFieldIsSet = that.isSetPurpose();
+            JAXBElement<CodeNotePurposeType> lhsField;
+            lhsField = this.getPurpose();
+            JAXBElement<CodeNotePurposeType> rhsField;
+            rhsField = that.getPurpose();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "purpose", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "purpose", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NoteTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<NoteTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

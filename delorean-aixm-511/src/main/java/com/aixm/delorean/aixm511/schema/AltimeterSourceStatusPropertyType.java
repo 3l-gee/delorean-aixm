@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "altimeterSourceStatus"
 })
 @Entity(name = "AltimeterSourceStatusPropertyType")
-@Table(name = "altimetersourcestatus_pt", schema = "airport_heliport")
+@Table(name = "altimetersourcestatus_p", schema = "airport_heliport")
 public class AltimeterSourceStatusPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AltimeterSourceStatusPropertyType
     @OneToOne(targetEntity = AltimeterSourceStatusType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "altimetersourcestatus_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "altimetersourcestatus_hjid", referencedColumnName = "hjid")
     public AltimeterSourceStatusType getAltimeterSourceStatus() {
         return altimeterSourceStatus;
     }

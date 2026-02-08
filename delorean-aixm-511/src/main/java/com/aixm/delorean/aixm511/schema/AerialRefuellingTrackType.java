@@ -10,9 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -39,7 +38,10 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}AerialRefuellingTrackPropertyGroup"/>
+ *         <element name="extent" type="{http://www.aixm.aero/schema/5.1.1}CurvePropertyType" minOccurs="0"/>
+ *         <element name="point" type="{http://www.aixm.aero/schema/5.1.1}AerialRefuellingPointPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="verticalExtent" type="{http://www.aixm.aero/schema/5.1.1}AirspaceLayerPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -69,7 +71,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "AerialRefuellingTrackType")
-@Table(name = "aerialrefuellingtrack", schema = "aerial_refuelling")
+@Table(name = "aerialrefuellingtrack_o", schema = "aerial_refuelling")
 public class AerialRefuellingTrackType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -138,13 +140,13 @@ public class AerialRefuellingTrackType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AerialRefuellingPointPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AerialRefuellingPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "point_aerialrefuellingtrack_link", schema = "aerial_refuelling", joinColumns = {
-        @JoinColumn(name = "point", referencedColumnName = "hjid")
+    @JoinTable(name = "aerialrefuellingtrack_o_point_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "aerialrefuellingtrack_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "aerialrefuellingtrackpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "point_hjid", referencedColumnName = "hjid")
     })
     public List<AerialRefuellingPointPropertyType> getPoint() {
         if (point == null) {
@@ -192,13 +194,13 @@ public class AerialRefuellingTrackType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "verticalextent_aerialrefuellingtrack_link", schema = "aerial_refuelling", joinColumns = {
-        @JoinColumn(name = "verticalextent", referencedColumnName = "hjid")
+    @JoinTable(name = "aerialrefuellingtrack_o_verticalextent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "aerialrefuellingtrack_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "aerialrefuellingtrackpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "verticalextent_hjid", referencedColumnName = "hjid")
     })
     public List<AirspaceLayerPropertyType> getVerticalExtent() {
         if (verticalExtent == null) {
@@ -246,13 +248,13 @@ public class AerialRefuellingTrackType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_aerialrefuellingtrack_link", schema = "aerial_refuelling", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "aerialrefuellingtrack_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "aerialrefuellingtrack_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "aerialrefuellingtrackpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -303,7 +305,7 @@ public class AerialRefuellingTrackType
     @OneToMany(targetEntity = AerialRefuellingTrackTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AERIAL_REFUELLING__3")
+    @JoinColumn(name = "aerialrefuellingtrack_e_hjid", referencedColumnName = "hjid")
     public List<AerialRefuellingTrackTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -328,10 +330,14 @@ public class AerialRefuellingTrackType
         this.extension = null;
     }
 
-    @ManyToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_id", referencedColumnName = "hjid")
+    @JoinTable(name = "aerialrefuellingtrack_o_extent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "aerialrefuellingtrack_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMCurvePropertyType getExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMCurvePropertyType.class, this.getExtent());
     }
@@ -353,19 +359,6 @@ public class AerialRefuellingTrackType
         }
         final AerialRefuellingTrackType that = ((AerialRefuellingTrackType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AerialRefuellingTrackTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AerialRefuellingTrackTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVerticalExtent();
             boolean rhsFieldIsSet = that.isSetVerticalExtent();
             List<AirspaceLayerPropertyType> lhsField;
@@ -379,14 +372,27 @@ public class AerialRefuellingTrackType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AerialRefuellingTrackTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AerialRefuellingTrackTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPoint();
+            boolean rhsFieldIsSet = that.isSetPoint();
+            List<AerialRefuellingPointPropertyType> lhsField;
+            lhsField = (this.isSetPoint()?this.getPoint():null);
+            List<AerialRefuellingPointPropertyType> rhsField;
+            rhsField = (that.isSetPoint()?that.getPoint():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -405,14 +411,14 @@ public class AerialRefuellingTrackType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPoint();
-            boolean rhsFieldIsSet = that.isSetPoint();
-            List<AerialRefuellingPointPropertyType> lhsField;
-            lhsField = (this.isSetPoint()?this.getPoint():null);
-            List<AerialRefuellingPointPropertyType> rhsField;
-            rhsField = (that.isSetPoint()?that.getPoint():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

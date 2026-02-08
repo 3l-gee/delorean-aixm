@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractNavaidEquipmentExtension"
 })
 @Entity(name = "MarkerBeaconExtensionType")
-@Table(name = "markerbeacon_ext", schema = "navaids_point")
+@Table(name = "markerbeacon_e", schema = "navaids_point")
 public class MarkerBeaconExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class MarkerBeaconExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmarkerbeaconextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmarkerbeaconextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMarkerBeaconExtension() {
         return abstractMarkerBeaconExtension;
     }
@@ -123,7 +123,7 @@ public class MarkerBeaconExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipmentextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }
@@ -260,14 +260,14 @@ public class MarkerBeaconExtensionType implements Serializable, Equals, HashCode
         }
         final MarkerBeaconExtensionType that = ((MarkerBeaconExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractMarkerBeaconExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractMarkerBeaconExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractMarkerBeaconExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractMarkerBeaconExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkerBeaconExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkerBeaconExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class MarkerBeaconExtensionType implements Serializable, Equals, HashCode
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractMarkerBeaconExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractMarkerBeaconExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractMarkerBeaconExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractMarkerBeaconExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkerBeaconExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkerBeaconExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

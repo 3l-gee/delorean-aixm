@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SecondarySurveillanceRadarTimeSlicePropertyType", propOrder = {
     "secondarySurveillanceRadarTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "SecondarySurveillanceRadarTimeSlicePropertyType")
-@Table(name = "secondarysurveillanceradar_tsp", schema = "surveillance")
+@Table(name = "secondarysurveillanceradar_tp", schema = "surveillance")
 public class SecondarySurveillanceRadarTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class SecondarySurveillanceRadarTimeSlicePropertyType implements Serializ
     @OneToOne(targetEntity = SecondarySurveillanceRadarTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "secondarysurveillanceradartimeslice_hjid", referencedColumnName = "hjid")
     public SecondarySurveillanceRadarTimeSliceType getSecondarySurveillanceRadarTimeSlice() {
         return secondarySurveillanceRadarTimeSlice;
     }
@@ -230,19 +230,6 @@ public class SecondarySurveillanceRadarTimeSlicePropertyType implements Serializ
         }
         final SecondarySurveillanceRadarTimeSlicePropertyType that = ((SecondarySurveillanceRadarTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSecondarySurveillanceRadarTimeSlice();
-            boolean rhsFieldIsSet = that.isSetSecondarySurveillanceRadarTimeSlice();
-            SecondarySurveillanceRadarTimeSliceType lhsField;
-            lhsField = this.getSecondarySurveillanceRadarTimeSlice();
-            SecondarySurveillanceRadarTimeSliceType rhsField;
-            rhsField = that.getSecondarySurveillanceRadarTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "secondarySurveillanceRadarTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "secondarySurveillanceRadarTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class SecondarySurveillanceRadarTimeSlicePropertyType implements Serializ
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSecondarySurveillanceRadarTimeSlice();
+            boolean rhsFieldIsSet = that.isSetSecondarySurveillanceRadarTimeSlice();
+            SecondarySurveillanceRadarTimeSliceType lhsField;
+            lhsField = this.getSecondarySurveillanceRadarTimeSlice();
+            SecondarySurveillanceRadarTimeSliceType rhsField;
+            rhsField = that.getSecondarySurveillanceRadarTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "secondarySurveillanceRadarTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "secondarySurveillanceRadarTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

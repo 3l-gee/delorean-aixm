@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "authorityForSpecialNavigationStation"
 })
 @Entity(name = "AuthorityForSpecialNavigationStationPropertyType")
-@Table(name = "authorityforspecialnavigationstation_pt", schema = "navaids_point")
+@Table(name = "authorityforspecialnavigationstation_p", schema = "navaids_point")
 public class AuthorityForSpecialNavigationStationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AuthorityForSpecialNavigationStationPropertyType
     @OneToOne(targetEntity = AuthorityForSpecialNavigationStationType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "authorityforspecialnavigationstation_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "authorityforspecialnavigationstation_hjid", referencedColumnName = "hjid")
     public AuthorityForSpecialNavigationStationType getAuthorityForSpecialNavigationStation() {
         return authorityForSpecialNavigationStation;
     }

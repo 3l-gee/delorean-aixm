@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractVerticalStructureExtension"
 })
 @Entity(name = "VerticalStructureExtensionType")
-@Table(name = "verticalstructure_ext", schema = "obstacle")
+@Table(name = "verticalstructure_e", schema = "obstacle")
 public class VerticalStructureExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class VerticalStructureExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractverticalstructureextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractverticalstructureextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractVerticalStructureExtension() {
         return abstractVerticalStructureExtension;
     }

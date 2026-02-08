@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "CheckpointINSTimeSlicePropertyType", propOrder = {
     "checkpointINSTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "CheckpointINSTimeSlicePropertyType")
-@Table(name = "checkpointins_tsp", schema = "navaids_point")
+@Table(name = "checkpointins_tp", schema = "navaids_point")
 public class CheckpointINSTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class CheckpointINSTimeSlicePropertyType implements Serializable, Equals,
     @OneToOne(targetEntity = CheckpointINSTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "checkpointinstimeslice_hjid", referencedColumnName = "hjid")
     public CheckpointINSTimeSliceType getCheckpointINSTimeSlice() {
         return checkpointINSTimeSlice;
     }
@@ -230,19 +230,6 @@ public class CheckpointINSTimeSlicePropertyType implements Serializable, Equals,
         }
         final CheckpointINSTimeSlicePropertyType that = ((CheckpointINSTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCheckpointINSTimeSlice();
-            boolean rhsFieldIsSet = that.isSetCheckpointINSTimeSlice();
-            CheckpointINSTimeSliceType lhsField;
-            lhsField = this.getCheckpointINSTimeSlice();
-            CheckpointINSTimeSliceType rhsField;
-            rhsField = that.getCheckpointINSTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "checkpointINSTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "checkpointINSTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class CheckpointINSTimeSlicePropertyType implements Serializable, Equals,
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCheckpointINSTimeSlice();
+            boolean rhsFieldIsSet = that.isSetCheckpointINSTimeSlice();
+            CheckpointINSTimeSliceType lhsField;
+            lhsField = this.getCheckpointINSTimeSlice();
+            CheckpointINSTimeSliceType rhsField;
+            rhsField = that.getCheckpointINSTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "checkpointINSTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "checkpointINSTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

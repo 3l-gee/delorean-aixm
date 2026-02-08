@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ApronLightSystemTimeSlicePropertyType", propOrder = {
     "apronLightSystemTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "ApronLightSystemTimeSlicePropertyType")
-@Table(name = "apronlightsystem_tsp", schema = "airport_heliport")
+@Table(name = "apronlightsystem_tp", schema = "airport_heliport")
 public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
     @OneToOne(targetEntity = ApronLightSystemTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "apronlightsystemtimeslice_hjid", referencedColumnName = "hjid")
     public ApronLightSystemTimeSliceType getApronLightSystemTimeSlice() {
         return apronLightSystemTimeSlice;
     }

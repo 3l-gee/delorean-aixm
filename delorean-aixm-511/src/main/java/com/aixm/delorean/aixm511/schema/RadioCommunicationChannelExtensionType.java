@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractRadioCommunicationChannelExtension"
 })
 @Entity(name = "RadioCommunicationChannelExtensionType")
-@Table(name = "radiocommunicationchannel_ext", schema = "service")
+@Table(name = "radiocommunicationchannel_e", schema = "service")
 public class RadioCommunicationChannelExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class RadioCommunicationChannelExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractradiocommunicationchannelextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractradiocommunicationchannelextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadioCommunicationChannelExtension() {
         return abstractRadioCommunicationChannelExtension;
     }
@@ -223,19 +223,6 @@ public class RadioCommunicationChannelExtensionType implements Serializable, Equ
         }
         final RadioCommunicationChannelExtensionType that = ((RadioCommunicationChannelExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractRadioCommunicationChannelExtension();
             boolean rhsFieldIsSet = that.isSetAbstractRadioCommunicationChannelExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class RadioCommunicationChannelExtensionType implements Serializable, Equ
             rhsField = that.getAbstractRadioCommunicationChannelExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadioCommunicationChannelExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadioCommunicationChannelExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

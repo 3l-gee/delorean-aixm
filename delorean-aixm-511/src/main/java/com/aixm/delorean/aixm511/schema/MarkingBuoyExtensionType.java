@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractMarkingBuoyExtension"
 })
 @Entity(name = "MarkingBuoyExtensionType")
-@Table(name = "markingbuoy_ext", schema = "airport_heliport")
+@Table(name = "markingbuoy_e", schema = "airport_heliport")
 public class MarkingBuoyExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class MarkingBuoyExtensionType implements Serializable, Equals, HashCode,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmarkingbuoyextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmarkingbuoyextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMarkingBuoyExtension() {
         return abstractMarkingBuoyExtension;
     }

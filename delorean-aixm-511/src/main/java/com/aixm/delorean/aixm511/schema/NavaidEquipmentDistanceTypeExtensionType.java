@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractNavaidEquipmentDistanceExtension"
 })
 @Entity(name = "NavaidEquipmentDistanceTypeExtensionType")
-@Table(name = "navaidequipmentdistance_ext", schema = "airport_heliport")
+@Table(name = "navaidequipmentdistance_e", schema = "airport_heliport")
 public class NavaidEquipmentDistanceTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class NavaidEquipmentDistanceTypeExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipmentdistanceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentdistanceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentDistanceExtension() {
         return abstractNavaidEquipmentDistanceExtension;
     }
@@ -223,19 +223,6 @@ public class NavaidEquipmentDistanceTypeExtensionType implements Serializable, E
         }
         final NavaidEquipmentDistanceTypeExtensionType that = ((NavaidEquipmentDistanceTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentDistanceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentDistanceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentDistanceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentDistanceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentDistanceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentDistanceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class NavaidEquipmentDistanceTypeExtensionType implements Serializable, E
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentDistanceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentDistanceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavaidEquipmentDistanceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavaidEquipmentDistanceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentDistanceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentDistanceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

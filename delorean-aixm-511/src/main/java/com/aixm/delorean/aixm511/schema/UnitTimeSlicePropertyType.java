@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "UnitTimeSlicePropertyType", propOrder = {
     "unitTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "UnitTimeSlicePropertyType")
-@Table(name = "unit_tsp", schema = "organisation")
+@Table(name = "unit_tp", schema = "organisation")
 public class UnitTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class UnitTimeSlicePropertyType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = UnitTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "unittimeslice_hjid", referencedColumnName = "hjid")
     public UnitTimeSliceType getUnitTimeSlice() {
         return unitTimeSlice;
     }
@@ -230,19 +230,6 @@ public class UnitTimeSlicePropertyType implements Serializable, Equals, HashCode
         }
         final UnitTimeSlicePropertyType that = ((UnitTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUnitTimeSlice();
-            boolean rhsFieldIsSet = that.isSetUnitTimeSlice();
-            UnitTimeSliceType lhsField;
-            lhsField = this.getUnitTimeSlice();
-            UnitTimeSliceType rhsField;
-            rhsField = that.getUnitTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class UnitTimeSlicePropertyType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUnitTimeSlice();
+            boolean rhsFieldIsSet = that.isSetUnitTimeSlice();
+            UnitTimeSliceType lhsField;
+            lhsField = this.getUnitTimeSlice();
+            UnitTimeSliceType rhsField;
+            rhsField = that.getUnitTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "approachAltitudeTable"
 })
 @Entity(name = "ApproachAltitudeTablePropertyType")
-@Table(name = "approachaltitudetable_pt", schema = "procedure")
+@Table(name = "approachaltitudetable_p", schema = "procedure")
 public class ApproachAltitudeTablePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ApproachAltitudeTablePropertyType
     @OneToOne(targetEntity = ApproachAltitudeTableType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "approachaltitudetable_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "approachaltitudetable_hjid", referencedColumnName = "hjid")
     public ApproachAltitudeTableType getApproachAltitudeTable() {
         return approachAltitudeTable;
     }

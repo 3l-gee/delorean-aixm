@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,17 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}GuidanceLinePropertyGroup"/>
+ *         <element name="designator" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeGuidanceLineType" minOccurs="0"/>
+ *         <element name="maxSpeed" type="{http://www.aixm.aero/schema/5.1.1}ValSpeedType" minOccurs="0"/>
+ *         <element name="usageDirection" type="{http://www.aixm.aero/schema/5.1.1}CodeDirectionType" minOccurs="0"/>
+ *         <element name="connectedTouchDownLiftOff" type="{http://www.aixm.aero/schema/5.1.1}TouchDownLiftOffPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="connectedRunwayCentrelinePoint" type="{http://www.aixm.aero/schema/5.1.1}RunwayCentrelinePointPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="connectedApron" type="{http://www.aixm.aero/schema/5.1.1}ApronPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="connectedStand" type="{http://www.aixm.aero/schema/5.1.1}AircraftStandPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="extent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedCurvePropertyType" minOccurs="0"/>
+ *         <element name="connectedTaxiway" type="{http://www.aixm.aero/schema/5.1.1}TaxiwayPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -80,7 +89,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "GuidanceLineTimeSliceType")
-@Table(name = "guidanceline_ts", schema = "airport_heliport")
+@Table(name = "guidanceline_t", schema = "airport_heliport")
 public class GuidanceLineTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -253,13 +262,13 @@ public class GuidanceLineTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+    @OneToMany(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "connectedtouchdownliftoff_guidanceline_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "connectedtouchdownliftoff", referencedColumnName = "hjid")
+    @JoinTable(name = "guidanceline_t_connectedtouchdownliftoff_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidanceline_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "connectedtouchdownliftoff_hjid", referencedColumnName = "hjid")
     })
     public List<TouchDownLiftOffPropertyType> getConnectedTouchDownLiftOff() {
         if (connectedTouchDownLiftOff == null) {
@@ -307,13 +316,13 @@ public class GuidanceLineTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
+    @OneToMany(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "connectedrunwaycentrelinepoint_guidanceline_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "connectedrunwaycentrelinepoint", referencedColumnName = "hjid")
+    @JoinTable(name = "guidanceline_t_connectedrunwaycentrelinepoint_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidanceline_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "connectedrunwaycentrelinepoint_hjid", referencedColumnName = "hjid")
     })
     public List<RunwayCentrelinePointPropertyType> getConnectedRunwayCentrelinePoint() {
         if (connectedRunwayCentrelinePoint == null) {
@@ -361,13 +370,13 @@ public class GuidanceLineTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ApronPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ApronPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "connectedapron_guidanceline_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "connectedapron", referencedColumnName = "hjid")
+    @JoinTable(name = "guidanceline_t_connectedapron_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidanceline_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "connectedapron_hjid", referencedColumnName = "hjid")
     })
     public List<ApronPropertyType> getConnectedApron() {
         if (connectedApron == null) {
@@ -415,13 +424,13 @@ public class GuidanceLineTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AircraftStandPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AircraftStandPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "connectedstand_guidanceline_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "connectedstand", referencedColumnName = "hjid")
+    @JoinTable(name = "guidanceline_t_connectedstand_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidanceline_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "connectedstand_hjid", referencedColumnName = "hjid")
     })
     public List<AircraftStandPropertyType> getConnectedStand() {
         if (connectedStand == null) {
@@ -499,13 +508,13 @@ public class GuidanceLineTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = TaxiwayPropertyType.class, cascade = {
+    @OneToMany(targetEntity = TaxiwayPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "connectedtaxiway_guidanceline_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "connectedtaxiway", referencedColumnName = "hjid")
+    @JoinTable(name = "guidanceline_t_connectedtaxiway_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidanceline_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "connectedtaxiway_hjid", referencedColumnName = "hjid")
     })
     public List<TaxiwayPropertyType> getConnectedTaxiway() {
         if (connectedTaxiway == null) {
@@ -553,13 +562,13 @@ public class GuidanceLineTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_guidanceline_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "guidanceline_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidanceline_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -610,7 +619,7 @@ public class GuidanceLineTimeSliceType
     @OneToMany(targetEntity = GuidanceLineExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_GUIDANCE_LINE_TIME_0")
+    @JoinColumn(name = "guidanceline_e_hjid", referencedColumnName = "hjid")
     public List<GuidanceLineExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -637,7 +646,7 @@ public class GuidanceLineTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 60)),
+        @AttributeOverride(name = "value", column = @Column(name = "designator")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "designator_nilreason"))
     })
     public TextNameType getDesignatorItem() {
@@ -663,7 +672,7 @@ public class GuidanceLineTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "maxspeed", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "maxspeed")),
         @AttributeOverride(name = "uom", column = @Column(name = "maxspeed_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "maxspeed_nilreason"))
     })
@@ -688,10 +697,14 @@ public class GuidanceLineTimeSliceType
         setUsageDirection(XmlAdapterUtils.marshallJAXBElement(CodeDirectionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "usageDirection"), GuidanceLineTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedCurvePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedCurvePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_id", referencedColumnName = "hjid")
+    @JoinTable(name = "guidanceline_t_extent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidanceline_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedCurvePropertyType getExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedCurvePropertyType.class, this.getExtent());
     }
@@ -713,14 +726,118 @@ public class GuidanceLineTimeSliceType
         }
         final GuidanceLineTimeSliceType that = ((GuidanceLineTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<GuidanceLineExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<GuidanceLineExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetUsageDirection();
+            boolean rhsFieldIsSet = that.isSetUsageDirection();
+            JAXBElement<CodeDirectionType> lhsField;
+            lhsField = this.getUsageDirection();
+            JAXBElement<CodeDirectionType> rhsField;
+            rhsField = that.getUsageDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usageDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usageDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeGuidanceLineType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeGuidanceLineType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetConnectedTouchDownLiftOff();
+            boolean rhsFieldIsSet = that.isSetConnectedTouchDownLiftOff();
+            List<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = (this.isSetConnectedTouchDownLiftOff()?this.getConnectedTouchDownLiftOff():null);
+            List<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = (that.isSetConnectedTouchDownLiftOff()?that.getConnectedTouchDownLiftOff():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedTouchDownLiftOff", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedTouchDownLiftOff", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMaxSpeed();
+            boolean rhsFieldIsSet = that.isSetMaxSpeed();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getMaxSpeed();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getMaxSpeed();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxSpeed", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxSpeed", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetConnectedApron();
+            boolean rhsFieldIsSet = that.isSetConnectedApron();
+            List<ApronPropertyType> lhsField;
+            lhsField = (this.isSetConnectedApron()?this.getConnectedApron():null);
+            List<ApronPropertyType> rhsField;
+            rhsField = (that.isSetConnectedApron()?that.getConnectedApron():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedApron", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedApron", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetConnectedRunwayCentrelinePoint();
+            boolean rhsFieldIsSet = that.isSetConnectedRunwayCentrelinePoint();
+            List<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = (this.isSetConnectedRunwayCentrelinePoint()?this.getConnectedRunwayCentrelinePoint():null);
+            List<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = (that.isSetConnectedRunwayCentrelinePoint()?that.getConnectedRunwayCentrelinePoint():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedRunwayCentrelinePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedRunwayCentrelinePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetConnectedTaxiway();
+            boolean rhsFieldIsSet = that.isSetConnectedTaxiway();
+            List<TaxiwayPropertyType> lhsField;
+            lhsField = (this.isSetConnectedTaxiway()?this.getConnectedTaxiway():null);
+            List<TaxiwayPropertyType> rhsField;
+            rhsField = (that.isSetConnectedTaxiway()?that.getConnectedTaxiway():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedTaxiway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedTaxiway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -752,118 +869,14 @@ public class GuidanceLineTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeGuidanceLineType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeGuidanceLineType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetConnectedTouchDownLiftOff();
-            boolean rhsFieldIsSet = that.isSetConnectedTouchDownLiftOff();
-            List<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = (this.isSetConnectedTouchDownLiftOff()?this.getConnectedTouchDownLiftOff():null);
-            List<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = (that.isSetConnectedTouchDownLiftOff()?that.getConnectedTouchDownLiftOff():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedTouchDownLiftOff", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedTouchDownLiftOff", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetConnectedTaxiway();
-            boolean rhsFieldIsSet = that.isSetConnectedTaxiway();
-            List<TaxiwayPropertyType> lhsField;
-            lhsField = (this.isSetConnectedTaxiway()?this.getConnectedTaxiway():null);
-            List<TaxiwayPropertyType> rhsField;
-            rhsField = (that.isSetConnectedTaxiway()?that.getConnectedTaxiway():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedTaxiway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedTaxiway", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetConnectedApron();
-            boolean rhsFieldIsSet = that.isSetConnectedApron();
-            List<ApronPropertyType> lhsField;
-            lhsField = (this.isSetConnectedApron()?this.getConnectedApron():null);
-            List<ApronPropertyType> rhsField;
-            rhsField = (that.isSetConnectedApron()?that.getConnectedApron():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedApron", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedApron", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMaxSpeed();
-            boolean rhsFieldIsSet = that.isSetMaxSpeed();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getMaxSpeed();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getMaxSpeed();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxSpeed", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxSpeed", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetConnectedRunwayCentrelinePoint();
-            boolean rhsFieldIsSet = that.isSetConnectedRunwayCentrelinePoint();
-            List<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = (this.isSetConnectedRunwayCentrelinePoint()?this.getConnectedRunwayCentrelinePoint():null);
-            List<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = (that.isSetConnectedRunwayCentrelinePoint()?that.getConnectedRunwayCentrelinePoint():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedRunwayCentrelinePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedRunwayCentrelinePoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUsageDirection();
-            boolean rhsFieldIsSet = that.isSetUsageDirection();
-            JAXBElement<CodeDirectionType> lhsField;
-            lhsField = this.getUsageDirection();
-            JAXBElement<CodeDirectionType> rhsField;
-            rhsField = that.getUsageDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usageDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usageDirection", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<GuidanceLineExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<GuidanceLineExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

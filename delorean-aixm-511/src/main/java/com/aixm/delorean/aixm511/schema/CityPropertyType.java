@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "city"
 })
 @Entity(name = "CityPropertyType")
-@Table(name = "city_pt", schema = "airport_heliport")
+@Table(name = "city_p", schema = "airport_heliport")
 public class CityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class CityPropertyType
     @OneToOne(targetEntity = CityType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "city_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "city_hjid", referencedColumnName = "hjid")
     public CityType getCity() {
         return city;
     }

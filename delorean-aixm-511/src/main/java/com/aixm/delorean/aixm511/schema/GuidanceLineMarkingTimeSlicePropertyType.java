@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "GuidanceLineMarkingTimeSlicePropertyType", propOrder = {
     "guidanceLineMarkingTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "GuidanceLineMarkingTimeSlicePropertyType")
-@Table(name = "guidancelinemarking_tsp", schema = "airport_heliport")
+@Table(name = "guidancelinemarking_tp", schema = "airport_heliport")
 public class GuidanceLineMarkingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class GuidanceLineMarkingTimeSlicePropertyType implements Serializable, E
     @OneToOne(targetEntity = GuidanceLineMarkingTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "guidancelinemarkingtimeslice_hjid", referencedColumnName = "hjid")
     public GuidanceLineMarkingTimeSliceType getGuidanceLineMarkingTimeSlice() {
         return guidanceLineMarkingTimeSlice;
     }
@@ -230,19 +230,6 @@ public class GuidanceLineMarkingTimeSlicePropertyType implements Serializable, E
         }
         final GuidanceLineMarkingTimeSlicePropertyType that = ((GuidanceLineMarkingTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGuidanceLineMarkingTimeSlice();
-            boolean rhsFieldIsSet = that.isSetGuidanceLineMarkingTimeSlice();
-            GuidanceLineMarkingTimeSliceType lhsField;
-            lhsField = this.getGuidanceLineMarkingTimeSlice();
-            GuidanceLineMarkingTimeSliceType rhsField;
-            rhsField = that.getGuidanceLineMarkingTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceLineMarkingTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceLineMarkingTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class GuidanceLineMarkingTimeSlicePropertyType implements Serializable, E
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGuidanceLineMarkingTimeSlice();
+            boolean rhsFieldIsSet = that.isSetGuidanceLineMarkingTimeSlice();
+            GuidanceLineMarkingTimeSliceType lhsField;
+            lhsField = this.getGuidanceLineMarkingTimeSlice();
+            GuidanceLineMarkingTimeSliceType rhsField;
+            rhsField = that.getGuidanceLineMarkingTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceLineMarkingTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceLineMarkingTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -10,9 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -39,7 +38,9 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}AirspaceBorderCrossingPropertyGroup"/>
+ *         <element name="exitedAirspace" type="{http://www.aixm.aero/schema/5.1.1}AirspacePropertyType" minOccurs="0"/>
+ *         <element name="enteredAirspace" type="{http://www.aixm.aero/schema/5.1.1}AirspacePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -68,7 +69,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "AirspaceBorderCrossingTimeSliceType")
-@Table(name = "airspacebordercrossing_ts", schema = "route")
+@Table(name = "airspacebordercrossing_t", schema = "route")
 public class AirspaceBorderCrossingTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -165,13 +166,13 @@ public class AirspaceBorderCrossingTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_airspacebordercrossing_link", schema = "route", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "airspacebordercrossing_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airspacebordercrossing_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airspacebordercrossingpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -222,7 +223,7 @@ public class AirspaceBorderCrossingTimeSliceType
     @OneToMany(targetEntity = AirspaceBorderCrossingExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIRSPACE_BORDER_CR_0")
+    @JoinColumn(name = "airspacebordercrossing_e_hjid", referencedColumnName = "hjid")
     public List<AirspaceBorderCrossingExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -247,10 +248,14 @@ public class AirspaceBorderCrossingTimeSliceType
         this.extension = null;
     }
 
-    @ManyToOne(targetEntity = AirspacePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "exitedairspace_id", referencedColumnName = "hjid")
+    @JoinTable(name = "airspacebordercrossing_t_exitedairspace_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airspacebordercrossing_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "exitedairspace_hjid", referencedColumnName = "hjid")
+    })
     public AirspacePropertyType getExitedAirspaceItem() {
         return XmlAdapterUtils.unmarshallSource(AirspacePropertyType.class, this.getExitedAirspace());
     }
@@ -259,10 +264,14 @@ public class AirspaceBorderCrossingTimeSliceType
         setExitedAirspace(XmlAdapterUtils.marshallJAXBElement(AirspacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "exitedAirspace"), AirspaceBorderCrossingTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirspacePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "enteredairspace_id", referencedColumnName = "hjid")
+    @JoinTable(name = "airspacebordercrossing_t_enteredairspace_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airspacebordercrossing_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "enteredairspace_hjid", referencedColumnName = "hjid")
+    })
     public AirspacePropertyType getEnteredAirspaceItem() {
         return XmlAdapterUtils.unmarshallSource(AirspacePropertyType.class, this.getEnteredAirspace());
     }
@@ -283,19 +292,6 @@ public class AirspaceBorderCrossingTimeSliceType
             return false;
         }
         final AirspaceBorderCrossingTimeSliceType that = ((AirspaceBorderCrossingTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetEnteredAirspace();
-            boolean rhsFieldIsSet = that.isSetEnteredAirspace();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getEnteredAirspace();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getEnteredAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "enteredAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "enteredAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
@@ -331,6 +327,19 @@ public class AirspaceBorderCrossingTimeSliceType
             rhsField = that.getExitedAirspace();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exitedAirspace", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exitedAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEnteredAirspace();
+            boolean rhsFieldIsSet = that.isSetEnteredAirspace();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getEnteredAirspace();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getEnteredAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "enteredAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "enteredAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

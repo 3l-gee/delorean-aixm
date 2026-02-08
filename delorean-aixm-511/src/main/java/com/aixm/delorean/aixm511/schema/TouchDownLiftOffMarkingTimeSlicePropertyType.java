@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "TouchDownLiftOffMarkingTimeSlicePropertyType", propOrder = {
     "touchDownLiftOffMarkingTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "TouchDownLiftOffMarkingTimeSlicePropertyType")
-@Table(name = "touchdownliftoffmarking_tsp", schema = "airport_heliport")
+@Table(name = "touchdownliftoffmarking_tp", schema = "airport_heliport")
 public class TouchDownLiftOffMarkingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class TouchDownLiftOffMarkingTimeSlicePropertyType implements Serializabl
     @OneToOne(targetEntity = TouchDownLiftOffMarkingTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "touchdownliftoffmarkingtimeslice_hjid", referencedColumnName = "hjid")
     public TouchDownLiftOffMarkingTimeSliceType getTouchDownLiftOffMarkingTimeSlice() {
         return touchDownLiftOffMarkingTimeSlice;
     }
@@ -230,19 +230,6 @@ public class TouchDownLiftOffMarkingTimeSlicePropertyType implements Serializabl
         }
         final TouchDownLiftOffMarkingTimeSlicePropertyType that = ((TouchDownLiftOffMarkingTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTouchDownLiftOffMarkingTimeSlice();
-            boolean rhsFieldIsSet = that.isSetTouchDownLiftOffMarkingTimeSlice();
-            TouchDownLiftOffMarkingTimeSliceType lhsField;
-            lhsField = this.getTouchDownLiftOffMarkingTimeSlice();
-            TouchDownLiftOffMarkingTimeSliceType rhsField;
-            rhsField = that.getTouchDownLiftOffMarkingTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "touchDownLiftOffMarkingTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "touchDownLiftOffMarkingTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class TouchDownLiftOffMarkingTimeSlicePropertyType implements Serializabl
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTouchDownLiftOffMarkingTimeSlice();
+            boolean rhsFieldIsSet = that.isSetTouchDownLiftOffMarkingTimeSlice();
+            TouchDownLiftOffMarkingTimeSliceType lhsField;
+            lhsField = this.getTouchDownLiftOffMarkingTimeSlice();
+            TouchDownLiftOffMarkingTimeSliceType rhsField;
+            rhsField = that.getTouchDownLiftOffMarkingTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "touchDownLiftOffMarkingTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "touchDownLiftOffMarkingTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

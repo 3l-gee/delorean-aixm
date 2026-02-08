@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "aerialRefuellingPoint"
 })
 @Entity(name = "AerialRefuellingPointPropertyType")
-@Table(name = "aerialrefuellingpoint_pt", schema = "aerial_refuelling")
+@Table(name = "aerialrefuellingpoint_p", schema = "aerial_refuelling")
 public class AerialRefuellingPointPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AerialRefuellingPointPropertyType
     @OneToOne(targetEntity = AerialRefuellingPointType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "aerialrefuellingpoint_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "aerialrefuellingpoint_hjid", referencedColumnName = "hjid")
     public AerialRefuellingPointType getAerialRefuellingPoint() {
         return aerialRefuellingPoint;
     }

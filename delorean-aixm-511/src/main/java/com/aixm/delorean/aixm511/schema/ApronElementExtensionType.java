@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractApronElementExtension"
 })
 @Entity(name = "ApronElementExtensionType")
-@Table(name = "apronelement_ext", schema = "airport_heliport")
+@Table(name = "apronelement_e", schema = "airport_heliport")
 public class ApronElementExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class ApronElementExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapronelementextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapronelementextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApronElementExtension() {
         return abstractApronElementExtension;
     }
@@ -223,19 +223,6 @@ public class ApronElementExtensionType implements Serializable, Equals, HashCode
         }
         final ApronElementExtensionType that = ((ApronElementExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApronElementExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApronElementExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApronElementExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApronElementExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronElementExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronElementExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ApronElementExtensionType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractApronElementExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApronElementExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractApronElementExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractApronElementExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronElementExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronElementExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

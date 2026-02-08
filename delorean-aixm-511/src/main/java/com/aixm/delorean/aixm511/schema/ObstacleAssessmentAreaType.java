@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,19 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}ObstacleAssessmentAreaPropertyGroup"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeObstacleAssessmentSurfaceType" minOccurs="0"/>
+ *         <element name="sectionNumber" type="{http://www.aixm.aero/schema/5.1.1}NoNumberType" minOccurs="0"/>
+ *         <element name="slope" type="{http://www.aixm.aero/schema/5.1.1}ValSlopeType" minOccurs="0"/>
+ *         <element name="assessedAltitude" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="slopeLowerAltitude" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="gradientLowHigh" type="{http://www.aixm.aero/schema/5.1.1}ValSlopeType" minOccurs="0"/>
+ *         <element name="surfaceZone" type="{http://www.aixm.aero/schema/5.1.1}CodeObstructionIdSurfaceZoneType" minOccurs="0"/>
+ *         <element name="safetyRegulation" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="aircraftCategory" type="{http://www.aixm.aero/schema/5.1.1}AircraftCharacteristicPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="significantObstacle" type="{http://www.aixm.aero/schema/5.1.1}ObstructionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="surface" type="{http://www.aixm.aero/schema/5.1.1}SurfacePropertyType" minOccurs="0"/>
+ *         <element name="startingCurve" type="{http://www.aixm.aero/schema/5.1.1}CurvePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -82,7 +93,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "ObstacleAssessmentAreaType")
-@Table(name = "obstacleassessmentarea", schema = "shared")
+@Table(name = "obstacleassessmentarea_o", schema = "shared")
 public class ObstacleAssessmentAreaType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -379,13 +390,13 @@ public class ObstacleAssessmentAreaType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "aircraftcategory_obstacleassessmentarea_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "aircraftcategory", referencedColumnName = "hjid")
+    @JoinTable(name = "obstacleassessmentarea_o_aircraftcategory_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "obstacleassessmentarea_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "obstacleassessmentareapropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "aircraftcategory_hjid", referencedColumnName = "hjid")
     })
     public List<AircraftCharacteristicPropertyType> getAircraftCategory() {
         if (aircraftCategory == null) {
@@ -433,13 +444,13 @@ public class ObstacleAssessmentAreaType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ObstructionPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ObstructionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "significantobstacle_obstacleassessmentarea_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "significantobstacle", referencedColumnName = "hjid")
+    @JoinTable(name = "obstacleassessmentarea_o_significantobstacle_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "obstacleassessmentarea_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "obstacleassessmentareapropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "significantobstacle_hjid", referencedColumnName = "hjid")
     })
     public List<ObstructionPropertyType> getSignificantObstacle() {
         if (significantObstacle == null) {
@@ -547,13 +558,13 @@ public class ObstacleAssessmentAreaType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_obstacleassessmentarea_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "obstacleassessmentarea_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "obstacleassessmentarea_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "obstacleassessmentareapropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -604,7 +615,7 @@ public class ObstacleAssessmentAreaType
     @OneToMany(targetEntity = ObstacleAssessmentAreaTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_OBSTACLE_ASSESSMEN_0")
+    @JoinColumn(name = "obstacleassessmentarea_e_hjid", referencedColumnName = "hjid")
     public List<ObstacleAssessmentAreaTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -657,7 +668,7 @@ public class ObstacleAssessmentAreaType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "slope", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "slope")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "slope_nilreason"))
     })
     public ValSlopeType getSlopeItem() {
@@ -670,7 +681,7 @@ public class ObstacleAssessmentAreaType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "assessedaltitude", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "assessedaltitude")),
         @AttributeOverride(name = "uom", column = @Column(name = "assessedaltitude_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "assessedaltitude_nilreason"))
     })
@@ -684,7 +695,7 @@ public class ObstacleAssessmentAreaType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "slopeloweraltitude", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "slopeloweraltitude")),
         @AttributeOverride(name = "uom", column = @Column(name = "slopeloweraltitude_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "slopeloweraltitude_nilreason"))
     })
@@ -698,7 +709,7 @@ public class ObstacleAssessmentAreaType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "gradientlowhigh", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "gradientlowhigh")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "gradientlowhigh_nilreason"))
     })
     public ValSlopeType getGradientLowHighItem() {
@@ -724,7 +735,7 @@ public class ObstacleAssessmentAreaType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "safetyregulation", columnDefinition = "VARCHAR", length = 60)),
+        @AttributeOverride(name = "value", column = @Column(name = "safetyregulation")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "safetyregulation_nilreason"))
     })
     public TextNameType getSafetyRegulationItem() {
@@ -735,10 +746,14 @@ public class ObstacleAssessmentAreaType
         setSafetyRegulation(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "safetyRegulation"), ObstacleAssessmentAreaType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "surface_id", referencedColumnName = "hjid")
+    @JoinTable(name = "obstacleassessmentarea_o_surface_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "obstacleassessmentarea_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "surface_hjid", referencedColumnName = "hjid")
+    })
     public AIXMSurfacePropertyType getSurfaceItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getSurface());
     }
@@ -747,10 +762,14 @@ public class ObstacleAssessmentAreaType
         setSurface(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "surface"), ObstacleAssessmentAreaType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "startingcurve_id", referencedColumnName = "hjid")
+    @JoinTable(name = "obstacleassessmentarea_o_startingcurve_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "obstacleassessmentarea_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "startingcurve_hjid", referencedColumnName = "hjid")
+    })
     public AIXMCurvePropertyType getStartingCurveItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMCurvePropertyType.class, this.getStartingCurve());
     }
@@ -772,53 +791,14 @@ public class ObstacleAssessmentAreaType
         }
         final ObstacleAssessmentAreaType that = ((ObstacleAssessmentAreaType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSurface();
-            boolean rhsFieldIsSet = that.isSetSurface();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getSurface();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getSurface();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surface", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surface", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAssessedAltitude();
-            boolean rhsFieldIsSet = that.isSetAssessedAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getAssessedAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getAssessedAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "assessedAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "assessedAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAircraftCategory();
-            boolean rhsFieldIsSet = that.isSetAircraftCategory();
-            List<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetAircraftCategory()?this.getAircraftCategory():null);
-            List<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetAircraftCategory()?that.getAircraftCategory():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftCategory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftCategory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ObstacleAssessmentAreaTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ObstacleAssessmentAreaTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetSafetyRegulation();
+            boolean rhsFieldIsSet = that.isSetSafetyRegulation();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getSafetyRegulation();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getSafetyRegulation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "safetyRegulation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "safetyRegulation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -837,40 +817,53 @@ public class ObstacleAssessmentAreaType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSectionNumber();
-            boolean rhsFieldIsSet = that.isSetSectionNumber();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getSectionNumber();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getSectionNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectionNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectionNumber", rhsField);
+            boolean lhsFieldIsSet = this.isSetAssessedAltitude();
+            boolean rhsFieldIsSet = that.isSetAssessedAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAssessedAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAssessedAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "assessedAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "assessedAltitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGradientLowHigh();
-            boolean rhsFieldIsSet = that.isSetGradientLowHigh();
-            JAXBElement<ValSlopeType> lhsField;
-            lhsField = this.getGradientLowHigh();
-            JAXBElement<ValSlopeType> rhsField;
-            rhsField = that.getGradientLowHigh();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gradientLowHigh", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gradientLowHigh", rhsField);
+            boolean lhsFieldIsSet = this.isSetSurface();
+            boolean rhsFieldIsSet = that.isSetSurface();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getSurface();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getSurface();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surface", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSafetyRegulation();
-            boolean rhsFieldIsSet = that.isSetSafetyRegulation();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getSafetyRegulation();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getSafetyRegulation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "safetyRegulation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "safetyRegulation", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeObstacleAssessmentSurfaceType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeObstacleAssessmentSurfaceType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -915,19 +908,6 @@ public class ObstacleAssessmentAreaType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeObstacleAssessmentSurfaceType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeObstacleAssessmentSurfaceType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSurfaceZone();
             boolean rhsFieldIsSet = that.isSetSurfaceZone();
             JAXBElement<CodeObstructionIdSurfaceZoneType> lhsField;
@@ -941,14 +921,53 @@ public class ObstacleAssessmentAreaType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetSectionNumber();
+            boolean rhsFieldIsSet = that.isSetSectionNumber();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getSectionNumber();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getSectionNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectionNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectionNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGradientLowHigh();
+            boolean rhsFieldIsSet = that.isSetGradientLowHigh();
+            JAXBElement<ValSlopeType> lhsField;
+            lhsField = this.getGradientLowHigh();
+            JAXBElement<ValSlopeType> rhsField;
+            rhsField = that.getGradientLowHigh();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gradientLowHigh", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gradientLowHigh", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ObstacleAssessmentAreaTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ObstacleAssessmentAreaTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAircraftCategory();
+            boolean rhsFieldIsSet = that.isSetAircraftCategory();
+            List<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetAircraftCategory()?this.getAircraftCategory():null);
+            List<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetAircraftCategory()?that.getAircraftCategory():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftCategory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftCategory", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

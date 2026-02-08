@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "callsignDetail"
 })
 @Entity(name = "CallsignDetailPropertyType")
-@Table(name = "callsigndetail_pt", schema = "service")
+@Table(name = "callsigndetail_p", schema = "service")
 public class CallsignDetailPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class CallsignDetailPropertyType
     @OneToOne(targetEntity = CallsignDetailType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "callsigndetail_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "callsigndetail_hjid", referencedColumnName = "hjid")
     public CallsignDetailType getCallsignDetail() {
         return callsignDetail;
     }

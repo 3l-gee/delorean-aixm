@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,10 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}NavaidEquipmentDistancePropertyGroup"/>
+ *         <element name="distance" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="distanceAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="theNavaidEquipment" type="{http://www.aixm.aero/schema/5.1.1}NavaidEquipmentPropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -73,7 +75,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "NavaidEquipmentDistanceType")
-@Table(name = "navaidequipmentdistance", schema = "airport_heliport")
+@Table(name = "navaidequipmentdistance_o", schema = "airport_heliport")
 public class NavaidEquipmentDistanceType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -171,13 +173,13 @@ public class NavaidEquipmentDistanceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_navaidequipmentdistance_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "navaidequipmentdistance_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "navaidequipmentdistance_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "navaidequipmentdistancepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -211,10 +213,14 @@ public class NavaidEquipmentDistanceType
      *     {@link NavaidEquipmentPropertyType }
      *     
      */
-    @ManyToOne(targetEntity = NavaidEquipmentPropertyType.class, cascade = {
+    @OneToOne(targetEntity = NavaidEquipmentPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "thenavaidequipment_id", referencedColumnName = "hjid")
+    @JoinTable(name = "navaidequipmentdistance_o_thenavaidequipment_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "navaidequipmentdistance_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "thenavaidequipment_hjid", referencedColumnName = "hjid")
+    })
     public NavaidEquipmentPropertyType getTheNavaidEquipment() {
         return theNavaidEquipment;
     }
@@ -261,7 +267,7 @@ public class NavaidEquipmentDistanceType
     @OneToMany(targetEntity = NavaidEquipmentDistanceTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_NAVAID_EQUIPMENT_D_0")
+    @JoinColumn(name = "navaidequipmentdistance_e_hjid", referencedColumnName = "hjid")
     public List<NavaidEquipmentDistanceTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -288,7 +294,7 @@ public class NavaidEquipmentDistanceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "distance", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "distance")),
         @AttributeOverride(name = "uom", column = @Column(name = "distance_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "distance_nilreason"))
     })
@@ -302,7 +308,7 @@ public class NavaidEquipmentDistanceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "distanceaccuracy", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "distanceaccuracy")),
         @AttributeOverride(name = "uom", column = @Column(name = "distanceaccuracy_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "distanceaccuracy_nilreason"))
     })
@@ -327,19 +333,6 @@ public class NavaidEquipmentDistanceType
         }
         final NavaidEquipmentDistanceType that = ((NavaidEquipmentDistanceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDistanceAccuracy();
-            boolean rhsFieldIsSet = that.isSetDistanceAccuracy();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistanceAccuracy();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistanceAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distanceAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distanceAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<NavaidEquipmentDistanceTypeExtensionType> lhsField;
@@ -353,14 +346,14 @@ public class NavaidEquipmentDistanceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTheNavaidEquipment();
-            boolean rhsFieldIsSet = that.isSetTheNavaidEquipment();
-            NavaidEquipmentPropertyType lhsField;
-            lhsField = this.getTheNavaidEquipment();
-            NavaidEquipmentPropertyType rhsField;
-            rhsField = that.getTheNavaidEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theNavaidEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theNavaidEquipment", rhsField);
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -379,14 +372,27 @@ public class NavaidEquipmentDistanceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
+            boolean lhsFieldIsSet = this.isSetDistanceAccuracy();
+            boolean rhsFieldIsSet = that.isSetDistanceAccuracy();
             JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistance();
+            lhsField = this.getDistanceAccuracy();
             JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            rhsField = that.getDistanceAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distanceAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distanceAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheNavaidEquipment();
+            boolean rhsFieldIsSet = that.isSetTheNavaidEquipment();
+            NavaidEquipmentPropertyType lhsField;
+            lhsField = this.getTheNavaidEquipment();
+            NavaidEquipmentPropertyType rhsField;
+            rhsField = that.getTheNavaidEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theNavaidEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theNavaidEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

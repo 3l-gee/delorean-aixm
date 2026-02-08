@@ -46,7 +46,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     VORType.class
 })
 @Entity(name = "AbstractNavaidEquipmentType")
-@Table(name = "abstractnavaidequipment", schema = "public")
+@Table(name = "abstractnavaidequipmenttype", schema = "public")
 public abstract class AbstractNavaidEquipmentType
     extends AbstractAIXMFeatureType
     implements Serializable

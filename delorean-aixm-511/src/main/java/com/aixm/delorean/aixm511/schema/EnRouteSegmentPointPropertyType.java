@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "enRouteSegmentPoint"
 })
 @Entity(name = "EnRouteSegmentPointPropertyType")
-@Table(name = "enroutesegmentpoint_pt", schema = "navaids_point")
+@Table(name = "enroutesegmentpoint_p", schema = "navaids_point")
 public class EnRouteSegmentPointPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class EnRouteSegmentPointPropertyType
     @OneToOne(targetEntity = EnRouteSegmentPointType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "enroutesegmentpoint_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "enroutesegmentpoint_hjid", referencedColumnName = "hjid")
     public EnRouteSegmentPointType getEnRouteSegmentPoint() {
         return enRouteSegmentPoint;
     }

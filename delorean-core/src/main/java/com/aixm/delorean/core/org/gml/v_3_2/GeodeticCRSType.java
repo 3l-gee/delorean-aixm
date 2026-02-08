@@ -238,19 +238,6 @@ public class GeodeticCRSType extends AbstractCRSType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSphericalCS();
-            boolean rhsFieldIsSet = that.isSetSphericalCS();
-            JAXBElement<SphericalCSPropertyType> lhsField;
-            lhsField = this.getSphericalCS();
-            JAXBElement<SphericalCSPropertyType> rhsField;
-            rhsField = that.getSphericalCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sphericalCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sphericalCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEllipsoidalCS();
             boolean rhsFieldIsSet = that.isSetEllipsoidalCS();
             JAXBElement<EllipsoidalCSPropertyType> lhsField;
@@ -272,6 +259,19 @@ public class GeodeticCRSType extends AbstractCRSType implements Serializable {
             rhsField = that.getGeodeticDatum();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geodeticDatum", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geodeticDatum", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSphericalCS();
+            boolean rhsFieldIsSet = that.isSetSphericalCS();
+            JAXBElement<SphericalCSPropertyType> lhsField;
+            lhsField = this.getSphericalCS();
+            JAXBElement<SphericalCSPropertyType> rhsField;
+            rhsField = that.getSphericalCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sphericalCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sphericalCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

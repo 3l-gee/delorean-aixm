@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "IntermediateLegTimeSlicePropertyType", propOrder = {
     "intermediateLegTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "IntermediateLegTimeSlicePropertyType")
-@Table(name = "intermediateleg_tsp", schema = "procedure")
+@Table(name = "intermediateleg_tp", schema = "procedure")
 public class IntermediateLegTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class IntermediateLegTimeSlicePropertyType implements Serializable, Equal
     @OneToOne(targetEntity = IntermediateLegTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "intermediatelegtimeslice_hjid", referencedColumnName = "hjid")
     public IntermediateLegTimeSliceType getIntermediateLegTimeSlice() {
         return intermediateLegTimeSlice;
     }
@@ -230,19 +230,6 @@ public class IntermediateLegTimeSlicePropertyType implements Serializable, Equal
         }
         final IntermediateLegTimeSlicePropertyType that = ((IntermediateLegTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetIntermediateLegTimeSlice();
             boolean rhsFieldIsSet = that.isSetIntermediateLegTimeSlice();
             IntermediateLegTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class IntermediateLegTimeSlicePropertyType implements Serializable, Equal
             rhsField = that.getIntermediateLegTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediateLegTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediateLegTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

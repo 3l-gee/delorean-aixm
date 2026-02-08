@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractRadarEquipmentExtension"
 })
 @Entity(name = "PrecisionApproachRadarExtensionType")
-@Table(name = "precisionapproachradar_ext", schema = "surveillance")
+@Table(name = "precisionapproachradar_e", schema = "surveillance")
 public class PrecisionApproachRadarExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class PrecisionApproachRadarExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractprecisionapproachradarextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractprecisionapproachradarextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPrecisionApproachRadarExtension() {
         return abstractPrecisionApproachRadarExtension;
     }
@@ -123,7 +123,7 @@ public class PrecisionApproachRadarExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractradarequipmentextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractradarequipmentextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadarEquipmentExtension() {
         return abstractRadarEquipmentExtension;
     }
@@ -260,19 +260,6 @@ public class PrecisionApproachRadarExtensionType implements Serializable, Equals
         }
         final PrecisionApproachRadarExtensionType that = ((PrecisionApproachRadarExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRadarEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRadarEquipmentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRadarEquipmentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRadarEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadarEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadarEquipmentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractPrecisionApproachRadarExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPrecisionApproachRadarExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class PrecisionApproachRadarExtensionType implements Serializable, Equals
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRadarEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRadarEquipmentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRadarEquipmentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRadarEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadarEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadarEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

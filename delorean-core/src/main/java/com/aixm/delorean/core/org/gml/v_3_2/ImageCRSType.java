@@ -206,6 +206,19 @@ public class ImageCRSType extends AbstractCRSType implements Serializable {
         }
         final ImageCRSType that = ((ImageCRSType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAffineCS();
+            boolean rhsFieldIsSet = that.isSetAffineCS();
+            JAXBElement<AffineCSPropertyType> lhsField;
+            lhsField = this.getAffineCS();
+            JAXBElement<AffineCSPropertyType> rhsField;
+            rhsField = that.getAffineCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetImageDatum();
             boolean rhsFieldIsSet = that.isSetImageDatum();
             JAXBElement<ImageDatumPropertyType> lhsField;
@@ -227,19 +240,6 @@ public class ImageCRSType extends AbstractCRSType implements Serializable {
             rhsField = that.getUsesObliqueCartesianCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesObliqueCartesianCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesObliqueCartesianCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAffineCS();
-            boolean rhsFieldIsSet = that.isSetAffineCS();
-            JAXBElement<AffineCSPropertyType> lhsField;
-            lhsField = this.getAffineCS();
-            JAXBElement<AffineCSPropertyType> rhsField;
-            rhsField = that.getAffineCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

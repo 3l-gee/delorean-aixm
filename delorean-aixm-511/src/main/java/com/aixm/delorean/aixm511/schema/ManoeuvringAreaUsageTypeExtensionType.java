@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractManoeuvringAreaUsageExtension"
 })
 @Entity(name = "ManoeuvringAreaUsageTypeExtensionType")
-@Table(name = "manoeuvringareausage_ext", schema = "airport_heliport")
+@Table(name = "manoeuvringareausage_e", schema = "airport_heliport")
 public class ManoeuvringAreaUsageTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class ManoeuvringAreaUsageTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractusageconditionextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractusageconditionextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractUsageConditionExtension() {
         return abstractUsageConditionExtension;
     }
@@ -123,7 +123,7 @@ public class ManoeuvringAreaUsageTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmanoeuvringareausageextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmanoeuvringareausageextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractManoeuvringAreaUsageExtension() {
         return abstractManoeuvringAreaUsageExtension;
     }
@@ -273,19 +273,6 @@ public class ManoeuvringAreaUsageTypeExtensionType implements Serializable, Equa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractUsageConditionExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractUsageConditionExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractUsageConditionExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractUsageConditionExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUsageConditionExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUsageConditionExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractManoeuvringAreaUsageExtension();
             boolean rhsFieldIsSet = that.isSetAbstractManoeuvringAreaUsageExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class ManoeuvringAreaUsageTypeExtensionType implements Serializable, Equa
             rhsField = that.getAbstractManoeuvringAreaUsageExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractManoeuvringAreaUsageExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractManoeuvringAreaUsageExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractUsageConditionExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractUsageConditionExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractUsageConditionExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractUsageConditionExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUsageConditionExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUsageConditionExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

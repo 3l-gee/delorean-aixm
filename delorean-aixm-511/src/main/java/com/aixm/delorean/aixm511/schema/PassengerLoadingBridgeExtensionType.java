@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractPassengerLoadingBridgeExtension"
 })
 @Entity(name = "PassengerLoadingBridgeExtensionType")
-@Table(name = "passengerloadingbridge_ext", schema = "airport_heliport")
+@Table(name = "passengerloadingbridge_e", schema = "airport_heliport")
 public class PassengerLoadingBridgeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class PassengerLoadingBridgeExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpassengerloadingbridgeextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpassengerloadingbridgeextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPassengerLoadingBridgeExtension() {
         return abstractPassengerLoadingBridgeExtension;
     }

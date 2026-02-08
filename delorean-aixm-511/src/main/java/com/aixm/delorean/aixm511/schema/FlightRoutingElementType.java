@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,29 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}FlightRoutingElementPropertyGroup"/>
+ *         <element name="orderNumber" type="{http://www.aixm.aero/schema/5.1.1}NoSequenceType" minOccurs="0"/>
+ *         <element name="speed" type="{http://www.aixm.aero/schema/5.1.1}ValSpeedType" minOccurs="0"/>
+ *         <element name="speedReference" type="{http://www.aixm.aero/schema/5.1.1}CodeSpeedReferenceType" minOccurs="0"/>
+ *         <element name="speedCriteria" type="{http://www.aixm.aero/schema/5.1.1}CodeComparisonType" minOccurs="0"/>
+ *         <element name="flightLevel" type="{http://www.aixm.aero/schema/5.1.1}FlightRestrictionLevelPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <choice>
+ *           <element name="element_directFlightElement" type="{http://www.aixm.aero/schema/5.1.1}DirectFlightSegmentPropertyType" minOccurs="0"/>
+ *           <element name="element_routePortionElement" type="{http://www.aixm.aero/schema/5.1.1}RoutePortionPropertyType" minOccurs="0"/>
+ *           <element name="element_standardInstrumentDepartureElement" type="{http://www.aixm.aero/schema/5.1.1}StandardInstrumentDeparturePropertyType" minOccurs="0"/>
+ *           <element name="element_standardInstrumentArrivalElement" type="{http://www.aixm.aero/schema/5.1.1}StandardInstrumentArrivalPropertyType" minOccurs="0"/>
+ *           <choice>
+ *             <element name="pointElement_fixDesignatedPoint" type="{http://www.aixm.aero/schema/5.1.1}DesignatedPointPropertyType" minOccurs="0"/>
+ *             <element name="pointElement_navaidSystem" type="{http://www.aixm.aero/schema/5.1.1}NavaidPropertyType" minOccurs="0"/>
+ *             <element name="pointElement_position" type="{http://www.aixm.aero/schema/5.1.1}PointPropertyType" minOccurs="0"/>
+ *             <element name="pointElement_runwayPoint" type="{http://www.aixm.aero/schema/5.1.1}RunwayCentrelinePointPropertyType" minOccurs="0"/>
+ *             <element name="pointElement_aimingPoint" type="{http://www.aixm.aero/schema/5.1.1}TouchDownLiftOffPropertyType" minOccurs="0"/>
+ *             <element name="pointElement_airportReferencePoint" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *           </choice>
+ *           <element name="element_airspaceElement" type="{http://www.aixm.aero/schema/5.1.1}AirspacePropertyType" minOccurs="0"/>
+ *           <element name="element_airportHeliportElement" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *           <element name="element_aerialRefuellingElement" type="{http://www.aixm.aero/schema/5.1.1}AerialRefuellingPropertyType" minOccurs="0"/>
+ *         </choice>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -88,7 +109,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "FlightRoutingElementType")
-@Table(name = "flightroutingelement", schema = "route")
+@Table(name = "flightroutingelement_o", schema = "route")
 public class FlightRoutingElementType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -277,13 +298,13 @@ public class FlightRoutingElementType
      * 
      * 
      */
-    @ManyToMany(targetEntity = FlightRestrictionLevelPropertyType.class, cascade = {
+    @OneToMany(targetEntity = FlightRestrictionLevelPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flightlevel_flightroutingelement_link", schema = "route", joinColumns = {
-        @JoinColumn(name = "flightlevel", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_flightlevel_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "flightroutingelementpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "flightlevel_hjid", referencedColumnName = "hjid")
     })
     public List<FlightRestrictionLevelPropertyType> getFlightLevel() {
         if (flightLevel == null) {
@@ -721,13 +742,13 @@ public class FlightRoutingElementType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_flightroutingelement_link", schema = "route", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "flightroutingelementpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -778,7 +799,7 @@ public class FlightRoutingElementType
     @OneToMany(targetEntity = FlightRoutingElementTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_FLIGHT_ROUTING_ELE_0")
+    @JoinColumn(name = "flightroutingelement_e_hjid", referencedColumnName = "hjid")
     public List<FlightRoutingElementTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -818,7 +839,7 @@ public class FlightRoutingElementType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "speed", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "speed")),
         @AttributeOverride(name = "uom", column = @Column(name = "speed_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "speed_nilreason"))
     })
@@ -856,10 +877,14 @@ public class FlightRoutingElementType
         setSpeedCriteria(XmlAdapterUtils.marshallJAXBElement(CodeComparisonType.class, new QName("http://www.aixm.aero/schema/5.1.1", "speedCriteria"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = DirectFlightSegmentPropertyType.class, cascade = {
+    @OneToOne(targetEntity = DirectFlightSegmentPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "element_directflightelement_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_element_directflightelement_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "element_directflightelement_hjid", referencedColumnName = "hjid")
+    })
     public DirectFlightSegmentPropertyType getElementDirectFlightElementItem() {
         return XmlAdapterUtils.unmarshallSource(DirectFlightSegmentPropertyType.class, this.getElementDirectFlightElement());
     }
@@ -868,10 +893,14 @@ public class FlightRoutingElementType
         setElementDirectFlightElement(XmlAdapterUtils.marshallJAXBElement(DirectFlightSegmentPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "element_directFlightElement"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = RoutePortionPropertyType.class, cascade = {
+    @OneToOne(targetEntity = RoutePortionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "element_routeportionelement_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_element_routeportionelement_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "element_routeportionelement_hjid", referencedColumnName = "hjid")
+    })
     public RoutePortionPropertyType getElementRoutePortionElementItem() {
         return XmlAdapterUtils.unmarshallSource(RoutePortionPropertyType.class, this.getElementRoutePortionElement());
     }
@@ -880,10 +909,14 @@ public class FlightRoutingElementType
         setElementRoutePortionElement(XmlAdapterUtils.marshallJAXBElement(RoutePortionPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "element_routePortionElement"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = StandardInstrumentDeparturePropertyType.class, cascade = {
+    @OneToOne(targetEntity = StandardInstrumentDeparturePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "element_standardinstrumentdepartureelement_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_element_standardinstrumentdepartureelement_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "element_standardinstrumentdepartureelement_hjid", referencedColumnName = "hjid")
+    })
     public StandardInstrumentDeparturePropertyType getElementStandardInstrumentDepartureElementItem() {
         return XmlAdapterUtils.unmarshallSource(StandardInstrumentDeparturePropertyType.class, this.getElementStandardInstrumentDepartureElement());
     }
@@ -892,10 +925,14 @@ public class FlightRoutingElementType
         setElementStandardInstrumentDepartureElement(XmlAdapterUtils.marshallJAXBElement(StandardInstrumentDeparturePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "element_standardInstrumentDepartureElement"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = StandardInstrumentArrivalPropertyType.class, cascade = {
+    @OneToOne(targetEntity = StandardInstrumentArrivalPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "element_standardinstrumentarrivalelement_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_element_standardinstrumentarrivalelement_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "element_standardinstrumentarrivalelement_hjid", referencedColumnName = "hjid")
+    })
     public StandardInstrumentArrivalPropertyType getElementStandardInstrumentArrivalElementItem() {
         return XmlAdapterUtils.unmarshallSource(StandardInstrumentArrivalPropertyType.class, this.getElementStandardInstrumentArrivalElement());
     }
@@ -904,10 +941,14 @@ public class FlightRoutingElementType
         setElementStandardInstrumentArrivalElement(XmlAdapterUtils.marshallJAXBElement(StandardInstrumentArrivalPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "element_standardInstrumentArrivalElement"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointelement_fixdesignatedpoint_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_pointelement_fixdesignatedpoint_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointelement_fixdesignatedpoint_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getPointElementFixDesignatedPointItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getPointElementFixDesignatedPoint());
     }
@@ -916,10 +957,14 @@ public class FlightRoutingElementType
         setPointElementFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointElement_fixDesignatedPoint"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
+    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointelement_navaidsystem_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_pointelement_navaidsystem_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointelement_navaidsystem_hjid", referencedColumnName = "hjid")
+    })
     public NavaidPropertyType getPointElementNavaidSystemItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getPointElementNavaidSystem());
     }
@@ -928,10 +973,14 @@ public class FlightRoutingElementType
         setPointElementNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointElement_navaidSystem"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointelement_position_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_pointelement_position_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointelement_position_hjid", referencedColumnName = "hjid")
+    })
     public AIXMPointPropertyType getPointElementPositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getPointElementPosition());
     }
@@ -940,10 +989,14 @@ public class FlightRoutingElementType
         setPointElementPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointElement_position"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointelement_runwaypoint_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_pointelement_runwaypoint_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointelement_runwaypoint_hjid", referencedColumnName = "hjid")
+    })
     public RunwayCentrelinePointPropertyType getPointElementRunwayPointItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayCentrelinePointPropertyType.class, this.getPointElementRunwayPoint());
     }
@@ -952,10 +1005,14 @@ public class FlightRoutingElementType
         setPointElementRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointElement_runwayPoint"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointelement_aimingpoint_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_pointelement_aimingpoint_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointelement_aimingpoint_hjid", referencedColumnName = "hjid")
+    })
     public TouchDownLiftOffPropertyType getPointElementAimingPointItem() {
         return XmlAdapterUtils.unmarshallSource(TouchDownLiftOffPropertyType.class, this.getPointElementAimingPoint());
     }
@@ -964,10 +1021,14 @@ public class FlightRoutingElementType
         setPointElementAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointElement_aimingPoint"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pointelement_airportreferencepoint_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_pointelement_airportreferencepoint_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pointelement_airportreferencepoint_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getPointElementAirportReferencePointItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getPointElementAirportReferencePoint());
     }
@@ -976,10 +1037,14 @@ public class FlightRoutingElementType
         setPointElementAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointElement_airportReferencePoint"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirspacePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "element_airspaceelement_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_element_airspaceelement_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "element_airspaceelement_hjid", referencedColumnName = "hjid")
+    })
     public AirspacePropertyType getElementAirspaceElementItem() {
         return XmlAdapterUtils.unmarshallSource(AirspacePropertyType.class, this.getElementAirspaceElement());
     }
@@ -988,10 +1053,14 @@ public class FlightRoutingElementType
         setElementAirspaceElement(XmlAdapterUtils.marshallJAXBElement(AirspacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "element_airspaceElement"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "element_airportheliportelement_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_element_airportheliportelement_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "element_airportheliportelement_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getElementAirportHeliportElementItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getElementAirportHeliportElement());
     }
@@ -1000,10 +1069,14 @@ public class FlightRoutingElementType
         setElementAirportHeliportElement(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "element_airportHeliportElement"), FlightRoutingElementType.class, target));
     }
 
-    @ManyToOne(targetEntity = AerialRefuellingPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AerialRefuellingPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "element_aerialrefuellingelement_id", referencedColumnName = "hjid")
+    @JoinTable(name = "flightroutingelement_o_element_aerialrefuellingelement_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightroutingelement_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "element_aerialrefuellingelement_hjid", referencedColumnName = "hjid")
+    })
     public AerialRefuellingPropertyType getElementAerialRefuellingElementItem() {
         return XmlAdapterUtils.unmarshallSource(AerialRefuellingPropertyType.class, this.getElementAerialRefuellingElement());
     }
@@ -1025,196 +1098,14 @@ public class FlightRoutingElementType
         }
         final FlightRoutingElementType that = ((FlightRoutingElementType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPointElementPosition();
-            boolean rhsFieldIsSet = that.isSetPointElementPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getPointElementPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getPointElementPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpeed();
-            boolean rhsFieldIsSet = that.isSetSpeed();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getSpeed();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getSpeed();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElementRoutePortionElement();
-            boolean rhsFieldIsSet = that.isSetElementRoutePortionElement();
-            JAXBElement<RoutePortionPropertyType> lhsField;
-            lhsField = this.getElementRoutePortionElement();
-            JAXBElement<RoutePortionPropertyType> rhsField;
-            rhsField = that.getElementRoutePortionElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementRoutePortionElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementRoutePortionElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElementAerialRefuellingElement();
-            boolean rhsFieldIsSet = that.isSetElementAerialRefuellingElement();
-            JAXBElement<AerialRefuellingPropertyType> lhsField;
-            lhsField = this.getElementAerialRefuellingElement();
-            JAXBElement<AerialRefuellingPropertyType> rhsField;
-            rhsField = that.getElementAerialRefuellingElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementAerialRefuellingElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementAerialRefuellingElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightLevel();
-            boolean rhsFieldIsSet = that.isSetFlightLevel();
-            List<FlightRestrictionLevelPropertyType> lhsField;
-            lhsField = (this.isSetFlightLevel()?this.getFlightLevel():null);
-            List<FlightRestrictionLevelPropertyType> rhsField;
-            rhsField = (that.isSetFlightLevel()?that.getFlightLevel():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightLevel", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElementAirspaceElement();
-            boolean rhsFieldIsSet = that.isSetElementAirspaceElement();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getElementAirspaceElement();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getElementAirspaceElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementAirspaceElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementAirspaceElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElementAirportHeliportElement();
-            boolean rhsFieldIsSet = that.isSetElementAirportHeliportElement();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getElementAirportHeliportElement();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getElementAirportHeliportElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementAirportHeliportElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementAirportHeliportElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOrderNumber();
-            boolean rhsFieldIsSet = that.isSetOrderNumber();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getOrderNumber();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getOrderNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orderNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orderNumber", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointElementFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetPointElementFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getPointElementFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getPointElementFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointElementAimingPoint();
-            boolean rhsFieldIsSet = that.isSetPointElementAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getPointElementAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getPointElementAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightRoutingElementTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<FlightRoutingElementTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointElementRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetPointElementRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getPointElementRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getPointElementRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElementStandardInstrumentArrivalElement();
-            boolean rhsFieldIsSet = that.isSetElementStandardInstrumentArrivalElement();
-            JAXBElement<StandardInstrumentArrivalPropertyType> lhsField;
-            lhsField = this.getElementStandardInstrumentArrivalElement();
-            JAXBElement<StandardInstrumentArrivalPropertyType> rhsField;
-            rhsField = that.getElementStandardInstrumentArrivalElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementStandardInstrumentArrivalElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementStandardInstrumentArrivalElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElementStandardInstrumentDepartureElement();
-            boolean rhsFieldIsSet = that.isSetElementStandardInstrumentDepartureElement();
-            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
-            lhsField = this.getElementStandardInstrumentDepartureElement();
-            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
-            rhsField = that.getElementStandardInstrumentDepartureElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementStandardInstrumentDepartureElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementStandardInstrumentDepartureElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointElementNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetPointElementNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getPointElementNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getPointElementNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementNavaidSystem", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpeedReference();
+            boolean rhsFieldIsSet = that.isSetSpeedReference();
+            JAXBElement<CodeSpeedReferenceType> lhsField;
+            lhsField = this.getSpeedReference();
+            JAXBElement<CodeSpeedReferenceType> rhsField;
+            rhsField = that.getSpeedReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1233,14 +1124,118 @@ public class FlightRoutingElementType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointElementAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetPointElementAirportReferencePoint();
+            boolean lhsFieldIsSet = this.isSetPointElementRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetPointElementRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getPointElementRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getPointElementRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElementRoutePortionElement();
+            boolean rhsFieldIsSet = that.isSetElementRoutePortionElement();
+            JAXBElement<RoutePortionPropertyType> lhsField;
+            lhsField = this.getElementRoutePortionElement();
+            JAXBElement<RoutePortionPropertyType> rhsField;
+            rhsField = that.getElementRoutePortionElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementRoutePortionElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementRoutePortionElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpeed();
+            boolean rhsFieldIsSet = that.isSetSpeed();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getSpeed();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getSpeed();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElementAirportHeliportElement();
+            boolean rhsFieldIsSet = that.isSetElementAirportHeliportElement();
             JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getPointElementAirportReferencePoint();
+            lhsField = this.getElementAirportHeliportElement();
             JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getPointElementAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementAirportReferencePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementAirportReferencePoint", rhsField);
+            rhsField = that.getElementAirportHeliportElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementAirportHeliportElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementAirportHeliportElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightRoutingElementTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<FlightRoutingElementTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElementStandardInstrumentDepartureElement();
+            boolean rhsFieldIsSet = that.isSetElementStandardInstrumentDepartureElement();
+            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
+            lhsField = this.getElementStandardInstrumentDepartureElement();
+            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
+            rhsField = that.getElementStandardInstrumentDepartureElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementStandardInstrumentDepartureElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementStandardInstrumentDepartureElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointElementFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetPointElementFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getPointElementFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getPointElementFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointElementPosition();
+            boolean rhsFieldIsSet = that.isSetPointElementPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getPointElementPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getPointElementPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOrderNumber();
+            boolean rhsFieldIsSet = that.isSetOrderNumber();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getOrderNumber();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getOrderNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orderNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orderNumber", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1259,14 +1254,53 @@ public class FlightRoutingElementType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpeedReference();
-            boolean rhsFieldIsSet = that.isSetSpeedReference();
-            JAXBElement<CodeSpeedReferenceType> lhsField;
-            lhsField = this.getSpeedReference();
-            JAXBElement<CodeSpeedReferenceType> rhsField;
-            rhsField = that.getSpeedReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointElementAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetPointElementAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getPointElementAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getPointElementAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointElementAimingPoint();
+            boolean rhsFieldIsSet = that.isSetPointElementAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getPointElementAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getPointElementAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElementAirspaceElement();
+            boolean rhsFieldIsSet = that.isSetElementAirspaceElement();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getElementAirspaceElement();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getElementAirspaceElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementAirspaceElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementAirspaceElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointElementNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetPointElementNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getPointElementNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getPointElementNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1280,6 +1314,45 @@ public class FlightRoutingElementType
             rhsField = that.getSpeedCriteria();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedCriteria", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedCriteria", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightLevel();
+            boolean rhsFieldIsSet = that.isSetFlightLevel();
+            List<FlightRestrictionLevelPropertyType> lhsField;
+            lhsField = (this.isSetFlightLevel()?this.getFlightLevel():null);
+            List<FlightRestrictionLevelPropertyType> rhsField;
+            rhsField = (that.isSetFlightLevel()?that.getFlightLevel():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightLevel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElementAerialRefuellingElement();
+            boolean rhsFieldIsSet = that.isSetElementAerialRefuellingElement();
+            JAXBElement<AerialRefuellingPropertyType> lhsField;
+            lhsField = this.getElementAerialRefuellingElement();
+            JAXBElement<AerialRefuellingPropertyType> rhsField;
+            rhsField = that.getElementAerialRefuellingElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementAerialRefuellingElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementAerialRefuellingElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElementStandardInstrumentArrivalElement();
+            boolean rhsFieldIsSet = that.isSetElementStandardInstrumentArrivalElement();
+            JAXBElement<StandardInstrumentArrivalPropertyType> lhsField;
+            lhsField = this.getElementStandardInstrumentArrivalElement();
+            JAXBElement<StandardInstrumentArrivalPropertyType> rhsField;
+            rhsField = that.getElementStandardInstrumentArrivalElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementStandardInstrumentArrivalElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementStandardInstrumentArrivalElement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

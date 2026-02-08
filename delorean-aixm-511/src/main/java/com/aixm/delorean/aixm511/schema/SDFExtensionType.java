@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractNavaidEquipmentExtension"
 })
 @Entity(name = "SDFExtensionType")
-@Table(name = "sdf_ext", schema = "navaids_point")
+@Table(name = "sdf_e", schema = "navaids_point")
 public class SDFExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class SDFExtensionType implements Serializable, Equals, HashCode, ToStrin
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsdfextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsdfextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSDFExtension() {
         return abstractSDFExtension;
     }
@@ -123,7 +123,7 @@ public class SDFExtensionType implements Serializable, Equals, HashCode, ToStrin
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipmentextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }
@@ -260,14 +260,14 @@ public class SDFExtensionType implements Serializable, Equals, HashCode, ToStrin
         }
         final SDFExtensionType that = ((SDFExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractSDFExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSDFExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSDFExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSDFExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSDFExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSDFExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class SDFExtensionType implements Serializable, Equals, HashCode, ToStrin
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSDFExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSDFExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSDFExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSDFExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSDFExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSDFExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

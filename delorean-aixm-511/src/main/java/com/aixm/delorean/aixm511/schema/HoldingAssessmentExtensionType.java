@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractHoldingAssessmentExtension"
 })
 @Entity(name = "HoldingAssessmentExtensionType")
-@Table(name = "holdingassessment_ext", schema = "shared")
+@Table(name = "holdingassessment_e", schema = "shared")
 public class HoldingAssessmentExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class HoldingAssessmentExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractholdingassessmentextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractholdingassessmentextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractHoldingAssessmentExtension() {
         return abstractHoldingAssessmentExtension;
     }

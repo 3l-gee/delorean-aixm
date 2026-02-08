@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractFASDataBlockExtension"
 })
 @Entity(name = "FASDataBlockTypeExtensionType")
-@Table(name = "fasdatablock_ext", schema = "procedure")
+@Table(name = "fasdatablock_e", schema = "procedure")
 public class FASDataBlockTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class FASDataBlockTypeExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractfasdatablockextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractfasdatablockextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFASDataBlockExtension() {
         return abstractFASDataBlockExtension;
     }
@@ -223,19 +223,6 @@ public class FASDataBlockTypeExtensionType implements Serializable, Equals, Hash
         }
         final FASDataBlockTypeExtensionType that = ((FASDataBlockTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractFASDataBlockExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractFASDataBlockExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractFASDataBlockExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractFASDataBlockExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFASDataBlockExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFASDataBlockExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class FASDataBlockTypeExtensionType implements Serializable, Equals, Hash
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractFASDataBlockExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractFASDataBlockExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractFASDataBlockExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractFASDataBlockExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFASDataBlockExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFASDataBlockExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

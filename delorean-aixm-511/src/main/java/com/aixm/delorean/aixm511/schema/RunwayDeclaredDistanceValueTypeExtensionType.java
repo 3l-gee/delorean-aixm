@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractRunwayDeclaredDistanceValueExtension"
 })
 @Entity(name = "RunwayDeclaredDistanceValueTypeExtensionType")
-@Table(name = "runwaydeclareddistancevalue_ext", schema = "airport_heliport")
+@Table(name = "runwaydeclareddistancevalue_e", schema = "airport_heliport")
 public class RunwayDeclaredDistanceValueTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class RunwayDeclaredDistanceValueTypeExtensionType implements Serializabl
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class RunwayDeclaredDistanceValueTypeExtensionType implements Serializabl
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwaydeclareddistancevalueextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwaydeclareddistancevalueextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayDeclaredDistanceValueExtension() {
         return abstractRunwayDeclaredDistanceValueExtension;
     }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "flightRestrictionRoute"
 })
 @Entity(name = "FlightRestrictionRoutePropertyType")
-@Table(name = "flightrestrictionroute_pt", schema = "route")
+@Table(name = "flightrestrictionroute_p", schema = "route")
 public class FlightRestrictionRoutePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class FlightRestrictionRoutePropertyType
     @OneToOne(targetEntity = FlightRestrictionRouteType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "flightrestrictionroute_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "flightrestrictionroute_hjid", referencedColumnName = "hjid")
     public FlightRestrictionRouteType getFlightRestrictionRoute() {
         return flightRestrictionRoute;
     }

@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AuthorityForAirspaceTimeSlicePropertyType", propOrder = {
     "authorityForAirspaceTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AuthorityForAirspaceTimeSlicePropertyType")
-@Table(name = "authorityforairspace_tsp", schema = "airspace")
+@Table(name = "authorityforairspace_tp", schema = "airspace")
 public class AuthorityForAirspaceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class AuthorityForAirspaceTimeSlicePropertyType implements Serializable, 
     @OneToOne(targetEntity = AuthorityForAirspaceTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "authorityforairspacetimeslice_hjid", referencedColumnName = "hjid")
     public AuthorityForAirspaceTimeSliceType getAuthorityForAirspaceTimeSlice() {
         return authorityForAirspaceTimeSlice;
     }
@@ -230,19 +230,6 @@ public class AuthorityForAirspaceTimeSlicePropertyType implements Serializable, 
         }
         final AuthorityForAirspaceTimeSlicePropertyType that = ((AuthorityForAirspaceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAuthorityForAirspaceTimeSlice();
             boolean rhsFieldIsSet = that.isSetAuthorityForAirspaceTimeSlice();
             AuthorityForAirspaceTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class AuthorityForAirspaceTimeSlicePropertyType implements Serializable, 
             rhsField = that.getAuthorityForAirspaceTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authorityForAirspaceTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authorityForAirspaceTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -40,7 +40,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     SearchRescueServiceType.class
 })
 @Entity(name = "AbstractServiceType")
-@Table(name = "abstractservice", schema = "public")
+@Table(name = "abstractservicetype", schema = "public")
 public abstract class AbstractServiceType
     extends AbstractAIXMFeatureType
     implements Serializable

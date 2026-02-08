@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SurveyControlPointTimeSlicePropertyType", propOrder = {
     "surveyControlPointTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "SurveyControlPointTimeSlicePropertyType")
-@Table(name = "surveycontrolpoint_tsp", schema = "airport_heliport")
+@Table(name = "surveycontrolpoint_tp", schema = "airport_heliport")
 public class SurveyControlPointTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class SurveyControlPointTimeSlicePropertyType implements Serializable, Eq
     @OneToOne(targetEntity = SurveyControlPointTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "surveycontrolpointtimeslice_hjid", referencedColumnName = "hjid")
     public SurveyControlPointTimeSliceType getSurveyControlPointTimeSlice() {
         return surveyControlPointTimeSlice;
     }

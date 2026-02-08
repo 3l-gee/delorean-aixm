@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,10 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}EquipmentUnavailableAdjustmentPropertyGroup"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeEquipmentUnavailableType" minOccurs="0"/>
+ *         <element name="approachLightingInoperative" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="adjustmentINOPCol" type="{http://www.aixm.aero/schema/5.1.1}EquipmentUnavailableAdjustmentColumnPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -72,7 +74,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "EquipmentUnavailableAdjustmentType")
-@Table(name = "equipmentunavailableadjustment", schema = "procedure")
+@Table(name = "equipmentunavailableadjustment_o", schema = "procedure")
 public class EquipmentUnavailableAdjustmentType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -171,13 +173,13 @@ public class EquipmentUnavailableAdjustmentType
      * 
      * 
      */
-    @ManyToMany(targetEntity = EquipmentUnavailableAdjustmentColumnPropertyType.class, cascade = {
+    @OneToMany(targetEntity = EquipmentUnavailableAdjustmentColumnPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "adjustmentinopcol_equipmentunavailableadjustment_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "adjustmentinopcol", referencedColumnName = "hjid")
+    @JoinTable(name = "equipmentunavailableadjustment_o_adjustmentinopcol_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "equipmentunavailableadjustment_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "equipmentunavailableadjustmentpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "adjustmentinopcol_hjid", referencedColumnName = "hjid")
     })
     public List<EquipmentUnavailableAdjustmentColumnPropertyType> getAdjustmentINOPCol() {
         if (adjustmentINOPCol == null) {
@@ -225,13 +227,13 @@ public class EquipmentUnavailableAdjustmentType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_equipmentunavailableadjustment_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "equipmentunavailableadjustment_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "equipmentunavailableadjustment_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "equipmentunavailableadjustmentpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -282,7 +284,7 @@ public class EquipmentUnavailableAdjustmentType
     @OneToMany(targetEntity = EquipmentUnavailableAdjustmentTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_EQUIPMENT_UNAVAILA_0")
+    @JoinColumn(name = "equipmentunavailableadjustment_e_hjid", referencedColumnName = "hjid")
     public List<EquipmentUnavailableAdjustmentTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -346,32 +348,6 @@ public class EquipmentUnavailableAdjustmentType
         }
         final EquipmentUnavailableAdjustmentType that = ((EquipmentUnavailableAdjustmentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<EquipmentUnavailableAdjustmentTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<EquipmentUnavailableAdjustmentTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetApproachLightingInoperative();
             boolean rhsFieldIsSet = that.isSetApproachLightingInoperative();
             JAXBElement<CodeYesNoType> lhsField;
@@ -380,6 +356,19 @@ public class EquipmentUnavailableAdjustmentType
             rhsField = that.getApproachLightingInoperative();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachLightingInoperative", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachLightingInoperative", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -406,6 +395,19 @@ public class EquipmentUnavailableAdjustmentType
             rhsField = (that.isSetAdjustmentINOPCol()?that.getAdjustmentINOPCol():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "adjustmentINOPCol", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "adjustmentINOPCol", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<EquipmentUnavailableAdjustmentTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<EquipmentUnavailableAdjustmentTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractRunwayVisualRangeExtension"
 })
 @Entity(name = "RunwayVisualRangeExtensionType")
-@Table(name = "runwayvisualrange_ext", schema = "airport_heliport")
+@Table(name = "runwayvisualrange_e", schema = "airport_heliport")
 public class RunwayVisualRangeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class RunwayVisualRangeExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwayvisualrangeextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwayvisualrangeextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayVisualRangeExtension() {
         return abstractRunwayVisualRangeExtension;
     }
@@ -223,19 +223,6 @@ public class RunwayVisualRangeExtensionType implements Serializable, Equals, Has
         }
         final RunwayVisualRangeExtensionType that = ((RunwayVisualRangeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRunwayVisualRangeExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRunwayVisualRangeExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRunwayVisualRangeExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRunwayVisualRangeExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayVisualRangeExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayVisualRangeExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RunwayVisualRangeExtensionType implements Serializable, Equals, Has
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRunwayVisualRangeExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRunwayVisualRangeExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRunwayVisualRangeExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRunwayVisualRangeExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayVisualRangeExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayVisualRangeExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

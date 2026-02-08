@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractFlightConditionCircumstanceExtension"
 })
 @Entity(name = "FlightConditionCircumstanceTypeExtensionType")
-@Table(name = "flightconditioncircumstance_ext", schema = "route")
+@Table(name = "flightconditioncircumstance_e", schema = "route")
 public class FlightConditionCircumstanceTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class FlightConditionCircumstanceTypeExtensionType implements Serializabl
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractflightconditioncircumstanceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractflightconditioncircumstanceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightConditionCircumstanceExtension() {
         return abstractFlightConditionCircumstanceExtension;
     }

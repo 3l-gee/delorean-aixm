@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "InstrumentApproachProcedureTimeSlicePropertyType", propOrder = {
     "instrumentApproachProcedureTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "InstrumentApproachProcedureTimeSlicePropertyType")
-@Table(name = "instrumentapproachprocedure_tsp", schema = "procedure")
+@Table(name = "instrumentapproachprocedure_tp", schema = "procedure")
 public class InstrumentApproachProcedureTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class InstrumentApproachProcedureTimeSlicePropertyType implements Seriali
     @OneToOne(targetEntity = InstrumentApproachProcedureTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "instrumentapproachproceduretimeslice_hjid", referencedColumnName = "hjid")
     public InstrumentApproachProcedureTimeSliceType getInstrumentApproachProcedureTimeSlice() {
         return instrumentApproachProcedureTimeSlice;
     }
@@ -230,19 +230,6 @@ public class InstrumentApproachProcedureTimeSlicePropertyType implements Seriali
         }
         final InstrumentApproachProcedureTimeSlicePropertyType that = ((InstrumentApproachProcedureTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetInstrumentApproachProcedureTimeSlice();
             boolean rhsFieldIsSet = that.isSetInstrumentApproachProcedureTimeSlice();
             InstrumentApproachProcedureTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class InstrumentApproachProcedureTimeSlicePropertyType implements Seriali
             rhsField = that.getInstrumentApproachProcedureTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instrumentApproachProcedureTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instrumentApproachProcedureTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

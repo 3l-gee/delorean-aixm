@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "GroundTrafficControlServiceTimeSlicePropertyType", propOrder = {
     "groundTrafficControlServiceTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "GroundTrafficControlServiceTimeSlicePropertyType")
-@Table(name = "groundtrafficcontrolservice_tsp", schema = "service")
+@Table(name = "groundtrafficcontrolservice_tp", schema = "service")
 public class GroundTrafficControlServiceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class GroundTrafficControlServiceTimeSlicePropertyType implements Seriali
     @OneToOne(targetEntity = GroundTrafficControlServiceTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "groundtrafficcontrolservicetimeslice_hjid", referencedColumnName = "hjid")
     public GroundTrafficControlServiceTimeSliceType getGroundTrafficControlServiceTimeSlice() {
         return groundTrafficControlServiceTimeSlice;
     }

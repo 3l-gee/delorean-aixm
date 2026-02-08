@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractTerminalSegmentPointExtension"
 })
 @Entity(name = "TerminalSegmentPointTypeExtensionType")
-@Table(name = "terminalsegmentpoint_ext", schema = "navaids_point")
+@Table(name = "terminalsegmentpoint_e", schema = "navaids_point")
 public class TerminalSegmentPointTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class TerminalSegmentPointTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsegmentpointextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsegmentpointextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentPointExtension() {
         return abstractSegmentPointExtension;
     }
@@ -123,7 +123,7 @@ public class TerminalSegmentPointTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractterminalsegmentpointextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractterminalsegmentpointextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTerminalSegmentPointExtension() {
         return abstractTerminalSegmentPointExtension;
     }
@@ -260,6 +260,19 @@ public class TerminalSegmentPointTypeExtensionType implements Serializable, Equa
         }
         final TerminalSegmentPointTypeExtensionType that = ((TerminalSegmentPointTypeExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSegmentPointExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSegmentPointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,19 +294,6 @@ public class TerminalSegmentPointTypeExtensionType implements Serializable, Equa
             rhsField = that.getAbstractTerminalSegmentPointExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTerminalSegmentPointExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTerminalSegmentPointExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSegmentPointExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSegmentPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

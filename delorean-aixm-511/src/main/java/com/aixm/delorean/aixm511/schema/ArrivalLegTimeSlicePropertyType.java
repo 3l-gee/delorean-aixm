@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ArrivalLegTimeSlicePropertyType", propOrder = {
     "arrivalLegTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "ArrivalLegTimeSlicePropertyType")
-@Table(name = "arrivalleg_tsp", schema = "procedure")
+@Table(name = "arrivalleg_tp", schema = "procedure")
 public class ArrivalLegTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class ArrivalLegTimeSlicePropertyType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = ArrivalLegTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "arrivallegtimeslice_hjid", referencedColumnName = "hjid")
     public ArrivalLegTimeSliceType getArrivalLegTimeSlice() {
         return arrivalLegTimeSlice;
     }
@@ -230,19 +230,6 @@ public class ArrivalLegTimeSlicePropertyType implements Serializable, Equals, Ha
         }
         final ArrivalLegTimeSlicePropertyType that = ((ArrivalLegTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetArrivalLegTimeSlice();
             boolean rhsFieldIsSet = that.isSetArrivalLegTimeSlice();
             ArrivalLegTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class ArrivalLegTimeSlicePropertyType implements Serializable, Equals, Ha
             rhsField = that.getArrivalLegTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arrivalLegTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arrivalLegTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

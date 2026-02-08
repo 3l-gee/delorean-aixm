@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RunwayCentrelinePointTimeSlicePropertyType", propOrder = {
     "runwayCentrelinePointTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "RunwayCentrelinePointTimeSlicePropertyType")
-@Table(name = "runwaycentrelinepoint_tsp", schema = "airport_heliport")
+@Table(name = "runwaycentrelinepoint_tp", schema = "airport_heliport")
 public class RunwayCentrelinePointTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class RunwayCentrelinePointTimeSlicePropertyType implements Serializable,
     @OneToOne(targetEntity = RunwayCentrelinePointTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "runwaycentrelinepointtimeslice_hjid", referencedColumnName = "hjid")
     public RunwayCentrelinePointTimeSliceType getRunwayCentrelinePointTimeSlice() {
         return runwayCentrelinePointTimeSlice;
     }

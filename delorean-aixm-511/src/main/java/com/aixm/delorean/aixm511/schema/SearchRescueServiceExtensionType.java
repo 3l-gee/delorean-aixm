@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractServiceExtension"
 })
 @Entity(name = "SearchRescueServiceExtensionType")
-@Table(name = "searchrescueservice_ext", schema = "service")
+@Table(name = "searchrescueservice_e", schema = "service")
 public class SearchRescueServiceExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class SearchRescueServiceExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsearchrescueserviceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsearchrescueserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSearchRescueServiceExtension() {
         return abstractSearchRescueServiceExtension;
     }
@@ -123,7 +123,7 @@ public class SearchRescueServiceExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractserviceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
     }
@@ -260,19 +260,6 @@ public class SearchRescueServiceExtensionType implements Serializable, Equals, H
         }
         final SearchRescueServiceExtensionType that = ((SearchRescueServiceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSearchRescueServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSearchRescueServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSearchRescueServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSearchRescueServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSearchRescueServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSearchRescueServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class SearchRescueServiceExtensionType implements Serializable, Equals, H
             rhsField = that.getAbstractServiceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSearchRescueServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSearchRescueServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSearchRescueServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSearchRescueServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSearchRescueServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSearchRescueServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

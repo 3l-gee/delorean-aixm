@@ -38,7 +38,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     AbstractApproachLegType.class
 })
 @Entity(name = "AbstractSegmentLegType")
-@Table(name = "abstractsegmentleg", schema = "public")
+@Table(name = "abstractsegmentlegtype", schema = "public")
 public abstract class AbstractSegmentLegType
     extends AbstractAIXMFeatureType
     implements Serializable

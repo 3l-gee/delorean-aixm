@@ -358,40 +358,27 @@ public class BSplineType extends AbstractCurveSegmentType implements Serializabl
         }
         final BSplineType that = ((BSplineType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPosList();
-            boolean rhsFieldIsSet = that.isSetPosList();
-            DirectPositionListType lhsField;
-            lhsField = this.getPosList();
-            DirectPositionListType rhsField;
-            rhsField = that.getPosList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+            boolean lhsFieldIsSet = this.isSetKnotType();
+            boolean rhsFieldIsSet = that.isSetKnotType();
+            KnotTypesType lhsField;
+            lhsField = this.getKnotType();
+            KnotTypesType rhsField;
+            rhsField = that.getKnotType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "knotType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "knotType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDegree();
-            boolean rhsFieldIsSet = that.isSetDegree();
-            BigInteger lhsField;
-            lhsField = this.getDegree();
-            BigInteger rhsField;
-            rhsField = that.getDegree();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degree", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degree", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIsPolynomial();
-            boolean rhsFieldIsSet = that.isSetIsPolynomial();
-            boolean lhsField;
-            lhsField = (this.isSetIsPolynomial() ? this.getIsPolynomial() : false);
-            boolean rhsField;
-            rhsField = (that.isSetIsPolynomial() ? that.getIsPolynomial() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPolynomial", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPolynomial", rhsField);
+            boolean lhsFieldIsSet = this.isSetInterpolation();
+            boolean rhsFieldIsSet = that.isSetInterpolation();
+            CurveInterpolationType lhsField;
+            lhsField = this.getInterpolation();
+            CurveInterpolationType rhsField;
+            rhsField = that.getInterpolation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -412,14 +399,27 @@ public class BSplineType extends AbstractCurveSegmentType implements Serializabl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetKnotType();
-            boolean rhsFieldIsSet = that.isSetKnotType();
-            KnotTypesType lhsField;
-            lhsField = this.getKnotType();
-            KnotTypesType rhsField;
-            rhsField = that.getKnotType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "knotType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "knotType", rhsField);
+            boolean lhsFieldIsSet = this.isSetDegree();
+            boolean rhsFieldIsSet = that.isSetDegree();
+            BigInteger lhsField;
+            lhsField = this.getDegree();
+            BigInteger rhsField;
+            rhsField = that.getDegree();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degree", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degree", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPosList();
+            boolean rhsFieldIsSet = that.isSetPosList();
+            DirectPositionListType lhsField;
+            lhsField = this.getPosList();
+            DirectPositionListType rhsField;
+            rhsField = that.getPosList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -438,14 +438,14 @@ public class BSplineType extends AbstractCurveSegmentType implements Serializabl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetInterpolation();
-            boolean rhsFieldIsSet = that.isSetInterpolation();
-            CurveInterpolationType lhsField;
-            lhsField = this.getInterpolation();
-            CurveInterpolationType rhsField;
-            rhsField = that.getInterpolation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
+            boolean lhsFieldIsSet = this.isSetIsPolynomial();
+            boolean rhsFieldIsSet = that.isSetIsPolynomial();
+            boolean lhsField;
+            lhsField = (this.isSetIsPolynomial() ? this.getIsPolynomial() : false);
+            boolean rhsField;
+            rhsField = (that.isSetIsPolynomial() ? that.getIsPolynomial() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPolynomial", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPolynomial", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

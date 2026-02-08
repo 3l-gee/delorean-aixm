@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SearchRescueServiceTimeSlicePropertyType", propOrder = {
     "searchRescueServiceTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "SearchRescueServiceTimeSlicePropertyType")
-@Table(name = "searchrescueservice_tsp", schema = "service")
+@Table(name = "searchrescueservice_tp", schema = "service")
 public class SearchRescueServiceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class SearchRescueServiceTimeSlicePropertyType implements Serializable, E
     @OneToOne(targetEntity = SearchRescueServiceTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "searchrescueservicetimeslice_hjid", referencedColumnName = "hjid")
     public SearchRescueServiceTimeSliceType getSearchRescueServiceTimeSlice() {
         return searchRescueServiceTimeSlice;
     }
@@ -230,19 +230,6 @@ public class SearchRescueServiceTimeSlicePropertyType implements Serializable, E
         }
         final SearchRescueServiceTimeSlicePropertyType that = ((SearchRescueServiceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSearchRescueServiceTimeSlice();
-            boolean rhsFieldIsSet = that.isSetSearchRescueServiceTimeSlice();
-            SearchRescueServiceTimeSliceType lhsField;
-            lhsField = this.getSearchRescueServiceTimeSlice();
-            SearchRescueServiceTimeSliceType rhsField;
-            rhsField = that.getSearchRescueServiceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "searchRescueServiceTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "searchRescueServiceTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class SearchRescueServiceTimeSlicePropertyType implements Serializable, E
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSearchRescueServiceTimeSlice();
+            boolean rhsFieldIsSet = that.isSetSearchRescueServiceTimeSlice();
+            SearchRescueServiceTimeSliceType lhsField;
+            lhsField = this.getSearchRescueServiceTimeSlice();
+            SearchRescueServiceTimeSliceType rhsField;
+            rhsField = that.getSearchRescueServiceTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "searchRescueServiceTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "searchRescueServiceTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

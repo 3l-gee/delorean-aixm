@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AirportHotSpotTimeSlicePropertyType", propOrder = {
     "airportHotSpotTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AirportHotSpotTimeSlicePropertyType")
-@Table(name = "airporthotspot_tsp", schema = "airport_heliport")
+@Table(name = "airporthotspot_tp", schema = "airport_heliport")
 public class AirportHotSpotTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class AirportHotSpotTimeSlicePropertyType implements Serializable, Equals
     @OneToOne(targetEntity = AirportHotSpotTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "airporthotspottimeslice_hjid", referencedColumnName = "hjid")
     public AirportHotSpotTimeSliceType getAirportHotSpotTimeSlice() {
         return airportHotSpotTimeSlice;
     }

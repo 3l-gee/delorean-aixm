@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airspaceActivation"
 })
 @Entity(name = "AirspaceActivationPropertyType")
-@Table(name = "airspaceactivation_pt", schema = "airspace")
+@Table(name = "airspaceactivation_p", schema = "airspace")
 public class AirspaceActivationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AirspaceActivationPropertyType
     @OneToOne(targetEntity = AirspaceActivationType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airspaceactivation_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "airspaceactivation_hjid", referencedColumnName = "hjid")
     public AirspaceActivationType getAirspaceActivation() {
         return airspaceActivation;
     }

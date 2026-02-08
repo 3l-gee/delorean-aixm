@@ -183,19 +183,6 @@ public class MDKeywordsType extends AbstractObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetThesaurusName();
-            boolean rhsFieldIsSet = that.isSetThesaurusName();
-            CICitationPropertyType lhsField;
-            lhsField = this.getThesaurusName();
-            CICitationPropertyType rhsField;
-            rhsField = that.getThesaurusName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "thesaurusName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "thesaurusName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             MDKeywordTypeCodePropertyType lhsField;
@@ -204,6 +191,19 @@ public class MDKeywordsType extends AbstractObjectType implements Serializable {
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetThesaurusName();
+            boolean rhsFieldIsSet = that.isSetThesaurusName();
+            CICitationPropertyType lhsField;
+            lhsField = this.getThesaurusName();
+            CICitationPropertyType rhsField;
+            rhsField = that.getThesaurusName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "thesaurusName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "thesaurusName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

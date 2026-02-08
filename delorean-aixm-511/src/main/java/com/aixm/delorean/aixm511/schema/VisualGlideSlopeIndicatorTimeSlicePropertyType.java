@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "VisualGlideSlopeIndicatorTimeSlicePropertyType", propOrder = {
     "visualGlideSlopeIndicatorTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "VisualGlideSlopeIndicatorTimeSlicePropertyType")
-@Table(name = "visualglideslopeindicator_tsp", schema = "airport_heliport")
+@Table(name = "visualglideslopeindicator_tp", schema = "airport_heliport")
 public class VisualGlideSlopeIndicatorTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class VisualGlideSlopeIndicatorTimeSlicePropertyType implements Serializa
     @OneToOne(targetEntity = VisualGlideSlopeIndicatorTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "visualglideslopeindicatortimeslice_hjid", referencedColumnName = "hjid")
     public VisualGlideSlopeIndicatorTimeSliceType getVisualGlideSlopeIndicatorTimeSlice() {
         return visualGlideSlopeIndicatorTimeSlice;
     }
@@ -230,19 +230,6 @@ public class VisualGlideSlopeIndicatorTimeSlicePropertyType implements Serializa
         }
         final VisualGlideSlopeIndicatorTimeSlicePropertyType that = ((VisualGlideSlopeIndicatorTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVisualGlideSlopeIndicatorTimeSlice();
-            boolean rhsFieldIsSet = that.isSetVisualGlideSlopeIndicatorTimeSlice();
-            VisualGlideSlopeIndicatorTimeSliceType lhsField;
-            lhsField = this.getVisualGlideSlopeIndicatorTimeSlice();
-            VisualGlideSlopeIndicatorTimeSliceType rhsField;
-            rhsField = that.getVisualGlideSlopeIndicatorTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visualGlideSlopeIndicatorTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visualGlideSlopeIndicatorTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class VisualGlideSlopeIndicatorTimeSlicePropertyType implements Serializa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVisualGlideSlopeIndicatorTimeSlice();
+            boolean rhsFieldIsSet = that.isSetVisualGlideSlopeIndicatorTimeSlice();
+            VisualGlideSlopeIndicatorTimeSliceType lhsField;
+            lhsField = this.getVisualGlideSlopeIndicatorTimeSlice();
+            VisualGlideSlopeIndicatorTimeSliceType rhsField;
+            rhsField = that.getVisualGlideSlopeIndicatorTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visualGlideSlopeIndicatorTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visualGlideSlopeIndicatorTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

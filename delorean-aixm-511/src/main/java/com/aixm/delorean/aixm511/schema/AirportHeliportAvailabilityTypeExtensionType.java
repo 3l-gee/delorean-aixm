@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAirportHeliportAvailabilityExtension"
 })
 @Entity(name = "AirportHeliportAvailabilityTypeExtensionType")
-@Table(name = "airportheliportavailability_ext", schema = "airport_heliport")
+@Table(name = "airportheliportavailability_e", schema = "airport_heliport")
 public class AirportHeliportAvailabilityTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class AirportHeliportAvailabilityTypeExtensionType implements Serializabl
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class AirportHeliportAvailabilityTypeExtensionType implements Serializabl
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairportheliportavailabilityextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairportheliportavailabilityextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportHeliportAvailabilityExtension() {
         return abstractAirportHeliportAvailabilityExtension;
     }

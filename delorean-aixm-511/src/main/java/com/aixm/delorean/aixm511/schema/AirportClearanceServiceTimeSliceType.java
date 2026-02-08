@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,19 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}AirportClearanceServicePropertyGroup"/>
+ *         <element name="flightOperations" type="{http://www.aixm.aero/schema/5.1.1}CodeFlightDestinationType" minOccurs="0"/>
+ *         <element name="rank" type="{http://www.aixm.aero/schema/5.1.1}CodeFacilityRankingType" minOccurs="0"/>
+ *         <element name="compliantICAO" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="serviceProvider" type="{http://www.aixm.aero/schema/5.1.1}UnitPropertyType" minOccurs="0"/>
+ *         <element name="call-sign" type="{http://www.aixm.aero/schema/5.1.1}CallsignDetailPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="radioCommunication" type="{http://www.aixm.aero/schema/5.1.1}RadioCommunicationChannelPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="groundCommunication" type="{http://www.aixm.aero/schema/5.1.1}ContactInformationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}ServiceOperationalStatusPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="airportHeliport" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="snowPlan" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -84,7 +95,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "AirportClearanceServiceTimeSliceType")
-@Table(name = "airportclearanceservice_ts", schema = "service")
+@Table(name = "airportclearanceservice_t", schema = "service")
 public class AirportClearanceServiceTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -321,13 +332,13 @@ public class AirportClearanceServiceTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = CallsignDetailPropertyType.class, cascade = {
+    @OneToMany(targetEntity = CallsignDetailPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "call_sign_airportclearanceservice_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "call-sign", referencedColumnName = "hjid")
+    @JoinTable(name = "airportclearanceservice_t_call-sign_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airportclearanceservice_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airportclearanceservicepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "call-sign_hjid", referencedColumnName = "hjid")
     })
     public List<CallsignDetailPropertyType> getCallSign() {
         if (callSign == null) {
@@ -375,13 +386,13 @@ public class AirportClearanceServiceTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = RadioCommunicationChannelPropertyType.class, cascade = {
+    @OneToMany(targetEntity = RadioCommunicationChannelPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "radiocommunication_airportclearanceservice_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "radiocommunication", referencedColumnName = "hjid")
+    @JoinTable(name = "airportclearanceservice_t_radiocommunication_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airportclearanceservice_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airportclearanceservicepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "radiocommunication_hjid", referencedColumnName = "hjid")
     })
     public List<RadioCommunicationChannelPropertyType> getRadioCommunication() {
         if (radioCommunication == null) {
@@ -429,13 +440,13 @@ public class AirportClearanceServiceTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "groundcommunication_airportclearanceservice_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "groundcommunication", referencedColumnName = "hjid")
+    @JoinTable(name = "airportclearanceservice_t_groundcommunication_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airportclearanceservice_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airportclearanceservicepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "groundcommunication_hjid", referencedColumnName = "hjid")
     })
     public List<ContactInformationPropertyType> getGroundCommunication() {
         if (groundCommunication == null) {
@@ -483,13 +494,13 @@ public class AirportClearanceServiceTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ServiceOperationalStatusPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ServiceOperationalStatusPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "availability_airportclearanceservice_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    @JoinTable(name = "airportclearanceservice_t_availability_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airportclearanceservice_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airportclearanceservicepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
     })
     public List<ServiceOperationalStatusPropertyType> getAvailability() {
         if (availability == null) {
@@ -537,13 +548,13 @@ public class AirportClearanceServiceTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_airportclearanceservice_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "airportclearanceservice_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airportclearanceservice_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airportclearanceservicepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -591,13 +602,13 @@ public class AirportClearanceServiceTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "airportheliport_airportclearanceservice_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "airportheliport", referencedColumnName = "hjid")
+    @JoinTable(name = "airportclearanceservice_t_airportheliport_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airportclearanceservice_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airportclearanceservicepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "airportheliport_hjid", referencedColumnName = "hjid")
     })
     public List<AirportHeliportPropertyType> getAirportHeliport() {
         if (airportHeliport == null) {
@@ -678,7 +689,7 @@ public class AirportClearanceServiceTimeSliceType
     @OneToMany(targetEntity = AirportClearanceServiceExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIRPORT_CLEARANCE__0")
+    @JoinColumn(name = "airportclearanceservice_e_hjid", referencedColumnName = "hjid")
     public List<AirportClearanceServiceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -744,7 +755,7 @@ public class AirportClearanceServiceTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
+        @AttributeOverride(name = "value", column = @Column(name = "name")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "name_nilreason"))
     })
     public TextNameType getAixmNameItem() {
@@ -755,10 +766,14 @@ public class AirportClearanceServiceTimeSliceType
         setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "name"), AirportClearanceServiceTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "location_id", referencedColumnName = "hjid")
+    @JoinTable(name = "airportclearanceservice_t_location_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airportclearanceservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
@@ -767,10 +782,14 @@ public class AirportClearanceServiceTimeSliceType
         setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "location"), AirportClearanceServiceTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = UnitPropertyType.class, cascade = {
+    @OneToOne(targetEntity = UnitPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "serviceprovider_id", referencedColumnName = "hjid")
+    @JoinTable(name = "airportclearanceservice_t_serviceprovider_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airportclearanceservice_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "serviceprovider_hjid", referencedColumnName = "hjid")
+    })
     public UnitPropertyType getServiceProviderItem() {
         return XmlAdapterUtils.unmarshallSource(UnitPropertyType.class, this.getServiceProvider());
     }
@@ -781,7 +800,7 @@ public class AirportClearanceServiceTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "snowplan", columnDefinition = "TEXT", length = 10000)),
+        @AttributeOverride(name = "value", column = @Column(name = "snowplan")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "snowplan_nilreason"))
     })
     public TextInstructionType getSnowPlanItem() {
@@ -805,40 +824,27 @@ public class AirportClearanceServiceTimeSliceType
         }
         final AirportClearanceServiceTimeSliceType that = ((AirportClearanceServiceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRadioCommunication();
-            boolean rhsFieldIsSet = that.isSetRadioCommunication();
-            List<RadioCommunicationChannelPropertyType> lhsField;
-            lhsField = (this.isSetRadioCommunication()?this.getRadioCommunication():null);
-            List<RadioCommunicationChannelPropertyType> rhsField;
-            rhsField = (that.isSetRadioCommunication()?that.getRadioCommunication():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunication", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunication", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightOperations();
+            boolean rhsFieldIsSet = that.isSetFlightOperations();
+            JAXBElement<CodeFlightDestinationType> lhsField;
+            lhsField = this.getFlightOperations();
+            JAXBElement<CodeFlightDestinationType> rhsField;
+            rhsField = that.getFlightOperations();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightOperations", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightOperations", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetServiceProvider();
-            boolean rhsFieldIsSet = that.isSetServiceProvider();
-            JAXBElement<UnitPropertyType> lhsField;
-            lhsField = this.getServiceProvider();
-            JAXBElement<UnitPropertyType> rhsField;
-            rhsField = that.getServiceProvider();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serviceProvider", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serviceProvider", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSnowPlan();
-            boolean rhsFieldIsSet = that.isSetSnowPlan();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getSnowPlan();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getSnowPlan();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "snowPlan", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "snowPlan", rhsField);
+            boolean lhsFieldIsSet = this.isSetRank();
+            boolean rhsFieldIsSet = that.isSetRank();
+            JAXBElement<CodeFacilityRankingType> lhsField;
+            lhsField = this.getRank();
+            JAXBElement<CodeFacilityRankingType> rhsField;
+            rhsField = that.getRank();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rank", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rank", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -857,6 +863,19 @@ public class AirportClearanceServiceTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetServiceProvider();
+            boolean rhsFieldIsSet = that.isSetServiceProvider();
+            JAXBElement<UnitPropertyType> lhsField;
+            lhsField = this.getServiceProvider();
+            JAXBElement<UnitPropertyType> rhsField;
+            rhsField = that.getServiceProvider();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serviceProvider", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serviceProvider", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAvailability();
             boolean rhsFieldIsSet = that.isSetAvailability();
             List<ServiceOperationalStatusPropertyType> lhsField;
@@ -870,27 +889,27 @@ public class AirportClearanceServiceTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightOperations();
-            boolean rhsFieldIsSet = that.isSetFlightOperations();
-            JAXBElement<CodeFlightDestinationType> lhsField;
-            lhsField = this.getFlightOperations();
-            JAXBElement<CodeFlightDestinationType> rhsField;
-            rhsField = that.getFlightOperations();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightOperations", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightOperations", rhsField);
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            boolean lhsFieldIsSet = this.isSetRadioCommunication();
+            boolean rhsFieldIsSet = that.isSetRadioCommunication();
+            List<RadioCommunicationChannelPropertyType> lhsField;
+            lhsField = (this.isSetRadioCommunication()?this.getRadioCommunication():null);
+            List<RadioCommunicationChannelPropertyType> rhsField;
+            rhsField = (that.isSetRadioCommunication()?that.getRadioCommunication():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunication", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunication", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -909,14 +928,27 @@ public class AirportClearanceServiceTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetAirportHeliport();
+            boolean rhsFieldIsSet = that.isSetAirportHeliport();
+            List<AirportHeliportPropertyType> lhsField;
+            lhsField = (this.isSetAirportHeliport()?this.getAirportHeliport():null);
+            List<AirportHeliportPropertyType> rhsField;
+            rhsField = (that.isSetAirportHeliport()?that.getAirportHeliport():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -948,40 +980,27 @@ public class AirportClearanceServiceTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAirportHeliport();
-            boolean rhsFieldIsSet = that.isSetAirportHeliport();
-            List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetAirportHeliport()?this.getAirportHeliport():null);
-            List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetAirportHeliport()?that.getAirportHeliport():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliport", rhsField);
+            boolean lhsFieldIsSet = this.isSetSnowPlan();
+            boolean rhsFieldIsSet = that.isSetSnowPlan();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getSnowPlan();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getSnowPlan();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "snowPlan", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "snowPlan", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRank();
-            boolean rhsFieldIsSet = that.isSetRank();
-            JAXBElement<CodeFacilityRankingType> lhsField;
-            lhsField = this.getRank();
-            JAXBElement<CodeFacilityRankingType> rhsField;
-            rhsField = that.getRank();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rank", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rank", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

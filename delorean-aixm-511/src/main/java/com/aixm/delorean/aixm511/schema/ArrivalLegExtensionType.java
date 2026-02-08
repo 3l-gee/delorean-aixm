@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractSegmentLegExtension"
 })
 @Entity(name = "ArrivalLegExtensionType")
-@Table(name = "arrivalleg_ext", schema = "procedure")
+@Table(name = "arrivalleg_e", schema = "procedure")
 public class ArrivalLegExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class ArrivalLegExtensionType implements Serializable, Equals, HashCode, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractarrivallegextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractarrivallegextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractArrivalLegExtension() {
         return abstractArrivalLegExtension;
     }
@@ -123,7 +123,7 @@ public class ArrivalLegExtensionType implements Serializable, Equals, HashCode, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsegmentlegextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsegmentlegextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentLegExtension() {
         return abstractSegmentLegExtension;
     }
@@ -273,19 +273,6 @@ public class ArrivalLegExtensionType implements Serializable, Equals, HashCode, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractArrivalLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractArrivalLegExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractArrivalLegExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractArrivalLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractArrivalLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrivalLegExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -294,6 +281,19 @@ public class ArrivalLegExtensionType implements Serializable, Equals, HashCode, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractArrivalLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractArrivalLegExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractArrivalLegExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractArrivalLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractArrivalLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrivalLegExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

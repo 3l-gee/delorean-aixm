@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractNavaidComponentExtension"
 })
 @Entity(name = "NavaidComponentTypeExtensionType")
-@Table(name = "navaidcomponent_ext", schema = "navaids_point")
+@Table(name = "navaidcomponent_e", schema = "navaids_point")
 public class NavaidComponentTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class NavaidComponentTypeExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidcomponentextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidcomponentextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidComponentExtension() {
         return abstractNavaidComponentExtension;
     }

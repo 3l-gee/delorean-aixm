@@ -40,7 +40,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     ManoeuvringAreaUsageType.class
 })
 @Entity(name = "AbstractUsageConditionType")
-@Table(name = "abstractusagecondition", schema = "public")
+@Table(name = "abstractusagecondition_o", schema = "public")
 public class AbstractUsageConditionType
     extends AbstractAIXMObjectType
     implements Serializable

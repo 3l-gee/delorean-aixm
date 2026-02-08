@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,13 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyGroup"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="designator" type="{http://www.aixm.aero/schema/5.1.1}CodeOrganisationDesignatorType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeOrganisationType" minOccurs="0"/>
+ *         <element name="military" type="{http://www.aixm.aero/schema/5.1.1}CodeMilitaryOperationsType" minOccurs="0"/>
+ *         <element name="contact" type="{http://www.aixm.aero/schema/5.1.1}ContactInformationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="relatedOrganisationAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityAssociationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -75,7 +80,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "OrganisationAuthorityTimeSliceType")
-@Table(name = "organisationauthority_ts", schema = "organisation")
+@Table(name = "organisationauthority_t", schema = "organisation")
 public class OrganisationAuthorityTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -240,13 +245,13 @@ public class OrganisationAuthorityTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "contact_organisationauthority_link", schema = "organisation", joinColumns = {
-        @JoinColumn(name = "contact", referencedColumnName = "hjid")
+    @JoinTable(name = "organisationauthority_t_contact_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "organisationauthority_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "organisationauthoritypropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "contact_hjid", referencedColumnName = "hjid")
     })
     public List<ContactInformationPropertyType> getContact() {
         if (contact == null) {
@@ -294,13 +299,13 @@ public class OrganisationAuthorityTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = OrganisationAuthorityAssociationPropertyType.class, cascade = {
+    @OneToMany(targetEntity = OrganisationAuthorityAssociationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "relatedorganisationauthority_organisationauthority_link", schema = "organisation", joinColumns = {
-        @JoinColumn(name = "relatedorganisationauthority", referencedColumnName = "hjid")
+    @JoinTable(name = "organisationauthority_t_relatedorganisationauthority_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "organisationauthority_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "organisationauthoritypropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "relatedorganisationauthority_hjid", referencedColumnName = "hjid")
     })
     public List<OrganisationAuthorityAssociationPropertyType> getRelatedOrganisationAuthority() {
         if (relatedOrganisationAuthority == null) {
@@ -348,13 +353,13 @@ public class OrganisationAuthorityTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_organisationauthority_link", schema = "organisation", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "organisationauthority_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "organisationauthority_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "organisationauthoritypropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -405,7 +410,7 @@ public class OrganisationAuthorityTimeSliceType
     @OneToMany(targetEntity = OrganisationAuthorityExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_ORGANISATION_AUTHO_0")
+    @JoinColumn(name = "organisationauthority_e_hjid", referencedColumnName = "hjid")
     public List<OrganisationAuthorityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -432,7 +437,7 @@ public class OrganisationAuthorityTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
+        @AttributeOverride(name = "value", column = @Column(name = "name")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "name_nilreason"))
     })
     public TextNameType getAixmNameItem() {
@@ -445,7 +450,7 @@ public class OrganisationAuthorityTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 12)),
+        @AttributeOverride(name = "value", column = @Column(name = "designator")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "designator_nilreason"))
     })
     public CodeOrganisationDesignatorType getDesignatorItem() {
@@ -495,14 +500,27 @@ public class OrganisationAuthorityTimeSliceType
         }
         final OrganisationAuthorityTimeSliceType that = ((OrganisationAuthorityTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<OrganisationAuthorityExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<OrganisationAuthorityExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -521,27 +539,27 @@ public class OrganisationAuthorityTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRelatedOrganisationAuthority();
-            boolean rhsFieldIsSet = that.isSetRelatedOrganisationAuthority();
-            List<OrganisationAuthorityAssociationPropertyType> lhsField;
-            lhsField = (this.isSetRelatedOrganisationAuthority()?this.getRelatedOrganisationAuthority():null);
-            List<OrganisationAuthorityAssociationPropertyType> rhsField;
-            rhsField = (that.isSetRelatedOrganisationAuthority()?that.getRelatedOrganisationAuthority():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relatedOrganisationAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relatedOrganisationAuthority", rhsField);
+            boolean lhsFieldIsSet = this.isSetContact();
+            boolean rhsFieldIsSet = that.isSetContact();
+            List<ContactInformationPropertyType> lhsField;
+            lhsField = (this.isSetContact()?this.getContact():null);
+            List<ContactInformationPropertyType> rhsField;
+            rhsField = (that.isSetContact()?that.getContact():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<OrganisationAuthorityExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<OrganisationAuthorityExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -560,27 +578,14 @@ public class OrganisationAuthorityTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetContact();
-            boolean rhsFieldIsSet = that.isSetContact();
-            List<ContactInformationPropertyType> lhsField;
-            lhsField = (this.isSetContact()?this.getContact():null);
-            List<ContactInformationPropertyType> rhsField;
-            rhsField = (that.isSetContact()?that.getContact():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            boolean lhsFieldIsSet = this.isSetRelatedOrganisationAuthority();
+            boolean rhsFieldIsSet = that.isSetRelatedOrganisationAuthority();
+            List<OrganisationAuthorityAssociationPropertyType> lhsField;
+            lhsField = (this.isSetRelatedOrganisationAuthority()?this.getRelatedOrganisationAuthority():null);
+            List<OrganisationAuthorityAssociationPropertyType> rhsField;
+            rhsField = (that.isSetRelatedOrganisationAuthority()?that.getRelatedOrganisationAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relatedOrganisationAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relatedOrganisationAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

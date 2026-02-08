@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "unitDependency"
 })
 @Entity(name = "UnitDependencyPropertyType")
-@Table(name = "unitdependency_pt", schema = "organisation")
+@Table(name = "unitdependency_p", schema = "organisation")
 public class UnitDependencyPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class UnitDependencyPropertyType
     @OneToOne(targetEntity = UnitDependencyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "unitdependency_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "unitdependency_hjid", referencedColumnName = "hjid")
     public UnitDependencyType getUnitDependency() {
         return unitDependency;
     }

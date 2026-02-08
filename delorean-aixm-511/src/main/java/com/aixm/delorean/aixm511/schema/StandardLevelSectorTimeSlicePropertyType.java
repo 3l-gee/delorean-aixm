@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "StandardLevelSectorTimeSlicePropertyType", propOrder = {
     "standardLevelSectorTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "StandardLevelSectorTimeSlicePropertyType")
-@Table(name = "standardlevelsector_tsp", schema = "shared")
+@Table(name = "standardlevelsector_tp", schema = "shared")
 public class StandardLevelSectorTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class StandardLevelSectorTimeSlicePropertyType implements Serializable, E
     @OneToOne(targetEntity = StandardLevelSectorTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "standardlevelsectortimeslice_hjid", referencedColumnName = "hjid")
     public StandardLevelSectorTimeSliceType getStandardLevelSectorTimeSlice() {
         return standardLevelSectorTimeSlice;
     }

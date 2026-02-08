@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ChangeOverPointTimeSlicePropertyType", propOrder = {
     "changeOverPointTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "ChangeOverPointTimeSlicePropertyType")
-@Table(name = "changeoverpoint_tsp", schema = "route")
+@Table(name = "changeoverpoint_tp", schema = "route")
 public class ChangeOverPointTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class ChangeOverPointTimeSlicePropertyType implements Serializable, Equal
     @OneToOne(targetEntity = ChangeOverPointTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "changeoverpointtimeslice_hjid", referencedColumnName = "hjid")
     public ChangeOverPointTimeSliceType getChangeOverPointTimeSlice() {
         return changeOverPointTimeSlice;
     }

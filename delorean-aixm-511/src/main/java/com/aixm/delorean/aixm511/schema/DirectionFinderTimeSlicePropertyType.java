@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "DirectionFinderTimeSlicePropertyType", propOrder = {
     "directionFinderTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "DirectionFinderTimeSlicePropertyType")
-@Table(name = "directionfinder_tsp", schema = "navaids_point")
+@Table(name = "directionfinder_tp", schema = "navaids_point")
 public class DirectionFinderTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class DirectionFinderTimeSlicePropertyType implements Serializable, Equal
     @OneToOne(targetEntity = DirectionFinderTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "directionfindertimeslice_hjid", referencedColumnName = "hjid")
     public DirectionFinderTimeSliceType getDirectionFinderTimeSlice() {
         return directionFinderTimeSlice;
     }
@@ -230,19 +230,6 @@ public class DirectionFinderTimeSlicePropertyType implements Serializable, Equal
         }
         final DirectionFinderTimeSlicePropertyType that = ((DirectionFinderTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDirectionFinderTimeSlice();
             boolean rhsFieldIsSet = that.isSetDirectionFinderTimeSlice();
             DirectionFinderTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class DirectionFinderTimeSlicePropertyType implements Serializable, Equal
             rhsField = that.getDirectionFinderTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directionFinderTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directionFinderTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractSpecialNavigationStationExtension"
 })
 @Entity(name = "SpecialNavigationStationExtensionType")
-@Table(name = "specialnavigationstation_ext", schema = "navaids_point")
+@Table(name = "specialnavigationstation_e", schema = "navaids_point")
 public class SpecialNavigationStationExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class SpecialNavigationStationExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractspecialnavigationstationextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractspecialnavigationstationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSpecialNavigationStationExtension() {
         return abstractSpecialNavigationStationExtension;
     }
@@ -223,19 +223,6 @@ public class SpecialNavigationStationExtensionType implements Serializable, Equa
         }
         final SpecialNavigationStationExtensionType that = ((SpecialNavigationStationExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSpecialNavigationStationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSpecialNavigationStationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSpecialNavigationStationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSpecialNavigationStationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSpecialNavigationStationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSpecialNavigationStationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class SpecialNavigationStationExtensionType implements Serializable, Equa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSpecialNavigationStationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSpecialNavigationStationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSpecialNavigationStationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSpecialNavigationStationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSpecialNavigationStationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSpecialNavigationStationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

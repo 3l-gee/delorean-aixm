@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "PilotControlledLightingTimeSlicePropertyType", propOrder = {
     "pilotControlledLightingTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "PilotControlledLightingTimeSlicePropertyType")
-@Table(name = "pilotcontrolledlighting_tsp", schema = "service")
+@Table(name = "pilotcontrolledlighting_tp", schema = "service")
 public class PilotControlledLightingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class PilotControlledLightingTimeSlicePropertyType implements Serializabl
     @OneToOne(targetEntity = PilotControlledLightingTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "pilotcontrolledlightingtimeslice_hjid", referencedColumnName = "hjid")
     public PilotControlledLightingTimeSliceType getPilotControlledLightingTimeSlice() {
         return pilotControlledLightingTimeSlice;
     }

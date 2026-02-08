@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,9 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}SurveillanceGroundStationPropertyGroup"/>
+ *         <element name="videoMap" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="theUnit" type="{http://www.aixm.aero/schema/5.1.1}UnitPropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -72,7 +73,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "SurveillanceGroundStationType")
-@Table(name = "surveillancegroundstation", schema = "surveillance")
+@Table(name = "surveillancegroundstation_o", schema = "surveillance")
 public class SurveillanceGroundStationType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -138,13 +139,13 @@ public class SurveillanceGroundStationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_surveillancegroundstation_link", schema = "surveillance", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "surveillancegroundstation_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "surveillancegroundstation_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "surveillancegroundstationpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -178,10 +179,14 @@ public class SurveillanceGroundStationType
      *     {@link UnitPropertyType }
      *     
      */
-    @ManyToOne(targetEntity = UnitPropertyType.class, cascade = {
+    @OneToOne(targetEntity = UnitPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "theunit_id", referencedColumnName = "hjid")
+    @JoinTable(name = "surveillancegroundstation_o_theunit_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "surveillancegroundstation_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "theunit_hjid", referencedColumnName = "hjid")
+    })
     public UnitPropertyType getTheUnit() {
         return theUnit;
     }
@@ -228,7 +233,7 @@ public class SurveillanceGroundStationType
     @OneToMany(targetEntity = SurveillanceGroundStationTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_SURVEILLANCE_GROUN_0")
+    @JoinColumn(name = "surveillancegroundstation_e_hjid", referencedColumnName = "hjid")
     public List<SurveillanceGroundStationTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -279,19 +284,6 @@ public class SurveillanceGroundStationType
         }
         final SurveillanceGroundStationType that = ((SurveillanceGroundStationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVideoMap();
-            boolean rhsFieldIsSet = that.isSetVideoMap();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getVideoMap();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getVideoMap();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "videoMap", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "videoMap", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -326,6 +318,19 @@ public class SurveillanceGroundStationType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVideoMap();
+            boolean rhsFieldIsSet = that.isSetVideoMap();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getVideoMap();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getVideoMap();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "videoMap", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "videoMap", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

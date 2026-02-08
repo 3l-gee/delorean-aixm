@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,13 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}GuidanceLineLightSystemPropertyGroup"/>
+ *         <element name="emergencyLighting" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="intensityLevel" type="{http://www.aixm.aero/schema/5.1.1}CodeLightIntensityType" minOccurs="0"/>
+ *         <element name="colour" type="{http://www.aixm.aero/schema/5.1.1}CodeColourType" minOccurs="0"/>
+ *         <element name="element" type="{http://www.aixm.aero/schema/5.1.1}LightElementPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}GroundLightingAvailabilityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="lightedGuidanceLine" type="{http://www.aixm.aero/schema/5.1.1}GuidanceLinePropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -77,7 +82,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "GuidanceLineLightSystemTimeSliceType")
-@Table(name = "guidancelinelightsystem_ts", schema = "airport_heliport")
+@Table(name = "guidancelinelightsystem_t", schema = "airport_heliport")
 public class GuidanceLineLightSystemTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -212,13 +217,13 @@ public class GuidanceLineLightSystemTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = LightElementPropertyType.class, cascade = {
+    @OneToMany(targetEntity = LightElementPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "element_guidancelinelightsystem_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "element", referencedColumnName = "hjid")
+    @JoinTable(name = "guidancelinelightsystem_t_element_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidancelinelightsystem_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinelightsystempropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "element_hjid", referencedColumnName = "hjid")
     })
     public List<LightElementPropertyType> getElement() {
         if (element == null) {
@@ -266,13 +271,13 @@ public class GuidanceLineLightSystemTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = GroundLightingAvailabilityPropertyType.class, cascade = {
+    @OneToMany(targetEntity = GroundLightingAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "availability_guidancelinelightsystem_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    @JoinTable(name = "guidancelinelightsystem_t_availability_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidancelinelightsystem_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinelightsystempropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
     })
     public List<GroundLightingAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
@@ -320,13 +325,13 @@ public class GuidanceLineLightSystemTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_guidancelinelightsystem_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "guidancelinelightsystem_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidancelinelightsystem_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "guidancelinelightsystempropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -407,7 +412,7 @@ public class GuidanceLineLightSystemTimeSliceType
     @OneToMany(targetEntity = GuidanceLineLightSystemExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_GUIDANCE_LINE_LIGH_0")
+    @JoinColumn(name = "guidancelinelightsystem_e_hjid", referencedColumnName = "hjid")
     public List<GuidanceLineLightSystemExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -471,10 +476,14 @@ public class GuidanceLineLightSystemTimeSliceType
         setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class, new QName("http://www.aixm.aero/schema/5.1.1", "colour"), GuidanceLineLightSystemTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = GuidanceLinePropertyType.class, cascade = {
+    @OneToOne(targetEntity = GuidanceLinePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "lightedguidanceline_id", referencedColumnName = "hjid")
+    @JoinTable(name = "guidancelinelightsystem_t_lightedguidanceline_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "guidancelinelightsystem_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "lightedguidanceline_hjid", referencedColumnName = "hjid")
+    })
     public GuidanceLinePropertyType getLightedGuidanceLineItem() {
         return XmlAdapterUtils.unmarshallSource(GuidanceLinePropertyType.class, this.getLightedGuidanceLine());
     }
@@ -509,14 +518,14 @@ public class GuidanceLineLightSystemTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<GroundLightingAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<GroundLightingAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetColour();
+            boolean rhsFieldIsSet = that.isSetColour();
+            JAXBElement<CodeColourType> lhsField;
+            lhsField = this.getColour();
+            JAXBElement<CodeColourType> rhsField;
+            rhsField = that.getColour();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -535,14 +544,14 @@ public class GuidanceLineLightSystemTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIntensityLevel();
-            boolean rhsFieldIsSet = that.isSetIntensityLevel();
-            JAXBElement<CodeLightIntensityType> lhsField;
-            lhsField = this.getIntensityLevel();
-            JAXBElement<CodeLightIntensityType> rhsField;
-            rhsField = that.getIntensityLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intensityLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intensityLevel", rhsField);
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<GroundLightingAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<GroundLightingAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -574,6 +583,19 @@ public class GuidanceLineLightSystemTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetIntensityLevel();
+            boolean rhsFieldIsSet = that.isSetIntensityLevel();
+            JAXBElement<CodeLightIntensityType> lhsField;
+            lhsField = this.getIntensityLevel();
+            JAXBElement<CodeLightIntensityType> rhsField;
+            rhsField = that.getIntensityLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intensityLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intensityLevel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetElement();
             boolean rhsFieldIsSet = that.isSetElement();
             List<LightElementPropertyType> lhsField;
@@ -582,19 +604,6 @@ public class GuidanceLineLightSystemTimeSliceType
             rhsField = (that.isSetElement()?that.getElement():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetColour();
-            boolean rhsFieldIsSet = that.isSetColour();
-            JAXBElement<CodeColourType> lhsField;
-            lhsField = this.getColour();
-            JAXBElement<CodeColourType> rhsField;
-            rhsField = that.getColour();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

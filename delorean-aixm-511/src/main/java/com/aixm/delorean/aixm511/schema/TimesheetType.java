@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,22 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyGroup"/>
+ *         <element name="timeReference" type="{http://www.aixm.aero/schema/5.1.1}CodeTimeReferenceType" minOccurs="0"/>
+ *         <element name="startDate" type="{http://www.aixm.aero/schema/5.1.1}DateMonthDayType" minOccurs="0"/>
+ *         <element name="endDate" type="{http://www.aixm.aero/schema/5.1.1}DateMonthDayType" minOccurs="0"/>
+ *         <element name="day" type="{http://www.aixm.aero/schema/5.1.1}CodeDayType" minOccurs="0"/>
+ *         <element name="dayTil" type="{http://www.aixm.aero/schema/5.1.1}CodeDayType" minOccurs="0"/>
+ *         <element name="startTime" type="{http://www.aixm.aero/schema/5.1.1}TimeType" minOccurs="0"/>
+ *         <element name="startEvent" type="{http://www.aixm.aero/schema/5.1.1}CodeTimeEventType" minOccurs="0"/>
+ *         <element name="startTimeRelativeEvent" type="{http://www.aixm.aero/schema/5.1.1}ValDurationType" minOccurs="0"/>
+ *         <element name="startEventInterpretation" type="{http://www.aixm.aero/schema/5.1.1}CodeTimeEventCombinationType" minOccurs="0"/>
+ *         <element name="endTime" type="{http://www.aixm.aero/schema/5.1.1}TimeType" minOccurs="0"/>
+ *         <element name="endEvent" type="{http://www.aixm.aero/schema/5.1.1}CodeTimeEventType" minOccurs="0"/>
+ *         <element name="endTimeRelativeEvent" type="{http://www.aixm.aero/schema/5.1.1}ValDurationType" minOccurs="0"/>
+ *         <element name="endEventInterpretation" type="{http://www.aixm.aero/schema/5.1.1}CodeTimeEventCombinationType" minOccurs="0"/>
+ *         <element name="daylightSavingAdjust" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="excluded" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -84,7 +98,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "TimesheetType")
-@Table(name = "timesheet", schema = "shared")
+@Table(name = "timesheet_o", schema = "shared")
 public class TimesheetType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -597,13 +611,13 @@ public class TimesheetType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_timesheet_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "timesheet_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "timesheet_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "timesheetpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -654,7 +668,7 @@ public class TimesheetType
     @OneToMany(targetEntity = TimesheetTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_TIMESHEET_TYPE_HJID")
+    @JoinColumn(name = "timesheet_e_hjid", referencedColumnName = "hjid")
     public List<TimesheetTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -694,7 +708,7 @@ public class TimesheetType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "startdate", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "startdate")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "startdate_nilreason"))
     })
     public DateMonthDayType getStartDateItem() {
@@ -707,7 +721,7 @@ public class TimesheetType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "enddate", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "enddate")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "enddate_nilreason"))
     })
     public DateMonthDayType getEndDateItem() {
@@ -746,7 +760,7 @@ public class TimesheetType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "starttime", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "starttime")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "starttime_nilreason"))
     })
     public TimeType getStartTimeItem() {
@@ -772,7 +786,7 @@ public class TimesheetType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "starttimerelativeevent", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "starttimerelativeevent")),
         @AttributeOverride(name = "uom", column = @Column(name = "starttimerelativeevent_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "starttimerelativeevent_nilreason"))
     })
@@ -799,7 +813,7 @@ public class TimesheetType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "endtime", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "endtime")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "endtime_nilreason"))
     })
     public TimeType getEndTimeItem() {
@@ -825,7 +839,7 @@ public class TimesheetType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "endtimerelativeevent", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "endtimerelativeevent")),
         @AttributeOverride(name = "uom", column = @Column(name = "endtimerelativeevent_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "endtimerelativeevent_nilreason"))
     })
@@ -889,45 +903,6 @@ public class TimesheetType
         }
         final TimesheetType that = ((TimesheetType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TimesheetTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<TimesheetTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDaylightSavingAdjust();
-            boolean rhsFieldIsSet = that.isSetDaylightSavingAdjust();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getDaylightSavingAdjust();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getDaylightSavingAdjust();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "daylightSavingAdjust", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "daylightSavingAdjust", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDayTil();
-            boolean rhsFieldIsSet = that.isSetDayTil();
-            JAXBElement<CodeDayType> lhsField;
-            lhsField = this.getDayTil();
-            JAXBElement<CodeDayType> rhsField;
-            rhsField = that.getDayTil();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dayTil", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dayTil", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEndTime();
             boolean rhsFieldIsSet = that.isSetEndTime();
             JAXBElement<TimeType> lhsField;
@@ -936,84 +911,6 @@ public class TimesheetType
             rhsField = that.getEndTime();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endTime", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndTimeRelativeEvent();
-            boolean rhsFieldIsSet = that.isSetEndTimeRelativeEvent();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getEndTimeRelativeEvent();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getEndTimeRelativeEvent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endTimeRelativeEvent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endTimeRelativeEvent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartTime();
-            boolean rhsFieldIsSet = that.isSetStartTime();
-            JAXBElement<TimeType> lhsField;
-            lhsField = this.getStartTime();
-            JAXBElement<TimeType> rhsField;
-            rhsField = that.getStartTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExcluded();
-            boolean rhsFieldIsSet = that.isSetExcluded();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getExcluded();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getExcluded();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "excluded", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "excluded", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartEvent();
-            boolean rhsFieldIsSet = that.isSetStartEvent();
-            JAXBElement<CodeTimeEventType> lhsField;
-            lhsField = this.getStartEvent();
-            JAXBElement<CodeTimeEventType> rhsField;
-            rhsField = that.getStartEvent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startEvent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startEvent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartDate();
-            boolean rhsFieldIsSet = that.isSetStartDate();
-            JAXBElement<DateMonthDayType> lhsField;
-            lhsField = this.getStartDate();
-            JAXBElement<DateMonthDayType> rhsField;
-            rhsField = that.getStartDate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startDate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startDate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDay();
-            boolean rhsFieldIsSet = that.isSetDay();
-            JAXBElement<CodeDayType> lhsField;
-            lhsField = this.getDay();
-            JAXBElement<CodeDayType> rhsField;
-            rhsField = that.getDay();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "day", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "day", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1032,53 +929,27 @@ public class TimesheetType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTimeReference();
-            boolean rhsFieldIsSet = that.isSetTimeReference();
-            JAXBElement<CodeTimeReferenceType> lhsField;
-            lhsField = this.getTimeReference();
-            JAXBElement<CodeTimeReferenceType> rhsField;
-            rhsField = that.getTimeReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetExcluded();
+            boolean rhsFieldIsSet = that.isSetExcluded();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getExcluded();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getExcluded();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "excluded", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "excluded", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndDate();
-            boolean rhsFieldIsSet = that.isSetEndDate();
+            boolean lhsFieldIsSet = this.isSetStartDate();
+            boolean rhsFieldIsSet = that.isSetStartDate();
             JAXBElement<DateMonthDayType> lhsField;
-            lhsField = this.getEndDate();
+            lhsField = this.getStartDate();
             JAXBElement<DateMonthDayType> rhsField;
-            rhsField = that.getEndDate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endDate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endDate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndEvent();
-            boolean rhsFieldIsSet = that.isSetEndEvent();
-            JAXBElement<CodeTimeEventType> lhsField;
-            lhsField = this.getEndEvent();
-            JAXBElement<CodeTimeEventType> rhsField;
-            rhsField = that.getEndEvent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endEvent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endEvent", rhsField);
+            rhsField = that.getStartDate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startDate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startDate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1097,6 +968,71 @@ public class TimesheetType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetTimeReference();
+            boolean rhsFieldIsSet = that.isSetTimeReference();
+            JAXBElement<CodeTimeReferenceType> lhsField;
+            lhsField = this.getTimeReference();
+            JAXBElement<CodeTimeReferenceType> rhsField;
+            rhsField = that.getTimeReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndTimeRelativeEvent();
+            boolean rhsFieldIsSet = that.isSetEndTimeRelativeEvent();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getEndTimeRelativeEvent();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getEndTimeRelativeEvent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endTimeRelativeEvent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endTimeRelativeEvent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TimesheetTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<TimesheetTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndDate();
+            boolean rhsFieldIsSet = that.isSetEndDate();
+            JAXBElement<DateMonthDayType> lhsField;
+            lhsField = this.getEndDate();
+            JAXBElement<DateMonthDayType> rhsField;
+            rhsField = that.getEndDate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endDate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endDate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDay();
+            boolean rhsFieldIsSet = that.isSetDay();
+            JAXBElement<CodeDayType> lhsField;
+            lhsField = this.getDay();
+            JAXBElement<CodeDayType> rhsField;
+            rhsField = that.getDay();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "day", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "day", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetStartTimeRelativeEvent();
             boolean rhsFieldIsSet = that.isSetStartTimeRelativeEvent();
             JAXBElement<ValDurationType> lhsField;
@@ -1105,6 +1041,84 @@ public class TimesheetType
             rhsField = that.getStartTimeRelativeEvent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startTimeRelativeEvent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startTimeRelativeEvent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDayTil();
+            boolean rhsFieldIsSet = that.isSetDayTil();
+            JAXBElement<CodeDayType> lhsField;
+            lhsField = this.getDayTil();
+            JAXBElement<CodeDayType> rhsField;
+            rhsField = that.getDayTil();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dayTil", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dayTil", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartEvent();
+            boolean rhsFieldIsSet = that.isSetStartEvent();
+            JAXBElement<CodeTimeEventType> lhsField;
+            lhsField = this.getStartEvent();
+            JAXBElement<CodeTimeEventType> rhsField;
+            rhsField = that.getStartEvent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startEvent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startEvent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartTime();
+            boolean rhsFieldIsSet = that.isSetStartTime();
+            JAXBElement<TimeType> lhsField;
+            lhsField = this.getStartTime();
+            JAXBElement<TimeType> rhsField;
+            rhsField = that.getStartTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndEvent();
+            boolean rhsFieldIsSet = that.isSetEndEvent();
+            JAXBElement<CodeTimeEventType> lhsField;
+            lhsField = this.getEndEvent();
+            JAXBElement<CodeTimeEventType> rhsField;
+            rhsField = that.getEndEvent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endEvent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endEvent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDaylightSavingAdjust();
+            boolean rhsFieldIsSet = that.isSetDaylightSavingAdjust();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getDaylightSavingAdjust();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getDaylightSavingAdjust();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "daylightSavingAdjust", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "daylightSavingAdjust", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

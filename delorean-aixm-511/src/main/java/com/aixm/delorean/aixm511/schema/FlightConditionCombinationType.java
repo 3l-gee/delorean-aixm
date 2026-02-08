@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -45,7 +44,8 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}FlightConditionCombinationPropertyGroup"/>
+ *         <element name="logicalOperator" type="{http://www.aixm.aero/schema/5.1.1}CodeFlowConditionOperationType" minOccurs="0"/>
+ *         <element name="element" type="{http://www.aixm.aero/schema/5.1.1}FlightConditionElementPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -77,7 +77,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "FlightConditionCombinationType")
-@Table(name = "flightconditioncombination", schema = "route")
+@Table(name = "flightconditioncombinationtype", schema = "route")
 public class FlightConditionCombinationType
     extends AbstractPropertiesWithScheduleType
     implements Serializable
@@ -118,13 +118,13 @@ public class FlightConditionCombinationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {
+    @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "timeinterval_flightconditioncombination_link", schema = "route", joinColumns = {
-        @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")
+    @JoinTable(name = "flightconditioncombinationtype_timeinterval_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightconditioncombinationtype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "flightconditioncombinationtype", referencedColumnName = "hjid")
+        @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")
     })
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -172,13 +172,13 @@ public class FlightConditionCombinationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_flightconditioncombination_link", schema = "route", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "flightconditioncombinationtype_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightconditioncombinationtype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "flightconditioncombinationtype", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -226,13 +226,13 @@ public class FlightConditionCombinationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "specialdateauthority_flightconditioncombination_link", schema = "route", joinColumns = {
-        @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")
+    @JoinTable(name = "flightconditioncombinationtype_specialdateauthority_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightconditioncombinationtype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "flightconditioncombinationtype", referencedColumnName = "hjid")
+        @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")
     })
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -310,13 +310,13 @@ public class FlightConditionCombinationType
      * 
      * 
      */
-    @ManyToMany(targetEntity = FlightConditionElementPropertyType.class, cascade = {
+    @OneToMany(targetEntity = FlightConditionElementPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "element_flightconditioncombination_link", schema = "route", joinColumns = {
-        @JoinColumn(name = "element", referencedColumnName = "hjid")
+    @JoinTable(name = "flightconditioncombinationtype_element_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "flightconditioncombinationtype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "flightconditioncombinationpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "element_hjid", referencedColumnName = "hjid")
     })
     public List<FlightConditionElementPropertyType> getElement() {
         if (element == null) {
@@ -367,7 +367,7 @@ public class FlightConditionCombinationType
     @OneToMany(targetEntity = FlightConditionCombinationTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_FLIGHT_CONDITION_C_1")
+    @JoinColumn(name = "flightconditioncombination_e_hjid", referencedColumnName = "hjid")
     public List<FlightConditionCombinationTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -418,14 +418,14 @@ public class FlightConditionCombinationType
         }
         final FlightConditionCombinationType that = ((FlightConditionCombinationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetLogicalOperator();
+            boolean rhsFieldIsSet = that.isSetLogicalOperator();
+            JAXBElement<CodeFlowConditionOperationType> lhsField;
+            lhsField = this.getLogicalOperator();
+            JAXBElement<CodeFlowConditionOperationType> rhsField;
+            rhsField = that.getLogicalOperator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "logicalOperator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "logicalOperator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -457,6 +457,19 @@ public class FlightConditionCombinationType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<FlightConditionCombinationTypeExtensionType> lhsField;
@@ -478,19 +491,6 @@ public class FlightConditionCombinationType
             rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLogicalOperator();
-            boolean rhsFieldIsSet = that.isSetLogicalOperator();
-            JAXBElement<CodeFlowConditionOperationType> lhsField;
-            lhsField = this.getLogicalOperator();
-            JAXBElement<CodeFlowConditionOperationType> rhsField;
-            rhsField = that.getLogicalOperator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "logicalOperator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "logicalOperator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

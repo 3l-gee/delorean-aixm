@@ -112,19 +112,6 @@ public class GeographicCRSType extends AbstractCRSType implements Serializable {
         }
         final GeographicCRSType that = ((GeographicCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUsesEllipsoidalCS();
-            boolean rhsFieldIsSet = that.isSetUsesEllipsoidalCS();
-            EllipsoidalCSPropertyType lhsField;
-            lhsField = this.getUsesEllipsoidalCS();
-            EllipsoidalCSPropertyType rhsField;
-            rhsField = that.getUsesEllipsoidalCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesEllipsoidalCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesEllipsoidalCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUsesGeodeticDatum();
             boolean rhsFieldIsSet = that.isSetUsesGeodeticDatum();
             GeodeticDatumPropertyType lhsField;
@@ -133,6 +120,19 @@ public class GeographicCRSType extends AbstractCRSType implements Serializable {
             rhsField = that.getUsesGeodeticDatum();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesGeodeticDatum", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesGeodeticDatum", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsesEllipsoidalCS();
+            boolean rhsFieldIsSet = that.isSetUsesEllipsoidalCS();
+            EllipsoidalCSPropertyType lhsField;
+            lhsField = this.getUsesEllipsoidalCS();
+            EllipsoidalCSPropertyType rhsField;
+            rhsField = that.getUsesEllipsoidalCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesEllipsoidalCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesEllipsoidalCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

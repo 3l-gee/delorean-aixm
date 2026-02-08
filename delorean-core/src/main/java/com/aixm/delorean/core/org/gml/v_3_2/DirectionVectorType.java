@@ -171,19 +171,6 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVector();
-            boolean rhsFieldIsSet = that.isSetVector();
-            VectorType lhsField;
-            lhsField = this.getVector();
-            VectorType rhsField;
-            rhsField = that.getVector();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vector", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVerticalAngle();
             boolean rhsFieldIsSet = that.isSetVerticalAngle();
             AngleType lhsField;
@@ -192,6 +179,19 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
             rhsField = that.getVerticalAngle();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalAngle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalAngle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVector();
+            boolean rhsFieldIsSet = that.isSetVector();
+            VectorType lhsField;
+            lhsField = this.getVector();
+            VectorType rhsField;
+            rhsField = that.getVector();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vector", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

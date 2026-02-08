@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractRadioFrequencyAreaExtension"
 })
 @Entity(name = "RadioFrequencyAreaExtensionType")
-@Table(name = "radiofrequencyarea_ext", schema = "shared")
+@Table(name = "radiofrequencyarea_e", schema = "shared")
 public class RadioFrequencyAreaExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class RadioFrequencyAreaExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractradiofrequencyareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractradiofrequencyareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadioFrequencyAreaExtension() {
         return abstractRadioFrequencyAreaExtension;
     }

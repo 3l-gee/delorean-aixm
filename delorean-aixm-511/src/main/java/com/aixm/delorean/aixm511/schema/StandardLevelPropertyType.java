@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "standardLevel"
 })
 @Entity(name = "StandardLevelPropertyType")
-@Table(name = "standardlevel_pt", schema = "shared")
+@Table(name = "standardlevel_p", schema = "shared")
 public class StandardLevelPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class StandardLevelPropertyType
     @OneToOne(targetEntity = StandardLevelType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "standardlevel_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "standardlevel_hjid", referencedColumnName = "hjid")
     public StandardLevelType getStandardLevel() {
         return standardLevel;
     }

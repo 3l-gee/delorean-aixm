@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "workareaActivity"
 })
 @Entity(name = "WorkareaActivityPropertyType")
-@Table(name = "workareaactivity_pt", schema = "airport_heliport")
+@Table(name = "workareaactivity_p", schema = "airport_heliport")
 public class WorkareaActivityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class WorkareaActivityPropertyType
     @OneToOne(targetEntity = WorkareaActivityType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "workareaactivity_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "workareaactivity_hjid", referencedColumnName = "hjid")
     public WorkareaActivityType getWorkareaActivity() {
         return workareaActivity;
     }

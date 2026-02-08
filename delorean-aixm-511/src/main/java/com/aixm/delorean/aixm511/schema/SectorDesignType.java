@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,11 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}SectorDesignPropertyGroup"/>
+ *         <element name="turnDirection" type="{http://www.aixm.aero/schema/5.1.1}CodeDirectionTurnType" minOccurs="0"/>
+ *         <element name="designGradient" type="{http://www.aixm.aero/schema/5.1.1}ValSlopeType" minOccurs="0"/>
+ *         <element name="terminationAltitude" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="turnPermitted" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -73,7 +76,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "SectorDesignType")
-@Table(name = "sectordesign", schema = "procedure")
+@Table(name = "sectordesign_o", schema = "procedure")
 public class SectorDesignType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -234,13 +237,13 @@ public class SectorDesignType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_sectordesign_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "sectordesign_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "sectordesign_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "sectordesignpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -291,7 +294,7 @@ public class SectorDesignType
     @OneToMany(targetEntity = SectorDesignTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_SECTOR_DESIGN_TYPE_0")
+    @JoinColumn(name = "sectordesign_e_hjid", referencedColumnName = "hjid")
     public List<SectorDesignTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -331,7 +334,7 @@ public class SectorDesignType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designgradient", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "designgradient")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "designgradient_nilreason"))
     })
     public ValSlopeType getDesignGradientItem() {
@@ -344,7 +347,7 @@ public class SectorDesignType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "terminationaltitude", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "terminationaltitude")),
         @AttributeOverride(name = "uom", column = @Column(name = "terminationaltitude_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "terminationaltitude_nilreason"))
     })
@@ -382,27 +385,14 @@ public class SectorDesignType
         }
         final SectorDesignType that = ((SectorDesignType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignGradient();
-            boolean rhsFieldIsSet = that.isSetDesignGradient();
-            JAXBElement<ValSlopeType> lhsField;
-            lhsField = this.getDesignGradient();
-            JAXBElement<ValSlopeType> rhsField;
-            rhsField = that.getDesignGradient();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designGradient", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designGradient", rhsField);
+            boolean lhsFieldIsSet = this.isSetTerminationAltitude();
+            boolean rhsFieldIsSet = that.isSetTerminationAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getTerminationAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getTerminationAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "terminationAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "terminationAltitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -421,6 +411,32 @@ public class SectorDesignType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetTurnPermitted();
+            boolean rhsFieldIsSet = that.isSetTurnPermitted();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getTurnPermitted();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getTurnPermitted();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnPermitted", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnPermitted", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignGradient();
+            boolean rhsFieldIsSet = that.isSetDesignGradient();
+            JAXBElement<ValSlopeType> lhsField;
+            lhsField = this.getDesignGradient();
+            JAXBElement<ValSlopeType> rhsField;
+            rhsField = that.getDesignGradient();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designGradient", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designGradient", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTurnDirection();
             boolean rhsFieldIsSet = that.isSetTurnDirection();
             JAXBElement<CodeDirectionTurnType> lhsField;
@@ -434,27 +450,14 @@ public class SectorDesignType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTerminationAltitude();
-            boolean rhsFieldIsSet = that.isSetTerminationAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getTerminationAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getTerminationAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "terminationAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "terminationAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTurnPermitted();
-            boolean rhsFieldIsSet = that.isSetTurnPermitted();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getTurnPermitted();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getTurnPermitted();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnPermitted", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnPermitted", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

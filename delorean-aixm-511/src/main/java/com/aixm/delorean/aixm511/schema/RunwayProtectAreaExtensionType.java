@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAirportHeliportProtectionAreaExtension"
 })
 @Entity(name = "RunwayProtectAreaExtensionType")
-@Table(name = "runwayprotectarea_ext", schema = "airport_heliport")
+@Table(name = "runwayprotectarea_e", schema = "airport_heliport")
 public class RunwayProtectAreaExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwayprotectareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwayprotectareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayProtectAreaExtension() {
         return abstractRunwayProtectAreaExtension;
     }
@@ -123,7 +123,7 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairportheliportprotectionareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairportheliportprotectionareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportHeliportProtectionAreaExtension() {
         return abstractAirportHeliportProtectionAreaExtension;
     }
@@ -260,6 +260,19 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
         }
         final RunwayProtectAreaExtensionType that = ((RunwayProtectAreaExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractRunwayProtectAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRunwayProtectAreaExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRunwayProtectAreaExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRunwayProtectAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayProtectAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayProtectAreaExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,19 +294,6 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
             rhsField = that.getAbstractAirportHeliportProtectionAreaExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHeliportProtectionAreaExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHeliportProtectionAreaExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractRunwayProtectAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRunwayProtectAreaExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRunwayProtectAreaExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRunwayProtectAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayProtectAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayProtectAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

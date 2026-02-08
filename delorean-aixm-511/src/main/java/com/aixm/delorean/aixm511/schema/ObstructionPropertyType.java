@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "obstruction"
 })
 @Entity(name = "ObstructionPropertyType")
-@Table(name = "obstruction_pt", schema = "shared")
+@Table(name = "obstruction_p", schema = "shared")
 public class ObstructionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ObstructionPropertyType
     @OneToOne(targetEntity = ObstructionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "obstruction_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "obstruction_hjid", referencedColumnName = "hjid")
     public ObstructionType getObstruction() {
         return obstruction;
     }

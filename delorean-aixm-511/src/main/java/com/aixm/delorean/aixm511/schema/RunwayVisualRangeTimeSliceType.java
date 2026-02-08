@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,10 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}RunwayVisualRangePropertyGroup"/>
+ *         <element name="readingPosition" type="{http://www.aixm.aero/schema/5.1.1}CodeRVRReadingType" minOccurs="0"/>
+ *         <element name="associatedRunwayDirection" type="{http://www.aixm.aero/schema/5.1.1}RunwayDirectionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="location" type="{http://www.aixm.aero/schema/5.1.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -73,7 +75,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "RunwayVisualRangeTimeSliceType")
-@Table(name = "runwayvisualrange_ts", schema = "airport_heliport")
+@Table(name = "runwayvisualrange_t", schema = "airport_heliport")
 public class RunwayVisualRangeTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -142,13 +144,13 @@ public class RunwayVisualRangeTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = RunwayDirectionPropertyType.class, cascade = {
+    @OneToMany(targetEntity = RunwayDirectionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "associatedrunwaydirection_runwayvisualrange_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "associatedrunwaydirection", referencedColumnName = "hjid")
+    @JoinTable(name = "runwayvisualrange_t_associatedrunwaydirection_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "runwayvisualrange_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "runwayvisualrangepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "associatedrunwaydirection_hjid", referencedColumnName = "hjid")
     })
     public List<RunwayDirectionPropertyType> getAssociatedRunwayDirection() {
         if (associatedRunwayDirection == null) {
@@ -226,13 +228,13 @@ public class RunwayVisualRangeTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_runwayvisualrange_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "runwayvisualrange_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "runwayvisualrange_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "runwayvisualrangepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -283,7 +285,7 @@ public class RunwayVisualRangeTimeSliceType
     @OneToMany(targetEntity = RunwayVisualRangeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_RUNWAY_VISUAL_RANG_0")
+    @JoinColumn(name = "runwayvisualrange_e_hjid", referencedColumnName = "hjid")
     public List<RunwayVisualRangeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -321,10 +323,14 @@ public class RunwayVisualRangeTimeSliceType
         setReadingPosition(XmlAdapterUtils.marshallJAXBElement(CodeRVRReadingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "readingPosition"), RunwayVisualRangeTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "location_id", referencedColumnName = "hjid")
+    @JoinTable(name = "runwayvisualrange_t_location_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "runwayvisualrange_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "location_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
@@ -345,45 +351,6 @@ public class RunwayVisualRangeTimeSliceType
             return false;
         }
         final RunwayVisualRangeTimeSliceType that = ((RunwayVisualRangeTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAssociatedRunwayDirection();
-            boolean rhsFieldIsSet = that.isSetAssociatedRunwayDirection();
-            List<RunwayDirectionPropertyType> lhsField;
-            lhsField = (this.isSetAssociatedRunwayDirection()?this.getAssociatedRunwayDirection():null);
-            List<RunwayDirectionPropertyType> rhsField;
-            rhsField = (that.isSetAssociatedRunwayDirection()?that.getAssociatedRunwayDirection():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedRunwayDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedRunwayDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReadingPosition();
-            boolean rhsFieldIsSet = that.isSetReadingPosition();
-            JAXBElement<CodeRVRReadingType> lhsField;
-            lhsField = this.getReadingPosition();
-            JAXBElement<CodeRVRReadingType> rhsField;
-            rhsField = that.getReadingPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "readingPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "readingPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetLocation();
             boolean rhsFieldIsSet = that.isSetLocation();
@@ -406,6 +373,45 @@ public class RunwayVisualRangeTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReadingPosition();
+            boolean rhsFieldIsSet = that.isSetReadingPosition();
+            JAXBElement<CodeRVRReadingType> lhsField;
+            lhsField = this.getReadingPosition();
+            JAXBElement<CodeRVRReadingType> rhsField;
+            rhsField = that.getReadingPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "readingPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "readingPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAssociatedRunwayDirection();
+            boolean rhsFieldIsSet = that.isSetAssociatedRunwayDirection();
+            List<RunwayDirectionPropertyType> lhsField;
+            lhsField = (this.isSetAssociatedRunwayDirection()?this.getAssociatedRunwayDirection():null);
+            List<RunwayDirectionPropertyType> rhsField;
+            rhsField = (that.isSetAssociatedRunwayDirection()?that.getAssociatedRunwayDirection():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedRunwayDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedRunwayDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

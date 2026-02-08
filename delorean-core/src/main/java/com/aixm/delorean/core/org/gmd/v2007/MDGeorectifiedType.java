@@ -305,19 +305,6 @@ public class MDGeorectifiedType extends MDGridSpatialRepresentationType implemen
         }
         final MDGeorectifiedType that = ((MDGeorectifiedType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCheckPointDescription();
-            boolean rhsFieldIsSet = that.isSetCheckPointDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getCheckPointDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getCheckPointDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "checkPointDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "checkPointDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCheckPointAvailability();
             boolean rhsFieldIsSet = that.isSetCheckPointAvailability();
             BooleanPropertyType lhsField;
@@ -331,16 +318,27 @@ public class MDGeorectifiedType extends MDGridSpatialRepresentationType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTransformationDimensionDescription();
-            boolean rhsFieldIsSet = that.isSetTransformationDimensionDescription();
+            boolean lhsFieldIsSet = this.isSetCornerPoints();
+            boolean rhsFieldIsSet = that.isSetCornerPoints();
+            List<GMPointPropertyType> lhsField;
+            lhsField = (this.isSetCornerPoints() ? this.getCornerPoints() : null);
+            List<GMPointPropertyType> rhsField;
+            rhsField = (that.isSetCornerPoints() ? that.getCornerPoints() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cornerPoints", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cornerPoints", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCheckPointDescription();
+            boolean rhsFieldIsSet = that.isSetCheckPointDescription();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getTransformationDimensionDescription();
+            lhsField = this.getCheckPointDescription();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getTransformationDimensionDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationDimensionDescription",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationDimensionDescription",
-                    rhsField);
+            rhsField = that.getCheckPointDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "checkPointDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "checkPointDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -372,19 +370,6 @@ public class MDGeorectifiedType extends MDGridSpatialRepresentationType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCornerPoints();
-            boolean rhsFieldIsSet = that.isSetCornerPoints();
-            List<GMPointPropertyType> lhsField;
-            lhsField = (this.isSetCornerPoints() ? this.getCornerPoints() : null);
-            List<GMPointPropertyType> rhsField;
-            rhsField = (that.isSetCornerPoints() ? that.getCornerPoints() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cornerPoints", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cornerPoints", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTransformationDimensionMapping();
             boolean rhsFieldIsSet = that.isSetTransformationDimensionMapping();
             List<CharacterStringPropertyType> lhsField;
@@ -394,6 +379,21 @@ public class MDGeorectifiedType extends MDGridSpatialRepresentationType implemen
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationDimensionMapping",
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationDimensionMapping",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTransformationDimensionDescription();
+            boolean rhsFieldIsSet = that.isSetTransformationDimensionDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getTransformationDimensionDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getTransformationDimensionDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationDimensionDescription",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationDimensionDescription",
                     rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;

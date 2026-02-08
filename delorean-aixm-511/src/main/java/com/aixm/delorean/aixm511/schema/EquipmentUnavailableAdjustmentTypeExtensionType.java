@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractEquipmentUnavailableAdjustmentExtension"
 })
 @Entity(name = "EquipmentUnavailableAdjustmentTypeExtensionType")
-@Table(name = "equipmentunavailableadjustment_ext", schema = "procedure")
+@Table(name = "equipmentunavailableadjustment_e", schema = "procedure")
 public class EquipmentUnavailableAdjustmentTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class EquipmentUnavailableAdjustmentTypeExtensionType implements Serializ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractequipmentunavailableadjustmentextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractequipmentunavailableadjustmentextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractEquipmentUnavailableAdjustmentExtension() {
         return abstractEquipmentUnavailableAdjustmentExtension;
     }

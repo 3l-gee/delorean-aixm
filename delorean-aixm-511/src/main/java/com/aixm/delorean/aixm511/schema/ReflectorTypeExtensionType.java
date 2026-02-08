@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractReflectorExtension"
 })
 @Entity(name = "ReflectorTypeExtensionType")
-@Table(name = "reflector_ext", schema = "surveillance")
+@Table(name = "reflector_e", schema = "surveillance")
 public class ReflectorTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class ReflectorTypeExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractreflectorextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractreflectorextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractReflectorExtension() {
         return abstractReflectorExtension;
     }
@@ -223,19 +223,6 @@ public class ReflectorTypeExtensionType implements Serializable, Equals, HashCod
         }
         final ReflectorTypeExtensionType that = ((ReflectorTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractReflectorExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractReflectorExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractReflectorExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractReflectorExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractReflectorExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractReflectorExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ReflectorTypeExtensionType implements Serializable, Equals, HashCod
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractReflectorExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractReflectorExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractReflectorExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractReflectorExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractReflectorExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractReflectorExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

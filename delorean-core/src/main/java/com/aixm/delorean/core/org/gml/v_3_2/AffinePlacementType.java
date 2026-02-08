@@ -214,19 +214,6 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
         }
         final AffinePlacementType that = ((AffinePlacementType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOutDimension();
-            boolean rhsFieldIsSet = that.isSetOutDimension();
-            BigInteger lhsField;
-            lhsField = this.getOutDimension();
-            BigInteger rhsField;
-            rhsField = that.getOutDimension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outDimension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outDimension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRefDirection();
             boolean rhsFieldIsSet = that.isSetRefDirection();
             List<VectorType> lhsField;
@@ -235,6 +222,19 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
             rhsField = (that.isSetRefDirection() ? that.getRefDirection() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOutDimension();
+            boolean rhsFieldIsSet = that.isSetOutDimension();
+            BigInteger lhsField;
+            lhsField = this.getOutDimension();
+            BigInteger rhsField;
+            rhsField = that.getOutDimension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outDimension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outDimension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

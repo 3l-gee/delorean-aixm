@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractApproachConditionExtension"
 })
 @Entity(name = "ApproachConditionTypeExtensionType")
-@Table(name = "approachcondition_ext", schema = "procedure")
+@Table(name = "approachcondition_e", schema = "procedure")
 public class ApproachConditionTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class ApproachConditionTypeExtensionType implements Serializable, Equals,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapproachconditionextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapproachconditionextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachConditionExtension() {
         return abstractApproachConditionExtension;
     }

@@ -240,19 +240,6 @@ public class EXExtentType extends AbstractObjectType implements Serializable {
         }
         final EXExtentType that = ((EXExtentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTemporalElement();
-            boolean rhsFieldIsSet = that.isSetTemporalElement();
-            List<EXTemporalExtentPropertyType> lhsField;
-            lhsField = (this.isSetTemporalElement() ? this.getTemporalElement() : null);
-            List<EXTemporalExtentPropertyType> rhsField;
-            rhsField = (that.isSetTemporalElement() ? that.getTemporalElement() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "temporalElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "temporalElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVerticalElement();
             boolean rhsFieldIsSet = that.isSetVerticalElement();
             List<EXVerticalExtentPropertyType> lhsField;
@@ -266,14 +253,14 @@ public class EXExtentType extends AbstractObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGeographicElement();
-            boolean rhsFieldIsSet = that.isSetGeographicElement();
-            List<EXGeographicExtentPropertyType> lhsField;
-            lhsField = (this.isSetGeographicElement() ? this.getGeographicElement() : null);
-            List<EXGeographicExtentPropertyType> rhsField;
-            rhsField = (that.isSetGeographicElement() ? that.getGeographicElement() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geographicElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geographicElement", rhsField);
+            boolean lhsFieldIsSet = this.isSetTemporalElement();
+            boolean rhsFieldIsSet = that.isSetTemporalElement();
+            List<EXTemporalExtentPropertyType> lhsField;
+            lhsField = (this.isSetTemporalElement() ? this.getTemporalElement() : null);
+            List<EXTemporalExtentPropertyType> rhsField;
+            rhsField = (that.isSetTemporalElement() ? that.getTemporalElement() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "temporalElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "temporalElement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -287,6 +274,19 @@ public class EXExtentType extends AbstractObjectType implements Serializable {
             rhsField = that.getDescription();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeographicElement();
+            boolean rhsFieldIsSet = that.isSetGeographicElement();
+            List<EXGeographicExtentPropertyType> lhsField;
+            lhsField = (this.isSetGeographicElement() ? this.getGeographicElement() : null);
+            List<EXGeographicExtentPropertyType> rhsField;
+            rhsField = (that.isSetGeographicElement() ? that.getGeographicElement() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geographicElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geographicElement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

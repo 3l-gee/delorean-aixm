@@ -28,7 +28,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}CurveType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}CurvePropertyGroup"/>
+ *         <element name="horizontalAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>

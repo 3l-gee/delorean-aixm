@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ApproachLightingSystemTimeSlicePropertyType", propOrder = {
     "approachLightingSystemTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "ApproachLightingSystemTimeSlicePropertyType")
-@Table(name = "approachlightingsystem_tsp", schema = "airport_heliport")
+@Table(name = "approachlightingsystem_tp", schema = "airport_heliport")
 public class ApproachLightingSystemTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class ApproachLightingSystemTimeSlicePropertyType implements Serializable
     @OneToOne(targetEntity = ApproachLightingSystemTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "approachlightingsystemtimeslice_hjid", referencedColumnName = "hjid")
     public ApproachLightingSystemTimeSliceType getApproachLightingSystemTimeSlice() {
         return approachLightingSystemTimeSlice;
     }

@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractNavaidEquipmentMonitoringExtension"
 })
 @Entity(name = "NavaidEquipmentMonitoringTypeExtensionType")
-@Table(name = "navaidequipmentmonitoring_ext", schema = "navaids_point")
+@Table(name = "navaidequipmentmonitoring_e", schema = "navaids_point")
 public class NavaidEquipmentMonitoringTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class NavaidEquipmentMonitoringTypeExtensionType implements Serializable,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class NavaidEquipmentMonitoringTypeExtensionType implements Serializable,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipmentmonitoringextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentmonitoringextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentMonitoringExtension() {
         return abstractNavaidEquipmentMonitoringExtension;
     }

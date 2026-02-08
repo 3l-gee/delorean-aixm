@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AerialRefuellingTimeSlicePropertyType", propOrder = {
     "aerialRefuellingTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AerialRefuellingTimeSlicePropertyType")
-@Table(name = "aerialrefuelling_tsp", schema = "aerial_refuelling")
+@Table(name = "aerialrefuelling_tp", schema = "aerial_refuelling")
 public class AerialRefuellingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class AerialRefuellingTimeSlicePropertyType implements Serializable, Equa
     @OneToOne(targetEntity = AerialRefuellingTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "aerialrefuellingtimeslice_hjid", referencedColumnName = "hjid")
     public AerialRefuellingTimeSliceType getAerialRefuellingTimeSlice() {
         return aerialRefuellingTimeSlice;
     }
@@ -230,19 +230,6 @@ public class AerialRefuellingTimeSlicePropertyType implements Serializable, Equa
         }
         final AerialRefuellingTimeSlicePropertyType that = ((AerialRefuellingTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAerialRefuellingTimeSlice();
             boolean rhsFieldIsSet = that.isSetAerialRefuellingTimeSlice();
             AerialRefuellingTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class AerialRefuellingTimeSlicePropertyType implements Serializable, Equa
             rhsField = that.getAerialRefuellingTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aerialRefuellingTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aerialRefuellingTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

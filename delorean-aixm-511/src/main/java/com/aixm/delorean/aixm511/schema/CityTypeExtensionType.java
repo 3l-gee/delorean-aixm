@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractCityExtension"
 })
 @Entity(name = "CityTypeExtensionType")
-@Table(name = "city_ext", schema = "airport_heliport")
+@Table(name = "city_e", schema = "airport_heliport")
 public class CityTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class CityTypeExtensionType implements Serializable, Equals, HashCode, To
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractcityextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractcityextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractCityExtension() {
         return abstractCityExtension;
     }

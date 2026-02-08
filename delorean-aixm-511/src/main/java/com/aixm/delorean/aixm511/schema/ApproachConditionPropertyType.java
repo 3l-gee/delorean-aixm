@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "approachCondition"
 })
 @Entity(name = "ApproachConditionPropertyType")
-@Table(name = "approachcondition_pt", schema = "procedure")
+@Table(name = "approachcondition_p", schema = "procedure")
 public class ApproachConditionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ApproachConditionPropertyType
     @OneToOne(targetEntity = ApproachConditionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "approachcondition_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "approachcondition_hjid", referencedColumnName = "hjid")
     public ApproachConditionType getApproachCondition() {
         return approachCondition;
     }

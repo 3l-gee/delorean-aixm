@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MissedApproachLegTimeSlicePropertyType", propOrder = {
     "missedApproachLegTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "MissedApproachLegTimeSlicePropertyType")
-@Table(name = "missedapproachleg_tsp", schema = "procedure")
+@Table(name = "missedapproachleg_tp", schema = "procedure")
 public class MissedApproachLegTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class MissedApproachLegTimeSlicePropertyType implements Serializable, Equ
     @OneToOne(targetEntity = MissedApproachLegTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "missedapproachlegtimeslice_hjid", referencedColumnName = "hjid")
     public MissedApproachLegTimeSliceType getMissedApproachLegTimeSlice() {
         return missedApproachLegTimeSlice;
     }
@@ -230,19 +230,6 @@ public class MissedApproachLegTimeSlicePropertyType implements Serializable, Equ
         }
         final MissedApproachLegTimeSlicePropertyType that = ((MissedApproachLegTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMissedApproachLegTimeSlice();
             boolean rhsFieldIsSet = that.isSetMissedApproachLegTimeSlice();
             MissedApproachLegTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class MissedApproachLegTimeSlicePropertyType implements Serializable, Equ
             rhsField = that.getMissedApproachLegTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "missedApproachLegTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "missedApproachLegTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

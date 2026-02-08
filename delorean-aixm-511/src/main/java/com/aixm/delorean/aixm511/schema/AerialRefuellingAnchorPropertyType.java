@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "aerialRefuellingAnchor"
 })
 @Entity(name = "AerialRefuellingAnchorPropertyType")
-@Table(name = "aerialrefuellinganchor_pt", schema = "aerial_refuelling")
+@Table(name = "aerialrefuellinganchor_p", schema = "aerial_refuelling")
 public class AerialRefuellingAnchorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AerialRefuellingAnchorPropertyType
     @OneToOne(targetEntity = AerialRefuellingAnchorType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "aerialrefuellinganchor_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "aerialrefuellinganchor_hjid", referencedColumnName = "hjid")
     public AerialRefuellingAnchorType getAerialRefuellingAnchor() {
         return aerialRefuellingAnchor;
     }

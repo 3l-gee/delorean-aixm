@@ -39,7 +39,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}LinguisticNotePropertyGroup"/>
+ *         <element name="note" type="{http://www.aixm.aero/schema/5.1.1}TextNoteType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -66,7 +66,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "LinguisticNoteType")
-@Table(name = "linguisticnote", schema = "note")
+@Table(name = "linguisticnote_o", schema = "note")
 public class LinguisticNoteType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -132,7 +132,7 @@ public class LinguisticNoteType
     @OneToMany(targetEntity = LinguisticNoteTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_LINGUISTIC_NOTE_TY_0")
+    @JoinColumn(name = "linguisticnote_e_hjid", referencedColumnName = "hjid")
     public List<LinguisticNoteTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -159,7 +159,7 @@ public class LinguisticNoteType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "note", columnDefinition = "TEXT", length = 10000)),
+        @AttributeOverride(name = "value", column = @Column(name = "note")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "note_nilreason")),
         @AttributeOverride(name = "lang", column = @Column(name = "note_lang"))
     })

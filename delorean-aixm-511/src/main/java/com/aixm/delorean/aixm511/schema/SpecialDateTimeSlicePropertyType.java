@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SpecialDateTimeSlicePropertyType", propOrder = {
     "specialDateTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "SpecialDateTimeSlicePropertyType")
-@Table(name = "specialdate_tsp", schema = "shared")
+@Table(name = "specialdate_tp", schema = "shared")
 public class SpecialDateTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class SpecialDateTimeSlicePropertyType implements Serializable, Equals, H
     @OneToOne(targetEntity = SpecialDateTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "specialdatetimeslice_hjid", referencedColumnName = "hjid")
     public SpecialDateTimeSliceType getSpecialDateTimeSlice() {
         return specialDateTimeSlice;
     }

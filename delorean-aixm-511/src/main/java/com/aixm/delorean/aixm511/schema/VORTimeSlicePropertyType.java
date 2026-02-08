@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "VORTimeSlicePropertyType", propOrder = {
     "vorTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "VORTimeSlicePropertyType")
-@Table(name = "vor_tsp", schema = "navaids_point")
+@Table(name = "vor_tp", schema = "navaids_point")
 public class VORTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class VORTimeSlicePropertyType implements Serializable, Equals, HashCode,
     @OneToOne(targetEntity = VORTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "vortimeslice_hjid", referencedColumnName = "hjid")
     public VORTimeSliceType getVORTimeSlice() {
         return vorTimeSlice;
     }

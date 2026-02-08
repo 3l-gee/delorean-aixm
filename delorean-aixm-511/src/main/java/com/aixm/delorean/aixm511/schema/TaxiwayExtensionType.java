@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractTaxiwayExtension"
 })
 @Entity(name = "TaxiwayExtensionType")
-@Table(name = "taxiway_ext", schema = "airport_heliport")
+@Table(name = "taxiway_e", schema = "airport_heliport")
 public class TaxiwayExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class TaxiwayExtensionType implements Serializable, Equals, HashCode, ToS
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttaxiwayextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttaxiwayextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTaxiwayExtension() {
         return abstractTaxiwayExtension;
     }
@@ -223,19 +223,6 @@ public class TaxiwayExtensionType implements Serializable, Equals, HashCode, ToS
         }
         final TaxiwayExtensionType that = ((TaxiwayExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractTaxiwayExtension();
             boolean rhsFieldIsSet = that.isSetAbstractTaxiwayExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class TaxiwayExtensionType implements Serializable, Equals, HashCode, ToS
             rhsField = that.getAbstractTaxiwayExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTaxiwayExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTaxiwayExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "timesheet"
 })
 @Entity(name = "TimesheetPropertyType")
-@Table(name = "timesheet_pt", schema = "shared")
+@Table(name = "timesheet_p", schema = "shared")
 public class TimesheetPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class TimesheetPropertyType
     @OneToOne(targetEntity = TimesheetType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "timesheet_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "timesheet_hjid", referencedColumnName = "hjid")
     public TimesheetType getTimesheet() {
         return timesheet;
     }

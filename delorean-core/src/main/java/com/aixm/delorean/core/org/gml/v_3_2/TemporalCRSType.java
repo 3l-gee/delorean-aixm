@@ -166,19 +166,6 @@ public class TemporalCRSType extends AbstractCRSType implements Serializable {
         }
         final TemporalCRSType that = ((TemporalCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTimeCS();
-            boolean rhsFieldIsSet = that.isSetTimeCS();
-            JAXBElement<TimeCSPropertyType> lhsField;
-            lhsField = this.getTimeCS();
-            JAXBElement<TimeCSPropertyType> rhsField;
-            rhsField = that.getTimeCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTemporalDatum();
             boolean rhsFieldIsSet = that.isSetTemporalDatum();
             JAXBElement<TemporalDatumPropertyType> lhsField;
@@ -200,6 +187,19 @@ public class TemporalCRSType extends AbstractCRSType implements Serializable {
             rhsField = that.getUsesTemporalCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesTemporalCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesTemporalCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeCS();
+            boolean rhsFieldIsSet = that.isSetTimeCS();
+            JAXBElement<TimeCSPropertyType> lhsField;
+            lhsField = this.getTimeCS();
+            JAXBElement<TimeCSPropertyType> rhsField;
+            rhsField = that.getTimeCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

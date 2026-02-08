@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "manoeuvringAreaAvailability"
 })
 @Entity(name = "ManoeuvringAreaAvailabilityPropertyType")
-@Table(name = "manoeuvringareaavailability_pt", schema = "airport_heliport")
+@Table(name = "manoeuvringareaavailability_p", schema = "airport_heliport")
 public class ManoeuvringAreaAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ManoeuvringAreaAvailabilityPropertyType
     @OneToOne(targetEntity = ManoeuvringAreaAvailabilityType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "manoeuvringareaavailability_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "manoeuvringareaavailability_hjid", referencedColumnName = "hjid")
     public ManoeuvringAreaAvailabilityType getManoeuvringAreaAvailability() {
         return manoeuvringAreaAvailability;
     }

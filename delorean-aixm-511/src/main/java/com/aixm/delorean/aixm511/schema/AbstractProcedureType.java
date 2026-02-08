@@ -38,7 +38,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     StandardInstrumentDepartureType.class
 })
 @Entity(name = "AbstractProcedureType")
-@Table(name = "abstractprocedure", schema = "public")
+@Table(name = "abstractproceduretype", schema = "public")
 public abstract class AbstractProcedureType
     extends AbstractAIXMFeatureType
     implements Serializable

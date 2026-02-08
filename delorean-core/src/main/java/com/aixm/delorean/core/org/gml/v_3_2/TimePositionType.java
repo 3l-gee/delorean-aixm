@@ -1,20 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OrderColumn;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -90,8 +76,6 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TimePositionType", propOrder = {"value"})
-@Entity(name = "TimePositionType")
-@Table(name = "TIME_POSITION_TYPE")
 public class TimePositionType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
@@ -104,8 +88,6 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
     protected String calendarEraName;
     @XmlAttribute(name = "indeterminatePosition")
     protected TimeIndeterminateValueType indeterminatePosition;
-    @XmlAttribute(name = "Hjid")
-    protected Long hjid;
 
     /**
      * The simple type gml:TimePositionUnion is a union of XML Schema simple types
@@ -136,10 +118,6 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
      *
      *
      */
-    @ElementCollection
-    @OrderColumn(name = "HJINDEX")
-    @Column(name = "HJVALUE")
-    @CollectionTable(name = "TIME_POSITION_TYPE_VALUE_", joinColumns = {@JoinColumn(name = "HJID")})
     public List<String> getValue() {
         if (value == null) {
             value = new ArrayList<>();
@@ -162,7 +140,6 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
         this.value = value;
     }
 
-    @Transient
     public boolean isSetValue() {
         return ((this.value != null) && (!this.value.isEmpty()));
     }
@@ -177,8 +154,6 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
      * @return possible object is {@link String }
      *
      */
-    @Basic
-    @Column(name = "FRAME")
     public String getFrame() {
         if (frame == null) {
             return "#ISO-8601";
@@ -198,7 +173,6 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
         this.frame = value;
     }
 
-    @Transient
     public boolean isSetFrame() {
         return (this.frame != null);
     }
@@ -209,8 +183,6 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
      * @return possible object is {@link String }
      *
      */
-    @Basic
-    @Column(name = "CALENDAR_ERA_NAME", length = 255)
     public String getCalendarEraName() {
         return calendarEraName;
     }
@@ -226,7 +198,6 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
         this.calendarEraName = value;
     }
 
-    @Transient
     public boolean isSetCalendarEraName() {
         return (this.calendarEraName != null);
     }
@@ -237,9 +208,6 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
      * @return possible object is {@link TimeIndeterminateValueType }
      *
      */
-    @Basic
-    @Column(name = "INDETERMINATE_POSITION", length = 255)
-    @Enumerated(EnumType.STRING)
     public TimeIndeterminateValueType getIndeterminatePosition() {
         return indeterminatePosition;
     }
@@ -255,33 +223,8 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
         this.indeterminatePosition = value;
     }
 
-    @Transient
     public boolean isSetIndeterminatePosition() {
         return (this.indeterminatePosition != null);
-    }
-
-    /**
-     * Gets the value of the hjid property.
-     *
-     * @return possible object is {@link Long }
-     *
-     */
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getHjid() {
-        return hjid;
-    }
-
-    /**
-     * Sets the value of the hjid property.
-     *
-     * @param value
-     *            allowed object is {@link Long }
-     *
-     */
-    public void setHjid(Long value) {
-        this.hjid = value;
     }
 
     @Override
@@ -307,27 +250,14 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
         }
         final TimePositionType that = ((TimePositionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            List<String> lhsField;
-            lhsField = (this.isSetValue() ? this.getValue() : null);
-            List<String> rhsField;
-            rhsField = (that.isSetValue() ? that.getValue() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCalendarEraName();
-            boolean rhsFieldIsSet = that.isSetCalendarEraName();
+            boolean lhsFieldIsSet = this.isSetFrame();
+            boolean rhsFieldIsSet = that.isSetFrame();
             String lhsField;
-            lhsField = this.getCalendarEraName();
+            lhsField = this.getFrame();
             String rhsField;
-            rhsField = that.getCalendarEraName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "calendarEraName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "calendarEraName", rhsField);
+            rhsField = that.getFrame();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frame", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frame", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -346,14 +276,27 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFrame();
-            boolean rhsFieldIsSet = that.isSetFrame();
+            boolean lhsFieldIsSet = this.isSetCalendarEraName();
+            boolean rhsFieldIsSet = that.isSetCalendarEraName();
             String lhsField;
-            lhsField = this.getFrame();
+            lhsField = this.getCalendarEraName();
             String rhsField;
-            rhsField = that.getFrame();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frame", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frame", rhsField);
+            rhsField = that.getCalendarEraName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "calendarEraName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "calendarEraName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            List<String> lhsField;
+            lhsField = (this.isSetValue() ? this.getValue() : null);
+            List<String> rhsField;
+            rhsField = (that.isSetValue() ? that.getValue() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

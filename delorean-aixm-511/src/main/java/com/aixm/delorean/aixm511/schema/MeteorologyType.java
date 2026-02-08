@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,12 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}MeteorologyPropertyGroup"/>
+ *         <element name="flightConditions" type="{http://www.aixm.aero/schema/5.1.1}CodeMeteoConditionsType" minOccurs="0"/>
+ *         <element name="visibility" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="visibilityInterpretation" type="{http://www.aixm.aero/schema/5.1.1}CodeValueInterpretationType" minOccurs="0"/>
+ *         <element name="runwayVisualRange" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="runwayVisualRangeInterpretation" type="{http://www.aixm.aero/schema/5.1.1}CodeValueInterpretationType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -74,7 +78,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "MeteorologyType")
-@Table(name = "meteorology", schema = "shared")
+@Table(name = "meteorology_o", schema = "shared")
 public class MeteorologyType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -267,13 +271,13 @@ public class MeteorologyType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_meteorology_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "meteorology_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "meteorology_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "meteorologypropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -324,7 +328,7 @@ public class MeteorologyType
     @OneToMany(targetEntity = MeteorologyTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_METEOROLOGY_TYPE_H_0")
+    @JoinColumn(name = "meteorology_e_hjid", referencedColumnName = "hjid")
     public List<MeteorologyTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -364,7 +368,7 @@ public class MeteorologyType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "visibility", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "visibility")),
         @AttributeOverride(name = "uom", column = @Column(name = "visibility_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "visibility_nilreason"))
     })
@@ -391,7 +395,7 @@ public class MeteorologyType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "runwayvisualrange", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "runwayvisualrange")),
         @AttributeOverride(name = "uom", column = @Column(name = "runwayvisualrange_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "runwayvisualrange_nilreason"))
     })
@@ -429,19 +433,6 @@ public class MeteorologyType
         }
         final MeteorologyType that = ((MeteorologyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditions();
-            boolean rhsFieldIsSet = that.isSetFlightConditions();
-            JAXBElement<CodeMeteoConditionsType> lhsField;
-            lhsField = this.getFlightConditions();
-            JAXBElement<CodeMeteoConditionsType> rhsField;
-            rhsField = that.getFlightConditions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditions", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRunwayVisualRange();
             boolean rhsFieldIsSet = that.isSetRunwayVisualRange();
             JAXBElement<ValDistanceType> lhsField;
@@ -450,19 +441,6 @@ public class MeteorologyType
             rhsField = that.getRunwayVisualRange();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRange", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRange", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVisibilityInterpretation();
-            boolean rhsFieldIsSet = that.isSetVisibilityInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getVisibilityInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getVisibilityInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibilityInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibilityInterpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -481,14 +459,14 @@ public class MeteorologyType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRunwayVisualRangeInterpretation();
-            boolean rhsFieldIsSet = that.isSetRunwayVisualRangeInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getRunwayVisualRangeInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getRunwayVisualRangeInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRangeInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRangeInterpretation", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightConditions();
+            boolean rhsFieldIsSet = that.isSetFlightConditions();
+            JAXBElement<CodeMeteoConditionsType> lhsField;
+            lhsField = this.getFlightConditions();
+            JAXBElement<CodeMeteoConditionsType> rhsField;
+            rhsField = that.getFlightConditions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -507,6 +485,19 @@ public class MeteorologyType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetVisibilityInterpretation();
+            boolean rhsFieldIsSet = that.isSetVisibilityInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getVisibilityInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getVisibilityInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibilityInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibilityInterpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetVisibility();
             boolean rhsFieldIsSet = that.isSetVisibility();
             JAXBElement<ValDistanceType> lhsField;
@@ -515,6 +506,19 @@ public class MeteorologyType
             rhsField = that.getVisibility();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibility", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibility", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRunwayVisualRangeInterpretation();
+            boolean rhsFieldIsSet = that.isSetRunwayVisualRangeInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getRunwayVisualRangeInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getRunwayVisualRangeInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRangeInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRangeInterpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

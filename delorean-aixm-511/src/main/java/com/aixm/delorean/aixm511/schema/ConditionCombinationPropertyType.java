@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "conditionCombination"
 })
 @Entity(name = "ConditionCombinationPropertyType")
-@Table(name = "conditioncombination_pt", schema = "airport_heliport")
+@Table(name = "conditioncombination_p", schema = "airport_heliport")
 public class ConditionCombinationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ConditionCombinationPropertyType
     @OneToOne(targetEntity = ConditionCombinationType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "conditioncombination_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "conditioncombination_hjid", referencedColumnName = "hjid")
     public ConditionCombinationType getConditionCombination() {
         return conditionCombination;
     }

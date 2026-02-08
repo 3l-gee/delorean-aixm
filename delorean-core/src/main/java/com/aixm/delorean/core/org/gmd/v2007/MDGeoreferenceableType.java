@@ -269,19 +269,6 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetParameterCitation();
-            boolean rhsFieldIsSet = that.isSetParameterCitation();
-            List<CICitationPropertyType> lhsField;
-            lhsField = (this.isSetParameterCitation() ? this.getParameterCitation() : null);
-            List<CICitationPropertyType> rhsField;
-            rhsField = (that.isSetParameterCitation() ? that.getParameterCitation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterCitation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterCitation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOrientationParameterAvailability();
             boolean rhsFieldIsSet = that.isSetOrientationParameterAvailability();
             BooleanPropertyType lhsField;
@@ -292,6 +279,19 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientationParameterAvailability",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetParameterCitation();
+            boolean rhsFieldIsSet = that.isSetParameterCitation();
+            List<CICitationPropertyType> lhsField;
+            lhsField = (this.isSetParameterCitation() ? this.getParameterCitation() : null);
+            List<CICitationPropertyType> rhsField;
+            rhsField = (that.isSetParameterCitation() ? that.getParameterCitation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterCitation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterCitation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

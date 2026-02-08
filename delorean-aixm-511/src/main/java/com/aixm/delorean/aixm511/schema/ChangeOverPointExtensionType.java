@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractChangeOverPointExtension"
 })
 @Entity(name = "ChangeOverPointExtensionType")
-@Table(name = "changeoverpoint_ext", schema = "route")
+@Table(name = "changeoverpoint_e", schema = "route")
 public class ChangeOverPointExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class ChangeOverPointExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractchangeoverpointextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractchangeoverpointextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractChangeOverPointExtension() {
         return abstractChangeOverPointExtension;
     }

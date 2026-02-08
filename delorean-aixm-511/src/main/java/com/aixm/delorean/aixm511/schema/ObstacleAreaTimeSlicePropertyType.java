@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ObstacleAreaTimeSlicePropertyType", propOrder = {
     "obstacleAreaTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "ObstacleAreaTimeSlicePropertyType")
-@Table(name = "obstaclearea_tsp", schema = "obstacle")
+@Table(name = "obstaclearea_tp", schema = "obstacle")
 public class ObstacleAreaTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class ObstacleAreaTimeSlicePropertyType implements Serializable, Equals, 
     @OneToOne(targetEntity = ObstacleAreaTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "obstacleareatimeslice_hjid", referencedColumnName = "hjid")
     public ObstacleAreaTimeSliceType getObstacleAreaTimeSlice() {
         return obstacleAreaTimeSlice;
     }
@@ -230,19 +230,6 @@ public class ObstacleAreaTimeSlicePropertyType implements Serializable, Equals, 
         }
         final ObstacleAreaTimeSlicePropertyType that = ((ObstacleAreaTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetObstacleAreaTimeSlice();
-            boolean rhsFieldIsSet = that.isSetObstacleAreaTimeSlice();
-            ObstacleAreaTimeSliceType lhsField;
-            lhsField = this.getObstacleAreaTimeSlice();
-            ObstacleAreaTimeSliceType rhsField;
-            rhsField = that.getObstacleAreaTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleAreaTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleAreaTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class ObstacleAreaTimeSlicePropertyType implements Serializable, Equals, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetObstacleAreaTimeSlice();
+            boolean rhsFieldIsSet = that.isSetObstacleAreaTimeSlice();
+            ObstacleAreaTimeSliceType lhsField;
+            lhsField = this.getObstacleAreaTimeSlice();
+            ObstacleAreaTimeSliceType rhsField;
+            rhsField = that.getObstacleAreaTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleAreaTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleAreaTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

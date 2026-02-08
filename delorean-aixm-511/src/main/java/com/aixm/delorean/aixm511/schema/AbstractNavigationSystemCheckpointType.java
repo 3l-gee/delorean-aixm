@@ -37,7 +37,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     CheckpointVORType.class
 })
 @Entity(name = "AbstractNavigationSystemCheckpointType")
-@Table(name = "abstractnavigationsystemcheckpoint", schema = "public")
+@Table(name = "abstractnavigationsystemcheckpointtype", schema = "public")
 public abstract class AbstractNavigationSystemCheckpointType
     extends AbstractAIXMFeatureType
     implements Serializable

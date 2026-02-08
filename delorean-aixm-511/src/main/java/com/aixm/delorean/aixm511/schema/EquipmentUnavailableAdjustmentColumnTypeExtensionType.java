@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractEquipmentUnavailableAdjustmentColumnExtension"
 })
 @Entity(name = "EquipmentUnavailableAdjustmentColumnTypeExtensionType")
-@Table(name = "equipmentunavailableadjustmentcolumn_ext", schema = "procedure")
+@Table(name = "equipmentunavailableadjustmentcolumn_e", schema = "procedure")
 public class EquipmentUnavailableAdjustmentColumnTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class EquipmentUnavailableAdjustmentColumnTypeExtensionType implements Se
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractequipmentunavailableadjustmentcolumnextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractequipmentunavailableadjustmentcolumnextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractEquipmentUnavailableAdjustmentColumnExtension() {
         return abstractEquipmentUnavailableAdjustmentColumnExtension;
     }
@@ -223,19 +223,6 @@ public class EquipmentUnavailableAdjustmentColumnTypeExtensionType implements Se
         }
         final EquipmentUnavailableAdjustmentColumnTypeExtensionType that = ((EquipmentUnavailableAdjustmentColumnTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractEquipmentUnavailableAdjustmentColumnExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractEquipmentUnavailableAdjustmentColumnExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractEquipmentUnavailableAdjustmentColumnExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractEquipmentUnavailableAdjustmentColumnExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEquipmentUnavailableAdjustmentColumnExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEquipmentUnavailableAdjustmentColumnExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class EquipmentUnavailableAdjustmentColumnTypeExtensionType implements Se
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractEquipmentUnavailableAdjustmentColumnExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractEquipmentUnavailableAdjustmentColumnExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractEquipmentUnavailableAdjustmentColumnExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractEquipmentUnavailableAdjustmentColumnExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEquipmentUnavailableAdjustmentColumnExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEquipmentUnavailableAdjustmentColumnExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

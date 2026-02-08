@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airspaceLayerClass"
 })
 @Entity(name = "AirspaceLayerClassPropertyType")
-@Table(name = "airspacelayerclass_pt", schema = "airspace")
+@Table(name = "airspacelayerclass_p", schema = "airspace")
 public class AirspaceLayerClassPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AirspaceLayerClassPropertyType
     @OneToOne(targetEntity = AirspaceLayerClassType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airspacelayerclass_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "airspacelayerclass_hjid", referencedColumnName = "hjid")
     public AirspaceLayerClassType getAirspaceLayerClass() {
         return airspaceLayerClass;
     }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airportHeliportContamination"
 })
 @Entity(name = "AirportHeliportContaminationPropertyType")
-@Table(name = "airportheliportcontamination_pt", schema = "airport_heliport")
+@Table(name = "airportheliportcontamination_p", schema = "airport_heliport")
 public class AirportHeliportContaminationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AirportHeliportContaminationPropertyType
     @OneToOne(targetEntity = AirportHeliportContaminationType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airportheliportcontamination_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "airportheliportcontamination_hjid", referencedColumnName = "hjid")
     public AirportHeliportContaminationType getAirportHeliportContamination() {
         return airportHeliportContamination;
     }

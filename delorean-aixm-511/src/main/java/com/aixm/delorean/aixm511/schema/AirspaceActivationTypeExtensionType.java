@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAirspaceActivationExtension"
 })
 @Entity(name = "AirspaceActivationTypeExtensionType")
-@Table(name = "airspaceactivation_ext", schema = "airspace")
+@Table(name = "airspaceactivation_e", schema = "airspace")
 public class AirspaceActivationTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class AirspaceActivationTypeExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class AirspaceActivationTypeExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairspaceactivationextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairspaceactivationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirspaceActivationExtension() {
         return abstractAirspaceActivationExtension;
     }

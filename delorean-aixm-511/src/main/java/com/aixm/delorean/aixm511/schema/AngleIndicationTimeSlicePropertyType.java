@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AngleIndicationTimeSlicePropertyType", propOrder = {
     "angleIndicationTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AngleIndicationTimeSlicePropertyType")
-@Table(name = "angleindication_tsp", schema = "navaids_point")
+@Table(name = "angleindication_tp", schema = "navaids_point")
 public class AngleIndicationTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class AngleIndicationTimeSlicePropertyType implements Serializable, Equal
     @OneToOne(targetEntity = AngleIndicationTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "angleindicationtimeslice_hjid", referencedColumnName = "hjid")
     public AngleIndicationTimeSliceType getAngleIndicationTimeSlice() {
         return angleIndicationTimeSlice;
     }
@@ -230,19 +230,6 @@ public class AngleIndicationTimeSlicePropertyType implements Serializable, Equal
         }
         final AngleIndicationTimeSlicePropertyType that = ((AngleIndicationTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAngleIndicationTimeSlice();
             boolean rhsFieldIsSet = that.isSetAngleIndicationTimeSlice();
             AngleIndicationTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class AngleIndicationTimeSlicePropertyType implements Serializable, Equal
             rhsField = that.getAngleIndicationTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleIndicationTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleIndicationTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

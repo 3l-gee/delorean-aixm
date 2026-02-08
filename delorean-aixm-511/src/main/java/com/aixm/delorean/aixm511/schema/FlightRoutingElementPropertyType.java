@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "flightRoutingElement"
 })
 @Entity(name = "FlightRoutingElementPropertyType")
-@Table(name = "flightroutingelement_pt", schema = "route")
+@Table(name = "flightroutingelement_p", schema = "route")
 public class FlightRoutingElementPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class FlightRoutingElementPropertyType
     @OneToOne(targetEntity = FlightRoutingElementType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "flightroutingelement_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "flightroutingelement_hjid", referencedColumnName = "hjid")
     public FlightRoutingElementType getFlightRoutingElement() {
         return flightRoutingElement;
     }

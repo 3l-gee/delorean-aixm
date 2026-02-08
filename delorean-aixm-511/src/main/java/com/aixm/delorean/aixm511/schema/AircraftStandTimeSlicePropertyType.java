@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AircraftStandTimeSlicePropertyType", propOrder = {
     "aircraftStandTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AircraftStandTimeSlicePropertyType")
-@Table(name = "aircraftstand_tsp", schema = "airport_heliport")
+@Table(name = "aircraftstand_tp", schema = "airport_heliport")
 public class AircraftStandTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class AircraftStandTimeSlicePropertyType implements Serializable, Equals,
     @OneToOne(targetEntity = AircraftStandTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "aircraftstandtimeslice_hjid", referencedColumnName = "hjid")
     public AircraftStandTimeSliceType getAircraftStandTimeSlice() {
         return aircraftStandTimeSlice;
     }
@@ -230,19 +230,6 @@ public class AircraftStandTimeSlicePropertyType implements Serializable, Equals,
         }
         final AircraftStandTimeSlicePropertyType that = ((AircraftStandTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAircraftStandTimeSlice();
             boolean rhsFieldIsSet = that.isSetAircraftStandTimeSlice();
             AircraftStandTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class AircraftStandTimeSlicePropertyType implements Serializable, Equals,
             rhsField = that.getAircraftStandTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftStandTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftStandTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

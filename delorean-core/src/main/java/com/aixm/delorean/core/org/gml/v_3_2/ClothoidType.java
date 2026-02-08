@@ -177,6 +177,19 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
         }
         final ClothoidType that = ((ClothoidType) object);
         {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getStartParameter();
+            double rhsField;
+            rhsField = that.getStartParameter();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startParameter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startParameter", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetScaleFactor();
             boolean rhsFieldIsSet = that.isSetScaleFactor();
             BigDecimal lhsField;
@@ -211,19 +224,6 @@ public class ClothoidType extends AbstractCurveSegmentType implements Serializab
             rhsField = that.getEndParameter();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endParameter", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endParameter", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getStartParameter();
-            double rhsField;
-            rhsField = that.getStartParameter();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startParameter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startParameter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -15,7 +15,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -43,7 +42,12 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}RulesProceduresPropertyGroup"/>
+ *         <element name="category" type="{http://www.aixm.aero/schema/5.1.1}CodeRuleProcedureType" minOccurs="0"/>
+ *         <element name="title" type="{http://www.aixm.aero/schema/5.1.1}CodeRuleProcedureTitleType" minOccurs="0"/>
+ *         <element name="content" type="{http://www.aixm.aero/schema/5.1.1}XHTMLType" minOccurs="0"/>
+ *         <element name="affectedLocation" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="affectedArea" type="{http://www.aixm.aero/schema/5.1.1}AirspacePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -75,7 +79,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "RulesProceduresTimeSliceType")
-@Table(name = "rulesprocedures_ts", schema = "rules_procedure")
+@Table(name = "rulesprocedures_t", schema = "rules_procedure")
 public class RulesProceduresTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -208,13 +212,13 @@ public class RulesProceduresTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "affectedlocation_rulesprocedures_link", schema = "rules_procedure", joinColumns = {
-        @JoinColumn(name = "affectedlocation", referencedColumnName = "hjid")
+    @JoinTable(name = "rulesprocedures_t_affectedlocation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "rulesprocedures_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "rulesprocedurespropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "affectedlocation_hjid", referencedColumnName = "hjid")
     })
     public List<AirportHeliportPropertyType> getAffectedLocation() {
         if (affectedLocation == null) {
@@ -262,13 +266,13 @@ public class RulesProceduresTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AirspacePropertyType.class, cascade = {
+    @OneToMany(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "affectedarea_rulesprocedures_link", schema = "rules_procedure", joinColumns = {
-        @JoinColumn(name = "affectedarea", referencedColumnName = "hjid")
+    @JoinTable(name = "rulesprocedures_t_affectedarea_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "rulesprocedures_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "rulesprocedurespropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "affectedarea_hjid", referencedColumnName = "hjid")
     })
     public List<AirspacePropertyType> getAffectedArea() {
         if (affectedArea == null) {
@@ -316,13 +320,13 @@ public class RulesProceduresTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_rulesprocedures_link", schema = "rules_procedure", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "rulesprocedures_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "rulesprocedures_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "rulesprocedurespropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -373,7 +377,7 @@ public class RulesProceduresTimeSliceType
     @OneToMany(targetEntity = RulesProceduresExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_RULES_PROCEDURES_T_0")
+    @JoinColumn(name = "rulesprocedures_e_hjid", referencedColumnName = "hjid")
     public List<RulesProceduresExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -448,14 +452,14 @@ public class RulesProceduresTimeSliceType
         }
         final RulesProceduresTimeSliceType that = ((RulesProceduresTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAffectedLocation();
-            boolean rhsFieldIsSet = that.isSetAffectedLocation();
-            List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetAffectedLocation()?this.getAffectedLocation():null);
-            List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetAffectedLocation()?that.getAffectedLocation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affectedLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affectedLocation", rhsField);
+            boolean lhsFieldIsSet = this.isSetTitle();
+            boolean rhsFieldIsSet = that.isSetTitle();
+            JAXBElement<CodeRuleProcedureTitleType> lhsField;
+            lhsField = this.getTitle();
+            JAXBElement<CodeRuleProcedureTitleType> rhsField;
+            rhsField = that.getTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -474,32 +478,6 @@ public class RulesProceduresTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetContent();
-            boolean rhsFieldIsSet = that.isSetContent();
-            JAXBElement<XHTMLType> lhsField;
-            lhsField = this.getContent();
-            JAXBElement<XHTMLType> rhsField;
-            rhsField = that.getContent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<RulesProceduresExtensionType> lhsField;
@@ -508,6 +486,19 @@ public class RulesProceduresTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContent();
+            boolean rhsFieldIsSet = that.isSetContent();
+            JAXBElement<XHTMLType> lhsField;
+            lhsField = this.getContent();
+            JAXBElement<XHTMLType> rhsField;
+            rhsField = that.getContent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -526,14 +517,27 @@ public class RulesProceduresTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTitle();
-            boolean rhsFieldIsSet = that.isSetTitle();
-            JAXBElement<CodeRuleProcedureTitleType> lhsField;
-            lhsField = this.getTitle();
-            JAXBElement<CodeRuleProcedureTitleType> rhsField;
-            rhsField = that.getTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAffectedLocation();
+            boolean rhsFieldIsSet = that.isSetAffectedLocation();
+            List<AirportHeliportPropertyType> lhsField;
+            lhsField = (this.isSetAffectedLocation()?this.getAffectedLocation():null);
+            List<AirportHeliportPropertyType> rhsField;
+            rhsField = (that.isSetAffectedLocation()?that.getAffectedLocation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affectedLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affectedLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

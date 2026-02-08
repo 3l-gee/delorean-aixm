@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAuthorityForNavaidEquipmentExtension"
 })
 @Entity(name = "AuthorityForNavaidEquipmentTypeExtensionType")
-@Table(name = "authorityfornavaidequipment_ext", schema = "navaids_point")
+@Table(name = "authorityfornavaidequipment_e", schema = "navaids_point")
 public class AuthorityForNavaidEquipmentTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AuthorityForNavaidEquipmentTypeExtensionType implements Serializabl
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractauthorityfornavaidequipmentextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractauthorityfornavaidequipmentextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAuthorityForNavaidEquipmentExtension() {
         return abstractAuthorityForNavaidEquipmentExtension;
     }
@@ -223,19 +223,6 @@ public class AuthorityForNavaidEquipmentTypeExtensionType implements Serializabl
         }
         final AuthorityForNavaidEquipmentTypeExtensionType that = ((AuthorityForNavaidEquipmentTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractAuthorityForNavaidEquipmentExtension();
             boolean rhsFieldIsSet = that.isSetAbstractAuthorityForNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class AuthorityForNavaidEquipmentTypeExtensionType implements Serializabl
             rhsField = that.getAbstractAuthorityForNavaidEquipmentExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAuthorityForNavaidEquipmentExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAuthorityForNavaidEquipmentExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

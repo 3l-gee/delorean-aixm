@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RadioCommunicationChannelTimeSlicePropertyType", propOrder = {
     "radioCommunicationChannelTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "RadioCommunicationChannelTimeSlicePropertyType")
-@Table(name = "radiocommunicationchannel_tsp", schema = "service")
+@Table(name = "radiocommunicationchannel_tp", schema = "service")
 public class RadioCommunicationChannelTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class RadioCommunicationChannelTimeSlicePropertyType implements Serializa
     @OneToOne(targetEntity = RadioCommunicationChannelTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "radiocommunicationchanneltimeslice_hjid", referencedColumnName = "hjid")
     public RadioCommunicationChannelTimeSliceType getRadioCommunicationChannelTimeSlice() {
         return radioCommunicationChannelTimeSlice;
     }
@@ -230,19 +230,6 @@ public class RadioCommunicationChannelTimeSlicePropertyType implements Serializa
         }
         final RadioCommunicationChannelTimeSlicePropertyType that = ((RadioCommunicationChannelTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRadioCommunicationChannelTimeSlice();
             boolean rhsFieldIsSet = that.isSetRadioCommunicationChannelTimeSlice();
             RadioCommunicationChannelTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class RadioCommunicationChannelTimeSlicePropertyType implements Serializa
             rhsField = that.getRadioCommunicationChannelTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunicationChannelTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunicationChannelTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

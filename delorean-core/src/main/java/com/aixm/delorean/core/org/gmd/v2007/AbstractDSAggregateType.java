@@ -278,6 +278,19 @@ public abstract class AbstractDSAggregateType extends AbstractObjectType impleme
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSeriesMetadata();
+            boolean rhsFieldIsSet = that.isSetSeriesMetadata();
+            List<MDMetadataPropertyType> lhsField;
+            lhsField = (this.isSetSeriesMetadata() ? this.getSeriesMetadata() : null);
+            List<MDMetadataPropertyType> rhsField;
+            rhsField = (that.isSetSeriesMetadata() ? that.getSeriesMetadata() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seriesMetadata", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seriesMetadata", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSubset();
             boolean rhsFieldIsSet = that.isSetSubset();
             List<DSAggregatePropertyType> lhsField;
@@ -299,19 +312,6 @@ public abstract class AbstractDSAggregateType extends AbstractObjectType impleme
             rhsField = (that.isSetSuperset() ? that.getSuperset() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "superset", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "superset", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSeriesMetadata();
-            boolean rhsFieldIsSet = that.isSetSeriesMetadata();
-            List<MDMetadataPropertyType> lhsField;
-            lhsField = (this.isSetSeriesMetadata() ? this.getSeriesMetadata() : null);
-            List<MDMetadataPropertyType> rhsField;
-            rhsField = (that.isSetSeriesMetadata() ? that.getSeriesMetadata() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seriesMetadata", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seriesMetadata", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

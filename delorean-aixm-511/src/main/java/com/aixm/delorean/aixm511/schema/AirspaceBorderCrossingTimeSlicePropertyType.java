@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AirspaceBorderCrossingTimeSlicePropertyType", propOrder = {
     "airspaceBorderCrossingTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AirspaceBorderCrossingTimeSlicePropertyType")
-@Table(name = "airspacebordercrossing_tsp", schema = "route")
+@Table(name = "airspacebordercrossing_tp", schema = "route")
 public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
     @OneToOne(targetEntity = AirspaceBorderCrossingTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "airspacebordercrossingtimeslice_hjid", referencedColumnName = "hjid")
     public AirspaceBorderCrossingTimeSliceType getAirspaceBorderCrossingTimeSlice() {
         return airspaceBorderCrossingTimeSlice;
     }

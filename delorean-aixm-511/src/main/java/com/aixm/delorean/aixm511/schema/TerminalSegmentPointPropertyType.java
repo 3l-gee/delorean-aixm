@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "terminalSegmentPoint"
 })
 @Entity(name = "TerminalSegmentPointPropertyType")
-@Table(name = "terminalsegmentpoint_pt", schema = "navaids_point")
+@Table(name = "terminalsegmentpoint_p", schema = "navaids_point")
 public class TerminalSegmentPointPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class TerminalSegmentPointPropertyType
     @OneToOne(targetEntity = TerminalSegmentPointType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "terminalsegmentpoint_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "terminalsegmentpoint_hjid", referencedColumnName = "hjid")
     public TerminalSegmentPointType getTerminalSegmentPoint() {
         return terminalSegmentPoint;
     }

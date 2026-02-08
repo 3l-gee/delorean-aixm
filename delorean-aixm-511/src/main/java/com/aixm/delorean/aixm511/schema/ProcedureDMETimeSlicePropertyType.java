@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ProcedureDMETimeSlicePropertyType", propOrder = {
     "procedureDMETimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "ProcedureDMETimeSlicePropertyType")
-@Table(name = "proceduredme_tsp", schema = "procedure")
+@Table(name = "proceduredme_tp", schema = "procedure")
 public class ProcedureDMETimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class ProcedureDMETimeSlicePropertyType implements Serializable, Equals, 
     @OneToOne(targetEntity = ProcedureDMETimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "proceduredmetimeslice_hjid", referencedColumnName = "hjid")
     public ProcedureDMETimeSliceType getProcedureDMETimeSlice() {
         return procedureDMETimeSlice;
     }

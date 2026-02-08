@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractRadarSystemExtension"
 })
 @Entity(name = "RadarSystemExtensionType")
-@Table(name = "radarsystem_ext", schema = "surveillance")
+@Table(name = "radarsystem_e", schema = "surveillance")
 public class RadarSystemExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class RadarSystemExtensionType implements Serializable, Equals, HashCode,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractradarsystemextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractradarsystemextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadarSystemExtension() {
         return abstractRadarSystemExtension;
     }
@@ -223,19 +223,6 @@ public class RadarSystemExtensionType implements Serializable, Equals, HashCode,
         }
         final RadarSystemExtensionType that = ((RadarSystemExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRadarSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRadarSystemExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRadarSystemExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRadarSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadarSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadarSystemExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RadarSystemExtensionType implements Serializable, Equals, HashCode,
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRadarSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRadarSystemExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRadarSystemExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRadarSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadarSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadarSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "authorityForNavaidEquipment"
 })
 @Entity(name = "AuthorityForNavaidEquipmentPropertyType")
-@Table(name = "authorityfornavaidequipment_pt", schema = "navaids_point")
+@Table(name = "authorityfornavaidequipment_p", schema = "navaids_point")
 public class AuthorityForNavaidEquipmentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AuthorityForNavaidEquipmentPropertyType
     @OneToOne(targetEntity = AuthorityForNavaidEquipmentType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "authorityfornavaidequipment_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "authorityfornavaidequipment_hjid", referencedColumnName = "hjid")
     public AuthorityForNavaidEquipmentType getAuthorityForNavaidEquipment() {
         return authorityForNavaidEquipment;
     }

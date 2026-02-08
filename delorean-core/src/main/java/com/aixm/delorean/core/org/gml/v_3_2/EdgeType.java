@@ -274,14 +274,14 @@ public class EdgeType extends AbstractTopoPrimitiveType implements Serializable 
         }
         final EdgeType that = ((EdgeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDirectedFace();
-            boolean rhsFieldIsSet = that.isSetDirectedFace();
-            List<DirectedFacePropertyType> lhsField;
-            lhsField = (this.isSetDirectedFace() ? this.getDirectedFace() : null);
-            List<DirectedFacePropertyType> rhsField;
-            rhsField = (that.isSetDirectedFace() ? that.getDirectedFace() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -300,6 +300,19 @@ public class EdgeType extends AbstractTopoPrimitiveType implements Serializable 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDirectedFace();
+            boolean rhsFieldIsSet = that.isSetDirectedFace();
+            List<DirectedFacePropertyType> lhsField;
+            lhsField = (this.isSetDirectedFace() ? this.getDirectedFace() : null);
+            List<DirectedFacePropertyType> rhsField;
+            rhsField = (that.isSetDirectedFace() ? that.getDirectedFace() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCurveProperty();
             boolean rhsFieldIsSet = that.isSetCurveProperty();
             CurvePropertyType lhsField;
@@ -308,19 +321,6 @@ public class EdgeType extends AbstractTopoPrimitiveType implements Serializable 
             rhsField = that.getCurveProperty();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveProperty", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveProperty", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAggregationType();
-            boolean rhsFieldIsSet = that.isSetAggregationType();
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

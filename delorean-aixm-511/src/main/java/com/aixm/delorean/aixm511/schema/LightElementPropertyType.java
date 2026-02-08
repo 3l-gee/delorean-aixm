@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "lightElement"
 })
 @Entity(name = "LightElementPropertyType")
-@Table(name = "lightelement_pt", schema = "shared")
+@Table(name = "lightelement_p", schema = "shared")
 public class LightElementPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class LightElementPropertyType
     @OneToOne(targetEntity = LightElementType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "lightelement_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "lightelement_hjid", referencedColumnName = "hjid")
     public LightElementType getLightElement() {
         return lightElement;
     }

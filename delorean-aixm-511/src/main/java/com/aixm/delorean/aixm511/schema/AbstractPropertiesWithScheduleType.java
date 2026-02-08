@@ -64,7 +64,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     LightElementStatusType.class
 })
 @Entity(name = "AbstractPropertiesWithScheduleType")
-@Table(name = "abstractpropertieswithschedule", schema = "public")
+@Table(name = "abstractpropertieswithschedule_o", schema = "public")
 public class AbstractPropertiesWithScheduleType
     extends AbstractAIXMObjectType
     implements Serializable

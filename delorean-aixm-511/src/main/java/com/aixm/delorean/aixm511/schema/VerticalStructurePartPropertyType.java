@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "verticalStructurePart"
 })
 @Entity(name = "VerticalStructurePartPropertyType")
-@Table(name = "verticalstructurepart_pt", schema = "obstacle")
+@Table(name = "verticalstructurepart_p", schema = "obstacle")
 public class VerticalStructurePartPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class VerticalStructurePartPropertyType
     @OneToOne(targetEntity = VerticalStructurePartType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "verticalstructurepart_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "verticalstructurepart_hjid", referencedColumnName = "hjid")
     public VerticalStructurePartType getVerticalStructurePart() {
         return verticalStructurePart;
     }

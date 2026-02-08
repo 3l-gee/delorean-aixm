@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "fuel"
 })
 @Entity(name = "FuelPropertyType")
-@Table(name = "fuel_pt", schema = "service")
+@Table(name = "fuel_p", schema = "service")
 public class FuelPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class FuelPropertyType
     @OneToOne(targetEntity = FuelType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "fuel_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "fuel_hjid", referencedColumnName = "hjid")
     public FuelType getFuel() {
         return fuel;
     }

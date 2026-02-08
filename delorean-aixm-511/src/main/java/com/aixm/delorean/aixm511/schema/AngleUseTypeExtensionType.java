@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAngleUseExtension"
 })
 @Entity(name = "AngleUseTypeExtensionType")
-@Table(name = "angleuse_ext", schema = "navaids_point")
+@Table(name = "angleuse_e", schema = "navaids_point")
 public class AngleUseTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AngleUseTypeExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractangleuseextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractangleuseextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAngleUseExtension() {
         return abstractAngleUseExtension;
     }
@@ -223,19 +223,6 @@ public class AngleUseTypeExtensionType implements Serializable, Equals, HashCode
         }
         final AngleUseTypeExtensionType that = ((AngleUseTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractAngleUseExtension();
             boolean rhsFieldIsSet = that.isSetAbstractAngleUseExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class AngleUseTypeExtensionType implements Serializable, Equals, HashCode
             rhsField = that.getAbstractAngleUseExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAngleUseExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAngleUseExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

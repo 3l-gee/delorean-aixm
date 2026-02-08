@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "aerialRefuellingTrack"
 })
 @Entity(name = "AerialRefuellingTrackPropertyType")
-@Table(name = "aerialrefuellingtrack_pt", schema = "aerial_refuelling")
+@Table(name = "aerialrefuellingtrack_p", schema = "aerial_refuelling")
 public class AerialRefuellingTrackPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AerialRefuellingTrackPropertyType
     @OneToOne(targetEntity = AerialRefuellingTrackType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "aerialrefuellingtrack_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "aerialrefuellingtrack_hjid", referencedColumnName = "hjid")
     public AerialRefuellingTrackType getAerialRefuellingTrack() {
         return aerialRefuellingTrack;
     }

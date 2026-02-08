@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractDepartureArrivalConditionExtension"
 })
 @Entity(name = "DepartureArrivalConditionTypeExtensionType")
-@Table(name = "departurearrivalcondition_ext", schema = "procedure")
+@Table(name = "departurearrivalcondition_e", schema = "procedure")
 public class DepartureArrivalConditionTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class DepartureArrivalConditionTypeExtensionType implements Serializable,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractdeparturearrivalconditionextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractdeparturearrivalconditionextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDepartureArrivalConditionExtension() {
         return abstractDepartureArrivalConditionExtension;
     }

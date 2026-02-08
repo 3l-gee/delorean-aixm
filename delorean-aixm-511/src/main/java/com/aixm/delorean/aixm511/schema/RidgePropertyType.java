@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "ridge"
 })
 @Entity(name = "RidgePropertyType")
-@Table(name = "ridge_pt", schema = "airport_heliport")
+@Table(name = "ridge_p", schema = "airport_heliport")
 public class RidgePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class RidgePropertyType
     @OneToOne(targetEntity = RidgeType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ridge_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "ridge_hjid", referencedColumnName = "hjid")
     public RidgeType getRidge() {
         return ridge;
     }

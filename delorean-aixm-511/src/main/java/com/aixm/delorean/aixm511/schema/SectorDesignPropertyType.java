@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "sectorDesign"
 })
 @Entity(name = "SectorDesignPropertyType")
-@Table(name = "sectordesign_pt", schema = "procedure")
+@Table(name = "sectordesign_p", schema = "procedure")
 public class SectorDesignPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class SectorDesignPropertyType
     @OneToOne(targetEntity = SectorDesignType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "sectordesign_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "sectordesign_hjid", referencedColumnName = "hjid")
     public SectorDesignType getSectorDesign() {
         return sectorDesign;
     }

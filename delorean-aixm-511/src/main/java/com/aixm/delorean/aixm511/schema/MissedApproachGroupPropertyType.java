@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "missedApproachGroup"
 })
 @Entity(name = "MissedApproachGroupPropertyType")
-@Table(name = "missedapproachgroup_pt", schema = "procedure")
+@Table(name = "missedapproachgroup_p", schema = "procedure")
 public class MissedApproachGroupPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class MissedApproachGroupPropertyType
     @OneToOne(targetEntity = MissedApproachGroupType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "missedapproachgroup_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "missedapproachgroup_hjid", referencedColumnName = "hjid")
     public MissedApproachGroupType getMissedApproachGroup() {
         return missedApproachGroup;
     }

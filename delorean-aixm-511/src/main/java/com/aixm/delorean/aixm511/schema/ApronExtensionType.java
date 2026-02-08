@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractApronExtension"
 })
 @Entity(name = "ApronExtensionType")
-@Table(name = "apron_ext", schema = "airport_heliport")
+@Table(name = "apron_e", schema = "airport_heliport")
 public class ApronExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class ApronExtensionType implements Serializable, Equals, HashCode, ToStr
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapronextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapronextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApronExtension() {
         return abstractApronExtension;
     }

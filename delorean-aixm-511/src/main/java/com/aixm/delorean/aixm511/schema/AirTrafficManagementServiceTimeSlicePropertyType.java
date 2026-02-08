@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AirTrafficManagementServiceTimeSlicePropertyType", propOrder = {
     "airTrafficManagementServiceTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AirTrafficManagementServiceTimeSlicePropertyType")
-@Table(name = "airtrafficmanagementservice_tsp", schema = "service")
+@Table(name = "airtrafficmanagementservice_tp", schema = "service")
 public class AirTrafficManagementServiceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class AirTrafficManagementServiceTimeSlicePropertyType implements Seriali
     @OneToOne(targetEntity = AirTrafficManagementServiceTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "airtrafficmanagementservicetimeslice_hjid", referencedColumnName = "hjid")
     public AirTrafficManagementServiceTimeSliceType getAirTrafficManagementServiceTimeSlice() {
         return airTrafficManagementServiceTimeSlice;
     }
@@ -230,19 +230,6 @@ public class AirTrafficManagementServiceTimeSlicePropertyType implements Seriali
         }
         final AirTrafficManagementServiceTimeSlicePropertyType that = ((AirTrafficManagementServiceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAirTrafficManagementServiceTimeSlice();
-            boolean rhsFieldIsSet = that.isSetAirTrafficManagementServiceTimeSlice();
-            AirTrafficManagementServiceTimeSliceType lhsField;
-            lhsField = this.getAirTrafficManagementServiceTimeSlice();
-            AirTrafficManagementServiceTimeSliceType rhsField;
-            rhsField = that.getAirTrafficManagementServiceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airTrafficManagementServiceTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airTrafficManagementServiceTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class AirTrafficManagementServiceTimeSlicePropertyType implements Seriali
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAirTrafficManagementServiceTimeSlice();
+            boolean rhsFieldIsSet = that.isSetAirTrafficManagementServiceTimeSlice();
+            AirTrafficManagementServiceTimeSliceType lhsField;
+            lhsField = this.getAirTrafficManagementServiceTimeSlice();
+            AirTrafficManagementServiceTimeSliceType rhsField;
+            rhsField = that.getAirTrafficManagementServiceTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airTrafficManagementServiceTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airTrafficManagementServiceTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

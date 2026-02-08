@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractNavigationAreaExtension"
 })
 @Entity(name = "NavigationAreaExtensionType")
-@Table(name = "navigationarea_ext", schema = "procedure")
+@Table(name = "navigationarea_e", schema = "procedure")
 public class NavigationAreaExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class NavigationAreaExtensionType implements Serializable, Equals, HashCo
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavigationareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavigationareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavigationAreaExtension() {
         return abstractNavigationAreaExtension;
     }

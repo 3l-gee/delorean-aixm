@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractFinalProfileExtension"
 })
 @Entity(name = "FinalProfileTypeExtensionType")
-@Table(name = "finalprofile_ext", schema = "procedure")
+@Table(name = "finalprofile_e", schema = "procedure")
 public class FinalProfileTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class FinalProfileTypeExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractfinalprofileextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractfinalprofileextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFinalProfileExtension() {
         return abstractFinalProfileExtension;
     }
@@ -223,19 +223,6 @@ public class FinalProfileTypeExtensionType implements Serializable, Equals, Hash
         }
         final FinalProfileTypeExtensionType that = ((FinalProfileTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractFinalProfileExtension();
             boolean rhsFieldIsSet = that.isSetAbstractFinalProfileExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class FinalProfileTypeExtensionType implements Serializable, Equals, Hash
             rhsField = that.getAbstractFinalProfileExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFinalProfileExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFinalProfileExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

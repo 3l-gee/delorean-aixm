@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractApproachDistanceTableExtension"
 })
 @Entity(name = "ApproachDistanceTableTypeExtensionType")
-@Table(name = "approachdistancetable_ext", schema = "procedure")
+@Table(name = "approachdistancetable_e", schema = "procedure")
 public class ApproachDistanceTableTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class ApproachDistanceTableTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapproachdistancetableextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapproachdistancetableextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachDistanceTableExtension() {
         return abstractApproachDistanceTableExtension;
     }

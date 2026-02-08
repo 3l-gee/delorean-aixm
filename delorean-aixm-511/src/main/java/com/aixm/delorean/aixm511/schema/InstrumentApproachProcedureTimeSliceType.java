@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,36 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}InstrumentApproachProcedurePropertyGroup"/>
+ *         <element name="communicationFailureInstruction" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="instruction" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="designCriteria" type="{http://www.aixm.aero/schema/5.1.1}CodeDesignStandardType" minOccurs="0"/>
+ *         <element name="codingStandard" type="{http://www.aixm.aero/schema/5.1.1}CodeProcedureCodingStandardType" minOccurs="0"/>
+ *         <element name="flightChecked" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="RNAV" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}ProcedureAvailabilityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="airportHeliport" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="aircraftCharacteristic" type="{http://www.aixm.aero/schema/5.1.1}AircraftCharacteristicPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="flightTransition" type="{http://www.aixm.aero/schema/5.1.1}ProcedureTransitionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <choice>
+ *           <element name="guidanceFacility_specialNavigationSystem" type="{http://www.aixm.aero/schema/5.1.1}SpecialNavigationSystemPropertyType" minOccurs="0"/>
+ *           <element name="guidanceFacility_radar" type="{http://www.aixm.aero/schema/5.1.1}RadarSystemPropertyType" minOccurs="0"/>
+ *           <element name="guidanceFacility_navaid" type="{http://www.aixm.aero/schema/5.1.1}NavaidPropertyType" minOccurs="0"/>
+ *         </choice>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="safeAltitude" type="{http://www.aixm.aero/schema/5.1.1}SafeAltitudeAreaPropertyType" minOccurs="0"/>
+ *         <element name="approachPrefix" type="{http://www.aixm.aero/schema/5.1.1}CodeApproachPrefixType" minOccurs="0"/>
+ *         <element name="approachType" type="{http://www.aixm.aero/schema/5.1.1}CodeApproachType" minOccurs="0"/>
+ *         <element name="multipleIdentification" type="{http://www.aixm.aero/schema/5.1.1}CodeUpperAlphaType" minOccurs="0"/>
+ *         <element name="copterTrack" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="circlingIdentification" type="{http://www.aixm.aero/schema/5.1.1}CodeUpperAlphaType" minOccurs="0"/>
+ *         <element name="courseReversalInstruction" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="additionalEquipment" type="{http://www.aixm.aero/schema/5.1.1}CodeApproachEquipmentAdditionalType" minOccurs="0"/>
+ *         <element name="channelGNSS" type="{http://www.aixm.aero/schema/5.1.1}ValChannelNumberType" minOccurs="0"/>
+ *         <element name="WAASReliable" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="landing" type="{http://www.aixm.aero/schema/5.1.1}LandingTakeoffAreaCollectionPropertyType" minOccurs="0"/>
+ *         <element name="missedInstruction" type="{http://www.aixm.aero/schema/5.1.1}MissedApproachGroupPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="finalProfile" type="{http://www.aixm.aero/schema/5.1.1}FinalProfilePropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -98,7 +126,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "InstrumentApproachProcedureTimeSliceType")
-@Table(name = "instrumentapproachprocedure_ts", schema = "procedure")
+@Table(name = "instrumentapproachprocedure_t", schema = "procedure")
 public class InstrumentApproachProcedureTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -395,13 +423,13 @@ public class InstrumentApproachProcedureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ProcedureAvailabilityPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ProcedureAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "availability_instrumentapproachprocedure_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_availability_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "instrumentapproachprocedurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
     })
     public List<ProcedureAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
@@ -449,13 +477,13 @@ public class InstrumentApproachProcedureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "airportheliport_instrumentapproachprocedure_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "airportheliport", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_airportheliport_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "instrumentapproachprocedurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "airportheliport_hjid", referencedColumnName = "hjid")
     })
     public List<AirportHeliportPropertyType> getAirportHeliport() {
         if (airportHeliport == null) {
@@ -503,13 +531,13 @@ public class InstrumentApproachProcedureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "aircraftcharacteristic_instrumentapproachprocedure_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "aircraftcharacteristic", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_aircraftcharacteristic_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "instrumentapproachprocedurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "aircraftcharacteristic_hjid", referencedColumnName = "hjid")
     })
     public List<AircraftCharacteristicPropertyType> getAircraftCharacteristic() {
         if (aircraftCharacteristic == null) {
@@ -557,13 +585,13 @@ public class InstrumentApproachProcedureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ProcedureTransitionPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ProcedureTransitionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "flighttransition_instrumentapproachprocedure_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "flighttransition", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_flighttransition_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "instrumentapproachprocedurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "flighttransition_hjid", referencedColumnName = "hjid")
     })
     public List<ProcedureTransitionPropertyType> getFlightTransition() {
         if (flightTransition == null) {
@@ -701,13 +729,13 @@ public class InstrumentApproachProcedureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_instrumentapproachprocedure_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "instrumentapproachprocedurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -1085,13 +1113,13 @@ public class InstrumentApproachProcedureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = MissedApproachGroupPropertyType.class, cascade = {
+    @OneToMany(targetEntity = MissedApproachGroupPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "missedinstruction_instrumentapproachprocedure_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "missedinstruction", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_missedinstruction_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "instrumentapproachprocedurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "missedinstruction_hjid", referencedColumnName = "hjid")
     })
     public List<MissedApproachGroupPropertyType> getMissedInstruction() {
         if (missedInstruction == null) {
@@ -1172,7 +1200,7 @@ public class InstrumentApproachProcedureTimeSliceType
     @OneToMany(targetEntity = InstrumentApproachProcedureExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_INSTRUMENT_APPROAC_0")
+    @JoinColumn(name = "instrumentapproachprocedure_e_hjid", referencedColumnName = "hjid")
     public List<InstrumentApproachProcedureExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -1199,7 +1227,7 @@ public class InstrumentApproachProcedureTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "communicationfailureinstruction", columnDefinition = "TEXT", length = 10000)),
+        @AttributeOverride(name = "value", column = @Column(name = "communicationfailureinstruction")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "communicationfailureinstruction_nilreason"))
     })
     public TextInstructionType getCommunicationFailureInstructionItem() {
@@ -1212,7 +1240,7 @@ public class InstrumentApproachProcedureTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "instruction", columnDefinition = "TEXT", length = 10000)),
+        @AttributeOverride(name = "value", column = @Column(name = "instruction")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "instruction_nilreason"))
     })
     public TextInstructionType getInstructionItem() {
@@ -1264,7 +1292,7 @@ public class InstrumentApproachProcedureTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
+        @AttributeOverride(name = "value", column = @Column(name = "name")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "name_nilreason"))
     })
     public TextNameType getAixmNameItem() {
@@ -1288,10 +1316,14 @@ public class InstrumentApproachProcedureTimeSliceType
         setRNAV(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "RNAV"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = SpecialNavigationSystemPropertyType.class, cascade = {
+    @OneToOne(targetEntity = SpecialNavigationSystemPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "guidancefacility_specialnavigationsystem_id", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_guidancefacility_specialnavigationsystem_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "guidancefacility_specialnavigationsystem_hjid", referencedColumnName = "hjid")
+    })
     public SpecialNavigationSystemPropertyType getGuidanceFacilitySpecialNavigationSystemItem() {
         return XmlAdapterUtils.unmarshallSource(SpecialNavigationSystemPropertyType.class, this.getGuidanceFacilitySpecialNavigationSystem());
     }
@@ -1300,10 +1332,14 @@ public class InstrumentApproachProcedureTimeSliceType
         setGuidanceFacilitySpecialNavigationSystem(XmlAdapterUtils.marshallJAXBElement(SpecialNavigationSystemPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "guidanceFacility_specialNavigationSystem"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = RadarSystemPropertyType.class, cascade = {
+    @OneToOne(targetEntity = RadarSystemPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "guidancefacility_radar_id", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_guidancefacility_radar_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "guidancefacility_radar_hjid", referencedColumnName = "hjid")
+    })
     public RadarSystemPropertyType getGuidanceFacilityRadarItem() {
         return XmlAdapterUtils.unmarshallSource(RadarSystemPropertyType.class, this.getGuidanceFacilityRadar());
     }
@@ -1312,10 +1348,14 @@ public class InstrumentApproachProcedureTimeSliceType
         setGuidanceFacilityRadar(XmlAdapterUtils.marshallJAXBElement(RadarSystemPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "guidanceFacility_radar"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
+    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "guidancefacility_navaid_id", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_guidancefacility_navaid_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "guidancefacility_navaid_hjid", referencedColumnName = "hjid")
+    })
     public NavaidPropertyType getGuidanceFacilityNavaidItem() {
         return XmlAdapterUtils.unmarshallSource(NavaidPropertyType.class, this.getGuidanceFacilityNavaid());
     }
@@ -1324,10 +1364,14 @@ public class InstrumentApproachProcedureTimeSliceType
         setGuidanceFacilityNavaid(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "guidanceFacility_navaid"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = SafeAltitudeAreaPropertyType.class, cascade = {
+    @OneToOne(targetEntity = SafeAltitudeAreaPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "safealtitude_id", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_safealtitude_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "safealtitude_hjid", referencedColumnName = "hjid")
+    })
     public SafeAltitudeAreaPropertyType getSafeAltitudeItem() {
         return XmlAdapterUtils.unmarshallSource(SafeAltitudeAreaPropertyType.class, this.getSafeAltitude());
     }
@@ -1377,7 +1421,7 @@ public class InstrumentApproachProcedureTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "coptertrack", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "coptertrack")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "coptertrack_nilreason"))
     })
     public ValBearingType getCopterTrackItem() {
@@ -1403,7 +1447,7 @@ public class InstrumentApproachProcedureTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "coursereversalinstruction", columnDefinition = "TEXT", length = 10000)),
+        @AttributeOverride(name = "value", column = @Column(name = "coursereversalinstruction")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "coursereversalinstruction_nilreason"))
     })
     public TextInstructionType getCourseReversalInstructionItem() {
@@ -1429,7 +1473,7 @@ public class InstrumentApproachProcedureTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "channelgnss", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "channelgnss")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "channelgnss_nilreason"))
     })
     public ValChannelNumberType getChannelGNSSItem() {
@@ -1453,10 +1497,14 @@ public class InstrumentApproachProcedureTimeSliceType
         setWAASReliable(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "WAASReliable"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = LandingTakeoffAreaCollectionPropertyType.class, cascade = {
+    @OneToOne(targetEntity = LandingTakeoffAreaCollectionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "landing_id", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_landing_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "landing_hjid", referencedColumnName = "hjid")
+    })
     public LandingTakeoffAreaCollectionPropertyType getLandingItem() {
         return XmlAdapterUtils.unmarshallSource(LandingTakeoffAreaCollectionPropertyType.class, this.getLanding());
     }
@@ -1465,10 +1513,14 @@ public class InstrumentApproachProcedureTimeSliceType
         setLanding(XmlAdapterUtils.marshallJAXBElement(LandingTakeoffAreaCollectionPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "landing"), InstrumentApproachProcedureTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = FinalProfilePropertyType.class, cascade = {
+    @OneToOne(targetEntity = FinalProfilePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "finalprofile_id", referencedColumnName = "hjid")
+    @JoinTable(name = "instrumentapproachprocedure_t_finalprofile_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "instrumentapproachprocedure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "finalprofile_hjid", referencedColumnName = "hjid")
+    })
     public FinalProfilePropertyType getFinalProfileItem() {
         return XmlAdapterUtils.unmarshallSource(FinalProfilePropertyType.class, this.getFinalProfile());
     }
@@ -1490,32 +1542,6 @@ public class InstrumentApproachProcedureTimeSliceType
         }
         final InstrumentApproachProcedureTimeSliceType that = ((InstrumentApproachProcedureTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDesignCriteria();
-            boolean rhsFieldIsSet = that.isSetDesignCriteria();
-            JAXBElement<CodeDesignStandardType> lhsField;
-            lhsField = this.getDesignCriteria();
-            JAXBElement<CodeDesignStandardType> rhsField;
-            rhsField = that.getDesignCriteria();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designCriteria", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designCriteria", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCodingStandard();
-            boolean rhsFieldIsSet = that.isSetCodingStandard();
-            JAXBElement<CodeProcedureCodingStandardType> lhsField;
-            lhsField = this.getCodingStandard();
-            JAXBElement<CodeProcedureCodingStandardType> rhsField;
-            rhsField = that.getCodingStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codingStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codingStandard", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -1524,71 +1550,6 @@ public class InstrumentApproachProcedureTimeSliceType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCommunicationFailureInstruction();
-            boolean rhsFieldIsSet = that.isSetCommunicationFailureInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getCommunicationFailureInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getCommunicationFailureInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "communicationFailureInstruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "communicationFailureInstruction", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApproachPrefix();
-            boolean rhsFieldIsSet = that.isSetApproachPrefix();
-            JAXBElement<CodeApproachPrefixType> lhsField;
-            lhsField = this.getApproachPrefix();
-            JAXBElement<CodeApproachPrefixType> rhsField;
-            rhsField = that.getApproachPrefix();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachPrefix", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachPrefix", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWAASReliable();
-            boolean rhsFieldIsSet = that.isSetWAASReliable();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getWAASReliable();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getWAASReliable();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "waasReliable", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "waasReliable", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightTransition();
-            boolean rhsFieldIsSet = that.isSetFlightTransition();
-            List<ProcedureTransitionPropertyType> lhsField;
-            lhsField = (this.isSetFlightTransition()?this.getFlightTransition():null);
-            List<ProcedureTransitionPropertyType> rhsField;
-            rhsField = (that.isSetFlightTransition()?that.getFlightTransition():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightTransition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightTransition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1607,40 +1568,27 @@ public class InstrumentApproachProcedureTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightChecked();
-            boolean rhsFieldIsSet = that.isSetFlightChecked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlightChecked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlightChecked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
+            boolean lhsFieldIsSet = this.isSetMissedInstruction();
+            boolean rhsFieldIsSet = that.isSetMissedInstruction();
+            List<MissedApproachGroupPropertyType> lhsField;
+            lhsField = (this.isSetMissedInstruction()?this.getMissedInstruction():null);
+            List<MissedApproachGroupPropertyType> rhsField;
+            rhsField = (that.isSetMissedInstruction()?that.getMissedInstruction():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "missedInstruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "missedInstruction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetInstruction();
-            boolean rhsFieldIsSet = that.isSetInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instruction", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCourseReversalInstruction();
-            boolean rhsFieldIsSet = that.isSetCourseReversalInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getCourseReversalInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getCourseReversalInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseReversalInstruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseReversalInstruction", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightTransition();
+            boolean rhsFieldIsSet = that.isSetFlightTransition();
+            List<ProcedureTransitionPropertyType> lhsField;
+            lhsField = (this.isSetFlightTransition()?this.getFlightTransition():null);
+            List<ProcedureTransitionPropertyType> rhsField;
+            rhsField = (that.isSetFlightTransition()?that.getFlightTransition():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightTransition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightTransition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1659,6 +1607,149 @@ public class InstrumentApproachProcedureTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAirportHeliport();
+            boolean rhsFieldIsSet = that.isSetAirportHeliport();
+            List<AirportHeliportPropertyType> lhsField;
+            lhsField = (this.isSetAirportHeliport()?this.getAirportHeliport():null);
+            List<AirportHeliportPropertyType> rhsField;
+            rhsField = (that.isSetAirportHeliport()?that.getAirportHeliport():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGuidanceFacilityRadar();
+            boolean rhsFieldIsSet = that.isSetGuidanceFacilityRadar();
+            JAXBElement<RadarSystemPropertyType> lhsField;
+            lhsField = this.getGuidanceFacilityRadar();
+            JAXBElement<RadarSystemPropertyType> rhsField;
+            rhsField = that.getGuidanceFacilityRadar();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceFacilityRadar", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceFacilityRadar", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCopterTrack();
+            boolean rhsFieldIsSet = that.isSetCopterTrack();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getCopterTrack();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getCopterTrack();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "copterTrack", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "copterTrack", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInstruction();
+            boolean rhsFieldIsSet = that.isSetInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instruction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightChecked();
+            boolean rhsFieldIsSet = that.isSetFlightChecked();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlightChecked();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlightChecked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSafeAltitude();
+            boolean rhsFieldIsSet = that.isSetSafeAltitude();
+            JAXBElement<SafeAltitudeAreaPropertyType> lhsField;
+            lhsField = this.getSafeAltitude();
+            JAXBElement<SafeAltitudeAreaPropertyType> rhsField;
+            rhsField = that.getSafeAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "safeAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "safeAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApproachPrefix();
+            boolean rhsFieldIsSet = that.isSetApproachPrefix();
+            JAXBElement<CodeApproachPrefixType> lhsField;
+            lhsField = this.getApproachPrefix();
+            JAXBElement<CodeApproachPrefixType> rhsField;
+            rhsField = that.getApproachPrefix();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachPrefix", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachPrefix", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignCriteria();
+            boolean rhsFieldIsSet = that.isSetDesignCriteria();
+            JAXBElement<CodeDesignStandardType> lhsField;
+            lhsField = this.getDesignCriteria();
+            JAXBElement<CodeDesignStandardType> rhsField;
+            rhsField = that.getDesignCriteria();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designCriteria", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designCriteria", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMultipleIdentification();
+            boolean rhsFieldIsSet = that.isSetMultipleIdentification();
+            JAXBElement<CodeUpperAlphaType> lhsField;
+            lhsField = this.getMultipleIdentification();
+            JAXBElement<CodeUpperAlphaType> rhsField;
+            rhsField = that.getMultipleIdentification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "multipleIdentification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "multipleIdentification", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWAASReliable();
+            boolean rhsFieldIsSet = that.isSetWAASReliable();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getWAASReliable();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getWAASReliable();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "waasReliable", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "waasReliable", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetApproachType();
             boolean rhsFieldIsSet = that.isSetApproachType();
             JAXBElement<CodeApproachType> lhsField;
@@ -1667,19 +1758,6 @@ public class InstrumentApproachProcedureTimeSliceType
             rhsField = that.getApproachType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGuidanceFacilitySpecialNavigationSystem();
-            boolean rhsFieldIsSet = that.isSetGuidanceFacilitySpecialNavigationSystem();
-            JAXBElement<SpecialNavigationSystemPropertyType> lhsField;
-            lhsField = this.getGuidanceFacilitySpecialNavigationSystem();
-            JAXBElement<SpecialNavigationSystemPropertyType> rhsField;
-            rhsField = that.getGuidanceFacilitySpecialNavigationSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceFacilitySpecialNavigationSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceFacilitySpecialNavigationSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1698,14 +1776,92 @@ public class InstrumentApproachProcedureTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGuidanceFacilityRadar();
-            boolean rhsFieldIsSet = that.isSetGuidanceFacilityRadar();
-            JAXBElement<RadarSystemPropertyType> lhsField;
-            lhsField = this.getGuidanceFacilityRadar();
-            JAXBElement<RadarSystemPropertyType> rhsField;
-            rhsField = that.getGuidanceFacilityRadar();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceFacilityRadar", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceFacilityRadar", rhsField);
+            boolean lhsFieldIsSet = this.isSetCommunicationFailureInstruction();
+            boolean rhsFieldIsSet = that.isSetCommunicationFailureInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getCommunicationFailureInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getCommunicationFailureInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "communicationFailureInstruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "communicationFailureInstruction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCodingStandard();
+            boolean rhsFieldIsSet = that.isSetCodingStandard();
+            JAXBElement<CodeProcedureCodingStandardType> lhsField;
+            lhsField = this.getCodingStandard();
+            JAXBElement<CodeProcedureCodingStandardType> rhsField;
+            rhsField = that.getCodingStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codingStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codingStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGuidanceFacilitySpecialNavigationSystem();
+            boolean rhsFieldIsSet = that.isSetGuidanceFacilitySpecialNavigationSystem();
+            JAXBElement<SpecialNavigationSystemPropertyType> lhsField;
+            lhsField = this.getGuidanceFacilitySpecialNavigationSystem();
+            JAXBElement<SpecialNavigationSystemPropertyType> rhsField;
+            rhsField = that.getGuidanceFacilitySpecialNavigationSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceFacilitySpecialNavigationSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceFacilitySpecialNavigationSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLanding();
+            boolean rhsFieldIsSet = that.isSetLanding();
+            JAXBElement<LandingTakeoffAreaCollectionPropertyType> lhsField;
+            lhsField = this.getLanding();
+            JAXBElement<LandingTakeoffAreaCollectionPropertyType> rhsField;
+            rhsField = that.getLanding();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ProcedureAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<ProcedureAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGuidanceFacilityNavaid();
+            boolean rhsFieldIsSet = that.isSetGuidanceFacilityNavaid();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getGuidanceFacilityNavaid();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getGuidanceFacilityNavaid();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceFacilityNavaid", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceFacilityNavaid", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<InstrumentApproachProcedureExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<InstrumentApproachProcedureExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1737,66 +1893,14 @@ public class InstrumentApproachProcedureTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMissedInstruction();
-            boolean rhsFieldIsSet = that.isSetMissedInstruction();
-            List<MissedApproachGroupPropertyType> lhsField;
-            lhsField = (this.isSetMissedInstruction()?this.getMissedInstruction():null);
-            List<MissedApproachGroupPropertyType> rhsField;
-            rhsField = (that.isSetMissedInstruction()?that.getMissedInstruction():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "missedInstruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "missedInstruction", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMultipleIdentification();
-            boolean rhsFieldIsSet = that.isSetMultipleIdentification();
-            JAXBElement<CodeUpperAlphaType> lhsField;
-            lhsField = this.getMultipleIdentification();
-            JAXBElement<CodeUpperAlphaType> rhsField;
-            rhsField = that.getMultipleIdentification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "multipleIdentification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "multipleIdentification", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSafeAltitude();
-            boolean rhsFieldIsSet = that.isSetSafeAltitude();
-            JAXBElement<SafeAltitudeAreaPropertyType> lhsField;
-            lhsField = this.getSafeAltitude();
-            JAXBElement<SafeAltitudeAreaPropertyType> rhsField;
-            rhsField = that.getSafeAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "safeAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "safeAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCopterTrack();
-            boolean rhsFieldIsSet = that.isSetCopterTrack();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getCopterTrack();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getCopterTrack();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "copterTrack", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "copterTrack", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ProcedureAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<ProcedureAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetCourseReversalInstruction();
+            boolean rhsFieldIsSet = that.isSetCourseReversalInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getCourseReversalInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getCourseReversalInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseReversalInstruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseReversalInstruction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1810,58 +1914,6 @@ public class InstrumentApproachProcedureTimeSliceType
             rhsField = (that.isSetAircraftCharacteristic()?that.getAircraftCharacteristic():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftCharacteristic", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftCharacteristic", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<InstrumentApproachProcedureExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<InstrumentApproachProcedureExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAirportHeliport();
-            boolean rhsFieldIsSet = that.isSetAirportHeliport();
-            List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetAirportHeliport()?this.getAirportHeliport():null);
-            List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetAirportHeliport()?that.getAirportHeliport():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGuidanceFacilityNavaid();
-            boolean rhsFieldIsSet = that.isSetGuidanceFacilityNavaid();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getGuidanceFacilityNavaid();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getGuidanceFacilityNavaid();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceFacilityNavaid", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceFacilityNavaid", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLanding();
-            boolean rhsFieldIsSet = that.isSetLanding();
-            JAXBElement<LandingTakeoffAreaCollectionPropertyType> lhsField;
-            lhsField = this.getLanding();
-            JAXBElement<LandingTakeoffAreaCollectionPropertyType> rhsField;
-            rhsField = that.getLanding();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landing", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

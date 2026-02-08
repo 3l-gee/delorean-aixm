@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SignificantPointInAirspaceTimeSlicePropertyType", propOrder = {
     "significantPointInAirspaceTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "SignificantPointInAirspaceTimeSlicePropertyType")
-@Table(name = "significantpointinairspace_tsp", schema = "navaids_point")
+@Table(name = "significantpointinairspace_tp", schema = "navaids_point")
 public class SignificantPointInAirspaceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class SignificantPointInAirspaceTimeSlicePropertyType implements Serializ
     @OneToOne(targetEntity = SignificantPointInAirspaceTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "significantpointinairspacetimeslice_hjid", referencedColumnName = "hjid")
     public SignificantPointInAirspaceTimeSliceType getSignificantPointInAirspaceTimeSlice() {
         return significantPointInAirspaceTimeSlice;
     }
@@ -230,19 +230,6 @@ public class SignificantPointInAirspaceTimeSlicePropertyType implements Serializ
         }
         final SignificantPointInAirspaceTimeSlicePropertyType that = ((SignificantPointInAirspaceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSignificantPointInAirspaceTimeSlice();
             boolean rhsFieldIsSet = that.isSetSignificantPointInAirspaceTimeSlice();
             SignificantPointInAirspaceTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class SignificantPointInAirspaceTimeSlicePropertyType implements Serializ
             rhsField = that.getSignificantPointInAirspaceTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointInAirspaceTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointInAirspaceTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

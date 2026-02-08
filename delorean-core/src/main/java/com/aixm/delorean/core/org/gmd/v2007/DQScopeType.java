@@ -166,6 +166,19 @@ public class DQScopeType extends AbstractObjectType implements Serializable {
         }
         final DQScopeType that = ((DQScopeType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            EXExtentPropertyType lhsField;
+            lhsField = this.getExtent();
+            EXExtentPropertyType rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLevelDescription();
             boolean rhsFieldIsSet = that.isSetLevelDescription();
             List<MDScopeDescriptionPropertyType> lhsField;
@@ -187,19 +200,6 @@ public class DQScopeType extends AbstractObjectType implements Serializable {
             rhsField = that.getLevel();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            EXExtentPropertyType lhsField;
-            lhsField = this.getExtent();
-            EXExtentPropertyType rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "approachTimingTable"
 })
 @Entity(name = "ApproachTimingTablePropertyType")
-@Table(name = "approachtimingtable_pt", schema = "procedure")
+@Table(name = "approachtimingtable_p", schema = "procedure")
 public class ApproachTimingTablePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ApproachTimingTablePropertyType
     @OneToOne(targetEntity = ApproachTimingTableType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "approachtimingtable_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "approachtimingtable_hjid", referencedColumnName = "hjid")
     public ApproachTimingTableType getApproachTimingTable() {
         return approachTimingTable;
     }

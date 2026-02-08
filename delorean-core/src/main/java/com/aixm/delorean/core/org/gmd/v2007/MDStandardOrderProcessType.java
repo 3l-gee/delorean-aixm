@@ -174,6 +174,19 @@ public class MDStandardOrderProcessType extends AbstractObjectType implements Se
         }
         final MDStandardOrderProcessType that = ((MDStandardOrderProcessType) object);
         {
+            boolean lhsFieldIsSet = this.isSetOrderingInstructions();
+            boolean rhsFieldIsSet = that.isSetOrderingInstructions();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getOrderingInstructions();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getOrderingInstructions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orderingInstructions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orderingInstructions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTurnaround();
             boolean rhsFieldIsSet = that.isSetTurnaround();
             CharacterStringPropertyType lhsField;
@@ -182,19 +195,6 @@ public class MDStandardOrderProcessType extends AbstractObjectType implements Se
             rhsField = that.getTurnaround();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnaround", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnaround", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFees();
-            boolean rhsFieldIsSet = that.isSetFees();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getFees();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getFees();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fees", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fees", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -213,14 +213,14 @@ public class MDStandardOrderProcessType extends AbstractObjectType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOrderingInstructions();
-            boolean rhsFieldIsSet = that.isSetOrderingInstructions();
+            boolean lhsFieldIsSet = this.isSetFees();
+            boolean rhsFieldIsSet = that.isSetFees();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getOrderingInstructions();
+            lhsField = this.getFees();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getOrderingInstructions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orderingInstructions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orderingInstructions", rhsField);
+            rhsField = that.getFees();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fees", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fees", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

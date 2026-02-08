@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,11 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}SafeAltitudeAreaSectorPropertyGroup"/>
+ *         <element name="bufferWidth" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="extent" type="{http://www.aixm.aero/schema/5.1.1}SurfacePropertyType" minOccurs="0"/>
+ *         <element name="significantObstacle" type="{http://www.aixm.aero/schema/5.1.1}ObstructionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="sectorDefinition" type="{http://www.aixm.aero/schema/5.1.1}CircleSectorPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -74,7 +77,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "SafeAltitudeAreaSectorType")
-@Table(name = "safealtitudeareasector", schema = "procedure")
+@Table(name = "safealtitudeareasector_o", schema = "procedure")
 public class SafeAltitudeAreaSectorType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -175,13 +178,13 @@ public class SafeAltitudeAreaSectorType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ObstructionPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ObstructionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "significantobstacle_safealtitudeareasector_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "significantobstacle", referencedColumnName = "hjid")
+    @JoinTable(name = "safealtitudeareasector_o_significantobstacle_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "safealtitudeareasectorpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "significantobstacle_hjid", referencedColumnName = "hjid")
     })
     public List<ObstructionPropertyType> getSignificantObstacle() {
         if (significantObstacle == null) {
@@ -259,13 +262,13 @@ public class SafeAltitudeAreaSectorType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_safealtitudeareasector_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "safealtitudeareasector_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "safealtitudeareasectorpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -316,7 +319,7 @@ public class SafeAltitudeAreaSectorType
     @OneToMany(targetEntity = SafeAltitudeAreaSectorTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_SAFE_ALTITUDE_AREA_1")
+    @JoinColumn(name = "safealtitudeareasector_e_hjid", referencedColumnName = "hjid")
     public List<SafeAltitudeAreaSectorTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -343,7 +346,7 @@ public class SafeAltitudeAreaSectorType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "bufferwidth", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "bufferwidth")),
         @AttributeOverride(name = "uom", column = @Column(name = "bufferwidth_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "bufferwidth_nilreason"))
     })
@@ -355,10 +358,14 @@ public class SafeAltitudeAreaSectorType
         setBufferWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "bufferWidth"), SafeAltitudeAreaSectorType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_id", referencedColumnName = "hjid")
+    @JoinTable(name = "safealtitudeareasector_o_extent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMSurfacePropertyType getExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getExtent());
     }
@@ -367,10 +374,14 @@ public class SafeAltitudeAreaSectorType
         setExtent(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extent"), SafeAltitudeAreaSectorType.class, target));
     }
 
-    @ManyToOne(targetEntity = CircleSectorPropertyType.class, cascade = {
+    @OneToOne(targetEntity = CircleSectorPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "sectordefinition_id", referencedColumnName = "hjid")
+    @JoinTable(name = "safealtitudeareasector_o_sectordefinition_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "sectordefinition_hjid", referencedColumnName = "hjid")
+    })
     public CircleSectorPropertyType getSectorDefinitionItem() {
         return XmlAdapterUtils.unmarshallSource(CircleSectorPropertyType.class, this.getSectorDefinition());
     }
@@ -405,19 +416,6 @@ public class SafeAltitudeAreaSectorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetBufferWidth();
-            boolean rhsFieldIsSet = that.isSetBufferWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getBufferWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getBufferWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bufferWidth", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bufferWidth", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtent();
             boolean rhsFieldIsSet = that.isSetExtent();
             JAXBElement<AIXMSurfacePropertyType> lhsField;
@@ -444,6 +442,19 @@ public class SafeAltitudeAreaSectorType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SafeAltitudeAreaSectorTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SafeAltitudeAreaSectorTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSectorDefinition();
             boolean rhsFieldIsSet = that.isSetSectorDefinition();
             JAXBElement<CircleSectorPropertyType> lhsField;
@@ -457,14 +468,14 @@ public class SafeAltitudeAreaSectorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SafeAltitudeAreaSectorTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SafeAltitudeAreaSectorTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetBufferWidth();
+            boolean rhsFieldIsSet = that.isSetBufferWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getBufferWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getBufferWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bufferWidth", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bufferWidth", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

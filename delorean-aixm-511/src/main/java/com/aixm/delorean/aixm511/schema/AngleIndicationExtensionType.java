@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAngleIndicationExtension"
 })
 @Entity(name = "AngleIndicationExtensionType")
-@Table(name = "angleindication_ext", schema = "navaids_point")
+@Table(name = "angleindication_e", schema = "navaids_point")
 public class AngleIndicationExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AngleIndicationExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractangleindicationextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractangleindicationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAngleIndicationExtension() {
         return abstractAngleIndicationExtension;
     }

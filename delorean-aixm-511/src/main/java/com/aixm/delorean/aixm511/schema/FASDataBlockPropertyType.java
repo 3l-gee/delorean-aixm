@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "fasDataBlock"
 })
 @Entity(name = "FASDataBlockPropertyType")
-@Table(name = "fasdatablock_pt", schema = "procedure")
+@Table(name = "fasdatablock_p", schema = "procedure")
 public class FASDataBlockPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class FASDataBlockPropertyType
     @OneToOne(targetEntity = FASDataBlockType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "fasdatablock_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "fasdatablock_hjid", referencedColumnName = "hjid")
     public FASDataBlockType getFASDataBlock() {
         return fasDataBlock;
     }

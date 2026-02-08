@@ -116,19 +116,6 @@ public class CIDateType extends AbstractObjectType implements Serializable {
         }
         final CIDateType that = ((CIDateType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDate();
-            boolean rhsFieldIsSet = that.isSetDate();
-            DatePropertyType lhsField;
-            lhsField = this.getDate();
-            DatePropertyType rhsField;
-            rhsField = that.getDate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "date", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "date", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDateType();
             boolean rhsFieldIsSet = that.isSetDateType();
             CIDateTypeCodePropertyType lhsField;
@@ -137,6 +124,19 @@ public class CIDateType extends AbstractObjectType implements Serializable {
             rhsField = that.getDateType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDate();
+            boolean rhsFieldIsSet = that.isSetDate();
+            DatePropertyType lhsField;
+            lhsField = this.getDate();
+            DatePropertyType rhsField;
+            rhsField = that.getDate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "date", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "date", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

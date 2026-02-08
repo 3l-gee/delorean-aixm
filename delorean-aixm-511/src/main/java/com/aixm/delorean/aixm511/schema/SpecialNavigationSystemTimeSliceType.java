@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,11 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}SpecialNavigationSystemPropertyGroup"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeSpecialNavigationSystemType" minOccurs="0"/>
+ *         <element name="designator" type="{http://www.aixm.aero/schema/5.1.1}CodeSpecialNavigationChainDesignatorType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="responsibleOrganisation" type="{http://www.aixm.aero/schema/5.1.1}AuthorityForSpecialNavigationSystemPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -74,7 +77,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "SpecialNavigationSystemTimeSliceType")
-@Table(name = "specialnavigationsystem_ts", schema = "navaids_point")
+@Table(name = "specialnavigationsystem_t", schema = "navaids_point")
 public class SpecialNavigationSystemTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -235,13 +238,13 @@ public class SpecialNavigationSystemTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_specialnavigationsystem_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "specialnavigationsystem_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "specialnavigationsystem_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "specialnavigationsystempropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -292,7 +295,7 @@ public class SpecialNavigationSystemTimeSliceType
     @OneToMany(targetEntity = SpecialNavigationSystemExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_SPECIAL_NAVIGATION_2")
+    @JoinColumn(name = "specialnavigationsystem_e_hjid", referencedColumnName = "hjid")
     public List<SpecialNavigationSystemExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -332,7 +335,7 @@ public class SpecialNavigationSystemTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 4)),
+        @AttributeOverride(name = "value", column = @Column(name = "designator")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "designator_nilreason"))
     })
     public CodeSpecialNavigationChainDesignatorType getDesignatorItem() {
@@ -345,7 +348,7 @@ public class SpecialNavigationSystemTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
+        @AttributeOverride(name = "value", column = @Column(name = "name")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "name_nilreason"))
     })
     public TextNameType getAixmNameItem() {
@@ -356,10 +359,14 @@ public class SpecialNavigationSystemTimeSliceType
         setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "name"), SpecialNavigationSystemTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AuthorityForSpecialNavigationSystemPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AuthorityForSpecialNavigationSystemPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "responsibleorganisation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "specialnavigationsystem_t_responsibleorganisation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "specialnavigationsystem_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "responsibleorganisation_hjid", referencedColumnName = "hjid")
+    })
     public AuthorityForSpecialNavigationSystemPropertyType getResponsibleOrganisationItem() {
         return XmlAdapterUtils.unmarshallSource(AuthorityForSpecialNavigationSystemPropertyType.class, this.getResponsibleOrganisation());
     }
@@ -380,32 +387,6 @@ public class SpecialNavigationSystemTimeSliceType
             return false;
         }
         final SpecialNavigationSystemTimeSliceType that = ((SpecialNavigationSystemTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeSpecialNavigationSystemType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeSpecialNavigationSystemType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeSpecialNavigationChainDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeSpecialNavigationChainDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetAixmName();
             boolean rhsFieldIsSet = that.isSetAixmName();
@@ -433,6 +414,19 @@ public class SpecialNavigationSystemTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeSpecialNavigationChainDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeSpecialNavigationChainDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetResponsibleOrganisation();
             boolean rhsFieldIsSet = that.isSetResponsibleOrganisation();
             JAXBElement<AuthorityForSpecialNavigationSystemPropertyType> lhsField;
@@ -441,6 +435,19 @@ public class SpecialNavigationSystemTimeSliceType
             rhsField = that.getResponsibleOrganisation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleOrganisation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleOrganisation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeSpecialNavigationSystemType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeSpecialNavigationSystemType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

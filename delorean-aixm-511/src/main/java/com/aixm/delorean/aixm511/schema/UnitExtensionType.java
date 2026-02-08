@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractUnitExtension"
 })
 @Entity(name = "UnitExtensionType")
-@Table(name = "unit_ext", schema = "organisation")
+@Table(name = "unit_e", schema = "organisation")
 public class UnitExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class UnitExtensionType implements Serializable, Equals, HashCode, ToStri
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractunitextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractunitextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractUnitExtension() {
         return abstractUnitExtension;
     }
@@ -223,19 +223,6 @@ public class UnitExtensionType implements Serializable, Equals, HashCode, ToStri
         }
         final UnitExtensionType that = ((UnitExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractUnitExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractUnitExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractUnitExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractUnitExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUnitExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUnitExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class UnitExtensionType implements Serializable, Equals, HashCode, ToStri
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractUnitExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractUnitExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractUnitExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractUnitExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUnitExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUnitExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

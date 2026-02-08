@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "NavigationAreaRestrictionTimeSlicePropertyType", propOrder = {
     "navigationAreaRestrictionTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "NavigationAreaRestrictionTimeSlicePropertyType")
-@Table(name = "navigationarearestriction_tsp", schema = "procedure")
+@Table(name = "navigationarearestriction_tp", schema = "procedure")
 public class NavigationAreaRestrictionTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class NavigationAreaRestrictionTimeSlicePropertyType implements Serializa
     @OneToOne(targetEntity = NavigationAreaRestrictionTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "navigationarearestrictiontimeslice_hjid", referencedColumnName = "hjid")
     public NavigationAreaRestrictionTimeSliceType getNavigationAreaRestrictionTimeSlice() {
         return navigationAreaRestrictionTimeSlice;
     }
@@ -230,19 +230,6 @@ public class NavigationAreaRestrictionTimeSlicePropertyType implements Serializa
         }
         final NavigationAreaRestrictionTimeSlicePropertyType that = ((NavigationAreaRestrictionTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNavigationAreaRestrictionTimeSlice();
             boolean rhsFieldIsSet = that.isSetNavigationAreaRestrictionTimeSlice();
             NavigationAreaRestrictionTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class NavigationAreaRestrictionTimeSlicePropertyType implements Serializa
             rhsField = that.getNavigationAreaRestrictionTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationAreaRestrictionTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationAreaRestrictionTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

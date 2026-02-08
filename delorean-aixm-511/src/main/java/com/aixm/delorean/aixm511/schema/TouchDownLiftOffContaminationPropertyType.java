@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "touchDownLiftOffContamination"
 })
 @Entity(name = "TouchDownLiftOffContaminationPropertyType")
-@Table(name = "touchdownliftoffcontamination_pt", schema = "airport_heliport")
+@Table(name = "touchdownliftoffcontamination_p", schema = "airport_heliport")
 public class TouchDownLiftOffContaminationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class TouchDownLiftOffContaminationPropertyType
     @OneToOne(targetEntity = TouchDownLiftOffContaminationType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "touchdownliftoffcontamination_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "touchdownliftoffcontamination_hjid", referencedColumnName = "hjid")
     public TouchDownLiftOffContaminationType getTouchDownLiftOffContamination() {
         return touchDownLiftOffContamination;
     }

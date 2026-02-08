@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "navaidOperationalStatus"
 })
 @Entity(name = "NavaidOperationalStatusPropertyType")
-@Table(name = "navaidoperationalstatus_pt", schema = "navaids_point")
+@Table(name = "navaidoperationalstatus_p", schema = "navaids_point")
 public class NavaidOperationalStatusPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class NavaidOperationalStatusPropertyType
     @OneToOne(targetEntity = NavaidOperationalStatusType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navaidoperationalstatus_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "navaidoperationalstatus_hjid", referencedColumnName = "hjid")
     public NavaidOperationalStatusType getNavaidOperationalStatus() {
         return navaidOperationalStatus;
     }

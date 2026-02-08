@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "verticalStructureLightingStatus"
 })
 @Entity(name = "VerticalStructureLightingStatusPropertyType")
-@Table(name = "verticalstructurelightingstatus_pt", schema = "obstacle")
+@Table(name = "verticalstructurelightingstatus_p", schema = "obstacle")
 public class VerticalStructureLightingStatusPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class VerticalStructureLightingStatusPropertyType
     @OneToOne(targetEntity = VerticalStructureLightingStatusType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "verticalstructurelightingstatus_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "verticalstructurelightingstatus_hjid", referencedColumnName = "hjid")
     public VerticalStructureLightingStatusType getVerticalStructureLightingStatus() {
         return verticalStructureLightingStatus;
     }

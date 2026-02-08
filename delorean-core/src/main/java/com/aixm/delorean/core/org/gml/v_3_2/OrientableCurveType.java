@@ -129,19 +129,6 @@ public class OrientableCurveType extends AbstractCurveType implements Serializab
         }
         final OrientableCurveType that = ((OrientableCurveType) object);
         {
-            boolean lhsFieldIsSet = this.isSetBaseCurve();
-            boolean rhsFieldIsSet = that.isSetBaseCurve();
-            CurvePropertyType lhsField;
-            lhsField = this.getBaseCurve();
-            CurvePropertyType rhsField;
-            rhsField = that.getBaseCurve();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseCurve", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseCurve", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOrientation();
             boolean rhsFieldIsSet = that.isSetOrientation();
             SignType lhsField;
@@ -150,6 +137,19 @@ public class OrientableCurveType extends AbstractCurveType implements Serializab
             rhsField = that.getOrientation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBaseCurve();
+            boolean rhsFieldIsSet = that.isSetBaseCurve();
+            CurvePropertyType lhsField;
+            lhsField = this.getBaseCurve();
+            CurvePropertyType rhsField;
+            rhsField = that.getBaseCurve();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseCurve", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseCurve", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractHoldingPatternDistanceExtension"
 })
 @Entity(name = "HoldingPatternDistanceTypeExtensionType")
-@Table(name = "holdingpatterndistance_ext", schema = "holding")
+@Table(name = "holdingpatterndistance_e", schema = "holding")
 public class HoldingPatternDistanceTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class HoldingPatternDistanceTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractholdingpatterndistanceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractholdingpatterndistanceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractHoldingPatternDistanceExtension() {
         return abstractHoldingPatternDistanceExtension;
     }
@@ -223,19 +223,6 @@ public class HoldingPatternDistanceTypeExtensionType implements Serializable, Eq
         }
         final HoldingPatternDistanceTypeExtensionType that = ((HoldingPatternDistanceTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractHoldingPatternDistanceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractHoldingPatternDistanceExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class HoldingPatternDistanceTypeExtensionType implements Serializable, Eq
             rhsField = that.getAbstractHoldingPatternDistanceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractHoldingPatternDistanceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractHoldingPatternDistanceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

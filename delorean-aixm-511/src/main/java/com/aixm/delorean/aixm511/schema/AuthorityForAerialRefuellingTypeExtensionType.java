@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAuthorityForAerialRefuellingExtension"
 })
 @Entity(name = "AuthorityForAerialRefuellingTypeExtensionType")
-@Table(name = "authorityforaerialrefuelling_ext", schema = "aerial_refuelling")
+@Table(name = "authorityforaerialrefuelling_e", schema = "aerial_refuelling")
 public class AuthorityForAerialRefuellingTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AuthorityForAerialRefuellingTypeExtensionType implements Serializab
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractauthorityforaerialrefuellingextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractauthorityforaerialrefuellingextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAuthorityForAerialRefuellingExtension() {
         return abstractAuthorityForAerialRefuellingExtension;
     }

@@ -203,6 +203,19 @@ public class ConventionalUnitType extends UnitDefinitionType implements Serializ
         }
         final ConventionalUnitType that = ((ConventionalUnitType) object);
         {
+            boolean lhsFieldIsSet = this.isSetConversionToPreferredUnit();
+            boolean rhsFieldIsSet = that.isSetConversionToPreferredUnit();
+            ConversionToPreferredUnitType lhsField;
+            lhsField = this.getConversionToPreferredUnit();
+            ConversionToPreferredUnitType rhsField;
+            rhsField = that.getConversionToPreferredUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "conversionToPreferredUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "conversionToPreferredUnit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRoughConversionToPreferredUnit();
             boolean rhsFieldIsSet = that.isSetRoughConversionToPreferredUnit();
             ConversionToPreferredUnitType lhsField;
@@ -213,19 +226,6 @@ public class ConventionalUnitType extends UnitDefinitionType implements Serializ
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roughConversionToPreferredUnit",
                     rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetConversionToPreferredUnit();
-            boolean rhsFieldIsSet = that.isSetConversionToPreferredUnit();
-            ConversionToPreferredUnitType lhsField;
-            lhsField = this.getConversionToPreferredUnit();
-            ConversionToPreferredUnitType rhsField;
-            rhsField = that.getConversionToPreferredUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "conversionToPreferredUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "conversionToPreferredUnit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

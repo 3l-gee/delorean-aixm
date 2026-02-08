@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -45,7 +44,10 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}OnlineContactPropertyGroup"/>
+ *         <element name="network" type="{http://www.aixm.aero/schema/5.1.1}CodeTelecomNetworkType" minOccurs="0"/>
+ *         <element name="linkage" type="{http://www.aixm.aero/schema/5.1.1}TextAddressType" minOccurs="0"/>
+ *         <element name="protocol" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="eMail" type="{http://www.aixm.aero/schema/5.1.1}TextAddressType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -79,7 +81,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "OnlineContactType")
-@Table(name = "onlinecontact", schema = "shared")
+@Table(name = "onlinecontacttype", schema = "shared")
 public class OnlineContactType
     extends AbstractPropertiesWithScheduleType
     implements Serializable
@@ -124,13 +126,13 @@ public class OnlineContactType
      * 
      * 
      */
-    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {
+    @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "timeinterval_onlinecontact_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")
+    @JoinTable(name = "onlinecontacttype_timeinterval_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "onlinecontacttype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "onlinecontacttype", referencedColumnName = "hjid")
+        @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")
     })
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -178,13 +180,13 @@ public class OnlineContactType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_onlinecontact_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "onlinecontacttype_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "onlinecontacttype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "onlinecontacttype", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -232,13 +234,13 @@ public class OnlineContactType
      * 
      * 
      */
-    @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "specialdateauthority_onlinecontact_link", schema = "shared", joinColumns = {
-        @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")
+    @JoinTable(name = "onlinecontacttype_specialdateauthority_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "onlinecontacttype_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "onlinecontacttype", referencedColumnName = "hjid")
+        @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")
     })
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -409,7 +411,7 @@ public class OnlineContactType
     @OneToMany(targetEntity = OnlineContactTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_ONLINE_CONTACT_TYP_0")
+    @JoinColumn(name = "onlinecontact_e_hjid", referencedColumnName = "hjid")
     public List<OnlineContactTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -449,7 +451,7 @@ public class OnlineContactType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "linkage", columnDefinition = "VARCHAR", length = 500)),
+        @AttributeOverride(name = "value", column = @Column(name = "linkage")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "linkage_nilreason"))
     })
     public TextAddressType getLinkageItem() {
@@ -462,7 +464,7 @@ public class OnlineContactType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "protocol", columnDefinition = "VARCHAR", length = 60)),
+        @AttributeOverride(name = "value", column = @Column(name = "protocol")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "protocol_nilreason"))
     })
     public TextNameType getProtocolItem() {
@@ -475,7 +477,7 @@ public class OnlineContactType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "email", columnDefinition = "VARCHAR", length = 500)),
+        @AttributeOverride(name = "value", column = @Column(name = "email")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "email_nilreason"))
     })
     public TextAddressType getEMailItem() {
@@ -498,6 +500,32 @@ public class OnlineContactType
             return false;
         }
         final OnlineContactType that = ((OnlineContactType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetNetwork();
+            boolean rhsFieldIsSet = that.isSetNetwork();
+            JAXBElement<CodeTelecomNetworkType> lhsField;
+            lhsField = this.getNetwork();
+            JAXBElement<CodeTelecomNetworkType> rhsField;
+            rhsField = that.getNetwork();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "network", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "network", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetProtocol();
+            boolean rhsFieldIsSet = that.isSetProtocol();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getProtocol();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getProtocol();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
@@ -525,19 +553,6 @@ public class OnlineContactType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLinkage();
-            boolean rhsFieldIsSet = that.isSetLinkage();
-            JAXBElement<TextAddressType> lhsField;
-            lhsField = this.getLinkage();
-            JAXBElement<TextAddressType> rhsField;
-            rhsField = that.getLinkage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -551,27 +566,14 @@ public class OnlineContactType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNetwork();
-            boolean rhsFieldIsSet = that.isSetNetwork();
-            JAXBElement<CodeTelecomNetworkType> lhsField;
-            lhsField = this.getNetwork();
-            JAXBElement<CodeTelecomNetworkType> rhsField;
-            rhsField = that.getNetwork();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "network", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "network", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProtocol();
-            boolean rhsFieldIsSet = that.isSetProtocol();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getProtocol();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getProtocol();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
+            boolean lhsFieldIsSet = this.isSetLinkage();
+            boolean rhsFieldIsSet = that.isSetLinkage();
+            JAXBElement<TextAddressType> lhsField;
+            lhsField = this.getLinkage();
+            JAXBElement<TextAddressType> rhsField;
+            rhsField = that.getLinkage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

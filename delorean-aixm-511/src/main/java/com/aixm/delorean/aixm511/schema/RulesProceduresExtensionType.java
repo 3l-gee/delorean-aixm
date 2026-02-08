@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractRulesProceduresExtension"
 })
 @Entity(name = "RulesProceduresExtensionType")
-@Table(name = "rulesprocedures_ext", schema = "rules_procedure")
+@Table(name = "rulesprocedures_e", schema = "rules_procedure")
 public class RulesProceduresExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class RulesProceduresExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrulesproceduresextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrulesproceduresextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRulesProceduresExtension() {
         return abstractRulesProceduresExtension;
     }
@@ -223,19 +223,6 @@ public class RulesProceduresExtensionType implements Serializable, Equals, HashC
         }
         final RulesProceduresExtensionType that = ((RulesProceduresExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractRulesProceduresExtension();
             boolean rhsFieldIsSet = that.isSetAbstractRulesProceduresExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class RulesProceduresExtensionType implements Serializable, Equals, HashC
             rhsField = that.getAbstractRulesProceduresExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRulesProceduresExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRulesProceduresExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

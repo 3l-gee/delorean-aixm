@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SeaplaneLandingAreaTimeSlicePropertyType", propOrder = {
     "seaplaneLandingAreaTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "SeaplaneLandingAreaTimeSlicePropertyType")
-@Table(name = "seaplanelandingarea_tsp", schema = "airport_heliport")
+@Table(name = "seaplanelandingarea_tp", schema = "airport_heliport")
 public class SeaplaneLandingAreaTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class SeaplaneLandingAreaTimeSlicePropertyType implements Serializable, E
     @OneToOne(targetEntity = SeaplaneLandingAreaTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "seaplanelandingareatimeslice_hjid", referencedColumnName = "hjid")
     public SeaplaneLandingAreaTimeSliceType getSeaplaneLandingAreaTimeSlice() {
         return seaplaneLandingAreaTimeSlice;
     }
@@ -230,19 +230,6 @@ public class SeaplaneLandingAreaTimeSlicePropertyType implements Serializable, E
         }
         final SeaplaneLandingAreaTimeSlicePropertyType that = ((SeaplaneLandingAreaTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSeaplaneLandingAreaTimeSlice();
-            boolean rhsFieldIsSet = that.isSetSeaplaneLandingAreaTimeSlice();
-            SeaplaneLandingAreaTimeSliceType lhsField;
-            lhsField = this.getSeaplaneLandingAreaTimeSlice();
-            SeaplaneLandingAreaTimeSliceType rhsField;
-            rhsField = that.getSeaplaneLandingAreaTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seaplaneLandingAreaTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seaplaneLandingAreaTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class SeaplaneLandingAreaTimeSlicePropertyType implements Serializable, E
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSeaplaneLandingAreaTimeSlice();
+            boolean rhsFieldIsSet = that.isSetSeaplaneLandingAreaTimeSlice();
+            SeaplaneLandingAreaTimeSliceType lhsField;
+            lhsField = this.getSeaplaneLandingAreaTimeSlice();
+            SeaplaneLandingAreaTimeSliceType rhsField;
+            rhsField = that.getSeaplaneLandingAreaTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seaplaneLandingAreaTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seaplaneLandingAreaTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -42,7 +41,9 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}RunwayDeclaredDistancePropertyGroup"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeDeclaredDistanceType" minOccurs="0"/>
+ *         <element name="declaredValue" type="{http://www.aixm.aero/schema/5.1.1}RunwayDeclaredDistanceValuePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -71,7 +72,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "RunwayDeclaredDistanceType")
-@Table(name = "runwaydeclareddistance", schema = "airport_heliport")
+@Table(name = "runwaydeclareddistance_o", schema = "airport_heliport")
 public class RunwayDeclaredDistanceType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -138,13 +139,13 @@ public class RunwayDeclaredDistanceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = RunwayDeclaredDistanceValuePropertyType.class, cascade = {
+    @OneToMany(targetEntity = RunwayDeclaredDistanceValuePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "declaredvalue_runwaydeclareddistance_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "declaredvalue", referencedColumnName = "hjid")
+    @JoinTable(name = "runwaydeclareddistance_o_declaredvalue_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "runwaydeclareddistance_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "runwaydeclareddistancepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "declaredvalue_hjid", referencedColumnName = "hjid")
     })
     public List<RunwayDeclaredDistanceValuePropertyType> getDeclaredValue() {
         if (declaredValue == null) {
@@ -192,13 +193,13 @@ public class RunwayDeclaredDistanceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_runwaydeclareddistance_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "runwaydeclareddistance_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "runwaydeclareddistance_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "runwaydeclareddistancepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -249,7 +250,7 @@ public class RunwayDeclaredDistanceType
     @OneToMany(targetEntity = RunwayDeclaredDistanceTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_RUNWAY_DECLARED_DI_0")
+    @JoinColumn(name = "runwaydeclareddistance_e_hjid", referencedColumnName = "hjid")
     public List<RunwayDeclaredDistanceTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -300,6 +301,19 @@ public class RunwayDeclaredDistanceType
         }
         final RunwayDeclaredDistanceType that = ((RunwayDeclaredDistanceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeDeclaredDistanceType> lhsField;
@@ -308,19 +322,6 @@ public class RunwayDeclaredDistanceType
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDeclaredValue();
-            boolean rhsFieldIsSet = that.isSetDeclaredValue();
-            List<RunwayDeclaredDistanceValuePropertyType> lhsField;
-            lhsField = (this.isSetDeclaredValue()?this.getDeclaredValue():null);
-            List<RunwayDeclaredDistanceValuePropertyType> rhsField;
-            rhsField = (that.isSetDeclaredValue()?that.getDeclaredValue():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "declaredValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "declaredValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -339,14 +340,14 @@ public class RunwayDeclaredDistanceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetDeclaredValue();
+            boolean rhsFieldIsSet = that.isSetDeclaredValue();
+            List<RunwayDeclaredDistanceValuePropertyType> lhsField;
+            lhsField = (this.isSetDeclaredValue()?this.getDeclaredValue():null);
+            List<RunwayDeclaredDistanceValuePropertyType> rhsField;
+            rhsField = (that.isSetDeclaredValue()?that.getDeclaredValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "declaredValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "declaredValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

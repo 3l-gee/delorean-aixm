@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractProcedureExtension"
 })
 @Entity(name = "InstrumentApproachProcedureExtensionType")
-@Table(name = "instrumentapproachprocedure_ext", schema = "procedure")
+@Table(name = "instrumentapproachprocedure_e", schema = "procedure")
 public class InstrumentApproachProcedureExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class InstrumentApproachProcedureExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractinstrumentapproachprocedureextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractinstrumentapproachprocedureextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractInstrumentApproachProcedureExtension() {
         return abstractInstrumentApproachProcedureExtension;
     }
@@ -123,7 +123,7 @@ public class InstrumentApproachProcedureExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractprocedureextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractprocedureextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractProcedureExtension() {
         return abstractProcedureExtension;
     }

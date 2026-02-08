@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airspaceVolumeDependency"
 })
 @Entity(name = "AirspaceVolumeDependencyPropertyType")
-@Table(name = "airspacevolumedependency_pt", schema = "airspace")
+@Table(name = "airspacevolumedependency_p", schema = "airspace")
 public class AirspaceVolumeDependencyPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AirspaceVolumeDependencyPropertyType
     @OneToOne(targetEntity = AirspaceVolumeDependencyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airspacevolumedependency_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "airspacevolumedependency_hjid", referencedColumnName = "hjid")
     public AirspaceVolumeDependencyType getAirspaceVolumeDependency() {
         return airspaceVolumeDependency;
     }

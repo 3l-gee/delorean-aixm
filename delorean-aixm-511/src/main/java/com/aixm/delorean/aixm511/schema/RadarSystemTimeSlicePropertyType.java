@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RadarSystemTimeSlicePropertyType", propOrder = {
     "radarSystemTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "RadarSystemTimeSlicePropertyType")
-@Table(name = "radarsystem_tsp", schema = "surveillance")
+@Table(name = "radarsystem_tp", schema = "surveillance")
 public class RadarSystemTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class RadarSystemTimeSlicePropertyType implements Serializable, Equals, H
     @OneToOne(targetEntity = RadarSystemTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "radarsystemtimeslice_hjid", referencedColumnName = "hjid")
     public RadarSystemTimeSliceType getRadarSystemTimeSlice() {
         return radarSystemTimeSlice;
     }

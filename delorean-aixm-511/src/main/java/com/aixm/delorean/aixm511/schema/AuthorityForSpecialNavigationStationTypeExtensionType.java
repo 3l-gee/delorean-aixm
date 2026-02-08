@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAuthorityForSpecialNavigationStationExtension"
 })
 @Entity(name = "AuthorityForSpecialNavigationStationTypeExtensionType")
-@Table(name = "authorityforspecialnavigationstation_ext", schema = "navaids_point")
+@Table(name = "authorityforspecialnavigationstation_e", schema = "navaids_point")
 public class AuthorityForSpecialNavigationStationTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AuthorityForSpecialNavigationStationTypeExtensionType implements Se
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractauthorityforspecialnavigationstationextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractauthorityforspecialnavigationstationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAuthorityForSpecialNavigationStationExtension() {
         return abstractAuthorityForSpecialNavigationStationExtension;
     }

@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ApronElementTimeSlicePropertyType", propOrder = {
     "apronElementTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "ApronElementTimeSlicePropertyType")
-@Table(name = "apronelement_tsp", schema = "airport_heliport")
+@Table(name = "apronelement_tp", schema = "airport_heliport")
 public class ApronElementTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class ApronElementTimeSlicePropertyType implements Serializable, Equals, 
     @OneToOne(targetEntity = ApronElementTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "apronelementtimeslice_hjid", referencedColumnName = "hjid")
     public ApronElementTimeSliceType getApronElementTimeSlice() {
         return apronElementTimeSlice;
     }

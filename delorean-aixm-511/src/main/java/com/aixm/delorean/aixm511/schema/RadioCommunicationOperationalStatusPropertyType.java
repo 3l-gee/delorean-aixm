@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "radioCommunicationOperationalStatus"
 })
 @Entity(name = "RadioCommunicationOperationalStatusPropertyType")
-@Table(name = "radiocommunicationoperationalstatus_pt", schema = "service")
+@Table(name = "radiocommunicationoperationalstatus_p", schema = "service")
 public class RadioCommunicationOperationalStatusPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class RadioCommunicationOperationalStatusPropertyType
     @OneToOne(targetEntity = RadioCommunicationOperationalStatusType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "radiocommunicationoperationalstatus_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "radiocommunicationoperationalstatus_hjid", referencedColumnName = "hjid")
     public RadioCommunicationOperationalStatusType getRadioCommunicationOperationalStatus() {
         return radioCommunicationOperationalStatus;
     }

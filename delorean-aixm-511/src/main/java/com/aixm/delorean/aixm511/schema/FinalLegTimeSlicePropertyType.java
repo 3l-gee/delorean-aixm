@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "FinalLegTimeSlicePropertyType", propOrder = {
     "finalLegTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "FinalLegTimeSlicePropertyType")
-@Table(name = "finalleg_tsp", schema = "procedure")
+@Table(name = "finalleg_tp", schema = "procedure")
 public class FinalLegTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class FinalLegTimeSlicePropertyType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = FinalLegTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "finallegtimeslice_hjid", referencedColumnName = "hjid")
     public FinalLegTimeSliceType getFinalLegTimeSlice() {
         return finalLegTimeSlice;
     }

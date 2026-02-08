@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "TouchDownLiftOffTimeSlicePropertyType", propOrder = {
     "touchDownLiftOffTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "TouchDownLiftOffTimeSlicePropertyType")
-@Table(name = "touchdownliftoff_tsp", schema = "airport_heliport")
+@Table(name = "touchdownliftoff_tp", schema = "airport_heliport")
 public class TouchDownLiftOffTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class TouchDownLiftOffTimeSlicePropertyType implements Serializable, Equa
     @OneToOne(targetEntity = TouchDownLiftOffTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "touchdownliftofftimeslice_hjid", referencedColumnName = "hjid")
     public TouchDownLiftOffTimeSliceType getTouchDownLiftOffTimeSlice() {
         return touchDownLiftOffTimeSlice;
     }

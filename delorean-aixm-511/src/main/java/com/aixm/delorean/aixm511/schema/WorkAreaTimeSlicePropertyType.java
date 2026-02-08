@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "WorkAreaTimeSlicePropertyType", propOrder = {
     "workAreaTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "WorkAreaTimeSlicePropertyType")
-@Table(name = "workarea_tsp", schema = "airport_heliport")
+@Table(name = "workarea_tp", schema = "airport_heliport")
 public class WorkAreaTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class WorkAreaTimeSlicePropertyType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = WorkAreaTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "workareatimeslice_hjid", referencedColumnName = "hjid")
     public WorkAreaTimeSliceType getWorkAreaTimeSlice() {
         return workAreaTimeSlice;
     }
@@ -230,19 +230,6 @@ public class WorkAreaTimeSlicePropertyType implements Serializable, Equals, Hash
         }
         final WorkAreaTimeSlicePropertyType that = ((WorkAreaTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetWorkAreaTimeSlice();
-            boolean rhsFieldIsSet = that.isSetWorkAreaTimeSlice();
-            WorkAreaTimeSliceType lhsField;
-            lhsField = this.getWorkAreaTimeSlice();
-            WorkAreaTimeSliceType rhsField;
-            rhsField = that.getWorkAreaTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "workAreaTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "workAreaTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class WorkAreaTimeSlicePropertyType implements Serializable, Equals, Hash
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWorkAreaTimeSlice();
+            boolean rhsFieldIsSet = that.isSetWorkAreaTimeSlice();
+            WorkAreaTimeSliceType lhsField;
+            lhsField = this.getWorkAreaTimeSlice();
+            WorkAreaTimeSliceType rhsField;
+            rhsField = that.getWorkAreaTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "workAreaTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "workAreaTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

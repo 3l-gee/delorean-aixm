@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractSurveyControlPointExtension"
 })
 @Entity(name = "SurveyControlPointExtensionType")
-@Table(name = "surveycontrolpoint_ext", schema = "airport_heliport")
+@Table(name = "surveycontrolpoint_e", schema = "airport_heliport")
 public class SurveyControlPointExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class SurveyControlPointExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsurveycontrolpointextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsurveycontrolpointextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurveyControlPointExtension() {
         return abstractSurveyControlPointExtension;
     }

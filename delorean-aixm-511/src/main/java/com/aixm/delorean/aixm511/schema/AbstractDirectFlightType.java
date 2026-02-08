@@ -39,7 +39,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     DirectFlightSegmentType.class
 })
 @Entity(name = "AbstractDirectFlightType")
-@Table(name = "abstractdirectflight", schema = "public")
+@Table(name = "abstractdirectflight_o", schema = "public")
 public class AbstractDirectFlightType
     extends AbstractAIXMObjectType
     implements Serializable

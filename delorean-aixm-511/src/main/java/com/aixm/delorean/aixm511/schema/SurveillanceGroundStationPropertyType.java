@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "surveillanceGroundStation"
 })
 @Entity(name = "SurveillanceGroundStationPropertyType")
-@Table(name = "surveillancegroundstation_pt", schema = "surveillance")
+@Table(name = "surveillancegroundstation_p", schema = "surveillance")
 public class SurveillanceGroundStationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class SurveillanceGroundStationPropertyType
     @OneToOne(targetEntity = SurveillanceGroundStationType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "surveillancegroundstation_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "surveillancegroundstation_hjid", referencedColumnName = "hjid")
     public SurveillanceGroundStationType getSurveillanceGroundStation() {
         return surveillanceGroundStation;
     }

@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractTerminalArrivalAreaSectorExtension"
 })
 @Entity(name = "TerminalArrivalAreaSectorTypeExtensionType")
-@Table(name = "terminalarrivalareasector_ext", schema = "procedure")
+@Table(name = "terminalarrivalareasector_e", schema = "procedure")
 public class TerminalArrivalAreaSectorTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class TerminalArrivalAreaSectorTypeExtensionType implements Serializable,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractterminalarrivalareasectorextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractterminalarrivalareasectorextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTerminalArrivalAreaSectorExtension() {
         return abstractTerminalArrivalAreaSectorExtension;
     }

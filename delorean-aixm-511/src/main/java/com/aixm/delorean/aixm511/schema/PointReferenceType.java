@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,14 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}PointReferencePropertyGroup"/>
+ *         <element name="role" type="{http://www.aixm.aero/schema/5.1.1}CodeReferenceRoleType" minOccurs="0"/>
+ *         <element name="priorFixTolerance" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceSignedType" minOccurs="0"/>
+ *         <element name="postFixTolerance" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceSignedType" minOccurs="0"/>
+ *         <element name="point" type="{http://www.aixm.aero/schema/5.1.1}DesignatedPointPropertyType" minOccurs="0"/>
+ *         <element name="facilityAngle" type="{http://www.aixm.aero/schema/5.1.1}AngleUsePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="facilityDistance" type="{http://www.aixm.aero/schema/5.1.1}DistanceIndicationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="fixToleranceArea" type="{http://www.aixm.aero/schema/5.1.1}SurfacePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -77,7 +83,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "PointReferenceType")
-@Table(name = "pointreference", schema = "navaids_point")
+@Table(name = "pointreference_o", schema = "navaids_point")
 public class PointReferenceType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -244,13 +250,13 @@ public class PointReferenceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AngleUsePropertyType.class, cascade = {
+    @OneToMany(targetEntity = AngleUsePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "facilityangle_pointreference_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "facilityangle", referencedColumnName = "hjid")
+    @JoinTable(name = "pointreference_o_facilityangle_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "pointreferencepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "facilityangle_hjid", referencedColumnName = "hjid")
     })
     public List<AngleUsePropertyType> getFacilityAngle() {
         if (facilityAngle == null) {
@@ -298,13 +304,13 @@ public class PointReferenceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = DistanceIndicationPropertyType.class, cascade = {
+    @OneToMany(targetEntity = DistanceIndicationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "facilitydistance_pointreference_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "facilitydistance", referencedColumnName = "hjid")
+    @JoinTable(name = "pointreference_o_facilitydistance_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "pointreferencepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "facilitydistance_hjid", referencedColumnName = "hjid")
     })
     public List<DistanceIndicationPropertyType> getFacilityDistance() {
         if (facilityDistance == null) {
@@ -382,13 +388,13 @@ public class PointReferenceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_pointreference_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "pointreference_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "pointreferencepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -439,7 +445,7 @@ public class PointReferenceType
     @OneToMany(targetEntity = PointReferenceTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_POINT_REFERENCE_TY_0")
+    @JoinColumn(name = "pointreference_e_hjid", referencedColumnName = "hjid")
     public List<PointReferenceTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -479,7 +485,7 @@ public class PointReferenceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "priorfixtolerance", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "priorfixtolerance")),
         @AttributeOverride(name = "uom", column = @Column(name = "priorfixtolerance_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "priorfixtolerance_nilreason"))
     })
@@ -493,7 +499,7 @@ public class PointReferenceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "postfixtolerance", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "postfixtolerance")),
         @AttributeOverride(name = "uom", column = @Column(name = "postfixtolerance_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "postfixtolerance_nilreason"))
     })
@@ -505,10 +511,14 @@ public class PointReferenceType
         setPostFixTolerance(XmlAdapterUtils.marshallJAXBElement(ValDistanceSignedType.class, new QName("http://www.aixm.aero/schema/5.1.1", "postFixTolerance"), PointReferenceType.class, target));
     }
 
-    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "point_id", referencedColumnName = "hjid")
+    @JoinTable(name = "pointreference_o_point_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "point_hjid", referencedColumnName = "hjid")
+    })
     public DesignatedPointPropertyType getPointItem() {
         return XmlAdapterUtils.unmarshallSource(DesignatedPointPropertyType.class, this.getPoint());
     }
@@ -517,10 +527,14 @@ public class PointReferenceType
         setPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "point"), PointReferenceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "fixtolerancearea_id", referencedColumnName = "hjid")
+    @JoinTable(name = "pointreference_o_fixtolerancearea_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "pointreference_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "fixtolerancearea_hjid", referencedColumnName = "hjid")
+    })
     public AIXMSurfacePropertyType getFixToleranceAreaItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getFixToleranceArea());
     }
@@ -555,27 +569,40 @@ public class PointReferenceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFixToleranceArea();
-            boolean rhsFieldIsSet = that.isSetFixToleranceArea();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getFixToleranceArea();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getFixToleranceArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fixToleranceArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fixToleranceArea", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<PointReferenceTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<PointReferenceTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFacilityAngle();
-            boolean rhsFieldIsSet = that.isSetFacilityAngle();
-            List<AngleUsePropertyType> lhsField;
-            lhsField = (this.isSetFacilityAngle()?this.getFacilityAngle():null);
-            List<AngleUsePropertyType> rhsField;
-            rhsField = (that.isSetFacilityAngle()?that.getFacilityAngle():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityAngle", rhsField);
+            boolean lhsFieldIsSet = this.isSetPostFixTolerance();
+            boolean rhsFieldIsSet = that.isSetPostFixTolerance();
+            JAXBElement<ValDistanceSignedType> lhsField;
+            lhsField = this.getPostFixTolerance();
+            JAXBElement<ValDistanceSignedType> rhsField;
+            rhsField = that.getPostFixTolerance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postFixTolerance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postFixTolerance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPriorFixTolerance();
+            boolean rhsFieldIsSet = that.isSetPriorFixTolerance();
+            JAXBElement<ValDistanceSignedType> lhsField;
+            lhsField = this.getPriorFixTolerance();
+            JAXBElement<ValDistanceSignedType> rhsField;
+            rhsField = that.getPriorFixTolerance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorFixTolerance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorFixTolerance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -607,19 +634,6 @@ public class PointReferenceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<PointReferenceTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<PointReferenceTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPoint();
             boolean rhsFieldIsSet = that.isSetPoint();
             JAXBElement<DesignatedPointPropertyType> lhsField;
@@ -633,27 +647,27 @@ public class PointReferenceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPostFixTolerance();
-            boolean rhsFieldIsSet = that.isSetPostFixTolerance();
-            JAXBElement<ValDistanceSignedType> lhsField;
-            lhsField = this.getPostFixTolerance();
-            JAXBElement<ValDistanceSignedType> rhsField;
-            rhsField = that.getPostFixTolerance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postFixTolerance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postFixTolerance", rhsField);
+            boolean lhsFieldIsSet = this.isSetFixToleranceArea();
+            boolean rhsFieldIsSet = that.isSetFixToleranceArea();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getFixToleranceArea();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getFixToleranceArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fixToleranceArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fixToleranceArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPriorFixTolerance();
-            boolean rhsFieldIsSet = that.isSetPriorFixTolerance();
-            JAXBElement<ValDistanceSignedType> lhsField;
-            lhsField = this.getPriorFixTolerance();
-            JAXBElement<ValDistanceSignedType> rhsField;
-            rhsField = that.getPriorFixTolerance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorFixTolerance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorFixTolerance", rhsField);
+            boolean lhsFieldIsSet = this.isSetFacilityAngle();
+            boolean rhsFieldIsSet = that.isSetFacilityAngle();
+            List<AngleUsePropertyType> lhsField;
+            lhsField = (this.isSetFacilityAngle()?this.getFacilityAngle():null);
+            List<AngleUsePropertyType> rhsField;
+            rhsField = (that.isSetFacilityAngle()?that.getFacilityAngle():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityAngle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

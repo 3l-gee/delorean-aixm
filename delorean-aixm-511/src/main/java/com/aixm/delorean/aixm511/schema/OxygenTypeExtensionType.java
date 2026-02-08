@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractOxygenExtension"
 })
 @Entity(name = "OxygenTypeExtensionType")
-@Table(name = "oxygen_ext", schema = "service")
+@Table(name = "oxygen_e", schema = "service")
 public class OxygenTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class OxygenTypeExtensionType implements Serializable, Equals, HashCode, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractoxygenextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractoxygenextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractOxygenExtension() {
         return abstractOxygenExtension;
     }

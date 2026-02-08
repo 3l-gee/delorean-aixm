@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,10 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}AirspaceGeometryComponentPropertyGroup"/>
+ *         <element name="operation" type="{http://www.aixm.aero/schema/5.1.1}CodeAirspaceAggregationType" minOccurs="0"/>
+ *         <element name="operationSequence" type="{http://www.aixm.aero/schema/5.1.1}NoSequenceType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="theAirspaceVolume" type="{http://www.aixm.aero/schema/5.1.1}AirspaceVolumePropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -73,7 +75,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "AirspaceGeometryComponentType")
-@Table(name = "airspacegeometrycomponent", schema = "airspace")
+@Table(name = "airspacegeometrycomponent_o", schema = "airspace")
 public class AirspaceGeometryComponentType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -172,13 +174,13 @@ public class AirspaceGeometryComponentType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_airspacegeometrycomponent_link", schema = "airspace", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "airspacegeometrycomponent_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airspacegeometrycomponent_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airspacegeometrycomponentpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -259,7 +261,7 @@ public class AirspaceGeometryComponentType
     @OneToMany(targetEntity = AirspaceGeometryComponentTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIRSPACE_GEOMETRY__0")
+    @JoinColumn(name = "airspacegeometrycomponent_e_hjid", referencedColumnName = "hjid")
     public List<AirspaceGeometryComponentTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -310,10 +312,14 @@ public class AirspaceGeometryComponentType
         setOperationSequence(XmlAdapterUtils.marshallJAXBElement(NoSequenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "operationSequence"), AirspaceGeometryComponentType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirspaceVolumePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AirspaceVolumePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "theairspacevolume_id", referencedColumnName = "hjid")
+    @JoinTable(name = "airspacegeometrycomponent_o_theairspacevolume_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airspacegeometrycomponent_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "theairspacevolume_hjid", referencedColumnName = "hjid")
+    })
     public AirspaceVolumePropertyType getTheAirspaceVolumeItem() {
         return XmlAdapterUtils.unmarshallSource(AirspaceVolumePropertyType.class, this.getTheAirspaceVolume());
     }
@@ -335,14 +341,14 @@ public class AirspaceGeometryComponentType
         }
         final AirspaceGeometryComponentType that = ((AirspaceGeometryComponentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOperation();
-            boolean rhsFieldIsSet = that.isSetOperation();
-            JAXBElement<CodeAirspaceAggregationType> lhsField;
-            lhsField = this.getOperation();
-            JAXBElement<CodeAirspaceAggregationType> rhsField;
-            rhsField = that.getOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
+            boolean lhsFieldIsSet = this.isSetOperationSequence();
+            boolean rhsFieldIsSet = that.isSetOperationSequence();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getOperationSequence();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getOperationSequence();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationSequence", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationSequence", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -361,19 +367,6 @@ public class AirspaceGeometryComponentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTheAirspaceVolume();
             boolean rhsFieldIsSet = that.isSetTheAirspaceVolume();
             JAXBElement<AirspaceVolumePropertyType> lhsField;
@@ -387,14 +380,27 @@ public class AirspaceGeometryComponentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOperationSequence();
-            boolean rhsFieldIsSet = that.isSetOperationSequence();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getOperationSequence();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getOperationSequence();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationSequence", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationSequence", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperation();
+            boolean rhsFieldIsSet = that.isSetOperation();
+            JAXBElement<CodeAirspaceAggregationType> lhsField;
+            lhsField = this.getOperation();
+            JAXBElement<CodeAirspaceAggregationType> rhsField;
+            rhsField = that.getOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

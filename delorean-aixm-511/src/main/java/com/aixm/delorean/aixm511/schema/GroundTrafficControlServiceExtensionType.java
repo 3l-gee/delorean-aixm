@@ -65,7 +65,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractServiceExtension"
 })
 @Entity(name = "GroundTrafficControlServiceExtensionType")
-@Table(name = "groundtrafficcontrolservice_ext", schema = "service")
+@Table(name = "groundtrafficcontrolservice_e", schema = "service")
 public class GroundTrafficControlServiceExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -94,7 +94,7 @@ public class GroundTrafficControlServiceExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractgroundtrafficcontrolserviceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractgroundtrafficcontrolserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundTrafficControlServiceExtension() {
         return abstractGroundTrafficControlServiceExtension;
     }
@@ -127,7 +127,7 @@ public class GroundTrafficControlServiceExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttrafficseparationserviceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttrafficseparationserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTrafficSeparationServiceExtension() {
         return abstractTrafficSeparationServiceExtension;
     }
@@ -160,7 +160,7 @@ public class GroundTrafficControlServiceExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractserviceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
     }
@@ -297,27 +297,14 @@ public class GroundTrafficControlServiceExtensionType implements Serializable, E
         }
         final GroundTrafficControlServiceExtensionType that = ((GroundTrafficControlServiceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGroundTrafficControlServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGroundTrafficControlServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGroundTrafficControlServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGroundTrafficControlServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundTrafficControlServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundTrafficControlServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractTrafficSeparationServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTrafficSeparationServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTrafficSeparationServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTrafficSeparationServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTrafficSeparationServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTrafficSeparationServiceExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -336,14 +323,27 @@ public class GroundTrafficControlServiceExtensionType implements Serializable, E
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractTrafficSeparationServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTrafficSeparationServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTrafficSeparationServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTrafficSeparationServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTrafficSeparationServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTrafficSeparationServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGroundTrafficControlServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGroundTrafficControlServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGroundTrafficControlServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGroundTrafficControlServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundTrafficControlServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundTrafficControlServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

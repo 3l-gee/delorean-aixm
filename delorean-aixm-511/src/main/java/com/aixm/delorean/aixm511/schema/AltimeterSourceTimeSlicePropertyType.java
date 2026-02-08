@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AltimeterSourceTimeSlicePropertyType", propOrder = {
     "altimeterSourceTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AltimeterSourceTimeSlicePropertyType")
-@Table(name = "altimetersource_tsp", schema = "airport_heliport")
+@Table(name = "altimetersource_tp", schema = "airport_heliport")
 public class AltimeterSourceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class AltimeterSourceTimeSlicePropertyType implements Serializable, Equal
     @OneToOne(targetEntity = AltimeterSourceTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "altimetersourcetimeslice_hjid", referencedColumnName = "hjid")
     public AltimeterSourceTimeSliceType getAltimeterSourceTimeSlice() {
         return altimeterSourceTimeSlice;
     }
@@ -230,19 +230,6 @@ public class AltimeterSourceTimeSlicePropertyType implements Serializable, Equal
         }
         final AltimeterSourceTimeSlicePropertyType that = ((AltimeterSourceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAltimeterSourceTimeSlice();
-            boolean rhsFieldIsSet = that.isSetAltimeterSourceTimeSlice();
-            AltimeterSourceTimeSliceType lhsField;
-            lhsField = this.getAltimeterSourceTimeSlice();
-            AltimeterSourceTimeSliceType rhsField;
-            rhsField = that.getAltimeterSourceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altimeterSourceTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altimeterSourceTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class AltimeterSourceTimeSlicePropertyType implements Serializable, Equal
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAltimeterSourceTimeSlice();
+            boolean rhsFieldIsSet = that.isSetAltimeterSourceTimeSlice();
+            AltimeterSourceTimeSliceType lhsField;
+            lhsField = this.getAltimeterSourceTimeSlice();
+            AltimeterSourceTimeSliceType rhsField;
+            rhsField = that.getAltimeterSourceTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altimeterSourceTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altimeterSourceTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

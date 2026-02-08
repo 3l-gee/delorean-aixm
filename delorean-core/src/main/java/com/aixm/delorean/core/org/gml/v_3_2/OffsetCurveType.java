@@ -143,6 +143,19 @@ public class OffsetCurveType extends AbstractCurveSegmentType implements Seriali
         }
         final OffsetCurveType that = ((OffsetCurveType) object);
         {
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            LengthType lhsField;
+            lhsField = this.getDistance();
+            LengthType rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRefDirection();
             boolean rhsFieldIsSet = that.isSetRefDirection();
             VectorType lhsField;
@@ -164,19 +177,6 @@ public class OffsetCurveType extends AbstractCurveSegmentType implements Seriali
             rhsField = that.getOffsetBase();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offsetBase", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offsetBase", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            LengthType lhsField;
-            lhsField = this.getDistance();
-            LengthType rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

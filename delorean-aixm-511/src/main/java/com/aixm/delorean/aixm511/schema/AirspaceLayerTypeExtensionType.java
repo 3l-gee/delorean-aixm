@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAirspaceLayerExtension"
 })
 @Entity(name = "AirspaceLayerTypeExtensionType")
-@Table(name = "airspacelayer_ext", schema = "shared")
+@Table(name = "airspacelayer_e", schema = "shared")
 public class AirspaceLayerTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AirspaceLayerTypeExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairspacelayerextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairspacelayerextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirspaceLayerExtension() {
         return abstractAirspaceLayerExtension;
     }
@@ -223,19 +223,6 @@ public class AirspaceLayerTypeExtensionType implements Serializable, Equals, Has
         }
         final AirspaceLayerTypeExtensionType that = ((AirspaceLayerTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirspaceLayerExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirspaceLayerExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirspaceLayerExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirspaceLayerExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceLayerExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceLayerExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AirspaceLayerTypeExtensionType implements Serializable, Equals, Has
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirspaceLayerExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirspaceLayerExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirspaceLayerExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirspaceLayerExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceLayerExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceLayerExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

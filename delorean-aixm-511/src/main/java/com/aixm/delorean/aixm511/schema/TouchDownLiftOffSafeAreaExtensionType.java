@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAirportHeliportProtectionAreaExtension"
 })
 @Entity(name = "TouchDownLiftOffSafeAreaExtensionType")
-@Table(name = "touchdownliftoffsafearea_ext", schema = "airport_heliport")
+@Table(name = "touchdownliftoffsafearea_e", schema = "airport_heliport")
 public class TouchDownLiftOffSafeAreaExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class TouchDownLiftOffSafeAreaExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttouchdownliftoffsafeareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttouchdownliftoffsafeareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTouchDownLiftOffSafeAreaExtension() {
         return abstractTouchDownLiftOffSafeAreaExtension;
     }
@@ -123,7 +123,7 @@ public class TouchDownLiftOffSafeAreaExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairportheliportprotectionareaextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairportheliportprotectionareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportHeliportProtectionAreaExtension() {
         return abstractAirportHeliportProtectionAreaExtension;
     }
@@ -260,6 +260,19 @@ public class TouchDownLiftOffSafeAreaExtensionType implements Serializable, Equa
         }
         final TouchDownLiftOffSafeAreaExtensionType that = ((TouchDownLiftOffSafeAreaExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffSafeAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffSafeAreaExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTouchDownLiftOffSafeAreaExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTouchDownLiftOffSafeAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTouchDownLiftOffSafeAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTouchDownLiftOffSafeAreaExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,19 +294,6 @@ public class TouchDownLiftOffSafeAreaExtensionType implements Serializable, Equa
             rhsField = that.getAbstractAirportHeliportProtectionAreaExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHeliportProtectionAreaExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHeliportProtectionAreaExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffSafeAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffSafeAreaExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTouchDownLiftOffSafeAreaExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTouchDownLiftOffSafeAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTouchDownLiftOffSafeAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTouchDownLiftOffSafeAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

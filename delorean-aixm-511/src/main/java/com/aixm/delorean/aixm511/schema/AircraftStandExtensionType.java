@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAircraftStandExtension"
 })
 @Entity(name = "AircraftStandExtensionType")
-@Table(name = "aircraftstand_ext", schema = "airport_heliport")
+@Table(name = "aircraftstand_e", schema = "airport_heliport")
 public class AircraftStandExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AircraftStandExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaircraftstandextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaircraftstandextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAircraftStandExtension() {
         return abstractAircraftStandExtension;
     }
@@ -223,19 +223,6 @@ public class AircraftStandExtensionType implements Serializable, Equals, HashCod
         }
         final AircraftStandExtensionType that = ((AircraftStandExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAircraftStandExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAircraftStandExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAircraftStandExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAircraftStandExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAircraftStandExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAircraftStandExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AircraftStandExtensionType implements Serializable, Equals, HashCod
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAircraftStandExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAircraftStandExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAircraftStandExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAircraftStandExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAircraftStandExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAircraftStandExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

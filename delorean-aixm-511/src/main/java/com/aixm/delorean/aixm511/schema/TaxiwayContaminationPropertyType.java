@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "taxiwayContamination"
 })
 @Entity(name = "TaxiwayContaminationPropertyType")
-@Table(name = "taxiwaycontamination_pt", schema = "airport_heliport")
+@Table(name = "taxiwaycontamination_p", schema = "airport_heliport")
 public class TaxiwayContaminationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class TaxiwayContaminationPropertyType
     @OneToOne(targetEntity = TaxiwayContaminationType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "taxiwaycontamination_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "taxiwaycontamination_hjid", referencedColumnName = "hjid")
     public TaxiwayContaminationType getTaxiwayContamination() {
         return taxiwayContamination;
     }

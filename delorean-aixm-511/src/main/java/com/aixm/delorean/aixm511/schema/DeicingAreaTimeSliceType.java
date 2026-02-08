@@ -10,9 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -39,7 +38,13 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}DeicingAreaPropertyGroup"/>
+ *         <element name="associatedApron" type="{http://www.aixm.aero/schema/5.1.1}ApronPropertyType" minOccurs="0"/>
+ *         <element name="taxiwayLocation" type="{http://www.aixm.aero/schema/5.1.1}TaxiwayPropertyType" minOccurs="0"/>
+ *         <element name="standLocation" type="{http://www.aixm.aero/schema/5.1.1}AircraftStandPropertyType" minOccurs="0"/>
+ *         <element name="surfaceProperties" type="{http://www.aixm.aero/schema/5.1.1}SurfaceCharacteristicsPropertyType" minOccurs="0"/>
+ *         <element name="extent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedSurfacePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}ApronAreaAvailabilityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -72,7 +77,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "DeicingAreaTimeSliceType")
-@Table(name = "deicingarea_ts", schema = "airport_heliport")
+@Table(name = "deicingarea_t", schema = "airport_heliport")
 public class DeicingAreaTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -267,13 +272,13 @@ public class DeicingAreaTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_deicingarea_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "deicingarea_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "deicingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "deicingareapropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -321,13 +326,13 @@ public class DeicingAreaTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ApronAreaAvailabilityPropertyType.class, cascade = {
+    @OneToMany(targetEntity = ApronAreaAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "availability_deicingarea_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    @JoinTable(name = "deicingarea_t_availability_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "deicingarea_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "deicingareapropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
     })
     public List<ApronAreaAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
@@ -378,7 +383,7 @@ public class DeicingAreaTimeSliceType
     @OneToMany(targetEntity = DeicingAreaExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_DEICING_AREA_TIME__0")
+    @JoinColumn(name = "deicingarea_e_hjid", referencedColumnName = "hjid")
     public List<DeicingAreaExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -403,10 +408,14 @@ public class DeicingAreaTimeSliceType
         this.extension = null;
     }
 
-    @ManyToOne(targetEntity = ApronPropertyType.class, cascade = {
+    @OneToOne(targetEntity = ApronPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "associatedapron_id", referencedColumnName = "hjid")
+    @JoinTable(name = "deicingarea_t_associatedapron_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "deicingarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "associatedapron_hjid", referencedColumnName = "hjid")
+    })
     public ApronPropertyType getAssociatedApronItem() {
         return XmlAdapterUtils.unmarshallSource(ApronPropertyType.class, this.getAssociatedApron());
     }
@@ -415,10 +424,14 @@ public class DeicingAreaTimeSliceType
         setAssociatedApron(XmlAdapterUtils.marshallJAXBElement(ApronPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "associatedApron"), DeicingAreaTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = TaxiwayPropertyType.class, cascade = {
+    @OneToOne(targetEntity = TaxiwayPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "taxiwaylocation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "deicingarea_t_taxiwaylocation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "deicingarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "taxiwaylocation_hjid", referencedColumnName = "hjid")
+    })
     public TaxiwayPropertyType getTaxiwayLocationItem() {
         return XmlAdapterUtils.unmarshallSource(TaxiwayPropertyType.class, this.getTaxiwayLocation());
     }
@@ -427,10 +440,14 @@ public class DeicingAreaTimeSliceType
         setTaxiwayLocation(XmlAdapterUtils.marshallJAXBElement(TaxiwayPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "taxiwayLocation"), DeicingAreaTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AircraftStandPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AircraftStandPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "standlocation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "deicingarea_t_standlocation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "deicingarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "standlocation_hjid", referencedColumnName = "hjid")
+    })
     public AircraftStandPropertyType getStandLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AircraftStandPropertyType.class, this.getStandLocation());
     }
@@ -439,10 +456,14 @@ public class DeicingAreaTimeSliceType
         setStandLocation(XmlAdapterUtils.marshallJAXBElement(AircraftStandPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "standLocation"), DeicingAreaTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = SurfaceCharacteristicsPropertyType.class, cascade = {
+    @OneToOne(targetEntity = SurfaceCharacteristicsPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "surfaceproperties_id", referencedColumnName = "hjid")
+    @JoinTable(name = "deicingarea_t_surfaceproperties_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "deicingarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "surfaceproperties_hjid", referencedColumnName = "hjid")
+    })
     public SurfaceCharacteristicsPropertyType getSurfacePropertiesItem() {
         return XmlAdapterUtils.unmarshallSource(SurfaceCharacteristicsPropertyType.class, this.getSurfaceProperties());
     }
@@ -451,10 +472,14 @@ public class DeicingAreaTimeSliceType
         setSurfaceProperties(XmlAdapterUtils.marshallJAXBElement(SurfaceCharacteristicsPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "surfaceProperties"), DeicingAreaTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_id", referencedColumnName = "hjid")
+    @JoinTable(name = "deicingarea_t_extent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "deicingarea_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedSurfacePropertyType getExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedSurfacePropertyType.class, this.getExtent());
     }
@@ -475,71 +500,6 @@ public class DeicingAreaTimeSliceType
             return false;
         }
         final DeicingAreaTimeSliceType that = ((DeicingAreaTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
-            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
-            lhsField = this.getSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
-            rhsField = that.getSurfaceProperties();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTaxiwayLocation();
-            boolean rhsFieldIsSet = that.isSetTaxiwayLocation();
-            JAXBElement<TaxiwayPropertyType> lhsField;
-            lhsField = this.getTaxiwayLocation();
-            JAXBElement<TaxiwayPropertyType> rhsField;
-            rhsField = that.getTaxiwayLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiwayLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiwayLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStandLocation();
-            boolean rhsFieldIsSet = that.isSetStandLocation();
-            JAXBElement<AircraftStandPropertyType> lhsField;
-            lhsField = this.getStandLocation();
-            JAXBElement<AircraftStandPropertyType> rhsField;
-            rhsField = that.getStandLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ApronAreaAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<ApronAreaAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetAssociatedApron();
             boolean rhsFieldIsSet = that.isSetAssociatedApron();
@@ -567,6 +527,45 @@ public class DeicingAreaTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
+            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
+            lhsField = this.getSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
+            rhsField = that.getSurfaceProperties();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTaxiwayLocation();
+            boolean rhsFieldIsSet = that.isSetTaxiwayLocation();
+            JAXBElement<TaxiwayPropertyType> lhsField;
+            lhsField = this.getTaxiwayLocation();
+            JAXBElement<TaxiwayPropertyType> rhsField;
+            rhsField = that.getTaxiwayLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiwayLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiwayLocation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtent();
             boolean rhsFieldIsSet = that.isSetExtent();
             JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
@@ -575,6 +574,32 @@ public class DeicingAreaTimeSliceType
             rhsField = that.getExtent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ApronAreaAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<ApronAreaAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStandLocation();
+            boolean rhsFieldIsSet = that.isSetStandLocation();
+            JAXBElement<AircraftStandPropertyType> lhsField;
+            lhsField = this.getStandLocation();
+            JAXBElement<AircraftStandPropertyType> rhsField;
+            rhsField = that.getStandLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

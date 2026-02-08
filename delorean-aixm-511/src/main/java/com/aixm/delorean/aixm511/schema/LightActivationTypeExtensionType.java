@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractLightActivationExtension"
 })
 @Entity(name = "LightActivationTypeExtensionType")
-@Table(name = "lightactivation_ext", schema = "airport_heliport")
+@Table(name = "lightactivation_e", schema = "airport_heliport")
 public class LightActivationTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class LightActivationTypeExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractlightactivationextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractlightactivationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractLightActivationExtension() {
         return abstractLightActivationExtension;
     }
@@ -223,19 +223,6 @@ public class LightActivationTypeExtensionType implements Serializable, Equals, H
         }
         final LightActivationTypeExtensionType that = ((LightActivationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractLightActivationExtension();
             boolean rhsFieldIsSet = that.isSetAbstractLightActivationExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class LightActivationTypeExtensionType implements Serializable, Equals, H
             rhsField = that.getAbstractLightActivationExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLightActivationExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLightActivationExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

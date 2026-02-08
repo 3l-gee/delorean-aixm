@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     TouchDownLiftOffMarkingType.class
 })
 @Entity(name = "AbstractMarkingType")
-@Table(name = "abstractmarking", schema = "public")
+@Table(name = "abstractmarkingtype", schema = "public")
 public abstract class AbstractMarkingType
     extends AbstractAIXMFeatureType
     implements Serializable

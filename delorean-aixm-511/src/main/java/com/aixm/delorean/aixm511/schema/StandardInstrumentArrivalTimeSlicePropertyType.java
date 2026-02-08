@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "StandardInstrumentArrivalTimeSlicePropertyType", propOrder = {
     "standardInstrumentArrivalTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "StandardInstrumentArrivalTimeSlicePropertyType")
-@Table(name = "standardinstrumentarrival_tsp", schema = "procedure")
+@Table(name = "standardinstrumentarrival_tp", schema = "procedure")
 public class StandardInstrumentArrivalTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class StandardInstrumentArrivalTimeSlicePropertyType implements Serializa
     @OneToOne(targetEntity = StandardInstrumentArrivalTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "standardinstrumentarrivaltimeslice_hjid", referencedColumnName = "hjid")
     public StandardInstrumentArrivalTimeSliceType getStandardInstrumentArrivalTimeSlice() {
         return standardInstrumentArrivalTimeSlice;
     }
@@ -230,19 +230,6 @@ public class StandardInstrumentArrivalTimeSlicePropertyType implements Serializa
         }
         final StandardInstrumentArrivalTimeSlicePropertyType that = ((StandardInstrumentArrivalTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStandardInstrumentArrivalTimeSlice();
-            boolean rhsFieldIsSet = that.isSetStandardInstrumentArrivalTimeSlice();
-            StandardInstrumentArrivalTimeSliceType lhsField;
-            lhsField = this.getStandardInstrumentArrivalTimeSlice();
-            StandardInstrumentArrivalTimeSliceType rhsField;
-            rhsField = that.getStandardInstrumentArrivalTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardInstrumentArrivalTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardInstrumentArrivalTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class StandardInstrumentArrivalTimeSlicePropertyType implements Serializa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStandardInstrumentArrivalTimeSlice();
+            boolean rhsFieldIsSet = that.isSetStandardInstrumentArrivalTimeSlice();
+            StandardInstrumentArrivalTimeSliceType lhsField;
+            lhsField = this.getStandardInstrumentArrivalTimeSlice();
+            StandardInstrumentArrivalTimeSliceType rhsField;
+            rhsField = that.getStandardInstrumentArrivalTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardInstrumentArrivalTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardInstrumentArrivalTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

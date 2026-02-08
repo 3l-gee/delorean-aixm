@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "apronAreaUsage"
 })
 @Entity(name = "ApronAreaUsagePropertyType")
-@Table(name = "apronareausage_pt", schema = "airport_heliport")
+@Table(name = "apronareausage_p", schema = "airport_heliport")
 public class ApronAreaUsagePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ApronAreaUsagePropertyType
     @OneToOne(targetEntity = ApronAreaUsageType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "apronareausage_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "apronareausage_hjid", referencedColumnName = "hjid")
     public ApronAreaUsageType getApronAreaUsage() {
         return apronAreaUsage;
     }

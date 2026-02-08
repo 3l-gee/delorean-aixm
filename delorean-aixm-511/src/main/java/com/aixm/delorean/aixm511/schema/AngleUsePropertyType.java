@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "angleUse"
 })
 @Entity(name = "AngleUsePropertyType")
-@Table(name = "angleuse_pt", schema = "navaids_point")
+@Table(name = "angleuse_p", schema = "navaids_point")
 public class AngleUsePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AngleUsePropertyType
     @OneToOne(targetEntity = AngleUseType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "angleuse_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "angleuse_hjid", referencedColumnName = "hjid")
     public AngleUseType getAngleUse() {
         return angleUse;
     }

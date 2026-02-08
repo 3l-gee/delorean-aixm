@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,26 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}HoldingPatternPropertyGroup"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeHoldingUsageType" minOccurs="0"/>
+ *         <element name="outboundCourse" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="outboundCourseType" type="{http://www.aixm.aero/schema/5.1.1}CodeCourseType" minOccurs="0"/>
+ *         <element name="inboundCourse" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="turnDirection" type="{http://www.aixm.aero/schema/5.1.1}CodeDirectionTurnType" minOccurs="0"/>
+ *         <element name="upperLimit" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="upperLimitReference" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="lowerLimit" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="lowerLimitReference" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="speedLimit" type="{http://www.aixm.aero/schema/5.1.1}ValSpeedType" minOccurs="0"/>
+ *         <element name="instruction" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="nonStandardHolding" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <choice>
+ *           <element name="outboundLegSpan_endPoint" type="{http://www.aixm.aero/schema/5.1.1}SegmentPointPropertyType" minOccurs="0"/>
+ *           <element name="outboundLegSpan_endDistance" type="{http://www.aixm.aero/schema/5.1.1}HoldingPatternDistancePropertyType" minOccurs="0"/>
+ *           <element name="outboundLegSpan_endTime" type="{http://www.aixm.aero/schema/5.1.1}HoldingPatternDurationPropertyType" minOccurs="0"/>
+ *         </choice>
+ *         <element name="holdingPoint" type="{http://www.aixm.aero/schema/5.1.1}SegmentPointPropertyType" minOccurs="0"/>
+ *         <element name="extent" type="{http://www.aixm.aero/schema/5.1.1}CurvePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -87,7 +105,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "HoldingPatternTimeSliceType")
-@Table(name = "holdingpattern_ts", schema = "holding")
+@Table(name = "holdingpattern_t", schema = "holding")
 public class HoldingPatternTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -664,13 +682,13 @@ public class HoldingPatternTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_holdingpattern_link", schema = "holding", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "holdingpattern_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "holdingpattern_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "holdingpatternpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -721,7 +739,7 @@ public class HoldingPatternTimeSliceType
     @OneToMany(targetEntity = HoldingPatternExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_HOLDING_PATTERN_TI_0")
+    @JoinColumn(name = "holdingpattern_e_hjid", referencedColumnName = "hjid")
     public List<HoldingPatternExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -761,7 +779,7 @@ public class HoldingPatternTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "outboundcourse", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "outboundcourse")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "outboundcourse_nilreason"))
     })
     public ValBearingType getOutboundCourseItem() {
@@ -787,7 +805,7 @@ public class HoldingPatternTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "inboundcourse", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "inboundcourse")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "inboundcourse_nilreason"))
     })
     public ValBearingType getInboundCourseItem() {
@@ -813,7 +831,7 @@ public class HoldingPatternTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "upperlimit", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "upperlimit")),
         @AttributeOverride(name = "uom", column = @Column(name = "upperlimit_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimit_nilreason"))
     })
@@ -840,7 +858,7 @@ public class HoldingPatternTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "lowerlimit", columnDefinition = "VARCHAR", length = 256)),
+        @AttributeOverride(name = "value", column = @Column(name = "lowerlimit")),
         @AttributeOverride(name = "uom", column = @Column(name = "lowerlimit_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimit_nilreason"))
     })
@@ -867,7 +885,7 @@ public class HoldingPatternTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "speedlimit", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "speedlimit")),
         @AttributeOverride(name = "uom", column = @Column(name = "speedlimit_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "speedlimit_nilreason"))
     })
@@ -881,7 +899,7 @@ public class HoldingPatternTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "instruction", columnDefinition = "TEXT", length = 10000)),
+        @AttributeOverride(name = "value", column = @Column(name = "instruction")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "instruction_nilreason"))
     })
     public TextInstructionType getInstructionItem() {
@@ -905,10 +923,14 @@ public class HoldingPatternTimeSliceType
         setNonStandardHolding(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "nonStandardHolding"), HoldingPatternTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = SegmentPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = SegmentPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "outboundlegspan_endpoint_id", referencedColumnName = "hjid")
+    @JoinTable(name = "holdingpattern_t_outboundlegspan_endpoint_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "holdingpattern_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "outboundlegspan_endpoint_hjid", referencedColumnName = "hjid")
+    })
     public SegmentPointPropertyType getOutboundLegSpanEndPointItem() {
         return XmlAdapterUtils.unmarshallSource(SegmentPointPropertyType.class, this.getOutboundLegSpanEndPoint());
     }
@@ -917,10 +939,14 @@ public class HoldingPatternTimeSliceType
         setOutboundLegSpanEndPoint(XmlAdapterUtils.marshallJAXBElement(SegmentPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "outboundLegSpan_endPoint"), HoldingPatternTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = HoldingPatternDistancePropertyType.class, cascade = {
+    @OneToOne(targetEntity = HoldingPatternDistancePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "outboundlegspan_enddistance_id", referencedColumnName = "hjid")
+    @JoinTable(name = "holdingpattern_t_outboundlegspan_enddistance_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "holdingpattern_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "outboundlegspan_enddistance_hjid", referencedColumnName = "hjid")
+    })
     public HoldingPatternDistancePropertyType getOutboundLegSpanEndDistanceItem() {
         return XmlAdapterUtils.unmarshallSource(HoldingPatternDistancePropertyType.class, this.getOutboundLegSpanEndDistance());
     }
@@ -929,10 +955,14 @@ public class HoldingPatternTimeSliceType
         setOutboundLegSpanEndDistance(XmlAdapterUtils.marshallJAXBElement(HoldingPatternDistancePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "outboundLegSpan_endDistance"), HoldingPatternTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = HoldingPatternDurationPropertyType.class, cascade = {
+    @OneToOne(targetEntity = HoldingPatternDurationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "outboundlegspan_endtime_id", referencedColumnName = "hjid")
+    @JoinTable(name = "holdingpattern_t_outboundlegspan_endtime_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "holdingpattern_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "outboundlegspan_endtime_hjid", referencedColumnName = "hjid")
+    })
     public HoldingPatternDurationPropertyType getOutboundLegSpanEndTimeItem() {
         return XmlAdapterUtils.unmarshallSource(HoldingPatternDurationPropertyType.class, this.getOutboundLegSpanEndTime());
     }
@@ -941,10 +971,14 @@ public class HoldingPatternTimeSliceType
         setOutboundLegSpanEndTime(XmlAdapterUtils.marshallJAXBElement(HoldingPatternDurationPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "outboundLegSpan_endTime"), HoldingPatternTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = SegmentPointPropertyType.class, cascade = {
+    @OneToOne(targetEntity = SegmentPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "holdingpoint_id", referencedColumnName = "hjid")
+    @JoinTable(name = "holdingpattern_t_holdingpoint_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "holdingpattern_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "holdingpoint_hjid", referencedColumnName = "hjid")
+    })
     public SegmentPointPropertyType getHoldingPointItem() {
         return XmlAdapterUtils.unmarshallSource(SegmentPointPropertyType.class, this.getHoldingPoint());
     }
@@ -953,10 +987,14 @@ public class HoldingPatternTimeSliceType
         setHoldingPoint(XmlAdapterUtils.marshallJAXBElement(SegmentPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "holdingPoint"), HoldingPatternTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
+    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "extent_id", referencedColumnName = "hjid")
+    @JoinTable(name = "holdingpattern_t_extent_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "holdingpattern_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
+    })
     public AIXMCurvePropertyType getExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMCurvePropertyType.class, this.getExtent());
     }
@@ -978,144 +1016,14 @@ public class HoldingPatternTimeSliceType
         }
         final HoldingPatternTimeSliceType that = ((HoldingPatternTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOutboundCourse();
-            boolean rhsFieldIsSet = that.isSetOutboundCourse();
+            boolean lhsFieldIsSet = this.isSetInboundCourse();
+            boolean rhsFieldIsSet = that.isSetInboundCourse();
             JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getOutboundCourse();
+            lhsField = this.getInboundCourse();
             JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getOutboundCourse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourse", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
-            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getLowerLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNonStandardHolding();
-            boolean rhsFieldIsSet = that.isSetNonStandardHolding();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getNonStandardHolding();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getNonStandardHolding();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nonStandardHolding", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nonStandardHolding", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLowerLimit();
-            boolean rhsFieldIsSet = that.isSetLowerLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getLowerLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getLowerLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHoldingPoint();
-            boolean rhsFieldIsSet = that.isSetHoldingPoint();
-            JAXBElement<SegmentPointPropertyType> lhsField;
-            lhsField = this.getHoldingPoint();
-            JAXBElement<SegmentPointPropertyType> rhsField;
-            rhsField = that.getHoldingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimit();
-            boolean rhsFieldIsSet = that.isSetUpperLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getUpperLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getUpperLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOutboundLegSpanEndDistance();
-            boolean rhsFieldIsSet = that.isSetOutboundLegSpanEndDistance();
-            JAXBElement<HoldingPatternDistancePropertyType> lhsField;
-            lhsField = this.getOutboundLegSpanEndDistance();
-            JAXBElement<HoldingPatternDistancePropertyType> rhsField;
-            rhsField = that.getOutboundLegSpanEndDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundLegSpanEndDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundLegSpanEndDistance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeHoldingUsageType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeHoldingUsageType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOutboundLegSpanEndPoint();
-            boolean rhsFieldIsSet = that.isSetOutboundLegSpanEndPoint();
-            JAXBElement<SegmentPointPropertyType> lhsField;
-            lhsField = this.getOutboundLegSpanEndPoint();
-            JAXBElement<SegmentPointPropertyType> rhsField;
-            rhsField = that.getOutboundLegSpanEndPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundLegSpanEndPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundLegSpanEndPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpeedLimit();
-            boolean rhsFieldIsSet = that.isSetSpeedLimit();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getSpeedLimit();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getSpeedLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedLimit", rhsField);
+            rhsField = that.getInboundCourse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inboundCourse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inboundCourse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1134,45 +1042,6 @@ public class HoldingPatternTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetInboundCourse();
-            boolean rhsFieldIsSet = that.isSetInboundCourse();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getInboundCourse();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getInboundCourse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inboundCourse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inboundCourse", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<HoldingPatternExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<HoldingPatternExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOutboundCourseType();
-            boolean rhsFieldIsSet = that.isSetOutboundCourseType();
-            JAXBElement<CodeCourseType> lhsField;
-            lhsField = this.getOutboundCourseType();
-            JAXBElement<CodeCourseType> rhsField;
-            rhsField = that.getOutboundCourseType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourseType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourseType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTurnDirection();
             boolean rhsFieldIsSet = that.isSetTurnDirection();
             JAXBElement<CodeDirectionTurnType> lhsField;
@@ -1181,6 +1050,32 @@ public class HoldingPatternTimeSliceType
             rhsField = that.getTurnDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpeedLimit();
+            boolean rhsFieldIsSet = that.isSetSpeedLimit();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getSpeedLimit();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getSpeedLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLowerLimit();
+            boolean rhsFieldIsSet = that.isSetLowerLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getLowerLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getLowerLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1199,14 +1094,14 @@ public class HoldingPatternTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOutboundLegSpanEndTime();
-            boolean rhsFieldIsSet = that.isSetOutboundLegSpanEndTime();
-            JAXBElement<HoldingPatternDurationPropertyType> lhsField;
-            lhsField = this.getOutboundLegSpanEndTime();
-            JAXBElement<HoldingPatternDurationPropertyType> rhsField;
-            rhsField = that.getOutboundLegSpanEndTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundLegSpanEndTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundLegSpanEndTime", rhsField);
+            boolean lhsFieldIsSet = this.isSetNonStandardHolding();
+            boolean rhsFieldIsSet = that.isSetNonStandardHolding();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getNonStandardHolding();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getNonStandardHolding();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nonStandardHolding", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nonStandardHolding", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1220,6 +1115,149 @@ public class HoldingPatternTimeSliceType
             rhsField = that.getExtent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOutboundCourseType();
+            boolean rhsFieldIsSet = that.isSetOutboundCourseType();
+            JAXBElement<CodeCourseType> lhsField;
+            lhsField = this.getOutboundCourseType();
+            JAXBElement<CodeCourseType> rhsField;
+            rhsField = that.getOutboundCourseType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourseType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourseType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHoldingPoint();
+            boolean rhsFieldIsSet = that.isSetHoldingPoint();
+            JAXBElement<SegmentPointPropertyType> lhsField;
+            lhsField = this.getHoldingPoint();
+            JAXBElement<SegmentPointPropertyType> rhsField;
+            rhsField = that.getHoldingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<HoldingPatternExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<HoldingPatternExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOutboundLegSpanEndDistance();
+            boolean rhsFieldIsSet = that.isSetOutboundLegSpanEndDistance();
+            JAXBElement<HoldingPatternDistancePropertyType> lhsField;
+            lhsField = this.getOutboundLegSpanEndDistance();
+            JAXBElement<HoldingPatternDistancePropertyType> rhsField;
+            rhsField = that.getOutboundLegSpanEndDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundLegSpanEndDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundLegSpanEndDistance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOutboundCourse();
+            boolean rhsFieldIsSet = that.isSetOutboundCourse();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getOutboundCourse();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getOutboundCourse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourse", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeHoldingUsageType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeHoldingUsageType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpperLimit();
+            boolean rhsFieldIsSet = that.isSetUpperLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getUpperLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getUpperLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOutboundLegSpanEndPoint();
+            boolean rhsFieldIsSet = that.isSetOutboundLegSpanEndPoint();
+            JAXBElement<SegmentPointPropertyType> lhsField;
+            lhsField = this.getOutboundLegSpanEndPoint();
+            JAXBElement<SegmentPointPropertyType> rhsField;
+            rhsField = that.getOutboundLegSpanEndPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundLegSpanEndPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundLegSpanEndPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
+            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getLowerLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOutboundLegSpanEndTime();
+            boolean rhsFieldIsSet = that.isSetOutboundLegSpanEndTime();
+            JAXBElement<HoldingPatternDurationPropertyType> lhsField;
+            lhsField = this.getOutboundLegSpanEndTime();
+            JAXBElement<HoldingPatternDurationPropertyType> rhsField;
+            rhsField = that.getOutboundLegSpanEndTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundLegSpanEndTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundLegSpanEndTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

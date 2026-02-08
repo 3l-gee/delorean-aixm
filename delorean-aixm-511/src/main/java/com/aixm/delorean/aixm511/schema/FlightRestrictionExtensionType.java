@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractFlightRestrictionExtension"
 })
 @Entity(name = "FlightRestrictionExtensionType")
-@Table(name = "flightrestriction_ext", schema = "route")
+@Table(name = "flightrestriction_e", schema = "route")
 public class FlightRestrictionExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class FlightRestrictionExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractflightrestrictionextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractflightrestrictionextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightRestrictionExtension() {
         return abstractFlightRestrictionExtension;
     }
@@ -223,19 +223,6 @@ public class FlightRestrictionExtensionType implements Serializable, Equals, Has
         }
         final FlightRestrictionExtensionType that = ((FlightRestrictionExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractFlightRestrictionExtension();
             boolean rhsFieldIsSet = that.isSetAbstractFlightRestrictionExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class FlightRestrictionExtensionType implements Serializable, Equals, Has
             rhsField = that.getAbstractFlightRestrictionExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightRestrictionExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightRestrictionExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

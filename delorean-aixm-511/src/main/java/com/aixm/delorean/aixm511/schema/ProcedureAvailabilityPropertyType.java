@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "procedureAvailability"
 })
 @Entity(name = "ProcedureAvailabilityPropertyType")
-@Table(name = "procedureavailability_pt", schema = "procedure")
+@Table(name = "procedureavailability_p", schema = "procedure")
 public class ProcedureAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ProcedureAvailabilityPropertyType
     @OneToOne(targetEntity = ProcedureAvailabilityType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "procedureavailability_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "procedureavailability_hjid", referencedColumnName = "hjid")
     public ProcedureAvailabilityType getProcedureAvailability() {
         return procedureAvailability;
     }

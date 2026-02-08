@@ -190,6 +190,19 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
         }
         final CoverageFunctionType that = ((CoverageFunctionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetGridFunction();
+            boolean rhsFieldIsSet = that.isSetGridFunction();
+            GridFunctionType lhsField;
+            lhsField = this.getGridFunction();
+            GridFunctionType rhsField;
+            rhsField = that.getGridFunction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridFunction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridFunction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCoverageMappingRule();
             boolean rhsFieldIsSet = that.isSetCoverageMappingRule();
             MappingRuleType lhsField;
@@ -211,19 +224,6 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
             rhsField = that.getMappingRule();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mappingRule", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mappingRule", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGridFunction();
-            boolean rhsFieldIsSet = that.isSetGridFunction();
-            GridFunctionType lhsField;
-            lhsField = this.getGridFunction();
-            GridFunctionType rhsField;
-            rhsField = that.getGridFunction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridFunction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridFunction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

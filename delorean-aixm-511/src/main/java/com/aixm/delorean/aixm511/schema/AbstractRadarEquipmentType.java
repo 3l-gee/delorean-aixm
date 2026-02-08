@@ -37,7 +37,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     AbstractSurveillanceRadarType.class
 })
 @Entity(name = "AbstractRadarEquipmentType")
-@Table(name = "abstractradarequipment", schema = "public")
+@Table(name = "abstractradarequipmenttype", schema = "public")
 public abstract class AbstractRadarEquipmentType
     extends AbstractAIXMFeatureType
     implements Serializable

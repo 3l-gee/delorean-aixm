@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "lightActivation"
 })
 @Entity(name = "LightActivationPropertyType")
-@Table(name = "lightactivation_pt", schema = "airport_heliport")
+@Table(name = "lightactivation_p", schema = "airport_heliport")
 public class LightActivationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class LightActivationPropertyType
     @OneToOne(targetEntity = LightActivationType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "lightactivation_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "lightactivation_hjid", referencedColumnName = "hjid")
     public LightActivationType getLightActivation() {
         return lightActivation;
     }

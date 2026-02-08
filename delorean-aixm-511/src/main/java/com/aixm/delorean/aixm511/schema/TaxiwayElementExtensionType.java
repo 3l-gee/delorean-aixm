@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractTaxiwayElementExtension"
 })
 @Entity(name = "TaxiwayElementExtensionType")
-@Table(name = "taxiwayelement_ext", schema = "airport_heliport")
+@Table(name = "taxiwayelement_e", schema = "airport_heliport")
 public class TaxiwayElementExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class TaxiwayElementExtensionType implements Serializable, Equals, HashCo
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttaxiwayelementextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttaxiwayelementextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTaxiwayElementExtension() {
         return abstractTaxiwayElementExtension;
     }
@@ -223,19 +223,6 @@ public class TaxiwayElementExtensionType implements Serializable, Equals, HashCo
         }
         final TaxiwayElementExtensionType that = ((TaxiwayElementExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractTaxiwayElementExtension();
             boolean rhsFieldIsSet = that.isSetAbstractTaxiwayElementExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class TaxiwayElementExtensionType implements Serializable, Equals, HashCo
             rhsField = that.getAbstractTaxiwayElementExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTaxiwayElementExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTaxiwayElementExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -37,7 +37,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     SecondarySurveillanceRadarType.class
 })
 @Entity(name = "AbstractSurveillanceRadarType")
-@Table(name = "abstractsurveillanceradar", schema = "public")
+@Table(name = "abstractsurveillanceradartype", schema = "public")
 public abstract class AbstractSurveillanceRadarType
     extends AbstractRadarEquipmentType
     implements Serializable

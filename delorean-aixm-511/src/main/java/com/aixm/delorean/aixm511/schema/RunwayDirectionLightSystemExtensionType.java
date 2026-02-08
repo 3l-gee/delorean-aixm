@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractGroundLightSystemExtension"
 })
 @Entity(name = "RunwayDirectionLightSystemExtensionType")
-@Table(name = "runwaydirectionlightsystem_ext", schema = "airport_heliport")
+@Table(name = "runwaydirectionlightsystem_e", schema = "airport_heliport")
 public class RunwayDirectionLightSystemExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class RunwayDirectionLightSystemExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwaydirectionlightsystemextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwaydirectionlightsystemextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayDirectionLightSystemExtension() {
         return abstractRunwayDirectionLightSystemExtension;
     }
@@ -123,7 +123,7 @@ public class RunwayDirectionLightSystemExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractgroundlightsystemextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractgroundlightsystemextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundLightSystemExtension() {
         return abstractGroundLightSystemExtension;
     }

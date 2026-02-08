@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "groundLightingAvailability"
 })
 @Entity(name = "GroundLightingAvailabilityPropertyType")
-@Table(name = "groundlightingavailability_pt", schema = "airport_heliport")
+@Table(name = "groundlightingavailability_p", schema = "airport_heliport")
 public class GroundLightingAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class GroundLightingAvailabilityPropertyType
     @OneToOne(targetEntity = GroundLightingAvailabilityType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "groundlightingavailability_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "groundlightingavailability_hjid", referencedColumnName = "hjid")
     public GroundLightingAvailabilityType getGroundLightingAvailability() {
         return groundLightingAvailability;
     }

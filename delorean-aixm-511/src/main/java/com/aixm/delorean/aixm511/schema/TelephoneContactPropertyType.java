@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "telephoneContact"
 })
 @Entity(name = "TelephoneContactPropertyType")
-@Table(name = "telephonecontact_pt", schema = "shared")
+@Table(name = "telephonecontact_p", schema = "shared")
 public class TelephoneContactPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class TelephoneContactPropertyType
     @OneToOne(targetEntity = TelephoneContactType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "telephonecontact_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "telephonecontact_hjid", referencedColumnName = "hjid")
     public TelephoneContactType getTelephoneContact() {
         return telephoneContact;
     }

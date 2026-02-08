@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractFlightConditionCombinationExtension"
 })
 @Entity(name = "FlightConditionCombinationTypeExtensionType")
-@Table(name = "flightconditioncombination_ext", schema = "route")
+@Table(name = "flightconditioncombination_e", schema = "route")
 public class FlightConditionCombinationTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class FlightConditionCombinationTypeExtensionType implements Serializable
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class FlightConditionCombinationTypeExtensionType implements Serializable
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractflightconditioncombinationextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractflightconditioncombinationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightConditionCombinationExtension() {
         return abstractFlightConditionCombinationExtension;
     }
@@ -260,19 +260,6 @@ public class FlightConditionCombinationTypeExtensionType implements Serializable
         }
         final FlightConditionCombinationTypeExtensionType that = ((FlightConditionCombinationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractFlightConditionCombinationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractFlightConditionCombinationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractFlightConditionCombinationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractFlightConditionCombinationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightConditionCombinationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightConditionCombinationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,6 +268,19 @@ public class FlightConditionCombinationTypeExtensionType implements Serializable
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractFlightConditionCombinationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractFlightConditionCombinationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractFlightConditionCombinationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractFlightConditionCombinationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightConditionCombinationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightConditionCombinationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

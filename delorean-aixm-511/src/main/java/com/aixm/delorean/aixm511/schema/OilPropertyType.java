@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "oil"
 })
 @Entity(name = "OilPropertyType")
-@Table(name = "oil_pt", schema = "service")
+@Table(name = "oil_p", schema = "service")
 public class OilPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class OilPropertyType
     @OneToOne(targetEntity = OilType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "oil_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "oil_hjid", referencedColumnName = "hjid")
     public OilType getOil() {
         return oil;
     }

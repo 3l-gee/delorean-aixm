@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "radarComponent"
 })
 @Entity(name = "RadarComponentPropertyType")
-@Table(name = "radarcomponent_pt", schema = "surveillance")
+@Table(name = "radarcomponent_p", schema = "surveillance")
 public class RadarComponentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class RadarComponentPropertyType
     @OneToOne(targetEntity = RadarComponentType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "radarcomponent_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "radarcomponent_hjid", referencedColumnName = "hjid")
     public RadarComponentType getRadarComponent() {
         return radarComponent;
     }

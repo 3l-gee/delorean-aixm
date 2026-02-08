@@ -158,19 +158,6 @@ public class ParameterValueGroupType extends AbstractGeneralParameterValueType i
         }
         final ParameterValueGroupType that = ((ParameterValueGroupType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGroup();
-            boolean rhsFieldIsSet = that.isSetGroup();
-            JAXBElement<OperationParameterGroupPropertyType> lhsField;
-            lhsField = this.getGroup();
-            JAXBElement<OperationParameterGroupPropertyType> rhsField;
-            rhsField = that.getGroup();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetParameterValue();
             boolean rhsFieldIsSet = that.isSetParameterValue();
             List<JAXBElement<AbstractGeneralParameterValuePropertyType>> lhsField;
@@ -179,6 +166,19 @@ public class ParameterValueGroupType extends AbstractGeneralParameterValueType i
             rhsField = (that.isSetParameterValue() ? that.getParameterValue() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterValue", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGroup();
+            boolean rhsFieldIsSet = that.isSetGroup();
+            JAXBElement<OperationParameterGroupPropertyType> lhsField;
+            lhsField = this.getGroup();
+            JAXBElement<OperationParameterGroupPropertyType> rhsField;
+            rhsField = that.getGroup();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

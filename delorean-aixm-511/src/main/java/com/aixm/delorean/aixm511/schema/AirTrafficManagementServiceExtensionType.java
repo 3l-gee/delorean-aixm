@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractServiceExtension"
 })
 @Entity(name = "AirTrafficManagementServiceExtensionType")
-@Table(name = "airtrafficmanagementservice_ext", schema = "service")
+@Table(name = "airtrafficmanagementservice_e", schema = "service")
 public class AirTrafficManagementServiceExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class AirTrafficManagementServiceExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairtrafficmanagementserviceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairtrafficmanagementserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirTrafficManagementServiceExtension() {
         return abstractAirTrafficManagementServiceExtension;
     }
@@ -123,7 +123,7 @@ public class AirTrafficManagementServiceExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractserviceextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractserviceextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
     }

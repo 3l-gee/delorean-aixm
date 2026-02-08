@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airspaceGeometryComponent"
 })
 @Entity(name = "AirspaceGeometryComponentPropertyType")
-@Table(name = "airspacegeometrycomponent_pt", schema = "airspace")
+@Table(name = "airspacegeometrycomponent_p", schema = "airspace")
 public class AirspaceGeometryComponentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AirspaceGeometryComponentPropertyType
     @OneToOne(targetEntity = AirspaceGeometryComponentType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airspacegeometrycomponent_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "airspacegeometrycomponent_hjid", referencedColumnName = "hjid")
     public AirspaceGeometryComponentType getAirspaceGeometryComponent() {
         return airspaceGeometryComponent;
     }

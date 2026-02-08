@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractStandardLevelExtension"
 })
 @Entity(name = "StandardLevelTypeExtensionType")
-@Table(name = "standardlevel_ext", schema = "shared")
+@Table(name = "standardlevel_e", schema = "shared")
 public class StandardLevelTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class StandardLevelTypeExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractstandardlevelextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractstandardlevelextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractStandardLevelExtension() {
         return abstractStandardLevelExtension;
     }

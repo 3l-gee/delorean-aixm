@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,11 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}RouteDMEPropertyGroup"/>
+ *         <element name="criticalDME" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="satisfactory" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="referencedDME" type="{http://www.aixm.aero/schema/5.1.1}DMEPropertyType" minOccurs="0"/>
+ *         <element name="applicableRoutePortion" type="{http://www.aixm.aero/schema/5.1.1}RoutePortionPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -74,7 +77,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "RouteDMETimeSliceType")
-@Table(name = "routedme_ts", schema = "route")
+@Table(name = "routedme_t", schema = "route")
 public class RouteDMETimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -235,13 +238,13 @@ public class RouteDMETimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_routedme_link", schema = "route", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "routedme_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "routedme_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "routedmepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -292,7 +295,7 @@ public class RouteDMETimeSliceType
     @OneToMany(targetEntity = RouteDMEExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_ROUTE_DMETIME_SLIC_0")
+    @JoinColumn(name = "routedme_e_hjid", referencedColumnName = "hjid")
     public List<RouteDMEExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -343,10 +346,14 @@ public class RouteDMETimeSliceType
         setSatisfactory(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "satisfactory"), RouteDMETimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = DMEPropertyType.class, cascade = {
+    @OneToOne(targetEntity = DMEPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "referenceddme_id", referencedColumnName = "hjid")
+    @JoinTable(name = "routedme_t_referenceddme_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "routedme_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "referenceddme_hjid", referencedColumnName = "hjid")
+    })
     public DMEPropertyType getReferencedDMEItem() {
         return XmlAdapterUtils.unmarshallSource(DMEPropertyType.class, this.getReferencedDME());
     }
@@ -355,10 +362,14 @@ public class RouteDMETimeSliceType
         setReferencedDME(XmlAdapterUtils.marshallJAXBElement(DMEPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "referencedDME"), RouteDMETimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = RoutePortionPropertyType.class, cascade = {
+    @OneToOne(targetEntity = RoutePortionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "applicablerouteportion_id", referencedColumnName = "hjid")
+    @JoinTable(name = "routedme_t_applicablerouteportion_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "routedme_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "applicablerouteportion_hjid", referencedColumnName = "hjid")
+    })
     public RoutePortionPropertyType getApplicableRoutePortionItem() {
         return XmlAdapterUtils.unmarshallSource(RoutePortionPropertyType.class, this.getApplicableRoutePortion());
     }
@@ -393,32 +404,6 @@ public class RouteDMETimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSatisfactory();
-            boolean rhsFieldIsSet = that.isSetSatisfactory();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getSatisfactory();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getSatisfactory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satisfactory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satisfactory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetReferencedDME();
             boolean rhsFieldIsSet = that.isSetReferencedDME();
             JAXBElement<DMEPropertyType> lhsField;
@@ -432,6 +417,19 @@ public class RouteDMETimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSatisfactory();
+            boolean rhsFieldIsSet = that.isSetSatisfactory();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getSatisfactory();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getSatisfactory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satisfactory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satisfactory", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCriticalDME();
             boolean rhsFieldIsSet = that.isSetCriticalDME();
             JAXBElement<CodeYesNoType> lhsField;
@@ -440,6 +438,19 @@ public class RouteDMETimeSliceType
             rhsField = that.getCriticalDME();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalDME", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalDME", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

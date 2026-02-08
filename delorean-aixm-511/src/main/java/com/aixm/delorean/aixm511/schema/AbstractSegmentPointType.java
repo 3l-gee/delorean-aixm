@@ -40,7 +40,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     TerminalSegmentPointType.class
 })
 @Entity(name = "AbstractSegmentPointType")
-@Table(name = "abstractsegmentpoint", schema = "public")
+@Table(name = "abstractsegmentpoint_o", schema = "public")
 public class AbstractSegmentPointType
     extends AbstractAIXMObjectType
     implements Serializable

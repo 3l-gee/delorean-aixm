@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "landingTakeoffAreaCollection"
 })
 @Entity(name = "LandingTakeoffAreaCollectionPropertyType")
-@Table(name = "landingtakeoffareacollection_pt", schema = "procedure")
+@Table(name = "landingtakeoffareacollection_p", schema = "procedure")
 public class LandingTakeoffAreaCollectionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class LandingTakeoffAreaCollectionPropertyType
     @OneToOne(targetEntity = LandingTakeoffAreaCollectionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "landingtakeoffareacollection_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "landingtakeoffareacollection_hjid", referencedColumnName = "hjid")
     public LandingTakeoffAreaCollectionType getLandingTakeoffAreaCollection() {
         return landingTakeoffAreaCollection;
     }

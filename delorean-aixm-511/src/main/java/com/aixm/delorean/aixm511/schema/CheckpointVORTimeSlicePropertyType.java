@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "CheckpointVORTimeSlicePropertyType", propOrder = {
     "checkpointVORTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "CheckpointVORTimeSlicePropertyType")
-@Table(name = "checkpointvor_tsp", schema = "navaids_point")
+@Table(name = "checkpointvor_tp", schema = "navaids_point")
 public class CheckpointVORTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class CheckpointVORTimeSlicePropertyType implements Serializable, Equals,
     @OneToOne(targetEntity = CheckpointVORTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "checkpointvortimeslice_hjid", referencedColumnName = "hjid")
     public CheckpointVORTimeSliceType getCheckpointVORTimeSlice() {
         return checkpointVORTimeSlice;
     }
@@ -230,19 +230,6 @@ public class CheckpointVORTimeSlicePropertyType implements Serializable, Equals,
         }
         final CheckpointVORTimeSlicePropertyType that = ((CheckpointVORTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCheckpointVORTimeSlice();
             boolean rhsFieldIsSet = that.isSetCheckpointVORTimeSlice();
             CheckpointVORTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class CheckpointVORTimeSlicePropertyType implements Serializable, Equals,
             rhsField = that.getCheckpointVORTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "checkpointVORTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "checkpointVORTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

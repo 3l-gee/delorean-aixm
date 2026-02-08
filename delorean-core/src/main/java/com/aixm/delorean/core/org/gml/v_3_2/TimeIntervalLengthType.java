@@ -189,14 +189,14 @@ public class TimeIntervalLengthType implements Serializable, Equals, HashCode, T
         }
         final TimeIntervalLengthType that = ((TimeIntervalLengthType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFactor();
-            boolean rhsFieldIsSet = that.isSetFactor();
+            boolean lhsFieldIsSet = this.isSetRadix();
+            boolean rhsFieldIsSet = that.isSetRadix();
             BigInteger lhsField;
-            lhsField = this.getFactor();
+            lhsField = this.getRadix();
             BigInteger rhsField;
-            rhsField = that.getFactor();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "factor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "factor", rhsField);
+            rhsField = that.getRadix();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radix", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radix", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -215,14 +215,14 @@ public class TimeIntervalLengthType implements Serializable, Equals, HashCode, T
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRadix();
-            boolean rhsFieldIsSet = that.isSetRadix();
+            boolean lhsFieldIsSet = this.isSetFactor();
+            boolean rhsFieldIsSet = that.isSetFactor();
             BigInteger lhsField;
-            lhsField = this.getRadix();
+            lhsField = this.getFactor();
             BigInteger rhsField;
-            rhsField = that.getRadix();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radix", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radix", rhsField);
+            rhsField = that.getFactor();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "factor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "factor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

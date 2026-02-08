@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "approachDistanceTable"
 })
 @Entity(name = "ApproachDistanceTablePropertyType")
-@Table(name = "approachdistancetable_pt", schema = "procedure")
+@Table(name = "approachdistancetable_p", schema = "procedure")
 public class ApproachDistanceTablePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ApproachDistanceTablePropertyType
     @OneToOne(targetEntity = ApproachDistanceTableType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "approachdistancetable_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "approachdistancetable_hjid", referencedColumnName = "hjid")
     public ApproachDistanceTableType getApproachDistanceTable() {
         return approachDistanceTable;
     }

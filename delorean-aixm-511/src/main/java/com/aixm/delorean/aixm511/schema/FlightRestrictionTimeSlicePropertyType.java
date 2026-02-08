@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "FlightRestrictionTimeSlicePropertyType", propOrder = {
     "flightRestrictionTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "FlightRestrictionTimeSlicePropertyType")
-@Table(name = "flightrestriction_tsp", schema = "route")
+@Table(name = "flightrestriction_tp", schema = "route")
 public class FlightRestrictionTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class FlightRestrictionTimeSlicePropertyType implements Serializable, Equ
     @OneToOne(targetEntity = FlightRestrictionTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "flightrestrictiontimeslice_hjid", referencedColumnName = "hjid")
     public FlightRestrictionTimeSliceType getFlightRestrictionTimeSlice() {
         return flightRestrictionTimeSlice;
     }

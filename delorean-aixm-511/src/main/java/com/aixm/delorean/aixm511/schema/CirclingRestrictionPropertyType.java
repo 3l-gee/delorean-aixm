@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "circlingRestriction"
 })
 @Entity(name = "CirclingRestrictionPropertyType")
-@Table(name = "circlingrestriction_pt", schema = "procedure")
+@Table(name = "circlingrestriction_p", schema = "procedure")
 public class CirclingRestrictionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class CirclingRestrictionPropertyType
     @OneToOne(targetEntity = CirclingRestrictionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "circlingrestriction_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "circlingrestriction_hjid", referencedColumnName = "hjid")
     public CirclingRestrictionType getCirclingRestriction() {
         return circlingRestriction;
     }

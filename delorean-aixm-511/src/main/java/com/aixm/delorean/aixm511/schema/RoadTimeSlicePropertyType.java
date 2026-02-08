@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RoadTimeSlicePropertyType", propOrder = {
     "roadTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "RoadTimeSlicePropertyType")
-@Table(name = "road_tsp", schema = "airport_heliport")
+@Table(name = "road_tp", schema = "airport_heliport")
 public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = RoadTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "roadtimeslice_hjid", referencedColumnName = "hjid")
     public RoadTimeSliceType getRoadTimeSlice() {
         return roadTimeSlice;
     }
@@ -230,19 +230,6 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
         }
         final RoadTimeSlicePropertyType that = ((RoadTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRoadTimeSlice();
-            boolean rhsFieldIsSet = that.isSetRoadTimeSlice();
-            RoadTimeSliceType lhsField;
-            lhsField = this.getRoadTimeSlice();
-            RoadTimeSliceType rhsField;
-            rhsField = that.getRoadTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roadTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roadTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -251,6 +238,19 @@ public class RoadTimeSlicePropertyType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRoadTimeSlice();
+            boolean rhsFieldIsSet = that.isSetRoadTimeSlice();
+            RoadTimeSliceType lhsField;
+            lhsField = this.getRoadTimeSlice();
+            RoadTimeSliceType rhsField;
+            rhsField = that.getRoadTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roadTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roadTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

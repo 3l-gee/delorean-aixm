@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractNavaidEquipmentExtension"
 })
 @Entity(name = "AzimuthExtensionType")
-@Table(name = "azimuth_ext", schema = "navaids_point")
+@Table(name = "azimuth_e", schema = "navaids_point")
 public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToS
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractazimuthextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractazimuthextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAzimuthExtension() {
         return abstractAzimuthExtension;
     }
@@ -123,7 +123,7 @@ public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToS
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipmentextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }
@@ -260,6 +260,19 @@ public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToS
         }
         final AzimuthExtensionType that = ((AzimuthExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractAzimuthExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAzimuthExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAzimuthExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAzimuthExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAzimuthExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAzimuthExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
@@ -281,19 +294,6 @@ public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToS
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractAzimuthExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAzimuthExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAzimuthExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAzimuthExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAzimuthExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAzimuthExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "finalProfile"
 })
 @Entity(name = "FinalProfilePropertyType")
-@Table(name = "finalprofile_pt", schema = "procedure")
+@Table(name = "finalprofile_p", schema = "procedure")
 public class FinalProfilePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class FinalProfilePropertyType
     @OneToOne(targetEntity = FinalProfileType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "finalprofile_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "finalprofile_hjid", referencedColumnName = "hjid")
     public FinalProfileType getFinalProfile() {
         return finalProfile;
     }

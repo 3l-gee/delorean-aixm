@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,10 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}AirportHeliportCollocationPropertyGroup"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeAirportHeliportCollocationType" minOccurs="0"/>
+ *         <element name="hostAirport" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *         <element name="dependentAirport" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -73,7 +75,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "AirportHeliportCollocationTimeSliceType")
-@Table(name = "airportheliportcollocation_ts", schema = "airport_heliport")
+@Table(name = "airportheliportcollocation_t", schema = "airport_heliport")
 public class AirportHeliportCollocationTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -202,13 +204,13 @@ public class AirportHeliportCollocationTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_airportheliportcollocation_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "airportheliportcollocation_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airportheliportcollocation_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "airportheliportcollocationpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -259,7 +261,7 @@ public class AirportHeliportCollocationTimeSliceType
     @OneToMany(targetEntity = AirportHeliportCollocationExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIRPORT_HELIPORT_C_0")
+    @JoinColumn(name = "airportheliportcollocation_e_hjid", referencedColumnName = "hjid")
     public List<AirportHeliportCollocationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -297,10 +299,14 @@ public class AirportHeliportCollocationTimeSliceType
         setType(XmlAdapterUtils.marshallJAXBElement(CodeAirportHeliportCollocationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), AirportHeliportCollocationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "hostairport_id", referencedColumnName = "hjid")
+    @JoinTable(name = "airportheliportcollocation_t_hostairport_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airportheliportcollocation_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "hostairport_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getHostAirportItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getHostAirport());
     }
@@ -309,10 +315,14 @@ public class AirportHeliportCollocationTimeSliceType
         setHostAirport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "hostAirport"), AirportHeliportCollocationTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "dependentairport_id", referencedColumnName = "hjid")
+    @JoinTable(name = "airportheliportcollocation_t_dependentairport_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "airportheliportcollocation_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "dependentairport_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getDependentAirportItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getDependentAirport());
     }
@@ -334,14 +344,14 @@ public class AirportHeliportCollocationTimeSliceType
         }
         final AirportHeliportCollocationTimeSliceType that = ((AirportHeliportCollocationTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDependentAirport();
-            boolean rhsFieldIsSet = that.isSetDependentAirport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getDependentAirport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getDependentAirport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependentAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependentAirport", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirportHeliportCollocationExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AirportHeliportCollocationExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -360,14 +370,14 @@ public class AirportHeliportCollocationTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirportHeliportCollocationExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AirportHeliportCollocationExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetHostAirport();
+            boolean rhsFieldIsSet = that.isSetHostAirport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getHostAirport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getHostAirport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostAirport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -386,14 +396,14 @@ public class AirportHeliportCollocationTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHostAirport();
-            boolean rhsFieldIsSet = that.isSetHostAirport();
+            boolean lhsFieldIsSet = this.isSetDependentAirport();
+            boolean rhsFieldIsSet = that.isSetDependentAirport();
             JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getHostAirport();
+            lhsField = this.getDependentAirport();
             JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getHostAirport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostAirport", rhsField);
+            rhsField = that.getDependentAirport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependentAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependentAirport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

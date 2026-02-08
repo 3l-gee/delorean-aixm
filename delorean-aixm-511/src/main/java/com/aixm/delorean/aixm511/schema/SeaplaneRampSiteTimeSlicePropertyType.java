@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SeaplaneRampSiteTimeSlicePropertyType", propOrder = {
     "seaplaneRampSiteTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "SeaplaneRampSiteTimeSlicePropertyType")
-@Table(name = "seaplanerampsite_tsp", schema = "airport_heliport")
+@Table(name = "seaplanerampsite_tp", schema = "airport_heliport")
 public class SeaplaneRampSiteTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class SeaplaneRampSiteTimeSlicePropertyType implements Serializable, Equa
     @OneToOne(targetEntity = SeaplaneRampSiteTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "seaplanerampsitetimeslice_hjid", referencedColumnName = "hjid")
     public SeaplaneRampSiteTimeSliceType getSeaplaneRampSiteTimeSlice() {
         return seaplaneRampSiteTimeSlice;
     }
@@ -230,19 +230,6 @@ public class SeaplaneRampSiteTimeSlicePropertyType implements Serializable, Equa
         }
         final SeaplaneRampSiteTimeSlicePropertyType that = ((SeaplaneRampSiteTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSeaplaneRampSiteTimeSlice();
             boolean rhsFieldIsSet = that.isSetSeaplaneRampSiteTimeSlice();
             SeaplaneRampSiteTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class SeaplaneRampSiteTimeSlicePropertyType implements Serializable, Equa
             rhsField = that.getSeaplaneRampSiteTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seaplaneRampSiteTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seaplaneRampSiteTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

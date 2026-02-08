@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "routePortion"
 })
 @Entity(name = "RoutePortionPropertyType")
-@Table(name = "routeportion_pt", schema = "route")
+@Table(name = "routeportion_p", schema = "route")
 public class RoutePortionPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class RoutePortionPropertyType
     @OneToOne(targetEntity = RoutePortionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "routeportion_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "routeportion_hjid", referencedColumnName = "hjid")
     public RoutePortionType getRoutePortion() {
         return routePortion;
     }

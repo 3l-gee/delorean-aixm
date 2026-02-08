@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,27 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}VerticalStructurePropertyGroup"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalStructureType" minOccurs="0"/>
+ *         <element name="lighted" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="markingICAOStandard" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="group" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="length" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="width" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="radius" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="lightingICAOStandard" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="synchronisedLighting" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="marker" type="{http://www.aixm.aero/schema/5.1.1}MarkerBeaconPropertyType" minOccurs="0"/>
+ *         <element name="part" type="{http://www.aixm.aero/schema/5.1.1}VerticalStructurePartPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="hostedPassengerService" type="{http://www.aixm.aero/schema/5.1.1}PassengerServicePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="supportedGroundLight" type="{http://www.aixm.aero/schema/5.1.1}GroundLightSystemPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="hostedNavaidEquipment" type="{http://www.aixm.aero/schema/5.1.1}NavaidEquipmentPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="hostedSpecialNavStation" type="{http://www.aixm.aero/schema/5.1.1}SpecialNavigationStationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="hostedUnit" type="{http://www.aixm.aero/schema/5.1.1}UnitPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="hostedOrganisation" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="supportedService" type="{http://www.aixm.aero/schema/5.1.1}ServicePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="lightingAvailability" type="{http://www.aixm.aero/schema/5.1.1}VerticalStructureLightingStatusPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -90,7 +109,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "VerticalStructureTimeSliceType")
-@Table(name = "verticalstructure_ts", schema = "obstacle")
+@Table(name = "verticalstructure_t", schema = "obstacle")
 public class VerticalStructureTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -493,13 +512,13 @@ public class VerticalStructureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = VerticalStructurePartPropertyType.class, cascade = {
+    @OneToMany(targetEntity = VerticalStructurePartPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "part_verticalstructure_link", schema = "obstacle", joinColumns = {
-        @JoinColumn(name = "part", referencedColumnName = "hjid")
+    @JoinTable(name = "verticalstructure_t_part_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "verticalstructurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "part_hjid", referencedColumnName = "hjid")
     })
     public List<VerticalStructurePartPropertyType> getPart() {
         if (part == null) {
@@ -547,13 +566,13 @@ public class VerticalStructureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = PassengerServicePropertyType.class, cascade = {
+    @OneToMany(targetEntity = PassengerServicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "hostedpassengerservice_verticalstructure_link", schema = "obstacle", joinColumns = {
-        @JoinColumn(name = "hostedpassengerservice", referencedColumnName = "hjid")
+    @JoinTable(name = "verticalstructure_t_hostedpassengerservice_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "verticalstructurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "hostedpassengerservice_hjid", referencedColumnName = "hjid")
     })
     public List<PassengerServicePropertyType> getHostedPassengerService() {
         if (hostedPassengerService == null) {
@@ -601,13 +620,13 @@ public class VerticalStructureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = GroundLightSystemPropertyType.class, cascade = {
+    @OneToMany(targetEntity = GroundLightSystemPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "supportedgroundlight_verticalstructure_link", schema = "obstacle", joinColumns = {
-        @JoinColumn(name = "supportedgroundlight", referencedColumnName = "hjid")
+    @JoinTable(name = "verticalstructure_t_supportedgroundlight_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "verticalstructurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "supportedgroundlight_hjid", referencedColumnName = "hjid")
     })
     public List<GroundLightSystemPropertyType> getSupportedGroundLight() {
         if (supportedGroundLight == null) {
@@ -655,13 +674,13 @@ public class VerticalStructureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NavaidEquipmentPropertyType.class, cascade = {
+    @OneToMany(targetEntity = NavaidEquipmentPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "hostednavaidequipment_verticalstructure_link", schema = "obstacle", joinColumns = {
-        @JoinColumn(name = "hostednavaidequipment", referencedColumnName = "hjid")
+    @JoinTable(name = "verticalstructure_t_hostednavaidequipment_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "verticalstructurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "hostednavaidequipment_hjid", referencedColumnName = "hjid")
     })
     public List<NavaidEquipmentPropertyType> getHostedNavaidEquipment() {
         if (hostedNavaidEquipment == null) {
@@ -709,13 +728,13 @@ public class VerticalStructureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = SpecialNavigationStationPropertyType.class, cascade = {
+    @OneToMany(targetEntity = SpecialNavigationStationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "hostedspecialnavstation_verticalstructure_link", schema = "obstacle", joinColumns = {
-        @JoinColumn(name = "hostedspecialnavstation", referencedColumnName = "hjid")
+    @JoinTable(name = "verticalstructure_t_hostedspecialnavstation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "verticalstructurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "hostedspecialnavstation_hjid", referencedColumnName = "hjid")
     })
     public List<SpecialNavigationStationPropertyType> getHostedSpecialNavStation() {
         if (hostedSpecialNavStation == null) {
@@ -763,13 +782,13 @@ public class VerticalStructureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = UnitPropertyType.class, cascade = {
+    @OneToMany(targetEntity = UnitPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "hostedunit_verticalstructure_link", schema = "obstacle", joinColumns = {
-        @JoinColumn(name = "hostedunit", referencedColumnName = "hjid")
+    @JoinTable(name = "verticalstructure_t_hostedunit_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "verticalstructurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "hostedunit_hjid", referencedColumnName = "hjid")
     })
     public List<UnitPropertyType> getHostedUnit() {
         if (hostedUnit == null) {
@@ -817,13 +836,13 @@ public class VerticalStructureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "hostedorganisation_verticalstructure_link", schema = "obstacle", joinColumns = {
-        @JoinColumn(name = "hostedorganisation", referencedColumnName = "hjid")
+    @JoinTable(name = "verticalstructure_t_hostedorganisation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "verticalstructurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "hostedorganisation_hjid", referencedColumnName = "hjid")
     })
     public List<OrganisationAuthorityPropertyType> getHostedOrganisation() {
         if (hostedOrganisation == null) {
@@ -871,13 +890,13 @@ public class VerticalStructureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = ServicePropertyType.class, cascade = {
+    @OneToMany(targetEntity = ServicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "supportedservice_verticalstructure_link", schema = "obstacle", joinColumns = {
-        @JoinColumn(name = "supportedservice", referencedColumnName = "hjid")
+    @JoinTable(name = "verticalstructure_t_supportedservice_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "verticalstructurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "supportedservice_hjid", referencedColumnName = "hjid")
     })
     public List<ServicePropertyType> getSupportedService() {
         if (supportedService == null) {
@@ -925,13 +944,13 @@ public class VerticalStructureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_verticalstructure_link", schema = "obstacle", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "verticalstructure_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "verticalstructurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -979,13 +998,13 @@ public class VerticalStructureTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = VerticalStructureLightingStatusPropertyType.class, cascade = {
+    @OneToMany(targetEntity = VerticalStructureLightingStatusPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "lightingavailability_verticalstructure_link", schema = "obstacle", joinColumns = {
-        @JoinColumn(name = "lightingavailability", referencedColumnName = "hjid")
+    @JoinTable(name = "verticalstructure_t_lightingavailability_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "verticalstructurepropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "lightingavailability_hjid", referencedColumnName = "hjid")
     })
     public List<VerticalStructureLightingStatusPropertyType> getLightingAvailability() {
         if (lightingAvailability == null) {
@@ -1036,7 +1055,7 @@ public class VerticalStructureTimeSliceType
     @OneToMany(targetEntity = VerticalStructureExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_VERTICAL_STRUCTURE_0")
+    @JoinColumn(name = "verticalstructure_e_hjid", referencedColumnName = "hjid")
     public List<VerticalStructureExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -1063,7 +1082,7 @@ public class VerticalStructureTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
+        @AttributeOverride(name = "value", column = @Column(name = "name")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "name_nilreason"))
     })
     public TextNameType getAixmNameItem() {
@@ -1128,7 +1147,7 @@ public class VerticalStructureTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "length", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "length")),
         @AttributeOverride(name = "uom", column = @Column(name = "length_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "length_nilreason"))
     })
@@ -1142,7 +1161,7 @@ public class VerticalStructureTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "width", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "width")),
         @AttributeOverride(name = "uom", column = @Column(name = "width_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "width_nilreason"))
     })
@@ -1156,7 +1175,7 @@ public class VerticalStructureTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "radius", columnDefinition = "NUMERIC")),
+        @AttributeOverride(name = "value", column = @Column(name = "radius")),
         @AttributeOverride(name = "uom", column = @Column(name = "radius_uom")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "radius_nilreason"))
     })
@@ -1194,10 +1213,14 @@ public class VerticalStructureTimeSliceType
         setSynchronisedLighting(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "synchronisedLighting"), VerticalStructureTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = MarkerBeaconPropertyType.class, cascade = {
+    @OneToOne(targetEntity = MarkerBeaconPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "marker_id", referencedColumnName = "hjid")
+    @JoinTable(name = "verticalstructure_t_marker_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "verticalstructure_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "marker_hjid", referencedColumnName = "hjid")
+    })
     public MarkerBeaconPropertyType getMarkerItem() {
         return XmlAdapterUtils.unmarshallSource(MarkerBeaconPropertyType.class, this.getMarker());
     }
@@ -1219,14 +1242,40 @@ public class VerticalStructureTimeSliceType
         }
         final VerticalStructureTimeSliceType that = ((VerticalStructureTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetWidth();
-            boolean rhsFieldIsSet = that.isSetWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
+            boolean lhsFieldIsSet = this.isSetSynchronisedLighting();
+            boolean rhsFieldIsSet = that.isSetSynchronisedLighting();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getSynchronisedLighting();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getSynchronisedLighting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "synchronisedLighting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "synchronisedLighting", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPart();
+            boolean rhsFieldIsSet = that.isSetPart();
+            List<VerticalStructurePartPropertyType> lhsField;
+            lhsField = (this.isSetPart()?this.getPart():null);
+            List<VerticalStructurePartPropertyType> rhsField;
+            rhsField = (that.isSetPart()?that.getPart():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "part", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "part", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarker();
+            boolean rhsFieldIsSet = that.isSetMarker();
+            JAXBElement<MarkerBeaconPropertyType> lhsField;
+            lhsField = this.getMarker();
+            JAXBElement<MarkerBeaconPropertyType> rhsField;
+            rhsField = that.getMarker();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "marker", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "marker", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1258,105 +1307,27 @@ public class VerticalStructureTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMarkingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            boolean lhsFieldIsSet = this.isSetWidth();
+            boolean rhsFieldIsSet = that.isSetWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGroup();
-            boolean rhsFieldIsSet = that.isSetGroup();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getGroup();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getGroup();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHostedUnit();
-            boolean rhsFieldIsSet = that.isSetHostedUnit();
-            List<UnitPropertyType> lhsField;
-            lhsField = (this.isSetHostedUnit()?this.getHostedUnit():null);
-            List<UnitPropertyType> rhsField;
-            rhsField = (that.isSetHostedUnit()?that.getHostedUnit():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedUnit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLightingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetLightingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLightingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLightingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightingICAOStandard", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHostedOrganisation();
-            boolean rhsFieldIsSet = that.isSetHostedOrganisation();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetHostedOrganisation()?this.getHostedOrganisation():null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetHostedOrganisation()?that.getHostedOrganisation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedOrganisation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedOrganisation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLighted();
-            boolean rhsFieldIsSet = that.isSetLighted();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLighted();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLighted();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighted", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighted", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeVerticalStructureType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeVerticalStructureType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHostedNavaidEquipment();
-            boolean rhsFieldIsSet = that.isSetHostedNavaidEquipment();
-            List<NavaidEquipmentPropertyType> lhsField;
-            lhsField = (this.isSetHostedNavaidEquipment()?this.getHostedNavaidEquipment():null);
-            List<NavaidEquipmentPropertyType> rhsField;
-            rhsField = (that.isSetHostedNavaidEquipment()?that.getHostedNavaidEquipment():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedNavaidEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedNavaidEquipment", rhsField);
+            boolean lhsFieldIsSet = this.isSetHostedSpecialNavStation();
+            boolean rhsFieldIsSet = that.isSetHostedSpecialNavStation();
+            List<SpecialNavigationStationPropertyType> lhsField;
+            lhsField = (this.isSetHostedSpecialNavStation()?this.getHostedSpecialNavStation():null);
+            List<SpecialNavigationStationPropertyType> rhsField;
+            rhsField = (that.isSetHostedSpecialNavStation()?that.getHostedSpecialNavStation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedSpecialNavStation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedSpecialNavStation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1375,40 +1346,14 @@ public class VerticalStructureTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<VerticalStructureExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<VerticalStructureExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPart();
-            boolean rhsFieldIsSet = that.isSetPart();
-            List<VerticalStructurePartPropertyType> lhsField;
-            lhsField = (this.isSetPart()?this.getPart():null);
-            List<VerticalStructurePartPropertyType> rhsField;
-            rhsField = (that.isSetPart()?that.getPart():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "part", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "part", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLength();
-            boolean rhsFieldIsSet = that.isSetLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
+            boolean lhsFieldIsSet = this.isSetSupportedService();
+            boolean rhsFieldIsSet = that.isSetSupportedService();
+            List<ServicePropertyType> lhsField;
+            lhsField = (this.isSetSupportedService()?this.getSupportedService():null);
+            List<ServicePropertyType> rhsField;
+            rhsField = (that.isSetSupportedService()?that.getSupportedService():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supportedService", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supportedService", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1427,27 +1372,40 @@ public class VerticalStructureTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSynchronisedLighting();
-            boolean rhsFieldIsSet = that.isSetSynchronisedLighting();
+            boolean lhsFieldIsSet = this.isSetLightingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetLightingICAOStandard();
             JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getSynchronisedLighting();
+            lhsField = this.getLightingICAOStandard();
             JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getSynchronisedLighting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "synchronisedLighting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "synchronisedLighting", rhsField);
+            rhsField = that.getLightingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightingICAOStandard", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSupportedService();
-            boolean rhsFieldIsSet = that.isSetSupportedService();
-            List<ServicePropertyType> lhsField;
-            lhsField = (this.isSetSupportedService()?this.getSupportedService():null);
-            List<ServicePropertyType> rhsField;
-            rhsField = (that.isSetSupportedService()?that.getSupportedService():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supportedService", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supportedService", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<VerticalStructureExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<VerticalStructureExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLighted();
+            boolean rhsFieldIsSet = that.isSetLighted();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getLighted();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getLighted();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighted", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighted", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1479,27 +1437,92 @@ public class VerticalStructureTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHostedSpecialNavStation();
-            boolean rhsFieldIsSet = that.isSetHostedSpecialNavStation();
-            List<SpecialNavigationStationPropertyType> lhsField;
-            lhsField = (this.isSetHostedSpecialNavStation()?this.getHostedSpecialNavStation():null);
-            List<SpecialNavigationStationPropertyType> rhsField;
-            rhsField = (that.isSetHostedSpecialNavStation()?that.getHostedSpecialNavStation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedSpecialNavStation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedSpecialNavStation", rhsField);
+            boolean lhsFieldIsSet = this.isSetHostedNavaidEquipment();
+            boolean rhsFieldIsSet = that.isSetHostedNavaidEquipment();
+            List<NavaidEquipmentPropertyType> lhsField;
+            lhsField = (this.isSetHostedNavaidEquipment()?this.getHostedNavaidEquipment():null);
+            List<NavaidEquipmentPropertyType> rhsField;
+            rhsField = (that.isSetHostedNavaidEquipment()?that.getHostedNavaidEquipment():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedNavaidEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedNavaidEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarker();
-            boolean rhsFieldIsSet = that.isSetMarker();
-            JAXBElement<MarkerBeaconPropertyType> lhsField;
-            lhsField = this.getMarker();
-            JAXBElement<MarkerBeaconPropertyType> rhsField;
-            rhsField = that.getMarker();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "marker", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "marker", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeVerticalStructureType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeVerticalStructureType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHostedUnit();
+            boolean rhsFieldIsSet = that.isSetHostedUnit();
+            List<UnitPropertyType> lhsField;
+            lhsField = (this.isSetHostedUnit()?this.getHostedUnit():null);
+            List<UnitPropertyType> rhsField;
+            rhsField = (that.isSetHostedUnit()?that.getHostedUnit():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedUnit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHostedOrganisation();
+            boolean rhsFieldIsSet = that.isSetHostedOrganisation();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetHostedOrganisation()?this.getHostedOrganisation():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetHostedOrganisation()?that.getHostedOrganisation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedOrganisation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedOrganisation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLength();
+            boolean rhsFieldIsSet = that.isSetLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMarkingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGroup();
+            boolean rhsFieldIsSet = that.isSetGroup();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getGroup();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getGroup();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

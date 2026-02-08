@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractConditionCombinationExtension"
 })
 @Entity(name = "ConditionCombinationTypeExtensionType")
-@Table(name = "conditioncombination_ext", schema = "airport_heliport")
+@Table(name = "conditioncombination_e", schema = "airport_heliport")
 public class ConditionCombinationTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class ConditionCombinationTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class ConditionCombinationTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractconditioncombinationextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractconditioncombinationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractConditionCombinationExtension() {
         return abstractConditionCombinationExtension;
     }
@@ -273,19 +273,6 @@ public class ConditionCombinationTypeExtensionType implements Serializable, Equa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractConditionCombinationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractConditionCombinationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractConditionCombinationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractConditionCombinationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractConditionCombinationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractConditionCombinationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class ConditionCombinationTypeExtensionType implements Serializable, Equa
             rhsField = that.getAbstractPropertiesWithScheduleExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractConditionCombinationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractConditionCombinationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractConditionCombinationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractConditionCombinationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractConditionCombinationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractConditionCombinationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

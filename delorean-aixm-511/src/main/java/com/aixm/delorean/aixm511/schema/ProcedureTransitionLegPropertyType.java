@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "procedureTransitionLeg"
 })
 @Entity(name = "ProcedureTransitionLegPropertyType")
-@Table(name = "proceduretransitionleg_pt", schema = "procedure")
+@Table(name = "proceduretransitionleg_p", schema = "procedure")
 public class ProcedureTransitionLegPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class ProcedureTransitionLegPropertyType
     @OneToOne(targetEntity = ProcedureTransitionLegType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "proceduretransitionleg_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "proceduretransitionleg_hjid", referencedColumnName = "hjid")
     public ProcedureTransitionLegType getProcedureTransitionLeg() {
         return procedureTransitionLeg;
     }

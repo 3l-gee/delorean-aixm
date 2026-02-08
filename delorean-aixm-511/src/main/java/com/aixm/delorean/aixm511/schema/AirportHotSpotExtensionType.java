@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAirportHotSpotExtension"
 })
 @Entity(name = "AirportHotSpotExtensionType")
-@Table(name = "airporthotspot_ext", schema = "airport_heliport")
+@Table(name = "airporthotspot_e", schema = "airport_heliport")
 public class AirportHotSpotExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AirportHotSpotExtensionType implements Serializable, Equals, HashCo
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairporthotspotextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairporthotspotextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportHotSpotExtension() {
         return abstractAirportHotSpotExtension;
     }
@@ -223,19 +223,6 @@ public class AirportHotSpotExtensionType implements Serializable, Equals, HashCo
         }
         final AirportHotSpotExtensionType that = ((AirportHotSpotExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirportHotSpotExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirportHotSpotExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirportHotSpotExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirportHotSpotExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHotSpotExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHotSpotExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AirportHotSpotExtensionType implements Serializable, Equals, HashCo
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirportHotSpotExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirportHotSpotExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirportHotSpotExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirportHotSpotExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHotSpotExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHotSpotExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RunwayProtectAreaLightSystemTimeSlicePropertyType", propOrder = {
     "runwayProtectAreaLightSystemTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "RunwayProtectAreaLightSystemTimeSlicePropertyType")
-@Table(name = "runwayprotectarealightsystem_tsp", schema = "airport_heliport")
+@Table(name = "runwayprotectarealightsystem_tp", schema = "airport_heliport")
 public class RunwayProtectAreaLightSystemTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class RunwayProtectAreaLightSystemTimeSlicePropertyType implements Serial
     @OneToOne(targetEntity = RunwayProtectAreaLightSystemTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "runwayprotectarealightsystemtimeslice_hjid", referencedColumnName = "hjid")
     public RunwayProtectAreaLightSystemTimeSliceType getRunwayProtectAreaLightSystemTimeSlice() {
         return runwayProtectAreaLightSystemTimeSlice;
     }
@@ -230,19 +230,6 @@ public class RunwayProtectAreaLightSystemTimeSlicePropertyType implements Serial
         }
         final RunwayProtectAreaLightSystemTimeSlicePropertyType that = ((RunwayProtectAreaLightSystemTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRunwayProtectAreaLightSystemTimeSlice();
             boolean rhsFieldIsSet = that.isSetRunwayProtectAreaLightSystemTimeSlice();
             RunwayProtectAreaLightSystemTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class RunwayProtectAreaLightSystemTimeSlicePropertyType implements Serial
             rhsField = that.getRunwayProtectAreaLightSystemTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayProtectAreaLightSystemTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayProtectAreaLightSystemTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

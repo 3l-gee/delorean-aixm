@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "safeAltitudeAreaSector"
 })
 @Entity(name = "SafeAltitudeAreaSectorPropertyType")
-@Table(name = "safealtitudeareasector_pt", schema = "procedure")
+@Table(name = "safealtitudeareasector_p", schema = "procedure")
 public class SafeAltitudeAreaSectorPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class SafeAltitudeAreaSectorPropertyType
     @OneToOne(targetEntity = SafeAltitudeAreaSectorType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "safealtitudeareasector_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "safealtitudeareasector_hjid", referencedColumnName = "hjid")
     public SafeAltitudeAreaSectorType getSafeAltitudeAreaSector() {
         return safeAltitudeAreaSector;
     }

@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,11 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}NavaidComponentPropertyGroup"/>
+ *         <element name="collocationGroup" type="{http://www.aixm.aero/schema/5.1.1}NoSequenceType" minOccurs="0"/>
+ *         <element name="markerPosition" type="{http://www.aixm.aero/schema/5.1.1}CodePositionInILSType" minOccurs="0"/>
+ *         <element name="providesNavigableLocation" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="theNavaidEquipment" type="{http://www.aixm.aero/schema/5.1.1}NavaidEquipmentPropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -74,7 +77,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "NavaidComponentType")
-@Table(name = "navaidcomponent", schema = "navaids_point")
+@Table(name = "navaidcomponent_o", schema = "navaids_point")
 public class NavaidComponentType
     extends AbstractAIXMObjectType
     implements Serializable
@@ -204,13 +207,13 @@ public class NavaidComponentType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_navaidcomponent_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "navaidcomponent_o_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "navaidcomponent_o_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "navaidcomponentpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -244,10 +247,14 @@ public class NavaidComponentType
      *     {@link NavaidEquipmentPropertyType }
      *     
      */
-    @ManyToOne(targetEntity = NavaidEquipmentPropertyType.class, cascade = {
+    @OneToOne(targetEntity = NavaidEquipmentPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "thenavaidequipment_id", referencedColumnName = "hjid")
+    @JoinTable(name = "navaidcomponent_o_thenavaidequipment_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "navaidcomponent_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "thenavaidequipment_hjid", referencedColumnName = "hjid")
+    })
     public NavaidEquipmentPropertyType getTheNavaidEquipment() {
         return theNavaidEquipment;
     }
@@ -294,7 +301,7 @@ public class NavaidComponentType
     @OneToMany(targetEntity = NavaidComponentTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_NAVAID_COMPONENT_T_0")
+    @JoinColumn(name = "navaidcomponent_e_hjid", referencedColumnName = "hjid")
     public List<NavaidComponentTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -384,6 +391,32 @@ public class NavaidComponentType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCollocationGroup();
+            boolean rhsFieldIsSet = that.isSetCollocationGroup();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getCollocationGroup();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getCollocationGroup();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "collocationGroup", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "collocationGroup", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkerPosition();
+            boolean rhsFieldIsSet = that.isSetMarkerPosition();
+            JAXBElement<CodePositionInILSType> lhsField;
+            lhsField = this.getMarkerPosition();
+            JAXBElement<CodePositionInILSType> rhsField;
+            rhsField = that.getMarkerPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markerPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markerPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTheNavaidEquipment();
             boolean rhsFieldIsSet = that.isSetTheNavaidEquipment();
             NavaidEquipmentPropertyType lhsField;
@@ -418,32 +451,6 @@ public class NavaidComponentType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarkerPosition();
-            boolean rhsFieldIsSet = that.isSetMarkerPosition();
-            JAXBElement<CodePositionInILSType> lhsField;
-            lhsField = this.getMarkerPosition();
-            JAXBElement<CodePositionInILSType> rhsField;
-            rhsField = that.getMarkerPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markerPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markerPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCollocationGroup();
-            boolean rhsFieldIsSet = that.isSetCollocationGroup();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getCollocationGroup();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getCollocationGroup();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "collocationGroup", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "collocationGroup", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

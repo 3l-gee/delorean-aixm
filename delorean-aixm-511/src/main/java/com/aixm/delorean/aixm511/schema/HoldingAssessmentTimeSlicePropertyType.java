@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "HoldingAssessmentTimeSlicePropertyType", propOrder = {
     "holdingAssessmentTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "HoldingAssessmentTimeSlicePropertyType")
-@Table(name = "holdingassessment_tsp", schema = "shared")
+@Table(name = "holdingassessment_tp", schema = "shared")
 public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
     @OneToOne(targetEntity = HoldingAssessmentTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "holdingassessmenttimeslice_hjid", referencedColumnName = "hjid")
     public HoldingAssessmentTimeSliceType getHoldingAssessmentTimeSlice() {
         return holdingAssessmentTimeSlice;
     }
@@ -230,19 +230,6 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
         }
         final HoldingAssessmentTimeSlicePropertyType that = ((HoldingAssessmentTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetHoldingAssessmentTimeSlice();
             boolean rhsFieldIsSet = that.isSetHoldingAssessmentTimeSlice();
             HoldingAssessmentTimeSliceType lhsField;
@@ -251,6 +238,19 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
             rhsField = that.getHoldingAssessmentTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingAssessmentTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingAssessmentTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAerialRefuellingTrackExtension"
 })
 @Entity(name = "AerialRefuellingTrackTypeExtensionType")
-@Table(name = "aerialrefuellingtrack_ext", schema = "aerial_refuelling")
+@Table(name = "aerialrefuellingtrack_e", schema = "aerial_refuelling")
 public class AerialRefuellingTrackTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AerialRefuellingTrackTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaerialrefuellingtrackextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaerialrefuellingtrackextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAerialRefuellingTrackExtension() {
         return abstractAerialRefuellingTrackExtension;
     }
@@ -223,19 +223,6 @@ public class AerialRefuellingTrackTypeExtensionType implements Serializable, Equ
         }
         final AerialRefuellingTrackTypeExtensionType that = ((AerialRefuellingTrackTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractAerialRefuellingTrackExtension();
             boolean rhsFieldIsSet = that.isSetAbstractAerialRefuellingTrackExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class AerialRefuellingTrackTypeExtensionType implements Serializable, Equ
             rhsField = that.getAbstractAerialRefuellingTrackExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAerialRefuellingTrackExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAerialRefuellingTrackExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

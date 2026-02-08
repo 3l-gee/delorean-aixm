@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAirspaceVolumeDependencyExtension"
 })
 @Entity(name = "AirspaceVolumeDependencyTypeExtensionType")
-@Table(name = "airspacevolumedependency_ext", schema = "airspace")
+@Table(name = "airspacevolumedependency_e", schema = "airspace")
 public class AirspaceVolumeDependencyTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class AirspaceVolumeDependencyTypeExtensionType implements Serializable, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairspacevolumedependencyextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairspacevolumedependencyextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirspaceVolumeDependencyExtension() {
         return abstractAirspaceVolumeDependencyExtension;
     }

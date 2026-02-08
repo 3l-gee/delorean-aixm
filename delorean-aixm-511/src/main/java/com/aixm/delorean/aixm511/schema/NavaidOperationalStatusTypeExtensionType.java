@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractNavaidOperationalStatusExtension"
 })
 @Entity(name = "NavaidOperationalStatusTypeExtensionType")
-@Table(name = "navaidoperationalstatus_ext", schema = "navaids_point")
+@Table(name = "navaidoperationalstatus_e", schema = "navaids_point")
 public class NavaidOperationalStatusTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class NavaidOperationalStatusTypeExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class NavaidOperationalStatusTypeExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidoperationalstatusextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidoperationalstatusextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidOperationalStatusExtension() {
         return abstractNavaidOperationalStatusExtension;
     }
@@ -273,19 +273,6 @@ public class NavaidOperationalStatusTypeExtensionType implements Serializable, E
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidOperationalStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidOperationalStatusExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidOperationalStatusExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidOperationalStatusExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidOperationalStatusExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidOperationalStatusExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -294,6 +281,19 @@ public class NavaidOperationalStatusTypeExtensionType implements Serializable, E
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidOperationalStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidOperationalStatusExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavaidOperationalStatusExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavaidOperationalStatusExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidOperationalStatusExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidOperationalStatusExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

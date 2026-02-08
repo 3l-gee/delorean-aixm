@@ -138,19 +138,6 @@ public class RingType extends AbstractRingType implements Serializable {
         }
         final RingType that = ((RingType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCurveMember();
-            boolean rhsFieldIsSet = that.isSetCurveMember();
-            List<CurvePropertyType> lhsField;
-            lhsField = (this.isSetCurveMember() ? this.getCurveMember() : null);
-            List<CurvePropertyType> rhsField;
-            rhsField = (that.isSetCurveMember() ? that.getCurveMember() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveMember", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveMember", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAggregationType();
             boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
@@ -159,6 +146,19 @@ public class RingType extends AbstractRingType implements Serializable {
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCurveMember();
+            boolean rhsFieldIsSet = that.isSetCurveMember();
+            List<CurvePropertyType> lhsField;
+            lhsField = (this.isSetCurveMember() ? this.getCurveMember() : null);
+            List<CurvePropertyType> rhsField;
+            rhsField = (that.isSetCurveMember() ? that.getCurveMember() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveMember", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

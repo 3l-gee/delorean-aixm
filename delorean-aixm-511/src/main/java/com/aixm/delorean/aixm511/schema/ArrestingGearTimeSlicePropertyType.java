@@ -63,12 +63,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ArrestingGearTimeSlicePropertyType", propOrder = {
     "arrestingGearTimeSlice"
 })
-@FilterDef(name = "TSPHjidFilter", parameters = {
+@FilterDef(name = "TPHjidFilter", parameters = {
     @ParamDef(name = "ids", type = Long.class)
 })
-@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
+@Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "ArrestingGearTimeSlicePropertyType")
-@Table(name = "arrestinggear_tsp", schema = "airport_heliport")
+@Table(name = "arrestinggear_tp", schema = "airport_heliport")
 public class ArrestingGearTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -93,7 +93,7 @@ public class ArrestingGearTimeSlicePropertyType implements Serializable, Equals,
     @OneToOne(targetEntity = ArrestingGearTimeSliceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "arrestinggeartimeslice_hjid", referencedColumnName = "hjid")
     public ArrestingGearTimeSliceType getArrestingGearTimeSlice() {
         return arrestingGearTimeSlice;
     }

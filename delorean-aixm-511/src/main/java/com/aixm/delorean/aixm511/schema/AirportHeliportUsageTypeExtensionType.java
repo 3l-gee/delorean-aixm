@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractAirportHeliportUsageExtension"
 })
 @Entity(name = "AirportHeliportUsageTypeExtensionType")
-@Table(name = "airportheliportusage_ext", schema = "airport_heliport")
+@Table(name = "airportheliportusage_e", schema = "airport_heliport")
 public class AirportHeliportUsageTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class AirportHeliportUsageTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractusageconditionextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractusageconditionextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractUsageConditionExtension() {
         return abstractUsageConditionExtension;
     }
@@ -123,7 +123,7 @@ public class AirportHeliportUsageTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairportheliportusageextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairportheliportusageextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportHeliportUsageExtension() {
         return abstractAirportHeliportUsageExtension;
     }
@@ -260,19 +260,6 @@ public class AirportHeliportUsageTypeExtensionType implements Serializable, Equa
         }
         final AirportHeliportUsageTypeExtensionType that = ((AirportHeliportUsageTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirportHeliportUsageExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirportHeliportUsageExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirportHeliportUsageExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirportHeliportUsageExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHeliportUsageExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHeliportUsageExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -294,6 +281,19 @@ public class AirportHeliportUsageTypeExtensionType implements Serializable, Equa
             rhsField = that.getAbstractUsageConditionExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUsageConditionExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUsageConditionExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirportHeliportUsageExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirportHeliportUsageExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirportHeliportUsageExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirportHeliportUsageExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHeliportUsageExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHeliportUsageExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

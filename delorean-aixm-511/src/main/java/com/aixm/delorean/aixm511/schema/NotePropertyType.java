@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "note"
 })
 @Entity(name = "NotePropertyType")
-@Table(name = "note_pt", schema = "note")
+@Table(name = "note_p", schema = "note")
 public class NotePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class NotePropertyType
     @OneToOne(targetEntity = NoteType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "note_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "note_hjid", referencedColumnName = "hjid")
     public NoteType getNote() {
         return note;
     }

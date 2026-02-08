@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "specialNavigationStationStatus"
 })
 @Entity(name = "SpecialNavigationStationStatusPropertyType")
-@Table(name = "specialnavigationstationstatus_pt", schema = "navaids_point")
+@Table(name = "specialnavigationstationstatus_p", schema = "navaids_point")
 public class SpecialNavigationStationStatusPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class SpecialNavigationStationStatusPropertyType
     @OneToOne(targetEntity = SpecialNavigationStationStatusType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "specialnavigationstationstatus_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "specialnavigationstationstatus_hjid", referencedColumnName = "hjid")
     public SpecialNavigationStationStatusType getSpecialNavigationStationStatus() {
         return specialNavigationStationStatus;
     }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "navaidEquipmentMonitoring"
 })
 @Entity(name = "NavaidEquipmentMonitoringPropertyType")
-@Table(name = "navaidequipmentmonitoring_pt", schema = "navaids_point")
+@Table(name = "navaidequipmentmonitoring_p", schema = "navaids_point")
 public class NavaidEquipmentMonitoringPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class NavaidEquipmentMonitoringPropertyType
     @OneToOne(targetEntity = NavaidEquipmentMonitoringType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navaidequipmentmonitoring_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "navaidequipmentmonitoring_hjid", referencedColumnName = "hjid")
     public NavaidEquipmentMonitoringType getNavaidEquipmentMonitoring() {
         return navaidEquipmentMonitoring;
     }

@@ -61,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractSafeAltitudeAreaSectorExtension"
 })
 @Entity(name = "SafeAltitudeAreaSectorTypeExtensionType")
-@Table(name = "safealtitudeareasector_ext", schema = "procedure")
+@Table(name = "safealtitudeareasector_e", schema = "procedure")
 public class SafeAltitudeAreaSectorTypeExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -86,7 +86,7 @@ public class SafeAltitudeAreaSectorTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsafealtitudeareasectorextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsafealtitudeareasectorextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSafeAltitudeAreaSectorExtension() {
         return abstractSafeAltitudeAreaSectorExtension;
     }
@@ -223,19 +223,6 @@ public class SafeAltitudeAreaSectorTypeExtensionType implements Serializable, Eq
         }
         final SafeAltitudeAreaSectorTypeExtensionType that = ((SafeAltitudeAreaSectorTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSafeAltitudeAreaSectorExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSafeAltitudeAreaSectorExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSafeAltitudeAreaSectorExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSafeAltitudeAreaSectorExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSafeAltitudeAreaSectorExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSafeAltitudeAreaSectorExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class SafeAltitudeAreaSectorTypeExtensionType implements Serializable, Eq
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSafeAltitudeAreaSectorExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSafeAltitudeAreaSectorExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSafeAltitudeAreaSectorExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSafeAltitudeAreaSectorExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSafeAltitudeAreaSectorExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSafeAltitudeAreaSectorExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

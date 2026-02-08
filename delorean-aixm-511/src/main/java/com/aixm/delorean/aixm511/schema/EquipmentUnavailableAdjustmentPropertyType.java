@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "equipmentUnavailableAdjustment"
 })
 @Entity(name = "EquipmentUnavailableAdjustmentPropertyType")
-@Table(name = "equipmentunavailableadjustment_pt", schema = "procedure")
+@Table(name = "equipmentunavailableadjustment_p", schema = "procedure")
 public class EquipmentUnavailableAdjustmentPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class EquipmentUnavailableAdjustmentPropertyType
     @OneToOne(targetEntity = EquipmentUnavailableAdjustmentType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "equipmentunavailableadjustment_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "equipmentunavailableadjustment_hjid", referencedColumnName = "hjid")
     public EquipmentUnavailableAdjustmentType getEquipmentUnavailableAdjustment() {
         return equipmentUnavailableAdjustment;
     }

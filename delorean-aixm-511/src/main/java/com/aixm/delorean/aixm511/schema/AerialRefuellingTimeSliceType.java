@@ -14,9 +14,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -43,7 +42,27 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}AerialRefuellingPropertyGroup"/>
+ *         <element name="designatorPrefix" type="{http://www.aixm.aero/schema/5.1.1}CodeAerialRefuellingPrefixType" minOccurs="0"/>
+ *         <element name="designatorNumber" type="{http://www.aixm.aero/schema/5.1.1}NoNumberType" minOccurs="0"/>
+ *         <element name="designatorSuffix" type="{http://www.aixm.aero/schema/5.1.1}TextDesignatorType" minOccurs="0"/>
+ *         <element name="designatorDirection" type="{http://www.aixm.aero/schema/5.1.1}CodeCardinalDirectionType" minOccurs="0"/>
+ *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeAerialRefuellingType" minOccurs="0"/>
+ *         <element name="radarBeaconSetting" type="{http://www.aixm.aero/schema/5.1.1}NoNumberType" minOccurs="0"/>
+ *         <element name="xbandRadarSetting" type="{http://www.aixm.aero/schema/5.1.1}NoNumberType" minOccurs="0"/>
+ *         <element name="tankerChannel" type="{http://www.aixm.aero/schema/5.1.1}CodeTACANChannelType" minOccurs="0"/>
+ *         <element name="receiverChannel" type="{http://www.aixm.aero/schema/5.1.1}CodeTACANChannelType" minOccurs="0"/>
+ *         <element name="helicopterRoute" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="specialRefuelling" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="bidirectionalUse" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="reverseDirectionTurn" type="{http://www.aixm.aero/schema/5.1.1}CodeDirectionTurnType" minOccurs="0"/>
+ *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}RouteAvailabilityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="protectingAirspace" type="{http://www.aixm.aero/schema/5.1.1}AirspacePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="track" type="{http://www.aixm.aero/schema/5.1.1}AerialRefuellingTrackPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="anchor" type="{http://www.aixm.aero/schema/5.1.1}AerialRefuellingAnchorPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="oppositeTrack" type="{http://www.aixm.aero/schema/5.1.1}AerialRefuellingPropertyType" minOccurs="0"/>
+ *         <element name="managingOrganisation" type="{http://www.aixm.aero/schema/5.1.1}AuthorityForAerialRefuellingPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
@@ -90,7 +109,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "extension"
 })
 @Entity(name = "AerialRefuellingTimeSliceType")
-@Table(name = "aerialrefuelling_ts", schema = "aerial_refuelling")
+@Table(name = "aerialrefuelling_t", schema = "aerial_refuelling")
 public class AerialRefuellingTimeSliceType
     extends AbstractAIXMTimeSliceType
     implements Serializable
@@ -583,13 +602,13 @@ public class AerialRefuellingTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = RouteAvailabilityPropertyType.class, cascade = {
+    @OneToMany(targetEntity = RouteAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "availability_aerialrefuelling_link", schema = "aerial_refuelling", joinColumns = {
-        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    @JoinTable(name = "aerialrefuelling_t_availability_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "aerialrefuellingpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
     })
     public List<RouteAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
@@ -637,13 +656,13 @@ public class AerialRefuellingTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AirspacePropertyType.class, cascade = {
+    @OneToMany(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "protectingairspace_aerialrefuelling_link", schema = "aerial_refuelling", joinColumns = {
-        @JoinColumn(name = "protectingairspace", referencedColumnName = "hjid")
+    @JoinTable(name = "aerialrefuelling_t_protectingairspace_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "aerialrefuellingpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "protectingairspace_hjid", referencedColumnName = "hjid")
     })
     public List<AirspacePropertyType> getProtectingAirspace() {
         if (protectingAirspace == null) {
@@ -691,13 +710,13 @@ public class AerialRefuellingTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AerialRefuellingTrackPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AerialRefuellingTrackPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "track_aerialrefuelling_link", schema = "aerial_refuelling", joinColumns = {
-        @JoinColumn(name = "track", referencedColumnName = "hjid")
+    @JoinTable(name = "aerialrefuelling_t_track_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "aerialrefuellingpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "track_hjid", referencedColumnName = "hjid")
     })
     public List<AerialRefuellingTrackPropertyType> getTrack() {
         if (track == null) {
@@ -745,13 +764,13 @@ public class AerialRefuellingTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AerialRefuellingAnchorPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AerialRefuellingAnchorPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "anchor_aerialrefuelling_link", schema = "aerial_refuelling", joinColumns = {
-        @JoinColumn(name = "anchor", referencedColumnName = "hjid")
+    @JoinTable(name = "aerialrefuelling_t_anchor_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "aerialrefuellingpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "anchor_hjid", referencedColumnName = "hjid")
     })
     public List<AerialRefuellingAnchorPropertyType> getAnchor() {
         if (anchor == null) {
@@ -829,13 +848,13 @@ public class AerialRefuellingTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = AuthorityForAerialRefuellingPropertyType.class, cascade = {
+    @OneToMany(targetEntity = AuthorityForAerialRefuellingPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "managingorganisation_aerialrefuelling_link", schema = "aerial_refuelling", joinColumns = {
-        @JoinColumn(name = "managingorganisation", referencedColumnName = "hjid")
+    @JoinTable(name = "aerialrefuelling_t_managingorganisation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "aerialrefuellingpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "managingorganisation_hjid", referencedColumnName = "hjid")
     })
     public List<AuthorityForAerialRefuellingPropertyType> getManagingOrganisation() {
         if (managingOrganisation == null) {
@@ -883,13 +902,13 @@ public class AerialRefuellingTimeSliceType
      * 
      * 
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "annotation_aerialrefuelling_link", schema = "aerial_refuelling", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    @JoinTable(name = "aerialrefuelling_t_annotation_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
-        @JoinColumn(name = "aerialrefuellingpropertygroup", referencedColumnName = "hjid")
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -940,7 +959,7 @@ public class AerialRefuellingTimeSliceType
     @OneToMany(targetEntity = AerialRefuellingExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AERIAL_REFUELLING__0")
+    @JoinColumn(name = "aerialrefuelling_e_hjid", referencedColumnName = "hjid")
     public List<AerialRefuellingExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -993,7 +1012,7 @@ public class AerialRefuellingTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designatorsuffix", columnDefinition = "VARCHAR", length = 16)),
+        @AttributeOverride(name = "value", column = @Column(name = "designatorsuffix")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "designatorsuffix_nilreason"))
     })
     public TextDesignatorType getDesignatorSuffixItem() {
@@ -1019,7 +1038,7 @@ public class AerialRefuellingTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
+        @AttributeOverride(name = "value", column = @Column(name = "name")),
         @AttributeOverride(name = "nilReason", column = @Column(name = "name_nilreason"))
     })
     public TextNameType getAixmNameItem() {
@@ -1147,10 +1166,14 @@ public class AerialRefuellingTimeSliceType
         setReverseDirectionTurn(XmlAdapterUtils.marshallJAXBElement(CodeDirectionTurnType.class, new QName("http://www.aixm.aero/schema/5.1.1", "reverseDirectionTurn"), AerialRefuellingTimeSliceType.class, target));
     }
 
-    @ManyToOne(targetEntity = AerialRefuellingPropertyType.class, cascade = {
+    @OneToOne(targetEntity = AerialRefuellingPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "oppositetrack_id", referencedColumnName = "hjid")
+    @JoinTable(name = "aerialrefuelling_t_oppositetrack_link", schema = "public", joinColumns = {
+        @JoinColumn(name = "aerialrefuelling_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "oppositetrack_hjid", referencedColumnName = "hjid")
+    })
     public AerialRefuellingPropertyType getOppositeTrackItem() {
         return XmlAdapterUtils.unmarshallSource(AerialRefuellingPropertyType.class, this.getOppositeTrack());
     }
@@ -1172,14 +1195,14 @@ public class AerialRefuellingTimeSliceType
         }
         final AerialRefuellingTimeSliceType that = ((AerialRefuellingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AerialRefuellingExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AerialRefuellingExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1211,144 +1234,14 @@ public class AerialRefuellingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetManagingOrganisation();
-            boolean rhsFieldIsSet = that.isSetManagingOrganisation();
-            List<AuthorityForAerialRefuellingPropertyType> lhsField;
-            lhsField = (this.isSetManagingOrganisation()?this.getManagingOrganisation():null);
-            List<AuthorityForAerialRefuellingPropertyType> rhsField;
-            rhsField = (that.isSetManagingOrganisation()?that.getManagingOrganisation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "managingOrganisation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "managingOrganisation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<RouteAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<RouteAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetXbandRadarSetting();
-            boolean rhsFieldIsSet = that.isSetXbandRadarSetting();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getXbandRadarSetting();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getXbandRadarSetting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "xbandRadarSetting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "xbandRadarSetting", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignatorNumber();
-            boolean rhsFieldIsSet = that.isSetDesignatorNumber();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getDesignatorNumber();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getDesignatorNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorNumber", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTankerChannel();
-            boolean rhsFieldIsSet = that.isSetTankerChannel();
-            JAXBElement<CodeTACANChannelType> lhsField;
-            lhsField = this.getTankerChannel();
-            JAXBElement<CodeTACANChannelType> rhsField;
-            rhsField = that.getTankerChannel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tankerChannel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tankerChannel", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProtectingAirspace();
-            boolean rhsFieldIsSet = that.isSetProtectingAirspace();
-            List<AirspacePropertyType> lhsField;
-            lhsField = (this.isSetProtectingAirspace()?this.getProtectingAirspace():null);
-            List<AirspacePropertyType> rhsField;
-            rhsField = (that.isSetProtectingAirspace()?that.getProtectingAirspace():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectingAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectingAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignatorDirection();
-            boolean rhsFieldIsSet = that.isSetDesignatorDirection();
-            JAXBElement<CodeCardinalDirectionType> lhsField;
-            lhsField = this.getDesignatorDirection();
-            JAXBElement<CodeCardinalDirectionType> rhsField;
-            rhsField = that.getDesignatorDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReceiverChannel();
-            boolean rhsFieldIsSet = that.isSetReceiverChannel();
-            JAXBElement<CodeTACANChannelType> lhsField;
-            lhsField = this.getReceiverChannel();
-            JAXBElement<CodeTACANChannelType> rhsField;
-            rhsField = that.getReceiverChannel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "receiverChannel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "receiverChannel", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTrack();
-            boolean rhsFieldIsSet = that.isSetTrack();
-            List<AerialRefuellingTrackPropertyType> lhsField;
-            lhsField = (this.isSetTrack()?this.getTrack():null);
-            List<AerialRefuellingTrackPropertyType> rhsField;
-            rhsField = (that.isSetTrack()?that.getTrack():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "track", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "track", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignatorSuffix();
-            boolean rhsFieldIsSet = that.isSetDesignatorSuffix();
-            JAXBElement<TextDesignatorType> lhsField;
-            lhsField = this.getDesignatorSuffix();
-            JAXBElement<TextDesignatorType> rhsField;
-            rhsField = that.getDesignatorSuffix();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorSuffix", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorSuffix", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAerialRefuellingType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAerialRefuellingType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1367,6 +1260,19 @@ public class AerialRefuellingTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDesignatorPrefix();
             boolean rhsFieldIsSet = that.isSetDesignatorPrefix();
             JAXBElement<CodeAerialRefuellingPrefixType> lhsField;
@@ -1380,53 +1286,53 @@ public class AerialRefuellingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAerialRefuellingType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAerialRefuellingType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetManagingOrganisation();
+            boolean rhsFieldIsSet = that.isSetManagingOrganisation();
+            List<AuthorityForAerialRefuellingPropertyType> lhsField;
+            lhsField = (this.isSetManagingOrganisation()?this.getManagingOrganisation():null);
+            List<AuthorityForAerialRefuellingPropertyType> rhsField;
+            rhsField = (that.isSetManagingOrganisation()?that.getManagingOrganisation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "managingOrganisation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "managingOrganisation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetBidirectionalUse();
-            boolean rhsFieldIsSet = that.isSetBidirectionalUse();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getBidirectionalUse();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getBidirectionalUse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bidirectionalUse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bidirectionalUse", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnchor();
-            boolean rhsFieldIsSet = that.isSetAnchor();
-            List<AerialRefuellingAnchorPropertyType> lhsField;
-            lhsField = (this.isSetAnchor()?this.getAnchor():null);
-            List<AerialRefuellingAnchorPropertyType> rhsField;
-            rhsField = (that.isSetAnchor()?that.getAnchor():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "anchor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "anchor", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRadarBeaconSetting();
-            boolean rhsFieldIsSet = that.isSetRadarBeaconSetting();
+            boolean lhsFieldIsSet = this.isSetDesignatorNumber();
+            boolean rhsFieldIsSet = that.isSetDesignatorNumber();
             JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getRadarBeaconSetting();
+            lhsField = this.getDesignatorNumber();
             JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getRadarBeaconSetting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarBeaconSetting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarBeaconSetting", rhsField);
+            rhsField = that.getDesignatorNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetXbandRadarSetting();
+            boolean rhsFieldIsSet = that.isSetXbandRadarSetting();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getXbandRadarSetting();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getXbandRadarSetting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "xbandRadarSetting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "xbandRadarSetting", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReceiverChannel();
+            boolean rhsFieldIsSet = that.isSetReceiverChannel();
+            JAXBElement<CodeTACANChannelType> lhsField;
+            lhsField = this.getReceiverChannel();
+            JAXBElement<CodeTACANChannelType> rhsField;
+            rhsField = that.getReceiverChannel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "receiverChannel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "receiverChannel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1445,14 +1351,131 @@ public class AerialRefuellingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetDesignatorSuffix();
+            boolean rhsFieldIsSet = that.isSetDesignatorSuffix();
+            JAXBElement<TextDesignatorType> lhsField;
+            lhsField = this.getDesignatorSuffix();
+            JAXBElement<TextDesignatorType> rhsField;
+            rhsField = that.getDesignatorSuffix();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorSuffix", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorSuffix", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTankerChannel();
+            boolean rhsFieldIsSet = that.isSetTankerChannel();
+            JAXBElement<CodeTACANChannelType> lhsField;
+            lhsField = this.getTankerChannel();
+            JAXBElement<CodeTACANChannelType> rhsField;
+            rhsField = that.getTankerChannel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tankerChannel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tankerChannel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<RouteAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<RouteAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadarBeaconSetting();
+            boolean rhsFieldIsSet = that.isSetRadarBeaconSetting();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getRadarBeaconSetting();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getRadarBeaconSetting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarBeaconSetting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarBeaconSetting", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnchor();
+            boolean rhsFieldIsSet = that.isSetAnchor();
+            List<AerialRefuellingAnchorPropertyType> lhsField;
+            lhsField = (this.isSetAnchor()?this.getAnchor():null);
+            List<AerialRefuellingAnchorPropertyType> rhsField;
+            rhsField = (that.isSetAnchor()?that.getAnchor():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "anchor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "anchor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignatorDirection();
+            boolean rhsFieldIsSet = that.isSetDesignatorDirection();
+            JAXBElement<CodeCardinalDirectionType> lhsField;
+            lhsField = this.getDesignatorDirection();
+            JAXBElement<CodeCardinalDirectionType> rhsField;
+            rhsField = that.getDesignatorDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AerialRefuellingExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AerialRefuellingExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetProtectingAirspace();
+            boolean rhsFieldIsSet = that.isSetProtectingAirspace();
+            List<AirspacePropertyType> lhsField;
+            lhsField = (this.isSetProtectingAirspace()?this.getProtectingAirspace():null);
+            List<AirspacePropertyType> rhsField;
+            rhsField = (that.isSetProtectingAirspace()?that.getProtectingAirspace():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectingAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectingAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTrack();
+            boolean rhsFieldIsSet = that.isSetTrack();
+            List<AerialRefuellingTrackPropertyType> lhsField;
+            lhsField = (this.isSetTrack()?this.getTrack():null);
+            List<AerialRefuellingTrackPropertyType> rhsField;
+            rhsField = (that.isSetTrack()?that.getTrack():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "track", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "track", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBidirectionalUse();
+            boolean rhsFieldIsSet = that.isSetBidirectionalUse();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getBidirectionalUse();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getBidirectionalUse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bidirectionalUse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bidirectionalUse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

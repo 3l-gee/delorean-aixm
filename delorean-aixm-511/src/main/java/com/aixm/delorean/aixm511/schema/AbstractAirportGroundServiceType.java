@@ -40,7 +40,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     PassengerServiceType.class
 })
 @Entity(name = "AbstractAirportGroundServiceType")
-@Table(name = "abstractairportgroundservice", schema = "public")
+@Table(name = "abstractairportgroundservicetype", schema = "public")
 public abstract class AbstractAirportGroundServiceType
     extends AbstractServiceType
     implements Serializable

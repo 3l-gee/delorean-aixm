@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "holdingPatternDuration"
 })
 @Entity(name = "HoldingPatternDurationPropertyType")
-@Table(name = "holdingpatternduration_pt", schema = "holding")
+@Table(name = "holdingpatternduration_p", schema = "holding")
 public class HoldingPatternDurationPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class HoldingPatternDurationPropertyType
     @OneToOne(targetEntity = HoldingPatternDurationType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "holdingpatternduration_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "holdingpatternduration_hjid", referencedColumnName = "hjid")
     public HoldingPatternDurationType getHoldingPatternDuration() {
         return holdingPatternDuration;
     }

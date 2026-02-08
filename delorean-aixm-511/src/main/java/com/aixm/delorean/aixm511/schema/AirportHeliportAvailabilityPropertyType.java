@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "airportHeliportAvailability"
 })
 @Entity(name = "AirportHeliportAvailabilityPropertyType")
-@Table(name = "airportheliportavailability_pt", schema = "airport_heliport")
+@Table(name = "airportheliportavailability_p", schema = "airport_heliport")
 public class AirportHeliportAvailabilityPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class AirportHeliportAvailabilityPropertyType
     @OneToOne(targetEntity = AirportHeliportAvailabilityType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airportheliportavailability_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "airportheliportavailability_hjid", referencedColumnName = "hjid")
     public AirportHeliportAvailabilityType getAirportHeliportAvailability() {
         return airportHeliportAvailability;
     }

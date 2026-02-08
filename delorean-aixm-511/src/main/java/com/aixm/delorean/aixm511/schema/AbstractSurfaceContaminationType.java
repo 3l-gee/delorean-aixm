@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     TouchDownLiftOffContaminationType.class
 })
 @Entity(name = "AbstractSurfaceContaminationType")
-@Table(name = "abstractsurfacecontamination", schema = "public")
+@Table(name = "abstractsurfacecontamination_o", schema = "public")
 public class AbstractSurfaceContaminationType
     extends AbstractAIXMObjectType
     implements Serializable

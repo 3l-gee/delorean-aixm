@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "runwayDeclaredDistance"
 })
 @Entity(name = "RunwayDeclaredDistancePropertyType")
-@Table(name = "runwaydeclareddistance_pt", schema = "airport_heliport")
+@Table(name = "runwaydeclareddistance_p", schema = "airport_heliport")
 public class RunwayDeclaredDistancePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class RunwayDeclaredDistancePropertyType
     @OneToOne(targetEntity = RunwayDeclaredDistanceType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "runwaydeclareddistance_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "runwaydeclareddistance_hjid", referencedColumnName = "hjid")
     public RunwayDeclaredDistanceType getRunwayDeclaredDistance() {
         return runwayDeclaredDistance;
     }

@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "oxygen"
 })
 @Entity(name = "OxygenPropertyType")
-@Table(name = "oxygen_pt", schema = "service")
+@Table(name = "oxygen_p", schema = "service")
 public class OxygenPropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -65,7 +65,7 @@ public class OxygenPropertyType
     @OneToOne(targetEntity = OxygenType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "oxygen_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "oxygen_hjid", referencedColumnName = "hjid")
     public OxygenType getOxygen() {
         return oxygen;
     }

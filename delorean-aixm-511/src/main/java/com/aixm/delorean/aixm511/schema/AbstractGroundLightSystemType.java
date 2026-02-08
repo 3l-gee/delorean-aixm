@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     VisualGlideSlopeIndicatorType.class
 })
 @Entity(name = "AbstractGroundLightSystemType")
-@Table(name = "abstractgroundlightsystem", schema = "public")
+@Table(name = "abstractgroundlightsystemtype", schema = "public")
 public abstract class AbstractGroundLightSystemType
     extends AbstractAIXMFeatureType
     implements Serializable

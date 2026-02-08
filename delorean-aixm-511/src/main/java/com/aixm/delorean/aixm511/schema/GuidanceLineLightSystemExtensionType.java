@@ -63,7 +63,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractGroundLightSystemExtension"
 })
 @Entity(name = "GuidanceLineLightSystemExtensionType")
-@Table(name = "guidancelinelightsystem_ext", schema = "airport_heliport")
+@Table(name = "guidancelinelightsystem_e", schema = "airport_heliport")
 public class GuidanceLineLightSystemExtensionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -90,7 +90,7 @@ public class GuidanceLineLightSystemExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractguidancelinelightsystemextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractguidancelinelightsystemextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGuidanceLineLightSystemExtension() {
         return abstractGuidanceLineLightSystemExtension;
     }
@@ -123,7 +123,7 @@ public class GuidanceLineLightSystemExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractgroundlightsystemextension_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractgroundlightsystemextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundLightSystemExtension() {
         return abstractGroundLightSystemExtension;
     }
@@ -273,19 +273,6 @@ public class GuidanceLineLightSystemExtensionType implements Serializable, Equal
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGuidanceLineLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGuidanceLineLightSystemExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGuidanceLineLightSystemExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGuidanceLineLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGuidanceLineLightSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGuidanceLineLightSystemExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
             boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class GuidanceLineLightSystemExtensionType implements Serializable, Equal
             rhsField = that.getAbstractGroundLightSystemExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGuidanceLineLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGuidanceLineLightSystemExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGuidanceLineLightSystemExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGuidanceLineLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGuidanceLineLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGuidanceLineLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
