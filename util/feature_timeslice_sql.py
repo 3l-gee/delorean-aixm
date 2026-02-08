@@ -137,15 +137,15 @@ union_queries = []
 for querry in table_list:
     schema, table = querry.split(".")
 
-    link = "timeslice_" + table + "_link"
-    tsp = table + "_tsp"
-    link_key = table + "type"
+    timesliceproperty = table + "_tp"
+    timesliceproperty_ref_col = table + "timeslice_hjid"
+
     query = f"""
     SELECT
     aixm.message_member.hjid as m_hjid,
     aixm.aixm_feature.hjid as f_hjid,
-    {schema}.{tsp}.hjid as tsp_hjid,
-    aixm.aixm_timeslice.hjid as ts_hjid,
+    {schema}.{timesliceproperty}.hjid as tp_hjid,
+    aixm.aixm_timeslice.hjid as t_hjid,
     aixm.aixm_feature.identifier,
     aixm.aixm_timeslice.sequence_number, 
     aixm.aixm_timeslice.correction_number, 
@@ -153,9 +153,8 @@ for querry in table_list:
     aixm.aixm_timeslice.valid_time_end
     FROM aixm.aixm_feature
     INNER JOIN aixm.message_member ON aixm.aixm_feature.hjid = aixm.message_member.feature_id
-    INNER JOIN {schema}.{link} ON aixm.aixm_feature.hjid = {schema}.{link}.timeslice
-    INNER JOIN {schema}.{tsp} ON {schema}.{link}.{link_key} = {schema}.{tsp}.hjid
-    INNER JOIN aixm.aixm_timeslice ON {schema}.{tsp}.ts_id = aixm.aixm_timeslice.hjid
+    INNER JOIN {schema}.{timesliceproperty} ON aixm.aixm_feature.hjid = {schema}.{timesliceproperty}.timeslice_hjid
+    INNER JOIN aixm.aixm_timeslice ON {schema}.{timesliceproperty}.{timesliceproperty_ref_col} = aixm.aixm_timeslice.hjid
 """
     union_queries.append(query.strip())
 

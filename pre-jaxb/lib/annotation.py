@@ -241,11 +241,11 @@ class HyperJAXB:
     
     @staticmethod
     def orm_tsp_filter():
-        return f'''@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")'''
+        return f'''@org.hibernate.annotations.Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")'''
     
     @staticmethod
     def orm_tsp_filter_def():
-        return f'''@org.hibernate.annotations.FilterDef(name = "TSPHjidFilter", parameters = @org.hibernate.annotations.ParamDef(name = "ids", type = Long.class))'''
+        return f'''@org.hibernate.annotations.FilterDef(name = "TPHjidFilter", parameters = @org.hibernate.annotations.ParamDef(name = "ids", type = Long.class))'''
     
     @staticmethod
     def orm_table(annotation):
@@ -257,17 +257,17 @@ class HyperJAXB:
     
     @staticmethod
     def orm_join_column(name):
-        join_column_name = Util.snake_case_column(str(name + "_id")).replace('"', '')
+        join_column_name = Util.snake_case_column(str(name)).replace('"', '')
 
-        return f'''<orm:join-column name="{join_column_name}" referenced-column-name="hjid" />'''
+        return f'''<orm:join-column name="{join_column_name}_hjid" referenced-column-name="hjid" />'''
     
     @staticmethod 
-    def orm_join_table(schema, join_column_name, inverse_join_column_name):
-        join_table_name = Util.snake_case_table([join_column_name, inverse_join_column_name, "link"]).replace('"', '')
-        join_column_name = Util.snake_case_column(str(join_column_name)).replace('"', '')
-        inverse_join_column_name = Util.snake_case_column(str(inverse_join_column_name)).replace('"', '')
+    def orm_join_table(schema, owning_table, target_table):
+        join_table_name = Util.snake_case_table([owning_table, target_table, "link"]).replace('"', '')
+        owning_table = Util.snake_case_column(str(owning_table)).replace('"', '')
+        target_table = Util.snake_case_column(str(target_table)).replace('"', '')
 
-        return f'''<orm:join-table name="{join_table_name}" schema="{schema}"><orm:join-column name="{join_column_name}" referenced-column-name="hjid" /><orm:inverse-join-column name="{inverse_join_column_name}" referenced-column-name="hjid" /></orm:join-table>'''
+        return f'''<orm:join-table name="{join_table_name}" schema="{schema}"><orm:join-column name="{owning_table}_hjid" referenced-column-name="hjid" /><orm:inverse-join-column name="{target_table}_hjid" referenced-column-name="hjid" /></orm:join-table>'''
     
     @staticmethod
     def hj_embedded_start():

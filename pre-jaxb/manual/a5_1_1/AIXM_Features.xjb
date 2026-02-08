@@ -92,7 +92,7 @@
 			<jaxb:bindings node="//xs:complexType[@name='PointType']">
 				<hj:ignored/>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='PointPropertyGroup']//xs:element[@name='horizontalAccuracy']">
+			<jaxb:bindings node="//xs:complexType[@name='PointType']//xs:element[@name='horizontalAccuracy']">
 				<hj:embedded/>
 			</jaxb:bindings>
 
@@ -121,13 +121,13 @@
 					<orm:join-column name="abstractelevatedpoint_ext_id" referenced-column-name="hjid" />
 				</hj:one-to-one>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='ElevatedPointPropertyGroup']//xs:element[@name='elevation']">
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@name='elevation']">
 				<hj:embedded/>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='ElevatedPointPropertyGroup']//xs:element[@name='geoidUndulation']">
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@name='geoidUndulation']">
 				<hj:embedded/>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='ElevatedPointPropertyGroup']//xs:element[@name='verticalDatum']">
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@name='verticalDatum']">
 				<hj:embedded/>
 			</jaxb:bindings>
 
@@ -145,7 +145,7 @@
 			<jaxb:bindings node="//xs:complexType[@name='CurveType']">
 				<hj:ignored/>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='CurvePropertyGroup']//xs:element[@name='horizontalAccuracy']">
+			<jaxb:bindings node="//xs:complexType[@name='CurveType']//xs:element[@name='horizontalAccuracy']">
 				<hj:embedded/>
 			</jaxb:bindings>
 
@@ -174,13 +174,13 @@
 					<orm:join-column name="abstractelevatedcurve_ext_id" referenced-column-name="hjid" />
 				</hj:one-to-one>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='ElevatedCurvePropertyGroup']//xs:element[@name='elevation']">
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@name='elevation']">
 				<hj:embedded/>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='ElevatedCurvePropertyGroup']//xs:element[@name='geoidUndulation']">
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@name='geoidUndulation']">
 				<hj:embedded/>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='ElevatedCurvePropertyGroup']//xs:element[@name='verticalDatum']">
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@name='verticalDatum']">
 				<hj:embedded/>
 			</jaxb:bindings>
 
@@ -198,7 +198,7 @@
 			<jaxb:bindings node="//xs:complexType[@name='SurfaceType']">
 				<hj:ignored/>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='SurfacePropertyGroup']//xs:element[@name='horizontalAccuracy']">
+			<jaxb:bindings node="//xs:complexType[@name='SurfaceType']//xs:element[@name='horizontalAccuracy']">
 				<hj:embedded/>
 			</jaxb:bindings>
 
@@ -227,13 +227,13 @@
 					<orm:join-column name="abstractelevatedsurface_ext_id" referenced-column-name="hjid" />
 				</hj:one-to-one>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='ElevatedSurfacePropertyGroup']//xs:element[@name='elevation']">
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']//xs:element[@name='elevation']">
 				<hj:embedded/>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='ElevatedSurfacePropertyGroup']//xs:element[@name='geoidUndulation']">
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']//xs:element[@name='geoidUndulation']">
 				<hj:embedded/>
 			</jaxb:bindings>
-			<jaxb:bindings node="//xs:group[@name='ElevatedSurfacePropertyGroup']//xs:element[@name='verticalDatum']">
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']//xs:element[@name='verticalDatum']">
 				<hj:embedded/>
 			</jaxb:bindings>
         

@@ -3,7 +3,7 @@ output_path: delorean-aixm-511/src/main/schema/bindings/aixm.xjb
 
 ignore:
 - # TODO solve this
-- StandardLevelColumnPropertyGroup.unitOfMeasurement
+- StandardLevelColumnTimeSliceType.unitOfMeasurement
 - AIXMBasicMessageType
 - AIXMBasicMessagePropertyGroup
 - BasicMessageMemberAIXMPropertyType

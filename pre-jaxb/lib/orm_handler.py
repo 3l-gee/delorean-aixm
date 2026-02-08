@@ -144,8 +144,9 @@ class OrmHandler:
         res = ["<!-- Types -->"]
         if "name" not in element.attrib:
             raise KeyError("Element must have a name attribute", ET.tostring(element, encoding='unicode', method='xml'))
-        name = element.attrib["name"]
-        parent_name = parent.attrib.get("name","")
+        target_table = element.attrib["name"]
+        owning_table = parent.attrib.get("name","")
+        is_property_type = "PropertyType" in element.attrib.get("type","") and "TimeSlicePropertyType" not in element.attrib.get("type","")
 
         nillable = element.attrib.get("nillable", "false").lower() == "true"
         minOccurs = int(element.attrib.get("minOccurs", "1"))
@@ -156,34 +157,48 @@ class OrmHandler:
         else:
             maxOccurs = int(maxOccurs)
 
-        if maxOccurs == "unbounded":
-            if parent_name == "":
+        # Property type are used across all aixm feature and must be Isolated
+        if maxOccurs == "unbounded" and is_property_type:
+            if target_table == "":
                 raise KeyError("Parent element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
-            schema = Schema.get_schema(parent_name)
-            res.append(HyperJAXB.hj_many_to_many_start())
-            res.append(HyperJAXB.orm_join_table(schema, name, parent_name))
-            res.append(HyperJAXB.hj_many_to_many_end())
-            # res.append(HyperJAXB.hj_one_to_many_start())
-            # res.append(HyperJAXB.orm_join_column(name))
-            # res.append(HyperJAXB.hj_one_to_many_end())
+            schema = Schema.get_schema(target_table)
+            res.append(HyperJAXB.hj_one_to_many_start())
+            res.append(HyperJAXB.orm_join_table(schema, owning_table, target_table))
+            res.append(HyperJAXB.hj_one_to_many_end())
 
 
-        if maxOccurs == 1:
-            res.append(HyperJAXB.hj_many_to_one_start())
-            res.append(HyperJAXB.orm_join_column(name))
-            res.append(HyperJAXB.hj_many_to_one_end())
-            # res.append(HyperJAXB.hj_one_to_one_start())
-            # res.append(HyperJAXB.orm_join_column(name))
-            # res.append(HyperJAXB.hj_one_to_one_end())
+        elif maxOccurs == "unbounded" and not is_property_type:
+            if target_table == "":
+                raise KeyError("Parent element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
+            res.append(HyperJAXB.hj_one_to_many_start())
+            res.append(HyperJAXB.orm_join_column(target_table))
+            res.append(HyperJAXB.hj_one_to_many_end())
+
+        # Property type are used across all aixm feature and must be Isolated
+        elif maxOccurs == 1 and is_property_type:
+            if target_table == "":
+                raise KeyError("Parent element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
+            schema = Schema.get_schema(target_table)
+            res.append(HyperJAXB.hj_one_to_one_start())
+            res.append(HyperJAXB.orm_join_table(schema, owning_table, target_table))
+            res.append(HyperJAXB.hj_one_to_one_end())
+
+        elif maxOccurs == 1 and not is_property_type:
+            res.append(HyperJAXB.hj_one_to_one_start())
+            res.append(HyperJAXB.orm_join_column(target_table))
+            res.append(HyperJAXB.hj_one_to_one_end())
+
+        else:
+            raise KeyError("Unknown reference type", ET.tostring(element, encoding='unicode', method='xml'))
 
         return res
     
-    def referenced_refs(ref, parent, element) -> dict:
+    def referenced_refs(target_table, parent, element) -> dict:
         res = ["<!-- Refs -->"]
 
         if "ref" not in element.attrib:
             raise KeyError("Element must have a name reference attribute", ET.tostring(element, encoding='unicode', method='xml'))
-        ref = element.attrib["ref"]
+        target_table = element.attrib["ref"]
 
         nillable = element.attrib.get("nillable", "false").lower() == "true"
         minOccurs = int(element.attrib.get("minOccurs", "1"))
@@ -195,32 +210,40 @@ class OrmHandler:
             maxOccurs = int(maxOccurs)
 
         if maxOccurs == "unbounded":
-            if "TimeSlicePropertyType" in ref:
+            if "TimeSlicePropertyType" in target_table:
                 res.append(HyperJAXB.hj_one_to_many_start())
-                res.append(HyperJAXB.orm_join_column("tsp"))
+                res.append(HyperJAXB.orm_join_column(target_table))
                 res.append(HyperJAXB.hj_one_to_many_end())
 
-            elif "TimeSlice" in ref:
+            elif "TimeSlice" in target_table:
                 res.append(HyperJAXB.hj_one_to_many_start())
-                res.append(HyperJAXB.orm_join_column("extension"))
+                res.append(HyperJAXB.orm_join_column(target_table))
                 res.append(HyperJAXB.hj_one_to_many_end())
 
             else:
                 raise KeyError("Unknown reference for collection type", ET.tostring(element, encoding='unicode', method='xml'))
 
-        if maxOccurs == 1:
-            if "TimeSlice" in ref:
+        elif maxOccurs == 1:
+            if "TimeSlice" in target_table:
                 res.append(HyperJAXB.hj_one_to_one_start())
-                res.append(HyperJAXB.orm_join_column("ts"))
+                res.append(HyperJAXB.orm_join_column(target_table))
                 res.append(HyperJAXB.hj_one_to_one_end())
 
             elif "PropertyType" in parent.attrib.get("name","") and "Abstract" in element.attrib.get("ref",""):
                 pass
 
+            elif "Extension" in target_table:
+                res.append(HyperJAXB.hj_one_to_one_start())
+                res.append(HyperJAXB.orm_join_column(target_table))
+                res.append(HyperJAXB.hj_one_to_one_end())
+
             else :
                 res.append(HyperJAXB.hj_one_to_one_start())
-                res.append(HyperJAXB.orm_join_column(element.get("ref").replace("aixm:", "")))
+                res.append(HyperJAXB.orm_join_column(target_table))
                 res.append(HyperJAXB.hj_one_to_one_end())
+
+        else:
+            raise KeyError("Unknown reference type", ET.tostring(element, encoding='unicode', method='xml'))
                 
         return res
     
@@ -230,23 +253,23 @@ class OrmHandler:
 
         if "name" not in parent.attrib:
             raise KeyError("Element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
-        name = parent.attrib["name"]
+        owning_table = parent.attrib["name"]
 
-        schema = Schema.get_schema(name)
-        suffix = Schema.get_suffix(name)
+        schema = Schema.get_schema(owning_table)
+        suffix = Schema.get_suffix(owning_table)
 
-        if "TimeSliceType" in name:
-            extension_name = name.replace("TimeSliceType", "Extension")
-            res.append(HyperJAXB.hj_many_to_many_start())
-            res.append(HyperJAXB.orm_join_table(suffix, extension_name, name))
-            res.append(HyperJAXB.hj_many_to_many_end())
+        if "TimeSliceType" in owning_table:
+            target_table = owning_table.replace("TimeSliceType", "_e")
+            res.append(HyperJAXB.hj_one_to_many_start())
+            res.append(HyperJAXB.orm_join_column(target_table))
+            res.append(HyperJAXB.hj_one_to_many_end())
             return res
 
-        elif "Type" in name:
-            extension_name = name.replace("Type", "Extension")
-            res.append(HyperJAXB.hj_many_to_many_start())
-            res.append(HyperJAXB.orm_join_table(suffix, extension_name, name))
-            res.append(HyperJAXB.hj_many_to_many_end())
+        elif "Type" in owning_table:
+            target_table = owning_table.replace("Type", "_e")
+            res.append(HyperJAXB.hj_one_to_many_start())
+            res.append(HyperJAXB.orm_join_column(target_table))
+            res.append(HyperJAXB.hj_one_to_many_end())
             return res
 
         else:
@@ -264,14 +287,14 @@ class OrmHandler:
         suffix = Schema.get_suffix(name)
 
         if "TimeSliceType" in name:
-            extension_name = name.replace("TimeSliceType", "Extension")
+            extension_name = name.replace("TimeSliceType", "_e")
             res.append(HyperJAXB.hj_entity_start())
             res.append(HyperJAXB.table(extension_name,schema,suffix))
             res.append(HyperJAXB.hj_entity_end())
             return res
 
         elif "Type" in name:
-            extension_name = name.replace("Type", "Extension")
+            extension_name = name.replace("Type", "_e")
             res.append(HyperJAXB.hj_entity_start())
             res.append(HyperJAXB.table(extension_name,schema,suffix))
             res.append(HyperJAXB.hj_entity_end())
