@@ -13,25 +13,31 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>delorean-core</artifactId>
+	<artifactId>delorean-aixm-51</artifactId>
     <packaging>jar</packaging>
-    <name>Delorean Core</name>
-    
-	<dependencies>
+    <name>Delorean AIXM 5.1</name>
+
+    <dependencies>
+        <!-- Delorean core -->
+        <dependency>
+            <groupId>com.aixm.delorean</groupId>
+            <artifactId>delorean-core</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
 
         <!-- JPA Dependencies -->
-		<dependency>
-			<groupId>jakarta.annotation</groupId>
-			<artifactId>jakarta.annotation-api</artifactId>
-			<version>${annotation.version}</version>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>${annotation.version}</version>
             <scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.persistence</groupId>
-			<artifactId>jakarta.persistence-api</artifactId>
-			<version>${jpa-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>${jpa-api.version}</version>
             <scope>provided</scope>
-		</dependency>
+        </dependency>
 
         <!-- HiSrc Runtime Dependencies -->
 		<dependency>
@@ -96,7 +102,7 @@
             <artifactId>hibernate-hikaricp</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
-        
+
         <!-- Hibernate Validator dependencies -->
         <dependency>
             <groupId>jakarta.el</groupId>
@@ -116,42 +122,6 @@
 			<version>${slf4j.version}</version>
 		</dependency>
 
-        <!-- GIS Dependencies -->
-        <dependency>
-            <groupId>org.locationtech.jts</groupId>
-            <artifactId>jts-core</artifactId>
-            <version>${jts.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.locationtech.jts.io</groupId>
-            <artifactId>jts-io-common</artifactId>
-            <version>${jts.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.locationtech.proj4j</groupId>
-            <artifactId>proj4j</artifactId>
-            <version>${proj4.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.locationtech.proj4j</groupId>
-            <artifactId>proj4j-epsg</artifactId>
-            <version>${proj4.version}</version>
-        </dependency>
-
-        <!-- XML templates Dependencies -->
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>${freemarker.version}</version>
-        </dependency>
-
-        <!-- Mapping Dependencies -->
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${mapstruct.version}</version>
-        </dependency>
-        
         <!-- Test Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -190,7 +160,7 @@
             <artifactId>post-jaxb</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        
+
         <!-- JSON serialisation-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -202,11 +172,11 @@
             <artifactId>jackson-module-jaxb-annotations</artifactId>
             <version>2.20.1</version>
         </dependency>
+    </dependencies>
 
-	</dependencies>
-
-	<build>
+    <build>
 		<plugins>
+
             <!-- Unit Tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -249,11 +219,13 @@
                             junit.jupiter.tags.include=${junit.jupiter.tags.include}
                         </configurationParameters>
                     </properties>
-                    <systemPropertyVariables>
-                        <junit.platform.properties>src/it/resources/e2e-junit-platform.properties</junit.platform.properties>
-                    </systemPropertyVariables>
                 </configuration>
             </plugin>
+
+            <plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>4.0.0-M12</version>
+			</plugin>
 
             <!-- Exec Maven Plugin -->
             <plugin>
@@ -264,110 +236,26 @@
 					<mainClass>com.aixm.delorean.Main</mainClass>
 					<cleanupDaemonThreads>false</cleanupDaemonThreads>
 				</configuration>
-			</plugin>
-		</plugins>
+            </plugin>
+        </plugins>
 	</build>
 
     <profiles>
-    <!-- <profile>
-            <id>fat-jar</id>
-            <build>
-                <plugins>
-                    Maven Shade Plugin to create a fat JAR
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-shade-plugin</artifactId>
-                        <version>3.5.0</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>shade</goal>
-                                </goals>
-                                <configuration>
-                                    <createDependencyReducedPom>true</createDependencyReducedPom>
-                                    <shadedArtifactAttached>true</shadedArtifactAttached>
-                                    <shadedClassifierName>fat</shadedClassifierName>
-                                    
-                                    Only include runtime deps
-                                    <artifactSet>
-                                        <excludes>
-                                            <exclude>junit:*</exclude>
-                                            <exclude>org.junit.jupiter:*</exclude>
-                                            <exclude>org.assertj:*</exclude>
-                                            <exclude>org.testcontainers:*</exclude>
-                                            <exclude>org.hamcrest:*</exclude>
-                                        </excludes>
-                                    </artifactSet>
-                                    
-                                    Strip signatures, licenses, docs
-                                    <filters>
-                                        <filter>
-                                            <artifact>*:*</artifact>
-                                            <excludes>
-                                                <exclude>META-INF/*.SF</exclude>
-                                                <exclude>META-INF/*.DSA</exclude>
-                                                <exclude>META-INF/*.RSA</exclude>
-                                                <exclude>META-INF/LICENSE*</exclude>
-                                                <exclude>META-INF/NOTICE*</exclude>
-                                                <exclude>**/*.html</exclude>
-                                                <exclude>**/*.txt</exclude>
-                                                <exclude>**/*.md</exclude>
-                                            </excludes>
-                                        </filter>
-                                    </filters>
-                                    
-                                    <artifactSet>
-                                        <includes>
-                                            <include>*:*</include>
-                                        </includes>
-                                    </artifactSet>
-                                    <transformers>
-                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                            <mainClass>com.aixm.delorean.Main</mainClass>
-                                        </transformer>
-                                    </transformers>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>-->
         <profile>
-            <id>jaxb-core</id>
+            <id>jaxb-511</id>
             <build>
                 <plugins>
-
-                    <!-- Post-JAXB Codegen Fix Utility -->
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <executions>
-                            <execution>
-                                <id>postprocess aixm core gml bindings</id>
-                                <phase>process-sources</phase>
-                                <goals>
-                                    <goal>java</goal>
-                                </goals>
-                                <configuration>
-                                    <mainClass>com.aixm.delorean.postjaxb.PostJAXBRunner</mainClass>
-                                    <arguments>
-                                        <argument>${project.basedir}/src/main/post-jaxb/post-jaxb-config_core.yaml</argument>
-                                    </arguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <!-- HiSrc HyperJAXB Code Generation for GML 3.2.1 -->
+                    <!-- HiSrc HyperJAXB Code Generation for AIXM 5.1.1 -->
                     <plugin>
                         <groupId>org.patrodyne.jvnet</groupId>
                         <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
                         <version>${hisrc-hyperjaxb.version}</version>
                         <dependencies>
+                            <dependency>
+                                <groupId>com.aixm.delorean</groupId>
+                                <artifactId>delorean-core</artifactId>
+                                <version>${project.parent.version}</version>
+                            </dependency>
                             <dependency>
                                 <groupId>org.patrodyne.jvnet</groupId>
                                 <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
@@ -376,7 +264,7 @@
                         </dependencies>
                         <executions>
                             <execution>
-                                <id>generate aixm core gml bindings</id>
+                                <id>generate aixm 511 bindings</id>
                                 <phase>generate-sources</phase>
                                 <goals>
                                     <goal>generate</goal>
@@ -384,17 +272,37 @@
                                 <configuration>
                                     <noFileHeader>true</noFileHeader>
                                     <extension>true</extension>
-                                    <episode>true</episode>
-                                    <schemaDirectory>${project.basedir}/src/main/schema/gml/3.2.1/</schemaDirectory>
+                                    <schemaDirectory>${project.basedir}/src/main/schema/message</schemaDirectory>
                                     <schemaIncludes>
-                                        <include>gml.xsd</include>
+                                        <include>AIXM_BasicMessage.xsd</include>
                                     </schemaIncludes>
                                     <bindingDirectory>${project.basedir}/src/main/schema/bindings</bindingDirectory>
                                     <bindingIncludes>
                                         <include>*.xjb</include>
                                     </bindingIncludes>
                                     <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                                    <episodeFile>${project.build.outputDirectory}/META-INF/sun-jaxb.episode</episodeFile>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- Post-JAXB Codegen Fix Utility -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>post-jaxb-fix</id>
+                                <phase>process-sources</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>com.aixm.delorean.postjaxb.PostJAXBRunner</mainClass>
+                                    <arguments>
+                                        <argument>${project.basedir}/src/main/post-jaxb/aixm511-post-jaxb-config.yaml</argument>
+                                    </arguments>
                                 </configuration>
                             </execution>
                         </executions>
@@ -415,7 +323,7 @@
                                 <configuration>
                                     <java>
                                         <includes>
-                                            <include>src/main/java/com/aixm/delorean/core/org/**/*.java</include>
+                                            <include>src/main/java/com/aixm/delorean/aixm511/schema/**/*.java</include>
                                         </includes>
                                         <eclipse>
                                             <version>4.29</version>

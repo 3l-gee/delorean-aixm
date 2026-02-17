@@ -63,22 +63,22 @@ class Util:
     
         if restriction.attrib["base"]:
             res["base"] = restriction.attrib["base"]
-            if restriction.attrib["base"] == "string":
+            if restriction.attrib["base"] == "string" or restriction.attrib["base"] == "xsd:string":
                 res["uber"] = "string"
-            elif restriction.attrib["base"] == "unsignedInt":
+            elif restriction.attrib["base"] == "unsignedInt" or restriction.attrib["base"] == "xsd:unsignedInt":
                 res["uber"] = "unsignedInt"
-            elif restriction.attrib["base"] == "decimal":
+            elif restriction.attrib["base"] == "decimal" or restriction.attrib["base"] == "xsd:decimal":
                 res["uber"] = "decimal" 
-            elif restriction.attrib["base"] == "boolean":
+            elif restriction.attrib["base"] == "boolean" or restriction.attrib["base"] == "xsd:boolean":
                 res["uber"] = "boolean"
-            elif restriction.attrib["base"] == "date":
+            elif restriction.attrib["base"] == "date" or restriction.attrib["base"] == "xsd:date":
                 res["uber"] = "date"
-            elif restriction.attrib["base"] == "dateTime":
+            elif restriction.attrib["base"] == "dateTime" or restriction.attrib["base"] == "xsd:dateTime":
                 res["uber"] = "dateTime"
-            elif restriction.attrib["base"] == "token":
+            elif restriction.attrib["base"] == "token" or restriction.attrib["base"] == "xsd:token":
                 res["uber"] = "token"
-            elif restriction.attrib["base"] == "time":
-                res["uber"] = "TItimeME"
+            elif restriction.attrib["base"] == "time" or restriction.attrib["base"] == "xsd:time":
+                res["uber"] = "time"
 
         if restriction.find(Tag.fractionDigits) is not None:
             res["fractionDigits"] = restriction.find(Tag.fractionDigits).attrib["value"]

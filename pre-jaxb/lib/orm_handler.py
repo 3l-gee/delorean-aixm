@@ -161,7 +161,7 @@ class OrmHandler:
         if maxOccurs == "unbounded" and is_property_type:
             if target_table == "":
                 raise KeyError("Parent element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
-            schema = Schema.get_schema(target_table)
+            schema = Schema.get_schema(owning_table)
             res.append(HyperJAXB.hj_one_to_many_start())
             res.append(HyperJAXB.orm_join_table(schema, owning_table, target_table))
             res.append(HyperJAXB.hj_one_to_many_end())
@@ -178,7 +178,7 @@ class OrmHandler:
         elif maxOccurs == 1 and is_property_type:
             if target_table == "":
                 raise KeyError("Parent element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
-            schema = Schema.get_schema(target_table)
+            schema = Schema.get_schema(owning_table)
             res.append(HyperJAXB.hj_one_to_one_start())
             res.append(HyperJAXB.orm_join_table(schema, owning_table, target_table))
             res.append(HyperJAXB.hj_one_to_one_end())

@@ -86,6 +86,9 @@ class FieldHandler:
         if element.attrib.get("name") == "name":
             node.append(Jaxb.property.name_element("aixmName"))
 
+        if element.attrib.get("name") == "dataSource":
+            node.append(Jaxb.property.name_element("aixmDataSource"))
+
         # special case extension must point to specific class
         if element.attrib.get("name") == "extension":
             extension_class = node[-1].replace('">', '/xs:complexType">')
@@ -116,9 +119,12 @@ class FieldHandler:
         else :
             raise Exception("Attribute has no name or ref attribute : " + ET.tostring(attribute, encoding='unicode', method='xml'))
             
-        # spacial cases name must be renamed to aixmName
+        # spacial cases xxx must be renamed to aixmxxx
         if attribute.attrib.get("name") == "name":
             node.append(Jaxb.property.name("aixmName"))
+        
+        if attribute.attrib.get("name") == "dataSource":
+            node.append(Jaxb.property.name("aixmDataSource"))
 
         # special case extension must point to specific class
         if attribute.attrib.get("name") == "extension":
@@ -153,9 +159,12 @@ class FieldHandler:
         if element.attrib.get("name") == "timeSlice":
             node.append(Annox.getter_add(HyperJAXB.orm_tsp_filter()))
 
-        # spacial cases name must be renamed to aixmName
+        # spacial cases xxxx must be renamed to aixmxxxx
         if element.attrib.get("name") == "name":
             node.append(Jaxb.property.name_element("aixmName"))
+
+        if element.attrib.get("name") == "dataSource":
+            node.append(Jaxb.property.name_element("aixmDataSource"))
 
         # special case extension must point to specific class
         if element.attrib.get("name") == "extension":
@@ -186,9 +195,12 @@ class FieldHandler:
         else :
             raise Exception("Attribute has no name or ref attribute : " + ET.tostring(attribute, encoding='unicode', method='xml'))
             
-        # spacial cases name must be renamed to aixmName
+        # spacial cases xxxx must be renamed to aixmxxxx
         if attribute.attrib.get("name") == "name":
             node.append(Jaxb.property.name("aixmName"))
+
+        if attribute.attrib.get("name") == "dataSource":
+            node.append(Jaxb.property.name("aixmDataSource"))
 
         # special case extension must point to specific class
         if attribute.attrib.get("name") == "extension":

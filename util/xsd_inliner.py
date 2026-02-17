@@ -6,10 +6,27 @@ import argparse
 XSD_NS = "http://www.w3.org/2001/XMLSchema"
 NSMAP = {"xs": XSD_NS}
 
+def str2bool(value):
+    if isinstance(value, bool):
+        return value
+    value = value.lower()
+    if value in ("true", "1", "yes", "y"):
+        return True
+    if value in ("false", "0", "no", "n"):
+        return False
+    raise argparse.ArgumentTypeError("Boolean value expected (true/false)")
+
 def main():
     parser = argparse.ArgumentParser(description="XSD Inliner")
-    parser.add_argument("--input", help="Path to input XSD file")
-    parser.add_argument("--output", help="Path to output XSD file with inlined groups")
+    parser.add_argument("--input", required=True, help="Path to input XSD file")
+    parser.add_argument("--output", required=True, help="Path to output XSD file with inlined groups")
+    parser.add_argument(
+        "--remove-groups",
+        type=str2bool,
+        default=True,
+        help="Remove original xs:group definitions after inlining"
+    )
+
     args = parser.parse_args()
 
     input_path = args.input
@@ -21,7 +38,9 @@ def main():
 
     group_map = build_group_map(root)
     inline_group_refs(root, group_map)
-    remove_group_definitions(root)
+
+    if args.remove_groups == True:
+        remove_group_definitions(root)
 
     tree.write(output_path, pretty_print=True, xml_declaration=True, encoding="UTF-8")
 
@@ -35,7 +54,6 @@ def build_group_map(root):
     for group in root.findall("xs:group[@name]", NSMAP):
         name = group.get("name")
 
-        # A group can contain sequence, choice, or all
         container = None
         for tag in ("sequence", "choice", "all"):
             container = group.find(f"xs:{tag}", NSMAP)
@@ -45,7 +63,6 @@ def build_group_map(root):
         if container is None:
             continue
 
-        # Store deep copies of children to reuse safely
         group_map[name] = [deepcopy(child) for child in container]
 
     return group_map
@@ -62,12 +79,10 @@ def inline_group_refs(root, group_map):
         parent = group_ref.getparent()
         index = parent.index(group_ref)
 
-        # Insert group content in the same position
         for element in group_map[ref_name]:
             parent.insert(index, deepcopy(element))
             index += 1
 
-        # Remove the original <group ref>
         parent.remove(group_ref)
 
 def remove_group_definitions(root):
