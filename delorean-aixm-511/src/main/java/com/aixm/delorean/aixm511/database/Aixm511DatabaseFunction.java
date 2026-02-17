@@ -402,9 +402,9 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
             INNER JOIN %3$s ON %2$s.%4$s = %3$s.hjid
             INNER JOIN aixm.aixm_timeslice ON %3$s.hjid = aixm.aixm_timeslice.hjid
             -- WHERE 
-            -- aixm.aixm_feature.approval_status = 'APPROVED' 
+            -- aixm.aixm_feature.lifecycle_status = 'APPROVED' 
             -- AND 
-            -- aixm.aixm_timeslice.approval_status = 'APPROVED' 
+            -- aixm.aixm_timeslice.lifecycle_status = 'APPROVED' 
             ORDER BY aixm.aixm_feature.id, aixm.aixm_timeslice.sequence_number DESC, aixm.aixm_timeslice.correction_number DESC;
             """
             .formatted(

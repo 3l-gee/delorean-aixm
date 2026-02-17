@@ -107,7 +107,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         };
 
         // Define SQL queries
-        String featureSql = "SELECT COUNT(DISTINCT hjid) FROM axim.aixm_feature";
+        String featureSql = "SELECT COUNT(DISTINCT hjid) FROM aixm.aixm_feature";
         String timeSliceSql = "SELECT COUNT(DISTINCT hjid) FROM aixm.aixm_timeslice";
 
         Integer featureCount = 0;

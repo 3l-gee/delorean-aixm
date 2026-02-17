@@ -38190,7 +38190,7 @@
         <orm:inheritance strategy="JOINED"/>
       </hj:entity>
     </jaxb:bindings>
-    <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureType']//xs:element[@name='approvalStatus']">
+    <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureType']//xs:element[@name='lifecycleStatus']">
       <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlTransient</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMObjectType']">
@@ -38221,7 +38221,7 @@
       <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.time.adapter.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
       <jaxb:property name="featureLifetime"/>
     </jaxb:bindings>
-    <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='approvalStatus']">
+    <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='lifecycleStatus']">
       <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlTransient</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']">
