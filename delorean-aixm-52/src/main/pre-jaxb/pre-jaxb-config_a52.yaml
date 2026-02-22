@@ -734,7 +734,27 @@ basetype:
 feature:
   replace: "Type"
   prefix: "_f"
-  xpath:
+  xpath: |
+    //xs:complexType[
+      xs:complexContent/xs:extension[
+          @base = (
+            'aixm:AbstractAIXMFeatureType',
+            'aixm:AbstractMarkingType',
+            'aixm:AbstractAirportHeliportProtectionAreaType',
+            'aixm:AbstractGroundLightSystemType',
+            'aixm:AbstractNavigationSystemCheckpointType',
+            'aixm:AbstractNavaidEquipmentType',
+            'aixm:AbstractProcedureType',
+            'aixm:AbstractSegmentLegType',
+            'aixm:AbstractServiceType',
+            'aixm:AbstractRadarEquipmentType',
+            'aixm:AbstractSurveillanceRadarType',
+            'aixm:AbstractTrafficSeparationServiceType',
+            'aixm:AbstractAirportGroundServiceType',
+            'aixm:AbstractApproachLegType'
+          )
+        ]
+    ]/@name
   list:
   - AerialRefuellingType
   - AirportHeliportType
@@ -1006,7 +1026,14 @@ timesliceproperty:
 timeslice: 
   replace: "TimeSliceType"
   prefix: "_t"
-  xpath:
+  xpath: |
+    //xs:complexType[
+        xs:complexContent/xs:extension[
+            @base = (
+                'aixm:AbstractAIXMTimeSliceType'
+            )
+        ]
+    ]/@name
   list:
   - AerialRefuellingTimeSliceType
   - AirportHeliportTimeSliceType
@@ -1142,170 +1169,207 @@ timeslice:
 property:
   replace: "PropertyType"
   prefix: "_p"
-  xpath: //xs:complexType[xs:complexContent/xs:extension[@base='aixm:AbstractAIXMPropertyType']]/@name
+  xpath: |
+    //xs:complexType[
+      not(xs:complexContent/xs:extension)
+      and not(ends-with(@name, 'TimeSlicePropertyType'))
+    ]/@name
   list:
-  - AerialRefuellingAnchorPropertyType
-  - AerialRefuellingPointPropertyType
-  - AerialRefuellingTrackPropertyType
-  - AuthorityForAerialRefuellingPropertyType
-  - AirportHeliportAvailabilityPropertyType
-  - AirportHeliportResponsibilityOrganisationPropertyType
-  - AirportHeliportUsagePropertyType
-  - AltimeterSourcePropertyType
-  - CityPropertyType
-  - ConditionCombinationPropertyType
-  - SurfaceCharacteristicsPropertyType
-  - UsageConditionPropertyType
-  - WeatherSourceAvailabilityPropertyType
-  - WorkareaActivityPropertyType
-  - ApronAreaAvailabilityPropertyType
-  - ApronAreaUsagePropertyType
-  - GroundLightingAvailabilityPropertyType
-  - LightActivationPropertyType
-  - LightGroupPropertyType
-  - MarkingElementPropertyType
-  - AirportSignStatusPropertyType
-  - ManoeuvringAreaAvailabilityPropertyType
-  - ManoeuvringAreaUsagePropertyType
-  - NavaidEquipmentDistancePropertyType
-  - RunwayDeclaredDistancePropertyType
-  - RunwayDeclaredDistanceValuePropertyType
-  - AircraftStandContaminationPropertyType
-  - AirportHeliportContaminationPropertyType
-  - ApronContaminationPropertyType
-  - RidgePropertyType
-  - RunwayContaminationPropertyType
-  - RunwaySectionContaminationPropertyType
-  - SurfaceContaminationPropertyType
-  - SurfaceContaminationLayerPropertyType
-  - TaxiwayContaminationPropertyType
-  - TouchDownLiftOffContaminationPropertyType
-  - GuidanceLineDirectionPropertyType
-  - AirspaceActivationPropertyType
-  - AirspaceGeometryComponentPropertyType
-  - AirspaceLayerClassPropertyType
-  - AirspaceVolumePropertyType
-  - AirspaceVolumeDependencyPropertyType
-  - CurvePropertyType
-  - ElevatedCurvePropertyType
-  - ElevatedPointPropertyType
-  - ElevatedSurfacePropertyType
-  - PointPropertyType
-  - SurfacePropertyType
-  - HoldingPatternDistancePropertyType
-  - HoldingPatternDurationPropertyType
-  - AuthorityForNavaidEquipmentPropertyType
-  - AuthorityForSpecialNavigationStationPropertyType
-  - AuthorityForSpecialNavigationSystemPropertyType
-  - NavaidComponentPropertyType
-  - NavaidEquipmentMonitoringPropertyType
-  - NavaidOperationalStatusPropertyType
-  - SpecialNavigationStationStatusPropertyType
-  - AnglePropertyType
-  - AngleUsePropertyType
-  - DistancePropertyType
-  - EnRouteSegmentPointPropertyType
-  - PointReferencePropertyType
-  - SegmentPointPropertyType
-  - TerminalSegmentPointPropertyType
-  - PointUsagePropertyType
-  - FlightInspectionTrajectoryPropertyType
-  - RadioFrequencyPropertyType
-  - SatelliteApproachOperationPropertyType
-  - SatelliteServiceAreaPropertyType
-  - VDBAntennaPropertyType
-  - LinguisticNotePropertyType
-  - NotePropertyType
-  - VerticalStructureLightingStatusPropertyType
-  - VerticalStructurePartPropertyType
-  - OrganisationAuthorityAssociationPropertyType
-  - UnitAvailabilityPropertyType
-  - UnitDependencyPropertyType
-  - ApproachConditionPropertyType
-  - FinalApproachControlAltitudePropertyType
-  - FinalApproachControlPositionPropertyType
-  - FinalApproachProfilePropertyType
-  - MissedApproachGroupPropertyType
-  - TerminalArrivalAreaSectorPropertyType
-  - FinalApproachSegmentDataPropertyType
-  - CirclingRestrictionPropertyType
-  - EquipmentUnavailableAdjustmentPropertyType
-  - EquipmentUnavailableAdjustmentColumnPropertyType
-  - MinimaPropertyType
-  - NavigationAreaSectorPropertyType
-  - SectorDesignPropertyType
-  - SegmentLegAltitudeConditionPropertyType
-  - MinimumAltitudeAreaSectorPropertyType
-  - CourseGroupPropertyType
-  - HoldingUsePropertyType
-  - LandingTakeoffAreaCollectionPropertyType
-  - ProcedureTransitionPropertyType
-  - ProcedureTransitionLegPropertyType
-  - ProcedureAvailabilityPropertyType
-  - AltitudeIndicationPropertyType
-  - RouteAvailabilityPropertyType
-  - RoutePortionPropertyType
-  - AirspaceBorderCrossingPropertyType
-  - DirectFlightPropertyType
-  - DirectFlightClassPropertyType
-  - DirectFlightSegmentPropertyType
-  - FlightConditionCircumstancePropertyType
-  - FlightConditionCombinationPropertyType
-  - FlightConditionElementPropertyType
-  - FlightRestrictionLevelPropertyType
-  - FlightRestrictionRoutePropertyType
-  - FlightRoutingElementPropertyType
-  - CallsignDetailPropertyType
-  - FuelPropertyType
-  - NitrogenPropertyType
-  - OilPropertyType
-  - OxygenPropertyType
-  - RadioCommunicationOperationalStatusPropertyType
-  - ServiceOperationalStatusPropertyType
-  - ContactInformationPropertyType
-  - OnlineContactPropertyType
-  - PostalAddressPropertyType
-  - TelephoneContactPropertyType
-  - AircraftCharacteristicPropertyType
-  - AircraftNavigationEquipmentPropertyType
-  - FlightCharacteristicPropertyType
-  - AirspaceLayerPropertyType
-  - CircleSectorPropertyType
-  - DesignStandardPropertyType
-  - LightElementPropertyType
-  - LightElementStatusPropertyType
-  - MeteorologyPropertyType
-  - PropertiesWithSchedulePropertyType
-  - TimesheetPropertyType
-  - StandardLevelPropertyType
-  - AltitudeAdjustmentPropertyType
-  - ObstacleAssessmentSurfacePropertyType
-  - ObstaclePlacementPropertyType
-  - ObstructionPropertyType
-  - RadarComponentPropertyType
-  - ReflectorPropertyType
-  - SurveillanceGroundStationPropertyType
+  - AerialRefuellingPropertyType
+  - AirportHeliportPropertyType
+  - AirportHeliportCollocationPropertyType
+  - AirportHeliportProtectionAreaPropertyType
+  - AirportHotSpotPropertyType
+  - NonMovementAreaPropertyType
+  - SurveyControlPointPropertyType
+  - WaterBodyPropertyType
+  - WeatherSourcePropertyType
+  - AircraftStandPropertyType
+  - ApronPropertyType
+  - ApronElementPropertyType
+  - DeicingAreaPropertyType
+  - PassengerLoadingBridgePropertyType
+  - RoadPropertyType
+  - TouchDownLiftOffPropertyType
+  - TouchDownLiftOffSafeAreaPropertyType
+  - ApproachLightingSystemPropertyType
+  - ApronLightSystemPropertyType
+  - GroundLightSystemPropertyType
+  - GuidanceLineLightSystemPropertyType
+  - RunwayDirectionLightSystemPropertyType
+  - RunwayProtectAreaLightSystemPropertyType
+  - TaxiHoldingPositionLightSystemPropertyType
+  - TaxiwayLightSystemPropertyType
+  - TouchDownLiftOffLightSystemPropertyType
+  - AirportProtectionAreaMarkingPropertyType
+  - ApronMarkingPropertyType
+  - DeicingAreaMarkingPropertyType
+  - GuidanceLineMarkingPropertyType
+  - MarkingPropertyType
+  - RunwayMarkingPropertyType
+  - StandMarkingPropertyType
+  - TaxiHoldingPositionMarkingPropertyType
+  - TaxiwayMarkingPropertyType
+  - TouchDownLiftOffMarkingPropertyType
+  - AirportSignPropertyType
+  - ArrestingGearPropertyType
+  - RunwayPropertyType
+  - RunwayBlastPadPropertyType
+  - RunwayCentrelinePointPropertyType
+  - RunwayDirectionPropertyType
+  - RunwayElementPropertyType
+  - RunwayProtectAreaPropertyType
+  - RunwayVisualRangeEquipmentPropertyType
+  - VisualGlideSlopeIndicatorPropertyType
+  - FloatingDockSitePropertyType
+  - GangwayPropertyType
+  - MarkingBuoyPropertyType
+  - SeaplaneLandingAreaPropertyType
+  - SeaplaneRampSitePropertyType
+  - GuidanceLinePropertyType
+  - TaxiHoldingPositionPropertyType
+  - TaxiwayPropertyType
+  - TaxiwayElementPropertyType
+  - AuthorityForAirspacePropertyType
+  - GeoBorderPropertyType
+  - HoldingPatternPropertyType
+  - UnplannedHoldingPropertyType
+  - AltimeterCheckpointPropertyType
+  - AzimuthPropertyType
+  - CheckpointINSPropertyType
+  - CheckpointVORPropertyType
+  - DirectionFinderPropertyType
+  - DMEPropertyType
+  - ElevationPropertyType
+  - GlidepathPropertyType
+  - LocalizerPropertyType
+  - MarkerBeaconPropertyType
+  - NavaidPropertyType
+  - NavaidEquipmentPropertyType
+  - NavigationSystemCheckpointPropertyType
+  - NDBPropertyType
+  - SDFPropertyType
+  - SpecialNavigationStationPropertyType
+  - SpecialNavigationSystemPropertyType
+  - TACANPropertyType
+  - VORPropertyType
+  - DesignatedPointPropertyType
+  - SignificantPointInAirspacePropertyType
+  - GBASPropertyType
+  - GBASServicePropertyType
+  - SatelliteServicePropertyType
+  - SatelliteSystemPropertyType
+  - AeronauticalGroundLightPropertyType
+  - ObstacleAreaPropertyType
+  - VerticalStructurePropertyType
+  - OrganisationAuthorityPropertyType
+  - UnitPropertyType
+  - InstrumentApproachProcedurePropertyType
+  - TerminalArrivalAreaPropertyType
+  - CirclingAreaPropertyType
+  - StandardInstrumentArrivalPropertyType
+  - NavigationAreaPropertyType
+  - StandardInstrumentDeparturePropertyType
+  - MinimumAltitudeAreaPropertyType
+  - ApproachLegPropertyType
+  - ArrivalFeederLegPropertyType
+  - ArrivalLegPropertyType
+  - DepartureLegPropertyType
+  - InitialLegPropertyType
+  - IntermediateLegPropertyType
+  - MissedApproachLegPropertyType
+  - NavigationAreaRestrictionPropertyType
+  - ProcedurePropertyType
+  - ProcedureDMEPropertyType
+  - SegmentLegPropertyType
+  - ChangeOverPointPropertyType
+  - RoutePropertyType
+  - RouteSegmentPropertyType
+  - FlightRestrictionPropertyType
+  - RulesProceduresPropertyType
+  - AircraftGroundServicePropertyType
+  - AirportClearanceServicePropertyType
+  - AirportGroundServicePropertyType
+  - AirportSuppliesServicePropertyType
+  - AirTrafficControlServicePropertyType
+  - AirTrafficFlowManagementServicePropertyType
+  - FireFightingServicePropertyType
+  - GroundTrafficControlServicePropertyType
+  - InformationServicePropertyType
+  - PassengerServicePropertyType
+  - PilotControlledLightingPropertyType
+  - RadioCommunicationChannelPropertyType
+  - SearchRescueServicePropertyType
+  - ServicePropertyType
+  - TrafficSeparationServicePropertyType
+  - RadioFrequencyAreaPropertyType
+  - SpecialDatePropertyType
+  - StandardLevelColumnPropertyType
+  - StandardLevelSectorPropertyType
+  - StandardLevelTablePropertyType
+  - HoldingAssessmentPropertyType
+  - PrecisionApproachRadarPropertyType
+  - PrimarySurveillanceRadarPropertyType
+  - RadarEquipmentPropertyType
+  - RadarSystemPropertyType
+  - SecondarySurveillanceRadarPropertyType
+  - SurveillanceRadarPropertyType
 
 object:
   replace: "Type"
   prefix: "_o"
-  xpath: //xs:complexType[xs:complexContent/xs:extension[@base='aixm:AbstractAIXMObjectType']]/@name
+  xpath: |
+    //xs:complexType[
+        xs:complexContent/xs:extension[
+            @base = (
+                'aixm:AbstractAIXMObjectType',
+                'aixm:AbstractUsageConditionType',
+                'aixm:AbstractSurfaceContaminationType',
+                'aixm:AbstractSegmentPointType',
+                'aixm:AbstractDirectFlightType',
+                'aixm:AbstractPropertiesWithScheduleType'
+            )
+        ]
+    ]/@name
   list:
   - AerialRefuellingAnchorType
+  - AerialRefuellingPointType
   - AerialRefuellingTrackType
   - AuthorityForAerialRefuellingType
+  - AirportHeliportAvailabilityType
+  - AirportHeliportResponsibilityOrganisationType
+  - AirportHeliportUsageType
   - AltimeterSourceType
   - CityType
+  - ConditionCombinationType
   - SurfaceCharacteristicsType
+  - WeatherSourceAvailabilityType
+  - WorkareaActivityType
+  - ApronAreaAvailabilityType
+  - ApronAreaUsageType
+  - GroundLightingAvailabilityType
   - LightActivationType
   - LightGroupType
   - MarkingElementType
+  - AirportSignStatusType
+  - ManoeuvringAreaAvailabilityType
+  - ManoeuvringAreaUsageType
   - NavaidEquipmentDistanceType
   - RunwayDeclaredDistanceType
+  - RunwayDeclaredDistanceValueType
+  - AircraftStandContaminationType
+  - AirportHeliportContaminationType
+  - ApronContaminationType
   - RidgeType
+  - RunwayContaminationType
+  - RunwaySectionContaminationType
   - SurfaceContaminationLayerType
+  - TaxiwayContaminationType
+  - TouchDownLiftOffContaminationType
   - GuidanceLineDirectionType
+  - AirspaceActivationType
   - AirspaceGeometryComponentType
+  - AirspaceLayerClassType
   - AirspaceVolumeType
   - AirspaceVolumeDependencyType
   - HoldingPatternDistanceType
@@ -1314,16 +1378,27 @@ object:
   - AuthorityForSpecialNavigationStationType
   - AuthorityForSpecialNavigationSystemType
   - NavaidComponentType
+  - NavaidEquipmentMonitoringType
+  - NavaidOperationalStatusType
+  - SpecialNavigationStationStatusType
   - AngleType
   - AngleUseType
   - DistanceType
+  - EnRouteSegmentPointType
   - PointReferenceType
+  - TerminalSegmentPointType
+  - PointUsageType
   - FlightInspectionTrajectoryType
   - RadioFrequencyType
+  - SatelliteApproachOperationType
+  - SatelliteServiceAreaType
   - VDBAntennaType
   - LinguisticNoteType
   - NoteType
+  - VerticalStructureLightingStatusType
+  - VerticalStructurePartType
   - OrganisationAuthorityAssociationType
+  - UnitAvailabilityType
   - UnitDependencyType
   - ApproachConditionType
   - FinalApproachControlAltitudeType
@@ -1332,6 +1407,7 @@ object:
   - MissedApproachGroupType
   - TerminalArrivalAreaSectorType
   - FinalApproachSegmentDataType
+  - CirclingRestrictionType
   - EquipmentUnavailableAdjustmentType
   - EquipmentUnavailableAdjustmentColumnType
   - MinimaType
@@ -1344,10 +1420,15 @@ object:
   - LandingTakeoffAreaCollectionType
   - ProcedureTransitionType
   - ProcedureTransitionLegType
+  - ProcedureAvailabilityType
   - AltitudeIndicationType
+  - RouteAvailabilityType
   - RoutePortionType
   - AirspaceBorderCrossingType
+  - DirectFlightClassType
+  - DirectFlightSegmentType
   - FlightConditionCircumstanceType
+  - FlightConditionCombinationType
   - FlightConditionElementType
   - FlightRestrictionLevelType
   - FlightRestrictionRouteType
@@ -1357,7 +1438,12 @@ object:
   - NitrogenType
   - OilType
   - OxygenType
+  - RadioCommunicationOperationalStatusType
+  - ServiceOperationalStatusType
   - ContactInformationType
+  - OnlineContactType
+  - PostalAddressType
+  - TelephoneContactType
   - AircraftCharacteristicType
   - AircraftNavigationEquipmentType
   - FlightCharacteristicType
@@ -1365,6 +1451,7 @@ object:
   - CircleSectorType
   - DesignStandardType
   - LightElementType
+  - LightElementStatusType
   - MeteorologyType
   - TimesheetType
   - StandardLevelType

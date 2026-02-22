@@ -1080,25 +1080,72 @@ property:
   - AerialRefuellingPointPropertyType
   - AerialRefuellingTrackPropertyType
   - AuthorityForAerialRefuellingPropertyType
+  - AirportHeliportPropertyType
   - AirportHeliportAvailabilityPropertyType
+  - AirportHeliportCollocationPropertyType
+  - AirportHeliportProtectionAreaPropertyType
   - AirportHeliportResponsibilityOrganisationPropertyType
   - AirportHeliportUsagePropertyType
+  - AirportHotSpotPropertyType
+  - AltimeterSourcePropertyType
   - AltimeterSourceStatusPropertyType
   - CityPropertyType
   - ConditionCombinationPropertyType
+  - NonMovementAreaPropertyType
   - SurfaceCharacteristicsPropertyType
+  - SurveyControlPointPropertyType
   - UsageConditionPropertyType
   - WorkareaActivityPropertyType
+  - AircraftStandPropertyType
+  - ApronPropertyType
   - ApronAreaAvailabilityPropertyType
   - ApronAreaUsagePropertyType
+  - ApronElementPropertyType
+  - DeicingAreaPropertyType
+  - PassengerLoadingBridgePropertyType
+  - RoadPropertyType
+  - TouchDownLiftOffPropertyType
+  - TouchDownLiftOffSafeAreaPropertyType
+  - ApproachLightingSystemPropertyType
+  - ApronLightSystemPropertyType
   - GroundLightingAvailabilityPropertyType
+  - GroundLightSystemPropertyType
+  - GuidanceLineLightSystemPropertyType
   - LightActivationPropertyType
+  - RunwayDirectionLightSystemPropertyType
+  - RunwayProtectAreaLightSystemPropertyType
+  - TaxiHoldingPositionLightSystemPropertyType
+  - TaxiwayLightSystemPropertyType
+  - TouchDownLiftOffLightSystemPropertyType
+  - AirportProtectionAreaMarkingPropertyType
+  - ApronMarkingPropertyType
+  - DeicingAreaMarkingPropertyType
+  - GuidanceLineMarkingPropertyType
+  - MarkingPropertyType
   - MarkingElementPropertyType
+  - RunwayMarkingPropertyType
+  - StandMarkingPropertyType
+  - TaxiHoldingPositionMarkingPropertyType
+  - TaxiwayMarkingPropertyType
+  - TouchDownLiftOffMarkingPropertyType
+  - ArrestingGearPropertyType
   - ManoeuvringAreaAvailabilityPropertyType
   - ManoeuvringAreaUsagePropertyType
   - NavaidEquipmentDistancePropertyType
+  - RunwayPropertyType
+  - RunwayBlastPadPropertyType
+  - RunwayCentrelinePointPropertyType
   - RunwayDeclaredDistancePropertyType
   - RunwayDeclaredDistanceValuePropertyType
+  - RunwayDirectionPropertyType
+  - RunwayElementPropertyType
+  - RunwayProtectAreaPropertyType
+  - RunwayVisualRangePropertyType
+  - VisualGlideSlopeIndicatorPropertyType
+  - FloatingDockSitePropertyType
+  - MarkingBuoyPropertyType
+  - SeaplaneLandingAreaPropertyType
+  - SeaplaneRampSitePropertyType
   - AircraftStandContaminationPropertyType
   - AirportHeliportContaminationPropertyType
   - ApronContaminationPropertyType
@@ -1109,36 +1156,69 @@ property:
   - SurfaceContaminationLayerPropertyType
   - TaxiwayContaminationPropertyType
   - TouchDownLiftOffContaminationPropertyType
+  - GuidanceLinePropertyType
+  - TaxiHoldingPositionPropertyType
+  - TaxiwayPropertyType
+  - TaxiwayElementPropertyType
   - AirspaceActivationPropertyType
   - AirspaceGeometryComponentPropertyType
   - AirspaceLayerClassPropertyType
   - AirspaceVolumePropertyType
   - AirspaceVolumeDependencyPropertyType
+  - AuthorityForAirspacePropertyType
+  - GeoBorderPropertyType
   - CurvePropertyType
   - ElevatedCurvePropertyType
   - ElevatedPointPropertyType
   - ElevatedSurfacePropertyType
   - PointPropertyType
   - SurfacePropertyType
+  - HoldingPatternPropertyType
   - HoldingPatternDistancePropertyType
   - HoldingPatternDurationPropertyType
+  - UnplannedHoldingPropertyType
   - AuthorityForNavaidEquipmentPropertyType
   - AuthorityForSpecialNavigationStationPropertyType
   - AuthorityForSpecialNavigationSystemPropertyType
+  - AzimuthPropertyType
+  - CheckpointINSPropertyType
+  - CheckpointVORPropertyType
+  - DirectionFinderPropertyType
+  - ElevationPropertyType
+  - GlidepathPropertyType
+  - LocalizerPropertyType
+  - MarkerBeaconPropertyType
+  - NavaidPropertyType
   - NavaidComponentPropertyType
+  - NavaidEquipmentPropertyType
   - NavaidEquipmentMonitoringPropertyType
   - NavaidOperationalStatusPropertyType
+  - NavigationSystemCheckpointPropertyType
+  - NDBPropertyType
+  - SDFPropertyType
+  - SpecialNavigationStationPropertyType
   - SpecialNavigationStationStatusPropertyType
-  - AngleUsePropertyType
+  - SpecialNavigationSystemPropertyType
+  - TACANPropertyType
+  - VORPropertyType
+  - AngleIndicationPropertyType
+  - DistanceIndicationPropertyType
   - EnRouteSegmentPointPropertyType
   - PointReferencePropertyType
   - SegmentPointPropertyType
   - TerminalSegmentPointPropertyType
+  - DesignatedPointPropertyType
+  - SignificantPointInAirspacePropertyType
+  - AeronauticalGroundLightPropertyType
   - LinguisticNotePropertyType
   - NotePropertyType
+  - ObstacleAreaPropertyType
+  - VerticalStructurePropertyType
   - VerticalStructureLightingStatusPropertyType
   - VerticalStructurePartPropertyType
+  - OrganisationAuthorityPropertyType
   - OrganisationAuthorityAssociationPropertyType
+  - UnitPropertyType
   - UnitAvailabilityPropertyType
   - UnitDependencyPropertyType
   - ApproachAltitudeTablePropertyType
@@ -1146,40 +1226,78 @@ property:
   - ApproachDistanceTablePropertyType
   - ApproachTimingTablePropertyType
   - FinalProfilePropertyType
+  - InstrumentApproachProcedurePropertyType
   - MissedApproachGroupPropertyType
+  - TerminalArrivalAreaPropertyType
   - TerminalArrivalAreaSectorPropertyType
   - FASDataBlockPropertyType
+  - CirclingAreaPropertyType
   - CirclingRestrictionPropertyType
   - EquipmentUnavailableAdjustmentPropertyType
   - EquipmentUnavailableAdjustmentColumnPropertyType
   - MinimaPropertyType
+  - StandardInstrumentArrivalPropertyType
   - DepartureArrivalConditionPropertyType
+  - NavigationAreaPropertyType
   - NavigationAreaSectorPropertyType
   - SectorDesignPropertyType
+  - StandardInstrumentDeparturePropertyType
+  - SafeAltitudeAreaPropertyType
   - SafeAltitudeAreaSectorPropertyType
+  - ApproachLegPropertyType
+  - ArrivalFeederLegPropertyType
+  - ArrivalLegPropertyType
+  - DepartureLegPropertyType
   - HoldingUsePropertyType
+  - InitialLegPropertyType
+  - IntermediateLegPropertyType
   - LandingTakeoffAreaCollectionPropertyType
+  - MissedApproachLegPropertyType
+  - NavigationAreaRestrictionPropertyType
+  - ProcedurePropertyType
+  - ProcedureDMEPropertyType
   - ProcedureTransitionPropertyType
   - ProcedureTransitionLegPropertyType
+  - SegmentLegPropertyType
   - ProcedureAvailabilityPropertyType
+  - ChangeOverPointPropertyType
+  - RoutePropertyType
   - RouteAvailabilityPropertyType
   - RoutePortionPropertyType
+  - RouteSegmentPropertyType
+  - AirspaceBorderCrossingPropertyType
   - DirectFlightPropertyType
   - DirectFlightClassPropertyType
   - DirectFlightSegmentPropertyType
   - FlightConditionCircumstancePropertyType
   - FlightConditionCombinationPropertyType
   - FlightConditionElementPropertyType
+  - FlightRestrictionPropertyType
   - FlightRestrictionLevelPropertyType
   - FlightRestrictionRoutePropertyType
   - FlightRoutingElementPropertyType
+  - RulesProceduresPropertyType
+  - AircraftGroundServicePropertyType
+  - AirportClearanceServicePropertyType
+  - AirportGroundServicePropertyType
+  - AirportSuppliesServicePropertyType
+  - AirTrafficControlServicePropertyType
+  - AirTrafficManagementServicePropertyType
   - CallsignDetailPropertyType
+  - FireFightingServicePropertyType
   - FuelPropertyType
-  - NitrogenPropertyType
+  - GroundTrafficControlServicePropertyType
+  - InformationServicePropertyType
   - OilPropertyType
   - OxygenPropertyType
+  - PassengerServicePropertyType
+  - PilotControlledLightingPropertyType
+  - RadioCommunicationChannelPropertyType
   - RadioCommunicationOperationalStatusPropertyType
+  - SearchRescueServicePropertyType
+  - ServicePropertyType
   - ServiceOperationalStatusPropertyType
+  - TrafficSeparationServicePropertyType
   - ContactInformationPropertyType
   - OnlineContactPropertyType
   - PostalAddressPropertyType
@@ -1191,16 +1309,28 @@ property:
   - LightElementPropertyType
   - LightElementStatusPropertyType
   - MeteorologyPropertyType
+  - RadioFrequencyAreaPropertyType
   - PropertiesWithSchedulePropertyType
+  - SpecialDatePropertyType
   - TimesheetPropertyType
   - StandardLevelPropertyType
+  - StandardLevelColumnPropertyType
+  - StandardLevelSectorPropertyType
+  - StandardLevelTablePropertyType
   - AltitudeAdjustmentPropertyType
+  - HoldingAssessmentPropertyType
   - ObstacleAssessmentAreaPropertyType
   - ObstaclePlacementPropertyType
   - ObstructionPropertyType
+  - PrecisionApproachRadarPropertyType
+  - PrimarySurveillanceRadarPropertyType
   - RadarComponentPropertyType
+  - RadarEquipmentPropertyType
+  - RadarSystemPropertyType
   - ReflectorPropertyType
+  - SecondarySurveillanceRadarPropertyType
   - SurveillanceGroundStationPropertyType
+  - SurveillanceRadarPropertyType
 
 object:
   replace: "Type"
@@ -1556,9 +1686,3 @@ propertygroup:
   prefix: ""
   xpath: //xs:complexType[xs:complexContent/xs:extension[@base='aixm:AbstractAIXMPropertyGroupType']]/@name
   list:
-  - AerialRefuellingPropertyGroupType
-  - AirportHeliportPropertyGroupType
-  - AltimeterSourcePropertyGroupType
-  - NonMovementAreaPropertyGroupType
-  - SurveyControlPointPropertyGroupType
-  - WorkAreaPropertyGroupType

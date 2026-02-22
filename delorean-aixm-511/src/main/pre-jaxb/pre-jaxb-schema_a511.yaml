@@ -30,7 +30,7 @@ Airport Heliport:
     - SurveyControlPoint
     - UsageCondition
     - WorkArea
-    - WorkareaActivity
+    - WorkAreaActivity
     - AircraftStand
     - Apron
     - ApronAreaAvailability
@@ -196,8 +196,6 @@ Navaids Points:
     - Distance
     - PointUsage
     - FlightInspectionTrajectory
-    - GBAS
-    - GBASService
     - RadioFrequency
     - SatelliteApproachOperation
     - SatelliteSystem
@@ -274,13 +272,11 @@ Procedure:
     - SegmentLeg
     - ProcedureAvailability
     - FinalApproachControlAltitude
-    - FinalApproachControlPosition
     - FinalApproachProfile
     - FinalApproachSegmentData
     - SegmentLegAltitudeCondition
     - MinimumAltitudeArea
     - MinimumAltitudeAreaSector
-    - CourseGroup
 
 Routes:
   schema: route

@@ -27,7 +27,6 @@ class Coordinator:
         with open(file_path, 'w') as f:
             f.write(json.dumps(content, indent=4))
         
-                                                    
     def generate_xjb(self, verbose: bool = False) -> None:
         for key, value in Content.get_content().items() :
             self.xjb[key]["auto"]["default"].extend(
@@ -127,11 +126,14 @@ class Coordinator:
 
         tree.write(file_path, pretty_print=True, encoding='utf-8', xml_declaration=True)
 
-    def save_entity_class(self, entities, filename="output.txt") -> None:
+    def save_entity_class(self) -> None:
         sorted_entities = sorted(
-            entities,
+            Content().entity,
             key=lambda x: (not x.startswith("Message"), not x.startswith("Abstract"), x)
         )
+        filename = f"{Config().version}_entities.txt"
         with open(filename, "w", encoding="utf-8") as f:
             for entity in sorted_entities:
-                f.write(f"com.aixm.delorean.core.schema.XXXX.aixm.{entity}.class,\n")
+                f.write(f"com.aixm.delorean.XXXX.schema.{entity}.class,\n")
+
+        print("[INFO] Entities exported : " + filename)
