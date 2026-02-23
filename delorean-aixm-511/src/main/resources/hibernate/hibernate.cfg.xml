@@ -34,6 +34,7 @@
 
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
+
         <mapping class="com.aixm.delorean.core.gis.type.gml.GmlPointType"/>
         <mapping class="com.aixm.delorean.core.gis.type.gml.GmlCurveType"/>
         <mapping class="com.aixm.delorean.core.gis.type.gml.GmlSurfaceType"/>
@@ -44,17 +45,23 @@
         <mapping class="com.aixm.delorean.core.gis.type.Circle"/>
         <mapping class="com.aixm.delorean.core.gis.type.Polygon"/>
         <mapping class="com.aixm.delorean.core.gis.type.Segment"/>
+
         <mapping class="com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType"/>
+
+
         <mapping class="com.aixm.delorean.aixm511.gis.type.AixmPointType"/>
         <mapping class="com.aixm.delorean.aixm511.gis.type.AixmElevatedPointType"/>
         <mapping class="com.aixm.delorean.aixm511.gis.type.AixmCurveType"/>
         <mapping class="com.aixm.delorean.aixm511.gis.type.AixmSurfaceType"/>
         <mapping class="com.aixm.delorean.aixm511.gis.type.AixmElevatedCurveType"/>
         <mapping class="com.aixm.delorean.aixm511.gis.type.AixmElevatedSurfaceType"/>
+
         <mapping class="com.aixm.delorean.aixm511.schema.FeatureMetadataPropertyType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.FeatureTimeSliceMetadataPropertyType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.MessageMetadataPropertyType"/>
+        <mapping class="com.aixm.delorean.aixm511.schema.AbstractExtensionType"/>
+
         <mapping class="com.aixm.delorean.aixm511.schema.AIXMPointPropertyType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.AIXMElevatedPointPropertyType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.ElevatedPointTypeExtension"/>
@@ -65,11 +72,11 @@
         <mapping class="com.aixm.delorean.aixm511.schema.AIXMElevatedSurfacePropertyType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.ElevatedSurfaceTypeExtension"/>
         <mapping class="com.aixm.delorean.aixm511.schema.ElevatedPointType"/>
-        <mapping class="com.aixm.delorean.aixm511.schema.AbstractAirportGroundServiceType"/>
+        
         <mapping class="com.aixm.delorean.aixm511.schema.AbstractAirportHeliportProtectionAreaType"/>
+        <mapping class="com.aixm.delorean.aixm511.schema.AbstractAirportGroundServiceType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.AbstractApproachLegType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.AbstractDirectFlightType"/>
-        <mapping class="com.aixm.delorean.aixm511.schema.AbstractExtensionType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.AbstractGroundLightSystemType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.AbstractMarkingType"/>
         <mapping class="com.aixm.delorean.aixm511.schema.AbstractNavaidEquipmentType"/>

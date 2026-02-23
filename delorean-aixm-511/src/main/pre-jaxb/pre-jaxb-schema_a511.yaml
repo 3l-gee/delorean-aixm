@@ -14,98 +14,89 @@ Aerial Refuelling:
 Airport Heliport:
   schema: airport_heliport
   list:
-    - AirportHeliport
-    - AirportHeliportAvailability
-    - AirportHeliportCollocation
-    - AirportHeliportProtectionArea
-    - AirportHeliportResponsibilityOrganisation
-    - AirportHeliportUsage
-    - AirportHotSpot
-    - AltimeterSource
-    - AltimeterSourceStatus
-    - City
-    - ConditionCombination
-    - NonMovementArea
-    - SurfaceCharacteristics
-    - SurveyControlPoint
-    - UsageCondition
-    - WorkArea
-    - WorkAreaActivity
-    - AircraftStand
-    - Apron
-    - ApronAreaAvailability
-    - ApronAreaUsage
-    - ApronElement
-    - DeicingArea
-    - PassengerLoadingBridge
-    - Road
-    - TouchDownLiftOff
-    - TouchDownLiftOffSafeArea
-    - ApproachLightingSystem
-    - ApronLightSystem
-    - GroundLightSystem
-    - GroundLightingAvailability
-    - GuidanceLineLightSystem
-    - LightActivation
-    - RunwayDirectionLightSystem
-    - RunwayProtectAreaLightSystem
-    - TaxiHoldingPositionLightSystem
-    - TaxiwayLightSystem
-    - TouchDownLiftOffLightSystem
-    - AirportProtectionAreaMarking
-    - ApronMarking
-    - DeicingAreaMarking
-    - GuidanceLineMarking
-    - Marking
-    - MarkingElement
-    - MarkingExtent
-    - RunwayMarking
-    - StandMarking
-    - TaxiHoldingPositionMarking
-    - TaxiwayMarking
-    - TouchDownLiftOffMarking
-    - ArrestingGear
-    - ArrestingGearExtent
-    - ManoeuvringAreaAvailability
-    - ManoeuvringAreaUsage
-    - NavaidEquipmentDistance
-    - Runway
-    - RunwayBlastPad
-    - RunwayCentrelinePoint
-    - RunwayDeclaredDistance
-    - RunwayDeclaredDistanceValue
-    - RunwayDirection
-    - RunwayElement
-    - RunwayProtectArea
-    - RunwayVisualRange
-    - VisualGlideSlopeIndicator
-    - FloatingDockSite
-    - MarkingBuoy
-    - SeaplaneLandingArea
-    - SeaplaneRampSite
-    - AircraftStandContamination
-    - AirportHeliportContamination
-    - ApronContamination
-    - Ridge
-    - RunwayContamination
-    - RunwaySectionContamination
-    - SurfaceContamination
-    - SurfaceContaminationLayer
-    - TaxiwayContamination
-    - TouchDownLiftOffContamination
-    - GuidanceLine
-    - TaxiHoldingPosition
-    - Taxiway
-    - TaxiwayElement
-    - WaterBody
-    - WeatherSource
-    - WeatherSourceAvailability
-    - LightGroup
-    - AirportSign
-    - AirportSignStatus
-    - RunwayVisualRangeEquipment
-    - Gangway
-    - GuidanceLineDirection
+  - AirportHeliport
+  - AirportHeliportAvailability
+  - AirportHeliportCollocation
+  - AirportHeliportProtectionArea
+  - AirportHeliportResponsibilityOrganisation
+  - AirportHeliportUsage
+  - AirportHotSpot
+  - AltimeterSource
+  - AltimeterSourceStatus
+  - City
+  - ConditionCombination
+  - NonMovementArea
+  - SurfaceCharacteristics
+  - SurveyControlPoint
+  - UsageCondition
+  - WorkArea
+  - WorkareaActivity
+  - AircraftStand
+  - Apron
+  - ApronAreaAvailability
+  - ApronAreaUsage
+  - ApronElement
+  - DeicingArea
+  - PassengerLoadingBridge
+  - Road
+  - TouchDownLiftOff
+  - TouchDownLiftOffSafeArea
+  - ApproachLightingSystem
+  - ApronLightSystem
+  - GroundLightSystem
+  - GroundLightingAvailability
+  - GuidanceLineLightSystem
+  - LightActivation
+  - RunwayDirectionLightSystem
+  - RunwayProtectAreaLightSystem
+  - TaxiHoldingPositionLightSystem
+  - TaxiwayLightSystem
+  - TouchDownLiftOffLightSystem
+  - AirportProtectionAreaMarking
+  - ApronMarking
+  - DeicingAreaMarking
+  - GuidanceLineMarking
+  - Marking
+  - MarkingElement
+  - MarkingExtent
+  - RunwayMarking
+  - StandMarking
+  - TaxiHoldingPositionMarking
+  - TaxiwayMarking
+  - TouchDownLiftOffMarking
+  - ArrestingGear
+  - ArrestingGearExtent
+  - ManoeuvringAreaAvailability
+  - ManoeuvringAreaUsage
+  - NavaidEquipmentDistance
+  - Runway
+  - RunwayBlastPad
+  - RunwayCentrelinePoint
+  - RunwayDeclaredDistance
+  - RunwayDeclaredDistanceValue
+  - RunwayDirection
+  - RunwayElement
+  - RunwayProtectArea
+  - RunwayVisualRange
+  - VisualGlideSlopeIndicator
+  - FloatingDockSite
+  - MarkingBuoy
+  - SeaplaneLandingArea
+  - SeaplaneRampSite
+  - AircraftStandContamination
+  - AirportHeliportContamination
+  - ApronContamination
+  - Ridge
+  - RunwayContamination
+  - RunwaySectionContamination
+  - SurfaceContamination
+  - SurfaceContaminationLayer
+  - TaxiwayContamination
+  - TouchDownLiftOffContamination
+  - GuidanceLine
+  - TaxiHoldingPosition
+  - Taxiway
+  - TaxiwayElement
 
 Airspace:
   schema: airspace
@@ -191,17 +182,6 @@ Navaids Points:
     - SignificantPoint
     - SignificantPointInAirspace
     - AeronauticalGroundLight
-    - AltimeterCheckpoint
-    - Angle
-    - Distance
-    - PointUsage
-    - FlightInspectionTrajectory
-    - RadioFrequency
-    - SatelliteApproachOperation
-    - SatelliteSystem
-    - SatelliteService
-    - SatelliteServiceArea
-    - VDBAntenna
 
 Notes:
   schema: note
@@ -271,12 +251,6 @@ Procedure:
     - ProcedureTransitionLeg
     - SegmentLeg
     - ProcedureAvailability
-    - FinalApproachControlAltitude
-    - FinalApproachProfile
-    - FinalApproachSegmentData
-    - SegmentLegAltitudeCondition
-    - MinimumAltitudeArea
-    - MinimumAltitudeAreaSector
 
 Routes:
   schema: route
@@ -300,7 +274,6 @@ Routes:
     - FlightRestrictionRoute
     - FlightRoutingElement
     - FlightRoutingElementChoice
-    - AltitudeIndication
 
 Rules Procedures:
   schema: rules_procedure
@@ -332,7 +305,6 @@ Service:
     - Service
     - ServiceOperationalStatus
     - TrafficSeparationService
-    - AirTrafficFlowManagementService
 
 Shared:
   schema: shared
@@ -362,9 +334,6 @@ Shared:
     - ObstacleAssessmentArea
     - ObstaclePlacement
     - Obstruction
-    - AircraftNavigationEquipment
-    - DesignStandard
-    - ObstacleAssessmentSurface
 
 Surveillance:
   schema: surveillance
