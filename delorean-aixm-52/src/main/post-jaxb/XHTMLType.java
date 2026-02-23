@@ -1,4 +1,4 @@
-package com.aixm.delorean.aixm511.schema;
+package com.aixm.delorean.aixm52.schema;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import com.aixm.delorean.aixm511.xhtml.adapter.XHTMLTypeAdapter;
+import com.aixm.delorean.aixm52.xhtml.adapter.XHTMLTypeAdapter;
 import org.w3c.dom.Element;
 
 
