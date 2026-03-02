@@ -304,19 +304,29 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         }
     }
 
+
     public ROOT predicateValidTimeslice(Class<ROOT> structure, Instant time) {
         if (this.sessionFactory == null){
             throw new IllegalArgumentException("Sessionfactory is not init");
         }
 
+        //collect relevant tiemeslice property ids
         Session session = sessionFactory.openSession();
-
-        String TPIdsSQL = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream("/sql/time_slice_property_Ids.sql"));
+        InputStream TPIdsStream = this.AIXMResourceAnchorsClass.getResourceAsStream("/sql/time_slice_property_ids.sql");
+        if (TPIdsStream == null) {
+            throw new IllegalStateException("TimeSliceProperty predicate script not found");
+        }
+        String TPIdsSQL = this.inputStreamToSQL(TPIdsStream);
         Transaction TPIdsTX = session.beginTransaction();
         List<Long> TPIds = session.createNativeQuery(TPIdsSQL, Long.class).setParameter("time", time).getResultList();
         TPIdsTX.commit();
-
-        String BMMIdsSQL = this.inputStreamToSQL(this.AIXMResourceAnchorsClass.getResourceAsStream("/sql/basic_message_member_ids.sql"));        
+        
+        //collect relevant basic message memebers ids
+        InputStream BMMIdsStream = this.AIXMResourceAnchorsClass.getResourceAsStream("/sql/basic_message_member_ids.sql");
+        if (BMMIdsStream == null) {
+            throw new IllegalStateException("TimeSliceProperty predicate script not found");
+        }
+        String BMMIdsSQL = this.inputStreamToSQL(BMMIdsStream);        
         Transaction BMMIdsTX = session.beginTransaction();
         List<Long> BMMIds = session.createNativeQuery(BMMIdsSQL, Long.class).setParameter("time", time).getResultList();
         BMMIdsTX.commit();

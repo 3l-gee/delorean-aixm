@@ -242,10 +242,79 @@
 
     <profiles>
         <profile>
-            <id>jaxb-511</id>
+            <id>jaxb-51</id>
             <build>
                 <plugins>
-                    <!-- HiSrc HyperJAXB Code Generation for AIXM 5.1.1 -->
+
+                     <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+
+                            <!-- Pre-JAXB Source preparation -->
+                            <execution>
+                                <id>prepare aixm 51 bindings source</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>${project.parent.basedir}/.venv/Scripts/python.exe</executable>
+                                    <arguments>
+                                        <argument>${project.parent.basedir}/pre-jaxb/jaxb_cli.py</argument>
+                                        <argument>--schema</argument>
+                                        <argument>${project.basedir}/src/main/pre-jaxb/pre-jaxb-schema_a51.yaml</argument>
+                                        <argument>--config</argument>
+                                        <argument>${project.basedir}/src/main/pre-jaxb/pre-jaxb-config_a51.yaml</argument>
+                                        <argument>--content</argument>
+                                        <argument>${project.basedir}/src/main/pre-jaxb/pre-jaxb-content_a51.yaml</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+
+                            <!-- SQL generation -->
+                            <execution>
+                                <id>generate aixm 51 sql</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>${project.parent.basedir}/.venv/Scripts/python.exe</executable>
+                                    <arguments>
+                                        <argument>${project.parent.basedir}/pre-jaxb/sql_cli.py</argument>
+                                        <argument>--schema</argument>
+                                        <argument>${project.basedir}/src/main/pre-jaxb/pre-jaxb-schema_a51.yaml</argument>
+                                        <argument>--config</argument>
+                                        <argument>${project.basedir}/src/main/pre-jaxb/pre-jaxb-config_a51.yaml</argument>
+                                        <argument>--path_to_bmm</argument>
+                                        <argument>${project.basedir}/src/main/resources/sql/basic_message_member_ids.sql</argument>
+                                        <argument>--path_to_tsp</argument>
+                                        <argument>${project.basedir}/src/main/resources/sql/time_slice_property_ids.sql</argument>
+                                        <argument>--path_to_sfl</argument>
+                                        <argument>${project.basedir}/src/main/resources/sql/schema_feature_list.txt</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                            
+                            <!-- Post-JAXB generated code Fix -->
+                            <execution>
+                                <id>postprocess aixm 51 bindings</id>
+                                <phase>process-sources</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>com.aixm.delorean.postjaxb.PostJAXBRunner</mainClass>
+                                    <arguments>
+                                        <argument>${project.basedir}/src/main/post-jaxb/post-jaxb-config_a51.yaml</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- HiSrc HyperJAXB Code Generation -->
                     <plugin>
                         <groupId>org.patrodyne.jvnet</groupId>
                         <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
@@ -264,7 +333,7 @@
                         </dependencies>
                         <executions>
                             <execution>
-                                <id>generate aixm 511 bindings</id>
+                                <id>generate aixm 51 bindings</id>
                                 <phase>generate-sources</phase>
                                 <goals>
                                     <goal>generate</goal>
@@ -286,28 +355,6 @@
                         </executions>
                     </plugin>
 
-                    <!-- Post-JAXB Codegen Fix Utility -->
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <executions>
-                            <execution>
-                                <id>post-jaxb-fix</id>
-                                <phase>process-sources</phase>
-                                <goals>
-                                    <goal>java</goal>
-                                </goals>
-                                <configuration>
-                                    <mainClass>com.aixm.delorean.postjaxb.PostJAXBRunner</mainClass>
-                                    <arguments>
-                                        <argument>${project.basedir}/src/main/post-jaxb/aixm511-post-jaxb-config.yaml</argument>
-                                    </arguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
                     <!-- Spotless Code Formatter -->
                     <plugin>
                         <groupId>com.diffplug.spotless</groupId>
@@ -323,7 +370,7 @@
                                 <configuration>
                                     <java>
                                         <includes>
-                                            <include>src/main/java/com/aixm/delorean/aixm511/schema/**/*.java</include>
+                                            <include>src/main/java/com/aixm/delorean/aixm51/schema/**/*.java</include>
                                         </includes>
                                         <eclipse>
                                             <version>4.29</version>

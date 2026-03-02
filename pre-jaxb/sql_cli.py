@@ -5,44 +5,49 @@ Read tables from YAML configuration
 """
 
 import argparse
+from collections import defaultdict
 from html import parser
 import os
 import yaml
+from lxml import etree
+import json
+import re
+
+NAMESPACES = {
+    "uml": "http://schema.omg.org/spec/UML/2.0",
+    "xmi": "http://schema.omg.org/spec/XMI/2.1"
+}
 
 def open_yaml(file_path : str) -> dict:
     with open(file_path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
+    
+def merge_yaml(schema: dict, config: dict) -> dict:
+    result = {}
 
-def generate_inline_schema_feature_list(config) -> list:
-    inline_schema_feature_list = []
-    for group_name, group_data in config.items():
-        schema = group_data.get("schema")
-        entity_list = group_data.get("list", [])
+    flattened_schema = {
+        item: value.get("schema", None)
+        for key, value in schema.items()
+        for item in value.get("list", [])
+    }
 
-        # Skip groups without entities
-        if not schema or not entity_list:
-            continue
+    for feature in config.get("feature", {}).get("list", []):
+        base_name = feature.removesuffix("Type")
 
-        for entity in entity_list:
+        if base_name in flattened_schema:
+            key = flattened_schema[base_name]
+            result.setdefault(key, []).append(base_name)
 
-            inline_schema_feature_list.append(f"{schema.lower()}.{entity.lower()}")
+    return result
 
-    return inline_schema_feature_list
-
-
-def generate_union_sql(config) -> str:
+def generate_union_sql(schema_class_dict: dict) -> str:
     union_queries = []
 
-    for group_name, group_data in config.items():
-        schema = group_data.get("schema")
-        entity_list = group_data.get("list", [])
-
-        # Skip groups without entities
-        if not schema or not entity_list:
-            continue
-
+    for schema, entity_list in schema_class_dict.items():
         for entity in entity_list:
 
+            schema = re.sub(r'\s+', '', schema)
+            schema = re.sub(r'(?<!^)(?=[A-Z])', '_', schema).lower()
             timesliceproperty = entity.lower() + "_tp"
             timesliceproperty_ref_col = entity.lower() + "timeslice_hjid"
 
@@ -114,6 +119,18 @@ ORDER BY identifier, sequence_number,correction_number DESC;
 
     return str(start + union_sql + end)
 
+def flatten_dict(dict: dict) -> dict:
+    items = []
+
+    for schema, entity_list in dict.items():
+        for entity in entity_list:
+            schema = re.sub(r'\s+', '', schema)
+            schema = re.sub(r'(?<!^)(?=[A-Z])', '_', schema).lower()
+            entity = entity.lower()
+            items.append(str(schema) + "." + str(entity))
+
+    return items
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -121,9 +138,15 @@ def main():
     )
 
     parser.add_argument(
+        "--schema",
+        required=True,
+        help="Path to XMI file"
+    )
+
+    parser.add_argument(
         "--config",
         required=True,
-        help="Path to input YAML configuration file"
+        help="Path to XMI file"
     )
 
     parser.add_argument(
@@ -146,12 +169,13 @@ def main():
 
     args = parser.parse_args()
 
+    schema = open_yaml(args.schema)
     config = open_yaml(args.config)
-    inline_schema_feature_list = generate_inline_schema_feature_list(config)
-    union_sql = generate_union_sql(config)
+    schema_class_dict = merge_yaml(schema, config)
+    union_sql = generate_union_sql(schema_class_dict)
     basic_message_member_ids_sql = generate_basic_message_member_ids_sql(union_sql)
     time_slice_property_ids_sql = generate_time_slice_property_ids_sql(union_sql)
-    inline_schema_feature_list = generate_inline_schema_feature_list(config)
+    flattened_schema_class_dict = flatten_dict(schema_class_dict)   
 
     with open(args.path_to_bmm, "w", encoding="utf-8") as f:
         f.write(basic_message_member_ids_sql)
@@ -160,7 +184,7 @@ def main():
         f.write(time_slice_property_ids_sql)
 
     with open(args.path_to_sfl, "w", encoding="utf-8") as f:
-        f.write("\n".join(inline_schema_feature_list))
+        f.write("\n".join(flattened_schema_class_dict))
 
 if __name__ == "__main__":
     main()
