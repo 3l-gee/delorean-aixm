@@ -77,7 +77,26 @@
 						</orm:cascade>
 				</hj:default-many-to-many>
 			</hj:persistence>
-
+			<jaxb:bindings node="//xs:complexType[@name='MarkingBuoyTimeSliceType']//xs:element[@name='designator']">
+				<hj:basic>
+					<orm:column name="designator" nullable="true"/>
+				</hj:basic>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@name='codeICAO']">
+				<hj:basic>
+					<orm:column name="codeicao" nullable="true"/>
+				</hj:basic>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@name='referencePathIdentifier']">
+				<hj:basic>
+					<orm:column name="referencepathidentifier" nullable="true"/>
+				</hj:basic>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@name='routeIndicator']">
+				<hj:basic>
+					<orm:column name="routeindicator" nullable="true"/>
+				</hj:basic>
+			</jaxb:bindings>
             <jaxb:bindings node="//xs:complexType[@name='PointPropertyType']">
 				<jaxb:class name="AIXMPointPropertyType"/>
 				<hj:entity>
@@ -138,7 +157,7 @@
 				</hj:entity>
 			</jaxb:bindings>
 			<jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']//xs:element[@name='Curve']">
-				<jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmCurveType"/>
+				<jaxb:javaType name="com.aixm.delorean.aixm51.gis.type.AixmCurveType"/>
 				<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Curve", required = true, type = com.aixm.delorean.aixm51.schema.CurveType.class)</annox:annotate>
 				<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm51.gis.adapter.CurveTypeAdapter.class)</annox:annotate>
 			</jaxb:bindings>

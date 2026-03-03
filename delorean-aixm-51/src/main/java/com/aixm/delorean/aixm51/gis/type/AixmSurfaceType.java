@@ -1,4 +1,4 @@
-package com.aixm.delorean.aixm511.gis.type;
+package com.aixm.delorean.aixm51.gis.type;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +7,9 @@ import javax.xml.namespace.QName;
 
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-import com.aixm.delorean.aixm511.schema.CurveType;
-import com.aixm.delorean.aixm511.schema.NotePropertyType;
-import com.aixm.delorean.aixm511.schema.ValDistanceType;
+import com.aixm.delorean.aixm51.schema.NotePropertyType;
+import com.aixm.delorean.aixm51.schema.SurfaceType;
+import com.aixm.delorean.aixm51.schema.ValDistanceType;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
@@ -25,10 +25,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.xml.bind.JAXBElement;
 
-@Entity(name = "AixmCurveType")
-@Table(name = "aixm_curve", schema = "gml")
-public class AixmCurveType extends com.aixm.delorean.core.gis.type.Curve implements java.io.Serializable {
-    
+@Entity(name = "AixmSurfaceType")
+@Table(name = "aixm_surface", schema = "gml")
+public class AixmSurfaceType extends com.aixm.delorean.core.gis.type.Surface implements java.io.Serializable {
+
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceType> horizontalAccuracy;
     protected List<NotePropertyType> annotation;
@@ -58,14 +58,14 @@ public class AixmCurveType extends com.aixm.delorean.core.gis.type.Curve impleme
     }
 
     public void setHorizontalAccuracyItem(ValDistanceType target) {
-        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "horizontalAccuracy"), CurveType.class, target));
+        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "horizontalAccuracy"), SurfaceType.class, target));
     }
 
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "aixm_curve_annotation_link", schema = "gml", joinColumns = {
-        @JoinColumn(name = "aixm_curve_hjid", referencedColumnName = "hjid")
+    @JoinTable(name = "aixm_surface_annotation_link", schema = "gml", joinColumns = {
+        @JoinColumn(name = "aixm_surface_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })

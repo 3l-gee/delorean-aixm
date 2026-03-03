@@ -1,4 +1,4 @@
-package com.aixm.delorean.aixm511.gis.type;
+package com.aixm.delorean.aixm51.gis.type;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +7,9 @@ import javax.xml.namespace.QName;
 
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-import com.aixm.delorean.aixm511.schema.CurveType;
-import com.aixm.delorean.aixm511.schema.NotePropertyType;
-import com.aixm.delorean.aixm511.schema.ValDistanceType;
+import com.aixm.delorean.aixm51.schema.CurveType;
+import com.aixm.delorean.aixm51.schema.NotePropertyType;
+import com.aixm.delorean.aixm51.schema.ValDistanceType;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;

@@ -1,4 +1,4 @@
-package com.aixm.delorean.aixm511.database;
+package com.aixm.delorean.aixm51.database;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,14 +18,14 @@ import com.aixm.delorean.core.database.BasicMessage;
 
 import jakarta.persistence.Tuple;
 
-import com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType;
-import com.aixm.delorean.aixm511.schema.AbstractAIXMObjectType;
-import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
-import com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType;
-import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
+import com.aixm.delorean.aixm51.schema.AbstractAIXMFeatureType;
+import com.aixm.delorean.aixm51.schema.AbstractAIXMObjectType;
+import com.aixm.delorean.aixm51.schema.message.AIXMBasicMessageType;
+import com.aixm.delorean.aixm51.schema.message.BasicMessageMemberAIXMPropertyType;
+import com.aixm.delorean.aixm51.schema.AbstractAIXMTimeSliceType;
 
 
-public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicMessageType, AbstractAIXMFeatureType, AbstractAIXMTimeSliceType, AbstractAIXMObjectType> {
+public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicMessageType, AbstractAIXMFeatureType, AbstractAIXMTimeSliceType, AbstractAIXMObjectType> {
 
     private static List<String> featureList = List.of(
 "aerial_refuelling.aerialrefuelling",
@@ -192,7 +192,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         message.unsetHasMember();
 
         // 2. extract current top timeslice from db (top = last)
-        mutationFeatureTimeslices.addAll(Aixm511DatabaseFunction.generateTimesliceAction(session, featureList));
+        mutationFeatureTimeslices.addAll(Aixm51DatabaseFunction.generateTimesliceAction(session, featureList));
 
         // 3. feature, timeslice and correction slice are merged
         Transaction mergeTransaction = session.beginTransaction();
@@ -205,7 +205,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
                     .findFirst()
                     .orElse(null);
 
-            Aixm511DatabaseFunction.extractTimeslice(bmm, existing, session);
+            Aixm51DatabaseFunction.extractTimeslice(bmm, existing, session);
 
             if (++i % 50 == 0) {
                 session.flush();
@@ -279,7 +279,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
                 throw new RuntimeException("Failed to access value/nilReason", e);
             }
             
-            return Aixm511DatabaseFunction.mergeTimeSlice(ts, tsp, abstractFeature, existing, basicMessageMember, session);
+            return Aixm51DatabaseFunction.mergeTimeSlice(ts, tsp, abstractFeature, existing, basicMessageMember, session);
         }
 
         return existing;
@@ -350,7 +350,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
     private static List<MutationFeatureTimeslice> generateTimesliceAction(Session session, List<String> featureList){
         List<MutationFeatureTimeslice> featureTimeslices = new ArrayList<>();
         for (String name : featureList) {
-            String sql = Aixm511DatabaseFunction.queryValidTimeslice(name);
+            String sql = Aixm51DatabaseFunction.queryValidTimeslice(name);
             List<Tuple> tuples = session.createNativeQuery(sql, Tuple.class).getResultList();
             featureTimeslices.addAll(tuples.stream()
                 .map(t -> new MutationFeatureTimeslice(

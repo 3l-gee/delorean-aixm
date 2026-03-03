@@ -85,7 +85,7 @@
 			<extension base="aixm:AbstractAIXMFeatureBaseType">
 				<sequence>
 					<element name="featureMetadata" type="aixm:FeatureMetadataPropertyType" minOccurs="0"/>
-					<!-- delorean aixm status field -->
+					<!-- delorean aixm lifecycle field -->
 					<element name="lifecycleStatus" minOccurs="0">
 						<simpleType>
 							<restriction base="string">

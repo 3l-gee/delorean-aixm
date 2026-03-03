@@ -1800,7 +1800,7 @@
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../AIXM_Features.xsd" node="/xs:schema">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.aixm.delorean.aixm511.schema"/>
+      <jaxb:package name="com.aixm.delorean.aixm51.schema"/>
     </jaxb:schemaBindings>
     <!-- section : manual -->
     <!-- part : default -->
@@ -1835,6 +1835,26 @@
         </orm:cascade>
       </hj:default-many-to-many>
     </hj:persistence>
+    <jaxb:bindings node="//xs:complexType[@name='MarkingBuoyTimeSliceType']//xs:element[@name='designator']">
+      <hj:basic>
+        <orm:column name="designator" nullable="true"/>
+      </hj:basic>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@name='codeICAO']">
+      <hj:basic>
+        <orm:column name="codeicao" nullable="true"/>
+      </hj:basic>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@name='referencePathIdentifier']">
+      <hj:basic>
+        <orm:column name="referencepathidentifier" nullable="true"/>
+      </hj:basic>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@name='routeIndicator']">
+      <hj:basic>
+        <orm:column name="routeindicator" nullable="true"/>
+      </hj:basic>
+    </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PointPropertyType']">
       <jaxb:class name="AIXMPointPropertyType"/>
       <hj:entity>
@@ -1893,7 +1913,7 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']//xs:element[@name='Curve']">
-      <jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmCurveType"/>
+      <jaxb:javaType name="com.aixm.delorean.aixm51.gis.type.AixmCurveType"/>
       <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Curve", required = true, type = com.aixm.delorean.aixm51.schema.CurveType.class)</annox:annotate>
       <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm51.gis.adapter.CurveTypeAdapter.class)</annox:annotate>
     </jaxb:bindings>
@@ -10063,12 +10083,6 @@
       <hj:entity>
         <orm:table name="markingbuoy_t" schema="airport_heliport"/>
       </hj:entity>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='MarkingBuoyTimeSliceType']//xs:element[@name='designator']">
-      <!-- Types -->
-      <hj:one-to-one>
-        <orm:join-column name="designator_hjid" referenced-column-name="hjid"/>
-      </hj:one-to-one>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='MarkingBuoyTimeSliceType']//xs:element[@name='type']">
       <!-- Embedded -->
@@ -28275,12 +28289,6 @@
         </orm:attribute-override>
       </hj:embedded>
     </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@name='routeIndicator']">
-      <!-- Types -->
-      <hj:one-to-one>
-        <orm:join-column name="routeindicator_hjid" referenced-column-name="hjid"/>
-      </hj:one-to-one>
-    </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@name='referencePathDataSelector']">
       <!-- Embedded -->
       <hj:embedded>
@@ -28291,18 +28299,6 @@
           <orm:column name="referencepathdataselector_nilreason"/>
         </orm:attribute-override>
       </hj:embedded>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@name='referencePathIdentifier']">
-      <!-- Types -->
-      <hj:one-to-one>
-        <orm:join-column name="referencepathidentifier_hjid" referenced-column-name="hjid"/>
-      </hj:one-to-one>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@name='codeICAO']">
-      <!-- Types -->
-      <hj:one-to-one>
-        <orm:join-column name="codeicao_hjid" referenced-column-name="hjid"/>
-      </hj:one-to-one>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@name='annotation']">
       <!-- Types -->
@@ -38203,7 +38199,7 @@
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../message/AIXM_BasicMessage.xsd" node="/xs:schema">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.aixm.delorean.aixm511.schema.message"/>
+      <jaxb:package name="com.aixm.delorean.aixm51.schema.message"/>
     </jaxb:schemaBindings>
     <!-- section : manual -->
     <!-- part : default -->

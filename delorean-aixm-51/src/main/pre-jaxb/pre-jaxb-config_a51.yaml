@@ -4,6 +4,10 @@ output_path: src/main/schema/bindings/aixm.xjb
 ignore:
 - # TODO solve this
 - StandardLevelColumnTimeSliceType.unitOfMeasurement
+- MarkingBuoyTimeSliceType.designator
+- FASDataBlockType.codeICAO
+- FASDataBlockType.referencePathIdentifier
+- FASDataBlockType.routeIndicator
 - AIXMBasicMessageType
 - AIXMBasicMessagePropertyGroup
 - BasicMessageMemberAIXMPropertyType
@@ -80,8 +84,6 @@ type:
   prefix: ""
   xpath: //xs:complexType/@name
   list:
-  - AlphanumericType
-  - AlphaType
   - CodeBuoyDesignatorType
   - CodeICAOCountryType
   - CodeReferencePathIdentifierType
@@ -375,6 +377,8 @@ basetype:
   prefix: "_s"
   xpath: //xs:simpleType/@name
   list:
+  - AlphanumericType
+  - AlphaType
   - CodeBuoyDesignatorBaseType
   - CodeDistanceVerticalUomType
   - CodeICAOCountryBaseType

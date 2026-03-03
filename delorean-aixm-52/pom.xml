@@ -283,8 +283,10 @@
                                     <executable>${project.parent.basedir}/.venv/Scripts/python.exe</executable>
                                     <arguments>
                                         <argument>${project.parent.basedir}/pre-jaxb/sql_cli.py</argument>
-                                        <argument>--config</argument>
+                                        <argument>--schema</argument>
                                         <argument>${project.basedir}/src/main/pre-jaxb/pre-jaxb-schema_a52.yaml</argument>
+                                        <argument>--config</argument>
+                                        <argument>${project.basedir}/src/main/pre-jaxb/pre-jaxb-config_a52.yaml</argument>
                                         <argument>--path_to_bmm</argument>
                                         <argument>${project.basedir}/src/main/resources/sql/basic_message_member_ids.sql</argument>
                                         <argument>--path_to_tsp</argument>

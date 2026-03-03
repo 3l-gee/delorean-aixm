@@ -1,4 +1,4 @@
-package com.aixm.delorean.aixm511.gis.type;
+package com.aixm.delorean.aixm51.gis.type;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,15 +7,15 @@ import javax.xml.namespace.QName;
 
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-import com.aixm.delorean.aixm511.schema.CodeVerticalDatumType;
-import com.aixm.delorean.aixm511.schema.ElevatedPointType;
-import com.aixm.delorean.aixm511.schema.ElevatedSurfaceType;
-import com.aixm.delorean.aixm511.schema.SurfaceType;
-import com.aixm.delorean.aixm511.schema.ElevatedSurfaceTypeExtension;
-import com.aixm.delorean.aixm511.schema.NotePropertyType;
-import com.aixm.delorean.aixm511.schema.ValDistanceSignedType;
-import com.aixm.delorean.aixm511.schema.ValDistanceType;
-import com.aixm.delorean.aixm511.schema.ValDistanceVerticalType;
+import com.aixm.delorean.aixm51.schema.CodeVerticalDatumType;
+import com.aixm.delorean.aixm51.schema.ElevatedCurveType;
+import com.aixm.delorean.aixm51.schema.CurveType;
+import com.aixm.delorean.aixm51.schema.ElevatedCurveTypeExtension;
+import com.aixm.delorean.aixm51.schema.ElevatedPointType;
+import com.aixm.delorean.aixm51.schema.NotePropertyType;
+import com.aixm.delorean.aixm51.schema.ValDistanceSignedType;
+import com.aixm.delorean.aixm51.schema.ValDistanceType;
+import com.aixm.delorean.aixm51.schema.ValDistanceVerticalType;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
@@ -27,14 +27,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
-import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import jakarta.xml.bind.JAXBElement;
 
-@Entity(name = "AixmElevatedSurfaceType")
-@Table(name = "aixm_elevated_surface", schema = "gml")
-public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Surface implements java.io.Serializable{
-    
+@Entity(name = "AixmElevatedCurveType")
+@Table(name = "aixm_elevated_curve", schema = "gml")
+public class AixmElevatedCurveType extends com.aixm.delorean.core.gis.type.Curve implements java.io.Serializable {
+        
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceVerticalType> elevation;
     protected JAXBElement<ValDistanceSignedType> geoidUndulation;
@@ -42,7 +42,7 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
     protected JAXBElement<ValDistanceType> horizontalAccuracy;
     protected JAXBElement<ValDistanceType> verticalAccuracy;
     protected List<NotePropertyType> annotation;
-    protected List<ElevatedSurfaceTypeExtension> extension;
+    protected List<ElevatedCurveTypeExtension> extension;
 
     @Transient
     public JAXBElement<ValDistanceVerticalType> getElevation() {
@@ -51,11 +51,6 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
 
     public void setElevation(JAXBElement<ValDistanceVerticalType> value) {
         this.elevation = value;
-    }
-
-    @Transient
-    public boolean isSetElevation() {
-        return (this.elevation!= null);
     }
 
     @Embedded
@@ -69,7 +64,12 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
     }
 
     public void setElevationItem(ValDistanceVerticalType target) {
-        setElevation(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "elevation"), ElevatedSurfaceType.class, target));
+        setElevation(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "elevation"), ElevatedCurveType.class, target));
+    }
+
+    @Transient
+    public boolean isSetElevation() {
+        return (this.elevation!= null);
     }
 
     @Transient
@@ -97,7 +97,7 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
     }
 
     public void setGeoidUndulationItem(ValDistanceSignedType target) {
-        setGeoidUndulation(XmlAdapterUtils.marshallJAXBElement(ValDistanceSignedType.class, new QName("http://www.aixm.aero/schema/5.1.1", "geoidUndulation"), ElevatedSurfaceType.class, target));
+        setGeoidUndulation(XmlAdapterUtils.marshallJAXBElement(ValDistanceSignedType.class, new QName("http://www.aixm.aero/schema/5.1.1", "geoidUndulation"), ElevatedCurveType.class, target));
     }
 
     @Transient
@@ -124,7 +124,7 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
     }
 
     public void setVerticalDatumItem(CodeVerticalDatumType target) {
-        setVerticalDatum(XmlAdapterUtils.marshallJAXBElement(CodeVerticalDatumType.class, new QName("http://www.aixm.aero/schema/5.1.1", "verticalDatum"), ElevatedSurfaceType.class, target));
+        setVerticalDatum(XmlAdapterUtils.marshallJAXBElement(CodeVerticalDatumType.class, new QName("http://www.aixm.aero/schema/5.1.1", "verticalDatum"), ElevatedCurveType.class, target));
     }
 
     @Transient
@@ -152,7 +152,7 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
     }
 
     public void setHorizontalAccuracyItem(ValDistanceType target) {
-        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "horizontalAccuracy"), SurfaceType.class, target));
+        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "horizontalAccuracy"), CurveType.class, target));
     }
 
     @Transient
@@ -162,7 +162,7 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
 
     public void setVerticalAccuracy(JAXBElement<ValDistanceType> value) {
         this.verticalAccuracy = value;
-    }
+    }   
 
     @Transient
     public boolean isSetVerticalAccuracy() {
@@ -180,14 +180,14 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
     }
 
     public void setVerticalAccuracyItem(ValDistanceType target) {
-        setVerticalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "verticalAccuracy"), ElevatedSurfaceType.class, target));
+        setVerticalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "verticalAccuracy"), ElevatedCurveType.class, target));
     }
 
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "aixm_elevated_surface_annotation_link", schema = "gml", joinColumns = {
-        @JoinColumn(name = "aixm_elevated_surface_hjid", referencedColumnName = "hjid")
+    @JoinTable(name = "aixm_elevated_curve_annotation_link", schema = "gml", joinColumns = {
+        @JoinColumn(name = "aixm_elevated_curve_hjid", referencedColumnName = "hjid")
     }, inverseJoinColumns = {
         @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
     })
@@ -211,18 +211,18 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
         this.annotation = null;
     }
 
-    @OneToMany(targetEntity = ElevatedSurfaceTypeExtension.class, cascade = {
+    @OneToMany(targetEntity = ElevatedCurveTypeExtension.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_hjid")
-    public List<ElevatedSurfaceTypeExtension> getExtension() {
+    public List<ElevatedCurveTypeExtension> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
         return this.extension;
     }
 
-    public void setExtension(List<ElevatedSurfaceTypeExtension> extension) {
+    public void setExtension(List<ElevatedCurveTypeExtension> extension) {
         this.extension = extension;
     }
 

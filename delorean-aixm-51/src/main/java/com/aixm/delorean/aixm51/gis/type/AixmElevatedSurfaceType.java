@@ -1,4 +1,4 @@
-package com.aixm.delorean.aixm511.gis.type;
+package com.aixm.delorean.aixm51.gis.type;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,15 +7,15 @@ import javax.xml.namespace.QName;
 
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-import com.aixm.delorean.aixm511.schema.CodeVerticalDatumType;
-import com.aixm.delorean.aixm511.schema.ElevatedPointType;
-import com.aixm.delorean.aixm511.schema.ElevatedSurfaceType;
-import com.aixm.delorean.aixm511.schema.SurfaceType;
-import com.aixm.delorean.aixm511.schema.ElevatedSurfaceTypeExtension;
-import com.aixm.delorean.aixm511.schema.NotePropertyType;
-import com.aixm.delorean.aixm511.schema.ValDistanceSignedType;
-import com.aixm.delorean.aixm511.schema.ValDistanceType;
-import com.aixm.delorean.aixm511.schema.ValDistanceVerticalType;
+import com.aixm.delorean.aixm51.schema.CodeVerticalDatumType;
+import com.aixm.delorean.aixm51.schema.ElevatedPointType;
+import com.aixm.delorean.aixm51.schema.ElevatedSurfaceType;
+import com.aixm.delorean.aixm51.schema.SurfaceType;
+import com.aixm.delorean.aixm51.schema.ElevatedSurfaceTypeExtension;
+import com.aixm.delorean.aixm51.schema.NotePropertyType;
+import com.aixm.delorean.aixm51.schema.ValDistanceSignedType;
+import com.aixm.delorean.aixm51.schema.ValDistanceType;
+import com.aixm.delorean.aixm51.schema.ValDistanceVerticalType;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;

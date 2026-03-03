@@ -680,7 +680,27 @@ basetype:
 feature:
   replace: "Type"
   prefix: "_f"
-  xpath: //xs:element[@substitutionGroup='aixm:AbstractAIXMFeature']/@name
+  xpath: |
+    //xs:complexType[
+      xs:complexContent/xs:extension[
+          @base = (
+            'aixm:AbstractAIXMFeatureType',
+            'aixm:AbstractMarkingType',
+            'aixm:AbstractAirportHeliportProtectionAreaType',
+            'aixm:AbstractGroundLightSystemType',
+            'aixm:AbstractNavigationSystemCheckpointType',
+            'aixm:AbstractNavaidEquipmentType',
+            'aixm:AbstractProcedureType',
+            'aixm:AbstractSegmentLegType',
+            'aixm:AbstractServiceType',
+            'aixm:AbstractRadarEquipmentType',
+            'aixm:AbstractSurveillanceRadarType',
+            'aixm:AbstractTrafficSeparationServiceType',
+            'aixm:AbstractAirportGroundServiceType',
+            'aixm:AbstractApproachLegType'
+          )
+        ]
+    ]/@name
   list:
     - AerialRefuellingType
     - AirportHeliportType
@@ -811,7 +831,7 @@ feature:
 timesliceproperty:
   replace: "TimeSlicePropertyType"
   prefix: "_tp"
-  xpath:
+  xpath: //xs:complexType[ends-with(@name, 'TimeSlicePropertyType')]/@name
   list:
     - AerialRefuellingTimeSlicePropertyType
     - AirportHeliportTimeSlicePropertyType
@@ -942,7 +962,14 @@ timesliceproperty:
 timeslice: 
   replace: "TimeSliceType"
   prefix: "_t"
-  xpath:
+  xpath: |
+    //xs:complexType[
+        xs:complexContent/xs:extension[
+            @base = (
+                'aixm:AbstractAIXMTimeSliceType'
+            )
+        ]
+    ]/@name
   list:
     - AerialRefuellingTimeSliceType
     - AirportHeliportTimeSliceType
@@ -1073,7 +1100,11 @@ timeslice:
 property:
   replace: "PropertyType"
   prefix: "_p"
-  xpath: //xs:complexType[xs:complexContent/xs:extension[@base='aixm:AbstractAIXMPropertyType']]/@name
+  xpath: |
+    //xs:complexType[
+      not(xs:complexContent/xs:extension)
+      and not(ends-with(@name, 'TimeSlicePropertyType'))
+    ]/@name
   list:
   - AerialRefuellingPropertyType
   - AerialRefuellingAnchorPropertyType
@@ -1335,7 +1366,19 @@ property:
 object:
   replace: "Type"
   prefix: "_o"
-  xpath: //xs:complexType[xs:complexContent/xs:extension[@base='aixm:AbstractAIXMObjectType']]/@name
+  xpath: |
+    //xs:complexType[
+        xs:complexContent/xs:extension[
+            @base = (
+                'aixm:AbstractAIXMObjectType',
+                'aixm:AbstractUsageConditionType',
+                'aixm:AbstractSurfaceContaminationType',
+                'aixm:AbstractSegmentPointType',
+                'aixm:AbstractDirectFlightType',
+                'aixm:AbstractPropertiesWithScheduleType'
+            )
+        ]
+    ]/@name
   list:
   - AerialRefuellingAnchorType
   - AerialRefuellingTrackType

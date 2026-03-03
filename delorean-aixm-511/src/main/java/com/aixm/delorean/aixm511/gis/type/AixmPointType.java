@@ -18,6 +18,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
 import jakarta.persistence.Entity;
@@ -63,7 +64,11 @@ public class AixmPointType extends com.aixm.delorean.core.gis.type.Point impleme
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ANNOTATION_hjid")
+    @JoinTable(name = "aixm_point_annotation_link", schema = "gml", joinColumns = {
+        @JoinColumn(name = "aixm_point_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
