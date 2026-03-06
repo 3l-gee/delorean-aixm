@@ -1,4 +1,4 @@
-package com.aixm.delorean.aixm511.integration;
+package com.aixm.delorean.aixm52.integration;
 
 import org.junit.jupiter.api.*;
 import org.testcontainers.containers.Container.ExecResult;
@@ -15,8 +15,8 @@ import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.Statement;
 
-import com.aixm.delorean.aixm511.AIXM511;
-import com.aixm.delorean.aixm511.engine.Aixm511Engine;
+import com.aixm.delorean.aixm52.AIXM52;
+import com.aixm.delorean.aixm52.engine.Aixm52Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.xml.XmlBindingService;
@@ -33,7 +33,7 @@ Simple lifecycle test for AIXM 5.1.1 Delorean container
 */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class RoundTripXmlAixm511E2E {
+public class RoundTripXmlAixm52E2E {
     
     String id;
     Container<?,?,?,?> container;
@@ -62,16 +62,16 @@ public class RoundTripXmlAixm511E2E {
     void configDeloreanCore() {
 
         // given
-        container = AIXM511.newContainer();
+        container = AIXM52.newContainer();
 
         // container is successfully created
         assertThat(container).isNotNull();
 
         // container is correctly configured
-        assertThat(container.getRootClass()).isEqualTo(com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class);
-        assertThat(container.getFeatureClass()).isEqualTo(com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class);
-        assertThat(container.getTimeSliceClass()).isEqualTo(com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType.class);
-        assertThat(container.getObjectClass()).isEqualTo(com.aixm.delorean.aixm511.schema.AbstractAIXMObjectType.class);
+        assertThat(container.getRootClass()).isEqualTo(com.aixm.delorean.aixm52.schema.message.AIXMBasicMessageType.class);
+        assertThat(container.getFeatureClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMFeatureType.class);
+        assertThat(container.getTimeSliceClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMTimeSliceType.class);
+        assertThat(container.getObjectClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMObjectType.class);
 
         // container has XML binding
         XmlBindingService<?,?> xmlBinding = container.getXmlBinding();
@@ -82,7 +82,7 @@ public class RoundTripXmlAixm511E2E {
         assertThat(dbBinding).isNotNull();
 
         // container has Delorean engine
-        Aixm511Engine deloreanEngine = (Aixm511Engine) container.getDeloreanEngine();
+        Aixm52Engine deloreanEngine = (Aixm52Engine) container.getDeloreanEngine();
         assertThat(deloreanEngine).isNotNull();
     }
     
@@ -91,7 +91,7 @@ public class RoundTripXmlAixm511E2E {
     void loadXml(){
 
         // given 
-        String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511.xml";
+        String xmlPath = "src/test/resources/roundtrip/donlon.xml";
 
         // do
         container.unmarshal(xmlPath);
@@ -110,7 +110,7 @@ public class RoundTripXmlAixm511E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511-marshalled.xml.log";
+        String xmlPath = "src/test/java/com/aixm/delorean/aixm52/out/donlon-marshalled.xml.log";
 
         // do
         container.marshal(xmlPath);
@@ -134,6 +134,25 @@ public class RoundTripXmlAixm511E2E {
         // assertThat(app.containerWarehouse.getContainer(containerID).databaseBinding).isEqualTo(dbConfig);
 
     }
+
+    @Test
+    @Order(51)
+    void resetPgStatStatements() {
+        String query = "SELECT pg_stat_statements_reset();";
+
+        //do
+        try {
+            postgis.execInContainer(
+                "psql", "-U", postgis.getUsername(), 
+                "-d", postgis.getDatabaseName(), 
+                "-c", query
+            );
+
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException("Failed to reset pg_stat_statements query", e);
+        }
+    }
+
 
     @Test
     @Order(60)
@@ -166,7 +185,7 @@ public class RoundTripXmlAixm511E2E {
     void extractExtractedXml() {
 
         // given
-        String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511-predicated.xml.log";
+        String xmlPath = "src/test/java/com/aixm/delorean/aixm52/out/donlon-predicated.xml.log";
 
         // do
         container.marshal(xmlPath);
@@ -200,10 +219,10 @@ public class RoundTripXmlAixm511E2E {
         }
 
         Path outDir = Paths.get(
-            "src/test/java/com/aixm/delorean/aixm511/out"
+            "src/test/java/com/aixm/delorean/aixm52/out"
         );
 
-        Path schemaFile = outDir.resolve("aixm-511-schema.sql");
+        Path schemaFile = outDir.resolve("aixm-52-schema.sql");
 
         try {
             Files.createDirectories(outDir);
@@ -247,10 +266,10 @@ public class RoundTripXmlAixm511E2E {
         }
 
         Path outDir = Paths.get(
-            "src/test/java/com/aixm/delorean/aixm511/out"
+            "src/test/java/com/aixm/delorean/aixm52/out"
         );
 
-        Path dataFile = outDir.resolve("donlon-aixm-511-data.sql");
+        Path dataFile = outDir.resolve("roundtrip-data.sql");
 
         try {
             Files.createDirectories(outDir);
@@ -268,36 +287,36 @@ public class RoundTripXmlAixm511E2E {
 
     @AfterAll
     void exportPgStatStatements() {
-        Path outDir = Paths.get("src/test/java/com/aixm/delorean/aixm511/out");
+        Path outDir = Paths.get("src/test/java/com/aixm/delorean/aixm52/out");
         Path pgStatFile = outDir.resolve("pg_stat_statements.log");
+        String[] command = {
+            "psql",
+            "-U", postgis.getUsername(),
+            "-d", postgis.getDatabaseName(),
+            "-c", "SELECT query, calls, total_exec_time FROM pg_stat_statements ORDER BY total_exec_time DESC LIMIT 100;"
+        };
+
+        ExecResult result;
+
+        //do
         try {
             Files.createDirectories(outDir);
 
-            String[] command = {
-                "psql",
-                "-U", postgis.getUsername(),
-                "-d", postgis.getDatabaseName(),
-                "-c", "SELECT query, calls, total_exec_time FROM pg_stat_statements ORDER BY total_exec_time DESC LIMIT 100;"
-            };
+            result = postgis.execInContainer(
+                "sh", "-c", String.join(" ", command) + " > /tmp/pg_stats.txt"
+            );
 
-            try (OutputStream fileOut = Files.newOutputStream(pgStatFile, 
-                    StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
-                
-                postgis.copyFileFromContainer(
-                    "/tmp/pg_stats.txt",
-                    pgStatFile.toAbsolutePath().toString()
-                );
-
-                postgis.execInContainer(
-                    "sh", "-c", 
-                    String.join(" ", command) + " > /tmp/pg_stats.txt"
-                );
-                
-                postgis.copyFileFromContainer("/tmp/pg_stats.txt", pgStatFile.toAbsolutePath().toString());
+            if (result.getExitCode() != 0) {
+                throw new RuntimeException("Postgres command failed: " + result.getStderr());
             }
+
+            postgis.copyFileFromContainer(
+                "/tmp/pg_stats.txt", 
+                pgStatFile.toAbsolutePath().toString()
+            );
+
         } catch (IOException | InterruptedException e) {
-            throw new RuntimeException("Failed to export pg_stat_statements", e);
+            throw new RuntimeException("Failed to execute pg_stat_statements query", e);
         }
-    }
-    
+    } 
 }
