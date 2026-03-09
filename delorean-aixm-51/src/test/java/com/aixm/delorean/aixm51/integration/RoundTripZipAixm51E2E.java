@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
-import com.aixm.delorean.aixm51.AIXM51;
+import com.aixm.delorean.aixm51.DeloreanAIXM51;
 import com.aixm.delorean.aixm51.engine.Aixm51Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.database.DatabaseBindingService;
@@ -39,7 +39,7 @@ public class RoundTripZipAixm51E2E {
     void configDeloreanCore() {
 
         // given
-        container = AIXM51.newContainer();
+        container = new DeloreanAIXM51().newContainer();
 
         // container is successfully created
         assertThat(container).isNotNull();

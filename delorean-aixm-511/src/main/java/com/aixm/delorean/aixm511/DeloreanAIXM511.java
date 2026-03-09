@@ -16,12 +16,17 @@ import com.aixm.delorean.aixm511.schema.AbstractAIXMObjectType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
 import com.aixm.delorean.aixm511.database.Aixm511DatabaseFunction;
 
-public class AIXM511 {
+public class DeloreanAIXM511 implements com.aixm.delorean.core.DeloreanProcessor {
 
     private static ContainerWarehouse<?,?,?,?> warehouse;
 
-    private AIXM511() {
-        // no instances
+    public DeloreanAIXM511() {
+    }
+
+    // --- SPI Interface Implementation ---
+    @Override
+    public boolean supports(String version) {
+        return "5.1.1".equals(version);
     }
 
     public static CoreConfig config() {
@@ -39,14 +44,14 @@ public class AIXM511 {
             "/sql/post-init.sql",
             "hibernate/hibernate.cfg.xml",
             com.aixm.delorean.core.Delorean.class,
-            com.aixm.delorean.aixm511.AIXM511.class
+            com.aixm.delorean.aixm511.DeloreanAIXM511.class
         );
     }
 
     /** Lazily creates and returns the warehouse */
     private static ContainerWarehouse<?,?,?,?> warehouse() {
         if (warehouse == null) {
-            synchronized (AIXM511.class) {
+            synchronized (DeloreanAIXM511.class) {
                 if (warehouse == null) {
                     warehouse = Delorean.initContainerWarehouse(config());
                 }
@@ -56,27 +61,33 @@ public class AIXM511 {
     }
 
     /** Returns the default (last used) container */
-    public static Container<?,?,?,?> container() {
+    @Override
+    public Container<?,?,?,?> container() {
         return warehouse().getLastUsedContainer();
     }
 
     /** Creates a new container and returns it */
-    public static Container<?,?,?,?> newContainer() {
+    @Override
+    public Container<?,?,?,?> newContainer() {
         warehouse().createNewContainer();
         return warehouse().getLastUsedContainer();
     }
 
     /** Returns the container by its id */
-    public static Container<?,?,?,?> getContainerById(String id) {
+    @Override
+    public Container<?,?,?,?> getContainerById(String id) {
         return warehouse().getContainerById(id);
     }
 
     /** Removes the container by its id */
-    public static void removeContainerById(String id) {
+    @Override
+    public void removeContainerById(String id) {
         warehouse().removeContainer(id);
     }
 
-    public static List<String> listContainerId() {
+    /** Returns a list of all container IDs */
+    @Override
+    public List<String> listContainerId() {
         return warehouse().listContainerId();
     }
 }

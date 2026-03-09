@@ -15,7 +15,7 @@ import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.Statement;
 
-import com.aixm.delorean.aixm511.AIXM511;
+import com.aixm.delorean.aixm511.DeloreanAIXM511;
 import com.aixm.delorean.aixm511.engine.Aixm511Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.database.DatabaseBindingService;
@@ -42,6 +42,7 @@ public class RoundTripXmlAixm511E2E {
         .withCommand("postgres", 
         "-c", "shared_preload_libraries=pg_stat_statements", 
         "-c", "pg_stat_statements.track=all");
+    DeloreanAIXM511 deloreanAIXM511 = new DeloreanAIXM511();
 
     @Test
     @Order(1)
@@ -62,7 +63,7 @@ public class RoundTripXmlAixm511E2E {
     void configDeloreanCore() {
 
         // given
-        container = AIXM511.newContainer();
+        container = deloreanAIXM511.newContainer();
 
         // container is successfully created
         assertThat(container).isNotNull();

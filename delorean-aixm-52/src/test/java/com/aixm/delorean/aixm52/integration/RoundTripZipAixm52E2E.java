@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
-import com.aixm.delorean.aixm52.AIXM52;
+import com.aixm.delorean.aixm52.DeloreanAIXM52;
 import com.aixm.delorean.aixm52.engine.Aixm52Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.database.DatabaseBindingService;
@@ -27,6 +27,7 @@ public class RoundTripZipAixm52E2E {
     String id;
     Container<?,?,?,?> container;
     PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine").asCompatibleSubstituteFor("postgres"));
+    DeloreanAIXM52 deloreanAIXM52 = new DeloreanAIXM52();
 
     @Test
     @Order(1)
@@ -39,7 +40,7 @@ public class RoundTripZipAixm52E2E {
     void configDeloreanCore() {
 
         // given
-        container = AIXM52.newContainer();
+        container = deloreanAIXM52.newContainer();
 
         // container is successfully created
         assertThat(container).isNotNull();

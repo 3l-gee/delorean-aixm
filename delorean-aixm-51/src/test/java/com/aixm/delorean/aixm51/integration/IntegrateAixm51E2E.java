@@ -5,7 +5,7 @@ import org.testcontainers.utility.DockerImageName;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 import org.xmlunit.assertj.XmlAssert;
 
-import com.aixm.delorean.aixm51.AIXM51;
+import com.aixm.delorean.aixm51.DeloreanAIXM51;
 import com.aixm.delorean.aixm51.engine.Aixm51Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.database.DatabaseBindingService;

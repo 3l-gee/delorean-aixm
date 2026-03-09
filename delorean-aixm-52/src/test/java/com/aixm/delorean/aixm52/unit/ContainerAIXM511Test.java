@@ -2,7 +2,7 @@ package com.aixm.delorean.aixm52.unit;
 
 import org.junit.jupiter.api.*;
 
-import com.aixm.delorean.aixm52.AIXM52;
+import com.aixm.delorean.aixm52.DeloreanAIXM52;
 import com.aixm.delorean.aixm52.engine.Aixm52Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.database.DatabaseBindingService;
@@ -27,13 +27,14 @@ public class ContainerAIXM511Test {
     String secondContainerID;
     Container<?,?,?,?> firstContainer;
     Container<?,?,?,?> secondContainer;
+    DeloreanAIXM52 deloreanAIXM52 = new DeloreanAIXM52();
     
     @Test
     @Order(1)
     void configDeloreanCore() {
 
         // given
-        firstContainer = AIXM52.newContainer();
+        firstContainer = deloreanAIXM52.newContainer();
 
         // container is successfully created
         assertThat(firstContainer).isNotNull();
@@ -58,10 +59,10 @@ public class ContainerAIXM511Test {
 
         // container id is the same as the last id used
         firstContainerID = firstContainer.getId();
-        assertThat(firstContainer).isEqualTo(AIXM52.getContainerById(firstContainerID));
+        assertThat(firstContainer).isEqualTo(deloreanAIXM52.getContainerById(firstContainerID));
 
         // warehouse has one containe
-        List<String> idList = AIXM52.listContainerId();
+        List<String> idList = deloreanAIXM52.listContainerId();
         assertThat(idList).hasSize(1);
     }
 
@@ -69,7 +70,7 @@ public class ContainerAIXM511Test {
     @Order(2)
     void addNewContainer() {
 
-        secondContainer = AIXM52.newContainer();
+        secondContainer = deloreanAIXM52.newContainer();
 
         // container is successfully created
         assertThat(secondContainer).isNotNull();
@@ -94,10 +95,10 @@ public class ContainerAIXM511Test {
 
         // container id is the same as the last id used
         String secondContainerID = secondContainer.getId();
-        assertThat(secondContainer).isEqualTo(AIXM52.getContainerById(secondContainerID));
+        assertThat(secondContainer).isEqualTo(deloreanAIXM52.getContainerById(secondContainerID));
 
         // warehouse has two containe
-        List<String> idList = AIXM52.listContainerId();
+        List<String> idList = deloreanAIXM52.listContainerId();
         assertThat(idList).hasSize(2);
 
     }
@@ -106,14 +107,14 @@ public class ContainerAIXM511Test {
     @Order(3)
     void removeFirstContainer() {
 
-        AIXM52.removeContainerById(firstContainerID);
+        deloreanAIXM52.removeContainerById(firstContainerID);
 
         // container id is the same as the last id used
         String id = secondContainer.getId();
-        assertThat(secondContainer).isEqualTo(AIXM52.getContainerById(id));
+        assertThat(secondContainer).isEqualTo(deloreanAIXM52.getContainerById(id));
 
         // warehouse has two containe
-        List<String> idList = AIXM52.listContainerId();
+        List<String> idList = deloreanAIXM52.listContainerId();
         assertThat(idList).hasSize(1);
 
     }

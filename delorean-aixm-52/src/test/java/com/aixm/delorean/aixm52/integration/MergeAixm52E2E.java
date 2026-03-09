@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import com.aixm.delorean.aixm52.AIXM52;
+import com.aixm.delorean.aixm52.DeloreanAIXM52;
 import com.aixm.delorean.aixm52.engine.Aixm52Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.database.DatabaseBindingService;
@@ -33,6 +33,7 @@ public class MergeAixm52E2E {
     Container<?,?,?,?> AContainer;
     Container<?,?,?,?> BContainer;
     PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine").asCompatibleSubstituteFor("postgres"));
+    DeloreanAIXM52 deloreanAIXM52 = new DeloreanAIXM52();
 
     @Test
     @Order(1)
@@ -45,7 +46,7 @@ public class MergeAixm52E2E {
     void configAContainerDeloreanCore() {
 
         // given
-        AContainer = AIXM52.newContainer();
+        AContainer = deloreanAIXM52.newContainer();
 
         // container is successfully created
         assertThat(AContainer).isNotNull();
@@ -143,7 +144,7 @@ public class MergeAixm52E2E {
     void configBContainerDeloreanCore() {
 
         // given
-        BContainer = AIXM52.newContainer();
+        BContainer = deloreanAIXM52.newContainer();
 
         // container is successfully created
         assertThat(BContainer).isNotNull();

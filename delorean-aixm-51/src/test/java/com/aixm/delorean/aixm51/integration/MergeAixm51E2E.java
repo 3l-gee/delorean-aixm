@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import com.aixm.delorean.aixm51.AIXM51;
+import com.aixm.delorean.aixm51.DeloreanAIXM51;
 import com.aixm.delorean.aixm51.engine.Aixm51Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.database.DatabaseBindingService;
@@ -45,7 +45,7 @@ public class MergeAixm51E2E {
     void configAContainerDeloreanCore() {
 
         // given
-        AContainer = AIXM51.newContainer();
+        AContainer = new DeloreanAIXM51().newContainer();
 
         // container is successfully created
         assertThat(AContainer).isNotNull();
@@ -143,7 +143,7 @@ public class MergeAixm51E2E {
     void configBContainerDeloreanCore() {
 
         // given
-        BContainer = AIXM51.newContainer();
+        BContainer = new DeloreanAIXM51().newContainer();
 
         // container is successfully created
         assertThat(BContainer).isNotNull();

@@ -6,21 +6,26 @@ import picocli.CommandLine.Option;
 import picocli.CommandLine.ArgGroup;
 
 import java.util.concurrent.Callable;
+import java.util.stream.StreamSupport;
+import java.io.File;
+import java.util.ServiceLoader;
+import java.util.concurrent.Callable;
+import com.aixm.delorean.core.DeloreanProcessor;
 
-@Command(name = "delorean", 
+@Command(name = "delorean-cli", 
         mixinStandardHelpOptions = true, 
         version = "0.2.0",
         description = "Delorean-AIXM CLI for aeronautical data management.")
-public class DeloreanLauncher implements Callable<Integer> {
+public class DeloreanCLI implements Callable<Integer> {
 
     @ArgGroup(multiplicity = "1", heading = "AIXM Version Selection%n")
     VersionGroup versions;
 
     static class VersionGroup {
-        @Option(names = "-51", description = "Use AIXM 5.1 parser") 
+        @Option(names = "-51", description = "Use AIXM 5.1") 
         boolean v51;
 
-        @Option(names = "-511", description = "Use AIXM 5.1.1 parser") 
+        @Option(names = "-511", description = "Use AIXM 5.1.1") 
         boolean v511;
 
         @Option(names = "-52", description = "Use AIXM 5.2 parser") 
@@ -29,22 +34,28 @@ public class DeloreanLauncher implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        if (versions.v51) {
-            System.out.println("Starting Delorean with AIXM 5.1 bindings...");
-            // Initialize your AIXM 5.1 Service/Parser here
-        } else if (versions.v511) {
-            System.out.println("Starting Delorean with AIXM 5.1.1 bindings...");
-            // Initialize your AIXM 5.1.1 Service/Parser here
-        } else if (versions.v52) {
-            System.out.println("Starting Delorean with AIXM 5.2 bindings...");
-            // Initialize your AIXM 5.2 Service/Parser here
-        }
-        
+        // Map the boolean flags to a string identifier
+        String versionKey = getVersionKey();
+        ServiceLoader<DeloreanProcessor> loader = ServiceLoader.load(DeloreanProcessor.class);
+
+        DeloreanProcessor processor = StreamSupport.stream(loader.spliterator(), false)
+                .filter(p -> p.supports(versionKey))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Module not found for " + versionKey));
+
+        System.out.printf("Starting Delorean with AIXM %s bindings...%n", versionKey);
+
         return 0;
     }
 
+    private String getVersionKey() {
+        if (versions.v51) return "5.1";
+        if (versions.v511) return "5.1.1";
+        return "5.2";
+    }
+
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new DeloreanLauncher()).execute(args);
+        int exitCode = new CommandLine(new DeloreanCLI()).execute(args);
         System.exit(exitCode);
     }
 }
