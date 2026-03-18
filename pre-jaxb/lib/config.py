@@ -539,6 +539,9 @@ class Config(metaclass=SingletonMeta):
 
     @staticmethod
     def modify_forbiden_key_word(name: str) -> str:
+
+
+
         if name.upper() in Config().SQL_NON_RESERVED_KEY_WORD:
             name = '\"' + name + '\"'
     
@@ -556,6 +559,26 @@ class Config(metaclass=SingletonMeta):
         #     name = name.replace(item, "")
 
         return name
+    
+    @staticmethod
+    def generate_phonetic_acronym(name):
+        if not name:
+            return ""
+
+        parts = re.split(r'[_ \s]+', name)
+        acronym_parts = []
+        
+        for part in parts:
+            if not part: continue
+            
+            head = part[0].lower()
+            tail_consonants = re.findall(r'[^aeiouy]', part[1:])
+            word_acronym = head + "".join(tail_consonants)
+            acronym_parts.append(word_acronym)
+        
+        full_acronym = "".join(acronym_parts)
+        
+        return full_acronym.lower()
     
     @staticmethod
     def get_abstract() -> List[str]:
@@ -598,6 +621,8 @@ class Config(metaclass=SingletonMeta):
             xsdname = xsdname.split(':')[-1]
         except:
             pass
+
+        xsdname = xsdname.replace("_","")
 
         key = []
         value = []

@@ -51,7 +51,7 @@ public class Polygon implements java.io.Serializable{
     }
 
     @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "exterior_id")
+    @JoinColumn(name = "exterior_hjid")
     public Ring getExterior() {
         return exterior;
     }
@@ -61,7 +61,7 @@ public class Polygon implements java.io.Serializable{
     }
 
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "interior_id")
+    @JoinColumn(name = "interior_hjid")
     public List<Ring> getInterior() {
         if (interior == null) {
             interior = new ArrayList<>();

@@ -26,7 +26,13 @@ public class DeloreanAIXM51 implements com.aixm.delorean.core.DeloreanProcessor 
     // --- SPI Interface Implementation ---
     @Override
     public boolean supports(String version) {
-        return "5.1".equals(version);
+        return "aixm51".equals(version);
+    }
+
+    @Override
+    public String getVersion() {
+        String version = DeloreanAIXM51.class.getPackage().getImplementationVersion();
+        return version != null ? version : "unknown";
     }
 
     public static CoreConfig config() {

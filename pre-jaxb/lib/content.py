@@ -3,6 +3,8 @@ from dataclasses import dataclass, field
 import json
 import yaml
 import re
+import os
+from datetime import datetime
 
 from .struct import SchemaSection, Strategy
 from .xsd import Xsd
@@ -73,6 +75,9 @@ class Content(metaclass=SingletonMeta):
     
     @staticmethod
     def get_transposition(type) -> dict:
+        if ":" in type:
+            type = type.split(":", 1)[-1]
+
         output = {}
         for key, value in Content().content.items():
             output = output | value["simple_type"]["transposition"]
@@ -83,10 +88,18 @@ class Content(metaclass=SingletonMeta):
     def save_transposition() -> None:
         output = {}
         for key, value in Content().content.items():
-            output = output | value["simple_type"]["transposition"]
+            transposition = value.get("simple_type", {}).get("transposition", {})
+            output |= transposition
+        
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"transposition_{timestamp}.json"
 
-        with open('transposition.json.log', 'w') as fp:
-            json.dump(output, fp, indent=4)
+        try:
+            with open(filename, 'w', encoding='utf-8') as fp:
+                json.dump(output, fp, indent=4, sort_keys=True)
+            print(f"Successfully exported to: {os.path.abspath(filename)}")
+        except IOError as e:
+            print(f"Failed to write file: {e}")
     
     @staticmethod
     def get_entity() -> dict:

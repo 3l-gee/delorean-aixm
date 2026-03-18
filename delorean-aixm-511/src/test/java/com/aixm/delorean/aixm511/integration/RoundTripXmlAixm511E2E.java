@@ -271,34 +271,28 @@ public class RoundTripXmlAixm511E2E {
     void exportPgStatStatements() {
         Path outDir = Paths.get("src/test/java/com/aixm/delorean/aixm511/out");
         Path pgStatFile = outDir.resolve("pg_stat_statements.log");
+        String query = "SELECT query, calls, total_exec_time FROM pg_stat_statements ORDER BY total_exec_time DESC LIMIT 100;";
+
+        ExecResult result;
+
+        //do
         try {
             Files.createDirectories(outDir);
 
-            String[] command = {
-                "psql",
-                "-U", postgis.getUsername(),
-                "-d", postgis.getDatabaseName(),
-                "-c", "SELECT query, calls, total_exec_time FROM pg_stat_statements ORDER BY total_exec_time DESC LIMIT 100;"
-            };
+            result = postgis.execInContainer(
+                "psql", "-U", postgis.getUsername(), 
+                "-d", postgis.getDatabaseName(), 
+                "-c", query
+            );
 
-            try (OutputStream fileOut = Files.newOutputStream(pgStatFile, 
-                    StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
-                
-                postgis.copyFileFromContainer(
-                    "/tmp/pg_stats.txt",
-                    pgStatFile.toAbsolutePath().toString()
-                );
-
-                postgis.execInContainer(
-                    "sh", "-c", 
-                    String.join(" ", command) + " > /tmp/pg_stats.txt"
-                );
-                
-                postgis.copyFileFromContainer("/tmp/pg_stats.txt", pgStatFile.toAbsolutePath().toString());
+            if (result.getExitCode() != 0) {
+                throw new RuntimeException("Postgres command failed: " + result.getStderr());
             }
+
+            Files.writeString(pgStatFile, result.getStdout());
+
         } catch (IOException | InterruptedException e) {
-            throw new RuntimeException("Failed to export pg_stat_statements", e);
+            throw new RuntimeException("Failed to execute pg_stat_statements query", e);
         }
     }
-    
 }

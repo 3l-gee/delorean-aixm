@@ -41,7 +41,7 @@ public class Geodesic extends Segment implements java.io.Serializable{
     @OneToMany(targetEntity = GmlPointType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "gml_point_id", nullable = true)
+    @JoinColumn(name = "gml_point_hjid", nullable = true)
     public List<GmlPointType> getGmlPoint() {
         if (gmlPoint == null) {
             gmlPoint = new ArrayList<>();

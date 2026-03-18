@@ -41,7 +41,7 @@ public class Surface extends AbstractGMLType {
     }
 
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "polygon_id")
+    @JoinColumn(name = "polygon_hjid")
     public List<Polygon> getPolygon() {
         if (polygon == null) {
             polygon = new ArrayList<>();

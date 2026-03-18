@@ -41,7 +41,7 @@ public class Curve extends AbstractGMLType {
     }
 
     @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "curve_id")
+    @JoinColumn(name = "curve_hjid")
     public List<Segment> getSegments() {
         if (segments == null) { 
             segments = new ArrayList<>();

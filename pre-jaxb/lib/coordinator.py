@@ -137,3 +137,6 @@ class Coordinator:
                 f.write(f"com.aixm.delorean.XXXX.schema.{entity}.class,\n")
 
         print("[INFO] Entities exported : " + filename)
+
+    def save_transposition(self) -> None:
+        Content().save_transposition()

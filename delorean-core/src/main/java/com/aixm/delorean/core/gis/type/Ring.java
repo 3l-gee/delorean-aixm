@@ -13,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -50,7 +51,12 @@ public class Ring implements java.io.Serializable {
     }
 
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "gml_curve_id")
+    @JoinTable(
+    	    name = "ring_gml_curve_link",
+    	    schema = "gml",
+    	    joinColumns = @JoinColumn(name = "ring_hjid"),
+    	    inverseJoinColumns = @JoinColumn(name = "gml_curve_hjid")
+    	)
     public List<GmlCurveType> getGmlCurve() {
         if (gmlCurve == null) {
             gmlCurve = new ArrayList<>();

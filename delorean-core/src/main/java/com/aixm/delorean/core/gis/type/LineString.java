@@ -13,9 +13,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
+
 
 @Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "LineString")
@@ -42,7 +44,12 @@ public class LineString extends Segment implements java.io.Serializable{
     @OneToMany(targetEntity = GmlPointType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "gml_point_id", nullable = true)
+    @JoinTable(
+    	    name = "linestring_gml_point_link",
+    	    schema = "gml",
+    	    joinColumns = @JoinColumn(name = "linestring_hjid"),
+    	    inverseJoinColumns = @JoinColumn(name = "gml_point_hjid")
+    	)
     public List<GmlPointType> getGmlPoint() {
         if (gmlPoint == null) {
             gmlPoint = new ArrayList<>();

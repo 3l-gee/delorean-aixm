@@ -239,22 +239,42 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         return results;
     }
 
+    /**
+     * Executes a custom SQL script
+     * @param sql The SQL script to execute. Can contain multiple statements separated by semicolons. If it contains a PostgreSQL DO block, it will be executed as a single statement.
+     */
     private void executeSQLScript(String sql) {
+        if (sql == null || sql.isBlank()) {
+            return;
+        }
+
         try {
-            try (Connection conn = getConnection(); Statement stmt = conn.createStatement()) {
-                if (sql.contains("DO $$")) {
-                    stmt.execute(sql);  // Handle PostgreSQL DO block as one statement
-                } else {
-                    for (String query : sql.split(";")) {
-                        if (!query.trim().isEmpty()) {
-                            stmt.execute(query.trim());
+            // Ensure driver is registered for the DriverManager
+            Class.forName("org.postgresql.Driver");
+
+            try (Connection conn = getConnection(); 
+                Statement stmt = conn.createStatement()) {
+                    if (sql.toUpperCase().contains("DO $$") || sql.toUpperCase().contains("BEGIN")) {
+                        stmt.execute(sql);
+                    } else {
+                        String[] queries = sql.split(";\\s*");
+                
+                        for (String query : queries) {
+                            String cleanedQuery = query.trim();
+                            if (!cleanedQuery.isEmpty() && !cleanedQuery.startsWith("--")) {
+                                stmt.execute(cleanedQuery);
+                            }
                         }
                     }
-                }
-            }
+                ConsoleLogger.log(LogLevel.INFO, "SQL script executed successfully.");
+            }           
+        } catch (ClassNotFoundException e) {
+            ConsoleLogger.log(LogLevel.ERROR, "PostgreSQL JDBC Driver not found. Please check your dependencies.", e);
         } catch (SQLException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Error executing script.", e);
-            return;
+            String errorMsg = String.format("SQL Error [State: %s, Code: %d]: %s", e.getSQLState(), e.getErrorCode(), e.getMessage());
+            ConsoleLogger.log(LogLevel.ERROR, errorMsg, e);
+        } catch (Exception e) {
+            ConsoleLogger.log(LogLevel.ERROR, "Unexpected error during script execution.", e);
         }
     }
 

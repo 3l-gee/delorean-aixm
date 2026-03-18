@@ -1,198 +1,173 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.aixm.delorean</groupId>
-    <artifactId>delorean-aixm</artifactId>
-    <version>0.2.0</version>
-    <packaging>pom</packaging>
-
-    <name>delorean-aixm</name>
-    <description>Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more.</description>
-    <url>https://github.com/3l-gee/delorean-aixm</url>
-    <inceptionYear>2024</inceptionYear>
-    
-    <developers>
-        <developer>
-            <id>3l-gee</id>
-            <name>Raphaël Gerth</name>
-            <email>delorean.aixm@gmail.com</email>
-            <roles>
-                <role>project creator</role>
-            </roles>
-        </developer>
-    </developers>
-
-    <licenses>
-        <license>
-            <name>GNU General Public License v3.0</name>
-            <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <properties>
-        <maven.compiler.release>21</maven.compiler.release>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-		<maven-min.version>3.9.0</maven-min.version>
-		<annotation.version>2.1.1</annotation.version>
-		<eclipselink.version>4.0.2</eclipselink.version>
-		<hisrc-basicjaxb.version>2.2.1</hisrc-basicjaxb.version>
-		<hisrc-hyperjaxb.version>2.2.1</hisrc-hyperjaxb.version>
-		<h2database.version>2.2.224</h2database.version>
-		<postgresql.version>42.7.3</postgresql.version>
-        <postgis.version>2025.1.1</postgis.version>
-        <hikaricp.version>7.0.2</hikaricp.version>
-        <hibernate.version>7.1.0.Final</hibernate.version>
-		<jpa-api.version>3.2.0</jpa-api.version>
-		<slf4j.version>2.0.12</slf4j.version>
-        <jts.version>1.20.0</jts.version>
-        <proj4.version>1.4.1</proj4.version>
-        <freemarker.version>2.3.34</freemarker.version>
-        <mapstruct.version>1.6.3</mapstruct.version>
-	</properties>
-
-    <modules>
-        <module>post-jaxb</module>
-        <module>delorean-core</module>
-        <module>delorean-aixm-51</module>
-        <module>delorean-aixm-511</module>
-        <module>delorean-aixm-52</module>
-        <module>delorean-cli</module>
-        <module>delorean-api</module>
-        <!-- <module>pre-jaxb</module> -->
-        <!-- <module>delorean-aixm-51</module> -->
-
-        <!-- <module>delorean-aixm-52</module> -->
-    </modules>
-    
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.aixm.delorean</groupId>
-                <artifactId>delorean-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <build>
-    
-        <!-- Centralize plugin versions -->
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.13.0</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.2.5</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.2.5</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>exec-maven-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>4.0.0-M12</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-
-        <!-- Default build behavior for all modules -->
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <release>${maven.compiler.release}</release>
-                    <annotationProcessorPaths>
-                    <path>
-                        <groupId>org.hibernate.orm</groupId>
-                        <artifactId>hibernate-processor</artifactId>
-                        <version>${hibernate.version}</version>
-                    </path>
-                    <path>
-                        <groupId>org.mapstruct</groupId>
-                        <artifactId>mapstruct-processor</artifactId>
-                        <version>${mapstruct.version}</version>
-                    </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <parallel>all</parallel>
-                    <forkCount>1C</forkCount>
-                    <reuseForks>true</reuseForks>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <configuration>
-                    <parallel>none</parallel>
-                    <forkCount>1</forkCount>
-                    <reuseForks>true</reuseForks>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.5.0</version>
-                <executions>
-                    <execution>
-                    <id>enforce-maven</id>
-                    <goals>
-                        <goal>enforce</goal>
-                    </goals>
-                    <configuration>
-                        <rules>
-                        <requireMavenVersion>
-                            <version>[${maven-min.version},)</version>
-                        </requireMavenVersion>
-                        </rules>
-                    </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
-
-
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.21.2</version>
-            </plugin>
-        </plugins>
-    </reporting>
-    
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.aixm.delorean</groupId>
+  <artifactId>delorean-aixm</artifactId>
+  <version>0.2.0</version>
+  <packaging>pom</packaging>
+  <name>delorean-aixm</name>
+  <description>Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more.</description>
+  <url>https://github.com/3l-gee/delorean-aixm</url>
+  <inceptionYear>2024</inceptionYear>
+  <developers>
+    <developer>
+      <id>3l-gee</id>
+      <name>Raphaël Gerth</name>
+      <email>delorean.aixm@gmail.com</email>
+      <roles>
+        <role>project creator</role>
+      </roles>
+    </developer>
+  </developers>
+  <licenses>
+    <license>
+      <name>GNU General Public License v3.0</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven-min.version>3.9.0</maven-min.version>
+    <annotation.version>2.1.1</annotation.version>
+    <eclipselink.version>4.0.2</eclipselink.version>
+    <hisrc-basicjaxb.version>2.2.1</hisrc-basicjaxb.version>
+    <hisrc-hyperjaxb.version>2.2.1</hisrc-hyperjaxb.version>
+    <h2database.version>2.2.224</h2database.version>
+    <postgresql.version>42.7.3</postgresql.version>
+    <postgis.version>2025.1.1</postgis.version>
+    <hikaricp.version>7.0.2</hikaricp.version>
+    <hibernate.version>7.1.0.Final</hibernate.version>
+    <jpa-api.version>3.2.0</jpa-api.version>
+    <slf4j.version>2.0.12</slf4j.version>
+    <jts.version>1.20.0</jts.version>
+    <proj4.version>1.4.1</proj4.version>
+    <freemarker.version>2.3.34</freemarker.version>
+    <mapstruct.version>1.6.3</mapstruct.version>
+  </properties>
+  <modules>
+    <module>post-jaxb</module>
+    <module>delorean-core</module>
+    <module>delorean-aixm-51</module>
+    <module>delorean-aixm-511</module>
+    <module>delorean-aixm-52</module>
+    <module>delorean-cli</module>
+    <module>delorean-api</module>
+    <module>delorean-cli-aixm51</module>
+    <module>delorean-cli-aixm52</module>
+    <module>delorean-cli-aixm511</module>
+    <module>delorean-api-aixm51</module>
+    <module>delorean-api-aixm52</module>
+    <module>delorean-api-aixm511</module>
+  </modules>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.aixm.delorean</groupId>
+        <artifactId>delorean-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <build>
+    <!-- Centralize plugin versions -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.2.5</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>3.2.5</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>4.0.0-M12</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <!-- Default build behavior for all modules -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <release>${maven.compiler.release}</release>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.hibernate.orm</groupId>
+              <artifactId>hibernate-processor</artifactId>
+              <version>${hibernate.version}</version>
+            </path>
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>${mapstruct.version}</version>
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <parallel>all</parallel>
+          <forkCount>1C</forkCount>
+          <reuseForks>true</reuseForks>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <configuration>
+          <parallel>none</parallel>
+          <forkCount>1</forkCount>
+          <reuseForks>true</reuseForks>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.5.0</version>
+        <executions>
+          <execution>
+            <id>enforce-maven</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireMavenVersion>
+                  <version>[${maven-min.version},)</version>
+                </requireMavenVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.21.2</version>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>

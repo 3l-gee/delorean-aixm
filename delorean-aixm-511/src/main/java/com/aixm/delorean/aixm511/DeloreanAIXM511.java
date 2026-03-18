@@ -26,7 +26,13 @@ public class DeloreanAIXM511 implements com.aixm.delorean.core.DeloreanProcessor
     // --- SPI Interface Implementation ---
     @Override
     public boolean supports(String version) {
-        return "5.1.1".equals(version);
+        return "aixm511".equals(version);
+    }
+
+    @Override
+    public String getVersion() {
+        String version = DeloreanAIXM511.class.getPackage().getImplementationVersion();
+        return version != null ? version : "unknown";
     }
 
     public static CoreConfig config() {

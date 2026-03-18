@@ -41,7 +41,7 @@ public class Circle extends Segment implements java.io.Serializable {
     @OneToOne(targetEntity = GmlPointType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "gml_point_id", nullable = true)
+    @JoinColumn(name = "gml_point_hjid", nullable = true)
     public GmlPointType getGmlPoint() {
         return gmlPoint;
     }

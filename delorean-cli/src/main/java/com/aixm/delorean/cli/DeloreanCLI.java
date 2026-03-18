@@ -1,64 +1,78 @@
 package com.aixm.delorean.cli;
 
-import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
-import picocli.CommandLine.ArgGroup;
 
 import java.util.concurrent.Callable;
-import java.util.stream.StreamSupport;
 import java.io.File;
-import java.util.ServiceLoader;
-import java.util.concurrent.Callable;
 import com.aixm.delorean.core.DeloreanProcessor;
+import com.aixm.delorean.core.container.Container;
+import com.aixm.delorean.core.log.ConsoleLogger;
 
-@Command(name = "delorean-cli", 
-        mixinStandardHelpOptions = true, 
-        version = "0.2.0",
-        description = "Delorean-AIXM CLI for aeronautical data management.")
-public class DeloreanCLI implements Callable<Integer> {
+@Command(mixinStandardHelpOptions = true, version = "0.2.0")
+public abstract class DeloreanCLI implements Callable<Integer> {
 
-    @ArgGroup(multiplicity = "1", heading = "AIXM Version Selection%n")
-    VersionGroup versions;
+    @Option(names = {"-y", "--yaml"}, required = false, description = "YAML configuration file")
+    File yamlFile;
 
-    static class VersionGroup {
-        @Option(names = "-51", description = "Use AIXM 5.1") 
-        boolean v51;
+    @Option(names = {"--verbose"}, description = "Enable verbose output")
+    boolean verbose;
 
-        @Option(names = "-511", description = "Use AIXM 5.1.1") 
-        boolean v511;
+    @Option(names = {"--strict"}, description = "Enable strict mode")
+    boolean strict;
 
-        @Option(names = "-52", description = "Use AIXM 5.2 parser") 
-        boolean v52;
-    }
+    protected abstract DeloreanProcessor createProcessor();
 
     @Override
     public Integer call() throws Exception {
-        // Map the boolean flags to a string identifier
-        String versionKey = getVersionKey();
-        ServiceLoader<DeloreanProcessor> loader = ServiceLoader.load(DeloreanProcessor.class);
+        DeloreanProcessor processor = createProcessor();
+        if (processor == null) {
+            System.err.println("Internal Error: Processor not initialized.");
+            return 1;
+        }
 
-        DeloreanProcessor processor = StreamSupport.stream(loader.spliterator(), false)
-                .filter(p -> p.supports(versionKey))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("Module not found for " + versionKey));
-
-        System.out.printf("Starting Delorean with AIXM %s bindings...%n", versionKey);
-
+        run(processor);
         return 0;
     }
 
-    private String getVersionKey() {
-        if (versions.v51) return "5.1";
-        if (versions.v511) return "5.1.1";
-        return "5.2";
+    private void run(DeloreanProcessor processor) {
+        try {
+            Container<?,?,?,?> container = processor.newContainer();
+            container.unmarshal("C:/Users/rapha/Downloads/2025-10-02-skyguide-obst.aixm.xml");
+            container.getDatabaseBinding().setUrl("jdbc:postgresql://localhost:5433/aixm51");
+            container.getDatabaseBinding().setUsername("postgres");
+            container.getDatabaseBinding().setPassword("postgres");
+            container.getDatabaseBinding().setHbm2ddl("create");
+            container.startup();
+            container.persist();
+            ConsoleLogger.getInstance().logOverride(com.aixm.delorean.core.log.LogLevel.INFO, "Workflow successfully completed.");
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+            if (verbose) e.printStackTrace();
+        }
     }
 
-    public static void main(String[] args) {
-        int exitCode = new CommandLine(new DeloreanCLI()).execute(args);
-        System.exit(exitCode);
+    protected static void printBanner(Class<? extends DeloreanCLI> clazz) {
+        System.out.println("");
+        System.out.println(" ██████╗ ███████╗██╗      ██████╗ ██████╗ ███████╗ █████╗ ███╗   ██╗         █████╗ ██╗██╗  ██╗███╗   ███╗ ");
+        System.out.println(" ██╔══██╗██╔════╝██║     ██╔═══██╗██╔══██╗██╔════╝██╔══██╗████╗  ██║        ██╔══██╗██║╚██╗██╔╝████╗ ████║ ");
+        System.out.println(" ██║  ██║█████╗  ██║     ██║   ██║██████╔╝█████╗  ███████║██╔██╗ ██║ █████╗ ███████║██║ ╚███╔╝ ██╔████╔██║ ");
+        System.out.println(" ██║  ██║██╔══╝  ██║     ██║   ██║██╔══██╗██╔══╝  ██╔══██║██║╚██╗██║ ╚════╝ ██╔══██║██║ ██╔██╗ ██║╚██╔╝██║ ");
+        System.out.println(" ██████╔╝███████╗███████╗╚██████╔╝██║  ██║███████╗██║  ██║██║ ╚████║        ██║  ██║██║██╔╝ ██╗██║ ╚═╝ ██║ ");
+        System.out.println(" ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝        ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝     ╚═╝ ");
+        System.out.println("");
+        System.out.printf("     cli version : %s%n", DeloreanCLI.class.getPackage().getImplementationVersion());
+        System.out.printf(" binding version : %s%n", clazz.getPackage().getImplementationVersion());
+        System.out.println("         license : GPL v3");
+        System.out.println("          author : Raphaël Gerth");
+        System.out.println("            repo : https://github.com/3l-gee/delorean-aixm");
+        System.out.println("             web : https://delorean-aixm.io/");
+        System.out.println("            help : 'help' ");
+        System.out.println("");
     }
 }
+
+
 
 // import com.aixm.delorean.core.configuration.StructureConfig;
 // import com.aixm.delorean.core.container.ContainerFactory;

@@ -18,7 +18,11 @@ class Util:
             name = [x for x in name if x is not None]
 
         if type(name) is list : 
-            names = [Util.snake_case_table(n, list) for n in name]
+            names = []
+            for n in name :
+                joined_name = Util.snake_case_table(n, name_type)
+                names.append(joined_name)
+
             return "_".join(names)
         else : 
             return Config().generate_database_name(name)
@@ -263,9 +267,14 @@ class HyperJAXB:
     
     @staticmethod 
     def orm_join_table(schema, owning_table, target_table):
-        join_table_name = Util.snake_case_table([owning_table, target_table, "link"]).replace('"', '')
+        owning_table_acronym = Config().generate_phonetic_acronym(owning_table)
+        target_table_acronym = Config().generate_phonetic_acronym(target_table)
+        join_table_name = Util.snake_case_table([owning_table_acronym, target_table_acronym, "link"]).replace('"', '')
         owning_table = Util.snake_case_column(str(owning_table)).replace('"', '')
         target_table = Util.snake_case_column(str(target_table)).replace('"', '')
+
+        if len(join_table_name) > 63:
+            print(f"Warning: The generated table name '{join_table_name}' exceeds the maximum length of 63 characters")
 
         return f'''<orm:join-table name="{join_table_name}" schema="{schema}"><orm:join-column name="{owning_table}_hjid" referenced-column-name="hjid" /><orm:inverse-join-column name="{target_table}_hjid" referenced-column-name="hjid" /></orm:join-table>'''
     
@@ -337,6 +346,8 @@ class HyperJAXB:
     @staticmethod
     def table(name, schema, prefix=None, suffix=None):
         join_table_name = Util.snake_case_table([prefix, name, suffix]).replace('"', '')
+        if len(join_table_name) > 63:
+            print(f"Warning: The generated table name '{join_table_name}' exceeds the maximum length of 63 characters")
         
         return f'<orm:table name = "{join_table_name}" schema = "{schema}" />'
     

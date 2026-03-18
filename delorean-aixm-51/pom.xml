@@ -30,13 +30,11 @@
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>${annotation.version}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
             <version>${jpa-api.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- HiSrc Runtime Dependencies -->

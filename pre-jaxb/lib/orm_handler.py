@@ -125,8 +125,8 @@ class OrmHandler:
 
         embeded_fields = Config().get_embed_by_type(type)
         base_type = type.replace("Type","BaseType")
+        
         constraints = OrmHandler.constraint_generator_attribute_override(base_type)
-
         res.append(HyperJAXB.hj_embedded_start())
 
         for key, value in embeded_fields.items():
