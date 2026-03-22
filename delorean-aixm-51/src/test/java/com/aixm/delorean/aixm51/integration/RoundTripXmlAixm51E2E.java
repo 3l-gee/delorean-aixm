@@ -18,6 +18,7 @@ import java.sql.Statement;
 import com.aixm.delorean.aixm51.DeloreanAIXM51;
 import com.aixm.delorean.aixm51.engine.Aixm51Engine;
 import com.aixm.delorean.core.container.Container;
+import com.aixm.delorean.core.context.ContextWarehouse;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.xml.XmlBindingService;
 
@@ -37,6 +38,7 @@ public class RoundTripXmlAixm51E2E {
     
     String id;
     Container<?,?,?,?> container;
+    DeloreanAIXM51 delorean;
     PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine")
         .asCompatibleSubstituteFor("postgres"))
         .withCommand("postgres", 
@@ -58,11 +60,41 @@ public class RoundTripXmlAixm51E2E {
     }
 
     @Test
+    @Order(2)
+    void setDelorean() {
+
+        //given
+        delorean = new DeloreanAIXM51();
+
+        // delorean is successfully created
+        assertThat(delorean).isNotNull();
+    }
+
+    @Test
+    @Order(3)
+    void setContext() {
+
+        //given
+        delorean.setContext("RoundTripXmlAixm51E2E","");
+
+        // context is successfully created
+        ContextWarehouse.getInstance().getActiveInfo();
+
+        // context is correctly set
+        assertThat(ContextWarehouse.getInstance().getActive().getName()).isEqualTo("RoundTripXmlAixm51E2E");
+
+        // context has a non-null hash
+        assertThat(ContextWarehouse.getActiveHash()).isNotNull();
+
+    }
+
+    @Test
     @Order(10)
     void configDeloreanCore() {
 
         // given
-        container = new DeloreanAIXM51().newContainer();
+
+        container = delorean.newContainer();
 
         // container is successfully created
         assertThat(container).isNotNull();

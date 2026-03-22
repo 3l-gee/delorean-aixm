@@ -4,9 +4,12 @@ import com.aixm.delorean.core.CoreConfig;
 import com.aixm.delorean.core.Delorean;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.container.ContainerWarehouse;
+import com.aixm.delorean.core.context.Context;
+import com.aixm.delorean.core.context.ContextWarehouse;
 import com.aixm.delorean.aixm51.schema.message.AIXMBasicMessageType;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.xml.namespace.QName;
 
@@ -18,7 +21,7 @@ import com.aixm.delorean.aixm51.database.Aixm51DatabaseFunction;
 
 public class DeloreanAIXM51 implements com.aixm.delorean.core.DeloreanProcessor {
 
-    private static ContainerWarehouse<?,?,?,?> warehouse;
+    private static ContainerWarehouse<?,?,?,?> containers;
 
     public DeloreanAIXM51() {
     }
@@ -55,45 +58,72 @@ public class DeloreanAIXM51 implements com.aixm.delorean.core.DeloreanProcessor 
     }
 
     /** Lazily creates and returns the warehouse */
-    private static ContainerWarehouse<?,?,?,?> warehouse() {
-        if (warehouse == null) {
+    private static ContainerWarehouse<?,?,?,?> containerWarehouse() {
+        if (containers == null) {
             synchronized (DeloreanAIXM51.class) {
-                if (warehouse == null) {
-                    warehouse = Delorean.initContainerWarehouse(config());
+                if (containers == null) {
+                    containers = Delorean.initContainerWarehouse(config());
                 }
             }
         }
-        return warehouse;
+        return containers;
+    }
+
+    /** 
+     * Creates a new context with a random salt and sets it as active.
+    */
+    @Override
+    public Context setContext(String name, String description) {
+        ContextWarehouse.getInstance().setContext(name, description);
+
+        return ContextWarehouse.getInstance().getActive();
+    }
+
+    /**
+    * Creates a new context with the provided deterministic salt and sets it as active.
+    * This allows for consistent ID generation across different runs or documents when the same salt is used.
+    */
+    @Override
+    public Context registerContext(String salt, String name, String description) {
+        ContextWarehouse.getInstance().registerContext(salt, name, description);
+
+        return ContextWarehouse.getInstance().getActive();
     }
 
     /** Returns the default (last used) container */
     @Override
     public Container<?,?,?,?> container() {
-        return warehouse().getLastUsedContainer();
+        return containerWarehouse().getLastUsedContainer();
     }
 
     /** Creates a new container and returns it */
     @Override
     public Container<?,?,?,?> newContainer() {
-        warehouse().createNewContainer();
-        return warehouse().getLastUsedContainer();
+        containerWarehouse().createNewContainer();
+        return containerWarehouse().getLastUsedContainer();
     }
 
     /** Returns the container by its id */
     @Override
     public Container<?,?,?,?> getContainerById(String id) {
-        return warehouse().getContainerById(id);
+        return containerWarehouse().getContainerById(id);
     }
 
     /** Removes the container by its id */
     @Override
     public void removeContainerById(String id) {
-        warehouse().removeContainer(id);
+        containerWarehouse().removeContainer(id);
     }
 
     /** Returns a list of all container IDs */
     @Override
     public List<String> listContainerId() {
-        return warehouse().listContainerId();
+        return containerWarehouse().listContainerId();
+    }
+
+    /** Logs the active context information */
+    @Override
+    public void getActiveInfo() {
+        ContextWarehouse.getInstance().getActiveInfo();
     }
 }

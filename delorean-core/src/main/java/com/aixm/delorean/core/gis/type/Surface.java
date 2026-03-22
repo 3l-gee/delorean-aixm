@@ -21,8 +21,8 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 
 @Entity(name="Surface")
-@Table(name = "surface", schema = "gml")
 @Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "surface", schema = "gml")
 public class Surface extends AbstractGMLType {
 
     protected Long hjid;

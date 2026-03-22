@@ -1,11 +1,11 @@
-package com.aixm.delorean.aixm52.integration;
+package com.aixm.delorean.aixm511.integration;
 
 import org.junit.jupiter.api.*;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
-import com.aixm.delorean.aixm52.DeloreanAIXM52;
-import com.aixm.delorean.aixm52.engine.Aixm52Engine;
+import com.aixm.delorean.aixm511.DeloreanAIXM511;
+import com.aixm.delorean.aixm511.engine.Aixm511Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.context.ContextWarehouse;
 import com.aixm.delorean.core.database.DatabaseBindingService;
@@ -23,11 +23,11 @@ Simple lifecycle test for AIXM 5.1.1 Delorean container
 */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class RoundTripZipAixm52E2E {
+public class RoundTripZipAixm511E2E {
     
     String id;
     Container<?,?,?,?> container;
-    DeloreanAIXM52 delorean;
+    DeloreanAIXM511 delorean;
     PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine").asCompatibleSubstituteFor("postgres"));
 
     @Test
@@ -41,7 +41,7 @@ public class RoundTripZipAixm52E2E {
     void setDelorean() {
 
         //given
-        delorean = new DeloreanAIXM52();
+        delorean = new DeloreanAIXM511();
 
         // delorean is successfully created
         assertThat(delorean).isNotNull();
@@ -52,13 +52,13 @@ public class RoundTripZipAixm52E2E {
     void setContext() {
 
         //given
-        delorean.setContext("RoundTripZipAixm52E2E","");
+        delorean.setContext("RoundTripXmlAixm511E2E","");
 
         // context is successfully created
         ContextWarehouse.getInstance().getActiveInfo();
 
         // context is correctly set
-        assertThat(ContextWarehouse.getInstance().getActive().getName()).isEqualTo("RoundTripZipAixm52E2E");
+        assertThat(ContextWarehouse.getInstance().getActive().getName()).isEqualTo("RoundTripXmlAixm511E2E");
 
         // context has a non-null hash
         assertThat(ContextWarehouse.getActiveHash()).isNotNull();
@@ -76,10 +76,10 @@ public class RoundTripZipAixm52E2E {
         assertThat(container).isNotNull();
 
         // container is correctly configured
-        assertThat(container.getRootClass()).isEqualTo(com.aixm.delorean.aixm52.schema.message.AIXMBasicMessageType.class);
-        assertThat(container.getFeatureClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMFeatureType.class);
-        assertThat(container.getTimeSliceClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMTimeSliceType.class);
-        assertThat(container.getObjectClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMObjectType.class);
+        assertThat(container.getRootClass()).isEqualTo(com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class);
+        assertThat(container.getFeatureClass()).isEqualTo(com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class);
+        assertThat(container.getTimeSliceClass()).isEqualTo(com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType.class);
+        assertThat(container.getObjectClass()).isEqualTo(com.aixm.delorean.aixm511.schema.AbstractAIXMObjectType.class);
 
         // container has XML binding
         XmlBindingService<?,?> xmlBinding = container.getXmlBinding();
@@ -90,7 +90,7 @@ public class RoundTripZipAixm52E2E {
         assertThat(dbBinding).isNotNull();
 
         // container has Delorean engine
-        Aixm52Engine deloreanEngine = (Aixm52Engine) container.getDeloreanEngine();
+        Aixm511Engine deloreanEngine = (Aixm511Engine) container.getDeloreanEngine();
         assertThat(deloreanEngine).isNotNull();
     }
     
@@ -99,7 +99,7 @@ public class RoundTripZipAixm52E2E {
     void loadXml(){
 
         // given 
-        String xmlPath = "src/test/resources/roundtrip/donlon.zip";
+        String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511.zip";
 
         // do
         container.unmarshal(xmlPath);
@@ -118,7 +118,7 @@ public class RoundTripZipAixm52E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src/test/resources/roundtrip/donlon-marshalled.xml.log";
+        String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511-marshalled.xml.log";
 
         // do
         container.marshal(xmlPath);
@@ -174,7 +174,7 @@ public class RoundTripZipAixm52E2E {
     void extractExtractedXml() {
 
         // given
-        String xmlPath = "src/test/resources/roundtrip/donlon-extracted.xml.log";
+        String xmlPath = "src/test/resources/roundtrip/donlon-aixm-511-extracted.xml.log";
 
         // do
         container.marshal(xmlPath);

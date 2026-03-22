@@ -10,6 +10,7 @@ import com.aixm.delorean.core.log.LogLevel;
 import org.hibernate.Transaction;
 
 import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -257,13 +258,16 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
                     if (sql.toUpperCase().contains("DO $$") || sql.toUpperCase().contains("BEGIN")) {
                         stmt.execute(sql);
                     } else {
-                        String[] queries = sql.split(";\\s*");
-                
+                        String[] queries = sql.split(";");
+
                         for (String query : queries) {
-                            String cleanedQuery = query.trim();
-                            if (!cleanedQuery.isEmpty() && !cleanedQuery.startsWith("--")) {
-                                stmt.execute(cleanedQuery);
+                            String cleaned = query.trim();
+                        
+                            if (cleaned.isEmpty() || cleaned.startsWith("--")) {
+                                continue; 
                             }
+                            
+                            stmt.execute(cleaned);
                         }
                     }
                 ConsoleLogger.log(LogLevel.INFO, "SQL script executed successfully.");
@@ -287,14 +291,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             throw new IllegalArgumentException("sessionfactory is not init");
         }
 
-        try (Session session = sessionFactory.openSession()) {
-            HibernateHelper.doInTransaction(session, s -> {
-                s.persist(message);
-                return null;
-            });
-        } catch (Exception ex) {
-            throw new RuntimeException("Failed to persist " + message.getClass().getName(), ex);
-        }
+        this.databaseHelper.persist(message, this.sessionFactory);
     }
 
     public ROOT extract(Class<ROOT> structure, Object id) {
@@ -303,6 +300,8 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         }
 
         Session session = this.getSession();
+        session.disableFilter("TPHjidFilter");
+        session.disableFilter("BMMHjidFilter");
         Transaction transaction = null;
 
         try {
@@ -310,7 +309,13 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
             ROOT object = session.find(structure, id);
 
+            if (object instanceof ROOT) {
+                Method getHasMember = object.getClass().getMethod("getHasMember");
+                List<Object> hasMemberList = (List<Object>) getHasMember.invoke(object);
+            }
+
             transaction.commit();
+            session.close();
             return object;
 
         } catch (Exception e) {
@@ -319,8 +324,6 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             }
             e.printStackTrace();
             return null;
-        } finally {
-            session.close();
         }
     }
 

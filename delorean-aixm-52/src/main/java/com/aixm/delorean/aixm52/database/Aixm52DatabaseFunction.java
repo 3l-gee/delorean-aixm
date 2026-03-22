@@ -182,6 +182,37 @@ public class Aixm52DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
     }
 
     @Override
+    public void persist(AIXMBasicMessageType message, SessionFactory sessionFactory) {
+        ConsoleLogger.startProgress("Persisting", message.getHasMember().size());
+        Session session = sessionFactory.openSession();
+
+        // 1. Convert to AixmBasicMesage to separet message and memeber
+        List<BasicMessageMemberAIXMPropertyType> basicMessageMembers = message.getHasMember();
+        message.unsetHasMember();
+
+        // 2. feature, timeslice and correction slice are merged
+        Transaction mergeTransaction = session.beginTransaction();
+        session.persist(message);
+
+        int i = 0;
+        for (BasicMessageMemberAIXMPropertyType bmm : basicMessageMembers) {
+            session.persist(bmm);
+
+            ConsoleLogger.incrementProgress(1);
+
+            if (++i % 50 == 0) {
+                session.flush();
+                session.clear();
+            }
+        }
+        mergeTransaction.commit();
+
+        session.close();
+
+        ConsoleLogger.stopProgress();
+    }
+
+    @Override
     public void merge(AIXMBasicMessageType message, SessionFactory sessionFactory) {
         Session session = sessionFactory.openSession();
         List<MutationFeatureTimeslice> mutationFeatureTimeslices = new ArrayList<>();
@@ -192,6 +223,8 @@ public class Aixm52DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
 
         // 2. extract current top timeslice from db (top = last)
         mutationFeatureTimeslices.addAll(Aixm52DatabaseFunction.generateTimesliceAction(session, featureList));
+
+        ConsoleLogger.startProgress("Merging", message.getHasMember().size() + mutationFeatureTimeslices.size());
 
         // 3. feature, timeslice and correction slice are merged
         Transaction mergeTransaction = session.beginTransaction();
@@ -206,6 +239,8 @@ public class Aixm52DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
 
             Aixm52DatabaseFunction.extractTimeslice(bmm, existing, session);
 
+            ConsoleLogger.incrementProgress(1);
+
             if (++i % 50 == 0) {
                 session.flush();
                 session.clear();
@@ -219,6 +254,8 @@ public class Aixm52DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
             if (mft != null) {
                 mft.appplyMutation(session); // << implement this
             }
+
+            ConsoleLogger.incrementProgress(1);
 
             if (++i % 50 == 0) {
                 session.flush();
@@ -243,7 +280,7 @@ public class Aixm52DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
 
         for (Long featId : featureHjids) {
             session.createNativeMutationQuery(
-                    "INSERT INTO aixm.message_member_link (message_id, feature_id) VALUES (:msg, :feat)")
+                    "INSERT INTO aixm.message_member_link (message_hjid, feature_hjid) VALUES (:msg, :feat)")
                 .setParameter("msg", messageHjid)
                 .setParameter("feat", featId)
                 .executeUpdate();
@@ -252,6 +289,8 @@ public class Aixm52DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         linkTransaction.commit();
 
         session.close();
+        
+        ConsoleLogger.stopProgress();
     }
 
     private static <T extends AbstractAIXMFeatureType> MutationFeatureTimeslice extractTimeslice(BasicMessageMemberAIXMPropertyType basicMessageMember, MutationFeatureTimeslice existing, Session session){

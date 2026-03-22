@@ -1,9 +1,5 @@
--- Required extension
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS "postgis";
-
--- Required schema for AIXM 5.1
-CREATE SCHEMA IF NOT EXISTS steve;
 CREATE SCHEMA IF NOT EXISTS aerial_refuelling;
 CREATE SCHEMA IF NOT EXISTS airport_heliport;
 CREATE SCHEMA IF NOT EXISTS airspace;

@@ -12,6 +12,8 @@ import java.nio.file.Paths;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import java.util.UUID;
+import java.util.Arrays;
 
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
@@ -26,7 +28,7 @@ public class DeloreanUtility {
 
     /**
      * Loads a file from the disk (external file system) as an InputStream.
-     * * @param filePath The absolute or relative path to the file.
+     * @param filePath The absolute or relative path to the file.
      * @return The InputStream for the file or the first entry of a zip.
      * @throws Exception If the file is not found, access is denied, or any I/O error occurs.
      */
@@ -60,6 +62,23 @@ public class DeloreanUtility {
             ConsoleLogger.log(LogLevel.ERROR, "An unexpected I/O error occurred while accessing: " + filePath + " - " + e.getMessage());
             return null;
         }
+    }
+
+    /**
+     * Generates a UUID hash from the provided input strings.
+     * @param inputs The input strings to hash.
+     * @return The generated UUID hash.
+     */
+    public static String generateHash(String... inputs) {
+        if (inputs == null || inputs.length == 0) {
+            throw new IllegalArgumentException("Inputs cannot be null or empty");
+        }
+
+        String combined = Arrays.stream(inputs)
+                .filter(s -> s != null)
+                .collect(Collectors.joining("|"));
+
+        return UUID.nameUUIDFromBytes(combined.getBytes(StandardCharsets.UTF_8)).toString();
     }
 
     public static InputStream absPathZipToInputStream(String filePath) {
@@ -97,7 +116,7 @@ public class DeloreanUtility {
 
     /**
      * Provides a FileOutputStream for writing data to a file on the disk.
-     * * @param filePath The path where the file should be created/overwritten.
+     * @param filePath The path where the file should be created/overwritten.
      * @return The FileOutputStream for writing.
      * @throws Exception If the file cannot be created or an I/O error occurs.
      */

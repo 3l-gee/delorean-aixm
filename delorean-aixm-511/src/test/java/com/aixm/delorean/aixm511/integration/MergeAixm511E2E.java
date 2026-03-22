@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import com.aixm.delorean.aixm511.DeloreanAIXM511;
 import com.aixm.delorean.aixm511.engine.Aixm511Engine;
 import com.aixm.delorean.core.container.Container;
+import com.aixm.delorean.core.context.ContextWarehouse;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.xml.XmlBindingService;
 
@@ -30,10 +31,10 @@ import java.nio.file.StandardOpenOption;
 public class MergeAixm511E2E {
 
     String id;
+    DeloreanAIXM511 delorean;
     Container<?,?,?,?> AContainer;
     Container<?,?,?,?> BContainer;
     PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine").asCompatibleSubstituteFor("postgres"));
-    DeloreanAIXM511 deloreanAIXM511 = new DeloreanAIXM511();
 
     @Test
     @Order(1)
@@ -42,11 +43,40 @@ public class MergeAixm511E2E {
     }
 
     @Test
+    @Order(2)
+    void setDelorean() {
+
+        //given
+        delorean = new DeloreanAIXM511();
+
+        // delorean is successfully created
+        assertThat(delorean).isNotNull();
+    }
+
+    @Test
+    @Order(3)
+    void setContext() {
+
+        //given
+        delorean.setContext("RoundTripXmlAixm511E2E","");
+
+        // context is successfully created
+        ContextWarehouse.getInstance().getActiveInfo();
+
+        // context is correctly set
+        assertThat(ContextWarehouse.getInstance().getActive().getName()).isEqualTo("RoundTripXmlAixm51E2E");
+
+        // context has a non-null hash
+        assertThat(ContextWarehouse.getActiveHash()).isNotNull();
+
+    }
+
+    @Test
     @Order(10)
     void configAContainerDeloreanCore() {
 
         // given
-        AContainer = deloreanAIXM511.newContainer();
+        AContainer = delorean.newContainer();
 
         // container is successfully created
         assertThat(AContainer).isNotNull();
@@ -144,7 +174,7 @@ public class MergeAixm511E2E {
     void configBContainerDeloreanCore() {
 
         // given
-        BContainer = deloreanAIXM511.newContainer();
+        BContainer = delorean.newContainer();
 
         // container is successfully created
         assertThat(BContainer).isNotNull();

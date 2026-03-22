@@ -27,6 +27,7 @@ public record TemporalityInspector(
     }
 
     public void printSummary() {
+        
         System.out.println(" Summary of Temporality Inspection ");
         System.out.println("Feature Lifetime from   : " + earliestFeatureLifetimeStart + " to " + latestFeatureLifetimeStart);
         System.out.println("Time Slice Valid from   : " + earliestValidTimeStart + " to " + latestValidTimeEnd);

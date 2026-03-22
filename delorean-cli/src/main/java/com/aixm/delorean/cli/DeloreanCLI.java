@@ -37,14 +37,47 @@ public abstract class DeloreanCLI implements Callable<Integer> {
 
     private void run(DeloreanProcessor processor) {
         try {
+            processor.setContext("donlon", "");
             Container<?,?,?,?> container = processor.newContainer();
-            container.unmarshal("C:/Users/rapha/Downloads/2025-10-02-skyguide-obst.aixm.xml");
+
+
             container.getDatabaseBinding().setUrl("jdbc:postgresql://localhost:5433/aixm51");
             container.getDatabaseBinding().setUsername("postgres");
             container.getDatabaseBinding().setPassword("postgres");
             container.getDatabaseBinding().setHbm2ddl("create");
             container.startup();
+
+            container.unmarshal("C:/Users/rapha/Downloads/aixm51/LF_AIP_DS_PartOf_20240516_AIRAC.xml");
             container.persist();
+
+            // container.unmarshal("C:/Users/rapha/Downloads/aixm51/EDDF_AerodromeMapping_2025-08-07_2025-08-07_snapshot.xml");
+            // container.persist();
+
+            container.unmarshal("C:/Users/rapha/Downloads/aixm51/2025-10-02-skyguide-obst.aixm.xml");
+            container.persist();
+
+            container.unmarshal("C:/Users/rapha/Downloads/aixm51/EA_AIP_DS_FULL_20170701_mod.xml");
+            container.persist();
+
+            Container<?,?,?,?> containerA = processor.newContainer();
+            containerA.getDatabaseBinding().setUrl("jdbc:postgresql://localhost:5433/aixm51");
+            containerA.getDatabaseBinding().setUsername("postgres");
+            containerA.getDatabaseBinding().setPassword("postgres");
+            containerA.getDatabaseBinding().setHbm2ddl("update");
+            containerA.startup();
+            containerA.extract(1L);
+            containerA.marshal("C:/Users/rapha/Downloads/data/extract.xml");
+            containerA.predicate("2020-01-01T00:00:00Z");
+            containerA.marshal("C:/Users/rapha/Downloads/data/predicate.xml");
+
+
+            // container.unmarshal("C:/Users/rapha/Downloads/2025-10-02-skyguide-obst.aixm.xml");
+            // container.getDatabaseBinding().setUrl("jdbc:postgresql://localhost:5433/aixm51");
+            // container.getDatabaseBinding().setUsername("postgres");
+            // container.getDatabaseBinding().setPassword("postgres");
+            // container.getDatabaseBinding().setHbm2ddl("create");
+            // container.startup();
+            // container.persist();
             ConsoleLogger.getInstance().logOverride(com.aixm.delorean.core.log.LogLevel.INFO, "Workflow successfully completed.");
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
@@ -61,8 +94,8 @@ public abstract class DeloreanCLI implements Callable<Integer> {
         System.out.println(" ██████╔╝███████╗███████╗╚██████╔╝██║  ██║███████╗██║  ██║██║ ╚████║        ██║  ██║██║██╔╝ ██╗██║ ╚═╝ ██║ ");
         System.out.println(" ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝        ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝     ╚═╝ ");
         System.out.println("");
-        System.out.printf("     cli version : %s%n", DeloreanCLI.class.getPackage().getImplementationVersion());
         System.out.printf(" binding version : %s%n", clazz.getPackage().getImplementationVersion());
+        System.out.printf("     cli version : %s%n", DeloreanCLI.class.getPackage().getImplementationVersion());
         System.out.println("         license : GPL v3");
         System.out.println("          author : Raphaël Gerth");
         System.out.println("            repo : https://github.com/3l-gee/delorean-aixm");

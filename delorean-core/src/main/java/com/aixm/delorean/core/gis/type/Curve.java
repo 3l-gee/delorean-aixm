@@ -20,7 +20,7 @@ import java.util.List;
 
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 
-@Entity
+@Entity(name = "Curve")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "curve", schema = "gml")
 public class Curve extends AbstractGMLType {

@@ -61,13 +61,13 @@ public class XmlBindingService<ROOT, FEATURE> {
             
             this.unmarshaller = this.context.createUnmarshaller();
             this.unmarshaller.setSchema(schema);
-            this.unmarshaller.setEventHandler(this::handleEvent);
+            this.unmarshaller.setEventHandler(this::unmarshallerEventHandler);
 
             this.marshaller = this.context.createMarshaller();
             this.marshaller.setSchema(schema);
             this.marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             this.marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            this.marshaller.setEventHandler(this::handleEvent);
+            this.marshaller.setEventHandler(this::marshallerEventHandler);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -81,7 +81,50 @@ public class XmlBindingService<ROOT, FEATURE> {
         return this.marshaller;
     }
 
-    public boolean handleEvent(ValidationEvent event) {
+    public boolean unmarshallerEventHandler(ValidationEvent event) {
+        String severity;
+        switch (event.getSeverity()) {
+            case ValidationEvent.WARNING:
+                severity = "WARNING";
+                break;
+            case ValidationEvent.ERROR:
+                severity = "ERROR";
+                break;
+            case ValidationEvent.FATAL_ERROR:
+                severity = "FATAL";
+                break;
+            default:
+                severity = "UNKNOWN";
+        }
+
+        System.err.println("═══════════════════════════════════════════");
+        System.err.println("[JAXB VALIDATION EVENT]" + " - " + severity);
+        System.err.println("Message : " + event.getMessage());
+
+        ValidationEventLocator locator = event.getLocator();
+        if (locator != null) {
+            System.err.println("Location:");
+            if (locator.getLineNumber() != -1)
+                System.err.println("  Line:   " + locator.getLineNumber());
+            if (locator.getColumnNumber() != -1)
+                System.err.println("  Column: " + locator.getColumnNumber());
+            if (locator.getURL() != null)
+                System.err.println("  URL:    " + locator.getURL());
+            if (locator.getObject() != null)
+                System.err.println("  Object: " + locator.getObject().getClass().getName());
+            if (locator.getNode() != null) {
+                System.err.println("  Node:   " + locator.getNode().getNodeName());
+            }
+
+        }
+
+        System.err.println("═══════════════════════════════════════════");
+
+        // return true to continue after validation errors
+        return true;
+    }
+
+    public boolean marshallerEventHandler(ValidationEvent event) {
         String severity;
         switch (event.getSeverity()) {
             case ValidationEvent.WARNING:
@@ -179,6 +222,11 @@ public class XmlBindingService<ROOT, FEATURE> {
             unmarshalledObject = this.unmarshaller.unmarshal(xmlStream);
         } catch (JAXBException e) {
             ConsoleLogger.log(LogLevel.ERROR, "JAXB exception during unmarshalling : " + e.getMessage());
+            if (e.getLinkedException() != null) {
+                e.getLinkedException().printStackTrace(); 
+            }
+            
+            e.printStackTrace();
             return null;
 
         } catch (Exception e) {

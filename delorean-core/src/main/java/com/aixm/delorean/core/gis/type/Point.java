@@ -17,7 +17,7 @@ import java.util.List;
 import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 
-@Entity
+@Entity(name = "Point")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "point", schema = "gml")
 public class Point extends AbstractGMLType {
