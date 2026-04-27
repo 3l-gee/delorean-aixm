@@ -300,19 +300,12 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         }
 
         Session session = this.getSession();
-        session.disableFilter("TPHjidFilter");
-        session.disableFilter("BMMHjidFilter");
         Transaction transaction = null;
 
         try {
             transaction = session.beginTransaction();
 
             ROOT object = session.find(structure, id);
-
-            if (object instanceof ROOT) {
-                Method getHasMember = object.getClass().getMethod("getHasMember");
-                List<Object> hasMemberList = (List<Object>) getHasMember.invoke(object);
-            }
 
             transaction.commit();
             session.close();
@@ -326,7 +319,6 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             return null;
         }
     }
-
 
     public ROOT predicateValidTimeslice(Class<ROOT> structure, Instant time) {
         if (this.sessionFactory == null){

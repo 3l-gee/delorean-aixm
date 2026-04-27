@@ -78,7 +78,7 @@ public class DeloreanUtility {
                 .filter(s -> s != null)
                 .collect(Collectors.joining("|"));
 
-        return UUID.nameUUIDFromBytes(combined.getBytes(StandardCharsets.UTF_8)).toString();
+        return "urn:oid:" + UUID.nameUUIDFromBytes(combined.getBytes(StandardCharsets.UTF_8)).toString();
     }
 
     public static InputStream absPathZipToInputStream(String filePath) {

@@ -221,10 +221,8 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
     }
 
     public void integrate(String path) {
-        
         ROOT newMessage = this.doUnmarshal(path);
-        ROOT oldMessage = this.doPredicate(Instant.MAX);
-        this.message = this.deloreanEngine.integrate(oldMessage, newMessage);
+        this.message = this.deloreanEngine.integrate(this.message, newMessage);
         // ConsoleLogger.log(LogLevel.INFO, "Integrated <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 

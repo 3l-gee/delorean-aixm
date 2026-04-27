@@ -180,22 +180,21 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
 
             if (++i % 50 == 0) {
                 session.flush();
-
-                for (MessageMemberLink link : pendingLinks) {
-                    session.createNativeMutationQuery(
-                    "INSERT INTO aixm.message_member_link (member_hjid, message_hjid) VALUES (:member, :message)")
-                        .setParameter("message", link.messageId())
-                        .setParameter("member", link.memberId())
-                        .executeUpdate();
-
-                }
-                
-                pendingLinks.clear();
                 session.clear();
             }
         }
 
- 
+        session.flush();
+        session.clear();
+
+        for (MessageMemberLink link : pendingLinks) {
+            session.createNativeMutationQuery(
+            "INSERT INTO aixm.message_member_link (member_hjid, message_hjid) VALUES (:member, :message)")
+                .setParameter("message", link.messageId())
+                .setParameter("member", link.memberId())
+                .executeUpdate();
+
+        }
 
         mergeTransaction.commit();
 
@@ -250,7 +249,7 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         int i = 0;
         for (BasicMessageMemberAIXMPropertyType bmm : basicMessageMembers) {
             AbstractAIXMFeatureType abstractFeature = bmm.getAbstractAIXMFeatureValue();
-            String identifier = abstractFeature.getId();
+            String identifier = abstractFeature.getIdentifier().getValue();
             MutationFeatureTimeslice existing = mutationFeatureTimeslices.stream()
                     .filter(f -> f.getIdentifier().equals(identifier))
                     .findFirst()
@@ -265,6 +264,7 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
                 session.clear();
             }
         }
+
         mergeTransaction.commit();
 
         // 4. Use StatelessSession for manual batch operations
@@ -290,18 +290,18 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         Long messageHjid = result.hjid();
         String messageId = result.id();
                 
-        List<Long> featureHjids = new ArrayList<>();
+        List<Long> memberHjids = new ArrayList<>();
         for (BasicMessageMemberAIXMPropertyType bmm : basicMessageMembers) {
             if (bmm.gethjid() != null) {
-                featureHjids.add(bmm.gethjid());
+                memberHjids.add(bmm.gethjid());
             }
         } 
 
-        for (Long featId : featureHjids) {
+        for (Long memberHjid : memberHjids) {
             session.createNativeMutationQuery(
-                    "INSERT INTO aixm.message_member_link (message_hjid, feature_hjid) VALUES (:msg, :feat)")
-                .setParameter("msg", messageHjid)
-                .setParameter("feat", featId)
+            "INSERT INTO aixm.message_member_link (member_hjid, message_hjid) VALUES (:member, :message)")
+                .setParameter("message", messageHjid)
+                .setParameter("member", memberHjid)
                 .executeUpdate();
         }
 
@@ -412,7 +412,7 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
             featureTimeslices.addAll(tuples.stream()
                 .map(t -> new MutationFeatureTimeslice(
                     t.get("feature_id", Long.class),
-                    t.get("id", String.class),
+                    t.get("identifier", String.class),
                     t.get("sequence_number", Long.class),
                     t.get("correction_number", Long.class),
                     t.get("timeslice_property_id", Long.class),
@@ -446,8 +446,8 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         */
 
         return """
-            SELECT DISTINCT ON (aixm.aixm_feature.id)
-                aixm.aixm_feature.id,
+            SELECT DISTINCT ON (aixm.aixm_feature.identifier)
+                aixm.aixm_feature.identifier,
                 aixm.aixm_timeslice.sequence_number,
                 aixm.aixm_timeslice.correction_number,
                 aixm.aixm_feature.hjid  AS feature_id,
@@ -462,7 +462,7 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
             -- aixm.aixm_feature.lifecycle_status = 'APPROVED' 
             -- AND 
             -- aixm.aixm_timeslice.lifecycle_status = 'APPROVED' 
-            ORDER BY aixm.aixm_feature.id, aixm.aixm_timeslice.sequence_number DESC, aixm.aixm_timeslice.correction_number DESC;
+            ORDER BY aixm.aixm_feature.identifier, aixm.aixm_timeslice.sequence_number DESC, aixm.aixm_timeslice.correction_number DESC;
             """
             .formatted(
                 featureTable,             // %1$s
