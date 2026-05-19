@@ -43,22 +43,22 @@
 		<dependency>
 			<groupId>org.patrodyne.jvnet</groupId>
 			<artifactId>hisrc-basicjaxb-runtime</artifactId>
-			<version>${hisrc-basicjaxb.version}</version>
+			<version>${hisrc.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.patrodyne.jvnet</groupId>
 			<artifactId>hisrc-hyperjaxb-ejb-runtime</artifactId>
-			<version>${hisrc-hyperjaxb.version}</version>
+			<version>${hisrc.version}</version>
 		</dependency>
         <dependency>
             <groupId>org.patrodyne.jvnet</groupId>
             <artifactId>hisrc-hyperjaxb-opt-hibernate</artifactId>
-            <version>${hisrc-hyperjaxb.version}</version>
+            <version>${hisrc.version}</version>
         </dependency>
         <dependency>
             <groupId>org.patrodyne.jvnet</groupId>
             <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
-            <version>${hisrc-hyperjaxb.version}</version>
+            <version>${hisrc.version}</version>
         </dependency>
 
         <!-- Database Dependencies -->
@@ -318,7 +318,7 @@
                     <plugin>
                         <groupId>org.patrodyne.jvnet</groupId>
                         <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
-                        <version>${hisrc-hyperjaxb.version}</version>
+                        <version>${hisrc.version}</version>
                         <dependencies>
                             <dependency>
                                 <groupId>com.aixm.delorean</groupId>
@@ -328,7 +328,7 @@
                             <dependency>
                                 <groupId>org.patrodyne.jvnet</groupId>
                                 <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
-                                <version>${hisrc-hyperjaxb.version}</version>
+                                <version>${hisrc.version}</version>
                             </dependency>
                         </dependencies>
                         <executions>

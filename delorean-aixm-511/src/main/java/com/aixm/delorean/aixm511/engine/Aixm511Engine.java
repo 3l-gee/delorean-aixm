@@ -27,7 +27,7 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
         super();
     }
 
-        /**
+    /**
      * Computes information about the AIXM message like the earliest and latest feature lifetime, valid time, and counts of different slice types. It combines the temporality information of all features in the message to provide an overall summary.
      * @param message The AIXM message to analyze.
      */

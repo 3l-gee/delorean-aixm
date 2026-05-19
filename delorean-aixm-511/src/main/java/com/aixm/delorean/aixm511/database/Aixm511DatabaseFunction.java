@@ -6,10 +6,10 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.locationtech.jts.index.bintree.Root;
 
 import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 import com.aixm.delorean.core.database.HibernateHelper;
+import com.aixm.delorean.core.database.MessageMemberLink;
 import com.aixm.delorean.core.database.MutationFeatureTimeslice;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
@@ -155,10 +155,16 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         "surveillance.secondarysurveillanceradar"
     );
 
+    /**
+     * Persists an AIXMBasicMessageType instance along with its associated BasicMessageMemberAIXMPropertyType instances. This method first persists the message itself, then iterates through the list of BasicMessageMemberAIXMPropertyType instances, persisting each one and creating a link between the message and its members in the database. The method uses batching to optimize performance when persisting a large number of members.
+      * @param message The AIXMBasicMessageType instance to persist.
+      * @param sessionFactory The Hibernate SessionFactory to use for database operations.
+     */
     @Override
     public void persist(AIXMBasicMessageType message, SessionFactory sessionFactory) {
         ConsoleLogger.startProgress("Persisting", message.getHasMember().size());
         Session session = sessionFactory.openSession();
+        List<MessageMemberLink> pendingLinks = new ArrayList<>();
 
         // 1. Convert to AixmBasicMesage to separet message and memeber
         List<BasicMessageMemberAIXMPropertyType> basicMessageMembers = message.getHasMember();
@@ -167,11 +173,13 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         // 2. feature, timeslice and correction slice are merged
         Transaction mergeTransaction = session.beginTransaction();
         session.persist(message);
+        Long messageId = message.gethjid();
 
         int i = 0;
         for (BasicMessageMemberAIXMPropertyType bmm : basicMessageMembers) {
             session.persist(bmm);
 
+            pendingLinks.add(new MessageMemberLink(messageId, bmm.gethjid()));
             ConsoleLogger.incrementProgress(1);
 
             if (++i % 50 == 0) {
@@ -179,6 +187,19 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
                 session.clear();
             }
         }
+
+        session.flush();
+        session.clear();
+
+        for (MessageMemberLink link : pendingLinks) {
+            session.createNativeMutationQuery(
+            "INSERT INTO aixm.message_member_link (member_hjid, message_hjid) VALUES (:member, :message)")
+                .setParameter("message", link.messageId())
+                .setParameter("member", link.memberId())
+                .executeUpdate();
+
+        }
+
         mergeTransaction.commit();
 
         session.close();
@@ -186,6 +207,13 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         ConsoleLogger.stopProgress();
     }
 
+    /**
+     * Retrieves an AIXMBasicMessageType instance from the database, along with its associated BasicMessageMemberAIXMPropertyType instances that are valid for a given timeslice. This method uses Hibernate filters to efficiently retrieve only the relevant members based on the provided BasicMessageMemberIds and TimeslicePropertyIds. The method returns the AIXMBasicMessageType instance with its valid members populated.
+     * @param BasicMessageMemberIds A list of IDs for BasicMessageMemberAIXMPropertyType instances to filter by.
+     * @param TimeslicePropertyIds A list of IDs for timeslice properties to filter by.
+     * @param sessionFactory The Hibernate SessionFactory to use for database operations.
+     * @return
+     */ 
     @Override
     public AIXMBasicMessageType predicateValidTimeslice(List<Long> BasicMessageMemberIds , List<Long> TimeslicePropertyIds, SessionFactory sessionFactory) {
         Session session = sessionFactory.openSession();
@@ -213,9 +241,13 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         }
     }
 
+    /**
+     * Merges an AIXMBasicMessageType instance with the existing data in the database. This method first retrieves the current top timeslice for each feature from the database, then iterates through the members of the provided message, comparing them with the existing timeslices to determine if they represent a new version, a correction, or no change. Based on this comparison, the method updates the database accordingly, either by persisting new members or by applying changes to existing features. Finally, it links the new BasicMessageMemberAIXMPropertyType instances to the current message in the database.
+      * @param message The AIXMBasicMessageType instance to merge.
+      * @param sessionFactory The Hibernate SessionFactory to use for database operations.
+     */
     @Override
     public void merge(AIXMBasicMessageType message, SessionFactory sessionFactory) {
-        
         Session session = sessionFactory.openSession();
         List<MutationFeatureTimeslice> mutationFeatureTimeslices = new ArrayList<>();
 
@@ -233,7 +265,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         int i = 0;
         for (BasicMessageMemberAIXMPropertyType bmm : basicMessageMembers) {
             AbstractAIXMFeatureType abstractFeature = bmm.getAbstractAIXMFeatureValue();
-            String identifier = abstractFeature.getId();
+            String identifier = abstractFeature.getIdentifier().getValue();
             MutationFeatureTimeslice existing = mutationFeatureTimeslices.stream()
                     .filter(f -> f.getIdentifier().equals(identifier))
                     .findFirst()
@@ -248,6 +280,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
                 session.clear();
             }
         }
+
         mergeTransaction.commit();
 
         // 4. Use StatelessSession for manual batch operations
@@ -273,18 +306,18 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         Long messageHjid = result.hjid();
         String messageId = result.id();
                 
-        List<Long> featureHjids = new ArrayList<>();
+        List<Long> memberHjids = new ArrayList<>();
         for (BasicMessageMemberAIXMPropertyType bmm : basicMessageMembers) {
             if (bmm.gethjid() != null) {
-                featureHjids.add(bmm.gethjid());
+                memberHjids.add(bmm.gethjid());
             }
         } 
 
-        for (Long featId : featureHjids) {
+        for (Long memberHjid : memberHjids) {
             session.createNativeMutationQuery(
-                    "INSERT INTO aixm.message_member_link (message_hjid, feature_hjid) VALUES (:msg, :feat)")
-                .setParameter("msg", messageHjid)
-                .setParameter("feat", featId)
+            "INSERT INTO aixm.message_member_link (member_hjid, message_hjid) VALUES (:member, :message)")
+                .setParameter("message", messageHjid)
+                .setParameter("member", memberHjid)
                 .executeUpdate();
         }
 
@@ -295,6 +328,14 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         ConsoleLogger.stopProgress();
     }
 
+    /**
+     * Extracts the timeslice from a BasicMessageMemberAIXMPropertyType instance and merges it with the existing timeslice data in the database. This method uses reflection to access the timeslice information from the feature associated with the BasicMessageMemberAIXMPropertyType, then compares it with the existing timeslice data to determine if it represents a new version, a correction, or no change. Based on this comparison, the method updates the MutationFeatureTimeslice instance accordingly, which will later be used to apply changes to the database.
+     * @param <T> The type of the feature being processed, extends AbstractAIXMFeatureType.
+     * @param basicMessageMember The BasicMessageMemberAIXMPropertyType instance containing the feature and timeslice information to extract and merge.
+     * @param existing The existing MutationFeatureTimeslice instance to merge with.
+     * @param session The Hibernate session.
+     * @return The updated MutationFeatureTimeslice instance.
+     */
     private static <T extends AbstractAIXMFeatureType> MutationFeatureTimeslice extractTimeslice(BasicMessageMemberAIXMPropertyType basicMessageMember, MutationFeatureTimeslice existing, Session session){
         AbstractAIXMTimeSliceType ts;
         List<Object> tsps = new ArrayList<>(); // Ensure tsps is a valid List
@@ -325,6 +366,16 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         return existing;
     }
 
+    /**
+     * Merges a new timeslice with the existing timeslice data for a feature. This method compares the sequence number and correction number of the incoming timeslice with the existing timeslice data to determine if it represents a new version, a correction, or no change. Based on this comparison, the method updates the MutationFeatureTimeslice instance accordingly, setting the appropriate action (VERSION, CORRECTION, NOTHING) and preparing it for later application to the database.
+     * @param timeSlice The incoming timeslice to merge.
+     * @param timeSliceProperty The property representing the timeslice.
+     * @param feature The feature for which to merge the timeslice.
+     * @param existing The existing MutationFeatureTimeslice instance to merge with.
+     * @param basicMessageMember The BasicMessageMemberAIXMPropertyType instance containing the feature and timeslice information.
+     * @param session The Hibernate session.
+     * @return The updated MutationFeatureTimeslice instance.
+     */
     private static MutationFeatureTimeslice mergeTimeSlice(
             AbstractAIXMTimeSliceType timeSlice,
             Object timeSliceProperty,
@@ -387,6 +438,12 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         }
     }
 
+    /**
+     * Generates a list of MutationFeatureTimeslice instances representing the current top timeslice for each feature in the database. This method iterates through a predefined list of feature schema names, constructs and executes a SQL query to retrieve the relevant timeslice information for each feature, and maps the results to MutationFeatureTimeslice instances. The resulting list provides a snapshot of the current state of each feature's timeslice data, which can be used for comparison during the merge process.
+     * @param session The Hibernate session
+     * @param featureList A list of feature schema names to query for timeslice information.
+     * @return A list of MutationFeatureTimeslice instances representing the current top timeslice for each feature in the database.
+     */
     private static List<MutationFeatureTimeslice> generateTimesliceAction(Session session, List<String> featureList){
         List<MutationFeatureTimeslice> featureTimeslices = new ArrayList<>();
         for (String name : featureList) {
@@ -395,7 +452,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
             featureTimeslices.addAll(tuples.stream()
                 .map(t -> new MutationFeatureTimeslice(
                     t.get("feature_id", Long.class),
-                    t.get("id", String.class),
+                    t.get("identifier", String.class),
                     t.get("sequence_number", Long.class),
                     t.get("correction_number", Long.class),
                     t.get("timeslice_property_id", Long.class),
@@ -408,6 +465,11 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         return featureTimeslices;
     }
 
+    /**
+     * Constructs a SQL query to retrieve the current top timeslice information for a given feature schema name. The query joins the relevant tables to extract the feature identifier, sequence number, correction number, and associated timeslice property ID for each feature instance. The results are ordered by identifier and timeslice information to ensure that the top timeslice is retrieved for each feature.
+     * @param featureSchemaName The schema name of the feature for which to construct the query, in the format "schema.feature".
+     * @return A SQL query string to retrieve the current top timeslice information for the specified feature schema name.
+     */
     private static String queryValidTimeslice(String featureSchemaName) {
         String[] parts = featureSchemaName.split("\\.");
         String schema = parts[0];
@@ -426,11 +488,20 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
         INNER JOIN navaids_point.dme_tp ON aixm.aixm_feature.hjid = navaids_point.dme_tp.timeslice_hjid
         INNER JOIN navaids_point.dme_t ON navaids_point.dme_tp.dmetimeslice_hjid = navaids_point.dme_t.hjid
         INNER JOIN aixm.aixm_timeslice ON navaids_point.dme_t.hjid = aixm.aixm_timeslice.hjid
+        INNER JOIN aixm.message_member ON aixm.aixm_feature.hjid = aixm.message_member.feature_id
+        INNER JOIN aixm.message_member_link ON aixm.message_member.hjid = aixm.message_member_link.member_hjid
+        INNER JOIN aixm.aixm_message ON aixm.message_member_link.message_hjid = aixm.aixm_message.hjid
+        -- WHERE aixm.aixm_message.hjid =1
+        -- WHERE 
+        -- aixm.aixm_feature.lifecycle_status = 'APPROVED' 
+        -- AND 
+        -- aixm.aixm_timeslice.lifecycle_status = 'APPROVED' 
+        ORDER BY aixm.aixm_feature.identifier, aixm.aixm_timeslice.sequence_number DESC, aixm.aixm_timeslice.correction_number DESC;
         */
 
         return """
-            SELECT DISTINCT ON (aixm.aixm_feature.id)
-                aixm.aixm_feature.id,
+            SELECT DISTINCT ON (aixm.aixm_feature.identifier)
+                aixm.aixm_feature.identifier,
                 aixm.aixm_timeslice.sequence_number,
                 aixm.aixm_timeslice.correction_number,
                 aixm.aixm_feature.hjid  AS feature_id,
@@ -445,7 +516,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasic
             -- aixm.aixm_feature.lifecycle_status = 'APPROVED' 
             -- AND 
             -- aixm.aixm_timeslice.lifecycle_status = 'APPROVED' 
-            ORDER BY aixm.aixm_feature.id, aixm.aixm_timeslice.sequence_number DESC, aixm.aixm_timeslice.correction_number DESC;
+            ORDER BY aixm.aixm_feature.identifier, aixm.aixm_timeslice.sequence_number DESC, aixm.aixm_timeslice.correction_number DESC;
             """
             .formatted(
                 featureTable,             // %1$s

@@ -1,0 +1,283 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DeloreanWorkflowConfig",
+  "type": "object",
+  "properties": {
+    "context": {
+      "type": "string"
+    },
+    "workflow": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "containerId": {
+            "type": "string"
+          },
+          "hbm2ddl": {
+            "type": "string",
+            "enum": [
+              "create",
+              "none",
+              "update"
+            ]
+          },
+					"database": {
+						"type": "object",
+						"properties": {
+							"url": {
+								"type": "string"
+							},
+							"username": {
+								"type": "string"
+							},
+							"password": {
+								"type": "string"
+							},
+							"hbm2ddl": {
+								"type": "string",
+								"enum": [
+									"create",
+									"none",
+									"update"
+								]
+							}
+						},
+						"required": [
+							"url",
+							"username",
+							"password",
+							"hbm2ddl"
+						]
+					},
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "oneOf": [
+                {
+                  "properties": {
+                    "startup": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "startup"
+                  ]
+                },
+                {
+                  "properties": {
+                    "shutdown": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "shutdown"
+                  ]
+                },
+                {
+                  "properties": {
+                    "saxvalidation": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "saxvalidation"
+                  ]
+                },
+                {
+                  "properties": {
+                    "printvalidation": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "printvalidation"
+                  ]
+                },
+                {
+                  "properties": {
+                    "statistics": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "statistics"
+                  ]
+                },
+                {
+                  "properties": {
+                    "info": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "info"
+                  ]
+                },
+                {
+                  "properties": {
+                    "persist": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "persist"
+                  ]
+                },
+                {
+                  "properties": {
+                    "merge": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "merge"
+                  ]
+                },
+                {
+                  "properties": {
+                    "diff": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "diff"
+                  ]
+                },
+                {
+                  "properties": {
+                    "unmarshal": {
+                      "type": "object",
+                      "properties": {
+                        "path": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "unmarshal"
+                  ]
+                },
+                {
+                  "properties": {
+                    "marshal": {
+                      "type": "object",
+                      "properties": {
+                        "path": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "marshal"
+                  ]
+                },
+                {
+                  "properties": {
+                    "integrate": {
+                      "type": "object",
+                      "properties": {
+                        "path": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "integrate"
+                  ]
+                },
+                {
+                  "properties": {
+                    "extract": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "integer",
+                            "string"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "extract"
+                  ]
+                },
+                {
+                  "properties": {
+                    "predicate": {
+                      "type": "object",
+                      "properties": {
+                        "time": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "time"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "predicate"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "containerId",
+          "actions"
+        ]
+      }
+    }
+  },
+  "required": [
+    "database",
+    "workflow"
+  ]
+}

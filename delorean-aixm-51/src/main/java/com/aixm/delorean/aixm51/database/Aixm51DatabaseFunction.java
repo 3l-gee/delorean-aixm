@@ -6,7 +6,6 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.locationtech.jts.index.bintree.Root;
 
 import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 import com.aixm.delorean.core.database.HibernateHelper;
@@ -329,6 +328,14 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         ConsoleLogger.stopProgress();
     }
 
+    /**
+     * Extracts the timeslice from a BasicMessageMemberAIXMPropertyType instance and merges it with the existing timeslice data in the database. This method uses reflection to access the timeslice information from the feature associated with the BasicMessageMemberAIXMPropertyType, then compares it with the existing timeslice data to determine if it represents a new version, a correction, or no change. Based on this comparison, the method updates the MutationFeatureTimeslice instance accordingly, which will later be used to apply changes to the database.
+     * @param <T> The type of the feature being processed, extends AbstractAIXMFeatureType.
+     * @param basicMessageMember The BasicMessageMemberAIXMPropertyType instance containing the feature and timeslice information to extract and merge.
+     * @param existing The existing MutationFeatureTimeslice instance to merge with.
+     * @param session The Hibernate session.
+     * @return The updated MutationFeatureTimeslice instance.
+     */
     private static <T extends AbstractAIXMFeatureType> MutationFeatureTimeslice extractTimeslice(BasicMessageMemberAIXMPropertyType basicMessageMember, MutationFeatureTimeslice existing, Session session){
         AbstractAIXMTimeSliceType ts;
         List<Object> tsps = new ArrayList<>(); // Ensure tsps is a valid List
@@ -359,6 +366,16 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         return existing;
     }
 
+    /**
+     * Merges a new timeslice with the existing timeslice data for a feature. This method compares the sequence number and correction number of the incoming timeslice with the existing timeslice data to determine if it represents a new version, a correction, or no change. Based on this comparison, the method updates the MutationFeatureTimeslice instance accordingly, setting the appropriate action (VERSION, CORRECTION, NOTHING) and preparing it for later application to the database.
+     * @param timeSlice The incoming timeslice to merge.
+     * @param timeSliceProperty The property representing the timeslice.
+     * @param feature The feature for which to merge the timeslice.
+     * @param existing The existing MutationFeatureTimeslice instance to merge with.
+     * @param basicMessageMember The BasicMessageMemberAIXMPropertyType instance containing the feature and timeslice information.
+     * @param session The Hibernate session.
+     * @return The updated MutationFeatureTimeslice instance.
+     */
     private static MutationFeatureTimeslice mergeTimeSlice(
             AbstractAIXMTimeSliceType timeSlice,
             Object timeSliceProperty,
@@ -421,6 +438,12 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         }
     }
 
+    /**
+     * Generates a list of MutationFeatureTimeslice instances representing the current top timeslice for each feature in the database. This method iterates through a predefined list of feature schema names, constructs and executes a SQL query to retrieve the relevant timeslice information for each feature, and maps the results to MutationFeatureTimeslice instances. The resulting list provides a snapshot of the current state of each feature's timeslice data, which can be used for comparison during the merge process.
+     * @param session The Hibernate session
+     * @param featureList A list of feature schema names to query for timeslice information.
+     * @return A list of MutationFeatureTimeslice instances representing the current top timeslice for each feature in the database.
+     */
     private static List<MutationFeatureTimeslice> generateTimesliceAction(Session session, List<String> featureList){
         List<MutationFeatureTimeslice> featureTimeslices = new ArrayList<>();
         for (String name : featureList) {
@@ -442,6 +465,11 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         return featureTimeslices;
     }
 
+    /**
+     * Constructs a SQL query to retrieve the current top timeslice information for a given feature schema name. The query joins the relevant tables to extract the feature identifier, sequence number, correction number, and associated timeslice property ID for each feature instance. The results are ordered by identifier and timeslice information to ensure that the top timeslice is retrieved for each feature.
+     * @param featureSchemaName The schema name of the feature for which to construct the query, in the format "schema.feature".
+     * @return A SQL query string to retrieve the current top timeslice information for the specified feature schema name.
+     */
     private static String queryValidTimeslice(String featureSchemaName) {
         String[] parts = featureSchemaName.split("\\.");
         String schema = parts[0];

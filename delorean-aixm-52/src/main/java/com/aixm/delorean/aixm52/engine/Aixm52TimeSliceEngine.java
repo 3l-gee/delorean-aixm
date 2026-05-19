@@ -46,6 +46,31 @@ public class Aixm52TimeSliceEngine {
         return count;
     }
 
+    public static void injectTimeSlice(AbstractAIXMFeatureType feature, AbstractAIXMTimeSliceType timeSlice) {
+        if (feature == null) {
+            throw new RuntimeException("Failed to inject TimeSlice into Null feature");
+        }
+
+        if (timeSlice == null) {
+            throw new RuntimeException("Failed to inject Null timeSlice into feature");
+        }
+
+        try {
+            String featureName = feature.getClass().getSimpleName().replace("Type", "");
+            Method getListMethod = feature.getClass().getMethod("getTimeSlice");
+            @SuppressWarnings("unchecked")
+            List<Object> propertyList = (List<Object>) getListMethod.invoke(feature);
+            Class<?> propertyTypeClass = Class.forName(feature.getClass().getPackage().getName() + "." + featureName + "TimeSlicePropertyType");
+            Object propertyWrapper = propertyTypeClass.getDeclaredConstructor().newInstance();
+            String setterName = "set" + featureName + "TimeSlice";
+            Method setTsMethod = propertyTypeClass.getMethod(setterName, timeSlice.getClass());
+            setTsMethod.invoke(propertyWrapper, timeSlice);
+            propertyList.add(propertyWrapper);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to add TimeSlices to feature " + feature.getClass().getSimpleName(), e);
+        }
+    }
+
     @SuppressWarnings("unchecked")
     public static List<AbstractAIXMTimeSliceType> invokeTimeSlice(AbstractAIXMFeatureType feature) {
         if (feature == null) {
