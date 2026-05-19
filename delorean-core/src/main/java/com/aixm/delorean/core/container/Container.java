@@ -1,6 +1,7 @@
 package com.aixm.delorean.core.container;
 
 import com.aixm.delorean.core.xml.XmlBindingService;
+import com.aixm.delorean.core.validation.ValidationBindingService;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.engine.AbstractEngine;
 import com.aixm.delorean.core.log.ConsoleLogger;
@@ -171,6 +172,19 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         ConsoleLogger.log(LogLevel.INFO, "Marshalled <" + rootClass.getSimpleName() + "> to: " + path + " stats: " + stats);
     }
 
+    public void saxValidation() {
+        if (this.xmlBinding == null) {
+            throw new RuntimeException("XMLBinding is not set");
+        }
+        this.xmlBinding.saxValidate(this.message);
+        ConsoleLogger.log(LogLevel.INFO, "SAX Validation <" + rootClass.getSimpleName() + ">");
+    }
+
+    public void printValidation() {
+        ValidationBindingService.printSummary();
+    }
+
+
     public void statistics() {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
@@ -223,7 +237,6 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
     public void integrate(String path) {
         ROOT newMessage = this.doUnmarshal(path);
         this.message = this.deloreanEngine.integrate(this.message, newMessage);
-        // ConsoleLogger.log(LogLevel.INFO, "Integrated <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
     public void extract(Object id) {
@@ -282,6 +295,12 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         String stats = this.deloreanEngine.statistics(this.message);
         ConsoleLogger.log(LogLevel.INFO, "Predicated <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
         return message;
+    }
+
+    public void diff(){
+        this.message = this.deloreanEngine.diff(this.message);
+        String stats = this.deloreanEngine.statistics(this.message);
+        ConsoleLogger.log(LogLevel.INFO, "Diff applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
     }
 
     // public void serialization(String path) {

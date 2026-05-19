@@ -16,12 +16,22 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.util.JAXBSource;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.ValidationEvent;
 import jakarta.xml.bind.ValidationEventLocator;
+import javax.xml.transform.Source;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.validation.Validator;
+import org.xml.sax.SAXParseException;
+import org.xml.sax.ErrorHandler;
 import org.w3c.dom.Document;
+
+import com.aixm.delorean.core.validation.ValidationBindingService;
+import com.aixm.delorean.core.validation.ValidationSeverity;
+import com.aixm.delorean.core.validation.ValidationSource;
 import com.aixm.delorean.core.DeloreanUtility;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
@@ -82,89 +92,72 @@ public class XmlBindingService<ROOT, FEATURE> {
     }
 
     public boolean unmarshallerEventHandler(ValidationEvent event) {
-        String severity;
         switch (event.getSeverity()) {
             case ValidationEvent.WARNING:
-                severity = "WARNING";
+                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.WARNING, "JAXB Validation", event);
                 break;
             case ValidationEvent.ERROR:
-                severity = "ERROR";
+                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.ERROR, "JAXB Validation", event);
                 break;
             case ValidationEvent.FATAL_ERROR:
-                severity = "FATAL";
+                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.FATAL, "JAXB Validation", event);
                 break;
             default:
-                severity = "UNKNOWN";
-        }
-
-        System.err.println("═══════════════════════════════════════════");
-        System.err.println("[JAXB VALIDATION EVENT]" + " - " + severity);
-        System.err.println("Message : " + event.getMessage());
-
-        ValidationEventLocator locator = event.getLocator();
-        if (locator != null) {
-            System.err.println("Location:");
-            if (locator.getLineNumber() != -1)
-                System.err.println("  Line:   " + locator.getLineNumber());
-            if (locator.getColumnNumber() != -1)
-                System.err.println("  Column: " + locator.getColumnNumber());
-            if (locator.getURL() != null)
-                System.err.println("  URL:    " + locator.getURL());
-            if (locator.getObject() != null)
-                System.err.println("  Object: " + locator.getObject().getClass().getName());
-            if (locator.getNode() != null) {
-                System.err.println("  Node:   " + locator.getNode().getNodeName());
-            }
+                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.INFO, "JAXB Validation", event);
 
         }
 
-        System.err.println("═══════════════════════════════════════════");
-
-        // return true to continue after validation errors
         return true;
     }
 
     public boolean marshallerEventHandler(ValidationEvent event) {
-        String severity;
         switch (event.getSeverity()) {
             case ValidationEvent.WARNING:
-                severity = "WARNING";
+                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.WARNING, "JAXB Validation", event);
                 break;
             case ValidationEvent.ERROR:
-                severity = "ERROR";
+                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.ERROR, "JAXB Validation", event);
                 break;
             case ValidationEvent.FATAL_ERROR:
-                severity = "FATAL";
+                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.FATAL, "JAXB Validation", event);
                 break;
             default:
-                severity = "UNKNOWN";
-        }
-
-        System.err.println("═══════════════════════════════════════════");
-        System.err.println("[JAXB VALIDATION EVENT]" + " - " + severity);
-        System.err.println("Message : " + event.getMessage());
-
-        ValidationEventLocator locator = event.getLocator();
-        if (locator != null) {
-            System.err.println("Location:");
-            if (locator.getLineNumber() != -1)
-                System.err.println("  Line:   " + locator.getLineNumber());
-            if (locator.getColumnNumber() != -1)
-                System.err.println("  Column: " + locator.getColumnNumber());
-            if (locator.getURL() != null)
-                System.err.println("  URL:    " + locator.getURL());
-            if (locator.getObject() != null)
-                System.err.println("  Object: " + locator.getObject().getClass().getName());
-            if (locator.getNode() != null) {
-                System.err.println("  Node:   " + locator.getNode().getNodeName());
-            }
+                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.INFO, "JAXB Validation", event);
 
         }
 
-        System.err.println("═══════════════════════════════════════════");
-
-        // return true to continue after validation errors
         return true;
+    }
+
+    public boolean saxValidate(Object object) {
+        if (this.schema == null) {
+            throw new IllegalStateException("Cannot validate object because no XML Schema is set for this XmlBindingService.");
+        }
+
+        try {
+            JAXBSource source = new JAXBSource(this.context, object);
+            Validator validator = this.schema.newValidator();
+            validator.setErrorHandler(new org.xml.sax.ErrorHandler() {
+                @Override
+                public void warning(org.xml.sax.SAXParseException e) {
+                    ValidationBindingService.recordEvent(ValidationSource.SAX_VALIDATION, ValidationSeverity.WARNING, "SAX Validation", e);
+                }
+                @Override
+                public void error(org.xml.sax.SAXParseException e) {
+                    ValidationBindingService.recordEvent(ValidationSource.SAX_VALIDATION, ValidationSeverity.ERROR, "SAX Validation", e);
+                }
+                @Override
+                public void fatalError(org.xml.sax.SAXParseException e) {
+                    ValidationBindingService.recordEvent(ValidationSource.SAX_VALIDATION, ValidationSeverity.FATAL, "SAX Validation", e);
+                }
+            });
+
+        validator.validate(source);
+        return true;
+        } catch (Exception e) {
+            ConsoleLogger.log(LogLevel.ERROR, "Validation failed", e);
+            return false;
+        }
     }
 
     public String statistics(String path) {
