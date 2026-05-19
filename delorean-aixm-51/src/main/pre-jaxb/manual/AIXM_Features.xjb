@@ -137,7 +137,7 @@
 			</jaxb:bindings>
 			<jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@ref='aixm:AbstractElevatedPointExtension']">
 				<hj:one-to-one>
-					<orm:join-column name="abstractelevatedpoint_ext_id" referenced-column-name="hjid" />
+					<orm:join-column name="abstractelevatedpoint_ext_hjid" referenced-column-name="hjid" />
 				</hj:one-to-one>
 			</jaxb:bindings>
 			<jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@name='elevation']">
@@ -190,7 +190,7 @@
 			</jaxb:bindings>
 			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@ref='aixm:AbstractElevatedCurveExtension']">
 				<hj:one-to-one>
-					<orm:join-column name="abstractelevatedcurve_ext_id" referenced-column-name="hjid" />
+					<orm:join-column name="abstractelevatedcurve_ext_hjid" referenced-column-name="hjid" />
 				</hj:one-to-one>
 			</jaxb:bindings>
 			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@name='elevation']">

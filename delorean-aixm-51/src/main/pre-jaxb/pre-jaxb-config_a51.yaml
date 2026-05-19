@@ -14,7 +14,6 @@ ignore:
 - MessageMetadataPropertyType
 - FeatureMetadataPropertyType
 - FeatureTimeSliceMetadataPropertyType
-- MessageMetadataPropertyType
 - AbstractAIXMMessageBaseType
 - AbstractAIXMMessageType
 - AbstractAIXMFeatureBaseType

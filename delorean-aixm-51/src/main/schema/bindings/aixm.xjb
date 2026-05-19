@@ -1894,7 +1894,7 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@ref='aixm:AbstractElevatedPointExtension']">
       <hj:one-to-one>
-        <orm:join-column name="abstractelevatedpoint_ext_id" referenced-column-name="hjid"/>
+        <orm:join-column name="abstractelevatedpoint_ext_hjid" referenced-column-name="hjid"/>
       </hj:one-to-one>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@name='elevation']">
@@ -1945,7 +1945,7 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@ref='aixm:AbstractElevatedCurveExtension']">
       <hj:one-to-one>
-        <orm:join-column name="abstractelevatedcurve_ext_id" referenced-column-name="hjid"/>
+        <orm:join-column name="abstractelevatedcurve_ext_hjid" referenced-column-name="hjid"/>
       </hj:one-to-one>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@name='elevation']">
@@ -38184,10 +38184,22 @@
         <orm:table name="feature_metadata" schema="aixm"/>
       </hj:entity>
     </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='FeatureMetadataPropertyType']//xs:element[@name='mdMetadata']">
+      <jaxb:javaType name="com.fasterxml.jackson.databind.JsonNode"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd", type = com.aixm.delorean.core.org.gmd.v2007.MDMetadataType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm51.metadata.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
+      <jaxb:property name="mdMetadata"/>
+    </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FeatureTimeSliceMetadataPropertyType']">
       <hj:entity>
         <orm:table name="timeslice_metadata" schema="aixm"/>
       </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='FeatureTimeSliceMetadataPropertyType']//xs:element[@name='mdMetadata']">
+      <jaxb:javaType name="com.fasterxml.jackson.databind.JsonNode"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd", type = com.aixm.delorean.core.org.gmd.v2007.MDMetadataType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm51.metadata.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
+      <jaxb:property name="mdMetadata"/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractExtensionType']">
       <hj:entity>

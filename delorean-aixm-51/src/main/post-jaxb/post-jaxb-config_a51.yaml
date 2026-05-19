@@ -5,7 +5,7 @@ change:
     updates:
       - old: JoinTable
         new: [
-          '@jakarta.persistence.JoinColumn(name = "feature_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "feature_hjid", referencedColumnName = "hjid")'
         ]
 
   - where: 
@@ -15,7 +15,7 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.Embedded',
-          '@jakarta.persistence.AttributeOverrides({ @jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_begin", columnDefinition = "TIMESTAMPTZ")), @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_end", columnDefinition = "TIMESTAMPTZ")),@jakarta.persistence.AttributeOverride(name = "timePeriodId", column = @jakarta.persistence.Column(name = "feature_lifetime_id"))})'
+          '@jakarta.persistence.AttributeOverrides({ @jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_begin", columnDefinition = "TIMESTAMPTZ")), @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_end", columnDefinition = "TIMESTAMPTZ")),@jakarta.persistence.AttributeOverride(name = "timePeriodId", column = @jakarta.persistence.Column(name = "feature_lifetime_hjid"))})'
         ]
 
   - where: 
@@ -37,7 +37,7 @@ change:
       - old: Transient
         new: 
           - '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)'
-          - '@jakarta.persistence.JoinColumn(name = "point_id", referencedColumnName = "hjid")'
+          - '@jakarta.persistence.JoinColumn(name = "point_hjid", referencedColumnName = "hjid")'
   - where: 
       filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\AIXMElevatedPointPropertyType.java
       method: getElevatedPoint
@@ -45,7 +45,7 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "elevated_point_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "elevated_point_hjid", referencedColumnName = "hjid")'
         ]
 
   - where: 
@@ -55,7 +55,7 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "curve_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "curve_hjid", referencedColumnName = "hjid")'
         ]
 
   - where: 
@@ -65,7 +65,7 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "elevated_curve_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "elevated_curve_hjid", referencedColumnName = "hjid")'
         ]
 
   - where: 
@@ -75,7 +75,7 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "surface_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "surface_hjid", referencedColumnName = "hjid")'
         ]   
 
   - where: 
@@ -85,7 +85,7 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "elevated_surface_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "elevated_surface_hjid", referencedColumnName = "hjid")'
         ]
 
   - where: 
@@ -139,7 +139,7 @@ change:
       - old: JoinTable
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "feature_metadata_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "feature_metadata_hjid", referencedColumnName = "hjid")'
         ]
 
   - where: 
@@ -151,7 +151,7 @@ change:
       - old: JoinTable
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "segment_point_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "segment_point_hjid", referencedColumnName = "hjid")'
         ]
 
   - where: 
@@ -163,7 +163,7 @@ change:
       - old: JoinTable
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "direct_flight_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "direct_flight_hjid", referencedColumnName = "hjid")'
         ]
 
   - where: 
@@ -175,7 +175,7 @@ change:
       - old: JoinTable
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "properties_with_schedule_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "properties_with_schedule_hjid", referencedColumnName = "hjid")'
         ]
         
   - where: 
@@ -187,7 +187,7 @@ change:
       - old: JoinTable
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "surface_contamination_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "surface_contamination_hjid", referencedColumnName = "hjid")'
         ]
         
   - where: 
@@ -199,11 +199,31 @@ change:
       - old: JoinTable
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "usage_condition_id", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "usage_condition_hjid", referencedColumnName = "hjid")'
         ]
 
   - where: 
       filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\MessageMetadataPropertyType.java
+      method: getMdMetadata 
+    updates:
+      - old: Transient
+        new: [
+          '@org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)',
+          '@jakarta.persistence.Column(name = "md_metadata", columnDefinition = "JSONB")'
+          ]
+
+  - where: 
+      filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\FeatureMetadataPropertyType.java
+      method: getMdMetadata 
+    updates:
+      - old: Transient
+        new: [
+          '@org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)',
+          '@jakarta.persistence.Column(name = "md_metadata", columnDefinition = "JSONB")'
+          ]
+
+  - where: 
+      filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\FeatureTimeSliceMetadataPropertyType.java
       method: getMdMetadata 
     updates:
       - old: Transient
@@ -220,9 +240,11 @@ delete:
   - filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\Adapter5.java
   - filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\Adapter6.java
   - filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\Adapter7.java
+  - filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\Adapter8.java
+  - filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\Adapter9.java
+  - filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\Adapter10.java
   - filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\XHTMLTypeAnyItem.java
   - filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\XHTMLType.java
-  - filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\aixm51\schema\Adapter8.java
   - filePath: delorean-aixm-51\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\Adapter1.java
   - filePath: delorean-aixm-51\src\main\java\org\w3\_2001\xmlschema\Adapter1.java
   - filePath: delorean-aixm-51\src\main\java\org\w3\_2001\xmlschema\Adapter2.java

@@ -22,22 +22,22 @@ public class MDMetadataTypeAdapter extends XmlAdapter<MDMetadataType, JsonNode> 
         try { 
             JsonNode parsedMetadata = MetadataHelper.parseMdMetadata(mdmetadata); 
             return parsedMetadata; 
-        } catch (Exception e) { throw new RuntimeException(e); 
-
+        } catch (Exception e) { 
+            throw new RuntimeException(e); 
         } 
     }
 
     @Override 
-    public MDMetadataType marshal(JsonNode v) {
-        if (v == null) { 
+    public MDMetadataType marshal(JsonNode jsonmdmetadata) {
+        if (jsonmdmetadata == null) { 
             return null; 
         } 
 
         try { 
-            // MDMetadataType result = objectMapper.treeToValue(v, MDMetadataType.class);
-            return null;
+            MDMetadataType mdMetadata = MetadataHelper.printMdMetadata(jsonmdmetadata);
+            return mdMetadata;
         } catch (Exception e) {
-             throw new RuntimeException(e); 
+            throw new RuntimeException(e); 
         } 
     } 
 }

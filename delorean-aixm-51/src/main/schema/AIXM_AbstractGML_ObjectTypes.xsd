@@ -250,7 +250,9 @@
 		<complexContent>
 			<extension base="gml:AbstractMetadataPropertyType">
 				<sequence minOccurs="0">
-					<element ref="gmd:MD_Metadata"/>
+					<!-- delorean aixm hyper jaxb codegen limitation -->
+					<!-- <element ref="gmd:MD_Metadata"/> -->
+					<element name="mdMetadata" type="string"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -259,7 +261,9 @@
 		<complexContent>
 			<extension base="gml:AbstractMetadataPropertyType">
 				<sequence minOccurs="0">
-					<element ref="gmd:MD_Metadata"/>
+					<!-- delorean aixm hyper jaxb codegen limitation -->
+					<!-- <element ref="gmd:MD_Metadata"/> -->
+					<element name="mdMetadata" type="string"/>
 				</sequence>
 			</extension>
 		</complexContent>
