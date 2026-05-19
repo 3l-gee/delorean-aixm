@@ -348,7 +348,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 "c6",
                                 "external point",
-                                HrefType.XML,
+                                HrefType.OID,
                                 "4326"
                             )
                         ),
@@ -1054,7 +1054,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 "c6",
                                 "external point",
-                                HrefType.XML,
+                                HrefType.OID,
                                 "4326"
                             )
                         ),
@@ -1571,7 +1571,7 @@ public class CurveGMLTest {
                                 GisUtil.geometricProperty(
                                 "c6",
                                 "external point",
-                                HrefType.XML,
+                                HrefType.OID,
                                 null
                             )
                         )
@@ -1607,7 +1607,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 "c6",
                                 "external point",
-                                HrefType.XML,
+                                HrefType.OID,
                                 null
                             )
                         )
@@ -1631,7 +1631,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 "c7",
                                 "external point",
-                                HrefType.XML,
+                                HrefType.OID,
                                 "4326"
                             )
                         ),
@@ -1643,7 +1643,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 null,
                                 "external point",
-                                HrefType.XML,
+                                HrefType.OID,
                                 "4326"
                             )
                         )

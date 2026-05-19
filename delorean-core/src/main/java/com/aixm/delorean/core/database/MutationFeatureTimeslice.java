@@ -148,8 +148,6 @@ public class MutationFeatureTimeslice {
             this.schema, 
             this.timeSliceProperty);
 
-        System.out.println("Executing SQL: " + sql.replace(":featureId", this.featureId.toString()).replace(":tspId", newTSPid.toString()));
-
         session.createNativeMutationQuery(sql)
         .setParameter("featureId", this.featureId)
         .setParameter("tspId", newTSPid)
@@ -164,8 +162,6 @@ public class MutationFeatureTimeslice {
         """.formatted(
             this.schema, 
             this.timeSliceProperty);
-
-        System.out.println("Executing SQL: " + sql.replace(":featureId", this.featureId.toString()).replace(":tspId", newTSPid.toString()));
 
         session.createNativeMutationQuery(sql)
         .setParameter("featureId", this.featureId)

@@ -12,6 +12,11 @@ import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 
 public class Aixm51TimeSliceEngine {
 
+    /**
+     * Counts the number of TimeSlices associated with a given AIXM feature. This method uses reflection to find the appropriate property and getter method based on the feature's class name, and counts the number of non-null AbstractAIXMTimeSliceType instances associated with the feature.
+     * @param feature A Concrete AIXM feature instance for which to count the associated TimeSlices.
+     * @return The number of TimeSlices associated with the feature.
+     */
     @SuppressWarnings("unchecked")
     public static int countTimeSlices(AbstractAIXMFeatureType feature){
         if (feature == null) {
@@ -46,6 +51,11 @@ public class Aixm51TimeSliceEngine {
         return count;
     }
 
+    /**
+     * Injects a TimeSlice into a given AIXM feature. This method uses reflection to find the appropriate property and setter method based on the feature's class name.
+     * @param feature A Concrete AIXM feature instance into which to inject the TimeSlice.
+     * @param timeSlice A Concrete AIXM TimeSlice instance to inject into the feature.
+     */
     public static void injectTimeSlice(AbstractAIXMFeatureType feature, AbstractAIXMTimeSliceType timeSlice) {
         if (feature == null) {
             throw new RuntimeException("Failed to inject TimeSlice into Null feature");
@@ -71,6 +81,11 @@ public class Aixm51TimeSliceEngine {
         }
     }
 
+    /**
+     * Invokes the TimeSlice extraction method for a given AIXM feature. This method uses reflection to find the appropriate property and getter method based on the feature's class name, and returns a list of AbstractAIXMTimeSliceType instances associated with the feature.
+     * @param feature A Concrete AIXM feature instance for which to extract TimeSlices.
+     * @return A list of AbstractAIXMTimeSliceType instances associated with the feature.
+     */
     @SuppressWarnings("unchecked")
     public static List<AbstractAIXMTimeSliceType> invokeTimeSlice(AbstractAIXMFeatureType feature) {
         if (feature == null) {
@@ -120,6 +135,11 @@ public class Aixm51TimeSliceEngine {
         return listTimeSlice;
     }
 
+    /**
+     * Calculates the validity period of TimeSlices associated with a given AIXM feature.
+     * @param feature A Concrete AIXM feature instance for which to calculate the TimeSlice validity period.
+     * @return A TemporalityInspector instance containing the calculated validity period information.
+     */
     public static TemporalityInspector getTimeSliceValidityPeriod(AbstractAIXMFeatureType feature) {
         Instant EarliestfeatureLifetimeStart = null;
         Instant LastestfeatureLifetimeEnd = null;

@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.unit.time;
+// package com.aixm.delorean.core.unit.time;
 
 // import org.junit.jupiter.api.*;
 // import org.junit.jupiter.params.ParameterizedTest;
@@ -27,7 +27,7 @@ package com.aixm.delorean.core.unit.time;
 // import javax.xml.namespace.QName;
 
 // @Disabled
-public class TemporalityTest {}
+// public class TemporalityTest {}
 
 //     @BeforeAll
 // 	public static void configureAssertJ() {

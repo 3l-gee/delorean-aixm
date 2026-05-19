@@ -23,44 +23,39 @@ import javax.xml.namespace.QName;
 public class TimeSliceHelper {
 
     public static DeloreanTimeSliceType parseValidTime(TimePrimitivePropertyType validTime){
-        if (validTime != null) {
-
-            DeloreanTimeSliceType result;
-
-            if (validTime.getAbstractTimePrimitive() == null) {
-                throw new IllegalArgumentException("AbstractTimePrimitiveType cannot be null");
-            }
-
-            JAXBElement<? extends AbstractTimePrimitiveType> abstractTimePrimitive = validTime.getAbstractTimePrimitive();
-            if (abstractTimePrimitive.getValue() instanceof TimeEdgeType) {
-                throw new IllegalArgumentException("Unsupoorted type" + abstractTimePrimitive.getValue().getClass().getName());
-
-            } else if (abstractTimePrimitive.getValue() instanceof TimeInstantType) {
-                throw new IllegalArgumentException("Unsupoorted type" + abstractTimePrimitive.getValue().getClass().getName());
-
-            } else if (abstractTimePrimitive.getValue() instanceof TimeNodeType) {
-                throw new IllegalArgumentException("Unsupoorted type" + abstractTimePrimitive.getValue().getClass().getName());
-
-            } else if (abstractTimePrimitive.getValue() instanceof TimePeriodType) {
-                result = parseTimePeriodType((TimePeriodType) abstractTimePrimitive.getValue());
-
-            } else {
-                throw new IllegalArgumentException("Unsupported type " + abstractTimePrimitive.getValue().getClass().getName());
-            }
-
-            if (result == null){
-                throw new IllegalArgumentException("DeloreanTimeSliceType cannot be null");
-            } else {
-                return result;
-            }
-        } else {
-            throw new IllegalArgumentException("ValidTime cannot be null");
+        if (validTime == null) {
+            return null;
         }
+
+        if (validTime.getAbstractTimePrimitive() == null) {
+            return null;
+        }
+
+        DeloreanTimeSliceType result;
+
+        JAXBElement<? extends AbstractTimePrimitiveType> abstractTimePrimitive = validTime.getAbstractTimePrimitive();
+        if (abstractTimePrimitive.getValue() instanceof TimeEdgeType) {
+            throw new IllegalArgumentException("Unsupoorted type" + abstractTimePrimitive.getValue().getClass().getName());
+
+        } else if (abstractTimePrimitive.getValue() instanceof TimeInstantType) {
+            throw new IllegalArgumentException("Unsupoorted type" + abstractTimePrimitive.getValue().getClass().getName());
+
+        } else if (abstractTimePrimitive.getValue() instanceof TimeNodeType) {
+            throw new IllegalArgumentException("Unsupoorted type" + abstractTimePrimitive.getValue().getClass().getName());
+
+        } else if (abstractTimePrimitive.getValue() instanceof TimePeriodType) {
+            result = parseTimePeriodType((TimePeriodType) abstractTimePrimitive.getValue());
+
+        } else {
+            throw new IllegalArgumentException("Unsupported type " + abstractTimePrimitive.getValue().getClass().getName());
+        }
+
+        return result;
     }
 
     public static TimePrimitivePropertyType printValidTime(DeloreanTimeSliceType aixmTime){
         if (aixmTime == null) {
-            throw new IllegalArgumentException("ValidTime cannot be null");
+            return null;
         }
 
         TimePrimitivePropertyType validTime = new TimePrimitivePropertyType();

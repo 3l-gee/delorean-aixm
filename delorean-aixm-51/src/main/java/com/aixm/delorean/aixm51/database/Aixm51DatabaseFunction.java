@@ -156,6 +156,11 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         "surveillance.secondarysurveillanceradar"
     );
 
+    /**
+     * Persists an AIXMBasicMessageType instance along with its associated BasicMessageMemberAIXMPropertyType instances. This method first persists the message itself, then iterates through the list of BasicMessageMemberAIXMPropertyType instances, persisting each one and creating a link between the message and its members in the database. The method uses batching to optimize performance when persisting a large number of members.
+      * @param message The AIXMBasicMessageType instance to persist.
+      * @param sessionFactory The Hibernate SessionFactory to use for database operations.
+     */
     @Override
     public void persist(AIXMBasicMessageType message, SessionFactory sessionFactory) {
         ConsoleLogger.startProgress("Persisting", message.getHasMember().size());
@@ -203,6 +208,13 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         ConsoleLogger.stopProgress();
     }
 
+    /**
+     * Retrieves an AIXMBasicMessageType instance from the database, along with its associated BasicMessageMemberAIXMPropertyType instances that are valid for a given timeslice. This method uses Hibernate filters to efficiently retrieve only the relevant members based on the provided BasicMessageMemberIds and TimeslicePropertyIds. The method returns the AIXMBasicMessageType instance with its valid members populated.
+     * @param BasicMessageMemberIds A list of IDs for BasicMessageMemberAIXMPropertyType instances to filter by.
+     * @param TimeslicePropertyIds A list of IDs for timeslice properties to filter by.
+     * @param sessionFactory The Hibernate SessionFactory to use for database operations.
+     * @return
+     */ 
     @Override
     public AIXMBasicMessageType predicateValidTimeslice(List<Long> BasicMessageMemberIds , List<Long> TimeslicePropertyIds, SessionFactory sessionFactory) {
         Session session = sessionFactory.openSession();
@@ -230,6 +242,11 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         }
     }
 
+    /**
+     * Merges an AIXMBasicMessageType instance with the existing data in the database. This method first retrieves the current top timeslice for each feature from the database, then iterates through the members of the provided message, comparing them with the existing timeslices to determine if they represent a new version, a correction, or no change. Based on this comparison, the method updates the database accordingly, either by persisting new members or by applying changes to existing features. Finally, it links the new BasicMessageMemberAIXMPropertyType instances to the current message in the database.
+      * @param message The AIXMBasicMessageType instance to merge.
+      * @param sessionFactory The Hibernate SessionFactory to use for database operations.
+     */
     @Override
     public void merge(AIXMBasicMessageType message, SessionFactory sessionFactory) {
         Session session = sessionFactory.openSession();
@@ -443,6 +460,15 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         INNER JOIN navaids_point.dme_tp ON aixm.aixm_feature.hjid = navaids_point.dme_tp.timeslice_hjid
         INNER JOIN navaids_point.dme_t ON navaids_point.dme_tp.dmetimeslice_hjid = navaids_point.dme_t.hjid
         INNER JOIN aixm.aixm_timeslice ON navaids_point.dme_t.hjid = aixm.aixm_timeslice.hjid
+        INNER JOIN aixm.message_member ON aixm.aixm_feature.hjid = aixm.message_member.feature_id
+        INNER JOIN aixm.message_member_link ON aixm.message_member.hjid = aixm.message_member_link.member_hjid
+        INNER JOIN aixm.aixm_message ON aixm.message_member_link.message_hjid = aixm.aixm_message.hjid
+        -- WHERE aixm.aixm_message.hjid =1
+        -- WHERE 
+        -- aixm.aixm_feature.lifecycle_status = 'APPROVED' 
+        -- AND 
+        -- aixm.aixm_timeslice.lifecycle_status = 'APPROVED' 
+        ORDER BY aixm.aixm_feature.identifier, aixm.aixm_timeslice.sequence_number DESC, aixm.aixm_timeslice.correction_number DESC;
         */
 
         return """
