@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,37 +35,41 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for anonymous complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for anonymous complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractDirectFlightExtension"/>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractDirectFlightSegmentExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractDirectFlightExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractDirectFlightSegmentExtension"/>
  *       </choice>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "abstractDirectFlightExtension",
-    "abstractDirectFlightSegmentExtension"
-})
+@XmlType(name = "", propOrder = {"abstractDirectFlightExtension", "abstractDirectFlightSegmentExtension"})
 @Entity(name = "DirectFlightSegmentTypeExtensionType")
-@Table(name = "directflightsegment_e", schema = "route")
-public class DirectFlightSegmentTypeExtensionType implements Serializable, Equals, HashCode, ToString
-{
+@Table(name = "directflightsegmente", schema = "route")
+public class DirectFlightSegmentTypeExtensionType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractDirectFlightExtension")
@@ -81,15 +85,11 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
 
     /**
      * Gets the value of the abstractDirectFlightExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractdirectflightextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDirectFlightExtension() {
         return abstractDirectFlightExtension;
@@ -97,11 +97,10 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
 
     /**
      * Sets the value of the abstractDirectFlightExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractDirectFlightExtension(AbstractExtensionType value) {
         this.abstractDirectFlightExtension = value;
@@ -109,20 +108,16 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
 
     @Transient
     public boolean isSetAbstractDirectFlightExtension() {
-        return (this.abstractDirectFlightExtension!= null);
+        return (this.abstractDirectFlightExtension != null);
     }
 
     /**
      * Gets the value of the abstractDirectFlightSegmentExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractdirectflightsegmentextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDirectFlightSegmentExtension() {
         return abstractDirectFlightSegmentExtension;
@@ -130,11 +125,10 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
 
     /**
      * Sets the value of the abstractDirectFlightSegmentExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractDirectFlightSegmentExtension(AbstractExtensionType value) {
         this.abstractDirectFlightSegmentExtension = value;
@@ -142,16 +136,14 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
 
     @Transient
     public boolean isSetAbstractDirectFlightSegmentExtension() {
-        return (this.abstractDirectFlightSegmentExtension!= null);
+        return (this.abstractDirectFlightSegmentExtension != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -165,11 +157,10 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -177,7 +168,7 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -185,12 +176,10 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -201,24 +190,21 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -227,12 +213,11 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -251,8 +236,9 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -260,14 +246,31 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
         }
         final DirectFlightSegmentTypeExtensionType that = ((DirectFlightSegmentTypeExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractDirectFlightSegmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDirectFlightSegmentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDirectFlightSegmentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDirectFlightSegmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightSegmentExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightSegmentExtension",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractDirectFlightExtension();
             boolean rhsFieldIsSet = that.isSetAbstractDirectFlightExtension();
             AbstractExtensionType lhsField;
             lhsField = this.getAbstractDirectFlightExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractDirectFlightExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightExtension", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -276,24 +279,11 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
             boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractDirectFlightSegmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDirectFlightSegmentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDirectFlightSegmentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDirectFlightSegmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightSegmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightSegmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -325,13 +315,14 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
             boolean theFieldIsSet = this.isSetAbstractDirectFlightSegmentExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractDirectFlightSegmentExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractDirectFlightSegmentExtension", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractDirectFlightSegmentExtension",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -370,12 +361,13 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
             boolean theFieldIsSet = this.isSetAbstractDirectFlightSegmentExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractDirectFlightSegmentExtension();
-            strategy.appendField(locator, this, "abstractDirectFlightSegmentExtension", buffer, theField, theFieldIsSet);
+            strategy.appendField(locator, this, "abstractDirectFlightSegmentExtension", buffer, theField,
+                    theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

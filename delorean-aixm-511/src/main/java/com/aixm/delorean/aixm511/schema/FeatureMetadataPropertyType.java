@@ -1,9 +1,10 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
+import com.aixm.delorean.aixm511.metadata.adapter.MDMetadataTypeAdapter;
 import com.aixm.delorean.core.org.gmd.v2007.MDMetadataType;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractMetadataPropertyType;
+import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,46 +19,51 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for FeatureMetadataPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for FeatureMetadataPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="FeatureMetadataPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.opengis.net/gml/3.2}AbstractMetadataPropertyType">
+ *     <extension base=
+"{http://www.opengis.net/gml/3.2}AbstractMetadataPropertyType">
  *       <sequence minOccurs="0">
- *         <element ref="{http://www.isotc211.org/2005/gmd}MD_Metadata"/>
+ *         <element name="mdMetadata" type=
+"{http://www.w3.org/2001/XMLSchema}string"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FeatureMetadataPropertyType", propOrder = {
-    "mdMetadata"
-})
+@XmlType(name = "FeatureMetadataPropertyType", propOrder = {"mdMetadata"})
 @Entity(name = "FeatureMetadataPropertyType")
 @Table(name = "feature_metadata", schema = "aixm")
-public class FeatureMetadataPropertyType
-    extends AbstractMetadataPropertyType
-    implements Serializable
-{
+public class FeatureMetadataPropertyType extends AbstractMetadataPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
-    @XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd")
-    protected MDMetadataType mdMetadata;
+    @XmlElement(type = MDMetadataType.class, name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd")
+    @XmlJavaTypeAdapter(MDMetadataTypeAdapter.class)
+    protected JsonNode mdMetadata;
     @XmlTransient
     protected Long hjid;
     @XmlTransient
@@ -65,41 +71,37 @@ public class FeatureMetadataPropertyType
 
     /**
      * Gets the value of the mdMetadata property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MDMetadataType }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
-    @Transient
-    public MDMetadataType getMDMetadata() {
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
+    @jakarta.persistence.Column(name = "md_metadata", columnDefinition = "JSONB")
+    public JsonNode getMdMetadata() {
         return mdMetadata;
     }
 
     /**
      * Sets the value of the mdMetadata property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link MDMetadataType }
-     *     
+     *            allowed object is {@link String }
+     *
      */
-    public void setMDMetadata(MDMetadataType value) {
+    public void setMdMetadata(JsonNode value) {
         this.mdMetadata = value;
     }
 
     @Transient
-    public boolean isSetMDMetadata() {
-        return (this.mdMetadata!= null);
+    public boolean isSetMdMetadata() {
+        return (this.mdMetadata != null);
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -110,24 +112,21 @@ public class FeatureMetadataPropertyType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -136,20 +135,20 @@ public class FeatureMetadataPropertyType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -160,12 +159,12 @@ public class FeatureMetadataPropertyType
         }
         final FeatureMetadataPropertyType that = ((FeatureMetadataPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMDMetadata();
-            boolean rhsFieldIsSet = that.isSetMDMetadata();
-            MDMetadataType lhsField;
-            lhsField = this.getMDMetadata();
-            MDMetadataType rhsField;
-            rhsField = that.getMDMetadata();
+            boolean lhsFieldIsSet = this.isSetMdMetadata();
+            boolean rhsFieldIsSet = that.isSetMdMetadata();
+            JsonNode lhsField;
+            lhsField = this.getMdMetadata();
+            JsonNode rhsField;
+            rhsField = that.getMdMetadata();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdMetadata", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdMetadata", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -179,9 +178,9 @@ public class FeatureMetadataPropertyType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = this.isSetMDMetadata();
-            MDMetadataType theField;
-            theField = this.getMDMetadata();
+            boolean theFieldIsSet = this.isSetMdMetadata();
+            JsonNode theField;
+            theField = this.getMdMetadata();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdMetadata", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -192,9 +191,9 @@ public class FeatureMetadataPropertyType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = this.isSetMDMetadata();
-            MDMetadataType theField;
-            theField = this.getMDMetadata();
+            boolean theFieldIsSet = this.isSetMdMetadata();
+            JsonNode theField;
+            theField = this.getMdMetadata();
             strategy.appendField(locator, this, "mdMetadata", buffer, theField, theFieldIsSet);
         }
         return buffer;

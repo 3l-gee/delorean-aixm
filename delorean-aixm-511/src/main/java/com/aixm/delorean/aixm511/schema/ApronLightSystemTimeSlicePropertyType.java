@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -38,39 +38,41 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for ApronLightSystemTimeSlicePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for ApronLightSystemTimeSlicePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="ApronLightSystemTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}ApronLightSystemTimeSlice"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}ApronLightSystemTimeSlice"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ApronLightSystemTimeSlicePropertyType", propOrder = {
-    "apronLightSystemTimeSlice"
-})
-@FilterDef(name = "TPHjidFilter", parameters = {
-    @ParamDef(name = "ids", type = Long.class)
-})
+@XmlType(name = "ApronLightSystemTimeSlicePropertyType", propOrder = {"apronLightSystemTimeSlice"})
+@FilterDef(name = "TPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
 @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "ApronLightSystemTimeSlicePropertyType")
 @Table(name = "apronlightsystem_tp", schema = "airport_heliport")
-public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
-{
+public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ApronLightSystemTimeSlice", required = true)
@@ -84,15 +86,11 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
 
     /**
      * Gets the value of the apronLightSystemTimeSlice property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ApronLightSystemTimeSliceType }
-     *     
+     *
+     * @return possible object is {@link ApronLightSystemTimeSliceType }
+     *
      */
-    @OneToOne(targetEntity = ApronLightSystemTimeSliceType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ApronLightSystemTimeSliceType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "apronlightsystemtimeslice_hjid", referencedColumnName = "hjid")
     public ApronLightSystemTimeSliceType getApronLightSystemTimeSlice() {
         return apronLightSystemTimeSlice;
@@ -100,11 +98,10 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
 
     /**
      * Sets the value of the apronLightSystemTimeSlice property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ApronLightSystemTimeSliceType }
-     *     
+     *            allowed object is {@link ApronLightSystemTimeSliceType }
+     *
      */
     public void setApronLightSystemTimeSlice(ApronLightSystemTimeSliceType value) {
         this.apronLightSystemTimeSlice = value;
@@ -112,16 +109,14 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
 
     @Transient
     public boolean isSetApronLightSystemTimeSlice() {
-        return (this.apronLightSystemTimeSlice!= null);
+        return (this.apronLightSystemTimeSlice != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -135,11 +130,10 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -147,7 +141,7 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -155,12 +149,10 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Long }
-     *     
+     *
+     *
+     * @return possible object is {@link java.lang.Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -171,24 +163,21 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Long }
-     *     
+     *            allowed object is {@link java.lang.Long }
+     *
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Long }
-     *     
+     *
+     *
+     * @return possible object is {@link java.lang.Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -197,12 +186,11 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Long }
-     *     
+     *            allowed object is {@link java.lang.Long }
+     *
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -221,14 +209,28 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final ApronLightSystemTimeSlicePropertyType that = ((ApronLightSystemTimeSlicePropertyType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetApronLightSystemTimeSlice();
             boolean rhsFieldIsSet = that.isSetApronLightSystemTimeSlice();
@@ -238,19 +240,6 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
             rhsField = that.getApronLightSystemTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "apronLightSystemTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "apronLightSystemTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -281,7 +270,7 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -319,7 +308,7 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

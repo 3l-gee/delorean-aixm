@@ -321,40 +321,14 @@ public abstract class AbstractCoordinateOperationType extends IdentifiedObjectTy
         }
         final AbstractCoordinateOperationType that = ((AbstractCoordinateOperationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOperationVersion();
-            boolean rhsFieldIsSet = that.isSetOperationVersion();
-            String lhsField;
-            lhsField = this.getOperationVersion();
-            String rhsField;
-            rhsField = that.getOperationVersion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationVersion", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationVersion", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDomainOfValidity();
-            boolean rhsFieldIsSet = that.isSetDomainOfValidity();
-            DomainOfValidity lhsField;
-            lhsField = this.getDomainOfValidity();
-            DomainOfValidity rhsField;
-            rhsField = that.getDomainOfValidity();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetScope();
-            boolean rhsFieldIsSet = that.isSetScope();
-            List<String> lhsField;
-            lhsField = (this.isSetScope() ? this.getScope() : null);
-            List<String> rhsField;
-            rhsField = (that.isSetScope() ? that.getScope() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
+            boolean lhsFieldIsSet = this.isSetCoordinateOperationAccuracy();
+            boolean rhsFieldIsSet = that.isSetCoordinateOperationAccuracy();
+            List<CoordinateOperationAccuracy> lhsField;
+            lhsField = (this.isSetCoordinateOperationAccuracy() ? this.getCoordinateOperationAccuracy() : null);
+            List<CoordinateOperationAccuracy> rhsField;
+            rhsField = (that.isSetCoordinateOperationAccuracy() ? that.getCoordinateOperationAccuracy() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateOperationAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateOperationAccuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -373,6 +347,32 @@ public abstract class AbstractCoordinateOperationType extends IdentifiedObjectTy
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDomainOfValidity();
+            boolean rhsFieldIsSet = that.isSetDomainOfValidity();
+            DomainOfValidity lhsField;
+            lhsField = this.getDomainOfValidity();
+            DomainOfValidity rhsField;
+            rhsField = that.getDomainOfValidity();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperationVersion();
+            boolean rhsFieldIsSet = that.isSetOperationVersion();
+            String lhsField;
+            lhsField = this.getOperationVersion();
+            String rhsField;
+            rhsField = that.getOperationVersion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationVersion", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationVersion", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSourceCRS();
             boolean rhsFieldIsSet = that.isSetSourceCRS();
             CRSPropertyType lhsField;
@@ -386,14 +386,14 @@ public abstract class AbstractCoordinateOperationType extends IdentifiedObjectTy
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCoordinateOperationAccuracy();
-            boolean rhsFieldIsSet = that.isSetCoordinateOperationAccuracy();
-            List<CoordinateOperationAccuracy> lhsField;
-            lhsField = (this.isSetCoordinateOperationAccuracy() ? this.getCoordinateOperationAccuracy() : null);
-            List<CoordinateOperationAccuracy> rhsField;
-            rhsField = (that.isSetCoordinateOperationAccuracy() ? that.getCoordinateOperationAccuracy() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateOperationAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateOperationAccuracy", rhsField);
+            boolean lhsFieldIsSet = this.isSetScope();
+            boolean rhsFieldIsSet = that.isSetScope();
+            List<String> lhsField;
+            lhsField = (this.isSetScope() ? this.getScope() : null);
+            List<String> rhsField;
+            rhsField = (that.isSetScope() ? that.getScope() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -11,6 +10,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,32 +24,36 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for ValFLType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for ValFLType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="ValFLType">
  *   <simpleContent>
  *     <extension base="<http://www.aixm.aero/schema/5.1.1>ValFLBaseType">
- *       <attribute name="uom" type="{http://www.aixm.aero/schema/5.1.1}UomFLType" />
- *       <attribute name="nilReason" type="{http://www.opengis.net/gml/3.2}NilReasonEnumeration" />
+ *       <attribute name="uom" type=
+"{http://www.aixm.aero/schema/5.1.1}UomFLType" />
+ *       <attribute name="nilReason" type=
+"{http://www.opengis.net/gml/3.2}NilReasonEnumeration" />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ValFLType", propOrder = {
-    "value"
-})
+@XmlType(name = "ValFLType", propOrder = {"value"})
 @Embeddable
-public class ValFLType implements Serializable, Equals, HashCode, ToString
-{
+public class ValFLType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -61,7 +65,7 @@ public class ValFLType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the value property.
-     * 
+     *
      */
     @Basic
     @Column(name = "VALUE_", precision = 10, scale = 0)
@@ -71,7 +75,7 @@ public class ValFLType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the value property.
-     * 
+     *
      */
     public void setValue(long value) {
         this.value = value;
@@ -84,11 +88,9 @@ public class ValFLType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the uom property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     @Basic
     @Column(name = "UOM")
@@ -98,11 +100,10 @@ public class ValFLType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the uom property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setUom(String value) {
         this.uom = value;
@@ -110,16 +111,14 @@ public class ValFLType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetUom() {
-        return (this.uom!= null);
+        return (this.uom != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     @Basic
     @Column(name = "NIL_REASON")
@@ -129,11 +128,10 @@ public class ValFLType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
@@ -141,7 +139,7 @@ public class ValFLType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     @Override
@@ -157,27 +155,15 @@ public class ValFLType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final ValFLType that = ((ValFLType) object);
-        {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            long lhsField;
-            lhsField = this.getValue();
-            long rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetUom();
             boolean rhsFieldIsSet = that.isSetUom();
@@ -187,6 +173,19 @@ public class ValFLType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getUom();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            long lhsField;
+            lhsField = this.getValue();
+            long rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

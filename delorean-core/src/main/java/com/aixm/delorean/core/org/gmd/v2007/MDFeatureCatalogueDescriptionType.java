@@ -273,14 +273,14 @@ public class MDFeatureCatalogueDescriptionType extends AbstractMDContentInformat
         }
         final MDFeatureCatalogueDescriptionType that = ((MDFeatureCatalogueDescriptionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetComplianceCode();
-            boolean rhsFieldIsSet = that.isSetComplianceCode();
+            boolean lhsFieldIsSet = this.isSetIncludedWithDataset();
+            boolean rhsFieldIsSet = that.isSetIncludedWithDataset();
             BooleanPropertyType lhsField;
-            lhsField = this.getComplianceCode();
+            lhsField = this.getIncludedWithDataset();
             BooleanPropertyType rhsField;
-            rhsField = that.getComplianceCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "complianceCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "complianceCode", rhsField);
+            rhsField = that.getIncludedWithDataset();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "includedWithDataset", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "includedWithDataset", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -299,14 +299,27 @@ public class MDFeatureCatalogueDescriptionType extends AbstractMDContentInformat
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIncludedWithDataset();
-            boolean rhsFieldIsSet = that.isSetIncludedWithDataset();
+            boolean lhsFieldIsSet = this.isSetLanguage();
+            boolean rhsFieldIsSet = that.isSetLanguage();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetLanguage() ? this.getLanguage() : null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetLanguage() ? that.getLanguage() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetComplianceCode();
+            boolean rhsFieldIsSet = that.isSetComplianceCode();
             BooleanPropertyType lhsField;
-            lhsField = this.getIncludedWithDataset();
+            lhsField = this.getComplianceCode();
             BooleanPropertyType rhsField;
-            rhsField = that.getIncludedWithDataset();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "includedWithDataset", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "includedWithDataset", rhsField);
+            rhsField = that.getComplianceCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "complianceCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "complianceCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -320,19 +333,6 @@ public class MDFeatureCatalogueDescriptionType extends AbstractMDContentInformat
             rhsField = (that.isSetFeatureTypes() ? that.getFeatureTypes() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureTypes", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureTypes", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLanguage();
-            boolean rhsFieldIsSet = that.isSetLanguage();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetLanguage() ? this.getLanguage() : null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetLanguage() ? that.getLanguage() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

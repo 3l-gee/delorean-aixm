@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,22 +12,29 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for WorkareaActivityPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for WorkareaActivityPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="WorkareaActivityPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1.1}WorkareaActivity"/>
  *       </sequence>
@@ -36,19 +42,14 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "WorkareaActivityPropertyType", propOrder = {
-    "workareaActivity"
-})
+@XmlType(name = "WorkareaActivityPropertyType", propOrder = {"workareaActivity"})
 @Entity(name = "WorkareaActivityPropertyType")
 @Table(name = "workareaactivity_p", schema = "airport_heliport")
-public class WorkareaActivityPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class WorkareaActivityPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "WorkareaActivity", required = true)
@@ -56,15 +57,11 @@ public class WorkareaActivityPropertyType
 
     /**
      * Gets the value of the workareaActivity property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link WorkareaActivityType }
-     *     
+     *
+     * @return possible object is {@link WorkareaActivityType }
+     *
      */
-    @OneToOne(targetEntity = WorkareaActivityType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = WorkareaActivityType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "workareaactivity_hjid", referencedColumnName = "hjid")
     public WorkareaActivityType getWorkareaActivity() {
         return workareaActivity;
@@ -72,11 +69,10 @@ public class WorkareaActivityPropertyType
 
     /**
      * Sets the value of the workareaActivity property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link WorkareaActivityType }
-     *     
+     *            allowed object is {@link WorkareaActivityType }
+     *
      */
     public void setWorkareaActivity(WorkareaActivityType value) {
         this.workareaActivity = value;
@@ -84,12 +80,13 @@ public class WorkareaActivityPropertyType
 
     @Transient
     public boolean isSetWorkareaActivity() {
-        return (this.workareaActivity!= null);
+        return (this.workareaActivity != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

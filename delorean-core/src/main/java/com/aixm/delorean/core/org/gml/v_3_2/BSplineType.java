@@ -358,14 +358,14 @@ public class BSplineType extends AbstractCurveSegmentType implements Serializabl
         }
         final BSplineType that = ((BSplineType) object);
         {
-            boolean lhsFieldIsSet = this.isSetKnotType();
-            boolean rhsFieldIsSet = that.isSetKnotType();
-            KnotTypesType lhsField;
-            lhsField = this.getKnotType();
-            KnotTypesType rhsField;
-            rhsField = that.getKnotType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "knotType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "knotType", rhsField);
+            boolean lhsFieldIsSet = this.isSetCoordinates();
+            boolean rhsFieldIsSet = that.isSetCoordinates();
+            CoordinatesType lhsField;
+            lhsField = this.getCoordinates();
+            CoordinatesType rhsField;
+            rhsField = that.getCoordinates();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -399,19 +399,6 @@ public class BSplineType extends AbstractCurveSegmentType implements Serializabl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDegree();
-            boolean rhsFieldIsSet = that.isSetDegree();
-            BigInteger lhsField;
-            lhsField = this.getDegree();
-            BigInteger rhsField;
-            rhsField = that.getDegree();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degree", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degree", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPosList();
             boolean rhsFieldIsSet = that.isSetPosList();
             DirectPositionListType lhsField;
@@ -438,6 +425,19 @@ public class BSplineType extends AbstractCurveSegmentType implements Serializabl
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDegree();
+            boolean rhsFieldIsSet = that.isSetDegree();
+            BigInteger lhsField;
+            lhsField = this.getDegree();
+            BigInteger rhsField;
+            rhsField = that.getDegree();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degree", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degree", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetIsPolynomial();
             boolean rhsFieldIsSet = that.isSetIsPolynomial();
             boolean lhsField;
@@ -451,14 +451,14 @@ public class BSplineType extends AbstractCurveSegmentType implements Serializabl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCoordinates();
-            boolean rhsFieldIsSet = that.isSetCoordinates();
-            CoordinatesType lhsField;
-            lhsField = this.getCoordinates();
-            CoordinatesType rhsField;
-            rhsField = that.getCoordinates();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
+            boolean lhsFieldIsSet = this.isSetKnotType();
+            boolean rhsFieldIsSet = that.isSetKnotType();
+            KnotTypesType lhsField;
+            lhsField = this.getKnotType();
+            KnotTypesType rhsField;
+            rhsField = that.getKnotType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "knotType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "knotType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

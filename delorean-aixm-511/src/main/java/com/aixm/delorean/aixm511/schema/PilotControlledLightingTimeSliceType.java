@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -23,6 +19,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,34 +30,55 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for PilotControlledLightingTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for PilotControlledLightingTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="PilotControlledLightingTimeSliceType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodePilotControlledLightingType" minOccurs="0"/>
- *         <element name="duration" type="{http://www.aixm.aero/schema/5.1.1}ValDurationType" minOccurs="0"/>
- *         <element name="intensitySteps" type="{http://www.aixm.aero/schema/5.1.1}NoNumberType" minOccurs="0"/>
- *         <element name="standByIntensity" type="{http://www.aixm.aero/schema/5.1.1}CodeIntensityStandByType" minOccurs="0"/>
- *         <element name="radioFrequency" type="{http://www.aixm.aero/schema/5.1.1}ValFrequencyType" minOccurs="0"/>
- *         <element name="activationInstruction" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
- *         <element name="controlledLightIntensity" type="{http://www.aixm.aero/schema/5.1.1}LightActivationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="activatedGroundLighting" type="{http://www.aixm.aero/schema/5.1.1}GroundLightSystemPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="type" type=
+"{http://www.aixm.aero/schema/5.1.1}CodePilotControlledLightingType" minOccurs=
+"0"/>
+ *         <element name="duration" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDurationType" minOccurs="0"/>
+ *         <element name="intensitySteps" type=
+"{http://www.aixm.aero/schema/5.1.1}NoNumberType" minOccurs="0"/>
+ *         <element name="standByIntensity" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeIntensityStandByType" minOccurs="0"/>
+ *         <element name="radioFrequency" type=
+"{http://www.aixm.aero/schema/5.1.1}ValFrequencyType" minOccurs="0"/>
+ *         <element name="activationInstruction" type=
+"{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="controlledLightIntensity" type=
+"{http://www.aixm.aero/schema/5.1.1}LightActivationPropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="activatedGroundLighting" type=
+"{http://www.aixm.aero/schema/5.1.1}GroundLightSystemPropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractPilotControlledLightingExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractPilotControlledLightingExtension"/>
  *                 </sequence>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -67,28 +88,16 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PilotControlledLightingTimeSliceType", propOrder = {
-    "type",
-    "duration",
-    "intensitySteps",
-    "standByIntensity",
-    "radioFrequency",
-    "activationInstruction",
-    "controlledLightIntensity",
-    "activatedGroundLighting",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "PilotControlledLightingTimeSliceType", propOrder = {"type", "duration", "intensitySteps",
+        "standByIntensity", "radioFrequency", "activationInstruction", "controlledLightIntensity",
+        "activatedGroundLighting", "annotation", "extension"})
 @Entity(name = "PilotControlledLightingTimeSliceType")
 @Table(name = "pilotcontrolledlighting_t", schema = "service")
-public class PilotControlledLightingTimeSliceType
-    extends AbstractAIXMTimeSliceType
-    implements Serializable
-{
+public class PilotControlledLightingTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "type", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -113,11 +122,10 @@ public class PilotControlledLightingTimeSliceType
 
     /**
      * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodePilotControlledLightingType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodePilotControlledLightingType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodePilotControlledLightingType> getType() {
@@ -126,11 +134,11 @@ public class PilotControlledLightingTimeSliceType
 
     /**
      * Sets the value of the type property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodePilotControlledLightingType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodePilotControlledLightingType }{@code >}
+     *
      */
     public void setType(JAXBElement<CodePilotControlledLightingType> value) {
         this.type = value;
@@ -138,16 +146,15 @@ public class PilotControlledLightingTimeSliceType
 
     @Transient
     public boolean isSetType() {
-        return (this.type!= null);
+        return (this.type != null);
     }
 
     /**
      * Gets the value of the duration property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDurationType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDurationType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDurationType> getDuration() {
@@ -156,11 +163,11 @@ public class PilotControlledLightingTimeSliceType
 
     /**
      * Sets the value of the duration property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDurationType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDurationType }{@code >}
+     *
      */
     public void setDuration(JAXBElement<ValDurationType> value) {
         this.duration = value;
@@ -168,16 +175,15 @@ public class PilotControlledLightingTimeSliceType
 
     @Transient
     public boolean isSetDuration() {
-        return (this.duration!= null);
+        return (this.duration != null);
     }
 
     /**
      * Gets the value of the intensitySteps property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link NoNumberType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<NoNumberType> getIntensitySteps() {
@@ -186,11 +192,11 @@ public class PilotControlledLightingTimeSliceType
 
     /**
      * Sets the value of the intensitySteps property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link NoNumberType
+     *            }{@code >}
+     *
      */
     public void setIntensitySteps(JAXBElement<NoNumberType> value) {
         this.intensitySteps = value;
@@ -198,16 +204,15 @@ public class PilotControlledLightingTimeSliceType
 
     @Transient
     public boolean isSetIntensitySteps() {
-        return (this.intensitySteps!= null);
+        return (this.intensitySteps != null);
     }
 
     /**
      * Gets the value of the standByIntensity property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeIntensityStandByType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeIntensityStandByType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeIntensityStandByType> getStandByIntensity() {
@@ -216,11 +221,11 @@ public class PilotControlledLightingTimeSliceType
 
     /**
      * Sets the value of the standByIntensity property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeIntensityStandByType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeIntensityStandByType }{@code >}
+     *
      */
     public void setStandByIntensity(JAXBElement<CodeIntensityStandByType> value) {
         this.standByIntensity = value;
@@ -228,16 +233,15 @@ public class PilotControlledLightingTimeSliceType
 
     @Transient
     public boolean isSetStandByIntensity() {
-        return (this.standByIntensity!= null);
+        return (this.standByIntensity != null);
     }
 
     /**
      * Gets the value of the radioFrequency property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValFrequencyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValFrequencyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValFrequencyType> getRadioFrequency() {
@@ -246,11 +250,11 @@ public class PilotControlledLightingTimeSliceType
 
     /**
      * Sets the value of the radioFrequency property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValFrequencyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValFrequencyType }{@code >}
+     *
      */
     public void setRadioFrequency(JAXBElement<ValFrequencyType> value) {
         this.radioFrequency = value;
@@ -258,16 +262,15 @@ public class PilotControlledLightingTimeSliceType
 
     @Transient
     public boolean isSetRadioFrequency() {
-        return (this.radioFrequency!= null);
+        return (this.radioFrequency != null);
     }
 
     /**
      * Gets the value of the activationInstruction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link TextInstructionType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextInstructionType> getActivationInstruction() {
@@ -276,11 +279,11 @@ public class PilotControlledLightingTimeSliceType
 
     /**
      * Sets the value of the activationInstruction property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link TextInstructionType }{@code >}
+     *
      */
     public void setActivationInstruction(JAXBElement<TextInstructionType> value) {
         this.activationInstruction = value;
@@ -288,39 +291,36 @@ public class PilotControlledLightingTimeSliceType
 
     @Transient
     public boolean isSetActivationInstruction() {
-        return (this.activationInstruction!= null);
+        return (this.activationInstruction != null);
     }
 
     /**
      * Gets the value of the controlledLightIntensity property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the controlledLightIntensity property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the controlledLightIntensity property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getControlledLightIntensity().add(newItem);
+     * getControlledLightIntensity().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LightActivationPropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = LightActivationPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "pilotcontrolledlighting_t_controlledlightintensity_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "pilotcontrolledlighting_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "controlledlightintensity_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = LightActivationPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "pltcntrlldlghtngtmslctp_cntrlldlghtintnst_link", schema = "service", joinColumns = {
+            @JoinColumn(name = "pilotcontrolledlighting_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "controlledlightintensity_hjid", referencedColumnName = "hjid")})
     public List<LightActivationPropertyType> getControlledLightIntensity() {
         if (controlledLightIntensity == null) {
             controlledLightIntensity = new ArrayList<>();
@@ -329,8 +329,8 @@ public class PilotControlledLightingTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setControlledLightIntensity(List<LightActivationPropertyType> controlledLightIntensity) {
         this.controlledLightIntensity = controlledLightIntensity;
@@ -338,7 +338,7 @@ public class PilotControlledLightingTimeSliceType
 
     @Transient
     public boolean isSetControlledLightIntensity() {
-        return ((this.controlledLightIntensity!= null)&&(!this.controlledLightIntensity.isEmpty()));
+        return ((this.controlledLightIntensity != null) && (!this.controlledLightIntensity.isEmpty()));
     }
 
     public void unsetControlledLightIntensity() {
@@ -347,34 +347,31 @@ public class PilotControlledLightingTimeSliceType
 
     /**
      * Gets the value of the activatedGroundLighting property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the activatedGroundLighting property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the activatedGroundLighting property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getActivatedGroundLighting().add(newItem);
+     * getActivatedGroundLighting().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link GroundLightSystemPropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = GroundLightSystemPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "pilotcontrolledlighting_t_activatedgroundlighting_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "pilotcontrolledlighting_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "activatedgroundlighting_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = GroundLightSystemPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "pltcntrlldlghtngtmslctp_actvtdgrndlghtng_link", schema = "service", joinColumns = {
+            @JoinColumn(name = "pilotcontrolledlighting_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "activatedgroundlighting_hjid", referencedColumnName = "hjid")})
     public List<GroundLightSystemPropertyType> getActivatedGroundLighting() {
         if (activatedGroundLighting == null) {
             activatedGroundLighting = new ArrayList<>();
@@ -383,8 +380,8 @@ public class PilotControlledLightingTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setActivatedGroundLighting(List<GroundLightSystemPropertyType> activatedGroundLighting) {
         this.activatedGroundLighting = activatedGroundLighting;
@@ -392,7 +389,7 @@ public class PilotControlledLightingTimeSliceType
 
     @Transient
     public boolean isSetActivatedGroundLighting() {
-        return ((this.activatedGroundLighting!= null)&&(!this.activatedGroundLighting.isEmpty()));
+        return ((this.activatedGroundLighting != null) && (!this.activatedGroundLighting.isEmpty()));
     }
 
     public void unsetActivatedGroundLighting() {
@@ -401,34 +398,31 @@ public class PilotControlledLightingTimeSliceType
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "pilotcontrolledlighting_t_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "pilotcontrolledlighting_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "pltcntrlldlghtngtmslctp_annttn_link", schema = "service", joinColumns = {
+            @JoinColumn(name = "pilotcontrolledlighting_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -437,8 +431,8 @@ public class PilotControlledLightingTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -446,7 +440,7 @@ public class PilotControlledLightingTimeSliceType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -455,30 +449,30 @@ public class PilotControlledLightingTimeSliceType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link PilotControlledLightingExtensionType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = PilotControlledLightingExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "pilotcontrolledlighting_e_hjid", referencedColumnName = "hjid")
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "pilotcontrolledlightinge_hjid", referencedColumnName = "hjid")
     public List<PilotControlledLightingExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -487,8 +481,8 @@ public class PilotControlledLightingTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<PilotControlledLightingExtensionType> extension) {
         this.extension = extension;
@@ -496,7 +490,7 @@ public class PilotControlledLightingTimeSliceType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -504,88 +498,92 @@ public class PilotControlledLightingTimeSliceType
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "type")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
     public CodePilotControlledLightingType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodePilotControlledLightingType.class, this.getType());
     }
 
     public void setTypeItem(CodePilotControlledLightingType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodePilotControlledLightingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), PilotControlledLightingTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodePilotControlledLightingType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "type"), PilotControlledLightingTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "duration")),
-        @AttributeOverride(name = "uom", column = @Column(name = "duration_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "duration_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "duration", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "durationuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "durationnilreason"))})
     public ValDurationType getDurationItem() {
         return XmlAdapterUtils.unmarshallSource(ValDurationType.class, this.getDuration());
     }
 
     public void setDurationItem(ValDurationType target) {
-        setDuration(XmlAdapterUtils.marshallJAXBElement(ValDurationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "duration"), PilotControlledLightingTimeSliceType.class, target));
+        setDuration(XmlAdapterUtils.marshallJAXBElement(ValDurationType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "duration"), PilotControlledLightingTimeSliceType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "intensitysteps")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "intensitysteps_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "intensitysteps")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "intensitystepsnilreason"))})
     public NoNumberType getIntensityStepsItem() {
         return XmlAdapterUtils.unmarshallSource(NoNumberType.class, this.getIntensitySteps());
     }
 
     public void setIntensityStepsItem(NoNumberType target) {
-        setIntensitySteps(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intensitySteps"), PilotControlledLightingTimeSliceType.class, target));
+        setIntensitySteps(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "intensitySteps"),
+                PilotControlledLightingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "standbyintensity")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "standbyintensity_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "standbyintensity")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "standbyintensitynilreason"))})
     public CodeIntensityStandByType getStandByIntensityItem() {
         return XmlAdapterUtils.unmarshallSource(CodeIntensityStandByType.class, this.getStandByIntensity());
     }
 
     public void setStandByIntensityItem(CodeIntensityStandByType target) {
-        setStandByIntensity(XmlAdapterUtils.marshallJAXBElement(CodeIntensityStandByType.class, new QName("http://www.aixm.aero/schema/5.1.1", "standByIntensity"), PilotControlledLightingTimeSliceType.class, target));
+        setStandByIntensity(XmlAdapterUtils.marshallJAXBElement(CodeIntensityStandByType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "standByIntensity"),
+                PilotControlledLightingTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "radiofrequency")),
-        @AttributeOverride(name = "uom", column = @Column(name = "radiofrequency_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "radiofrequency_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "radiofrequency", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "radiofrequencyuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "radiofrequencynilreason"))})
     public ValFrequencyType getRadioFrequencyItem() {
         return XmlAdapterUtils.unmarshallSource(ValFrequencyType.class, this.getRadioFrequency());
     }
 
     public void setRadioFrequencyItem(ValFrequencyType target) {
-        setRadioFrequency(XmlAdapterUtils.marshallJAXBElement(ValFrequencyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "radioFrequency"), PilotControlledLightingTimeSliceType.class, target));
+        setRadioFrequency(XmlAdapterUtils.marshallJAXBElement(ValFrequencyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "radioFrequency"),
+                PilotControlledLightingTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "activationinstruction")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "activationinstruction_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "activationinstruction", columnDefinition = "TEXT", length = 10000)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "activationinstructionnilreason"))})
     public TextInstructionType getActivationInstructionItem() {
         return XmlAdapterUtils.unmarshallSource(TextInstructionType.class, this.getActivationInstruction());
     }
 
     public void setActivationInstructionItem(TextInstructionType target) {
-        setActivationInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "activationInstruction"), PilotControlledLightingTimeSliceType.class, target));
+        setActivationInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "activationInstruction"),
+                PilotControlledLightingTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -595,19 +593,6 @@ public class PilotControlledLightingTimeSliceType
             return false;
         }
         final PilotControlledLightingTimeSliceType that = ((PilotControlledLightingTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetRadioFrequency();
-            boolean rhsFieldIsSet = that.isSetRadioFrequency();
-            JAXBElement<ValFrequencyType> lhsField;
-            lhsField = this.getRadioFrequency();
-            JAXBElement<ValFrequencyType> rhsField;
-            rhsField = that.getRadioFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioFrequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioFrequency", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
@@ -622,27 +607,40 @@ public class PilotControlledLightingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActivatedGroundLighting();
-            boolean rhsFieldIsSet = that.isSetActivatedGroundLighting();
-            List<GroundLightSystemPropertyType> lhsField;
-            lhsField = (this.isSetActivatedGroundLighting()?this.getActivatedGroundLighting():null);
-            List<GroundLightSystemPropertyType> rhsField;
-            rhsField = (that.isSetActivatedGroundLighting()?that.getActivatedGroundLighting():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activatedGroundLighting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activatedGroundLighting", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<PilotControlledLightingExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<PilotControlledLightingExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetRadioFrequency();
+            boolean rhsFieldIsSet = that.isSetRadioFrequency();
+            JAXBElement<ValFrequencyType> lhsField;
+            lhsField = this.getRadioFrequency();
+            JAXBElement<ValFrequencyType> rhsField;
+            rhsField = that.getRadioFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioFrequency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioFrequency", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetControlledLightIntensity();
+            boolean rhsFieldIsSet = that.isSetControlledLightIntensity();
+            List<LightActivationPropertyType> lhsField;
+            lhsField = (this.isSetControlledLightIntensity() ? this.getControlledLightIntensity() : null);
+            List<LightActivationPropertyType> rhsField;
+            rhsField = (that.isSetControlledLightIntensity() ? that.getControlledLightIntensity() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlledLightIntensity", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlledLightIntensity", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -656,32 +654,6 @@ public class PilotControlledLightingTimeSliceType
             rhsField = that.getDuration();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "duration", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "duration", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetControlledLightIntensity();
-            boolean rhsFieldIsSet = that.isSetControlledLightIntensity();
-            List<LightActivationPropertyType> lhsField;
-            lhsField = (this.isSetControlledLightIntensity()?this.getControlledLightIntensity():null);
-            List<LightActivationPropertyType> rhsField;
-            rhsField = (that.isSetControlledLightIntensity()?that.getControlledLightIntensity():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlledLightIntensity", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlledLightIntensity", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<PilotControlledLightingExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<PilotControlledLightingExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -721,6 +693,32 @@ public class PilotControlledLightingTimeSliceType
             rhsField = that.getIntensitySteps();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intensitySteps", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intensitySteps", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActivatedGroundLighting();
+            boolean rhsFieldIsSet = that.isSetActivatedGroundLighting();
+            List<GroundLightSystemPropertyType> lhsField;
+            lhsField = (this.isSetActivatedGroundLighting() ? this.getActivatedGroundLighting() : null);
+            List<GroundLightSystemPropertyType> rhsField;
+            rhsField = (that.isSetActivatedGroundLighting() ? that.getActivatedGroundLighting() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activatedGroundLighting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activatedGroundLighting", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -776,28 +774,28 @@ public class PilotControlledLightingTimeSliceType
         {
             boolean theFieldIsSet = this.isSetControlledLightIntensity();
             List<LightActivationPropertyType> theField;
-            theField = (this.isSetControlledLightIntensity()?this.getControlledLightIntensity():null);
+            theField = (this.isSetControlledLightIntensity() ? this.getControlledLightIntensity() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "controlledLightIntensity", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetActivatedGroundLighting();
             List<GroundLightSystemPropertyType> theField;
-            theField = (this.isSetActivatedGroundLighting()?this.getActivatedGroundLighting():null);
+            theField = (this.isSetActivatedGroundLighting() ? this.getActivatedGroundLighting() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "activatedGroundLighting", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<PilotControlledLightingExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -846,25 +844,25 @@ public class PilotControlledLightingTimeSliceType
         {
             boolean theFieldIsSet = this.isSetControlledLightIntensity();
             List<LightActivationPropertyType> theField;
-            theField = (this.isSetControlledLightIntensity()?this.getControlledLightIntensity():null);
+            theField = (this.isSetControlledLightIntensity() ? this.getControlledLightIntensity() : null);
             strategy.appendField(locator, this, "controlledLightIntensity", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetActivatedGroundLighting();
             List<GroundLightSystemPropertyType> theField;
-            theField = (this.isSetActivatedGroundLighting()?this.getActivatedGroundLighting():null);
+            theField = (this.isSetActivatedGroundLighting() ? this.getActivatedGroundLighting() : null);
             strategy.appendField(locator, this, "activatedGroundLighting", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<PilotControlledLightingExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

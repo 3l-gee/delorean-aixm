@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -38,39 +38,41 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for DistanceIndicationTimeSlicePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for DistanceIndicationTimeSlicePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="DistanceIndicationTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}DistanceIndicationTimeSlice"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}DistanceIndicationTimeSlice"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DistanceIndicationTimeSlicePropertyType", propOrder = {
-    "distanceIndicationTimeSlice"
-})
-@FilterDef(name = "TPHjidFilter", parameters = {
-    @ParamDef(name = "ids", type = Long.class)
-})
+@XmlType(name = "DistanceIndicationTimeSlicePropertyType", propOrder = {"distanceIndicationTimeSlice"})
+@FilterDef(name = "TPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
 @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "DistanceIndicationTimeSlicePropertyType")
 @Table(name = "distanceindication_tp", schema = "navaids_point")
-public class DistanceIndicationTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
-{
+public class DistanceIndicationTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "DistanceIndicationTimeSlice", required = true)
@@ -84,15 +86,12 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
 
     /**
      * Gets the value of the distanceIndicationTimeSlice property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DistanceIndicationTimeSliceType }
-     *     
+     *
+     * @return possible object is {@link DistanceIndicationTimeSliceType }
+     *
      */
     @OneToOne(targetEntity = DistanceIndicationTimeSliceType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "distanceindicationtimeslice_hjid", referencedColumnName = "hjid")
     public DistanceIndicationTimeSliceType getDistanceIndicationTimeSlice() {
         return distanceIndicationTimeSlice;
@@ -100,11 +99,10 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
 
     /**
      * Sets the value of the distanceIndicationTimeSlice property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DistanceIndicationTimeSliceType }
-     *     
+     *            allowed object is {@link DistanceIndicationTimeSliceType }
+     *
      */
     public void setDistanceIndicationTimeSlice(DistanceIndicationTimeSliceType value) {
         this.distanceIndicationTimeSlice = value;
@@ -112,16 +110,14 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
 
     @Transient
     public boolean isSetDistanceIndicationTimeSlice() {
-        return (this.distanceIndicationTimeSlice!= null);
+        return (this.distanceIndicationTimeSlice != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -135,11 +131,10 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -147,7 +142,7 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -155,12 +150,10 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Long }
-     *     
+     *
+     *
+     * @return possible object is {@link java.lang.Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -171,24 +164,21 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Long }
-     *     
+     *            allowed object is {@link java.lang.Long }
+     *
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Long }
-     *     
+     *
+     *
+     * @return possible object is {@link java.lang.Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -197,12 +187,11 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Long }
-     *     
+     *            allowed object is {@link java.lang.Long }
+     *
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -221,14 +210,28 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final DistanceIndicationTimeSlicePropertyType that = ((DistanceIndicationTimeSlicePropertyType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetDistanceIndicationTimeSlice();
             boolean rhsFieldIsSet = that.isSetDistanceIndicationTimeSlice();
@@ -238,19 +241,6 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
             rhsField = that.getDistanceIndicationTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distanceIndicationTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distanceIndicationTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -281,7 +271,7 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -319,7 +309,7 @@ public class DistanceIndicationTimeSlicePropertyType implements Serializable, Eq
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

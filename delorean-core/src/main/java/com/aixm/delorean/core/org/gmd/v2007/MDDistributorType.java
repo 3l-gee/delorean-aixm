@@ -241,19 +241,6 @@ public class MDDistributorType extends AbstractObjectType implements Serializabl
         }
         final MDDistributorType that = ((MDDistributorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDistributorContact();
-            boolean rhsFieldIsSet = that.isSetDistributorContact();
-            CIResponsiblePartyPropertyType lhsField;
-            lhsField = this.getDistributorContact();
-            CIResponsiblePartyPropertyType rhsField;
-            rhsField = that.getDistributorContact();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorContact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorContact", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDistributorTransferOptions();
             boolean rhsFieldIsSet = that.isSetDistributorTransferOptions();
             List<MDDigitalTransferOptionsPropertyType> lhsField;
@@ -262,6 +249,19 @@ public class MDDistributorType extends AbstractObjectType implements Serializabl
             rhsField = (that.isSetDistributorTransferOptions() ? that.getDistributorTransferOptions() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorTransferOptions", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorTransferOptions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistributorContact();
+            boolean rhsFieldIsSet = that.isSetDistributorContact();
+            CIResponsiblePartyPropertyType lhsField;
+            lhsField = this.getDistributorContact();
+            CIResponsiblePartyPropertyType rhsField;
+            rhsField = that.getDistributorContact();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorContact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorContact", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

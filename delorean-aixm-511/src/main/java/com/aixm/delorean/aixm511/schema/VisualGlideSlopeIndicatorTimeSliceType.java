@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -24,6 +20,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,39 +31,64 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for VisualGlideSlopeIndicatorTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for VisualGlideSlopeIndicatorTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="VisualGlideSlopeIndicatorTimeSliceType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="emergencyLighting" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="intensityLevel" type="{http://www.aixm.aero/schema/5.1.1}CodeLightIntensityType" minOccurs="0"/>
- *         <element name="colour" type="{http://www.aixm.aero/schema/5.1.1}CodeColourType" minOccurs="0"/>
- *         <element name="element" type="{http://www.aixm.aero/schema/5.1.1}LightElementPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}GroundLightingAvailabilityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeVASISType" minOccurs="0"/>
- *         <element name="position" type="{http://www.aixm.aero/schema/5.1.1}CodeSideType" minOccurs="0"/>
- *         <element name="numberBox" type="{http://www.aixm.aero/schema/5.1.1}NoNumberType" minOccurs="0"/>
- *         <element name="portable" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="slopeAngle" type="{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
- *         <element name="minimumEyeHeightOverThreshold" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="runwayDirection" type="{http://www.aixm.aero/schema/5.1.1}RunwayDirectionPropertyType" minOccurs="0"/>
+ *         <element name="emergencyLighting" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="intensityLevel" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeLightIntensityType" minOccurs="0"/>
+ *         <element name="colour" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeColourType" minOccurs="0"/>
+ *         <element name="element" type=
+"{http://www.aixm.aero/schema/5.1.1}LightElementPropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="availability" type=
+"{http://www.aixm.aero/schema/5.1.1}GroundLightingAvailabilityPropertyType" maxOccurs
+="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="type" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeVASISType" minOccurs="0"/>
+ *         <element name="position" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeSideType" minOccurs="0"/>
+ *         <element name="numberBox" type=
+"{http://www.aixm.aero/schema/5.1.1}NoNumberType" minOccurs="0"/>
+ *         <element name="portable" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="slopeAngle" type=
+"{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
+ *         <element name="minimumEyeHeightOverThreshold" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="runwayDirection" type=
+"{http://www.aixm.aero/schema/5.1.1}RunwayDirectionPropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractVisualGlideSlopeIndicatorExtension"/>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractGroundLightSystemExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractVisualGlideSlopeIndicatorExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractGroundLightSystemExtension"/>
  *                 </choice>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -73,32 +98,16 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "VisualGlideSlopeIndicatorTimeSliceType", propOrder = {
-    "emergencyLighting",
-    "intensityLevel",
-    "colour",
-    "element",
-    "availability",
-    "annotation",
-    "type",
-    "position",
-    "numberBox",
-    "portable",
-    "slopeAngle",
-    "minimumEyeHeightOverThreshold",
-    "runwayDirection",
-    "extension"
-})
+@XmlType(name = "VisualGlideSlopeIndicatorTimeSliceType", propOrder = {"emergencyLighting", "intensityLevel", "colour",
+        "element", "availability", "annotation", "type", "position", "numberBox", "portable", "slopeAngle",
+        "minimumEyeHeightOverThreshold", "runwayDirection", "extension"})
 @Entity(name = "VisualGlideSlopeIndicatorTimeSliceType")
 @Table(name = "visualglideslopeindicator_t", schema = "airport_heliport")
-public class VisualGlideSlopeIndicatorTimeSliceType
-    extends AbstractAIXMTimeSliceType
-    implements Serializable
-{
+public class VisualGlideSlopeIndicatorTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "emergencyLighting", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -131,11 +140,10 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Gets the value of the emergencyLighting property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getEmergencyLighting() {
@@ -144,11 +152,11 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Sets the value of the emergencyLighting property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setEmergencyLighting(JAXBElement<CodeYesNoType> value) {
         this.emergencyLighting = value;
@@ -156,16 +164,15 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetEmergencyLighting() {
-        return (this.emergencyLighting!= null);
+        return (this.emergencyLighting != null);
     }
 
     /**
      * Gets the value of the intensityLevel property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeLightIntensityType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeLightIntensityType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeLightIntensityType> getIntensityLevel() {
@@ -174,11 +181,11 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Sets the value of the intensityLevel property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeLightIntensityType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeLightIntensityType }{@code >}
+     *
      */
     public void setIntensityLevel(JAXBElement<CodeLightIntensityType> value) {
         this.intensityLevel = value;
@@ -186,16 +193,15 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetIntensityLevel() {
-        return (this.intensityLevel!= null);
+        return (this.intensityLevel != null);
     }
 
     /**
      * Gets the value of the colour property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeColourType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeColourType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeColourType> getColour() {
@@ -204,11 +210,11 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Sets the value of the colour property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeColourType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeColourType }{@code >}
+     *
      */
     public void setColour(JAXBElement<CodeColourType> value) {
         this.colour = value;
@@ -216,39 +222,36 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetColour() {
-        return (this.colour!= null);
+        return (this.colour != null);
     }
 
     /**
      * Gets the value of the element property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the element property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the element property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getElement().add(newItem);
+     * getElement().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LightElementPropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = LightElementPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "visualglideslopeindicator_t_element_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "visualglideslopeindicator_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "element_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = LightElementPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "vslgldslpindctrtmslctp_elmnt_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "visualglideslopeindicator_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "element_hjid", referencedColumnName = "hjid")})
     public List<LightElementPropertyType> getElement() {
         if (element == null) {
             element = new ArrayList<>();
@@ -257,8 +260,8 @@ public class VisualGlideSlopeIndicatorTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setElement(List<LightElementPropertyType> element) {
         this.element = element;
@@ -266,7 +269,7 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetElement() {
-        return ((this.element!= null)&&(!this.element.isEmpty()));
+        return ((this.element != null) && (!this.element.isEmpty()));
     }
 
     public void unsetElement() {
@@ -275,34 +278,32 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Gets the value of the availability property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the availability property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the availability property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAvailability().add(newItem);
+     * getAvailability().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link GroundLightingAvailabilityPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = GroundLightingAvailabilityPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "visualglideslopeindicator_t_availability_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "visualglideslopeindicator_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "vslgldslpindctrtmslctp_avlblt_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "visualglideslopeindicator_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")})
     public List<GroundLightingAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -311,8 +312,8 @@ public class VisualGlideSlopeIndicatorTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAvailability(List<GroundLightingAvailabilityPropertyType> availability) {
         this.availability = availability;
@@ -320,7 +321,7 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability!= null)&&(!this.availability.isEmpty()));
+        return ((this.availability != null) && (!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -329,34 +330,31 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "visualglideslopeindicator_t_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "visualglideslopeindicator_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "vslgldslpindctrtmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "visualglideslopeindicator_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -365,8 +363,8 @@ public class VisualGlideSlopeIndicatorTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -374,7 +372,7 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -383,11 +381,10 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeVASISType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeVASISType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeVASISType> getType() {
@@ -396,11 +393,11 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Sets the value of the type property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeVASISType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeVASISType }{@code >}
+     *
      */
     public void setType(JAXBElement<CodeVASISType> value) {
         this.type = value;
@@ -408,16 +405,15 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetType() {
-        return (this.type!= null);
+        return (this.type != null);
     }
 
     /**
      * Gets the value of the position property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeSideType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeSideType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeSideType> getPosition() {
@@ -426,11 +422,11 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Sets the value of the position property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeSideType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link CodeSideType
+     *            }{@code >}
+     *
      */
     public void setPosition(JAXBElement<CodeSideType> value) {
         this.position = value;
@@ -438,16 +434,15 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetPosition() {
-        return (this.position!= null);
+        return (this.position != null);
     }
 
     /**
      * Gets the value of the numberBox property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link NoNumberType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<NoNumberType> getNumberBox() {
@@ -456,11 +451,11 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Sets the value of the numberBox property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link NoNumberType
+     *            }{@code >}
+     *
      */
     public void setNumberBox(JAXBElement<NoNumberType> value) {
         this.numberBox = value;
@@ -468,16 +463,15 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetNumberBox() {
-        return (this.numberBox!= null);
+        return (this.numberBox != null);
     }
 
     /**
      * Gets the value of the portable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getPortable() {
@@ -486,11 +480,11 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Sets the value of the portable property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setPortable(JAXBElement<CodeYesNoType> value) {
         this.portable = value;
@@ -498,16 +492,15 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetPortable() {
-        return (this.portable!= null);
+        return (this.portable != null);
     }
 
     /**
      * Gets the value of the slopeAngle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValAngleType> getSlopeAngle() {
@@ -516,11 +509,11 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Sets the value of the slopeAngle property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
+     *            }{@code >}
+     *
      */
     public void setSlopeAngle(JAXBElement<ValAngleType> value) {
         this.slopeAngle = value;
@@ -528,16 +521,15 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetSlopeAngle() {
-        return (this.slopeAngle!= null);
+        return (this.slopeAngle != null);
     }
 
     /**
      * Gets the value of the minimumEyeHeightOverThreshold property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getMinimumEyeHeightOverThreshold() {
@@ -546,11 +538,11 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Sets the value of the minimumEyeHeightOverThreshold property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setMinimumEyeHeightOverThreshold(JAXBElement<ValDistanceVerticalType> value) {
         this.minimumEyeHeightOverThreshold = value;
@@ -558,16 +550,15 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetMinimumEyeHeightOverThreshold() {
-        return (this.minimumEyeHeightOverThreshold!= null);
+        return (this.minimumEyeHeightOverThreshold != null);
     }
 
     /**
      * Gets the value of the runwayDirection property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RunwayDirectionPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link RunwayDirectionPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<RunwayDirectionPropertyType> getRunwayDirection() {
@@ -576,11 +567,11 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     /**
      * Sets the value of the runwayDirection property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RunwayDirectionPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link RunwayDirectionPropertyType }{@code >}
+     *
      */
     public void setRunwayDirection(JAXBElement<RunwayDirectionPropertyType> value) {
         this.runwayDirection = value;
@@ -588,35 +579,35 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetRunwayDirection() {
-        return (this.runwayDirection!= null);
+        return (this.runwayDirection != null);
     }
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link VisualGlideSlopeIndicatorExtensionType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = VisualGlideSlopeIndicatorExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "visualglideslopeindicator_e_hjid", referencedColumnName = "hjid")
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "visualglideslopeindicatore_hjid", referencedColumnName = "hjid")
     public List<VisualGlideSlopeIndicatorExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -625,8 +616,8 @@ public class VisualGlideSlopeIndicatorTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<VisualGlideSlopeIndicatorExtensionType> extension) {
         this.extension = extension;
@@ -634,7 +625,7 @@ public class VisualGlideSlopeIndicatorTimeSliceType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -642,142 +633,143 @@ public class VisualGlideSlopeIndicatorTimeSliceType
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "emergencylighting")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "emergencylighting_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "emergencylighting")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "emergencylightingnilreason"))})
     public CodeYesNoType getEmergencyLightingItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getEmergencyLighting());
     }
 
     public void setEmergencyLightingItem(CodeYesNoType target) {
-        setEmergencyLighting(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "emergencyLighting"), VisualGlideSlopeIndicatorTimeSliceType.class, target));
+        setEmergencyLighting(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "emergencyLighting"),
+                VisualGlideSlopeIndicatorTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "intensitylevel")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "intensitylevel_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "intensitylevel")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "intensitylevelnilreason"))})
     public CodeLightIntensityType getIntensityLevelItem() {
         return XmlAdapterUtils.unmarshallSource(CodeLightIntensityType.class, this.getIntensityLevel());
     }
 
     public void setIntensityLevelItem(CodeLightIntensityType target) {
-        setIntensityLevel(XmlAdapterUtils.marshallJAXBElement(CodeLightIntensityType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intensityLevel"), VisualGlideSlopeIndicatorTimeSliceType.class, target));
+        setIntensityLevel(XmlAdapterUtils.marshallJAXBElement(CodeLightIntensityType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "intensityLevel"),
+                VisualGlideSlopeIndicatorTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "colour")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "colour_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "colour")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "colournilreason"))})
     public CodeColourType getColourItem() {
         return XmlAdapterUtils.unmarshallSource(CodeColourType.class, this.getColour());
     }
 
     public void setColourItem(CodeColourType target) {
-        setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class, new QName("http://www.aixm.aero/schema/5.1.1", "colour"), VisualGlideSlopeIndicatorTimeSliceType.class, target));
+        setColour(XmlAdapterUtils.marshallJAXBElement(CodeColourType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "colour"), VisualGlideSlopeIndicatorTimeSliceType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "type")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
     public CodeVASISType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVASISType.class, this.getType());
     }
 
     public void setTypeItem(CodeVASISType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeVASISType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), VisualGlideSlopeIndicatorTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeVASISType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "type"), VisualGlideSlopeIndicatorTimeSliceType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "position")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "position_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "position")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "positionnilreason"))})
     public CodeSideType getPositionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeSideType.class, this.getPosition());
     }
 
     public void setPositionItem(CodeSideType target) {
-        setPosition(XmlAdapterUtils.marshallJAXBElement(CodeSideType.class, new QName("http://www.aixm.aero/schema/5.1.1", "position"), VisualGlideSlopeIndicatorTimeSliceType.class, target));
+        setPosition(XmlAdapterUtils.marshallJAXBElement(CodeSideType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "position"),
+                VisualGlideSlopeIndicatorTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "numberbox")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "numberbox_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "numberbox")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "numberboxnilreason"))})
     public NoNumberType getNumberBoxItem() {
         return XmlAdapterUtils.unmarshallSource(NoNumberType.class, this.getNumberBox());
     }
 
     public void setNumberBoxItem(NoNumberType target) {
-        setNumberBox(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class, new QName("http://www.aixm.aero/schema/5.1.1", "numberBox"), VisualGlideSlopeIndicatorTimeSliceType.class, target));
+        setNumberBox(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "numberBox"),
+                VisualGlideSlopeIndicatorTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "portable")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "portable_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "portable")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "portablenilreason"))})
     public CodeYesNoType getPortableItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getPortable());
     }
 
     public void setPortableItem(CodeYesNoType target) {
-        setPortable(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "portable"), VisualGlideSlopeIndicatorTimeSliceType.class, target));
+        setPortable(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "portable"),
+                VisualGlideSlopeIndicatorTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "slopeangle")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "slopeangle_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "slopeangle", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "slopeanglenilreason"))})
     public ValAngleType getSlopeAngleItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getSlopeAngle());
     }
 
     public void setSlopeAngleItem(ValAngleType target) {
-        setSlopeAngle(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.1.1", "slopeAngle"), VisualGlideSlopeIndicatorTimeSliceType.class, target));
+        setSlopeAngle(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "slopeAngle"),
+                VisualGlideSlopeIndicatorTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "minimumeyeheightoverthreshold")),
-        @AttributeOverride(name = "uom", column = @Column(name = "minimumeyeheightoverthreshold_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "minimumeyeheightoverthreshold_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "minimumeyeheightoverthreshold", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "minimumeyeheightoverthresholduom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "minimumeyeheightoverthresholdnilreason"))})
     public ValDistanceVerticalType getMinimumEyeHeightOverThresholdItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getMinimumEyeHeightOverThreshold());
     }
 
     public void setMinimumEyeHeightOverThresholdItem(ValDistanceVerticalType target) {
-        setMinimumEyeHeightOverThreshold(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "minimumEyeHeightOverThreshold"), VisualGlideSlopeIndicatorTimeSliceType.class, target));
+        setMinimumEyeHeightOverThreshold(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "minimumEyeHeightOverThreshold"),
+                VisualGlideSlopeIndicatorTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = RunwayDirectionPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "visualglideslopeindicator_t_runwaydirection_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "visualglideslopeindicator_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "runwaydirection_hjid", referencedColumnName = "hjid")
-    })
+    @OneToOne(targetEntity = RunwayDirectionPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "vslgldslpindctrtmslctp_rnwdrctn_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "visualglideslopeindicator_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "runwaydirection_hjid", referencedColumnName = "hjid")})
     public RunwayDirectionPropertyType getRunwayDirectionItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayDirectionPropertyType.class, this.getRunwayDirection());
     }
 
     public void setRunwayDirectionItem(RunwayDirectionPropertyType target) {
-        setRunwayDirection(XmlAdapterUtils.marshallJAXBElement(RunwayDirectionPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "runwayDirection"), VisualGlideSlopeIndicatorTimeSliceType.class, target));
+        setRunwayDirection(XmlAdapterUtils.marshallJAXBElement(RunwayDirectionPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "runwayDirection"),
+                VisualGlideSlopeIndicatorTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -788,79 +780,14 @@ public class VisualGlideSlopeIndicatorTimeSliceType
         }
         final VisualGlideSlopeIndicatorTimeSliceType that = ((VisualGlideSlopeIndicatorTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetColour();
-            boolean rhsFieldIsSet = that.isSetColour();
-            JAXBElement<CodeColourType> lhsField;
-            lhsField = this.getColour();
-            JAXBElement<CodeColourType> rhsField;
-            rhsField = that.getColour();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRunwayDirection();
-            boolean rhsFieldIsSet = that.isSetRunwayDirection();
-            JAXBElement<RunwayDirectionPropertyType> lhsField;
-            lhsField = this.getRunwayDirection();
-            JAXBElement<RunwayDirectionPropertyType> rhsField;
-            rhsField = that.getRunwayDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPortable();
-            boolean rhsFieldIsSet = that.isSetPortable();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getPortable();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getPortable();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "portable", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "portable", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSlopeAngle();
-            boolean rhsFieldIsSet = that.isSetSlopeAngle();
-            JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getSlopeAngle();
-            JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getSlopeAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slopeAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slopeAngle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeVASISType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeVASISType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<GroundLightingAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<GroundLightingAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetNumberBox();
+            boolean rhsFieldIsSet = that.isSetNumberBox();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getNumberBox();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getNumberBox();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberBox", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberBox", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -879,19 +806,6 @@ public class VisualGlideSlopeIndicatorTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetIntensityLevel();
             boolean rhsFieldIsSet = that.isSetIntensityLevel();
             JAXBElement<CodeLightIntensityType> lhsField;
@@ -905,14 +819,14 @@ public class VisualGlideSlopeIndicatorTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumEyeHeightOverThreshold();
-            boolean rhsFieldIsSet = that.isSetMinimumEyeHeightOverThreshold();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumEyeHeightOverThreshold();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumEyeHeightOverThreshold();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumEyeHeightOverThreshold", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumEyeHeightOverThreshold", rhsField);
+            boolean lhsFieldIsSet = this.isSetPortable();
+            boolean rhsFieldIsSet = that.isSetPortable();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getPortable();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getPortable();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "portable", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "portable", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -921,9 +835,9 @@ public class VisualGlideSlopeIndicatorTimeSliceType
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<VisualGlideSlopeIndicatorExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
             List<VisualGlideSlopeIndicatorExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -944,14 +858,53 @@ public class VisualGlideSlopeIndicatorTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNumberBox();
-            boolean rhsFieldIsSet = that.isSetNumberBox();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getNumberBox();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getNumberBox();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberBox", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberBox", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetColour();
+            boolean rhsFieldIsSet = that.isSetColour();
+            JAXBElement<CodeColourType> lhsField;
+            lhsField = this.getColour();
+            JAXBElement<CodeColourType> rhsField;
+            rhsField = that.getColour();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<GroundLightingAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
+            List<GroundLightingAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRunwayDirection();
+            boolean rhsFieldIsSet = that.isSetRunwayDirection();
+            JAXBElement<RunwayDirectionPropertyType> lhsField;
+            lhsField = this.getRunwayDirection();
+            JAXBElement<RunwayDirectionPropertyType> rhsField;
+            rhsField = that.getRunwayDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -960,11 +913,52 @@ public class VisualGlideSlopeIndicatorTimeSliceType
             boolean lhsFieldIsSet = this.isSetElement();
             boolean rhsFieldIsSet = that.isSetElement();
             List<LightElementPropertyType> lhsField;
-            lhsField = (this.isSetElement()?this.getElement():null);
+            lhsField = (this.isSetElement() ? this.getElement() : null);
             List<LightElementPropertyType> rhsField;
-            rhsField = (that.isSetElement()?that.getElement():null);
+            rhsField = (that.isSetElement() ? that.getElement() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeVASISType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeVASISType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSlopeAngle();
+            boolean rhsFieldIsSet = that.isSetSlopeAngle();
+            JAXBElement<ValAngleType> lhsField;
+            lhsField = this.getSlopeAngle();
+            JAXBElement<ValAngleType> rhsField;
+            rhsField = that.getSlopeAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slopeAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slopeAngle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumEyeHeightOverThreshold();
+            boolean rhsFieldIsSet = that.isSetMinimumEyeHeightOverThreshold();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumEyeHeightOverThreshold();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumEyeHeightOverThreshold();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumEyeHeightOverThreshold",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumEyeHeightOverThreshold",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -999,21 +993,21 @@ public class VisualGlideSlopeIndicatorTimeSliceType
         {
             boolean theFieldIsSet = this.isSetElement();
             List<LightElementPropertyType> theField;
-            theField = (this.isSetElement()?this.getElement():null);
+            theField = (this.isSetElement() ? this.getElement() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "element", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<GroundLightingAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability()?this.getAvailability():null);
+            theField = (this.isSetAvailability() ? this.getAvailability() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1069,7 +1063,7 @@ public class VisualGlideSlopeIndicatorTimeSliceType
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<VisualGlideSlopeIndicatorExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1100,19 +1094,19 @@ public class VisualGlideSlopeIndicatorTimeSliceType
         {
             boolean theFieldIsSet = this.isSetElement();
             List<LightElementPropertyType> theField;
-            theField = (this.isSetElement()?this.getElement():null);
+            theField = (this.isSetElement() ? this.getElement() : null);
             strategy.appendField(locator, this, "element", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<GroundLightingAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability()?this.getAvailability():null);
+            theField = (this.isSetAvailability() ? this.getAvailability() : null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -1160,7 +1154,7 @@ public class VisualGlideSlopeIndicatorTimeSliceType
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<VisualGlideSlopeIndicatorExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

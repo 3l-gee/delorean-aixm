@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,42 +12,45 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for SafeAltitudeAreaSectorPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for SafeAltitudeAreaSectorPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="SafeAltitudeAreaSectorPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}SafeAltitudeAreaSector"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}SafeAltitudeAreaSector"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SafeAltitudeAreaSectorPropertyType", propOrder = {
-    "safeAltitudeAreaSector"
-})
+@XmlType(name = "SafeAltitudeAreaSectorPropertyType", propOrder = {"safeAltitudeAreaSector"})
 @Entity(name = "SafeAltitudeAreaSectorPropertyType")
 @Table(name = "safealtitudeareasector_p", schema = "procedure")
-public class SafeAltitudeAreaSectorPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class SafeAltitudeAreaSectorPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "SafeAltitudeAreaSector", required = true)
@@ -56,15 +58,11 @@ public class SafeAltitudeAreaSectorPropertyType
 
     /**
      * Gets the value of the safeAltitudeAreaSector property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SafeAltitudeAreaSectorType }
-     *     
+     *
+     * @return possible object is {@link SafeAltitudeAreaSectorType }
+     *
      */
-    @OneToOne(targetEntity = SafeAltitudeAreaSectorType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = SafeAltitudeAreaSectorType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "safealtitudeareasector_hjid", referencedColumnName = "hjid")
     public SafeAltitudeAreaSectorType getSafeAltitudeAreaSector() {
         return safeAltitudeAreaSector;
@@ -72,11 +70,10 @@ public class SafeAltitudeAreaSectorPropertyType
 
     /**
      * Sets the value of the safeAltitudeAreaSector property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link SafeAltitudeAreaSectorType }
-     *     
+     *            allowed object is {@link SafeAltitudeAreaSectorType }
+     *
      */
     public void setSafeAltitudeAreaSector(SafeAltitudeAreaSectorType value) {
         this.safeAltitudeAreaSector = value;
@@ -84,12 +81,13 @@ public class SafeAltitudeAreaSectorPropertyType
 
     @Transient
     public boolean isSetSafeAltitudeAreaSector() {
-        return (this.safeAltitudeAreaSector!= null);
+        return (this.safeAltitudeAreaSector != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

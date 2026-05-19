@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -24,6 +20,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,56 +31,101 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for RouteSegmentTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RouteSegmentTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RouteSegmentTimeSliceType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="level" type="{http://www.aixm.aero/schema/5.1.1}CodeLevelType" minOccurs="0"/>
- *         <element name="upperLimit" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="upperLimitReference" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="lowerLimit" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="lowerLimitReference" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="minimumObstacleClearanceAltitude" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="pathType" type="{http://www.aixm.aero/schema/5.1.1}CodeRouteSegmentPathType" minOccurs="0"/>
- *         <element name="trueTrack" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="magneticTrack" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="reverseTrueTrack" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="reverseMagneticTrack" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="length" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="widthLeft" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="widthRight" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="turnDirection" type="{http://www.aixm.aero/schema/5.1.1}CodeDirectionTurnType" minOccurs="0"/>
- *         <element name="signalGap" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="minimumEnrouteAltitude" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="minimumCrossingAtEnd" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="minimumCrossingAtEndReference" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="maximumCrossingAtEnd" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="maximumCrossingAtEndReference" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="navigationType" type="{http://www.aixm.aero/schema/5.1.1}CodeRouteNavigationType" minOccurs="0"/>
- *         <element name="requiredNavigationPerformance" type="{http://www.aixm.aero/schema/5.1.1}CodeRNPType" minOccurs="0"/>
- *         <element name="designatorSuffix" type="{http://www.aixm.aero/schema/5.1.1}CodeRouteDesignatorSuffixType" minOccurs="0"/>
- *         <element name="start" type="{http://www.aixm.aero/schema/5.1.1}EnRouteSegmentPointPropertyType" minOccurs="0"/>
- *         <element name="routeFormed" type="{http://www.aixm.aero/schema/5.1.1}RoutePropertyType" minOccurs="0"/>
- *         <element name="evaluationArea" type="{http://www.aixm.aero/schema/5.1.1}ObstacleAssessmentAreaPropertyType" minOccurs="0"/>
- *         <element name="curveExtent" type="{http://www.aixm.aero/schema/5.1.1}CurvePropertyType" minOccurs="0"/>
- *         <element name="end" type="{http://www.aixm.aero/schema/5.1.1}EnRouteSegmentPointPropertyType" minOccurs="0"/>
- *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}RouteAvailabilityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="level" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeLevelType" minOccurs="0"/>
+ *         <element name="upperLimit" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="upperLimitReference" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="lowerLimit" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="lowerLimitReference" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="minimumObstacleClearanceAltitude" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="pathType" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeRouteSegmentPathType" minOccurs="0"/>
+ *         <element name="trueTrack" type=
+"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="magneticTrack" type=
+"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="reverseTrueTrack" type=
+"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="reverseMagneticTrack" type=
+"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="length" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="widthLeft" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="widthRight" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="turnDirection" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeDirectionTurnType" minOccurs="0"/>
+ *         <element name="signalGap" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="minimumEnrouteAltitude" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="minimumCrossingAtEnd" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="minimumCrossingAtEndReference" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="maximumCrossingAtEnd" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="maximumCrossingAtEndReference" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="navigationType" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeRouteNavigationType" minOccurs="0"/>
+ *         <element name="requiredNavigationPerformance" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeRNPType" minOccurs="0"/>
+ *         <element name="designatorSuffix" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeRouteDesignatorSuffixType" minOccurs=
+"0"/>
+ *         <element name="start" type=
+"{http://www.aixm.aero/schema/5.1.1}EnRouteSegmentPointPropertyType" minOccurs=
+"0"/>
+ *         <element name="routeFormed" type=
+"{http://www.aixm.aero/schema/5.1.1}RoutePropertyType" minOccurs="0"/>
+ *         <element name="evaluationArea" type=
+"{http://www.aixm.aero/schema/5.1.1}ObstacleAssessmentAreaPropertyType" minOccurs
+="0"/>
+ *         <element name="curveExtent" type=
+"{http://www.aixm.aero/schema/5.1.1}CurvePropertyType" minOccurs="0"/>
+ *         <element name="end" type=
+"{http://www.aixm.aero/schema/5.1.1}EnRouteSegmentPointPropertyType" minOccurs=
+"0"/>
+ *         <element name="availability" type=
+"{http://www.aixm.aero/schema/5.1.1}RouteAvailabilityPropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractRouteSegmentExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractRouteSegmentExtension"/>
  *                 </sequence>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -90,50 +135,19 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RouteSegmentTimeSliceType", propOrder = {
-    "level",
-    "upperLimit",
-    "upperLimitReference",
-    "lowerLimit",
-    "lowerLimitReference",
-    "minimumObstacleClearanceAltitude",
-    "pathType",
-    "trueTrack",
-    "magneticTrack",
-    "reverseTrueTrack",
-    "reverseMagneticTrack",
-    "length",
-    "widthLeft",
-    "widthRight",
-    "turnDirection",
-    "signalGap",
-    "minimumEnrouteAltitude",
-    "minimumCrossingAtEnd",
-    "minimumCrossingAtEndReference",
-    "maximumCrossingAtEnd",
-    "maximumCrossingAtEndReference",
-    "navigationType",
-    "requiredNavigationPerformance",
-    "designatorSuffix",
-    "start",
-    "routeFormed",
-    "evaluationArea",
-    "curveExtent",
-    "end",
-    "availability",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "RouteSegmentTimeSliceType", propOrder = {"level", "upperLimit", "upperLimitReference", "lowerLimit",
+        "lowerLimitReference", "minimumObstacleClearanceAltitude", "pathType", "trueTrack", "magneticTrack",
+        "reverseTrueTrack", "reverseMagneticTrack", "length", "widthLeft", "widthRight", "turnDirection", "signalGap",
+        "minimumEnrouteAltitude", "minimumCrossingAtEnd", "minimumCrossingAtEndReference", "maximumCrossingAtEnd",
+        "maximumCrossingAtEndReference", "navigationType", "requiredNavigationPerformance", "designatorSuffix", "start",
+        "routeFormed", "evaluationArea", "curveExtent", "end", "availability", "annotation", "extension"})
 @Entity(name = "RouteSegmentTimeSliceType")
 @Table(name = "routesegment_t", schema = "route")
-public class RouteSegmentTimeSliceType
-    extends AbstractAIXMTimeSliceType
-    implements Serializable
-{
+public class RouteSegmentTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "level", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -202,11 +216,10 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Gets the value of the level property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeLevelType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeLevelType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeLevelType> getLevel() {
@@ -215,11 +228,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the level property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeLevelType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeLevelType }{@code >}
+     *
      */
     public void setLevel(JAXBElement<CodeLevelType> value) {
         this.level = value;
@@ -227,16 +240,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetLevel() {
-        return (this.level!= null);
+        return (this.level != null);
     }
 
     /**
      * Gets the value of the upperLimit property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getUpperLimit() {
@@ -245,11 +257,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the upperLimit property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setUpperLimit(JAXBElement<ValDistanceVerticalType> value) {
         this.upperLimit = value;
@@ -257,16 +269,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetUpperLimit() {
-        return (this.upperLimit!= null);
+        return (this.upperLimit != null);
     }
 
     /**
      * Gets the value of the upperLimitReference property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getUpperLimitReference() {
@@ -275,11 +286,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the upperLimitReference property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *
      */
     public void setUpperLimitReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.upperLimitReference = value;
@@ -287,16 +298,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetUpperLimitReference() {
-        return (this.upperLimitReference!= null);
+        return (this.upperLimitReference != null);
     }
 
     /**
      * Gets the value of the lowerLimit property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getLowerLimit() {
@@ -305,11 +315,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the lowerLimit property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setLowerLimit(JAXBElement<ValDistanceVerticalType> value) {
         this.lowerLimit = value;
@@ -317,16 +327,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetLowerLimit() {
-        return (this.lowerLimit!= null);
+        return (this.lowerLimit != null);
     }
 
     /**
      * Gets the value of the lowerLimitReference property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getLowerLimitReference() {
@@ -335,11 +344,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the lowerLimitReference property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *
      */
     public void setLowerLimitReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.lowerLimitReference = value;
@@ -347,16 +356,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetLowerLimitReference() {
-        return (this.lowerLimitReference!= null);
+        return (this.lowerLimitReference != null);
     }
 
     /**
      * Gets the value of the minimumObstacleClearanceAltitude property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getMinimumObstacleClearanceAltitude() {
@@ -365,11 +373,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the minimumObstacleClearanceAltitude property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setMinimumObstacleClearanceAltitude(JAXBElement<ValDistanceVerticalType> value) {
         this.minimumObstacleClearanceAltitude = value;
@@ -377,16 +385,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetMinimumObstacleClearanceAltitude() {
-        return (this.minimumObstacleClearanceAltitude!= null);
+        return (this.minimumObstacleClearanceAltitude != null);
     }
 
     /**
      * Gets the value of the pathType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteSegmentPathType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeRouteSegmentPathType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRouteSegmentPathType> getPathType() {
@@ -395,11 +402,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the pathType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteSegmentPathType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeRouteSegmentPathType }{@code >}
+     *
      */
     public void setPathType(JAXBElement<CodeRouteSegmentPathType> value) {
         this.pathType = value;
@@ -407,16 +414,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetPathType() {
-        return (this.pathType!= null);
+        return (this.pathType != null);
     }
 
     /**
      * Gets the value of the trueTrack property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValBearingType> getTrueTrack() {
@@ -425,11 +431,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the trueTrack property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValBearingType }{@code >}
+     *
      */
     public void setTrueTrack(JAXBElement<ValBearingType> value) {
         this.trueTrack = value;
@@ -437,16 +443,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetTrueTrack() {
-        return (this.trueTrack!= null);
+        return (this.trueTrack != null);
     }
 
     /**
      * Gets the value of the magneticTrack property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValBearingType> getMagneticTrack() {
@@ -455,11 +460,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the magneticTrack property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValBearingType }{@code >}
+     *
      */
     public void setMagneticTrack(JAXBElement<ValBearingType> value) {
         this.magneticTrack = value;
@@ -467,16 +472,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetMagneticTrack() {
-        return (this.magneticTrack!= null);
+        return (this.magneticTrack != null);
     }
 
     /**
      * Gets the value of the reverseTrueTrack property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValBearingType> getReverseTrueTrack() {
@@ -485,11 +489,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the reverseTrueTrack property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValBearingType }{@code >}
+     *
      */
     public void setReverseTrueTrack(JAXBElement<ValBearingType> value) {
         this.reverseTrueTrack = value;
@@ -497,16 +501,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetReverseTrueTrack() {
-        return (this.reverseTrueTrack!= null);
+        return (this.reverseTrueTrack != null);
     }
 
     /**
      * Gets the value of the reverseMagneticTrack property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValBearingType> getReverseMagneticTrack() {
@@ -515,11 +518,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the reverseMagneticTrack property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValBearingType }{@code >}
+     *
      */
     public void setReverseMagneticTrack(JAXBElement<ValBearingType> value) {
         this.reverseMagneticTrack = value;
@@ -527,16 +530,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetReverseMagneticTrack() {
-        return (this.reverseMagneticTrack!= null);
+        return (this.reverseMagneticTrack != null);
     }
 
     /**
      * Gets the value of the length property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceType> getLength() {
@@ -545,11 +547,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the length property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     public void setLength(JAXBElement<ValDistanceType> value) {
         this.length = value;
@@ -557,16 +559,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetLength() {
-        return (this.length!= null);
+        return (this.length != null);
     }
 
     /**
      * Gets the value of the widthLeft property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceType> getWidthLeft() {
@@ -575,11 +576,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the widthLeft property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     public void setWidthLeft(JAXBElement<ValDistanceType> value) {
         this.widthLeft = value;
@@ -587,16 +588,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetWidthLeft() {
-        return (this.widthLeft!= null);
+        return (this.widthLeft != null);
     }
 
     /**
      * Gets the value of the widthRight property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceType> getWidthRight() {
@@ -605,11 +605,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the widthRight property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     public void setWidthRight(JAXBElement<ValDistanceType> value) {
         this.widthRight = value;
@@ -617,16 +617,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetWidthRight() {
-        return (this.widthRight!= null);
+        return (this.widthRight != null);
     }
 
     /**
      * Gets the value of the turnDirection property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeDirectionTurnType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeDirectionTurnType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeDirectionTurnType> getTurnDirection() {
@@ -635,11 +634,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the turnDirection property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeDirectionTurnType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeDirectionTurnType }{@code >}
+     *
      */
     public void setTurnDirection(JAXBElement<CodeDirectionTurnType> value) {
         this.turnDirection = value;
@@ -647,16 +646,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetTurnDirection() {
-        return (this.turnDirection!= null);
+        return (this.turnDirection != null);
     }
 
     /**
      * Gets the value of the signalGap property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getSignalGap() {
@@ -665,11 +663,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the signalGap property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setSignalGap(JAXBElement<CodeYesNoType> value) {
         this.signalGap = value;
@@ -677,16 +675,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetSignalGap() {
-        return (this.signalGap!= null);
+        return (this.signalGap != null);
     }
 
     /**
      * Gets the value of the minimumEnrouteAltitude property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getMinimumEnrouteAltitude() {
@@ -695,11 +692,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the minimumEnrouteAltitude property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setMinimumEnrouteAltitude(JAXBElement<ValDistanceVerticalType> value) {
         this.minimumEnrouteAltitude = value;
@@ -707,16 +704,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetMinimumEnrouteAltitude() {
-        return (this.minimumEnrouteAltitude!= null);
+        return (this.minimumEnrouteAltitude != null);
     }
 
     /**
      * Gets the value of the minimumCrossingAtEnd property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getMinimumCrossingAtEnd() {
@@ -725,11 +721,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the minimumCrossingAtEnd property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setMinimumCrossingAtEnd(JAXBElement<ValDistanceVerticalType> value) {
         this.minimumCrossingAtEnd = value;
@@ -737,16 +733,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetMinimumCrossingAtEnd() {
-        return (this.minimumCrossingAtEnd!= null);
+        return (this.minimumCrossingAtEnd != null);
     }
 
     /**
      * Gets the value of the minimumCrossingAtEndReference property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getMinimumCrossingAtEndReference() {
@@ -755,11 +750,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the minimumCrossingAtEndReference property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *
      */
     public void setMinimumCrossingAtEndReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.minimumCrossingAtEndReference = value;
@@ -767,16 +762,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetMinimumCrossingAtEndReference() {
-        return (this.minimumCrossingAtEndReference!= null);
+        return (this.minimumCrossingAtEndReference != null);
     }
 
     /**
      * Gets the value of the maximumCrossingAtEnd property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getMaximumCrossingAtEnd() {
@@ -785,11 +779,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the maximumCrossingAtEnd property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setMaximumCrossingAtEnd(JAXBElement<ValDistanceVerticalType> value) {
         this.maximumCrossingAtEnd = value;
@@ -797,16 +791,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetMaximumCrossingAtEnd() {
-        return (this.maximumCrossingAtEnd!= null);
+        return (this.maximumCrossingAtEnd != null);
     }
 
     /**
      * Gets the value of the maximumCrossingAtEndReference property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getMaximumCrossingAtEndReference() {
@@ -815,11 +808,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the maximumCrossingAtEndReference property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *
      */
     public void setMaximumCrossingAtEndReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.maximumCrossingAtEndReference = value;
@@ -827,16 +820,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetMaximumCrossingAtEndReference() {
-        return (this.maximumCrossingAtEndReference!= null);
+        return (this.maximumCrossingAtEndReference != null);
     }
 
     /**
      * Gets the value of the navigationType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteNavigationType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeRouteNavigationType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRouteNavigationType> getNavigationType() {
@@ -845,11 +837,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the navigationType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteNavigationType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeRouteNavigationType }{@code >}
+     *
      */
     public void setNavigationType(JAXBElement<CodeRouteNavigationType> value) {
         this.navigationType = value;
@@ -857,16 +849,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetNavigationType() {
-        return (this.navigationType!= null);
+        return (this.navigationType != null);
     }
 
     /**
      * Gets the value of the requiredNavigationPerformance property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRNPType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeRNPType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRNPType> getRequiredNavigationPerformance() {
@@ -875,11 +866,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the requiredNavigationPerformance property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRNPType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link CodeRNPType
+     *            }{@code >}
+     *
      */
     public void setRequiredNavigationPerformance(JAXBElement<CodeRNPType> value) {
         this.requiredNavigationPerformance = value;
@@ -887,16 +878,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetRequiredNavigationPerformance() {
-        return (this.requiredNavigationPerformance!= null);
+        return (this.requiredNavigationPerformance != null);
     }
 
     /**
      * Gets the value of the designatorSuffix property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteDesignatorSuffixType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeRouteDesignatorSuffixType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRouteDesignatorSuffixType> getDesignatorSuffix() {
@@ -905,11 +895,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the designatorSuffix property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteDesignatorSuffixType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeRouteDesignatorSuffixType }{@code >}
+     *
      */
     public void setDesignatorSuffix(JAXBElement<CodeRouteDesignatorSuffixType> value) {
         this.designatorSuffix = value;
@@ -917,16 +907,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetDesignatorSuffix() {
-        return (this.designatorSuffix!= null);
+        return (this.designatorSuffix != null);
     }
 
     /**
      * Gets the value of the start property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link EnRouteSegmentPointPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link EnRouteSegmentPointPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<EnRouteSegmentPointPropertyType> getStart() {
@@ -935,11 +924,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the start property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link EnRouteSegmentPointPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link EnRouteSegmentPointPropertyType }{@code >}
+     *
      */
     public void setStart(JAXBElement<EnRouteSegmentPointPropertyType> value) {
         this.start = value;
@@ -947,16 +936,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetStart() {
-        return (this.start!= null);
+        return (this.start != null);
     }
 
     /**
      * Gets the value of the routeFormed property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RoutePropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link RoutePropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<RoutePropertyType> getRouteFormed() {
@@ -965,11 +953,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the routeFormed property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RoutePropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link RoutePropertyType }{@code >}
+     *
      */
     public void setRouteFormed(JAXBElement<RoutePropertyType> value) {
         this.routeFormed = value;
@@ -977,16 +965,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetRouteFormed() {
-        return (this.routeFormed!= null);
+        return (this.routeFormed != null);
     }
 
     /**
      * Gets the value of the evaluationArea property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ObstacleAssessmentAreaPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ObstacleAssessmentAreaPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ObstacleAssessmentAreaPropertyType> getEvaluationArea() {
@@ -995,11 +982,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the evaluationArea property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ObstacleAssessmentAreaPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ObstacleAssessmentAreaPropertyType }{@code >}
+     *
      */
     public void setEvaluationArea(JAXBElement<ObstacleAssessmentAreaPropertyType> value) {
         this.evaluationArea = value;
@@ -1007,16 +994,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetEvaluationArea() {
-        return (this.evaluationArea!= null);
+        return (this.evaluationArea != null);
     }
 
     /**
      * Gets the value of the curveExtent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<AIXMCurvePropertyType> getCurveExtent() {
@@ -1025,11 +1011,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the curveExtent property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     *
      */
     public void setCurveExtent(JAXBElement<AIXMCurvePropertyType> value) {
         this.curveExtent = value;
@@ -1037,16 +1023,15 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetCurveExtent() {
-        return (this.curveExtent!= null);
+        return (this.curveExtent != null);
     }
 
     /**
      * Gets the value of the end property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link EnRouteSegmentPointPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link EnRouteSegmentPointPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<EnRouteSegmentPointPropertyType> getEnd() {
@@ -1055,11 +1040,11 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Sets the value of the end property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link EnRouteSegmentPointPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link EnRouteSegmentPointPropertyType }{@code >}
+     *
      */
     public void setEnd(JAXBElement<EnRouteSegmentPointPropertyType> value) {
         this.end = value;
@@ -1067,39 +1052,36 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetEnd() {
-        return (this.end!= null);
+        return (this.end != null);
     }
 
     /**
      * Gets the value of the availability property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the availability property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the availability property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAvailability().add(newItem);
+     * getAvailability().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RouteAvailabilityPropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = RouteAvailabilityPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "routesegment_t_availability_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = RouteAvailabilityPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rtsgmnttmslctp_avlblt_link", schema = "route", joinColumns = {
+            @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")})
     public List<RouteAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -1108,8 +1090,8 @@ public class RouteSegmentTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAvailability(List<RouteAvailabilityPropertyType> availability) {
         this.availability = availability;
@@ -1117,7 +1099,7 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability!= null)&&(!this.availability.isEmpty()));
+        return ((this.availability != null) && (!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -1126,34 +1108,31 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "routesegment_t_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rtsgmnttmslctp_annttn_link", schema = "route", joinColumns = {
+            @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -1162,8 +1141,8 @@ public class RouteSegmentTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -1171,7 +1150,7 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -1180,30 +1159,29 @@ public class RouteSegmentTimeSliceType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RouteSegmentExtensionType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = RouteSegmentExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "routesegment_e_hjid", referencedColumnName = "hjid")
+    @OneToMany(targetEntity = RouteSegmentExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "routesegmente_hjid", referencedColumnName = "hjid")
     public List<RouteSegmentExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -1212,8 +1190,8 @@ public class RouteSegmentTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<RouteSegmentExtensionType> extension) {
         this.extension = extension;
@@ -1221,7 +1199,7 @@ public class RouteSegmentTimeSliceType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -1229,409 +1207,409 @@ public class RouteSegmentTimeSliceType
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "level")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "level_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "level")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "levelnilreason"))})
     public CodeLevelType getLevelItem() {
         return XmlAdapterUtils.unmarshallSource(CodeLevelType.class, this.getLevel());
     }
 
     public void setLevelItem(CodeLevelType target) {
-        setLevel(XmlAdapterUtils.marshallJAXBElement(CodeLevelType.class, new QName("http://www.aixm.aero/schema/5.1.1", "level"), RouteSegmentTimeSliceType.class, target));
+        setLevel(XmlAdapterUtils.marshallJAXBElement(CodeLevelType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "level"), RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "upperlimit")),
-        @AttributeOverride(name = "uom", column = @Column(name = "upperlimit_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimit_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "upperlimit", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "upperlimituom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitnilreason"))})
     public ValDistanceVerticalType getUpperLimitItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getUpperLimit());
     }
 
     public void setUpperLimitItem(ValDistanceVerticalType target) {
-        setUpperLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "upperLimit"), RouteSegmentTimeSliceType.class, target));
+        setUpperLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "upperLimit"), RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "upperlimitreference")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitreference_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "upperlimitreference")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitreferencenilreason"))})
     public CodeVerticalReferenceType getUpperLimitReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getUpperLimitReference());
     }
 
     public void setUpperLimitReferenceItem(CodeVerticalReferenceType target) {
-        setUpperLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "upperLimitReference"), RouteSegmentTimeSliceType.class, target));
+        setUpperLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "upperLimitReference"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "lowerlimit")),
-        @AttributeOverride(name = "uom", column = @Column(name = "lowerlimit_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimit_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "lowerlimit", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "lowerlimituom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitnilreason"))})
     public ValDistanceVerticalType getLowerLimitItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getLowerLimit());
     }
 
     public void setLowerLimitItem(ValDistanceVerticalType target) {
-        setLowerLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimit"), RouteSegmentTimeSliceType.class, target));
+        setLowerLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimit"), RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "lowerlimitreference")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitreference_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "lowerlimitreference")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitreferencenilreason"))})
     public CodeVerticalReferenceType getLowerLimitReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getLowerLimitReference());
     }
 
     public void setLowerLimitReferenceItem(CodeVerticalReferenceType target) {
-        setLowerLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimitReference"), RouteSegmentTimeSliceType.class, target));
+        setLowerLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "lowerLimitReference"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "minimumobstacleclearancealtitude")),
-        @AttributeOverride(name = "uom", column = @Column(name = "minimumobstacleclearancealtitude_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "minimumobstacleclearancealtitude_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "minimumobstacleclearancealtitude", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "minimumobstacleclearancealtitudeuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "minimumobstacleclearancealtitudenilreason"))})
     public ValDistanceVerticalType getMinimumObstacleClearanceAltitudeItem() {
-        return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getMinimumObstacleClearanceAltitude());
+        return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class,
+                this.getMinimumObstacleClearanceAltitude());
     }
 
     public void setMinimumObstacleClearanceAltitudeItem(ValDistanceVerticalType target) {
-        setMinimumObstacleClearanceAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "minimumObstacleClearanceAltitude"), RouteSegmentTimeSliceType.class, target));
+        setMinimumObstacleClearanceAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "minimumObstacleClearanceAltitude"),
+                RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "pathtype")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "pathtype_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "pathtype")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "pathtypenilreason"))})
     public CodeRouteSegmentPathType getPathTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRouteSegmentPathType.class, this.getPathType());
     }
 
     public void setPathTypeItem(CodeRouteSegmentPathType target) {
-        setPathType(XmlAdapterUtils.marshallJAXBElement(CodeRouteSegmentPathType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pathType"), RouteSegmentTimeSliceType.class, target));
+        setPathType(XmlAdapterUtils.marshallJAXBElement(CodeRouteSegmentPathType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "pathType"), RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "truetrack")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "truetrack_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "truetrack", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "truetracknilreason"))})
     public ValBearingType getTrueTrackItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getTrueTrack());
     }
 
     public void setTrueTrackItem(ValBearingType target) {
-        setTrueTrack(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "trueTrack"), RouteSegmentTimeSliceType.class, target));
+        setTrueTrack(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "trueTrack"), RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "magnetictrack")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "magnetictrack_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "magnetictrack", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "magnetictracknilreason"))})
     public ValBearingType getMagneticTrackItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getMagneticTrack());
     }
 
     public void setMagneticTrackItem(ValBearingType target) {
-        setMagneticTrack(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "magneticTrack"), RouteSegmentTimeSliceType.class, target));
+        setMagneticTrack(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "magneticTrack"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "reversetruetrack")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "reversetruetrack_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "reversetruetrack", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "reversetruetracknilreason"))})
     public ValBearingType getReverseTrueTrackItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getReverseTrueTrack());
     }
 
     public void setReverseTrueTrackItem(ValBearingType target) {
-        setReverseTrueTrack(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "reverseTrueTrack"), RouteSegmentTimeSliceType.class, target));
+        setReverseTrueTrack(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "reverseTrueTrack"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "reversemagnetictrack")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "reversemagnetictrack_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "reversemagnetictrack", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "reversemagnetictracknilreason"))})
     public ValBearingType getReverseMagneticTrackItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getReverseMagneticTrack());
     }
 
     public void setReverseMagneticTrackItem(ValBearingType target) {
-        setReverseMagneticTrack(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "reverseMagneticTrack"), RouteSegmentTimeSliceType.class, target));
+        setReverseMagneticTrack(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "reverseMagneticTrack"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "length")),
-        @AttributeOverride(name = "uom", column = @Column(name = "length_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "length_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "length", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "lengthuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "lengthnilreason"))})
     public ValDistanceType getLengthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getLength());
     }
 
     public void setLengthItem(ValDistanceType target) {
-        setLength(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "length"), RouteSegmentTimeSliceType.class, target));
+        setLength(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "length"), RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "widthleft")),
-        @AttributeOverride(name = "uom", column = @Column(name = "widthleft_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "widthleft_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "widthleft", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "widthleftuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "widthleftnilreason"))})
     public ValDistanceType getWidthLeftItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getWidthLeft());
     }
 
     public void setWidthLeftItem(ValDistanceType target) {
-        setWidthLeft(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "widthLeft"), RouteSegmentTimeSliceType.class, target));
+        setWidthLeft(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "widthLeft"), RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "widthright")),
-        @AttributeOverride(name = "uom", column = @Column(name = "widthright_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "widthright_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "widthright", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "widthrightuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "widthrightnilreason"))})
     public ValDistanceType getWidthRightItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getWidthRight());
     }
 
     public void setWidthRightItem(ValDistanceType target) {
-        setWidthRight(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "widthRight"), RouteSegmentTimeSliceType.class, target));
+        setWidthRight(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "widthRight"), RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "turndirection")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "turndirection_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "turndirection")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "turndirectionnilreason"))})
     public CodeDirectionTurnType getTurnDirectionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDirectionTurnType.class, this.getTurnDirection());
     }
 
     public void setTurnDirectionItem(CodeDirectionTurnType target) {
-        setTurnDirection(XmlAdapterUtils.marshallJAXBElement(CodeDirectionTurnType.class, new QName("http://www.aixm.aero/schema/5.1.1", "turnDirection"), RouteSegmentTimeSliceType.class, target));
+        setTurnDirection(XmlAdapterUtils.marshallJAXBElement(CodeDirectionTurnType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "turnDirection"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "signalgap")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "signalgap_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "signalgap")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "signalgapnilreason"))})
     public CodeYesNoType getSignalGapItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getSignalGap());
     }
 
     public void setSignalGapItem(CodeYesNoType target) {
-        setSignalGap(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "signalGap"), RouteSegmentTimeSliceType.class, target));
+        setSignalGap(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "signalGap"), RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "minimumenroutealtitude")),
-        @AttributeOverride(name = "uom", column = @Column(name = "minimumenroutealtitude_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "minimumenroutealtitude_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "minimumenroutealtitude", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "minimumenroutealtitudeuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "minimumenroutealtitudenilreason"))})
     public ValDistanceVerticalType getMinimumEnrouteAltitudeItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getMinimumEnrouteAltitude());
     }
 
     public void setMinimumEnrouteAltitudeItem(ValDistanceVerticalType target) {
-        setMinimumEnrouteAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "minimumEnrouteAltitude"), RouteSegmentTimeSliceType.class, target));
+        setMinimumEnrouteAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "minimumEnrouteAltitude"),
+                RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "minimumcrossingatend")),
-        @AttributeOverride(name = "uom", column = @Column(name = "minimumcrossingatend_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "minimumcrossingatend_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "minimumcrossingatend", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "minimumcrossingatenduom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "minimumcrossingatendnilreason"))})
     public ValDistanceVerticalType getMinimumCrossingAtEndItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getMinimumCrossingAtEnd());
     }
 
     public void setMinimumCrossingAtEndItem(ValDistanceVerticalType target) {
-        setMinimumCrossingAtEnd(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "minimumCrossingAtEnd"), RouteSegmentTimeSliceType.class, target));
+        setMinimumCrossingAtEnd(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "minimumCrossingAtEnd"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "minimumcrossingatendreference")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "minimumcrossingatendreference_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "minimumcrossingatendreference")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "minimumcrossingatendreferencenilreason"))})
     public CodeVerticalReferenceType getMinimumCrossingAtEndReferenceItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getMinimumCrossingAtEndReference());
+        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class,
+                this.getMinimumCrossingAtEndReference());
     }
 
     public void setMinimumCrossingAtEndReferenceItem(CodeVerticalReferenceType target) {
-        setMinimumCrossingAtEndReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "minimumCrossingAtEndReference"), RouteSegmentTimeSliceType.class, target));
+        setMinimumCrossingAtEndReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "minimumCrossingAtEndReference"),
+                RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "maximumcrossingatend")),
-        @AttributeOverride(name = "uom", column = @Column(name = "maximumcrossingatend_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "maximumcrossingatend_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "maximumcrossingatend", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "maximumcrossingatenduom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "maximumcrossingatendnilreason"))})
     public ValDistanceVerticalType getMaximumCrossingAtEndItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getMaximumCrossingAtEnd());
     }
 
     public void setMaximumCrossingAtEndItem(ValDistanceVerticalType target) {
-        setMaximumCrossingAtEnd(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "maximumCrossingAtEnd"), RouteSegmentTimeSliceType.class, target));
+        setMaximumCrossingAtEnd(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "maximumCrossingAtEnd"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "maximumcrossingatendreference")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "maximumcrossingatendreference_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "maximumcrossingatendreference")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "maximumcrossingatendreferencenilreason"))})
     public CodeVerticalReferenceType getMaximumCrossingAtEndReferenceItem() {
-        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getMaximumCrossingAtEndReference());
+        return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class,
+                this.getMaximumCrossingAtEndReference());
     }
 
     public void setMaximumCrossingAtEndReferenceItem(CodeVerticalReferenceType target) {
-        setMaximumCrossingAtEndReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "maximumCrossingAtEndReference"), RouteSegmentTimeSliceType.class, target));
+        setMaximumCrossingAtEndReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "maximumCrossingAtEndReference"),
+                RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "navigationtype")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "navigationtype_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "navigationtype")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "navigationtypenilreason"))})
     public CodeRouteNavigationType getNavigationTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRouteNavigationType.class, this.getNavigationType());
     }
 
     public void setNavigationTypeItem(CodeRouteNavigationType target) {
-        setNavigationType(XmlAdapterUtils.marshallJAXBElement(CodeRouteNavigationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "navigationType"), RouteSegmentTimeSliceType.class, target));
+        setNavigationType(XmlAdapterUtils.marshallJAXBElement(CodeRouteNavigationType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "navigationType"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "requirednavigationperformance")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "requirednavigationperformance_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "requirednavigationperformance", columnDefinition = "NUMERIC", scale = 1)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "requirednavigationperformancenilreason"))})
     public CodeRNPType getRequiredNavigationPerformanceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRNPType.class, this.getRequiredNavigationPerformance());
     }
 
     public void setRequiredNavigationPerformanceItem(CodeRNPType target) {
-        setRequiredNavigationPerformance(XmlAdapterUtils.marshallJAXBElement(CodeRNPType.class, new QName("http://www.aixm.aero/schema/5.1.1", "requiredNavigationPerformance"), RouteSegmentTimeSliceType.class, target));
+        setRequiredNavigationPerformance(XmlAdapterUtils.marshallJAXBElement(CodeRNPType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "requiredNavigationPerformance"),
+                RouteSegmentTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designatorsuffix")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "designatorsuffix_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "designatorsuffix")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "designatorsuffixnilreason"))})
     public CodeRouteDesignatorSuffixType getDesignatorSuffixItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRouteDesignatorSuffixType.class, this.getDesignatorSuffix());
     }
 
     public void setDesignatorSuffixItem(CodeRouteDesignatorSuffixType target) {
-        setDesignatorSuffix(XmlAdapterUtils.marshallJAXBElement(CodeRouteDesignatorSuffixType.class, new QName("http://www.aixm.aero/schema/5.1.1", "designatorSuffix"), RouteSegmentTimeSliceType.class, target));
+        setDesignatorSuffix(XmlAdapterUtils.marshallJAXBElement(CodeRouteDesignatorSuffixType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "designatorSuffix"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @OneToOne(targetEntity = EnRouteSegmentPointPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "routesegment_t_start_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "start_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rtsgmnttmslctp_strt_link", schema = "route", joinColumns = {
+            @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "start_hjid", referencedColumnName = "hjid")})
     public EnRouteSegmentPointPropertyType getStartItem() {
         return XmlAdapterUtils.unmarshallSource(EnRouteSegmentPointPropertyType.class, this.getStart());
     }
 
     public void setStartItem(EnRouteSegmentPointPropertyType target) {
-        setStart(XmlAdapterUtils.marshallJAXBElement(EnRouteSegmentPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start"), RouteSegmentTimeSliceType.class, target));
+        setStart(XmlAdapterUtils.marshallJAXBElement(EnRouteSegmentPointPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "start"), RouteSegmentTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = RoutePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "routesegment_t_routeformed_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "routeformed_hjid", referencedColumnName = "hjid")
-    })
+    @OneToOne(targetEntity = RoutePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rtsgmnttmslctp_rtfrmd_link", schema = "route", joinColumns = {
+            @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "routeformed_hjid", referencedColumnName = "hjid")})
     public RoutePropertyType getRouteFormedItem() {
         return XmlAdapterUtils.unmarshallSource(RoutePropertyType.class, this.getRouteFormed());
     }
 
     public void setRouteFormedItem(RoutePropertyType target) {
-        setRouteFormed(XmlAdapterUtils.marshallJAXBElement(RoutePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "routeFormed"), RouteSegmentTimeSliceType.class, target));
+        setRouteFormed(XmlAdapterUtils.marshallJAXBElement(RoutePropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "routeFormed"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @OneToOne(targetEntity = ObstacleAssessmentAreaPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "routesegment_t_evaluationarea_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "evaluationarea_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rtsgmnttmslctp_evltnar_link", schema = "route", joinColumns = {
+            @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "evaluationarea_hjid", referencedColumnName = "hjid")})
     public ObstacleAssessmentAreaPropertyType getEvaluationAreaItem() {
         return XmlAdapterUtils.unmarshallSource(ObstacleAssessmentAreaPropertyType.class, this.getEvaluationArea());
     }
 
     public void setEvaluationAreaItem(ObstacleAssessmentAreaPropertyType target) {
-        setEvaluationArea(XmlAdapterUtils.marshallJAXBElement(ObstacleAssessmentAreaPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "evaluationArea"), RouteSegmentTimeSliceType.class, target));
+        setEvaluationArea(XmlAdapterUtils.marshallJAXBElement(ObstacleAssessmentAreaPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "evaluationArea"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
-    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "routesegment_t_curveextent_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "curveextent_hjid", referencedColumnName = "hjid")
-    })
+    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rtsgmnttmslctp_crvextnt_link", schema = "route", joinColumns = {
+            @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "curveextent_hjid", referencedColumnName = "hjid")})
     public AIXMCurvePropertyType getCurveExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMCurvePropertyType.class, this.getCurveExtent());
     }
 
     public void setCurveExtentItem(AIXMCurvePropertyType target) {
-        setCurveExtent(XmlAdapterUtils.marshallJAXBElement(AIXMCurvePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "curveExtent"), RouteSegmentTimeSliceType.class, target));
+        setCurveExtent(XmlAdapterUtils.marshallJAXBElement(AIXMCurvePropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "curveExtent"), RouteSegmentTimeSliceType.class,
+                target));
     }
 
     @OneToOne(targetEntity = EnRouteSegmentPointPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "routesegment_t_end__link", schema = "public", joinColumns = {
-        @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "end__hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rtsgmnttmslctp_end__link", schema = "route", joinColumns = {
+            @JoinColumn(name = "routesegment_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "end__hjid", referencedColumnName = "hjid")})
     public EnRouteSegmentPointPropertyType getEndItem() {
         return XmlAdapterUtils.unmarshallSource(EnRouteSegmentPointPropertyType.class, this.getEnd());
     }
 
     public void setEndItem(EnRouteSegmentPointPropertyType target) {
-        setEnd(XmlAdapterUtils.marshallJAXBElement(EnRouteSegmentPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end"), RouteSegmentTimeSliceType.class, target));
+        setEnd(XmlAdapterUtils.marshallJAXBElement(EnRouteSegmentPointPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "end"), RouteSegmentTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -1642,66 +1620,14 @@ public class RouteSegmentTimeSliceType
         }
         final RouteSegmentTimeSliceType that = ((RouteSegmentTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
-            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getLowerLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEnd();
-            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEnd();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumCrossingAtEnd();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumCrossingAtEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEnd", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEnd", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSignalGap();
-            boolean rhsFieldIsSet = that.isSetSignalGap();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getSignalGap();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getSignalGap();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "signalGap", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "signalGap", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWidthLeft();
-            boolean rhsFieldIsSet = that.isSetWidthLeft();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getWidthLeft();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getWidthLeft();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "widthLeft", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "widthLeft", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReverseTrueTrack();
-            boolean rhsFieldIsSet = that.isSetReverseTrueTrack();
+            boolean lhsFieldIsSet = this.isSetMagneticTrack();
+            boolean rhsFieldIsSet = that.isSetMagneticTrack();
             JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getReverseTrueTrack();
+            lhsField = this.getMagneticTrack();
             JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getReverseTrueTrack();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reverseTrueTrack", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reverseTrueTrack", rhsField);
+            rhsField = that.getMagneticTrack();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticTrack", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticTrack", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1720,14 +1646,40 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetReverseMagneticTrack();
-            boolean rhsFieldIsSet = that.isSetReverseMagneticTrack();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getReverseMagneticTrack();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getReverseMagneticTrack();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reverseMagneticTrack", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reverseMagneticTrack", rhsField);
+            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEnd();
+            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEnd();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMaximumCrossingAtEnd();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMaximumCrossingAtEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEnd", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEnd", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSignalGap();
+            boolean rhsFieldIsSet = that.isSetSignalGap();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getSignalGap();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getSignalGap();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "signalGap", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "signalGap", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCurveExtent();
+            boolean rhsFieldIsSet = that.isSetCurveExtent();
+            JAXBElement<AIXMCurvePropertyType> lhsField;
+            lhsField = this.getCurveExtent();
+            JAXBElement<AIXMCurvePropertyType> rhsField;
+            rhsField = that.getCurveExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1746,79 +1698,14 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLowerLimit();
-            boolean rhsFieldIsSet = that.isSetLowerLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getLowerLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getLowerLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStart();
-            boolean rhsFieldIsSet = that.isSetStart();
-            JAXBElement<EnRouteSegmentPointPropertyType> lhsField;
-            lhsField = this.getStart();
-            JAXBElement<EnRouteSegmentPointPropertyType> rhsField;
-            rhsField = that.getStart();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNavigationType();
-            boolean rhsFieldIsSet = that.isSetNavigationType();
-            JAXBElement<CodeRouteNavigationType> lhsField;
-            lhsField = this.getNavigationType();
-            JAXBElement<CodeRouteNavigationType> rhsField;
-            rhsField = that.getNavigationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRequiredNavigationPerformance();
-            boolean rhsFieldIsSet = that.isSetRequiredNavigationPerformance();
-            JAXBElement<CodeRNPType> lhsField;
-            lhsField = this.getRequiredNavigationPerformance();
-            JAXBElement<CodeRNPType> rhsField;
-            rhsField = that.getRequiredNavigationPerformance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "requiredNavigationPerformance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "requiredNavigationPerformance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEnd();
-            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEnd();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMaximumCrossingAtEnd();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMaximumCrossingAtEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEnd", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEnd", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RouteSegmentExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RouteSegmentExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1837,45 +1724,6 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMagneticTrack();
-            boolean rhsFieldIsSet = that.isSetMagneticTrack();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getMagneticTrack();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getMagneticTrack();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticTrack", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticTrack", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<RouteAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<RouteAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RouteSegmentExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<RouteSegmentExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTrueTrack();
             boolean rhsFieldIsSet = that.isSetTrueTrack();
             JAXBElement<ValBearingType> lhsField;
@@ -1889,27 +1737,14 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRouteFormed();
-            boolean rhsFieldIsSet = that.isSetRouteFormed();
-            JAXBElement<RoutePropertyType> lhsField;
-            lhsField = this.getRouteFormed();
-            JAXBElement<RoutePropertyType> rhsField;
-            rhsField = that.getRouteFormed();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "routeFormed", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "routeFormed", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPathType();
-            boolean rhsFieldIsSet = that.isSetPathType();
-            JAXBElement<CodeRouteSegmentPathType> lhsField;
-            lhsField = this.getPathType();
-            JAXBElement<CodeRouteSegmentPathType> rhsField;
-            rhsField = that.getPathType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pathType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pathType", rhsField);
+            boolean lhsFieldIsSet = this.isSetNavigationType();
+            boolean rhsFieldIsSet = that.isSetNavigationType();
+            JAXBElement<CodeRouteNavigationType> lhsField;
+            lhsField = this.getNavigationType();
+            JAXBElement<CodeRouteNavigationType> rhsField;
+            rhsField = that.getNavigationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1928,27 +1763,163 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetLowerLimit();
+            boolean rhsFieldIsSet = that.isSetLowerLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getLowerLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getLowerLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReverseTrueTrack();
+            boolean rhsFieldIsSet = that.isSetReverseTrueTrack();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getReverseTrueTrack();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getReverseTrueTrack();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reverseTrueTrack", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reverseTrueTrack", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReverseMagneticTrack();
+            boolean rhsFieldIsSet = that.isSetReverseMagneticTrack();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getReverseMagneticTrack();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getReverseMagneticTrack();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reverseMagneticTrack", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reverseMagneticTrack", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWidthLeft();
+            boolean rhsFieldIsSet = that.isSetWidthLeft();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getWidthLeft();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getWidthLeft();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "widthLeft", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "widthLeft", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWidthRight();
+            boolean rhsFieldIsSet = that.isSetWidthRight();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getWidthRight();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getWidthRight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "widthRight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "widthRight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEnd();
+            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEnd();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumCrossingAtEnd();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumCrossingAtEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEnd", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEnd", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEndReference();
             boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEndReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
             lhsField = this.getMaximumCrossingAtEndReference();
             JAXBElement<CodeVerticalReferenceType> rhsField;
             rhsField = that.getMaximumCrossingAtEndReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEndReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEndReference", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEndReference",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEndReference",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCurveExtent();
-            boolean rhsFieldIsSet = that.isSetCurveExtent();
-            JAXBElement<AIXMCurvePropertyType> lhsField;
-            lhsField = this.getCurveExtent();
-            JAXBElement<AIXMCurvePropertyType> rhsField;
-            rhsField = that.getCurveExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveExtent", rhsField);
+            boolean lhsFieldIsSet = this.isSetUpperLimitReference();
+            boolean rhsFieldIsSet = that.isSetUpperLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getUpperLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getUpperLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPathType();
+            boolean rhsFieldIsSet = that.isSetPathType();
+            JAXBElement<CodeRouteSegmentPathType> lhsField;
+            lhsField = this.getPathType();
+            JAXBElement<CodeRouteSegmentPathType> rhsField;
+            rhsField = that.getPathType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pathType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pathType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEndReference();
+            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEndReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getMinimumCrossingAtEndReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getMinimumCrossingAtEndReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStart();
+            boolean rhsFieldIsSet = that.isSetStart();
+            JAXBElement<EnRouteSegmentPointPropertyType> lhsField;
+            lhsField = this.getStart();
+            JAXBElement<EnRouteSegmentPointPropertyType> rhsField;
+            rhsField = that.getStart();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumObstacleClearanceAltitude();
+            boolean rhsFieldIsSet = that.isSetMinimumObstacleClearanceAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumObstacleClearanceAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumObstacleClearanceAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumObstacleClearanceAltitude",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumObstacleClearanceAltitude",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1980,27 +1951,55 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEndReference();
-            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEndReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getMinimumCrossingAtEndReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getMinimumCrossingAtEndReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetRequiredNavigationPerformance();
+            boolean rhsFieldIsSet = that.isSetRequiredNavigationPerformance();
+            JAXBElement<CodeRNPType> lhsField;
+            lhsField = this.getRequiredNavigationPerformance();
+            JAXBElement<CodeRNPType> rhsField;
+            rhsField = that.getRequiredNavigationPerformance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "requiredNavigationPerformance",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "requiredNavigationPerformance",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWidthRight();
-            boolean rhsFieldIsSet = that.isSetWidthRight();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getWidthRight();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getWidthRight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "widthRight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "widthRight", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<RouteAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
+            List<RouteAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
+            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getLowerLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -2019,6 +2018,19 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRouteFormed();
+            boolean rhsFieldIsSet = that.isSetRouteFormed();
+            JAXBElement<RoutePropertyType> lhsField;
+            lhsField = this.getRouteFormed();
+            JAXBElement<RoutePropertyType> rhsField;
+            rhsField = that.getRouteFormed();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "routeFormed", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "routeFormed", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEvaluationArea();
             boolean rhsFieldIsSet = that.isSetEvaluationArea();
             JAXBElement<ObstacleAssessmentAreaPropertyType> lhsField;
@@ -2027,32 +2039,6 @@ public class RouteSegmentTimeSliceType
             rhsField = that.getEvaluationArea();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationArea", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationArea", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimitReference();
-            boolean rhsFieldIsSet = that.isSetUpperLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getUpperLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getUpperLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumObstacleClearanceAltitude();
-            boolean rhsFieldIsSet = that.isSetMinimumObstacleClearanceAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumObstacleClearanceAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumObstacleClearanceAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumObstacleClearanceAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumObstacleClearanceAltitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -2102,7 +2088,8 @@ public class RouteSegmentTimeSliceType
             boolean theFieldIsSet = this.isSetMinimumObstacleClearanceAltitude();
             JAXBElement<ValDistanceVerticalType> theField;
             theField = this.getMinimumObstacleClearanceAltitude();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "minimumObstacleClearanceAltitude", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "minimumObstacleClearanceAltitude",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -2269,21 +2256,21 @@ public class RouteSegmentTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<RouteAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability()?this.getAvailability():null);
+            theField = (this.isSetAvailability() ? this.getAvailability() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RouteSegmentExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -2470,19 +2457,19 @@ public class RouteSegmentTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<RouteAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability()?this.getAvailability():null);
+            theField = (this.isSetAvailability() ? this.getAvailability() : null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RouteSegmentExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

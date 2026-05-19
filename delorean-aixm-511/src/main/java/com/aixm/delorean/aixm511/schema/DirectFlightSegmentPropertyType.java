@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,42 +12,45 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for DirectFlightSegmentPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for DirectFlightSegmentPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="DirectFlightSegmentPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}DirectFlightSegment"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}DirectFlightSegment"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DirectFlightSegmentPropertyType", propOrder = {
-    "directFlightSegment"
-})
+@XmlType(name = "DirectFlightSegmentPropertyType", propOrder = {"directFlightSegment"})
 @Entity(name = "DirectFlightSegmentPropertyType")
 @Table(name = "directflightsegment_p", schema = "route")
-public class DirectFlightSegmentPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class DirectFlightSegmentPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "DirectFlightSegment", required = true)
@@ -56,15 +58,11 @@ public class DirectFlightSegmentPropertyType
 
     /**
      * Gets the value of the directFlightSegment property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DirectFlightSegmentType }
-     *     
+     *
+     * @return possible object is {@link DirectFlightSegmentType }
+     *
      */
-    @OneToOne(targetEntity = DirectFlightSegmentType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = DirectFlightSegmentType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "directflightsegment_hjid", referencedColumnName = "hjid")
     public DirectFlightSegmentType getDirectFlightSegment() {
         return directFlightSegment;
@@ -72,11 +70,10 @@ public class DirectFlightSegmentPropertyType
 
     /**
      * Sets the value of the directFlightSegment property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DirectFlightSegmentType }
-     *     
+     *            allowed object is {@link DirectFlightSegmentType }
+     *
      */
     public void setDirectFlightSegment(DirectFlightSegmentType value) {
         this.directFlightSegment = value;
@@ -84,12 +81,13 @@ public class DirectFlightSegmentPropertyType
 
     @Transient
     public boolean isSetDirectFlightSegment() {
-        return (this.directFlightSegment!= null);
+        return (this.directFlightSegment != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

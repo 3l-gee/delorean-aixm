@@ -159,14 +159,14 @@ public class SecondDefiningParameter implements Serializable, Equals, HashCode, 
         }
         final SecondDefiningParameter that = ((SecondDefiningParameter) object);
         {
-            boolean lhsFieldIsSet = this.isSetInverseFlattening();
-            boolean rhsFieldIsSet = that.isSetInverseFlattening();
-            MeasureType lhsField;
-            lhsField = this.getInverseFlattening();
-            MeasureType rhsField;
-            rhsField = that.getInverseFlattening();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inverseFlattening", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inverseFlattening", rhsField);
+            boolean lhsFieldIsSet = this.isSetSemiMinorAxis();
+            boolean rhsFieldIsSet = that.isSetSemiMinorAxis();
+            LengthType lhsField;
+            lhsField = this.getSemiMinorAxis();
+            LengthType rhsField;
+            rhsField = that.getSemiMinorAxis();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "semiMinorAxis", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "semiMinorAxis", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -185,14 +185,14 @@ public class SecondDefiningParameter implements Serializable, Equals, HashCode, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSemiMinorAxis();
-            boolean rhsFieldIsSet = that.isSetSemiMinorAxis();
-            LengthType lhsField;
-            lhsField = this.getSemiMinorAxis();
-            LengthType rhsField;
-            rhsField = that.getSemiMinorAxis();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "semiMinorAxis", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "semiMinorAxis", rhsField);
+            boolean lhsFieldIsSet = this.isSetInverseFlattening();
+            boolean rhsFieldIsSet = that.isSetInverseFlattening();
+            MeasureType lhsField;
+            lhsField = this.getInverseFlattening();
+            MeasureType rhsField;
+            rhsField = that.getInverseFlattening();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inverseFlattening", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inverseFlattening", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

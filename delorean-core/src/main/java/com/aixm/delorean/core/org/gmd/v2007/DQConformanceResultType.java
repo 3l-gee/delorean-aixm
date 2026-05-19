@@ -149,19 +149,6 @@ public class DQConformanceResultType extends AbstractDQResultType implements Ser
         }
         final DQConformanceResultType that = ((DQConformanceResultType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPass();
-            boolean rhsFieldIsSet = that.isSetPass();
-            BooleanPropertyType lhsField;
-            lhsField = this.getPass();
-            BooleanPropertyType rhsField;
-            rhsField = that.getPass();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pass", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pass", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExplanation();
             boolean rhsFieldIsSet = that.isSetExplanation();
             CharacterStringPropertyType lhsField;
@@ -170,6 +157,19 @@ public class DQConformanceResultType extends AbstractDQResultType implements Ser
             rhsField = that.getExplanation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "explanation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "explanation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPass();
+            boolean rhsFieldIsSet = that.isSetPass();
+            BooleanPropertyType lhsField;
+            lhsField = this.getPass();
+            BooleanPropertyType rhsField;
+            rhsField = that.getPass();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pass", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pass", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

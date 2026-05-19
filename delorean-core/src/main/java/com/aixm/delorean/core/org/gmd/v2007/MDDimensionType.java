@@ -145,6 +145,19 @@ public class MDDimensionType extends AbstractObjectType implements Serializable 
         }
         final MDDimensionType that = ((MDDimensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetDimensionName();
+            boolean rhsFieldIsSet = that.isSetDimensionName();
+            MDDimensionNameTypeCodePropertyType lhsField;
+            lhsField = this.getDimensionName();
+            MDDimensionNameTypeCodePropertyType rhsField;
+            rhsField = that.getDimensionName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimensionName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimensionName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDimensionSize();
             boolean rhsFieldIsSet = that.isSetDimensionSize();
             IntegerPropertyType lhsField;
@@ -166,19 +179,6 @@ public class MDDimensionType extends AbstractObjectType implements Serializable 
             rhsField = that.getResolution();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resolution", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resolution", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDimensionName();
-            boolean rhsFieldIsSet = that.isSetDimensionName();
-            MDDimensionNameTypeCodePropertyType lhsField;
-            lhsField = this.getDimensionName();
-            MDDimensionNameTypeCodePropertyType rhsField;
-            rhsField = that.getDimensionName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimensionName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimensionName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

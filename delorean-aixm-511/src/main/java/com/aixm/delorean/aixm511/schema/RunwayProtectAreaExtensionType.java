@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,37 +35,42 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for anonymous complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for anonymous complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractRunwayProtectAreaExtension"/>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractAirportHeliportProtectionAreaExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractRunwayProtectAreaExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAirportHeliportProtectionAreaExtension"/>
  *       </choice>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "abstractRunwayProtectAreaExtension",
-    "abstractAirportHeliportProtectionAreaExtension"
-})
+@XmlType(name = "", propOrder = {"abstractRunwayProtectAreaExtension",
+        "abstractAirportHeliportProtectionAreaExtension"})
 @Entity(name = "RunwayProtectAreaExtensionType")
-@Table(name = "runwayprotectarea_e", schema = "airport_heliport")
-public class RunwayProtectAreaExtensionType implements Serializable, Equals, HashCode, ToString
-{
+@Table(name = "runwayprotectareae", schema = "airport_heliport")
+public class RunwayProtectAreaExtensionType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractRunwayProtectAreaExtension")
@@ -81,15 +86,11 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
 
     /**
      * Gets the value of the abstractRunwayProtectAreaExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractrunwayprotectareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayProtectAreaExtension() {
         return abstractRunwayProtectAreaExtension;
@@ -97,11 +98,10 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
 
     /**
      * Sets the value of the abstractRunwayProtectAreaExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractRunwayProtectAreaExtension(AbstractExtensionType value) {
         this.abstractRunwayProtectAreaExtension = value;
@@ -109,32 +109,29 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
 
     @Transient
     public boolean isSetAbstractRunwayProtectAreaExtension() {
-        return (this.abstractRunwayProtectAreaExtension!= null);
+        return (this.abstractRunwayProtectAreaExtension != null);
     }
 
     /**
-     * Gets the value of the abstractAirportHeliportProtectionAreaExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     * Gets the value of the abstractAirportHeliportProtectionAreaExtension
+     * property.
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractairportheliportprotectionareaextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportHeliportProtectionAreaExtension() {
         return abstractAirportHeliportProtectionAreaExtension;
     }
 
     /**
-     * Sets the value of the abstractAirportHeliportProtectionAreaExtension property.
-     * 
+     * Sets the value of the abstractAirportHeliportProtectionAreaExtension
+     * property.
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractAirportHeliportProtectionAreaExtension(AbstractExtensionType value) {
         this.abstractAirportHeliportProtectionAreaExtension = value;
@@ -142,16 +139,14 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
 
     @Transient
     public boolean isSetAbstractAirportHeliportProtectionAreaExtension() {
-        return (this.abstractAirportHeliportProtectionAreaExtension!= null);
+        return (this.abstractAirportHeliportProtectionAreaExtension != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -165,11 +160,10 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -177,7 +171,7 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -185,12 +179,10 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -201,24 +193,21 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -227,12 +216,11 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -251,8 +239,9 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -260,14 +249,16 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
         }
         final RunwayProtectAreaExtensionType that = ((RunwayProtectAreaExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRunwayProtectAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRunwayProtectAreaExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractAirportHeliportProtectionAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirportHeliportProtectionAreaExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRunwayProtectAreaExtension();
+            lhsField = this.getAbstractAirportHeliportProtectionAreaExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRunwayProtectAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayProtectAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayProtectAreaExtension", rhsField);
+            rhsField = that.getAbstractAirportHeliportProtectionAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractAirportHeliportProtectionAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractAirportHeliportProtectionAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -276,9 +267,9 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
             boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -286,14 +277,16 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirportHeliportProtectionAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirportHeliportProtectionAreaExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractRunwayProtectAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRunwayProtectAreaExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirportHeliportProtectionAreaExtension();
+            lhsField = this.getAbstractRunwayProtectAreaExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirportHeliportProtectionAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHeliportProtectionAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHeliportProtectionAreaExtension", rhsField);
+            rhsField = that.getAbstractRunwayProtectAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayProtectAreaExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayProtectAreaExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -318,20 +311,22 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
             boolean theFieldIsSet = this.isSetAbstractRunwayProtectAreaExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractRunwayProtectAreaExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractRunwayProtectAreaExtension", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractRunwayProtectAreaExtension",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractAirportHeliportProtectionAreaExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractAirportHeliportProtectionAreaExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractAirportHeliportProtectionAreaExtension", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator,
+                    "abstractAirportHeliportProtectionAreaExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -370,12 +365,13 @@ public class RunwayProtectAreaExtensionType implements Serializable, Equals, Has
             boolean theFieldIsSet = this.isSetAbstractAirportHeliportProtectionAreaExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractAirportHeliportProtectionAreaExtension();
-            strategy.appendField(locator, this, "abstractAirportHeliportProtectionAreaExtension", buffer, theField, theFieldIsSet);
+            strategy.appendField(locator, this, "abstractAirportHeliportProtectionAreaExtension", buffer, theField,
+                    theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -261,6 +261,58 @@ public class MDApplicationSchemaInformationType extends AbstractObjectType imple
         }
         final MDApplicationSchemaInformationType that = ((MDApplicationSchemaInformationType) object);
         {
+            boolean lhsFieldIsSet = this.isSetSchemaAscii();
+            boolean rhsFieldIsSet = that.isSetSchemaAscii();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSchemaAscii();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSchemaAscii();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "schemaAscii", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "schemaAscii", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSchemaLanguage();
+            boolean rhsFieldIsSet = that.isSetSchemaLanguage();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSchemaLanguage();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSchemaLanguage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "schemaLanguage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "schemaLanguage", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGraphicsFile();
+            boolean rhsFieldIsSet = that.isSetGraphicsFile();
+            BinaryPropertyType lhsField;
+            lhsField = this.getGraphicsFile();
+            BinaryPropertyType rhsField;
+            rhsField = that.getGraphicsFile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "graphicsFile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "graphicsFile", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSoftwareDevelopmentFile();
+            boolean rhsFieldIsSet = that.isSetSoftwareDevelopmentFile();
+            BinaryPropertyType lhsField;
+            lhsField = this.getSoftwareDevelopmentFile();
+            BinaryPropertyType rhsField;
+            rhsField = that.getSoftwareDevelopmentFile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "softwareDevelopmentFile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "softwareDevelopmentFile", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetName();
             boolean rhsFieldIsSet = that.isSetName();
             CICitationPropertyType lhsField;
@@ -289,32 +341,6 @@ public class MDApplicationSchemaInformationType extends AbstractObjectType imple
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGraphicsFile();
-            boolean rhsFieldIsSet = that.isSetGraphicsFile();
-            BinaryPropertyType lhsField;
-            lhsField = this.getGraphicsFile();
-            BinaryPropertyType rhsField;
-            rhsField = that.getGraphicsFile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "graphicsFile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "graphicsFile", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSchemaLanguage();
-            boolean rhsFieldIsSet = that.isSetSchemaLanguage();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSchemaLanguage();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSchemaLanguage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "schemaLanguage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "schemaLanguage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetConstraintLanguage();
             boolean rhsFieldIsSet = that.isSetConstraintLanguage();
             CharacterStringPropertyType lhsField;
@@ -323,32 +349,6 @@ public class MDApplicationSchemaInformationType extends AbstractObjectType imple
             rhsField = that.getConstraintLanguage();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "constraintLanguage", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "constraintLanguage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSchemaAscii();
-            boolean rhsFieldIsSet = that.isSetSchemaAscii();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSchemaAscii();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSchemaAscii();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "schemaAscii", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "schemaAscii", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSoftwareDevelopmentFile();
-            boolean rhsFieldIsSet = that.isSetSoftwareDevelopmentFile();
-            BinaryPropertyType lhsField;
-            lhsField = this.getSoftwareDevelopmentFile();
-            BinaryPropertyType rhsField;
-            rhsField = that.getSoftwareDevelopmentFile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "softwareDevelopmentFile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "softwareDevelopmentFile", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

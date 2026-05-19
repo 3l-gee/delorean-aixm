@@ -241,19 +241,6 @@ public class TinType extends SurfaceType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStopLines();
-            boolean rhsFieldIsSet = that.isSetStopLines();
-            List<LineStringSegmentArrayPropertyType> lhsField;
-            lhsField = (this.isSetStopLines() ? this.getStopLines() : null);
-            List<LineStringSegmentArrayPropertyType> rhsField;
-            rhsField = (that.isSetStopLines() ? that.getStopLines() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "stopLines", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "stopLines", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMaxLength();
             boolean rhsFieldIsSet = that.isSetMaxLength();
             LengthType lhsField;
@@ -262,6 +249,19 @@ public class TinType extends SurfaceType implements Serializable {
             rhsField = that.getMaxLength();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxLength", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxLength", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStopLines();
+            boolean rhsFieldIsSet = that.isSetStopLines();
+            List<LineStringSegmentArrayPropertyType> lhsField;
+            lhsField = (this.isSetStopLines() ? this.getStopLines() : null);
+            List<LineStringSegmentArrayPropertyType> rhsField;
+            rhsField = (that.isSetStopLines() ? that.getStopLines() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "stopLines", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "stopLines", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

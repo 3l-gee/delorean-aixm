@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -24,6 +20,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,33 +31,53 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for ProcedureTransitionType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for ProcedureTransitionType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="ProcedureTransitionType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="transitionId" type="{http://www.aixm.aero/schema/5.1.1}CodeDesignatedPointDesignatorType" minOccurs="0"/>
- *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeProcedurePhaseType" minOccurs="0"/>
- *         <element name="instruction" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
- *         <element name="vectorHeading" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="departureRunwayTransition" type="{http://www.aixm.aero/schema/5.1.1}LandingTakeoffAreaCollectionPropertyType" minOccurs="0"/>
- *         <element name="trajectory" type="{http://www.aixm.aero/schema/5.1.1}CurvePropertyType" minOccurs="0"/>
- *         <element name="transitionLeg" type="{http://www.aixm.aero/schema/5.1.1}ProcedureTransitionLegPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="transitionId" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeDesignatedPointDesignatorType" minOccurs
+="0"/>
+ *         <element name="type" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeProcedurePhaseType" minOccurs="0"/>
+ *         <element name="instruction" type=
+"{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="vectorHeading" type=
+"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="departureRunwayTransition" type=
+"{http://www.aixm.aero/schema/5.1.1}LandingTakeoffAreaCollectionPropertyType" minOccurs
+="0"/>
+ *         <element name="trajectory" type=
+"{http://www.aixm.aero/schema/5.1.1}CurvePropertyType" minOccurs="0"/>
+ *         <element name="transitionLeg" type=
+"{http://www.aixm.aero/schema/5.1.1}ProcedureTransitionLegPropertyType" maxOccurs
+="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractProcedureTransitionExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractProcedureTransitionExtension"/>
  *                 </choice>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -67,27 +87,15 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ProcedureTransitionType", propOrder = {
-    "transitionId",
-    "type",
-    "instruction",
-    "vectorHeading",
-    "departureRunwayTransition",
-    "trajectory",
-    "transitionLeg",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "ProcedureTransitionType", propOrder = {"transitionId", "type", "instruction", "vectorHeading",
+        "departureRunwayTransition", "trajectory", "transitionLeg", "annotation", "extension"})
 @Entity(name = "ProcedureTransitionType")
 @Table(name = "proceduretransition_o", schema = "procedure")
-public class ProcedureTransitionType
-    extends AbstractAIXMObjectType
-    implements Serializable
-{
+public class ProcedureTransitionType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "transitionId", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -110,11 +118,10 @@ public class ProcedureTransitionType
 
     /**
      * Gets the value of the transitionId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeDesignatedPointDesignatorType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeDesignatedPointDesignatorType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeDesignatedPointDesignatorType> getTransitionId() {
@@ -123,11 +130,11 @@ public class ProcedureTransitionType
 
     /**
      * Sets the value of the transitionId property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeDesignatedPointDesignatorType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeDesignatedPointDesignatorType }{@code >}
+     *
      */
     public void setTransitionId(JAXBElement<CodeDesignatedPointDesignatorType> value) {
         this.transitionId = value;
@@ -135,16 +142,15 @@ public class ProcedureTransitionType
 
     @Transient
     public boolean isSetTransitionId() {
-        return (this.transitionId!= null);
+        return (this.transitionId != null);
     }
 
     /**
      * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeProcedurePhaseType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeProcedurePhaseType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeProcedurePhaseType> getType() {
@@ -153,11 +159,11 @@ public class ProcedureTransitionType
 
     /**
      * Sets the value of the type property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeProcedurePhaseType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeProcedurePhaseType }{@code >}
+     *
      */
     public void setType(JAXBElement<CodeProcedurePhaseType> value) {
         this.type = value;
@@ -165,16 +171,15 @@ public class ProcedureTransitionType
 
     @Transient
     public boolean isSetType() {
-        return (this.type!= null);
+        return (this.type != null);
     }
 
     /**
      * Gets the value of the instruction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link TextInstructionType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextInstructionType> getInstruction() {
@@ -183,11 +188,11 @@ public class ProcedureTransitionType
 
     /**
      * Sets the value of the instruction property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link TextInstructionType }{@code >}
+     *
      */
     public void setInstruction(JAXBElement<TextInstructionType> value) {
         this.instruction = value;
@@ -195,16 +200,15 @@ public class ProcedureTransitionType
 
     @Transient
     public boolean isSetInstruction() {
-        return (this.instruction!= null);
+        return (this.instruction != null);
     }
 
     /**
      * Gets the value of the vectorHeading property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValBearingType> getVectorHeading() {
@@ -213,11 +217,11 @@ public class ProcedureTransitionType
 
     /**
      * Sets the value of the vectorHeading property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValBearingType }{@code >}
+     *
      */
     public void setVectorHeading(JAXBElement<ValBearingType> value) {
         this.vectorHeading = value;
@@ -225,16 +229,15 @@ public class ProcedureTransitionType
 
     @Transient
     public boolean isSetVectorHeading() {
-        return (this.vectorHeading!= null);
+        return (this.vectorHeading != null);
     }
 
     /**
      * Gets the value of the departureRunwayTransition property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link LandingTakeoffAreaCollectionPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link LandingTakeoffAreaCollectionPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<LandingTakeoffAreaCollectionPropertyType> getDepartureRunwayTransition() {
@@ -243,11 +246,12 @@ public class ProcedureTransitionType
 
     /**
      * Sets the value of the departureRunwayTransition property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link LandingTakeoffAreaCollectionPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link LandingTakeoffAreaCollectionPropertyType
+     *            }{@code >}
+     *
      */
     public void setDepartureRunwayTransition(JAXBElement<LandingTakeoffAreaCollectionPropertyType> value) {
         this.departureRunwayTransition = value;
@@ -255,16 +259,15 @@ public class ProcedureTransitionType
 
     @Transient
     public boolean isSetDepartureRunwayTransition() {
-        return (this.departureRunwayTransition!= null);
+        return (this.departureRunwayTransition != null);
     }
 
     /**
      * Gets the value of the trajectory property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<AIXMCurvePropertyType> getTrajectory() {
@@ -273,11 +276,11 @@ public class ProcedureTransitionType
 
     /**
      * Sets the value of the trajectory property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     *
      */
     public void setTrajectory(JAXBElement<AIXMCurvePropertyType> value) {
         this.trajectory = value;
@@ -285,39 +288,37 @@ public class ProcedureTransitionType
 
     @Transient
     public boolean isSetTrajectory() {
-        return (this.trajectory!= null);
+        return (this.trajectory != null);
     }
 
     /**
      * Gets the value of the transitionLeg property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the transitionLeg property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the transitionLeg property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getTransitionLeg().add(newItem);
+     * getTransitionLeg().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ProcedureTransitionLegPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = ProcedureTransitionLegPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "proceduretransition_o_transitionleg_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "proceduretransition_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "transitionleg_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "prcdrtrnstntp_trnstnlg_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "proceduretransition_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "transitionleg_hjid", referencedColumnName = "hjid")})
     public List<ProcedureTransitionLegPropertyType> getTransitionLeg() {
         if (transitionLeg == null) {
             transitionLeg = new ArrayList<>();
@@ -326,8 +327,8 @@ public class ProcedureTransitionType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setTransitionLeg(List<ProcedureTransitionLegPropertyType> transitionLeg) {
         this.transitionLeg = transitionLeg;
@@ -335,7 +336,7 @@ public class ProcedureTransitionType
 
     @Transient
     public boolean isSetTransitionLeg() {
-        return ((this.transitionLeg!= null)&&(!this.transitionLeg.isEmpty()));
+        return ((this.transitionLeg != null) && (!this.transitionLeg.isEmpty()));
     }
 
     public void unsetTransitionLeg() {
@@ -344,34 +345,31 @@ public class ProcedureTransitionType
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "proceduretransition_o_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "proceduretransition_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "prcdrtrnstntp_annttn_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "proceduretransition_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -380,8 +378,8 @@ public class ProcedureTransitionType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -389,7 +387,7 @@ public class ProcedureTransitionType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -398,30 +396,30 @@ public class ProcedureTransitionType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ProcedureTransitionTypeExtensionType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = ProcedureTransitionTypeExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "proceduretransition_e_hjid", referencedColumnName = "hjid")
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "proceduretransitione_hjid", referencedColumnName = "hjid")
     public List<ProcedureTransitionTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -430,8 +428,8 @@ public class ProcedureTransitionType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<ProcedureTransitionTypeExtensionType> extension) {
         this.extension = extension;
@@ -439,7 +437,7 @@ public class ProcedureTransitionType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -448,91 +446,89 @@ public class ProcedureTransitionType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "transitionid")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "transitionid_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "transitionid", columnDefinition = "VARCHAR", length = 5)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "transitionidnilreason"))})
     public CodeDesignatedPointDesignatorType getTransitionIdItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDesignatedPointDesignatorType.class, this.getTransitionId());
     }
 
     public void setTransitionIdItem(CodeDesignatedPointDesignatorType target) {
-        setTransitionId(XmlAdapterUtils.marshallJAXBElement(CodeDesignatedPointDesignatorType.class, new QName("http://www.aixm.aero/schema/5.1.1", "transitionId"), ProcedureTransitionType.class, target));
+        setTransitionId(XmlAdapterUtils.marshallJAXBElement(CodeDesignatedPointDesignatorType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "transitionId"), ProcedureTransitionType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "type")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
     public CodeProcedurePhaseType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeProcedurePhaseType.class, this.getType());
     }
 
     public void setTypeItem(CodeProcedurePhaseType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeProcedurePhaseType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), ProcedureTransitionType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeProcedurePhaseType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "type"), ProcedureTransitionType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "instruction")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "instruction_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "instruction", columnDefinition = "TEXT", length = 10000)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "instructionnilreason"))})
     public TextInstructionType getInstructionItem() {
         return XmlAdapterUtils.unmarshallSource(TextInstructionType.class, this.getInstruction());
     }
 
     public void setInstructionItem(TextInstructionType target) {
-        setInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "instruction"), ProcedureTransitionType.class, target));
+        setInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "instruction"), ProcedureTransitionType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "vectorheading")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "vectorheading_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "vectorheading", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "vectorheadingnilreason"))})
     public ValBearingType getVectorHeadingItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getVectorHeading());
     }
 
     public void setVectorHeadingItem(ValBearingType target) {
-        setVectorHeading(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "vectorHeading"), ProcedureTransitionType.class, target));
+        setVectorHeading(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "vectorHeading"), ProcedureTransitionType.class,
+                target));
     }
 
     @OneToOne(targetEntity = LandingTakeoffAreaCollectionPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "proceduretransition_o_departurerunwaytransition_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "proceduretransition_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "departurerunwaytransition_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "prcdrtrnstntp_dprtrrnwtrnstn_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "proceduretransition_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "departurerunwaytransition_hjid", referencedColumnName = "hjid")})
     public LandingTakeoffAreaCollectionPropertyType getDepartureRunwayTransitionItem() {
-        return XmlAdapterUtils.unmarshallSource(LandingTakeoffAreaCollectionPropertyType.class, this.getDepartureRunwayTransition());
+        return XmlAdapterUtils.unmarshallSource(LandingTakeoffAreaCollectionPropertyType.class,
+                this.getDepartureRunwayTransition());
     }
 
     public void setDepartureRunwayTransitionItem(LandingTakeoffAreaCollectionPropertyType target) {
-        setDepartureRunwayTransition(XmlAdapterUtils.marshallJAXBElement(LandingTakeoffAreaCollectionPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "departureRunwayTransition"), ProcedureTransitionType.class, target));
+        setDepartureRunwayTransition(XmlAdapterUtils.marshallJAXBElement(LandingTakeoffAreaCollectionPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "departureRunwayTransition"),
+                ProcedureTransitionType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "proceduretransition_o_trajectory_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "proceduretransition_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "trajectory_hjid", referencedColumnName = "hjid")
-    })
+    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "prcdrtrnstntp_trjctr_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "proceduretransition_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "trajectory_hjid", referencedColumnName = "hjid")})
     public AIXMCurvePropertyType getTrajectoryItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMCurvePropertyType.class, this.getTrajectory());
     }
 
     public void setTrajectoryItem(AIXMCurvePropertyType target) {
-        setTrajectory(XmlAdapterUtils.marshallJAXBElement(AIXMCurvePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "trajectory"), ProcedureTransitionType.class, target));
+        setTrajectory(XmlAdapterUtils.marshallJAXBElement(AIXMCurvePropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "trajectory"), ProcedureTransitionType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -556,14 +552,27 @@ public class ProcedureTransitionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeProcedurePhaseType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeProcedurePhaseType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTransitionId();
+            boolean rhsFieldIsSet = that.isSetTransitionId();
+            JAXBElement<CodeDesignatedPointDesignatorType> lhsField;
+            lhsField = this.getTransitionId();
+            JAXBElement<CodeDesignatedPointDesignatorType> rhsField;
+            rhsField = that.getTransitionId();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transitionId", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transitionId", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -582,27 +591,27 @@ public class ProcedureTransitionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ProcedureTransitionTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ProcedureTransitionTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeProcedurePhaseType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeProcedurePhaseType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ProcedureTransitionTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ProcedureTransitionTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -616,19 +625,6 @@ public class ProcedureTransitionType
             rhsField = that.getVectorHeading();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vectorHeading", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vectorHeading", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTransitionId();
-            boolean rhsFieldIsSet = that.isSetTransitionId();
-            JAXBElement<CodeDesignatedPointDesignatorType> lhsField;
-            lhsField = this.getTransitionId();
-            JAXBElement<CodeDesignatedPointDesignatorType> rhsField;
-            rhsField = that.getTransitionId();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transitionId", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transitionId", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -650,9 +646,9 @@ public class ProcedureTransitionType
             boolean lhsFieldIsSet = this.isSetTransitionLeg();
             boolean rhsFieldIsSet = that.isSetTransitionLeg();
             List<ProcedureTransitionLegPropertyType> lhsField;
-            lhsField = (this.isSetTransitionLeg()?this.getTransitionLeg():null);
+            lhsField = (this.isSetTransitionLeg() ? this.getTransitionLeg() : null);
             List<ProcedureTransitionLegPropertyType> rhsField;
-            rhsField = (that.isSetTransitionLeg()?that.getTransitionLeg():null);
+            rhsField = (that.isSetTransitionLeg() ? that.getTransitionLeg() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transitionLeg", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transitionLeg", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -710,21 +706,21 @@ public class ProcedureTransitionType
         {
             boolean theFieldIsSet = this.isSetTransitionLeg();
             List<ProcedureTransitionLegPropertyType> theField;
-            theField = (this.isSetTransitionLeg()?this.getTransitionLeg():null);
+            theField = (this.isSetTransitionLeg() ? this.getTransitionLeg() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "transitionLeg", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ProcedureTransitionTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -773,19 +769,19 @@ public class ProcedureTransitionType
         {
             boolean theFieldIsSet = this.isSetTransitionLeg();
             List<ProcedureTransitionLegPropertyType> theField;
-            theField = (this.isSetTransitionLeg()?this.getTransitionLeg():null);
+            theField = (this.isSetTransitionLeg() ? this.getTransitionLeg() : null);
             strategy.appendField(locator, this, "transitionLeg", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ProcedureTransitionTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

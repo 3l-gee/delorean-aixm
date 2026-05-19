@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -24,6 +20,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,38 +31,63 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for RouteTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RouteTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RouteTimeSliceType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="designatorPrefix" type="{http://www.aixm.aero/schema/5.1.1}CodeRouteDesignatorPrefixType" minOccurs="0"/>
- *         <element name="designatorSecondLetter" type="{http://www.aixm.aero/schema/5.1.1}CodeRouteDesignatorLetterType" minOccurs="0"/>
- *         <element name="designatorNumber" type="{http://www.aixm.aero/schema/5.1.1}NoNumberType" minOccurs="0"/>
- *         <element name="multipleIdentifier" type="{http://www.aixm.aero/schema/5.1.1}CodeUpperAlphaType" minOccurs="0"/>
- *         <element name="locationDesignator" type="{http://www.aixm.aero/schema/5.1.1}TextDesignatorType" minOccurs="0"/>
- *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
- *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeRouteType" minOccurs="0"/>
- *         <element name="flightRule" type="{http://www.aixm.aero/schema/5.1.1}CodeFlightRuleType" minOccurs="0"/>
- *         <element name="internationalUse" type="{http://www.aixm.aero/schema/5.1.1}CodeRouteOriginType" minOccurs="0"/>
- *         <element name="militaryUse" type="{http://www.aixm.aero/schema/5.1.1}CodeMilitaryStatusType" minOccurs="0"/>
- *         <element name="militaryTrainingType" type="{http://www.aixm.aero/schema/5.1.1}CodeMilitaryTrainingType" minOccurs="0"/>
- *         <element name="userOrganisation" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="designatorPrefix" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeRouteDesignatorPrefixType" minOccurs=
+"0"/>
+ *         <element name="designatorSecondLetter" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeRouteDesignatorLetterType" minOccurs=
+"0"/>
+ *         <element name="designatorNumber" type=
+"{http://www.aixm.aero/schema/5.1.1}NoNumberType" minOccurs="0"/>
+ *         <element name="multipleIdentifier" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeUpperAlphaType" minOccurs="0"/>
+ *         <element name="locationDesignator" type=
+"{http://www.aixm.aero/schema/5.1.1}TextDesignatorType" minOccurs="0"/>
+ *         <element name="name" type=
+"{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="type" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeRouteType" minOccurs="0"/>
+ *         <element name="flightRule" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeFlightRuleType" minOccurs="0"/>
+ *         <element name="internationalUse" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeRouteOriginType" minOccurs="0"/>
+ *         <element name="militaryUse" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeMilitaryStatusType" minOccurs="0"/>
+ *         <element name="militaryTrainingType" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeMilitaryTrainingType" minOccurs="0"/>
+ *         <element name="userOrganisation" type=
+"{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" minOccurs
+="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractRouteExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractRouteExtension"/>
  *                 </sequence>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -72,32 +97,16 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RouteTimeSliceType", propOrder = {
-    "designatorPrefix",
-    "designatorSecondLetter",
-    "designatorNumber",
-    "multipleIdentifier",
-    "locationDesignator",
-    "aixmName",
-    "type",
-    "flightRule",
-    "internationalUse",
-    "militaryUse",
-    "militaryTrainingType",
-    "userOrganisation",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "RouteTimeSliceType", propOrder = {"designatorPrefix", "designatorSecondLetter", "designatorNumber",
+        "multipleIdentifier", "locationDesignator", "aixmName", "type", "flightRule", "internationalUse", "militaryUse",
+        "militaryTrainingType", "userOrganisation", "annotation", "extension"})
 @Entity(name = "RouteTimeSliceType")
 @Table(name = "route_t", schema = "route")
-public class RouteTimeSliceType
-    extends AbstractAIXMTimeSliceType
-    implements Serializable
-{
+public class RouteTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "designatorPrefix", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -130,11 +139,10 @@ public class RouteTimeSliceType
 
     /**
      * Gets the value of the designatorPrefix property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteDesignatorPrefixType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeRouteDesignatorPrefixType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRouteDesignatorPrefixType> getDesignatorPrefix() {
@@ -143,11 +151,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the designatorPrefix property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteDesignatorPrefixType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeRouteDesignatorPrefixType }{@code >}
+     *
      */
     public void setDesignatorPrefix(JAXBElement<CodeRouteDesignatorPrefixType> value) {
         this.designatorPrefix = value;
@@ -155,16 +163,15 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetDesignatorPrefix() {
-        return (this.designatorPrefix!= null);
+        return (this.designatorPrefix != null);
     }
 
     /**
      * Gets the value of the designatorSecondLetter property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteDesignatorLetterType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeRouteDesignatorLetterType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRouteDesignatorLetterType> getDesignatorSecondLetter() {
@@ -173,11 +180,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the designatorSecondLetter property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteDesignatorLetterType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeRouteDesignatorLetterType }{@code >}
+     *
      */
     public void setDesignatorSecondLetter(JAXBElement<CodeRouteDesignatorLetterType> value) {
         this.designatorSecondLetter = value;
@@ -185,16 +192,15 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetDesignatorSecondLetter() {
-        return (this.designatorSecondLetter!= null);
+        return (this.designatorSecondLetter != null);
     }
 
     /**
      * Gets the value of the designatorNumber property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link NoNumberType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<NoNumberType> getDesignatorNumber() {
@@ -203,11 +209,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the designatorNumber property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link NoNumberType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link NoNumberType
+     *            }{@code >}
+     *
      */
     public void setDesignatorNumber(JAXBElement<NoNumberType> value) {
         this.designatorNumber = value;
@@ -215,16 +221,15 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetDesignatorNumber() {
-        return (this.designatorNumber!= null);
+        return (this.designatorNumber != null);
     }
 
     /**
      * Gets the value of the multipleIdentifier property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeUpperAlphaType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeUpperAlphaType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeUpperAlphaType> getMultipleIdentifier() {
@@ -233,11 +238,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the multipleIdentifier property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeUpperAlphaType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeUpperAlphaType }{@code >}
+     *
      */
     public void setMultipleIdentifier(JAXBElement<CodeUpperAlphaType> value) {
         this.multipleIdentifier = value;
@@ -245,16 +250,15 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetMultipleIdentifier() {
-        return (this.multipleIdentifier!= null);
+        return (this.multipleIdentifier != null);
     }
 
     /**
      * Gets the value of the locationDesignator property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link TextDesignatorType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextDesignatorType> getLocationDesignator() {
@@ -263,11 +267,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the locationDesignator property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link TextDesignatorType }{@code >}
+     *
      */
     public void setLocationDesignator(JAXBElement<TextDesignatorType> value) {
         this.locationDesignator = value;
@@ -275,16 +279,15 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetLocationDesignator() {
-        return (this.locationDesignator!= null);
+        return (this.locationDesignator != null);
     }
 
     /**
      * Gets the value of the aixmName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -293,11 +296,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the aixmName property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
+     *            }{@code >}
+     *
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -305,16 +308,15 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName!= null);
+        return (this.aixmName != null);
     }
 
     /**
      * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeRouteType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRouteType> getType() {
@@ -323,11 +325,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the type property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeRouteType }{@code >}
+     *
      */
     public void setType(JAXBElement<CodeRouteType> value) {
         this.type = value;
@@ -335,16 +337,15 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetType() {
-        return (this.type!= null);
+        return (this.type != null);
     }
 
     /**
      * Gets the value of the flightRule property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeFlightRuleType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeFlightRuleType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeFlightRuleType> getFlightRule() {
@@ -353,11 +354,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the flightRule property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeFlightRuleType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeFlightRuleType }{@code >}
+     *
      */
     public void setFlightRule(JAXBElement<CodeFlightRuleType> value) {
         this.flightRule = value;
@@ -365,16 +366,15 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetFlightRule() {
-        return (this.flightRule!= null);
+        return (this.flightRule != null);
     }
 
     /**
      * Gets the value of the internationalUse property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteOriginType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeRouteOriginType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRouteOriginType> getInternationalUse() {
@@ -383,11 +383,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the internationalUse property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRouteOriginType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeRouteOriginType }{@code >}
+     *
      */
     public void setInternationalUse(JAXBElement<CodeRouteOriginType> value) {
         this.internationalUse = value;
@@ -395,16 +395,15 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetInternationalUse() {
-        return (this.internationalUse!= null);
+        return (this.internationalUse != null);
     }
 
     /**
      * Gets the value of the militaryUse property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeMilitaryStatusType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeMilitaryStatusType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeMilitaryStatusType> getMilitaryUse() {
@@ -413,11 +412,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the militaryUse property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeMilitaryStatusType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeMilitaryStatusType }{@code >}
+     *
      */
     public void setMilitaryUse(JAXBElement<CodeMilitaryStatusType> value) {
         this.militaryUse = value;
@@ -425,16 +424,15 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetMilitaryUse() {
-        return (this.militaryUse!= null);
+        return (this.militaryUse != null);
     }
 
     /**
      * Gets the value of the militaryTrainingType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeMilitaryTrainingType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeMilitaryTrainingType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeMilitaryTrainingType> getMilitaryTrainingType() {
@@ -443,11 +441,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the militaryTrainingType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeMilitaryTrainingType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeMilitaryTrainingType }{@code >}
+     *
      */
     public void setMilitaryTrainingType(JAXBElement<CodeMilitaryTrainingType> value) {
         this.militaryTrainingType = value;
@@ -455,16 +453,15 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetMilitaryTrainingType() {
-        return (this.militaryTrainingType!= null);
+        return (this.militaryTrainingType != null);
     }
 
     /**
      * Gets the value of the userOrganisation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<OrganisationAuthorityPropertyType> getUserOrganisation() {
@@ -473,11 +470,11 @@ public class RouteTimeSliceType
 
     /**
      * Sets the value of the userOrganisation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link OrganisationAuthorityPropertyType }{@code >}
+     *
      */
     public void setUserOrganisation(JAXBElement<OrganisationAuthorityPropertyType> value) {
         this.userOrganisation = value;
@@ -485,39 +482,36 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetUserOrganisation() {
-        return (this.userOrganisation!= null);
+        return (this.userOrganisation != null);
     }
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "route_t_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "route_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rttmslctp_annttn_link", schema = "route", joinColumns = {
+            @JoinColumn(name = "route_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -526,8 +520,8 @@ public class RouteTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -535,7 +529,7 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -544,30 +538,29 @@ public class RouteTimeSliceType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RouteExtensionType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = RouteExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "route_e_hjid", referencedColumnName = "hjid")
+    @OneToMany(targetEntity = RouteExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "routee_hjid", referencedColumnName = "hjid")
     public List<RouteExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -576,8 +569,8 @@ public class RouteTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<RouteExtensionType> extension) {
         this.extension = extension;
@@ -585,7 +578,7 @@ public class RouteTimeSliceType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -593,167 +586,161 @@ public class RouteTimeSliceType
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designatorprefix")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "designatorprefix_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "designatorprefix")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "designatorprefixnilreason"))})
     public CodeRouteDesignatorPrefixType getDesignatorPrefixItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRouteDesignatorPrefixType.class, this.getDesignatorPrefix());
     }
 
     public void setDesignatorPrefixItem(CodeRouteDesignatorPrefixType target) {
-        setDesignatorPrefix(XmlAdapterUtils.marshallJAXBElement(CodeRouteDesignatorPrefixType.class, new QName("http://www.aixm.aero/schema/5.1.1", "designatorPrefix"), RouteTimeSliceType.class, target));
+        setDesignatorPrefix(XmlAdapterUtils.marshallJAXBElement(CodeRouteDesignatorPrefixType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "designatorPrefix"), RouteTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designatorsecondletter")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "designatorsecondletter_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "designatorsecondletter")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "designatorsecondletternilreason"))})
     public CodeRouteDesignatorLetterType getDesignatorSecondLetterItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRouteDesignatorLetterType.class, this.getDesignatorSecondLetter());
     }
 
     public void setDesignatorSecondLetterItem(CodeRouteDesignatorLetterType target) {
-        setDesignatorSecondLetter(XmlAdapterUtils.marshallJAXBElement(CodeRouteDesignatorLetterType.class, new QName("http://www.aixm.aero/schema/5.1.1", "designatorSecondLetter"), RouteTimeSliceType.class, target));
+        setDesignatorSecondLetter(XmlAdapterUtils.marshallJAXBElement(CodeRouteDesignatorLetterType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "designatorSecondLetter"), RouteTimeSliceType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designatornumber")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "designatornumber_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "designatornumber")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "designatornumbernilreason"))})
     public NoNumberType getDesignatorNumberItem() {
         return XmlAdapterUtils.unmarshallSource(NoNumberType.class, this.getDesignatorNumber());
     }
 
     public void setDesignatorNumberItem(NoNumberType target) {
-        setDesignatorNumber(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class, new QName("http://www.aixm.aero/schema/5.1.1", "designatorNumber"), RouteTimeSliceType.class, target));
+        setDesignatorNumber(XmlAdapterUtils.marshallJAXBElement(NoNumberType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "designatorNumber"), RouteTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "multipleidentifier")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "multipleidentifier_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "multipleidentifier")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "multipleidentifiernilreason"))})
     public CodeUpperAlphaType getMultipleIdentifierItem() {
         return XmlAdapterUtils.unmarshallSource(CodeUpperAlphaType.class, this.getMultipleIdentifier());
     }
 
     public void setMultipleIdentifierItem(CodeUpperAlphaType target) {
-        setMultipleIdentifier(XmlAdapterUtils.marshallJAXBElement(CodeUpperAlphaType.class, new QName("http://www.aixm.aero/schema/5.1.1", "multipleIdentifier"), RouteTimeSliceType.class, target));
+        setMultipleIdentifier(XmlAdapterUtils.marshallJAXBElement(CodeUpperAlphaType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "multipleIdentifier"), RouteTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "locationdesignator")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "locationdesignator_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "locationdesignator", columnDefinition = "VARCHAR", length = 16)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "locationdesignatornilreason"))})
     public TextDesignatorType getLocationDesignatorItem() {
         return XmlAdapterUtils.unmarshallSource(TextDesignatorType.class, this.getLocationDesignator());
     }
 
     public void setLocationDesignatorItem(TextDesignatorType target) {
-        setLocationDesignator(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class, new QName("http://www.aixm.aero/schema/5.1.1", "locationDesignator"), RouteTimeSliceType.class, target));
+        setLocationDesignator(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "locationDesignator"), RouteTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "name")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "name_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "name"), RouteTimeSliceType.class, target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "name"), RouteTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "type")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
     public CodeRouteType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRouteType.class, this.getType());
     }
 
     public void setTypeItem(CodeRouteType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeRouteType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), RouteTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeRouteType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "type"), RouteTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "flightrule")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "flightrule_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "flightrule")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "flightrulenilreason"))})
     public CodeFlightRuleType getFlightRuleItem() {
         return XmlAdapterUtils.unmarshallSource(CodeFlightRuleType.class, this.getFlightRule());
     }
 
     public void setFlightRuleItem(CodeFlightRuleType target) {
-        setFlightRule(XmlAdapterUtils.marshallJAXBElement(CodeFlightRuleType.class, new QName("http://www.aixm.aero/schema/5.1.1", "flightRule"), RouteTimeSliceType.class, target));
+        setFlightRule(XmlAdapterUtils.marshallJAXBElement(CodeFlightRuleType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "flightRule"), RouteTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "internationaluse")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "internationaluse_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "internationaluse")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "internationalusenilreason"))})
     public CodeRouteOriginType getInternationalUseItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRouteOriginType.class, this.getInternationalUse());
     }
 
     public void setInternationalUseItem(CodeRouteOriginType target) {
-        setInternationalUse(XmlAdapterUtils.marshallJAXBElement(CodeRouteOriginType.class, new QName("http://www.aixm.aero/schema/5.1.1", "internationalUse"), RouteTimeSliceType.class, target));
+        setInternationalUse(XmlAdapterUtils.marshallJAXBElement(CodeRouteOriginType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "internationalUse"), RouteTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "militaryuse")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "militaryuse_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "militaryuse")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "militaryusenilreason"))})
     public CodeMilitaryStatusType getMilitaryUseItem() {
         return XmlAdapterUtils.unmarshallSource(CodeMilitaryStatusType.class, this.getMilitaryUse());
     }
 
     public void setMilitaryUseItem(CodeMilitaryStatusType target) {
-        setMilitaryUse(XmlAdapterUtils.marshallJAXBElement(CodeMilitaryStatusType.class, new QName("http://www.aixm.aero/schema/5.1.1", "militaryUse"), RouteTimeSliceType.class, target));
+        setMilitaryUse(XmlAdapterUtils.marshallJAXBElement(CodeMilitaryStatusType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "militaryUse"), RouteTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "militarytrainingtype")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "militarytrainingtype_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "militarytrainingtype")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "militarytrainingtypenilreason"))})
     public CodeMilitaryTrainingType getMilitaryTrainingTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeMilitaryTrainingType.class, this.getMilitaryTrainingType());
     }
 
     public void setMilitaryTrainingTypeItem(CodeMilitaryTrainingType target) {
-        setMilitaryTrainingType(XmlAdapterUtils.marshallJAXBElement(CodeMilitaryTrainingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "militaryTrainingType"), RouteTimeSliceType.class, target));
+        setMilitaryTrainingType(XmlAdapterUtils.marshallJAXBElement(CodeMilitaryTrainingType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "militaryTrainingType"), RouteTimeSliceType.class,
+                target));
     }
 
     @OneToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "route_t_userorganisation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "route_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "userorganisation_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rttmslctp_usrorgnstn_link", schema = "route", joinColumns = {
+            @JoinColumn(name = "route_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "userorganisation_hjid", referencedColumnName = "hjid")})
     public OrganisationAuthorityPropertyType getUserOrganisationItem() {
         return XmlAdapterUtils.unmarshallSource(OrganisationAuthorityPropertyType.class, this.getUserOrganisation());
     }
 
     public void setUserOrganisationItem(OrganisationAuthorityPropertyType target) {
-        setUserOrganisation(XmlAdapterUtils.marshallJAXBElement(OrganisationAuthorityPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "userOrganisation"), RouteTimeSliceType.class, target));
+        setUserOrganisation(XmlAdapterUtils.marshallJAXBElement(OrganisationAuthorityPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "userOrganisation"), RouteTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -764,14 +751,14 @@ public class RouteTimeSliceType
         }
         final RouteTimeSliceType that = ((RouteTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetInternationalUse();
-            boolean rhsFieldIsSet = that.isSetInternationalUse();
-            JAXBElement<CodeRouteOriginType> lhsField;
-            lhsField = this.getInternationalUse();
-            JAXBElement<CodeRouteOriginType> rhsField;
-            rhsField = that.getInternationalUse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "internationalUse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "internationalUse", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeRouteType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeRouteType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -785,32 +772,6 @@ public class RouteTimeSliceType
             rhsField = that.getDesignatorPrefix();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorPrefix", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorPrefix", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignatorSecondLetter();
-            boolean rhsFieldIsSet = that.isSetDesignatorSecondLetter();
-            JAXBElement<CodeRouteDesignatorLetterType> lhsField;
-            lhsField = this.getDesignatorSecondLetter();
-            JAXBElement<CodeRouteDesignatorLetterType> rhsField;
-            rhsField = that.getDesignatorSecondLetter();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorSecondLetter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorSecondLetter", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignatorNumber();
-            boolean rhsFieldIsSet = that.isSetDesignatorNumber();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getDesignatorNumber();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getDesignatorNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorNumber", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -832,9 +793,9 @@ public class RouteTimeSliceType
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<RouteExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
             List<RouteExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -842,40 +803,27 @@ public class RouteTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMultipleIdentifier();
-            boolean rhsFieldIsSet = that.isSetMultipleIdentifier();
-            JAXBElement<CodeUpperAlphaType> lhsField;
-            lhsField = this.getMultipleIdentifier();
-            JAXBElement<CodeUpperAlphaType> rhsField;
-            rhsField = that.getMultipleIdentifier();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "multipleIdentifier", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "multipleIdentifier", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMilitaryTrainingType();
-            boolean rhsFieldIsSet = that.isSetMilitaryTrainingType();
-            JAXBElement<CodeMilitaryTrainingType> lhsField;
-            lhsField = this.getMilitaryTrainingType();
-            JAXBElement<CodeMilitaryTrainingType> rhsField;
-            rhsField = that.getMilitaryTrainingType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "militaryTrainingType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "militaryTrainingType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocationDesignator();
-            boolean rhsFieldIsSet = that.isSetLocationDesignator();
-            JAXBElement<TextDesignatorType> lhsField;
-            lhsField = this.getLocationDesignator();
-            JAXBElement<TextDesignatorType> rhsField;
-            rhsField = that.getLocationDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationDesignator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationDesignator", rhsField);
+            boolean lhsFieldIsSet = this.isSetInternationalUse();
+            boolean rhsFieldIsSet = that.isSetInternationalUse();
+            JAXBElement<CodeRouteOriginType> lhsField;
+            lhsField = this.getInternationalUse();
+            JAXBElement<CodeRouteOriginType> rhsField;
+            rhsField = that.getInternationalUse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "internationalUse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "internationalUse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -894,6 +842,32 @@ public class RouteTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetLocationDesignator();
+            boolean rhsFieldIsSet = that.isSetLocationDesignator();
+            JAXBElement<TextDesignatorType> lhsField;
+            lhsField = this.getLocationDesignator();
+            JAXBElement<TextDesignatorType> rhsField;
+            rhsField = that.getLocationDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationDesignator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationDesignator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMultipleIdentifier();
+            boolean rhsFieldIsSet = that.isSetMultipleIdentifier();
+            JAXBElement<CodeUpperAlphaType> lhsField;
+            lhsField = this.getMultipleIdentifier();
+            JAXBElement<CodeUpperAlphaType> rhsField;
+            rhsField = that.getMultipleIdentifier();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "multipleIdentifier", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "multipleIdentifier", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetFlightRule();
             boolean rhsFieldIsSet = that.isSetFlightRule();
             JAXBElement<CodeFlightRuleType> lhsField;
@@ -907,27 +881,27 @@ public class RouteTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeRouteType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeRouteType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetDesignatorNumber();
+            boolean rhsFieldIsSet = that.isSetDesignatorNumber();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getDesignatorNumber();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getDesignatorNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorNumber", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetMilitaryTrainingType();
+            boolean rhsFieldIsSet = that.isSetMilitaryTrainingType();
+            JAXBElement<CodeMilitaryTrainingType> lhsField;
+            lhsField = this.getMilitaryTrainingType();
+            JAXBElement<CodeMilitaryTrainingType> rhsField;
+            rhsField = that.getMilitaryTrainingType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "militaryTrainingType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "militaryTrainingType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -941,6 +915,19 @@ public class RouteTimeSliceType
             rhsField = that.getMilitaryUse();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "militaryUse", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "militaryUse", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignatorSecondLetter();
+            boolean rhsFieldIsSet = that.isSetDesignatorSecondLetter();
+            JAXBElement<CodeRouteDesignatorLetterType> lhsField;
+            lhsField = this.getDesignatorSecondLetter();
+            JAXBElement<CodeRouteDesignatorLetterType> rhsField;
+            rhsField = that.getDesignatorSecondLetter();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorSecondLetter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorSecondLetter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1038,14 +1025,14 @@ public class RouteTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RouteExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1130,13 +1117,13 @@ public class RouteTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RouteExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

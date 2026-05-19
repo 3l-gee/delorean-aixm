@@ -329,6 +329,19 @@ public class CoordinateSystemAxisType extends IdentifiedObjectType implements Se
         }
         final CoordinateSystemAxisType that = ((CoordinateSystemAxisType) object);
         {
+            boolean lhsFieldIsSet = this.isSetMaximumValue();
+            boolean rhsFieldIsSet = that.isSetMaximumValue();
+            Double lhsField;
+            lhsField = this.getMaximumValue();
+            Double rhsField;
+            rhsField = that.getMaximumValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMinimumValue();
             boolean rhsFieldIsSet = that.isSetMinimumValue();
             Double lhsField;
@@ -342,19 +355,6 @@ public class CoordinateSystemAxisType extends IdentifiedObjectType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRangeMeaning();
-            boolean rhsFieldIsSet = that.isSetRangeMeaning();
-            CodeWithAuthorityType lhsField;
-            lhsField = this.getRangeMeaning();
-            CodeWithAuthorityType rhsField;
-            rhsField = that.getRangeMeaning();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeMeaning", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeMeaning", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAxisDirection();
             boolean rhsFieldIsSet = that.isSetAxisDirection();
             CodeWithAuthorityType lhsField;
@@ -363,19 +363,6 @@ public class CoordinateSystemAxisType extends IdentifiedObjectType implements Se
             rhsField = that.getAxisDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMaximumValue();
-            boolean rhsFieldIsSet = that.isSetMaximumValue();
-            Double lhsField;
-            lhsField = this.getMaximumValue();
-            Double rhsField;
-            rhsField = that.getMaximumValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -402,6 +389,19 @@ public class CoordinateSystemAxisType extends IdentifiedObjectType implements Se
             rhsField = that.getAxisAbbrev();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisAbbrev", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisAbbrev", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRangeMeaning();
+            boolean rhsFieldIsSet = that.isSetRangeMeaning();
+            CodeWithAuthorityType lhsField;
+            lhsField = this.getRangeMeaning();
+            CodeWithAuthorityType rhsField;
+            rhsField = that.getRangeMeaning();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeMeaning", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeMeaning", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

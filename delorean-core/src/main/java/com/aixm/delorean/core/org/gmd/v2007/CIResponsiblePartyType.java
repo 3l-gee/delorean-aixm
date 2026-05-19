@@ -203,14 +203,14 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
         }
         final CIResponsiblePartyType that = ((CIResponsiblePartyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            CIRoleCodePropertyType lhsField;
-            lhsField = this.getRole();
-            CIRoleCodePropertyType rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            boolean lhsFieldIsSet = this.isSetOrganisationName();
+            boolean rhsFieldIsSet = that.isSetOrganisationName();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getOrganisationName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getOrganisationName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "organisationName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "organisationName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -229,19 +229,6 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOrganisationName();
-            boolean rhsFieldIsSet = that.isSetOrganisationName();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getOrganisationName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getOrganisationName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "organisationName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "organisationName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPositionName();
             boolean rhsFieldIsSet = that.isSetPositionName();
             CharacterStringPropertyType lhsField;
@@ -250,6 +237,19 @@ public class CIResponsiblePartyType extends AbstractObjectType implements Serial
             rhsField = that.getPositionName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "positionName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "positionName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            CIRoleCodePropertyType lhsField;
+            lhsField = this.getRole();
+            CIRoleCodePropertyType rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

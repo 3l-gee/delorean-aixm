@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,42 +12,45 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for FlightRoutingElementPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for FlightRoutingElementPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="FlightRoutingElementPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}FlightRoutingElement"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}FlightRoutingElement"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FlightRoutingElementPropertyType", propOrder = {
-    "flightRoutingElement"
-})
+@XmlType(name = "FlightRoutingElementPropertyType", propOrder = {"flightRoutingElement"})
 @Entity(name = "FlightRoutingElementPropertyType")
 @Table(name = "flightroutingelement_p", schema = "route")
-public class FlightRoutingElementPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class FlightRoutingElementPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "FlightRoutingElement", required = true)
@@ -56,15 +58,11 @@ public class FlightRoutingElementPropertyType
 
     /**
      * Gets the value of the flightRoutingElement property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link FlightRoutingElementType }
-     *     
+     *
+     * @return possible object is {@link FlightRoutingElementType }
+     *
      */
-    @OneToOne(targetEntity = FlightRoutingElementType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = FlightRoutingElementType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "flightroutingelement_hjid", referencedColumnName = "hjid")
     public FlightRoutingElementType getFlightRoutingElement() {
         return flightRoutingElement;
@@ -72,11 +70,10 @@ public class FlightRoutingElementPropertyType
 
     /**
      * Sets the value of the flightRoutingElement property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link FlightRoutingElementType }
-     *     
+     *            allowed object is {@link FlightRoutingElementType }
+     *
      */
     public void setFlightRoutingElement(FlightRoutingElementType value) {
         this.flightRoutingElement = value;
@@ -84,12 +81,13 @@ public class FlightRoutingElementPropertyType
 
     @Transient
     public boolean isSetFlightRoutingElement() {
-        return (this.flightRoutingElement!= null);
+        return (this.flightRoutingElement != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

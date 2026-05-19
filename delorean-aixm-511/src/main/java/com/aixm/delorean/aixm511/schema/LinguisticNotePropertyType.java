@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,22 +12,29 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for LinguisticNotePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for LinguisticNotePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="LinguisticNotePropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1.1}LinguisticNote"/>
  *       </sequence>
@@ -36,19 +42,14 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LinguisticNotePropertyType", propOrder = {
-    "linguisticNote"
-})
+@XmlType(name = "LinguisticNotePropertyType", propOrder = {"linguisticNote"})
 @Entity(name = "LinguisticNotePropertyType")
 @Table(name = "linguisticnote_p", schema = "note")
-public class LinguisticNotePropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class LinguisticNotePropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "LinguisticNote", required = true)
@@ -56,15 +57,11 @@ public class LinguisticNotePropertyType
 
     /**
      * Gets the value of the linguisticNote property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link LinguisticNoteType }
-     *     
+     *
+     * @return possible object is {@link LinguisticNoteType }
+     *
      */
-    @OneToOne(targetEntity = LinguisticNoteType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = LinguisticNoteType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "linguisticnote_hjid", referencedColumnName = "hjid")
     public LinguisticNoteType getLinguisticNote() {
         return linguisticNote;
@@ -72,11 +69,10 @@ public class LinguisticNotePropertyType
 
     /**
      * Sets the value of the linguisticNote property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link LinguisticNoteType }
-     *     
+     *            allowed object is {@link LinguisticNoteType }
+     *
      */
     public void setLinguisticNote(LinguisticNoteType value) {
         this.linguisticNote = value;
@@ -84,12 +80,13 @@ public class LinguisticNotePropertyType
 
     @Transient
     public boolean isSetLinguisticNote() {
-        return (this.linguisticNote!= null);
+        return (this.linguisticNote != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -245,6 +245,19 @@ public class CubicSplineType extends AbstractCurveSegmentType implements Seriali
         }
         final CubicSplineType that = ((CubicSplineType) object);
         {
+            boolean lhsFieldIsSet = this.isSetPosList();
+            boolean rhsFieldIsSet = that.isSetPosList();
+            DirectPositionListType lhsField;
+            lhsField = this.getPosList();
+            DirectPositionListType rhsField;
+            rhsField = that.getPosList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
             boolean rhsFieldIsSet = that.isSetPosOrPointPropertyOrPointRep();
             List<JAXBElement<?>> lhsField;
@@ -255,19 +268,6 @@ public class CubicSplineType extends AbstractCurveSegmentType implements Seriali
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep",
                     rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPosList();
-            boolean rhsFieldIsSet = that.isSetPosList();
-            DirectPositionListType lhsField;
-            lhsField = this.getPosList();
-            DirectPositionListType rhsField;
-            rhsField = that.getPosList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,19 +286,6 @@ public class CubicSplineType extends AbstractCurveSegmentType implements Seriali
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVectorAtEnd();
-            boolean rhsFieldIsSet = that.isSetVectorAtEnd();
-            VectorType lhsField;
-            lhsField = this.getVectorAtEnd();
-            VectorType rhsField;
-            rhsField = that.getVectorAtEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vectorAtEnd", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vectorAtEnd", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVectorAtStart();
             boolean rhsFieldIsSet = that.isSetVectorAtStart();
             VectorType lhsField;
@@ -307,6 +294,19 @@ public class CubicSplineType extends AbstractCurveSegmentType implements Seriali
             rhsField = that.getVectorAtStart();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vectorAtStart", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vectorAtStart", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVectorAtEnd();
+            boolean rhsFieldIsSet = that.isSetVectorAtEnd();
+            VectorType lhsField;
+            lhsField = this.getVectorAtEnd();
+            VectorType rhsField;
+            rhsField = that.getVectorAtEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vectorAtEnd", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vectorAtEnd", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

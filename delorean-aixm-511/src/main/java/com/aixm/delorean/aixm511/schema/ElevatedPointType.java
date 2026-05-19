@@ -1,43 +1,54 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for ElevatedPointType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for ElevatedPointType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="ElevatedPointType">
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}PointType">
  *       <sequence>
- *         <element name="elevation" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="geoidUndulation" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceSignedType" minOccurs="0"/>
- *         <element name="verticalDatum" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalDatumType" minOccurs="0"/>
- *         <element name="verticalAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="elevation" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="geoidUndulation" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceSignedType" minOccurs="0"/>
+ *         <element name="verticalDatum" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeVerticalDatumType" minOccurs="0"/>
+ *         <element name="verticalAccuracy" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractElevatedPointExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractElevatedPointExtension"/>
  *                 </choice>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -47,21 +58,13 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ElevatedPointType", propOrder = {
-    "elevation",
-    "geoidUndulation",
-    "verticalDatum",
-    "verticalAccuracy",
-    "extension"
-})
-public class ElevatedPointType
-    extends PointType
-    implements Serializable
-{
+@XmlType(name = "ElevatedPointType", propOrder = {"elevation", "geoidUndulation", "verticalDatum", "verticalAccuracy",
+        "extension"})
+public class ElevatedPointType extends PointType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "elevation", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -76,11 +79,10 @@ public class ElevatedPointType
 
     /**
      * Gets the value of the elevation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public JAXBElement<ValDistanceVerticalType> getElevation() {
         return elevation;
@@ -88,27 +90,26 @@ public class ElevatedPointType
 
     /**
      * Sets the value of the elevation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setElevation(JAXBElement<ValDistanceVerticalType> value) {
         this.elevation = value;
     }
 
     public boolean isSetElevation() {
-        return (this.elevation!= null);
+        return (this.elevation != null);
     }
 
     /**
      * Gets the value of the geoidUndulation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceSignedType }{@code >}
+     *
      */
     public JAXBElement<ValDistanceSignedType> getGeoidUndulation() {
         return geoidUndulation;
@@ -116,27 +117,26 @@ public class ElevatedPointType
 
     /**
      * Sets the value of the geoidUndulation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceSignedType }{@code >}
+     *
      */
     public void setGeoidUndulation(JAXBElement<ValDistanceSignedType> value) {
         this.geoidUndulation = value;
     }
 
     public boolean isSetGeoidUndulation() {
-        return (this.geoidUndulation!= null);
+        return (this.geoidUndulation != null);
     }
 
     /**
      * Gets the value of the verticalDatum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalDatumType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeVerticalDatumType }{@code >}
+     *
      */
     public JAXBElement<CodeVerticalDatumType> getVerticalDatum() {
         return verticalDatum;
@@ -144,27 +144,26 @@ public class ElevatedPointType
 
     /**
      * Sets the value of the verticalDatum property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalDatumType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeVerticalDatumType }{@code >}
+     *
      */
     public void setVerticalDatum(JAXBElement<CodeVerticalDatumType> value) {
         this.verticalDatum = value;
     }
 
     public boolean isSetVerticalDatum() {
-        return (this.verticalDatum!= null);
+        return (this.verticalDatum != null);
     }
 
     /**
      * Gets the value of the verticalAccuracy property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     public JAXBElement<ValDistanceType> getVerticalAccuracy() {
         return verticalAccuracy;
@@ -172,41 +171,42 @@ public class ElevatedPointType
 
     /**
      * Sets the value of the verticalAccuracy property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     public void setVerticalAccuracy(JAXBElement<ValDistanceType> value) {
         this.verticalAccuracy = value;
     }
 
     public boolean isSetVerticalAccuracy() {
-        return (this.verticalAccuracy!= null);
+        return (this.verticalAccuracy != null);
     }
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ElevatedPointTypeExtension }
-     * 
-     * 
+     *
+     *
      */
     public List<ElevatedPointTypeExtension> getExtension() {
         if (extension == null) {
@@ -216,15 +216,15 @@ public class ElevatedPointType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<ElevatedPointTypeExtension> extension) {
         this.extension = extension;
     }
 
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -232,8 +232,9 @@ public class ElevatedPointType
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -252,6 +253,32 @@ public class ElevatedPointType
             rhsField = that.getVerticalAccuracy();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalAccuracy", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalDatum();
+            boolean rhsFieldIsSet = that.isSetVerticalDatum();
+            JAXBElement<CodeVerticalDatumType> lhsField;
+            lhsField = this.getVerticalDatum();
+            JAXBElement<CodeVerticalDatumType> rhsField;
+            rhsField = that.getVerticalDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ElevatedPointTypeExtension> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ElevatedPointTypeExtension> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -278,32 +305,6 @@ public class ElevatedPointType
             rhsField = that.getGeoidUndulation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geoidUndulation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geoidUndulation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ElevatedPointTypeExtension> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ElevatedPointTypeExtension> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVerticalDatum();
-            boolean rhsFieldIsSet = that.isSetVerticalDatum();
-            JAXBElement<CodeVerticalDatumType> lhsField;
-            lhsField = this.getVerticalDatum();
-            JAXBElement<CodeVerticalDatumType> rhsField;
-            rhsField = that.getVerticalDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -345,7 +346,7 @@ public class ElevatedPointType
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ElevatedPointTypeExtension> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -382,7 +383,7 @@ public class ElevatedPointType
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<ElevatedPointTypeExtension> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

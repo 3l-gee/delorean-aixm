@@ -1,0 +1,580 @@
+
+package com.aixm.delorean.aixm51.schema;
+
+import com.aixm.delorean.aixm51.time.adapter.TimePrimitivePropertyTypeAdapter;
+import com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType;
+import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.persistence.Version;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.bind.annotation.XmlTransient;
+import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
+import org.jvnet.basicjaxb.lang.EqualsStrategy;
+import org.jvnet.basicjaxb.lang.HashCodeStrategy;
+import org.jvnet.basicjaxb.lang.ToStringStrategy;
+import org.jvnet.basicjaxb.locator.ObjectLocator;
+import org.jvnet.basicjaxb.locator.util.LocatorUtils;
+
+/**
+ * Adds in the AIXM specific properties, such as 'interpretation'.
+ *
+ * <p>
+ * Java class for AbstractAIXMTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
+ * <pre>{@code
+ * <complexType name="AbstractAIXMTimeSliceType">
+ *   <complexContent>
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceBaseType">
+ *       <sequence>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}interpretation"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1}sequenceNumber" minOccurs="0"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1}correctionNumber" minOccurs="0"/>
+ *         <element name="timeSliceMetadata" type=
+"{http://www.aixm.aero/schema/5.1}FeatureTimeSliceMetadataPropertyType" minOccurs
+="0"/>
+ *         <element name="featureLifetime" type=
+"{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         <element name="lifecycleStatus" minOccurs="0">
+ *           <simpleType>
+ *             <restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               <enumeration value="APPROVED"/>
+ *               <enumeration value="PENDING"/>
+ *               <enumeration value="CONFLICT"/>
+ *               <enumeration value="DECOMMISSIONED"/>
+ *               <enumeration value="IMPORTED"/>
+ *             </restriction>
+ *           </simpleType>
+ *         </element>
+ *       </sequence>
+ *     </extension>
+ *   </complexContent>
+ * </complexType>
+ * }</pre>
+ *
+ *
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "AbstractAIXMTimeSliceType", propOrder = {"interpretation", "sequenceNumber", "correctionNumber",
+        "timeSliceMetadata", "featureLifetime"})
+@XmlSeeAlso({RunwayProtectAreaTimeSliceType.class, RunwayDirectionTimeSliceType.class,
+        RunwayCentrelinePointTimeSliceType.class, RunwayTimeSliceType.class, ArrestingGearTimeSliceType.class,
+        RunwayElementTimeSliceType.class, VisualGlideSlopeIndicatorTimeSliceType.class,
+        RunwayVisualRangeTimeSliceType.class, RunwayBlastPadTimeSliceType.class, TaxiHoldingPositionTimeSliceType.class,
+        TaxiwayTimeSliceType.class, TaxiwayElementTimeSliceType.class, GuidanceLineTimeSliceType.class,
+        ApronTimeSliceType.class, ApronElementTimeSliceType.class, AircraftStandTimeSliceType.class,
+        RoadTimeSliceType.class, DeicingAreaTimeSliceType.class, PassengerLoadingBridgeTimeSliceType.class,
+        TouchDownLiftOffSafeAreaTimeSliceType.class, TouchDownLiftOffTimeSliceType.class,
+        ApronLightSystemTimeSliceType.class, TaxiwayLightSystemTimeSliceType.class,
+        RunwayDirectionLightSystemTimeSliceType.class, TouchDownLiftOffLightSystemTimeSliceType.class,
+        GuidanceLineLightSystemTimeSliceType.class, RunwayProtectAreaLightSystemTimeSliceType.class,
+        TaxiHoldingPositionLightSystemTimeSliceType.class, ApproachLightingSystemTimeSliceType.class,
+        TaxiwayMarkingTimeSliceType.class, ApronMarkingTimeSliceType.class,
+        AirportProtectionAreaMarkingTimeSliceType.class, TouchDownLiftOffMarkingTimeSliceType.class,
+        RunwayMarkingTimeSliceType.class, GuidanceLineMarkingTimeSliceType.class, DeicingAreaMarkingTimeSliceType.class,
+        TaxiHoldingPositionMarkingTimeSliceType.class, StandMarkingTimeSliceType.class,
+        FloatingDockSiteTimeSliceType.class, MarkingBuoyTimeSliceType.class, SeaplaneLandingAreaTimeSliceType.class,
+        SeaplaneRampSiteTimeSliceType.class, WorkAreaTimeSliceType.class, SurveyControlPointTimeSliceType.class,
+        NonMovementAreaTimeSliceType.class, AirportHeliportCollocationTimeSliceType.class,
+        AirportHeliportTimeSliceType.class, AltimeterSourceTimeSliceType.class, AirportHotSpotTimeSliceType.class,
+        AuthorityForAirspaceTimeSliceType.class, AirspaceTimeSliceType.class, GeoBorderTimeSliceType.class,
+        PrecisionApproachRadarTimeSliceType.class, PrimarySurveillanceRadarTimeSliceType.class,
+        RadarSystemTimeSliceType.class, SecondarySurveillanceRadarTimeSliceType.class,
+        HoldingAssessmentTimeSliceType.class, StandardLevelTableTimeSliceType.class,
+        StandardLevelSectorTimeSliceType.class, StandardLevelColumnTimeSliceType.class,
+        RadioFrequencyAreaTimeSliceType.class, SpecialDateTimeSliceType.class,
+        RadioCommunicationChannelTimeSliceType.class, PilotControlledLightingTimeSliceType.class,
+        InformationServiceTimeSliceType.class, GroundTrafficControlServiceTimeSliceType.class,
+        AirTrafficControlServiceTimeSliceType.class, AirTrafficManagementServiceTimeSliceType.class,
+        SearchRescueServiceTimeSliceType.class, PassengerServiceTimeSliceType.class,
+        AircraftGroundServiceTimeSliceType.class, FireFightingServiceTimeSliceType.class,
+        AirportClearanceServiceTimeSliceType.class, AirportSuppliesServiceTimeSliceType.class,
+        AngleIndicationTimeSliceType.class, DistanceIndicationTimeSliceType.class, AzimuthTimeSliceType.class,
+        CheckpointINSTimeSliceType.class, CheckpointVORTimeSliceType.class, DMETimeSliceType.class,
+        ElevationTimeSliceType.class, GlidepathTimeSliceType.class, LocalizerTimeSliceType.class,
+        MarkerBeaconTimeSliceType.class, NavaidTimeSliceType.class, SDFTimeSliceType.class, NDBTimeSliceType.class,
+        SpecialNavigationStationTimeSliceType.class, VORTimeSliceType.class, TACANTimeSliceType.class,
+        SpecialNavigationSystemTimeSliceType.class, DirectionFinderTimeSliceType.class,
+        DesignatedPointTimeSliceType.class, SignificantPointInAirspaceTimeSliceType.class,
+        AeronauticalGroundLightTimeSliceType.class, OrganisationAuthorityTimeSliceType.class, UnitTimeSliceType.class,
+        ObstacleAreaTimeSliceType.class, VerticalStructureTimeSliceType.class, CirclingAreaTimeSliceType.class,
+        TerminalArrivalAreaTimeSliceType.class, InstrumentApproachProcedureTimeSliceType.class,
+        StandardInstrumentDepartureTimeSliceType.class, NavigationAreaTimeSliceType.class,
+        StandardInstrumentArrivalTimeSliceType.class, NavigationAreaRestrictionTimeSliceType.class,
+        ArrivalFeederLegTimeSliceType.class, ArrivalLegTimeSliceType.class, DepartureLegTimeSliceType.class,
+        FinalLegTimeSliceType.class, InitialLegTimeSliceType.class, IntermediateLegTimeSliceType.class,
+        MissedApproachLegTimeSliceType.class, ProcedureDMETimeSliceType.class, SafeAltitudeAreaTimeSliceType.class,
+        HoldingPatternTimeSliceType.class, UnplannedHoldingTimeSliceType.class,
+        AirspaceBorderCrossingTimeSliceType.class, FlightRestrictionTimeSliceType.class,
+        RouteSegmentTimeSliceType.class, RouteDMETimeSliceType.class, RouteTimeSliceType.class,
+        ChangeOverPointTimeSliceType.class, AerialRefuellingTimeSliceType.class, RulesProceduresTimeSliceType.class})
+@Entity(name = "AbstractAIXMTimeSliceType")
+@Table(name = "aixm_timeslice", schema = "aixm")
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class AbstractAIXMTimeSliceType extends AbstractAIXMTimeSliceBaseType implements Serializable {
+
+    private static final long serialVersionUID = 20251104L;
+    /**
+     * Property indicating how the timeslice is to be interpreted. See the AIXM
+     * Temporality model for details.
+     *
+     */
+    @XmlElement(required = true)
+    protected String interpretation;
+    /**
+     * Used for the identification of the Time Slice concerned. See the AIXM
+     * Temporality model for details.
+     *
+     */
+    protected Long sequenceNumber;
+    /**
+     * Used for indicating the order of the corrections of a Time Slice. See the
+     * AIXM Temporality model for details.
+     *
+     */
+    protected Long correctionNumber;
+    protected FeatureTimeSliceMetadataPropertyType timeSliceMetadata;
+    @XmlElement(type = TimePrimitivePropertyType.class, name = "featureLifetime", required = true)
+    @XmlJavaTypeAdapter(TimePrimitivePropertyTypeAdapter.class)
+    protected DeloreanTimeSliceType featureLifetime;
+    @XmlTransient
+    protected String lifecycleStatus;
+    @XmlTransient
+    protected Long hjid;
+    @XmlTransient
+    protected Long hjversion;
+
+    /**
+     * Property indicating how the timeslice is to be interpreted. See the AIXM
+     * Temporality model for details.
+     *
+     * @return possible object is {@link String }
+     *
+     */
+    @Basic
+    @Column(name = "INTERPRETATION")
+    public String getInterpretation() {
+        return interpretation;
+    }
+
+    /**
+     * Sets the value of the interpretation property.
+     *
+     * @param value
+     *            allowed object is {@link String }
+     *
+     * @see #getInterpretation()
+     */
+    public void setInterpretation(String value) {
+        this.interpretation = value;
+    }
+
+    @Transient
+    public boolean isSetInterpretation() {
+        return (this.interpretation != null);
+    }
+
+    /**
+     * Used for the identification of the Time Slice concerned. See the AIXM
+     * Temporality model for details.
+     *
+     * @return possible object is {@link Long }
+     *
+     */
+    @Basic
+    @Column(name = "SEQUENCE_NUMBER")
+    public Long getSequenceNumber() {
+        return sequenceNumber;
+    }
+
+    /**
+     * Sets the value of the sequenceNumber property.
+     *
+     * @param value
+     *            allowed object is {@link Long }
+     *
+     * @see #getSequenceNumber()
+     */
+    public void setSequenceNumber(Long value) {
+        this.sequenceNumber = value;
+    }
+
+    @Transient
+    public boolean isSetSequenceNumber() {
+        return (this.sequenceNumber != null);
+    }
+
+    /**
+     * Used for indicating the order of the corrections of a Time Slice. See the
+     * AIXM Temporality model for details.
+     *
+     * @return possible object is {@link Long }
+     *
+     */
+    @Basic
+    @Column(name = "CORRECTION_NUMBER")
+    public Long getCorrectionNumber() {
+        return correctionNumber;
+    }
+
+    /**
+     * Sets the value of the correctionNumber property.
+     *
+     * @param value
+     *            allowed object is {@link Long }
+     *
+     * @see #getCorrectionNumber()
+     */
+    public void setCorrectionNumber(Long value) {
+        this.correctionNumber = value;
+    }
+
+    @Transient
+    public boolean isSetCorrectionNumber() {
+        return (this.correctionNumber != null);
+    }
+
+    /**
+     * Gets the value of the timeSliceMetadata property.
+     *
+     * @return possible object is {@link FeatureTimeSliceMetadataPropertyType }
+     *
+     */
+    @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+    @jakarta.persistence.JoinColumn(name = "time_slice_metadata_hjid", referencedColumnName = "hjid")
+    public FeatureTimeSliceMetadataPropertyType getTimeSliceMetadata() {
+        return timeSliceMetadata;
+    }
+
+    /**
+     * Sets the value of the timeSliceMetadata property.
+     *
+     * @param value
+     *            allowed object is {@link FeatureTimeSliceMetadataPropertyType }
+     *
+     */
+    public void setTimeSliceMetadata(FeatureTimeSliceMetadataPropertyType value) {
+        this.timeSliceMetadata = value;
+    }
+
+    @Transient
+    public boolean isSetTimeSliceMetadata() {
+        return (this.timeSliceMetadata != null);
+    }
+
+    /**
+     * Gets the value of the featureLifetime property.
+     *
+     * @return possible object is {@link String }
+     *
+     */
+    @jakarta.persistence.Embedded
+    @jakarta.persistence.AttributeOverrides({
+            @jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_begin", columnDefinition = "TIMESTAMPTZ")),
+            @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_end", columnDefinition = "TIMESTAMPTZ")),
+            @jakarta.persistence.AttributeOverride(name = "timePeriodId", column = @jakarta.persistence.Column(name = "feature_lifetime_hjid"))})
+    public DeloreanTimeSliceType getFeatureLifetime() {
+        return featureLifetime;
+    }
+
+    /**
+     * Sets the value of the featureLifetime property.
+     *
+     * @param value
+     *            allowed object is {@link String }
+     *
+     */
+    public void setFeatureLifetime(DeloreanTimeSliceType value) {
+        this.featureLifetime = value;
+    }
+
+    @Transient
+    public boolean isSetFeatureLifetime() {
+        return (this.featureLifetime != null);
+    }
+
+    /**
+     * Gets the value of the lifecycleStatus property.
+     *
+     * @return possible object is {@link String }
+     *
+     */
+    @Basic
+    @Column(name = "LIFECYCLE_STATUS")
+    public String getLifecycleStatus() {
+        return lifecycleStatus;
+    }
+
+    /**
+     * Sets the value of the lifecycleStatus property.
+     *
+     * @param value
+     *            allowed object is {@link String }
+     *
+     */
+    public void setLifecycleStatus(String value) {
+        this.lifecycleStatus = value;
+    }
+
+    @Transient
+    public boolean isSetLifecycleStatus() {
+        return (this.lifecycleStatus != null);
+    }
+
+    /**
+     *
+     *
+     * @return possible object is {@link Long }
+     *
+     */
+    @Id
+    @Column(name = "HJID")
+    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
+    public Long gethjid() {
+        return hjid;
+    }
+
+    /**
+     *
+     *
+     * @param value
+     *            allowed object is {@link Long }
+     *
+     */
+    public void sethjid(Long value) {
+        this.hjid = value;
+    }
+
+    /**
+     *
+     *
+     * @return possible object is {@link Long }
+     *
+     */
+    @Version
+    @Column(name = "hjversion")
+    public Long gethjversion() {
+        return hjversion;
+    }
+
+    /**
+     *
+     *
+     * @param value
+     *            allowed object is {@link Long }
+     *
+     */
+    public void sethjversion(Long value) {
+        this.hjversion = value;
+    }
+
+    @Override
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        if (!super.equals(thisLocator, thatLocator, object, strategy)) {
+            return false;
+        }
+        final AbstractAIXMTimeSliceType that = ((AbstractAIXMTimeSliceType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetTimeSliceMetadata();
+            boolean rhsFieldIsSet = that.isSetTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType lhsField;
+            lhsField = this.getTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType rhsField;
+            rhsField = that.getTimeSliceMetadata();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSliceMetadata", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSliceMetadata", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFeatureLifetime();
+            boolean rhsFieldIsSet = that.isSetFeatureLifetime();
+            DeloreanTimeSliceType lhsField;
+            lhsField = this.getFeatureLifetime();
+            DeloreanTimeSliceType rhsField;
+            rhsField = that.getFeatureLifetime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureLifetime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureLifetime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInterpretation();
+            boolean rhsFieldIsSet = that.isSetInterpretation();
+            String lhsField;
+            lhsField = this.getInterpretation();
+            String rhsField;
+            rhsField = that.getInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSequenceNumber();
+            boolean rhsFieldIsSet = that.isSetSequenceNumber();
+            Long lhsField;
+            lhsField = this.getSequenceNumber();
+            Long rhsField;
+            rhsField = that.getSequenceNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLifecycleStatus();
+            boolean rhsFieldIsSet = that.isSetLifecycleStatus();
+            String lhsField;
+            lhsField = this.getLifecycleStatus();
+            String rhsField;
+            rhsField = that.getLifecycleStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lifecycleStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lifecycleStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCorrectionNumber();
+            boolean rhsFieldIsSet = that.isSetCorrectionNumber();
+            Long lhsField;
+            lhsField = this.getCorrectionNumber();
+            Long rhsField;
+            rhsField = that.getCorrectionNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "correctionNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "correctionNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
+        int currentHashCode = super.hashCode(locator, strategy);
+        {
+            boolean theFieldIsSet = this.isSetInterpretation();
+            String theField;
+            theField = this.getInterpretation();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "interpretation", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetSequenceNumber();
+            Long theField;
+            theField = this.getSequenceNumber();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sequenceNumber", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetCorrectionNumber();
+            Long theField;
+            theField = this.getCorrectionNumber();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "correctionNumber", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType theField;
+            theField = this.getTimeSliceMetadata();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "timeSliceMetadata", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetFeatureLifetime();
+            DeloreanTimeSliceType theField;
+            theField = this.getFeatureLifetime();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "featureLifetime", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetLifecycleStatus();
+            String theField;
+            theField = this.getLifecycleStatus();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "lifecycleStatus", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        return currentHashCode;
+    }
+
+    @Override
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
+        super.appendFields(locator, buffer, strategy);
+        {
+            boolean theFieldIsSet = this.isSetInterpretation();
+            String theField;
+            theField = this.getInterpretation();
+            strategy.appendField(locator, this, "interpretation", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetSequenceNumber();
+            Long theField;
+            theField = this.getSequenceNumber();
+            strategy.appendField(locator, this, "sequenceNumber", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetCorrectionNumber();
+            Long theField;
+            theField = this.getCorrectionNumber();
+            strategy.appendField(locator, this, "correctionNumber", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType theField;
+            theField = this.getTimeSliceMetadata();
+            strategy.appendField(locator, this, "timeSliceMetadata", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetFeatureLifetime();
+            DeloreanTimeSliceType theField;
+            theField = this.getFeatureLifetime();
+            strategy.appendField(locator, this, "featureLifetime", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetLifecycleStatus();
+            String theField;
+            theField = this.getLifecycleStatus();
+            strategy.appendField(locator, this, "lifecycleStatus", buffer, theField, theFieldIsSet);
+        }
+        return buffer;
+    }
+
+}

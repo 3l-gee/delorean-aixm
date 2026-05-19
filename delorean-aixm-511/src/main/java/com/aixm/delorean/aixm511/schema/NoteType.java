@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -23,6 +19,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,28 +30,40 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for NoteType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for NoteType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="NoteType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="propertyName" type="{http://www.aixm.aero/schema/5.1.1}TextPropertyNameType" minOccurs="0"/>
- *         <element name="purpose" type="{http://www.aixm.aero/schema/5.1.1}CodeNotePurposeType" minOccurs="0"/>
- *         <element name="translatedNote" type="{http://www.aixm.aero/schema/5.1.1}LinguisticNotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="propertyName" type=
+"{http://www.aixm.aero/schema/5.1.1}TextPropertyNameType" minOccurs="0"/>
+ *         <element name="purpose" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeNotePurposeType" minOccurs="0"/>
+ *         <element name="translatedNote" type=
+"{http://www.aixm.aero/schema/5.1.1}LinguisticNotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractNoteExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractNoteExtension"/>
  *                 </choice>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -61,22 +73,14 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NoteType", propOrder = {
-    "propertyName",
-    "purpose",
-    "translatedNote",
-    "extension"
-})
+@XmlType(name = "NoteType", propOrder = {"propertyName", "purpose", "translatedNote", "extension"})
 @Entity(name = "NoteType")
 @Table(name = "note_o", schema = "note")
-public class NoteType
-    extends AbstractAIXMObjectType
-    implements Serializable
-{
+public class NoteType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "propertyName", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -89,11 +93,10 @@ public class NoteType
 
     /**
      * Gets the value of the propertyName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextPropertyNameType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link TextPropertyNameType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextPropertyNameType> getPropertyName() {
@@ -102,11 +105,11 @@ public class NoteType
 
     /**
      * Sets the value of the propertyName property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextPropertyNameType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link TextPropertyNameType }{@code >}
+     *
      */
     public void setPropertyName(JAXBElement<TextPropertyNameType> value) {
         this.propertyName = value;
@@ -114,16 +117,15 @@ public class NoteType
 
     @Transient
     public boolean isSetPropertyName() {
-        return (this.propertyName!= null);
+        return (this.propertyName != null);
     }
 
     /**
      * Gets the value of the purpose property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeNotePurposeType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeNotePurposeType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeNotePurposeType> getPurpose() {
@@ -132,11 +134,11 @@ public class NoteType
 
     /**
      * Sets the value of the purpose property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeNotePurposeType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeNotePurposeType }{@code >}
+     *
      */
     public void setPurpose(JAXBElement<CodeNotePurposeType> value) {
         this.purpose = value;
@@ -144,39 +146,36 @@ public class NoteType
 
     @Transient
     public boolean isSetPurpose() {
-        return (this.purpose!= null);
+        return (this.purpose != null);
     }
 
     /**
      * Gets the value of the translatedNote property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the translatedNote property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the translatedNote property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getTranslatedNote().add(newItem);
+     * getTranslatedNote().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LinguisticNotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = LinguisticNotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "note_o_translatednote_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "note_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "translatednote_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = LinguisticNotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "nttp_trnsltdnt_link", schema = "note", joinColumns = {
+            @JoinColumn(name = "note_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "translatednote_hjid", referencedColumnName = "hjid")})
     public List<LinguisticNotePropertyType> getTranslatedNote() {
         if (translatedNote == null) {
             translatedNote = new ArrayList<>();
@@ -185,8 +184,8 @@ public class NoteType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setTranslatedNote(List<LinguisticNotePropertyType> translatedNote) {
         this.translatedNote = translatedNote;
@@ -194,7 +193,7 @@ public class NoteType
 
     @Transient
     public boolean isSetTranslatedNote() {
-        return ((this.translatedNote!= null)&&(!this.translatedNote.isEmpty()));
+        return ((this.translatedNote != null) && (!this.translatedNote.isEmpty()));
     }
 
     public void unsetTranslatedNote() {
@@ -203,30 +202,29 @@ public class NoteType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NoteTypeExtensionType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NoteTypeExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "note_e_hjid", referencedColumnName = "hjid")
+    @OneToMany(targetEntity = NoteTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "notee_hjid", referencedColumnName = "hjid")
     public List<NoteTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -235,8 +233,8 @@ public class NoteType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<NoteTypeExtensionType> extension) {
         this.extension = extension;
@@ -244,7 +242,7 @@ public class NoteType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -252,34 +250,33 @@ public class NoteType
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "propertyname")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "propertyname_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "propertyname")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "propertynamenilreason"))})
     public TextPropertyNameType getPropertyNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextPropertyNameType.class, this.getPropertyName());
     }
 
     public void setPropertyNameItem(TextPropertyNameType target) {
-        setPropertyName(XmlAdapterUtils.marshallJAXBElement(TextPropertyNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "propertyName"), NoteType.class, target));
+        setPropertyName(XmlAdapterUtils.marshallJAXBElement(TextPropertyNameType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "propertyName"), NoteType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "purpose")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "purpose_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "purpose")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "purposenilreason"))})
     public CodeNotePurposeType getPurposeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeNotePurposeType.class, this.getPurpose());
     }
 
     public void setPurposeItem(CodeNotePurposeType target) {
-        setPurpose(XmlAdapterUtils.marshallJAXBElement(CodeNotePurposeType.class, new QName("http://www.aixm.aero/schema/5.1.1", "purpose"), NoteType.class, target));
+        setPurpose(XmlAdapterUtils.marshallJAXBElement(CodeNotePurposeType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "purpose"), NoteType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -289,32 +286,6 @@ public class NoteType
             return false;
         }
         final NoteType that = ((NoteType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetPropertyName();
-            boolean rhsFieldIsSet = that.isSetPropertyName();
-            JAXBElement<TextPropertyNameType> lhsField;
-            lhsField = this.getPropertyName();
-            JAXBElement<TextPropertyNameType> rhsField;
-            rhsField = that.getPropertyName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "propertyName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "propertyName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTranslatedNote();
-            boolean rhsFieldIsSet = that.isSetTranslatedNote();
-            List<LinguisticNotePropertyType> lhsField;
-            lhsField = (this.isSetTranslatedNote()?this.getTranslatedNote():null);
-            List<LinguisticNotePropertyType> rhsField;
-            rhsField = (that.isSetTranslatedNote()?that.getTranslatedNote():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "translatedNote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "translatedNote", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetPurpose();
             boolean rhsFieldIsSet = that.isSetPurpose();
@@ -332,11 +303,37 @@ public class NoteType
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<NoteTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
             List<NoteTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTranslatedNote();
+            boolean rhsFieldIsSet = that.isSetTranslatedNote();
+            List<LinguisticNotePropertyType> lhsField;
+            lhsField = (this.isSetTranslatedNote() ? this.getTranslatedNote() : null);
+            List<LinguisticNotePropertyType> rhsField;
+            rhsField = (that.isSetTranslatedNote() ? that.getTranslatedNote() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "translatedNote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "translatedNote", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPropertyName();
+            boolean rhsFieldIsSet = that.isSetPropertyName();
+            JAXBElement<TextPropertyNameType> lhsField;
+            lhsField = this.getPropertyName();
+            JAXBElement<TextPropertyNameType> rhsField;
+            rhsField = that.getPropertyName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "propertyName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "propertyName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -364,14 +361,14 @@ public class NoteType
         {
             boolean theFieldIsSet = this.isSetTranslatedNote();
             List<LinguisticNotePropertyType> theField;
-            theField = (this.isSetTranslatedNote()?this.getTranslatedNote():null);
+            theField = (this.isSetTranslatedNote() ? this.getTranslatedNote() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "translatedNote", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<NoteTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -396,13 +393,13 @@ public class NoteType
         {
             boolean theFieldIsSet = this.isSetTranslatedNote();
             List<LinguisticNotePropertyType> theField;
-            theField = (this.isSetTranslatedNote()?this.getTranslatedNote():null);
+            theField = (this.isSetTranslatedNote() ? this.getTranslatedNote() : null);
             strategy.appendField(locator, this, "translatedNote", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<NoteTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

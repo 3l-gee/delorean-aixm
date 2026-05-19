@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -24,6 +20,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,41 +31,67 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for RunwayDirectionTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RunwayDirectionTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RunwayDirectionTimeSliceType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="designator" type="{http://www.aixm.aero/schema/5.1.1}TextDesignatorType" minOccurs="0"/>
- *         <element name="trueBearing" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="trueBearingAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
- *         <element name="magneticBearing" type="{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
- *         <element name="patternVFR" type="{http://www.aixm.aero/schema/5.1.1}CodeDirectionTurnType" minOccurs="0"/>
- *         <element name="slopeTDZ" type="{http://www.aixm.aero/schema/5.1.1}ValSlopeType" minOccurs="0"/>
- *         <element name="elevationTDZ" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="elevationTDZAccuracy" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="approachMarkingType" type="{http://www.aixm.aero/schema/5.1.1}CodeRunwayMarkingType" minOccurs="0"/>
- *         <element name="approachMarkingCondition" type="{http://www.aixm.aero/schema/5.1.1}CodeMarkingConditionType" minOccurs="0"/>
- *         <element name="classLightingJAR" type="{http://www.aixm.aero/schema/5.1.1}CodeLightingJARType" minOccurs="0"/>
- *         <element name="precisionApproachGuidance" type="{http://www.aixm.aero/schema/5.1.1}CodeApproachGuidanceType" minOccurs="0"/>
- *         <element name="usedRunway" type="{http://www.aixm.aero/schema/5.1.1}RunwayPropertyType" minOccurs="0"/>
- *         <element name="startingElement" type="{http://www.aixm.aero/schema/5.1.1}RunwayElementPropertyType" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="availability" type="{http://www.aixm.aero/schema/5.1.1}ManoeuvringAreaAvailabilityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="designator" type=
+"{http://www.aixm.aero/schema/5.1.1}TextDesignatorType" minOccurs="0"/>
+ *         <element name="trueBearing" type=
+"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="trueBearingAccuracy" type=
+"{http://www.aixm.aero/schema/5.1.1}ValAngleType" minOccurs="0"/>
+ *         <element name="magneticBearing" type=
+"{http://www.aixm.aero/schema/5.1.1}ValBearingType" minOccurs="0"/>
+ *         <element name="patternVFR" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeDirectionTurnType" minOccurs="0"/>
+ *         <element name="slopeTDZ" type=
+"{http://www.aixm.aero/schema/5.1.1}ValSlopeType" minOccurs="0"/>
+ *         <element name="elevationTDZ" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="elevationTDZAccuracy" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="approachMarkingType" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeRunwayMarkingType" minOccurs="0"/>
+ *         <element name="approachMarkingCondition" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeMarkingConditionType" minOccurs="0"/>
+ *         <element name="classLightingJAR" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeLightingJARType" minOccurs="0"/>
+ *         <element name="precisionApproachGuidance" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeApproachGuidanceType" minOccurs="0"/>
+ *         <element name="usedRunway" type=
+"{http://www.aixm.aero/schema/5.1.1}RunwayPropertyType" minOccurs="0"/>
+ *         <element name="startingElement" type=
+"{http://www.aixm.aero/schema/5.1.1}RunwayElementPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="availability" type=
+"{http://www.aixm.aero/schema/5.1.1}ManoeuvringAreaAvailabilityPropertyType" maxOccurs
+="unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractRunwayDirectionExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractRunwayDirectionExtension"/>
  *                 </sequence>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -75,35 +101,17 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RunwayDirectionTimeSliceType", propOrder = {
-    "designator",
-    "trueBearing",
-    "trueBearingAccuracy",
-    "magneticBearing",
-    "patternVFR",
-    "slopeTDZ",
-    "elevationTDZ",
-    "elevationTDZAccuracy",
-    "approachMarkingType",
-    "approachMarkingCondition",
-    "classLightingJAR",
-    "precisionApproachGuidance",
-    "usedRunway",
-    "startingElement",
-    "annotation",
-    "availability",
-    "extension"
-})
+@XmlType(name = "RunwayDirectionTimeSliceType", propOrder = {"designator", "trueBearing", "trueBearingAccuracy",
+        "magneticBearing", "patternVFR", "slopeTDZ", "elevationTDZ", "elevationTDZAccuracy", "approachMarkingType",
+        "approachMarkingCondition", "classLightingJAR", "precisionApproachGuidance", "usedRunway", "startingElement",
+        "annotation", "availability", "extension"})
 @Entity(name = "RunwayDirectionTimeSliceType")
 @Table(name = "runwaydirection_t", schema = "airport_heliport")
-public class RunwayDirectionTimeSliceType
-    extends AbstractAIXMTimeSliceType
-    implements Serializable
-{
+public class RunwayDirectionTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "designator", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -142,11 +150,10 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Gets the value of the designator property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link TextDesignatorType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextDesignatorType> getDesignator() {
@@ -155,11 +162,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the designator property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link TextDesignatorType }{@code >}
+     *
      */
     public void setDesignator(JAXBElement<TextDesignatorType> value) {
         this.designator = value;
@@ -167,16 +174,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetDesignator() {
-        return (this.designator!= null);
+        return (this.designator != null);
     }
 
     /**
      * Gets the value of the trueBearing property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValBearingType> getTrueBearing() {
@@ -185,11 +191,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the trueBearing property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValBearingType }{@code >}
+     *
      */
     public void setTrueBearing(JAXBElement<ValBearingType> value) {
         this.trueBearing = value;
@@ -197,16 +203,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetTrueBearing() {
-        return (this.trueBearing!= null);
+        return (this.trueBearing != null);
     }
 
     /**
      * Gets the value of the trueBearingAccuracy property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValAngleType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValAngleType> getTrueBearingAccuracy() {
@@ -215,11 +220,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the trueBearingAccuracy property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValAngleType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link ValAngleType
+     *            }{@code >}
+     *
      */
     public void setTrueBearingAccuracy(JAXBElement<ValAngleType> value) {
         this.trueBearingAccuracy = value;
@@ -227,16 +232,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetTrueBearingAccuracy() {
-        return (this.trueBearingAccuracy!= null);
+        return (this.trueBearingAccuracy != null);
     }
 
     /**
      * Gets the value of the magneticBearing property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValBearingType> getMagneticBearing() {
@@ -245,11 +249,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the magneticBearing property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValBearingType }{@code >}
+     *
      */
     public void setMagneticBearing(JAXBElement<ValBearingType> value) {
         this.magneticBearing = value;
@@ -257,16 +261,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetMagneticBearing() {
-        return (this.magneticBearing!= null);
+        return (this.magneticBearing != null);
     }
 
     /**
      * Gets the value of the patternVFR property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeDirectionTurnType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeDirectionTurnType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeDirectionTurnType> getPatternVFR() {
@@ -275,11 +278,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the patternVFR property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeDirectionTurnType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeDirectionTurnType }{@code >}
+     *
      */
     public void setPatternVFR(JAXBElement<CodeDirectionTurnType> value) {
         this.patternVFR = value;
@@ -287,16 +290,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetPatternVFR() {
-        return (this.patternVFR!= null);
+        return (this.patternVFR != null);
     }
 
     /**
      * Gets the value of the slopeTDZ property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValSlopeType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValSlopeType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValSlopeType> getSlopeTDZ() {
@@ -305,11 +307,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the slopeTDZ property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValSlopeType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link ValSlopeType
+     *            }{@code >}
+     *
      */
     public void setSlopeTDZ(JAXBElement<ValSlopeType> value) {
         this.slopeTDZ = value;
@@ -317,16 +319,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetSlopeTDZ() {
-        return (this.slopeTDZ!= null);
+        return (this.slopeTDZ != null);
     }
 
     /**
      * Gets the value of the elevationTDZ property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getElevationTDZ() {
@@ -335,11 +336,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the elevationTDZ property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setElevationTDZ(JAXBElement<ValDistanceVerticalType> value) {
         this.elevationTDZ = value;
@@ -347,16 +348,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetElevationTDZ() {
-        return (this.elevationTDZ!= null);
+        return (this.elevationTDZ != null);
     }
 
     /**
      * Gets the value of the elevationTDZAccuracy property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceType> getElevationTDZAccuracy() {
@@ -365,11 +365,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the elevationTDZAccuracy property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     public void setElevationTDZAccuracy(JAXBElement<ValDistanceType> value) {
         this.elevationTDZAccuracy = value;
@@ -377,16 +377,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetElevationTDZAccuracy() {
-        return (this.elevationTDZAccuracy!= null);
+        return (this.elevationTDZAccuracy != null);
     }
 
     /**
      * Gets the value of the approachMarkingType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRunwayMarkingType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeRunwayMarkingType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRunwayMarkingType> getApproachMarkingType() {
@@ -395,11 +394,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the approachMarkingType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRunwayMarkingType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeRunwayMarkingType }{@code >}
+     *
      */
     public void setApproachMarkingType(JAXBElement<CodeRunwayMarkingType> value) {
         this.approachMarkingType = value;
@@ -407,16 +406,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetApproachMarkingType() {
-        return (this.approachMarkingType!= null);
+        return (this.approachMarkingType != null);
     }
 
     /**
      * Gets the value of the approachMarkingCondition property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeMarkingConditionType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeMarkingConditionType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeMarkingConditionType> getApproachMarkingCondition() {
@@ -425,11 +423,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the approachMarkingCondition property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeMarkingConditionType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeMarkingConditionType }{@code >}
+     *
      */
     public void setApproachMarkingCondition(JAXBElement<CodeMarkingConditionType> value) {
         this.approachMarkingCondition = value;
@@ -437,16 +435,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetApproachMarkingCondition() {
-        return (this.approachMarkingCondition!= null);
+        return (this.approachMarkingCondition != null);
     }
 
     /**
      * Gets the value of the classLightingJAR property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeLightingJARType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeLightingJARType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeLightingJARType> getClassLightingJAR() {
@@ -455,11 +452,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the classLightingJAR property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeLightingJARType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeLightingJARType }{@code >}
+     *
      */
     public void setClassLightingJAR(JAXBElement<CodeLightingJARType> value) {
         this.classLightingJAR = value;
@@ -467,16 +464,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetClassLightingJAR() {
-        return (this.classLightingJAR!= null);
+        return (this.classLightingJAR != null);
     }
 
     /**
      * Gets the value of the precisionApproachGuidance property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeApproachGuidanceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeApproachGuidanceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeApproachGuidanceType> getPrecisionApproachGuidance() {
@@ -485,11 +481,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the precisionApproachGuidance property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeApproachGuidanceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeApproachGuidanceType }{@code >}
+     *
      */
     public void setPrecisionApproachGuidance(JAXBElement<CodeApproachGuidanceType> value) {
         this.precisionApproachGuidance = value;
@@ -497,16 +493,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetPrecisionApproachGuidance() {
-        return (this.precisionApproachGuidance!= null);
+        return (this.precisionApproachGuidance != null);
     }
 
     /**
      * Gets the value of the usedRunway property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RunwayPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link RunwayPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<RunwayPropertyType> getUsedRunway() {
@@ -515,11 +510,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the usedRunway property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RunwayPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link RunwayPropertyType }{@code >}
+     *
      */
     public void setUsedRunway(JAXBElement<RunwayPropertyType> value) {
         this.usedRunway = value;
@@ -527,16 +522,15 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetUsedRunway() {
-        return (this.usedRunway!= null);
+        return (this.usedRunway != null);
     }
 
     /**
      * Gets the value of the startingElement property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RunwayElementPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link RunwayElementPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<RunwayElementPropertyType> getStartingElement() {
@@ -545,11 +539,11 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Sets the value of the startingElement property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RunwayElementPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link RunwayElementPropertyType }{@code >}
+     *
      */
     public void setStartingElement(JAXBElement<RunwayElementPropertyType> value) {
         this.startingElement = value;
@@ -557,39 +551,36 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetStartingElement() {
-        return (this.startingElement!= null);
+        return (this.startingElement != null);
     }
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "runwaydirection_t_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rnwdrctntmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -598,8 +589,8 @@ public class RunwayDirectionTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -607,7 +598,7 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -616,34 +607,32 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Gets the value of the availability property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the availability property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the availability property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAvailability().add(newItem);
+     * getAvailability().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ManoeuvringAreaAvailabilityPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = ManoeuvringAreaAvailabilityPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "runwaydirection_t_availability_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rnwdrctntmslctp_avlblt_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "availability_hjid", referencedColumnName = "hjid")})
     public List<ManoeuvringAreaAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -652,8 +641,8 @@ public class RunwayDirectionTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAvailability(List<ManoeuvringAreaAvailabilityPropertyType> availability) {
         this.availability = availability;
@@ -661,7 +650,7 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability!= null)&&(!this.availability.isEmpty()));
+        return ((this.availability != null) && (!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -670,30 +659,29 @@ public class RunwayDirectionTimeSliceType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RunwayDirectionExtensionType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = RunwayDirectionExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "runwaydirection_e_hjid", referencedColumnName = "hjid")
+    @OneToMany(targetEntity = RunwayDirectionExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "runwaydirectione_hjid", referencedColumnName = "hjid")
     public List<RunwayDirectionExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -702,8 +690,8 @@ public class RunwayDirectionTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<RunwayDirectionExtensionType> extension) {
         this.extension = extension;
@@ -711,7 +699,7 @@ public class RunwayDirectionTimeSliceType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -720,197 +708,201 @@ public class RunwayDirectionTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designator")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "designator_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 16)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason"))})
     public TextDesignatorType getDesignatorItem() {
         return XmlAdapterUtils.unmarshallSource(TextDesignatorType.class, this.getDesignator());
     }
 
     public void setDesignatorItem(TextDesignatorType target) {
-        setDesignator(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class, new QName("http://www.aixm.aero/schema/5.1.1", "designator"), RunwayDirectionTimeSliceType.class, target));
+        setDesignator(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "designator"), RunwayDirectionTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "truebearing")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "truebearing_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "truebearing", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "truebearingnilreason"))})
     public ValBearingType getTrueBearingItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getTrueBearing());
     }
 
     public void setTrueBearingItem(ValBearingType target) {
-        setTrueBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "trueBearing"), RunwayDirectionTimeSliceType.class, target));
+        setTrueBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "trueBearing"), RunwayDirectionTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "truebearingaccuracy")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "truebearingaccuracy_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "truebearingaccuracy", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "truebearingaccuracynilreason"))})
     public ValAngleType getTrueBearingAccuracyItem() {
         return XmlAdapterUtils.unmarshallSource(ValAngleType.class, this.getTrueBearingAccuracy());
     }
 
     public void setTrueBearingAccuracyItem(ValAngleType target) {
-        setTrueBearingAccuracy(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class, new QName("http://www.aixm.aero/schema/5.1.1", "trueBearingAccuracy"), RunwayDirectionTimeSliceType.class, target));
+        setTrueBearingAccuracy(XmlAdapterUtils.marshallJAXBElement(ValAngleType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "trueBearingAccuracy"),
+                RunwayDirectionTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "magneticbearing")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "magneticbearing_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "magneticbearing", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "magneticbearingnilreason"))})
     public ValBearingType getMagneticBearingItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getMagneticBearing());
     }
 
     public void setMagneticBearingItem(ValBearingType target) {
-        setMagneticBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "magneticBearing"), RunwayDirectionTimeSliceType.class, target));
+        setMagneticBearing(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "magneticBearing"), RunwayDirectionTimeSliceType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "patternvfr")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "patternvfr_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "patternvfr")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "patternvfrnilreason"))})
     public CodeDirectionTurnType getPatternVFRItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDirectionTurnType.class, this.getPatternVFR());
     }
 
     public void setPatternVFRItem(CodeDirectionTurnType target) {
-        setPatternVFR(XmlAdapterUtils.marshallJAXBElement(CodeDirectionTurnType.class, new QName("http://www.aixm.aero/schema/5.1.1", "patternVFR"), RunwayDirectionTimeSliceType.class, target));
+        setPatternVFR(XmlAdapterUtils.marshallJAXBElement(CodeDirectionTurnType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "patternVFR"), RunwayDirectionTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "slopetdz")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "slopetdz_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "slopetdz", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "slopetdznilreason"))})
     public ValSlopeType getSlopeTDZItem() {
         return XmlAdapterUtils.unmarshallSource(ValSlopeType.class, this.getSlopeTDZ());
     }
 
     public void setSlopeTDZItem(ValSlopeType target) {
-        setSlopeTDZ(XmlAdapterUtils.marshallJAXBElement(ValSlopeType.class, new QName("http://www.aixm.aero/schema/5.1.1", "slopeTDZ"), RunwayDirectionTimeSliceType.class, target));
+        setSlopeTDZ(XmlAdapterUtils.marshallJAXBElement(ValSlopeType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "slopeTDZ"), RunwayDirectionTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "elevationtdz")),
-        @AttributeOverride(name = "uom", column = @Column(name = "elevationtdz_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "elevationtdz_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "elevationtdz", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "elevationtdzuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "elevationtdznilreason"))})
     public ValDistanceVerticalType getElevationTDZItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getElevationTDZ());
     }
 
     public void setElevationTDZItem(ValDistanceVerticalType target) {
-        setElevationTDZ(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "elevationTDZ"), RunwayDirectionTimeSliceType.class, target));
+        setElevationTDZ(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "elevationTDZ"), RunwayDirectionTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "elevationtdzaccuracy")),
-        @AttributeOverride(name = "uom", column = @Column(name = "elevationtdzaccuracy_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "elevationtdzaccuracy_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "elevationtdzaccuracy", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "elevationtdzaccuracyuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "elevationtdzaccuracynilreason"))})
     public ValDistanceType getElevationTDZAccuracyItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getElevationTDZAccuracy());
     }
 
     public void setElevationTDZAccuracyItem(ValDistanceType target) {
-        setElevationTDZAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "elevationTDZAccuracy"), RunwayDirectionTimeSliceType.class, target));
+        setElevationTDZAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "elevationTDZAccuracy"),
+                RunwayDirectionTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "approachmarkingtype")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "approachmarkingtype_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "approachmarkingtype")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "approachmarkingtypenilreason"))})
     public CodeRunwayMarkingType getApproachMarkingTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRunwayMarkingType.class, this.getApproachMarkingType());
     }
 
     public void setApproachMarkingTypeItem(CodeRunwayMarkingType target) {
-        setApproachMarkingType(XmlAdapterUtils.marshallJAXBElement(CodeRunwayMarkingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "approachMarkingType"), RunwayDirectionTimeSliceType.class, target));
+        setApproachMarkingType(XmlAdapterUtils.marshallJAXBElement(CodeRunwayMarkingType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "approachMarkingType"),
+                RunwayDirectionTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "approachmarkingcondition")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "approachmarkingcondition_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "approachmarkingcondition")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "approachmarkingconditionnilreason"))})
     public CodeMarkingConditionType getApproachMarkingConditionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeMarkingConditionType.class, this.getApproachMarkingCondition());
     }
 
     public void setApproachMarkingConditionItem(CodeMarkingConditionType target) {
-        setApproachMarkingCondition(XmlAdapterUtils.marshallJAXBElement(CodeMarkingConditionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "approachMarkingCondition"), RunwayDirectionTimeSliceType.class, target));
+        setApproachMarkingCondition(XmlAdapterUtils.marshallJAXBElement(CodeMarkingConditionType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "approachMarkingCondition"),
+                RunwayDirectionTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "classlightingjar")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "classlightingjar_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "classlightingjar")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "classlightingjarnilreason"))})
     public CodeLightingJARType getClassLightingJARItem() {
         return XmlAdapterUtils.unmarshallSource(CodeLightingJARType.class, this.getClassLightingJAR());
     }
 
     public void setClassLightingJARItem(CodeLightingJARType target) {
-        setClassLightingJAR(XmlAdapterUtils.marshallJAXBElement(CodeLightingJARType.class, new QName("http://www.aixm.aero/schema/5.1.1", "classLightingJAR"), RunwayDirectionTimeSliceType.class, target));
+        setClassLightingJAR(XmlAdapterUtils.marshallJAXBElement(CodeLightingJARType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "classLightingJAR"), RunwayDirectionTimeSliceType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "precisionapproachguidance")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "precisionapproachguidance_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "precisionapproachguidance")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "precisionapproachguidancenilreason"))})
     public CodeApproachGuidanceType getPrecisionApproachGuidanceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeApproachGuidanceType.class, this.getPrecisionApproachGuidance());
     }
 
     public void setPrecisionApproachGuidanceItem(CodeApproachGuidanceType target) {
-        setPrecisionApproachGuidance(XmlAdapterUtils.marshallJAXBElement(CodeApproachGuidanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "precisionApproachGuidance"), RunwayDirectionTimeSliceType.class, target));
+        setPrecisionApproachGuidance(XmlAdapterUtils.marshallJAXBElement(CodeApproachGuidanceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "precisionApproachGuidance"),
+                RunwayDirectionTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = RunwayPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "runwaydirection_t_usedrunway_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "usedrunway_hjid", referencedColumnName = "hjid")
-    })
+    @OneToOne(targetEntity = RunwayPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rnwdrctntmslctp_usdrnw_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "usedrunway_hjid", referencedColumnName = "hjid")})
     public RunwayPropertyType getUsedRunwayItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayPropertyType.class, this.getUsedRunway());
     }
 
     public void setUsedRunwayItem(RunwayPropertyType target) {
-        setUsedRunway(XmlAdapterUtils.marshallJAXBElement(RunwayPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "usedRunway"), RunwayDirectionTimeSliceType.class, target));
+        setUsedRunway(XmlAdapterUtils.marshallJAXBElement(RunwayPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "usedRunway"), RunwayDirectionTimeSliceType.class,
+                target));
     }
 
-    @OneToOne(targetEntity = RunwayElementPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "runwaydirection_t_startingelement_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "startingelement_hjid", referencedColumnName = "hjid")
-    })
+    @OneToOne(targetEntity = RunwayElementPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rnwdrctntmslctp_strtngelmnt_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "runwaydirection_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "startingelement_hjid", referencedColumnName = "hjid")})
     public RunwayElementPropertyType getStartingElementItem() {
         return XmlAdapterUtils.unmarshallSource(RunwayElementPropertyType.class, this.getStartingElement());
     }
 
     public void setStartingElementItem(RunwayElementPropertyType target) {
-        setStartingElement(XmlAdapterUtils.marshallJAXBElement(RunwayElementPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "startingElement"), RunwayDirectionTimeSliceType.class, target));
+        setStartingElement(XmlAdapterUtils.marshallJAXBElement(RunwayElementPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "startingElement"), RunwayDirectionTimeSliceType.class,
+                target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -921,53 +913,66 @@ public class RunwayDirectionTimeSliceType
         }
         final RunwayDirectionTimeSliceType that = ((RunwayDirectionTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTrueBearing();
-            boolean rhsFieldIsSet = that.isSetTrueBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getTrueBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getTrueBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElevationTDZAccuracy();
-            boolean rhsFieldIsSet = that.isSetElevationTDZAccuracy();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getElevationTDZAccuracy();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getElevationTDZAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevationTDZAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevationTDZAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUsedRunway();
-            boolean rhsFieldIsSet = that.isSetUsedRunway();
-            JAXBElement<RunwayPropertyType> lhsField;
-            lhsField = this.getUsedRunway();
-            JAXBElement<RunwayPropertyType> rhsField;
-            rhsField = that.getUsedRunway();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usedRunway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usedRunway", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAvailability();
             boolean rhsFieldIsSet = that.isSetAvailability();
             List<ManoeuvringAreaAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
             List<ManoeuvringAreaAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMagneticBearing();
+            boolean rhsFieldIsSet = that.isSetMagneticBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getMagneticBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getMagneticBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticBearing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<TextDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<TextDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClassLightingJAR();
+            boolean rhsFieldIsSet = that.isSetClassLightingJAR();
+            JAXBElement<CodeLightingJARType> lhsField;
+            lhsField = this.getClassLightingJAR();
+            JAXBElement<CodeLightingJARType> rhsField;
+            rhsField = that.getClassLightingJAR();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classLightingJAR", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classLightingJAR", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -986,19 +991,6 @@ public class RunwayDirectionTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RunwayDirectionExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<RunwayDirectionExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetApproachMarkingType();
             boolean rhsFieldIsSet = that.isSetApproachMarkingType();
             JAXBElement<CodeRunwayMarkingType> lhsField;
@@ -1007,6 +999,32 @@ public class RunwayDirectionTimeSliceType
             rhsField = that.getApproachMarkingType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachMarkingType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachMarkingType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartingElement();
+            boolean rhsFieldIsSet = that.isSetStartingElement();
+            JAXBElement<RunwayElementPropertyType> lhsField;
+            lhsField = this.getStartingElement();
+            JAXBElement<RunwayElementPropertyType> rhsField;
+            rhsField = that.getStartingElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startingElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startingElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsedRunway();
+            boolean rhsFieldIsSet = that.isSetUsedRunway();
+            JAXBElement<RunwayPropertyType> lhsField;
+            lhsField = this.getUsedRunway();
+            JAXBElement<RunwayPropertyType> rhsField;
+            rhsField = that.getUsedRunway();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usedRunway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usedRunway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1025,6 +1043,19 @@ public class RunwayDirectionTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetTrueBearing();
+            boolean rhsFieldIsSet = that.isSetTrueBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getTrueBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getTrueBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueBearing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetElevationTDZ();
             boolean rhsFieldIsSet = that.isSetElevationTDZ();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -1038,14 +1069,40 @@ public class RunwayDirectionTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetClassLightingJAR();
-            boolean rhsFieldIsSet = that.isSetClassLightingJAR();
-            JAXBElement<CodeLightingJARType> lhsField;
-            lhsField = this.getClassLightingJAR();
-            JAXBElement<CodeLightingJARType> rhsField;
-            rhsField = that.getClassLightingJAR();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classLightingJAR", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classLightingJAR", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RunwayDirectionExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RunwayDirectionExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElevationTDZAccuracy();
+            boolean rhsFieldIsSet = that.isSetElevationTDZAccuracy();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getElevationTDZAccuracy();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getElevationTDZAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevationTDZAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevationTDZAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPatternVFR();
+            boolean rhsFieldIsSet = that.isSetPatternVFR();
+            JAXBElement<CodeDirectionTurnType> lhsField;
+            lhsField = this.getPatternVFR();
+            JAXBElement<CodeDirectionTurnType> rhsField;
+            rhsField = that.getPatternVFR();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "patternVFR", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "patternVFR", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1072,71 +1129,6 @@ public class RunwayDirectionTimeSliceType
             rhsField = that.getApproachMarkingCondition();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachMarkingCondition", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachMarkingCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<TextDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<TextDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartingElement();
-            boolean rhsFieldIsSet = that.isSetStartingElement();
-            JAXBElement<RunwayElementPropertyType> lhsField;
-            lhsField = this.getStartingElement();
-            JAXBElement<RunwayElementPropertyType> rhsField;
-            rhsField = that.getStartingElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startingElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startingElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPatternVFR();
-            boolean rhsFieldIsSet = that.isSetPatternVFR();
-            JAXBElement<CodeDirectionTurnType> lhsField;
-            lhsField = this.getPatternVFR();
-            JAXBElement<CodeDirectionTurnType> rhsField;
-            rhsField = that.getPatternVFR();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "patternVFR", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "patternVFR", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMagneticBearing();
-            boolean rhsFieldIsSet = that.isSetMagneticBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getMagneticBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getMagneticBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticBearing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1248,21 +1240,21 @@ public class RunwayDirectionTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<ManoeuvringAreaAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability()?this.getAvailability():null);
+            theField = (this.isSetAvailability() ? this.getAvailability() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RunwayDirectionExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1359,19 +1351,19 @@ public class RunwayDirectionTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<ManoeuvringAreaAvailabilityPropertyType> theField;
-            theField = (this.isSetAvailability()?this.getAvailability():null);
+            theField = (this.isSetAvailability() ? this.getAvailability() : null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RunwayDirectionExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

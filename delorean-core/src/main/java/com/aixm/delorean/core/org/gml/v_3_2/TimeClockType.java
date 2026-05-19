@@ -200,32 +200,6 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
         }
         final TimeClockType that = ((TimeClockType) object);
         {
-            boolean lhsFieldIsSet = this.isSetReferenceEvent();
-            boolean rhsFieldIsSet = that.isSetReferenceEvent();
-            StringOrRefType lhsField;
-            lhsField = this.getReferenceEvent();
-            StringOrRefType rhsField;
-            rhsField = that.getReferenceEvent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceEvent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceEvent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReferenceTime();
-            boolean rhsFieldIsSet = that.isSetReferenceTime();
-            XMLGregorianCalendar lhsField;
-            lhsField = this.getReferenceTime();
-            XMLGregorianCalendar rhsField;
-            rhsField = that.getReferenceTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDateBasis();
             boolean rhsFieldIsSet = that.isSetDateBasis();
             List<TimeCalendarPropertyType> lhsField;
@@ -239,6 +213,19 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetReferenceEvent();
+            boolean rhsFieldIsSet = that.isSetReferenceEvent();
+            StringOrRefType lhsField;
+            lhsField = this.getReferenceEvent();
+            StringOrRefType rhsField;
+            rhsField = that.getReferenceEvent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceEvent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceEvent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetUtcReference();
             boolean rhsFieldIsSet = that.isSetUtcReference();
             XMLGregorianCalendar lhsField;
@@ -247,6 +234,19 @@ public class TimeClockType extends TimeReferenceSystemType implements Serializab
             rhsField = that.getUtcReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "utcReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "utcReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReferenceTime();
+            boolean rhsFieldIsSet = that.isSetReferenceTime();
+            XMLGregorianCalendar lhsField;
+            lhsField = this.getReferenceTime();
+            XMLGregorianCalendar rhsField;
+            rhsField = that.getReferenceTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,42 +12,45 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for NavaidOperationalStatusPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for NavaidOperationalStatusPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="NavaidOperationalStatusPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}NavaidOperationalStatus"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}NavaidOperationalStatus"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NavaidOperationalStatusPropertyType", propOrder = {
-    "navaidOperationalStatus"
-})
+@XmlType(name = "NavaidOperationalStatusPropertyType", propOrder = {"navaidOperationalStatus"})
 @Entity(name = "NavaidOperationalStatusPropertyType")
 @Table(name = "navaidoperationalstatus_p", schema = "navaids_point")
-public class NavaidOperationalStatusPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class NavaidOperationalStatusPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "NavaidOperationalStatus", required = true)
@@ -56,15 +58,11 @@ public class NavaidOperationalStatusPropertyType
 
     /**
      * Gets the value of the navaidOperationalStatus property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link NavaidOperationalStatusType }
-     *     
+     *
+     * @return possible object is {@link NavaidOperationalStatusType }
+     *
      */
-    @OneToOne(targetEntity = NavaidOperationalStatusType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = NavaidOperationalStatusType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "navaidoperationalstatus_hjid", referencedColumnName = "hjid")
     public NavaidOperationalStatusType getNavaidOperationalStatus() {
         return navaidOperationalStatus;
@@ -72,11 +70,10 @@ public class NavaidOperationalStatusPropertyType
 
     /**
      * Sets the value of the navaidOperationalStatus property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link NavaidOperationalStatusType }
-     *     
+     *            allowed object is {@link NavaidOperationalStatusType }
+     *
      */
     public void setNavaidOperationalStatus(NavaidOperationalStatusType value) {
         this.navaidOperationalStatus = value;
@@ -84,12 +81,13 @@ public class NavaidOperationalStatusPropertyType
 
     @Transient
     public boolean isSetNavaidOperationalStatus() {
-        return (this.navaidOperationalStatus!= null);
+        return (this.navaidOperationalStatus != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

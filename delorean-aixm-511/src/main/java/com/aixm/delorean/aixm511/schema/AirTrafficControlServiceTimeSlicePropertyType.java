@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -38,39 +38,41 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for AirTrafficControlServiceTimeSlicePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AirTrafficControlServiceTimeSlicePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AirTrafficControlServiceTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AirTrafficControlServiceTimeSlice"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AirTrafficControlServiceTimeSlice"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirTrafficControlServiceTimeSlicePropertyType", propOrder = {
-    "airTrafficControlServiceTimeSlice"
-})
-@FilterDef(name = "TPHjidFilter", parameters = {
-    @ParamDef(name = "ids", type = Long.class)
-})
+@XmlType(name = "AirTrafficControlServiceTimeSlicePropertyType", propOrder = {"airTrafficControlServiceTimeSlice"})
+@FilterDef(name = "TPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
 @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AirTrafficControlServiceTimeSlicePropertyType")
 @Table(name = "airtrafficcontrolservice_tp", schema = "service")
-public class AirTrafficControlServiceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
-{
+public class AirTrafficControlServiceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AirTrafficControlServiceTimeSlice", required = true)
@@ -84,15 +86,12 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
 
     /**
      * Gets the value of the airTrafficControlServiceTimeSlice property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AirTrafficControlServiceTimeSliceType }
-     *     
+     *
+     * @return possible object is {@link AirTrafficControlServiceTimeSliceType }
+     *
      */
     @OneToOne(targetEntity = AirTrafficControlServiceTimeSliceType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "airtrafficcontrolservicetimeslice_hjid", referencedColumnName = "hjid")
     public AirTrafficControlServiceTimeSliceType getAirTrafficControlServiceTimeSlice() {
         return airTrafficControlServiceTimeSlice;
@@ -100,11 +99,10 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
 
     /**
      * Sets the value of the airTrafficControlServiceTimeSlice property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AirTrafficControlServiceTimeSliceType }
-     *     
+     *            allowed object is {@link AirTrafficControlServiceTimeSliceType }
+     *
      */
     public void setAirTrafficControlServiceTimeSlice(AirTrafficControlServiceTimeSliceType value) {
         this.airTrafficControlServiceTimeSlice = value;
@@ -112,16 +110,14 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
 
     @Transient
     public boolean isSetAirTrafficControlServiceTimeSlice() {
-        return (this.airTrafficControlServiceTimeSlice!= null);
+        return (this.airTrafficControlServiceTimeSlice != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -135,11 +131,10 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -147,7 +142,7 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -155,12 +150,10 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Long }
-     *     
+     *
+     *
+     * @return possible object is {@link java.lang.Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -171,24 +164,21 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Long }
-     *     
+     *            allowed object is {@link java.lang.Long }
+     *
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Long }
-     *     
+     *
+     *
+     * @return possible object is {@link java.lang.Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -197,12 +187,11 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Long }
-     *     
+     *            allowed object is {@link java.lang.Long }
+     *
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -221,8 +210,9 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -230,27 +220,29 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
         }
         final AirTrafficControlServiceTimeSlicePropertyType that = ((AirTrafficControlServiceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAirTrafficControlServiceTimeSlice();
             boolean rhsFieldIsSet = that.isSetAirTrafficControlServiceTimeSlice();
             AirTrafficControlServiceTimeSliceType lhsField;
             lhsField = this.getAirTrafficControlServiceTimeSlice();
             AirTrafficControlServiceTimeSliceType rhsField;
             rhsField = that.getAirTrafficControlServiceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airTrafficControlServiceTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airTrafficControlServiceTimeSlice", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airTrafficControlServiceTimeSlice",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airTrafficControlServiceTimeSlice",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -275,13 +267,14 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
             boolean theFieldIsSet = this.isSetAirTrafficControlServiceTimeSlice();
             AirTrafficControlServiceTimeSliceType theField;
             theField = this.getAirTrafficControlServiceTimeSlice();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "airTrafficControlServiceTimeSlice", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "airTrafficControlServiceTimeSlice",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -319,7 +312,7 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

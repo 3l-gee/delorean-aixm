@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -24,6 +20,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,34 +31,54 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for RoadTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RoadTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RoadTimeSliceType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="designator" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
- *         <element name="status" type="{http://www.aixm.aero/schema/5.1.1}CodeStatusOperationsType" minOccurs="0"/>
- *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeRoadType" minOccurs="0"/>
- *         <element name="abandoned" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="associatedAirport" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
- *         <element name="surfaceProperties" type="{http://www.aixm.aero/schema/5.1.1}SurfaceCharacteristicsPropertyType" minOccurs="0"/>
- *         <element name="accessibleStand" type="{http://www.aixm.aero/schema/5.1.1}AircraftStandPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="surfaceExtent" type="{http://www.aixm.aero/schema/5.1.1}ElevatedSurfacePropertyType" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="designator" type=
+"{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="status" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeStatusOperationsType" minOccurs="0"/>
+ *         <element name="type" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeRoadType" minOccurs="0"/>
+ *         <element name="abandoned" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="associatedAirport" type=
+"{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *         <element name="surfaceProperties" type=
+"{http://www.aixm.aero/schema/5.1.1}SurfaceCharacteristicsPropertyType" minOccurs
+="0"/>
+ *         <element name="accessibleStand" type=
+"{http://www.aixm.aero/schema/5.1.1}AircraftStandPropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="surfaceExtent" type=
+"{http://www.aixm.aero/schema/5.1.1}ElevatedSurfacePropertyType" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractRoadExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractRoadExtension"/>
  *                 </sequence>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -68,28 +88,15 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RoadTimeSliceType", propOrder = {
-    "designator",
-    "status",
-    "type",
-    "abandoned",
-    "associatedAirport",
-    "surfaceProperties",
-    "accessibleStand",
-    "surfaceExtent",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "RoadTimeSliceType", propOrder = {"designator", "status", "type", "abandoned", "associatedAirport",
+        "surfaceProperties", "accessibleStand", "surfaceExtent", "annotation", "extension"})
 @Entity(name = "RoadTimeSliceType")
 @Table(name = "road_t", schema = "airport_heliport")
-public class RoadTimeSliceType
-    extends AbstractAIXMTimeSliceType
-    implements Serializable
-{
+public class RoadTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "designator", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -114,11 +121,10 @@ public class RoadTimeSliceType
 
     /**
      * Gets the value of the designator property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextNameType> getDesignator() {
@@ -127,11 +133,11 @@ public class RoadTimeSliceType
 
     /**
      * Sets the value of the designator property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
+     *            }{@code >}
+     *
      */
     public void setDesignator(JAXBElement<TextNameType> value) {
         this.designator = value;
@@ -139,16 +145,15 @@ public class RoadTimeSliceType
 
     @Transient
     public boolean isSetDesignator() {
-        return (this.designator!= null);
+        return (this.designator != null);
     }
 
     /**
      * Gets the value of the status property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeStatusOperationsType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeStatusOperationsType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeStatusOperationsType> getStatus() {
@@ -157,11 +162,11 @@ public class RoadTimeSliceType
 
     /**
      * Sets the value of the status property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeStatusOperationsType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeStatusOperationsType }{@code >}
+     *
      */
     public void setStatus(JAXBElement<CodeStatusOperationsType> value) {
         this.status = value;
@@ -169,16 +174,15 @@ public class RoadTimeSliceType
 
     @Transient
     public boolean isSetStatus() {
-        return (this.status!= null);
+        return (this.status != null);
     }
 
     /**
      * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRoadType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeRoadType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRoadType> getType() {
@@ -187,11 +191,11 @@ public class RoadTimeSliceType
 
     /**
      * Sets the value of the type property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRoadType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link CodeRoadType
+     *            }{@code >}
+     *
      */
     public void setType(JAXBElement<CodeRoadType> value) {
         this.type = value;
@@ -199,16 +203,15 @@ public class RoadTimeSliceType
 
     @Transient
     public boolean isSetType() {
-        return (this.type!= null);
+        return (this.type != null);
     }
 
     /**
      * Gets the value of the abandoned property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getAbandoned() {
@@ -217,11 +220,11 @@ public class RoadTimeSliceType
 
     /**
      * Sets the value of the abandoned property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setAbandoned(JAXBElement<CodeYesNoType> value) {
         this.abandoned = value;
@@ -229,16 +232,15 @@ public class RoadTimeSliceType
 
     @Transient
     public boolean isSetAbandoned() {
-        return (this.abandoned!= null);
+        return (this.abandoned != null);
     }
 
     /**
      * Gets the value of the associatedAirport property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getAssociatedAirport() {
@@ -247,11 +249,11 @@ public class RoadTimeSliceType
 
     /**
      * Sets the value of the associatedAirport property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *
      */
     public void setAssociatedAirport(JAXBElement<AirportHeliportPropertyType> value) {
         this.associatedAirport = value;
@@ -259,16 +261,15 @@ public class RoadTimeSliceType
 
     @Transient
     public boolean isSetAssociatedAirport() {
-        return (this.associatedAirport!= null);
+        return (this.associatedAirport != null);
     }
 
     /**
      * Gets the value of the surfaceProperties property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<SurfaceCharacteristicsPropertyType> getSurfaceProperties() {
@@ -277,11 +278,11 @@ public class RoadTimeSliceType
 
     /**
      * Sets the value of the surfaceProperties property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link SurfaceCharacteristicsPropertyType }{@code >}
+     *
      */
     public void setSurfaceProperties(JAXBElement<SurfaceCharacteristicsPropertyType> value) {
         this.surfaceProperties = value;
@@ -289,39 +290,36 @@ public class RoadTimeSliceType
 
     @Transient
     public boolean isSetSurfaceProperties() {
-        return (this.surfaceProperties!= null);
+        return (this.surfaceProperties != null);
     }
 
     /**
      * Gets the value of the accessibleStand property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the accessibleStand property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the accessibleStand property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAccessibleStand().add(newItem);
+     * getAccessibleStand().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AircraftStandPropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = AircraftStandPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "road_t_accessiblestand_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "road_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "accessiblestand_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = AircraftStandPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rdtmslctp_accssblstnd_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "road_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "accessiblestand_hjid", referencedColumnName = "hjid")})
     public List<AircraftStandPropertyType> getAccessibleStand() {
         if (accessibleStand == null) {
             accessibleStand = new ArrayList<>();
@@ -330,8 +328,8 @@ public class RoadTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAccessibleStand(List<AircraftStandPropertyType> accessibleStand) {
         this.accessibleStand = accessibleStand;
@@ -339,7 +337,7 @@ public class RoadTimeSliceType
 
     @Transient
     public boolean isSetAccessibleStand() {
-        return ((this.accessibleStand!= null)&&(!this.accessibleStand.isEmpty()));
+        return ((this.accessibleStand != null) && (!this.accessibleStand.isEmpty()));
     }
 
     public void unsetAccessibleStand() {
@@ -348,11 +346,10 @@ public class RoadTimeSliceType
 
     /**
      * Gets the value of the surfaceExtent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<AIXMElevatedSurfacePropertyType> getSurfaceExtent() {
@@ -361,11 +358,11 @@ public class RoadTimeSliceType
 
     /**
      * Sets the value of the surfaceExtent property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
+     *
      */
     public void setSurfaceExtent(JAXBElement<AIXMElevatedSurfacePropertyType> value) {
         this.surfaceExtent = value;
@@ -373,39 +370,36 @@ public class RoadTimeSliceType
 
     @Transient
     public boolean isSetSurfaceExtent() {
-        return (this.surfaceExtent!= null);
+        return (this.surfaceExtent != null);
     }
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "road_t_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "road_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rdtmslctp_annttn_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "road_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -414,8 +408,8 @@ public class RoadTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -423,7 +417,7 @@ public class RoadTimeSliceType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -432,30 +426,29 @@ public class RoadTimeSliceType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RoadExtensionType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = RoadExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "road_e_hjid", referencedColumnName = "hjid")
+    @OneToMany(targetEntity = RoadExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "roade_hjid", referencedColumnName = "hjid")
     public List<RoadExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -464,8 +457,8 @@ public class RoadTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<RoadExtensionType> extension) {
         this.extension = extension;
@@ -473,7 +466,7 @@ public class RoadTimeSliceType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -482,107 +475,98 @@ public class RoadTimeSliceType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designator")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "designator_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 60)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason"))})
     public TextNameType getDesignatorItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getDesignator());
     }
 
     public void setDesignatorItem(TextNameType target) {
-        setDesignator(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "designator"), RoadTimeSliceType.class, target));
+        setDesignator(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "designator"), RoadTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "status")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "status_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "status")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "statusnilreason"))})
     public CodeStatusOperationsType getStatusItem() {
         return XmlAdapterUtils.unmarshallSource(CodeStatusOperationsType.class, this.getStatus());
     }
 
     public void setStatusItem(CodeStatusOperationsType target) {
-        setStatus(XmlAdapterUtils.marshallJAXBElement(CodeStatusOperationsType.class, new QName("http://www.aixm.aero/schema/5.1.1", "status"), RoadTimeSliceType.class, target));
+        setStatus(XmlAdapterUtils.marshallJAXBElement(CodeStatusOperationsType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "status"), RoadTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "type")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
     public CodeRoadType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRoadType.class, this.getType());
     }
 
     public void setTypeItem(CodeRoadType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeRoadType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), RoadTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeRoadType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "type"), RoadTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "abandoned")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "abandoned_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "abandoned")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "abandonednilreason"))})
     public CodeYesNoType getAbandonedItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getAbandoned());
     }
 
     public void setAbandonedItem(CodeYesNoType target) {
-        setAbandoned(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "abandoned"), RoadTimeSliceType.class, target));
+        setAbandoned(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "abandoned"), RoadTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "road_t_associatedairport_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "road_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "associatedairport_hjid", referencedColumnName = "hjid")
-    })
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rdtmslctp_assctdarprt_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "road_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "associatedairport_hjid", referencedColumnName = "hjid")})
     public AirportHeliportPropertyType getAssociatedAirportItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getAssociatedAirport());
     }
 
     public void setAssociatedAirportItem(AirportHeliportPropertyType target) {
-        setAssociatedAirport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "associatedAirport"), RoadTimeSliceType.class, target));
+        setAssociatedAirport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "associatedAirport"), RoadTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = SurfaceCharacteristicsPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "road_t_surfaceproperties_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "road_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "surfaceproperties_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rdtmslctp_srfcprprts_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "road_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "surfaceproperties_hjid", referencedColumnName = "hjid")})
     public SurfaceCharacteristicsPropertyType getSurfacePropertiesItem() {
         return XmlAdapterUtils.unmarshallSource(SurfaceCharacteristicsPropertyType.class, this.getSurfaceProperties());
     }
 
     public void setSurfacePropertiesItem(SurfaceCharacteristicsPropertyType target) {
-        setSurfaceProperties(XmlAdapterUtils.marshallJAXBElement(SurfaceCharacteristicsPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "surfaceProperties"), RoadTimeSliceType.class, target));
+        setSurfaceProperties(XmlAdapterUtils.marshallJAXBElement(SurfaceCharacteristicsPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "surfaceProperties"), RoadTimeSliceType.class, target));
     }
 
     @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "road_t_surfaceextent_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "road_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "surfaceextent_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "rdtmslctp_srfcextnt_link", schema = "airport_heliport", joinColumns = {
+            @JoinColumn(name = "road_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "surfaceextent_hjid", referencedColumnName = "hjid")})
     public AIXMElevatedSurfacePropertyType getSurfaceExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedSurfacePropertyType.class, this.getSurfaceExtent());
     }
 
     public void setSurfaceExtentItem(AIXMElevatedSurfacePropertyType target) {
-        setSurfaceExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "surfaceExtent"), RoadTimeSliceType.class, target));
+        setSurfaceExtent(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedSurfacePropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "surfaceExtent"), RoadTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -593,14 +577,27 @@ public class RoadTimeSliceType
         }
         final RoadTimeSliceType that = ((RoadTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RoadExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<RoadExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetStatus();
+            boolean rhsFieldIsSet = that.isSetStatus();
+            JAXBElement<CodeStatusOperationsType> lhsField;
+            lhsField = this.getStatus();
+            JAXBElement<CodeStatusOperationsType> rhsField;
+            rhsField = that.getStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAccessibleStand();
+            boolean rhsFieldIsSet = that.isSetAccessibleStand();
+            List<AircraftStandPropertyType> lhsField;
+            lhsField = (this.isSetAccessibleStand() ? this.getAccessibleStand() : null);
+            List<AircraftStandPropertyType> rhsField;
+            rhsField = (that.isSetAccessibleStand() ? that.getAccessibleStand() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "accessibleStand", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "accessibleStand", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -619,6 +616,19 @@ public class RoadTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RoadExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RoadExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeRoadType> lhsField;
@@ -632,25 +642,12 @@ public class RoadTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbandoned();
-            boolean rhsFieldIsSet = that.isSetAbandoned();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getAbandoned();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getAbandoned();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abandoned", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abandoned", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -671,14 +668,14 @@ public class RoadTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStatus();
-            boolean rhsFieldIsSet = that.isSetStatus();
-            JAXBElement<CodeStatusOperationsType> lhsField;
-            lhsField = this.getStatus();
-            JAXBElement<CodeStatusOperationsType> rhsField;
-            rhsField = that.getStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbandoned();
+            boolean rhsFieldIsSet = that.isSetAbandoned();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getAbandoned();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getAbandoned();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abandoned", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abandoned", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -705,19 +702,6 @@ public class RoadTimeSliceType
             rhsField = that.getSurfaceExtent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceExtent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceExtent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAccessibleStand();
-            boolean rhsFieldIsSet = that.isSetAccessibleStand();
-            List<AircraftStandPropertyType> lhsField;
-            lhsField = (this.isSetAccessibleStand()?this.getAccessibleStand():null);
-            List<AircraftStandPropertyType> rhsField;
-            rhsField = (that.isSetAccessibleStand()?that.getAccessibleStand():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "accessibleStand", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "accessibleStand", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -773,7 +757,7 @@ public class RoadTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAccessibleStand();
             List<AircraftStandPropertyType> theField;
-            theField = (this.isSetAccessibleStand()?this.getAccessibleStand():null);
+            theField = (this.isSetAccessibleStand() ? this.getAccessibleStand() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "accessibleStand", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -787,14 +771,14 @@ public class RoadTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RoadExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -843,7 +827,7 @@ public class RoadTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAccessibleStand();
             List<AircraftStandPropertyType> theField;
-            theField = (this.isSetAccessibleStand()?this.getAccessibleStand():null);
+            theField = (this.isSetAccessibleStand() ? this.getAccessibleStand() : null);
             strategy.appendField(locator, this, "accessibleStand", buffer, theField, theFieldIsSet);
         }
         {
@@ -855,13 +839,13 @@ public class RoadTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RoadExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,60 +1,56 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 
-
 /**
- * <p>Java class for AbstractMarkingType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AbstractMarkingType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AbstractMarkingType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMFeatureType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMFeatureType">
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractMarkingType")
-@XmlSeeAlso({
-    AirportProtectionAreaMarkingType.class,
-    ApronMarkingType.class,
-    DeicingAreaMarkingType.class,
-    GuidanceLineMarkingType.class,
-    RunwayMarkingType.class,
-    StandMarkingType.class,
-    TaxiHoldingPositionMarkingType.class,
-    TaxiwayMarkingType.class,
-    TouchDownLiftOffMarkingType.class
-})
+@XmlSeeAlso({AirportProtectionAreaMarkingType.class, ApronMarkingType.class, DeicingAreaMarkingType.class,
+        GuidanceLineMarkingType.class, RunwayMarkingType.class, StandMarkingType.class,
+        TaxiHoldingPositionMarkingType.class, TaxiwayMarkingType.class, TouchDownLiftOffMarkingType.class})
 @Entity(name = "AbstractMarkingType")
 @Table(name = "abstractmarkingtype", schema = "public")
-public abstract class AbstractMarkingType
-    extends AbstractAIXMFeatureType
-    implements Serializable
-{
+public abstract class AbstractMarkingType extends AbstractAIXMFeatureType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

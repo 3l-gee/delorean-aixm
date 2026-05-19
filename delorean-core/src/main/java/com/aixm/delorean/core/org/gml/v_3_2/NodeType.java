@@ -222,14 +222,14 @@ public class NodeType extends AbstractTopoPrimitiveType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetContainer();
-            boolean rhsFieldIsSet = that.isSetContainer();
-            FaceOrTopoSolidPropertyType lhsField;
-            lhsField = this.getContainer();
-            FaceOrTopoSolidPropertyType rhsField;
-            rhsField = that.getContainer();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "container", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "container", rhsField);
+            boolean lhsFieldIsSet = this.isSetDirectedEdge();
+            boolean rhsFieldIsSet = that.isSetDirectedEdge();
+            List<DirectedEdgePropertyType> lhsField;
+            lhsField = (this.isSetDirectedEdge() ? this.getDirectedEdge() : null);
+            List<DirectedEdgePropertyType> rhsField;
+            rhsField = (that.isSetDirectedEdge() ? that.getDirectedEdge() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -248,14 +248,14 @@ public class NodeType extends AbstractTopoPrimitiveType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDirectedEdge();
-            boolean rhsFieldIsSet = that.isSetDirectedEdge();
-            List<DirectedEdgePropertyType> lhsField;
-            lhsField = (this.isSetDirectedEdge() ? this.getDirectedEdge() : null);
-            List<DirectedEdgePropertyType> rhsField;
-            rhsField = (that.isSetDirectedEdge() ? that.getDirectedEdge() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
+            boolean lhsFieldIsSet = this.isSetContainer();
+            boolean rhsFieldIsSet = that.isSetContainer();
+            FaceOrTopoSolidPropertyType lhsField;
+            lhsField = this.getContainer();
+            FaceOrTopoSolidPropertyType rhsField;
+            rhsField = that.getContainer();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "container", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "container", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

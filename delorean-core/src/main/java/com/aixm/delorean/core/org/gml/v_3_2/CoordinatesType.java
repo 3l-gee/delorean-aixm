@@ -241,14 +241,14 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTs();
-            boolean rhsFieldIsSet = that.isSetTs();
+            boolean lhsFieldIsSet = this.isSetCs();
+            boolean rhsFieldIsSet = that.isSetCs();
             String lhsField;
-            lhsField = this.getTs();
+            lhsField = this.getCs();
             String rhsField;
-            rhsField = that.getTs();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ts", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ts", rhsField);
+            rhsField = that.getCs();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cs", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cs", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -267,14 +267,14 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCs();
-            boolean rhsFieldIsSet = that.isSetCs();
+            boolean lhsFieldIsSet = this.isSetTs();
+            boolean rhsFieldIsSet = that.isSetTs();
             String lhsField;
-            lhsField = this.getCs();
+            lhsField = this.getTs();
             String rhsField;
-            rhsField = that.getCs();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cs", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cs", rhsField);
+            rhsField = that.getTs();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ts", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ts", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

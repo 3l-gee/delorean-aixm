@@ -150,14 +150,14 @@ public class KnotType implements Serializable, Equals, HashCode, ToString {
         }
         final KnotType that = ((KnotType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMultiplicity();
-            boolean rhsFieldIsSet = that.isSetMultiplicity();
-            BigInteger lhsField;
-            lhsField = this.getMultiplicity();
-            BigInteger rhsField;
-            rhsField = that.getMultiplicity();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "multiplicity", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "multiplicity", rhsField);
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getValue();
+            double rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -176,14 +176,14 @@ public class KnotType implements Serializable, Equals, HashCode, ToString {
             }
         }
         {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getValue();
-            double rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            boolean lhsFieldIsSet = this.isSetMultiplicity();
+            boolean rhsFieldIsSet = that.isSetMultiplicity();
+            BigInteger lhsField;
+            lhsField = this.getMultiplicity();
+            BigInteger rhsField;
+            rhsField = that.getMultiplicity();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "multiplicity", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "multiplicity", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

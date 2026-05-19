@@ -241,34 +241,6 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetControlPointAvailability();
-            boolean rhsFieldIsSet = that.isSetControlPointAvailability();
-            BooleanPropertyType lhsField;
-            lhsField = this.getControlPointAvailability();
-            BooleanPropertyType rhsField;
-            rhsField = that.getControlPointAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlPointAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlPointAvailability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOrientationParameterDescription();
-            boolean rhsFieldIsSet = that.isSetOrientationParameterDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getOrientationParameterDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getOrientationParameterDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientationParameterDescription",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientationParameterDescription",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOrientationParameterAvailability();
             boolean rhsFieldIsSet = that.isSetOrientationParameterAvailability();
             BooleanPropertyType lhsField;
@@ -292,6 +264,34 @@ public class MDGeoreferenceableType extends MDGridSpatialRepresentationType impl
             rhsField = (that.isSetParameterCitation() ? that.getParameterCitation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterCitation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterCitation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetControlPointAvailability();
+            boolean rhsFieldIsSet = that.isSetControlPointAvailability();
+            BooleanPropertyType lhsField;
+            lhsField = this.getControlPointAvailability();
+            BooleanPropertyType rhsField;
+            rhsField = that.getControlPointAvailability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlPointAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlPointAvailability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOrientationParameterDescription();
+            boolean rhsFieldIsSet = that.isSetOrientationParameterDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getOrientationParameterDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getOrientationParameterDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientationParameterDescription",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientationParameterDescription",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

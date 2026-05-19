@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -24,6 +20,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,37 +31,61 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for AirspaceTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AirspaceTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AirspaceTimeSliceType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeAirspaceType" minOccurs="0"/>
- *         <element name="designator" type="{http://www.aixm.aero/schema/5.1.1}CodeAirspaceDesignatorType" minOccurs="0"/>
- *         <element name="localType" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
- *         <element name="name" type="{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
- *         <element name="designatorICAO" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="controlType" type="{http://www.aixm.aero/schema/5.1.1}CodeMilitaryOperationsType" minOccurs="0"/>
- *         <element name="upperLowerSeparation" type="{http://www.aixm.aero/schema/5.1.1}ValFLType" minOccurs="0"/>
- *         <element name="class" type="{http://www.aixm.aero/schema/5.1.1}AirspaceLayerClassPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="protectedRoute" type="{http://www.aixm.aero/schema/5.1.1}RoutePropertyType" minOccurs="0"/>
- *         <element name="geometryComponent" type="{http://www.aixm.aero/schema/5.1.1}AirspaceGeometryComponentPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="activation" type="{http://www.aixm.aero/schema/5.1.1}AirspaceActivationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="type" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeAirspaceType" minOccurs="0"/>
+ *         <element name="designator" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeAirspaceDesignatorType" minOccurs="0"/>
+ *         <element name="localType" type=
+"{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="name" type=
+"{http://www.aixm.aero/schema/5.1.1}TextNameType" minOccurs="0"/>
+ *         <element name="designatorICAO" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="controlType" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeMilitaryOperationsType" minOccurs="0"/>
+ *         <element name="upperLowerSeparation" type=
+"{http://www.aixm.aero/schema/5.1.1}ValFLType" minOccurs="0"/>
+ *         <element name="class" type=
+"{http://www.aixm.aero/schema/5.1.1}AirspaceLayerClassPropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="protectedRoute" type=
+"{http://www.aixm.aero/schema/5.1.1}RoutePropertyType" minOccurs="0"/>
+ *         <element name="geometryComponent" type=
+"{http://www.aixm.aero/schema/5.1.1}AirspaceGeometryComponentPropertyType" maxOccurs
+="unbounded" minOccurs="0"/>
+ *         <element name="activation" type=
+"{http://www.aixm.aero/schema/5.1.1}AirspaceActivationPropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractAirspaceExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAirspaceExtension"/>
  *                 </sequence>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -71,31 +95,16 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirspaceTimeSliceType", propOrder = {
-    "type",
-    "designator",
-    "localType",
-    "aixmName",
-    "designatorICAO",
-    "controlType",
-    "upperLowerSeparation",
-    "clazz",
-    "protectedRoute",
-    "geometryComponent",
-    "activation",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "AirspaceTimeSliceType", propOrder = {"type", "designator", "localType", "aixmName", "designatorICAO",
+        "controlType", "upperLowerSeparation", "clazz", "protectedRoute", "geometryComponent", "activation",
+        "annotation", "extension"})
 @Entity(name = "AirspaceTimeSliceType")
 @Table(name = "airspace_t", schema = "airspace")
-public class AirspaceTimeSliceType
-    extends AbstractAIXMTimeSliceType
-    implements Serializable
-{
+public class AirspaceTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "type", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -126,11 +135,10 @@ public class AirspaceTimeSliceType
 
     /**
      * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeAirspaceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeAirspaceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeAirspaceType> getType() {
@@ -139,11 +147,11 @@ public class AirspaceTimeSliceType
 
     /**
      * Sets the value of the type property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeAirspaceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeAirspaceType }{@code >}
+     *
      */
     public void setType(JAXBElement<CodeAirspaceType> value) {
         this.type = value;
@@ -151,16 +159,15 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetType() {
-        return (this.type!= null);
+        return (this.type != null);
     }
 
     /**
      * Gets the value of the designator property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeAirspaceDesignatorType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeAirspaceDesignatorType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeAirspaceDesignatorType> getDesignator() {
@@ -169,11 +176,11 @@ public class AirspaceTimeSliceType
 
     /**
      * Sets the value of the designator property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeAirspaceDesignatorType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeAirspaceDesignatorType }{@code >}
+     *
      */
     public void setDesignator(JAXBElement<CodeAirspaceDesignatorType> value) {
         this.designator = value;
@@ -181,16 +188,15 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetDesignator() {
-        return (this.designator!= null);
+        return (this.designator != null);
     }
 
     /**
      * Gets the value of the localType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextNameType> getLocalType() {
@@ -199,11 +205,11 @@ public class AirspaceTimeSliceType
 
     /**
      * Sets the value of the localType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
+     *            }{@code >}
+     *
      */
     public void setLocalType(JAXBElement<TextNameType> value) {
         this.localType = value;
@@ -211,16 +217,15 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetLocalType() {
-        return (this.localType!= null);
+        return (this.localType != null);
     }
 
     /**
      * Gets the value of the aixmName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextNameType> getAixmName() {
@@ -229,11 +234,11 @@ public class AirspaceTimeSliceType
 
     /**
      * Sets the value of the aixmName property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
+     *            }{@code >}
+     *
      */
     public void setAixmName(JAXBElement<TextNameType> value) {
         this.aixmName = value;
@@ -241,16 +246,15 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetAixmName() {
-        return (this.aixmName!= null);
+        return (this.aixmName != null);
     }
 
     /**
      * Gets the value of the designatorICAO property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getDesignatorICAO() {
@@ -259,11 +263,11 @@ public class AirspaceTimeSliceType
 
     /**
      * Sets the value of the designatorICAO property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setDesignatorICAO(JAXBElement<CodeYesNoType> value) {
         this.designatorICAO = value;
@@ -271,16 +275,15 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetDesignatorICAO() {
-        return (this.designatorICAO!= null);
+        return (this.designatorICAO != null);
     }
 
     /**
      * Gets the value of the controlType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeMilitaryOperationsType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeMilitaryOperationsType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeMilitaryOperationsType> getControlType() {
@@ -289,11 +292,11 @@ public class AirspaceTimeSliceType
 
     /**
      * Sets the value of the controlType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeMilitaryOperationsType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeMilitaryOperationsType }{@code >}
+     *
      */
     public void setControlType(JAXBElement<CodeMilitaryOperationsType> value) {
         this.controlType = value;
@@ -301,16 +304,15 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetControlType() {
-        return (this.controlType!= null);
+        return (this.controlType != null);
     }
 
     /**
      * Gets the value of the upperLowerSeparation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValFLType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValFLType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValFLType> getUpperLowerSeparation() {
@@ -319,11 +321,11 @@ public class AirspaceTimeSliceType
 
     /**
      * Sets the value of the upperLowerSeparation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValFLType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link ValFLType
+     *            }{@code >}
+     *
      */
     public void setUpperLowerSeparation(JAXBElement<ValFLType> value) {
         this.upperLowerSeparation = value;
@@ -331,39 +333,37 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetUpperLowerSeparation() {
-        return (this.upperLowerSeparation!= null);
+        return (this.upperLowerSeparation != null);
     }
 
     /**
      * Gets the value of the clazz property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the clazz property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the clazz property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getClazz().add(newItem);
+     * getClazz().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspaceLayerClassPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = AirspaceLayerClassPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "airspace_t_class_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "airspace_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "class_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspctmslctp_clss_link", schema = "airspace", joinColumns = {
+            @JoinColumn(name = "airspace_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "class_hjid", referencedColumnName = "hjid")})
     public List<AirspaceLayerClassPropertyType> getClazz() {
         if (clazz == null) {
             clazz = new ArrayList<>();
@@ -372,8 +372,8 @@ public class AirspaceTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setClazz(List<AirspaceLayerClassPropertyType> clazz) {
         this.clazz = clazz;
@@ -381,7 +381,7 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetClazz() {
-        return ((this.clazz!= null)&&(!this.clazz.isEmpty()));
+        return ((this.clazz != null) && (!this.clazz.isEmpty()));
     }
 
     public void unsetClazz() {
@@ -390,11 +390,10 @@ public class AirspaceTimeSliceType
 
     /**
      * Gets the value of the protectedRoute property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link RoutePropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link RoutePropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<RoutePropertyType> getProtectedRoute() {
@@ -403,11 +402,11 @@ public class AirspaceTimeSliceType
 
     /**
      * Sets the value of the protectedRoute property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link RoutePropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link RoutePropertyType }{@code >}
+     *
      */
     public void setProtectedRoute(JAXBElement<RoutePropertyType> value) {
         this.protectedRoute = value;
@@ -415,39 +414,37 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetProtectedRoute() {
-        return (this.protectedRoute!= null);
+        return (this.protectedRoute != null);
     }
 
     /**
      * Gets the value of the geometryComponent property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the geometryComponent property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the geometryComponent property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getGeometryComponent().add(newItem);
+     * getGeometryComponent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspaceGeometryComponentPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = AirspaceGeometryComponentPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "airspace_t_geometrycomponent_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "airspace_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "geometrycomponent_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspctmslctp_gmtrcmpnnt_link", schema = "airspace", joinColumns = {
+            @JoinColumn(name = "airspace_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "geometrycomponent_hjid", referencedColumnName = "hjid")})
     public List<AirspaceGeometryComponentPropertyType> getGeometryComponent() {
         if (geometryComponent == null) {
             geometryComponent = new ArrayList<>();
@@ -456,8 +453,8 @@ public class AirspaceTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setGeometryComponent(List<AirspaceGeometryComponentPropertyType> geometryComponent) {
         this.geometryComponent = geometryComponent;
@@ -465,7 +462,7 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetGeometryComponent() {
-        return ((this.geometryComponent!= null)&&(!this.geometryComponent.isEmpty()));
+        return ((this.geometryComponent != null) && (!this.geometryComponent.isEmpty()));
     }
 
     public void unsetGeometryComponent() {
@@ -474,34 +471,32 @@ public class AirspaceTimeSliceType
 
     /**
      * Gets the value of the activation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the activation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the activation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getActivation().add(newItem);
+     * getActivation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspaceActivationPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = AirspaceActivationPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "airspace_t_activation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "airspace_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "activation_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspctmslctp_actvtn_link", schema = "airspace", joinColumns = {
+            @JoinColumn(name = "airspace_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "activation_hjid", referencedColumnName = "hjid")})
     public List<AirspaceActivationPropertyType> getActivation() {
         if (activation == null) {
             activation = new ArrayList<>();
@@ -510,8 +505,8 @@ public class AirspaceTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setActivation(List<AirspaceActivationPropertyType> activation) {
         this.activation = activation;
@@ -519,7 +514,7 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetActivation() {
-        return ((this.activation!= null)&&(!this.activation.isEmpty()));
+        return ((this.activation != null) && (!this.activation.isEmpty()));
     }
 
     public void unsetActivation() {
@@ -528,34 +523,31 @@ public class AirspaceTimeSliceType
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "airspace_t_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "airspace_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspctmslctp_annttn_link", schema = "airspace", joinColumns = {
+            @JoinColumn(name = "airspace_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -564,8 +556,8 @@ public class AirspaceTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -573,7 +565,7 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -582,30 +574,29 @@ public class AirspaceTimeSliceType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspaceExtensionType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = AirspaceExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airspace_e_hjid", referencedColumnName = "hjid")
+    @OneToMany(targetEntity = AirspaceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "airspacee_hjid", referencedColumnName = "hjid")
     public List<AirspaceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -614,8 +605,8 @@ public class AirspaceTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<AirspaceExtensionType> extension) {
         this.extension = extension;
@@ -623,7 +614,7 @@ public class AirspaceTimeSliceType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -631,116 +622,111 @@ public class AirspaceTimeSliceType
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "type")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "typenilreason"))})
     public CodeAirspaceType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAirspaceType.class, this.getType());
     }
 
     public void setTypeItem(CodeAirspaceType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeAirspaceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), AirspaceTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeAirspaceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "type"), AirspaceTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designator")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "designator_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "designator", columnDefinition = "VARCHAR", length = 10)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "designatornilreason"))})
     public CodeAirspaceDesignatorType getDesignatorItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAirspaceDesignatorType.class, this.getDesignator());
     }
 
     public void setDesignatorItem(CodeAirspaceDesignatorType target) {
-        setDesignator(XmlAdapterUtils.marshallJAXBElement(CodeAirspaceDesignatorType.class, new QName("http://www.aixm.aero/schema/5.1.1", "designator"), AirspaceTimeSliceType.class, target));
+        setDesignator(XmlAdapterUtils.marshallJAXBElement(CodeAirspaceDesignatorType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "designator"), AirspaceTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "localtype")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "localtype_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "localtype", columnDefinition = "VARCHAR", length = 60)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "localtypenilreason"))})
     public TextNameType getLocalTypeItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getLocalType());
     }
 
     public void setLocalTypeItem(TextNameType target) {
-        setLocalType(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "localType"), AirspaceTimeSliceType.class, target));
+        setLocalType(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "localType"), AirspaceTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "name")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "name_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "name", columnDefinition = "VARCHAR", length = 60)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "namenilreason"))})
     public TextNameType getAixmNameItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getAixmName());
     }
 
     public void setAixmNameItem(TextNameType target) {
-        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "name"), AirspaceTimeSliceType.class, target));
+        setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "name"), AirspaceTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "designatoricao")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "designatoricao_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "designatoricao")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "designatoricaonilreason"))})
     public CodeYesNoType getDesignatorICAOItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getDesignatorICAO());
     }
 
     public void setDesignatorICAOItem(CodeYesNoType target) {
-        setDesignatorICAO(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "designatorICAO"), AirspaceTimeSliceType.class, target));
+        setDesignatorICAO(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "designatorICAO"), AirspaceTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "controltype")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "controltype_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "controltype")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "controltypenilreason"))})
     public CodeMilitaryOperationsType getControlTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeMilitaryOperationsType.class, this.getControlType());
     }
 
     public void setControlTypeItem(CodeMilitaryOperationsType target) {
-        setControlType(XmlAdapterUtils.marshallJAXBElement(CodeMilitaryOperationsType.class, new QName("http://www.aixm.aero/schema/5.1.1", "controlType"), AirspaceTimeSliceType.class, target));
+        setControlType(XmlAdapterUtils.marshallJAXBElement(CodeMilitaryOperationsType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "controlType"), AirspaceTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "upperlowerseparation")),
-        @AttributeOverride(name = "uom", column = @Column(name = "upperlowerseparation_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "upperlowerseparation_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "upperlowerseparation")),
+            @AttributeOverride(name = "uom", column = @Column(name = "upperlowerseparationuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "upperlowerseparationnilreason"))})
     public ValFLType getUpperLowerSeparationItem() {
         return XmlAdapterUtils.unmarshallSource(ValFLType.class, this.getUpperLowerSeparation());
     }
 
     public void setUpperLowerSeparationItem(ValFLType target) {
-        setUpperLowerSeparation(XmlAdapterUtils.marshallJAXBElement(ValFLType.class, new QName("http://www.aixm.aero/schema/5.1.1", "upperLowerSeparation"), AirspaceTimeSliceType.class, target));
+        setUpperLowerSeparation(XmlAdapterUtils.marshallJAXBElement(ValFLType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "upperLowerSeparation"), AirspaceTimeSliceType.class,
+                target));
     }
 
-    @OneToOne(targetEntity = RoutePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "airspace_t_protectedroute_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "airspace_t_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "protectedroute_hjid", referencedColumnName = "hjid")
-    })
+    @OneToOne(targetEntity = RoutePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspctmslctp_prtctdrt_link", schema = "airspace", joinColumns = {
+            @JoinColumn(name = "airspace_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "protectedroute_hjid", referencedColumnName = "hjid")})
     public RoutePropertyType getProtectedRouteItem() {
         return XmlAdapterUtils.unmarshallSource(RoutePropertyType.class, this.getProtectedRoute());
     }
 
     public void setProtectedRouteItem(RoutePropertyType target) {
-        setProtectedRoute(XmlAdapterUtils.marshallJAXBElement(RoutePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "protectedRoute"), AirspaceTimeSliceType.class, target));
+        setProtectedRoute(XmlAdapterUtils.marshallJAXBElement(RoutePropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "protectedRoute"), AirspaceTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -750,6 +736,71 @@ public class AirspaceTimeSliceType
             return false;
         }
         final AirspaceTimeSliceType that = ((AirspaceTimeSliceType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAirspaceType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAirspaceType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetProtectedRoute();
+            boolean rhsFieldIsSet = that.isSetProtectedRoute();
+            JAXBElement<RoutePropertyType> lhsField;
+            lhsField = this.getProtectedRoute();
+            JAXBElement<RoutePropertyType> rhsField;
+            rhsField = that.getProtectedRoute();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectedRoute", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectedRoute", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetControlType();
+            boolean rhsFieldIsSet = that.isSetControlType();
+            JAXBElement<CodeMilitaryOperationsType> lhsField;
+            lhsField = this.getControlType();
+            JAXBElement<CodeMilitaryOperationsType> rhsField;
+            rhsField = that.getControlType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClazz();
+            boolean rhsFieldIsSet = that.isSetClazz();
+            List<AirspaceLayerClassPropertyType> lhsField;
+            lhsField = (this.isSetClazz() ? this.getClazz() : null);
+            List<AirspaceLayerClassPropertyType> rhsField;
+            rhsField = (that.isSetClazz() ? that.getClazz() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clazz", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clazz", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirspaceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetUpperLowerSeparation();
             boolean rhsFieldIsSet = that.isSetUpperLowerSeparation();
@@ -764,12 +815,38 @@ public class AirspaceTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDesignatorICAO();
+            boolean rhsFieldIsSet = that.isSetDesignatorICAO();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getDesignatorICAO();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getDesignatorICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorICAO", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActivation();
+            boolean rhsFieldIsSet = that.isSetActivation();
+            List<AirspaceActivationPropertyType> lhsField;
+            lhsField = (this.isSetActivation() ? this.getActivation() : null);
+            List<AirspaceActivationPropertyType> rhsField;
+            rhsField = (that.isSetActivation() ? that.getActivation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -790,58 +867,6 @@ public class AirspaceTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGeometryComponent();
-            boolean rhsFieldIsSet = that.isSetGeometryComponent();
-            List<AirspaceGeometryComponentPropertyType> lhsField;
-            lhsField = (this.isSetGeometryComponent()?this.getGeometryComponent():null);
-            List<AirspaceGeometryComponentPropertyType> rhsField;
-            rhsField = (that.isSetGeometryComponent()?that.getGeometryComponent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometryComponent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometryComponent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClazz();
-            boolean rhsFieldIsSet = that.isSetClazz();
-            List<AirspaceLayerClassPropertyType> lhsField;
-            lhsField = (this.isSetClazz()?this.getClazz():null);
-            List<AirspaceLayerClassPropertyType> rhsField;
-            rhsField = (that.isSetClazz()?that.getClazz():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clazz", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clazz", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAirspaceType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAirspaceType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetControlType();
-            boolean rhsFieldIsSet = that.isSetControlType();
-            JAXBElement<CodeMilitaryOperationsType> lhsField;
-            lhsField = this.getControlType();
-            JAXBElement<CodeMilitaryOperationsType> rhsField;
-            rhsField = that.getControlType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLocalType();
             boolean rhsFieldIsSet = that.isSetLocalType();
             JAXBElement<TextNameType> lhsField;
@@ -855,53 +880,14 @@ public class AirspaceTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignatorICAO();
-            boolean rhsFieldIsSet = that.isSetDesignatorICAO();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getDesignatorICAO();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getDesignatorICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorICAO", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProtectedRoute();
-            boolean rhsFieldIsSet = that.isSetProtectedRoute();
-            JAXBElement<RoutePropertyType> lhsField;
-            lhsField = this.getProtectedRoute();
-            JAXBElement<RoutePropertyType> rhsField;
-            rhsField = that.getProtectedRoute();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectedRoute", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectedRoute", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActivation();
-            boolean rhsFieldIsSet = that.isSetActivation();
-            List<AirspaceActivationPropertyType> lhsField;
-            lhsField = (this.isSetActivation()?this.getActivation():null);
-            List<AirspaceActivationPropertyType> rhsField;
-            rhsField = (that.isSetActivation()?that.getActivation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AirspaceExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetGeometryComponent();
+            boolean rhsFieldIsSet = that.isSetGeometryComponent();
+            List<AirspaceGeometryComponentPropertyType> lhsField;
+            lhsField = (this.isSetGeometryComponent() ? this.getGeometryComponent() : null);
+            List<AirspaceGeometryComponentPropertyType> rhsField;
+            rhsField = (that.isSetGeometryComponent() ? that.getGeometryComponent() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometryComponent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometryComponent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -977,7 +963,7 @@ public class AirspaceTimeSliceType
         {
             boolean theFieldIsSet = this.isSetClazz();
             List<AirspaceLayerClassPropertyType> theField;
-            theField = (this.isSetClazz()?this.getClazz():null);
+            theField = (this.isSetClazz() ? this.getClazz() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "clazz", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -991,28 +977,28 @@ public class AirspaceTimeSliceType
         {
             boolean theFieldIsSet = this.isSetGeometryComponent();
             List<AirspaceGeometryComponentPropertyType> theField;
-            theField = (this.isSetGeometryComponent()?this.getGeometryComponent():null);
+            theField = (this.isSetGeometryComponent() ? this.getGeometryComponent() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "geometryComponent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetActivation();
             List<AirspaceActivationPropertyType> theField;
-            theField = (this.isSetActivation()?this.getActivation():null);
+            theField = (this.isSetActivation() ? this.getActivation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "activation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirspaceExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1067,7 +1053,7 @@ public class AirspaceTimeSliceType
         {
             boolean theFieldIsSet = this.isSetClazz();
             List<AirspaceLayerClassPropertyType> theField;
-            theField = (this.isSetClazz()?this.getClazz():null);
+            theField = (this.isSetClazz() ? this.getClazz() : null);
             strategy.appendField(locator, this, "clazz", buffer, theField, theFieldIsSet);
         }
         {
@@ -1079,25 +1065,25 @@ public class AirspaceTimeSliceType
         {
             boolean theFieldIsSet = this.isSetGeometryComponent();
             List<AirspaceGeometryComponentPropertyType> theField;
-            theField = (this.isSetGeometryComponent()?this.getGeometryComponent():null);
+            theField = (this.isSetGeometryComponent() ? this.getGeometryComponent() : null);
             strategy.appendField(locator, this, "geometryComponent", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetActivation();
             List<AirspaceActivationPropertyType> theField;
-            theField = (this.isSetActivation()?this.getActivation():null);
+            theField = (this.isSetActivation() ? this.getActivation() : null);
             strategy.appendField(locator, this, "activation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirspaceExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,22 +12,29 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for FASDataBlockPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for FASDataBlockPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="FASDataBlockPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1.1}FASDataBlock"/>
  *       </sequence>
@@ -36,19 +42,14 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FASDataBlockPropertyType", propOrder = {
-    "fasDataBlock"
-})
+@XmlType(name = "FASDataBlockPropertyType", propOrder = {"fasDataBlock"})
 @Entity(name = "FASDataBlockPropertyType")
 @Table(name = "fasdatablock_p", schema = "procedure")
-public class FASDataBlockPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class FASDataBlockPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "FASDataBlock", required = true)
@@ -56,15 +57,11 @@ public class FASDataBlockPropertyType
 
     /**
      * Gets the value of the fasDataBlock property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link FASDataBlockType }
-     *     
+     *
+     * @return possible object is {@link FASDataBlockType }
+     *
      */
-    @OneToOne(targetEntity = FASDataBlockType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = FASDataBlockType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "fasdatablock_hjid", referencedColumnName = "hjid")
     public FASDataBlockType getFASDataBlock() {
         return fasDataBlock;
@@ -72,11 +69,10 @@ public class FASDataBlockPropertyType
 
     /**
      * Sets the value of the fasDataBlock property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link FASDataBlockType }
-     *     
+     *            allowed object is {@link FASDataBlockType }
+     *
      */
     public void setFASDataBlock(FASDataBlockType value) {
         this.fasDataBlock = value;
@@ -84,12 +80,13 @@ public class FASDataBlockPropertyType
 
     @Transient
     public boolean isSetFASDataBlock() {
-        return (this.fasDataBlock!= null);
+        return (this.fasDataBlock != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

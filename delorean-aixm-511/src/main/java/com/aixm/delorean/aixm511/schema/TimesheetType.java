@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -23,6 +19,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,41 +30,68 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for TimesheetType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for TimesheetType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="TimesheetType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="timeReference" type="{http://www.aixm.aero/schema/5.1.1}CodeTimeReferenceType" minOccurs="0"/>
- *         <element name="startDate" type="{http://www.aixm.aero/schema/5.1.1}DateMonthDayType" minOccurs="0"/>
- *         <element name="endDate" type="{http://www.aixm.aero/schema/5.1.1}DateMonthDayType" minOccurs="0"/>
- *         <element name="day" type="{http://www.aixm.aero/schema/5.1.1}CodeDayType" minOccurs="0"/>
- *         <element name="dayTil" type="{http://www.aixm.aero/schema/5.1.1}CodeDayType" minOccurs="0"/>
- *         <element name="startTime" type="{http://www.aixm.aero/schema/5.1.1}TimeType" minOccurs="0"/>
- *         <element name="startEvent" type="{http://www.aixm.aero/schema/5.1.1}CodeTimeEventType" minOccurs="0"/>
- *         <element name="startTimeRelativeEvent" type="{http://www.aixm.aero/schema/5.1.1}ValDurationType" minOccurs="0"/>
- *         <element name="startEventInterpretation" type="{http://www.aixm.aero/schema/5.1.1}CodeTimeEventCombinationType" minOccurs="0"/>
- *         <element name="endTime" type="{http://www.aixm.aero/schema/5.1.1}TimeType" minOccurs="0"/>
- *         <element name="endEvent" type="{http://www.aixm.aero/schema/5.1.1}CodeTimeEventType" minOccurs="0"/>
- *         <element name="endTimeRelativeEvent" type="{http://www.aixm.aero/schema/5.1.1}ValDurationType" minOccurs="0"/>
- *         <element name="endEventInterpretation" type="{http://www.aixm.aero/schema/5.1.1}CodeTimeEventCombinationType" minOccurs="0"/>
- *         <element name="daylightSavingAdjust" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="excluded" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="timeReference" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeTimeReferenceType" minOccurs="0"/>
+ *         <element name="startDate" type=
+"{http://www.aixm.aero/schema/5.1.1}DateMonthDayType" minOccurs="0"/>
+ *         <element name="endDate" type=
+"{http://www.aixm.aero/schema/5.1.1}DateMonthDayType" minOccurs="0"/>
+ *         <element name="day" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeDayType" minOccurs="0"/>
+ *         <element name="dayTil" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeDayType" minOccurs="0"/>
+ *         <element name="startTime" type=
+"{http://www.aixm.aero/schema/5.1.1}TimeType" minOccurs="0"/>
+ *         <element name="startEvent" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeTimeEventType" minOccurs="0"/>
+ *         <element name="startTimeRelativeEvent" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDurationType" minOccurs="0"/>
+ *         <element name="startEventInterpretation" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeTimeEventCombinationType" minOccurs=
+"0"/>
+ *         <element name="endTime" type=
+"{http://www.aixm.aero/schema/5.1.1}TimeType" minOccurs="0"/>
+ *         <element name="endEvent" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeTimeEventType" minOccurs="0"/>
+ *         <element name="endTimeRelativeEvent" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDurationType" minOccurs="0"/>
+ *         <element name="endEventInterpretation" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeTimeEventCombinationType" minOccurs=
+"0"/>
+ *         <element name="daylightSavingAdjust" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="excluded" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractTimesheetExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractTimesheetExtension"/>
  *                 </choice>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -74,35 +101,17 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TimesheetType", propOrder = {
-    "timeReference",
-    "startDate",
-    "endDate",
-    "day",
-    "dayTil",
-    "startTime",
-    "startEvent",
-    "startTimeRelativeEvent",
-    "startEventInterpretation",
-    "endTime",
-    "endEvent",
-    "endTimeRelativeEvent",
-    "endEventInterpretation",
-    "daylightSavingAdjust",
-    "excluded",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "TimesheetType", propOrder = {"timeReference", "startDate", "endDate", "day", "dayTil", "startTime",
+        "startEvent", "startTimeRelativeEvent", "startEventInterpretation", "endTime", "endEvent",
+        "endTimeRelativeEvent", "endEventInterpretation", "daylightSavingAdjust", "excluded", "annotation",
+        "extension"})
 @Entity(name = "TimesheetType")
 @Table(name = "timesheet_o", schema = "shared")
-public class TimesheetType
-    extends AbstractAIXMObjectType
-    implements Serializable
-{
+public class TimesheetType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "timeReference", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -141,11 +150,10 @@ public class TimesheetType
 
     /**
      * Gets the value of the timeReference property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeTimeReferenceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeTimeReferenceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeTimeReferenceType> getTimeReference() {
@@ -154,11 +162,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the timeReference property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeTimeReferenceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeTimeReferenceType }{@code >}
+     *
      */
     public void setTimeReference(JAXBElement<CodeTimeReferenceType> value) {
         this.timeReference = value;
@@ -166,16 +174,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetTimeReference() {
-        return (this.timeReference!= null);
+        return (this.timeReference != null);
     }
 
     /**
      * Gets the value of the startDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link DateMonthDayType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link DateMonthDayType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<DateMonthDayType> getStartDate() {
@@ -184,11 +191,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the startDate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link DateMonthDayType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link DateMonthDayType }{@code >}
+     *
      */
     public void setStartDate(JAXBElement<DateMonthDayType> value) {
         this.startDate = value;
@@ -196,16 +203,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetStartDate() {
-        return (this.startDate!= null);
+        return (this.startDate != null);
     }
 
     /**
      * Gets the value of the endDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link DateMonthDayType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link DateMonthDayType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<DateMonthDayType> getEndDate() {
@@ -214,11 +220,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the endDate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link DateMonthDayType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link DateMonthDayType }{@code >}
+     *
      */
     public void setEndDate(JAXBElement<DateMonthDayType> value) {
         this.endDate = value;
@@ -226,16 +232,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetEndDate() {
-        return (this.endDate!= null);
+        return (this.endDate != null);
     }
 
     /**
      * Gets the value of the day property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeDayType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeDayType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeDayType> getDay() {
@@ -244,11 +249,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the day property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeDayType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link CodeDayType
+     *            }{@code >}
+     *
      */
     public void setDay(JAXBElement<CodeDayType> value) {
         this.day = value;
@@ -256,16 +261,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetDay() {
-        return (this.day!= null);
+        return (this.day != null);
     }
 
     /**
      * Gets the value of the dayTil property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeDayType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeDayType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeDayType> getDayTil() {
@@ -274,11 +278,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the dayTil property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeDayType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link CodeDayType
+     *            }{@code >}
+     *
      */
     public void setDayTil(JAXBElement<CodeDayType> value) {
         this.dayTil = value;
@@ -286,16 +290,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetDayTil() {
-        return (this.dayTil!= null);
+        return (this.dayTil != null);
     }
 
     /**
      * Gets the value of the startTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TimeType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link TimeType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TimeType> getStartTime() {
@@ -304,11 +307,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the startTime property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TimeType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link TimeType
+     *            }{@code >}
+     *
      */
     public void setStartTime(JAXBElement<TimeType> value) {
         this.startTime = value;
@@ -316,16 +319,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetStartTime() {
-        return (this.startTime!= null);
+        return (this.startTime != null);
     }
 
     /**
      * Gets the value of the startEvent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeTimeEventType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeTimeEventType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeTimeEventType> getStartEvent() {
@@ -334,11 +336,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the startEvent property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeTimeEventType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeTimeEventType }{@code >}
+     *
      */
     public void setStartEvent(JAXBElement<CodeTimeEventType> value) {
         this.startEvent = value;
@@ -346,16 +348,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetStartEvent() {
-        return (this.startEvent!= null);
+        return (this.startEvent != null);
     }
 
     /**
      * Gets the value of the startTimeRelativeEvent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDurationType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDurationType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDurationType> getStartTimeRelativeEvent() {
@@ -364,11 +365,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the startTimeRelativeEvent property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDurationType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDurationType }{@code >}
+     *
      */
     public void setStartTimeRelativeEvent(JAXBElement<ValDurationType> value) {
         this.startTimeRelativeEvent = value;
@@ -376,16 +377,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetStartTimeRelativeEvent() {
-        return (this.startTimeRelativeEvent!= null);
+        return (this.startTimeRelativeEvent != null);
     }
 
     /**
      * Gets the value of the startEventInterpretation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeTimeEventCombinationType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeTimeEventCombinationType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeTimeEventCombinationType> getStartEventInterpretation() {
@@ -394,11 +394,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the startEventInterpretation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeTimeEventCombinationType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeTimeEventCombinationType }{@code >}
+     *
      */
     public void setStartEventInterpretation(JAXBElement<CodeTimeEventCombinationType> value) {
         this.startEventInterpretation = value;
@@ -406,16 +406,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetStartEventInterpretation() {
-        return (this.startEventInterpretation!= null);
+        return (this.startEventInterpretation != null);
     }
 
     /**
      * Gets the value of the endTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TimeType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link TimeType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TimeType> getEndTime() {
@@ -424,11 +423,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the endTime property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TimeType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link TimeType
+     *            }{@code >}
+     *
      */
     public void setEndTime(JAXBElement<TimeType> value) {
         this.endTime = value;
@@ -436,16 +435,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetEndTime() {
-        return (this.endTime!= null);
+        return (this.endTime != null);
     }
 
     /**
      * Gets the value of the endEvent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeTimeEventType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeTimeEventType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeTimeEventType> getEndEvent() {
@@ -454,11 +452,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the endEvent property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeTimeEventType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeTimeEventType }{@code >}
+     *
      */
     public void setEndEvent(JAXBElement<CodeTimeEventType> value) {
         this.endEvent = value;
@@ -466,16 +464,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetEndEvent() {
-        return (this.endEvent!= null);
+        return (this.endEvent != null);
     }
 
     /**
      * Gets the value of the endTimeRelativeEvent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDurationType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDurationType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDurationType> getEndTimeRelativeEvent() {
@@ -484,11 +481,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the endTimeRelativeEvent property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDurationType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDurationType }{@code >}
+     *
      */
     public void setEndTimeRelativeEvent(JAXBElement<ValDurationType> value) {
         this.endTimeRelativeEvent = value;
@@ -496,16 +493,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetEndTimeRelativeEvent() {
-        return (this.endTimeRelativeEvent!= null);
+        return (this.endTimeRelativeEvent != null);
     }
 
     /**
      * Gets the value of the endEventInterpretation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeTimeEventCombinationType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeTimeEventCombinationType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeTimeEventCombinationType> getEndEventInterpretation() {
@@ -514,11 +510,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the endEventInterpretation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeTimeEventCombinationType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeTimeEventCombinationType }{@code >}
+     *
      */
     public void setEndEventInterpretation(JAXBElement<CodeTimeEventCombinationType> value) {
         this.endEventInterpretation = value;
@@ -526,16 +522,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetEndEventInterpretation() {
-        return (this.endEventInterpretation!= null);
+        return (this.endEventInterpretation != null);
     }
 
     /**
      * Gets the value of the daylightSavingAdjust property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getDaylightSavingAdjust() {
@@ -544,11 +539,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the daylightSavingAdjust property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setDaylightSavingAdjust(JAXBElement<CodeYesNoType> value) {
         this.daylightSavingAdjust = value;
@@ -556,16 +551,15 @@ public class TimesheetType
 
     @Transient
     public boolean isSetDaylightSavingAdjust() {
-        return (this.daylightSavingAdjust!= null);
+        return (this.daylightSavingAdjust != null);
     }
 
     /**
      * Gets the value of the excluded property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getExcluded() {
@@ -574,11 +568,11 @@ public class TimesheetType
 
     /**
      * Sets the value of the excluded property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setExcluded(JAXBElement<CodeYesNoType> value) {
         this.excluded = value;
@@ -586,39 +580,36 @@ public class TimesheetType
 
     @Transient
     public boolean isSetExcluded() {
-        return (this.excluded!= null);
+        return (this.excluded != null);
     }
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "timesheet_o_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "timesheet_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "tmshttp_annttn_link", schema = "shared", joinColumns = {
+            @JoinColumn(name = "timesheet_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -627,8 +618,8 @@ public class TimesheetType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -636,7 +627,7 @@ public class TimesheetType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -645,30 +636,29 @@ public class TimesheetType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TimesheetTypeExtensionType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = TimesheetTypeExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "timesheet_e_hjid", referencedColumnName = "hjid")
+    @OneToMany(targetEntity = TimesheetTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "timesheete_hjid", referencedColumnName = "hjid")
     public List<TimesheetTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -677,8 +667,8 @@ public class TimesheetType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<TimesheetTypeExtensionType> extension) {
         this.extension = extension;
@@ -686,7 +676,7 @@ public class TimesheetType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -694,205 +684,198 @@ public class TimesheetType
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "timereference")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "timereference_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "timereference")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "timereferencenilreason"))})
     public CodeTimeReferenceType getTimeReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTimeReferenceType.class, this.getTimeReference());
     }
 
     public void setTimeReferenceItem(CodeTimeReferenceType target) {
-        setTimeReference(XmlAdapterUtils.marshallJAXBElement(CodeTimeReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "timeReference"), TimesheetType.class, target));
+        setTimeReference(XmlAdapterUtils.marshallJAXBElement(CodeTimeReferenceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "timeReference"), TimesheetType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "startdate")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "startdate_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "startdate", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "startdatenilreason"))})
     public DateMonthDayType getStartDateItem() {
         return XmlAdapterUtils.unmarshallSource(DateMonthDayType.class, this.getStartDate());
     }
 
     public void setStartDateItem(DateMonthDayType target) {
-        setStartDate(XmlAdapterUtils.marshallJAXBElement(DateMonthDayType.class, new QName("http://www.aixm.aero/schema/5.1.1", "startDate"), TimesheetType.class, target));
+        setStartDate(XmlAdapterUtils.marshallJAXBElement(DateMonthDayType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "startDate"), TimesheetType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "enddate")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "enddate_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "enddate", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "enddatenilreason"))})
     public DateMonthDayType getEndDateItem() {
         return XmlAdapterUtils.unmarshallSource(DateMonthDayType.class, this.getEndDate());
     }
 
     public void setEndDateItem(DateMonthDayType target) {
-        setEndDate(XmlAdapterUtils.marshallJAXBElement(DateMonthDayType.class, new QName("http://www.aixm.aero/schema/5.1.1", "endDate"), TimesheetType.class, target));
+        setEndDate(XmlAdapterUtils.marshallJAXBElement(DateMonthDayType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "endDate"), TimesheetType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "day")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "day_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "day")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "daynilreason"))})
     public CodeDayType getDayItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDayType.class, this.getDay());
     }
 
     public void setDayItem(CodeDayType target) {
-        setDay(XmlAdapterUtils.marshallJAXBElement(CodeDayType.class, new QName("http://www.aixm.aero/schema/5.1.1", "day"), TimesheetType.class, target));
+        setDay(XmlAdapterUtils.marshallJAXBElement(CodeDayType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "day"), TimesheetType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "daytil")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "daytil_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "daytil")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "daytilnilreason"))})
     public CodeDayType getDayTilItem() {
         return XmlAdapterUtils.unmarshallSource(CodeDayType.class, this.getDayTil());
     }
 
     public void setDayTilItem(CodeDayType target) {
-        setDayTil(XmlAdapterUtils.marshallJAXBElement(CodeDayType.class, new QName("http://www.aixm.aero/schema/5.1.1", "dayTil"), TimesheetType.class, target));
+        setDayTil(XmlAdapterUtils.marshallJAXBElement(CodeDayType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "dayTil"), TimesheetType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "starttime")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "starttime_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "starttime", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "starttimenilreason"))})
     public TimeType getStartTimeItem() {
         return XmlAdapterUtils.unmarshallSource(TimeType.class, this.getStartTime());
     }
 
     public void setStartTimeItem(TimeType target) {
-        setStartTime(XmlAdapterUtils.marshallJAXBElement(TimeType.class, new QName("http://www.aixm.aero/schema/5.1.1", "startTime"), TimesheetType.class, target));
+        setStartTime(XmlAdapterUtils.marshallJAXBElement(TimeType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "startTime"), TimesheetType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "startevent")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "startevent_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "startevent")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "starteventnilreason"))})
     public CodeTimeEventType getStartEventItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTimeEventType.class, this.getStartEvent());
     }
 
     public void setStartEventItem(CodeTimeEventType target) {
-        setStartEvent(XmlAdapterUtils.marshallJAXBElement(CodeTimeEventType.class, new QName("http://www.aixm.aero/schema/5.1.1", "startEvent"), TimesheetType.class, target));
+        setStartEvent(XmlAdapterUtils.marshallJAXBElement(CodeTimeEventType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "startEvent"), TimesheetType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "starttimerelativeevent")),
-        @AttributeOverride(name = "uom", column = @Column(name = "starttimerelativeevent_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "starttimerelativeevent_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "starttimerelativeevent", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "starttimerelativeeventuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "starttimerelativeeventnilreason"))})
     public ValDurationType getStartTimeRelativeEventItem() {
         return XmlAdapterUtils.unmarshallSource(ValDurationType.class, this.getStartTimeRelativeEvent());
     }
 
     public void setStartTimeRelativeEventItem(ValDurationType target) {
-        setStartTimeRelativeEvent(XmlAdapterUtils.marshallJAXBElement(ValDurationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "startTimeRelativeEvent"), TimesheetType.class, target));
+        setStartTimeRelativeEvent(XmlAdapterUtils.marshallJAXBElement(ValDurationType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "startTimeRelativeEvent"), TimesheetType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "starteventinterpretation")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "starteventinterpretation_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "starteventinterpretation")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "starteventinterpretationnilreason"))})
     public CodeTimeEventCombinationType getStartEventInterpretationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTimeEventCombinationType.class, this.getStartEventInterpretation());
     }
 
     public void setStartEventInterpretationItem(CodeTimeEventCombinationType target) {
-        setStartEventInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeTimeEventCombinationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "startEventInterpretation"), TimesheetType.class, target));
+        setStartEventInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeTimeEventCombinationType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "startEventInterpretation"), TimesheetType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "endtime")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "endtime_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "endtime", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "endtimenilreason"))})
     public TimeType getEndTimeItem() {
         return XmlAdapterUtils.unmarshallSource(TimeType.class, this.getEndTime());
     }
 
     public void setEndTimeItem(TimeType target) {
-        setEndTime(XmlAdapterUtils.marshallJAXBElement(TimeType.class, new QName("http://www.aixm.aero/schema/5.1.1", "endTime"), TimesheetType.class, target));
+        setEndTime(XmlAdapterUtils.marshallJAXBElement(TimeType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "endTime"), TimesheetType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "endevent")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "endevent_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "endevent")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "endeventnilreason"))})
     public CodeTimeEventType getEndEventItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTimeEventType.class, this.getEndEvent());
     }
 
     public void setEndEventItem(CodeTimeEventType target) {
-        setEndEvent(XmlAdapterUtils.marshallJAXBElement(CodeTimeEventType.class, new QName("http://www.aixm.aero/schema/5.1.1", "endEvent"), TimesheetType.class, target));
+        setEndEvent(XmlAdapterUtils.marshallJAXBElement(CodeTimeEventType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "endEvent"), TimesheetType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "endtimerelativeevent")),
-        @AttributeOverride(name = "uom", column = @Column(name = "endtimerelativeevent_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "endtimerelativeevent_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "endtimerelativeevent", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "endtimerelativeeventuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "endtimerelativeeventnilreason"))})
     public ValDurationType getEndTimeRelativeEventItem() {
         return XmlAdapterUtils.unmarshallSource(ValDurationType.class, this.getEndTimeRelativeEvent());
     }
 
     public void setEndTimeRelativeEventItem(ValDurationType target) {
-        setEndTimeRelativeEvent(XmlAdapterUtils.marshallJAXBElement(ValDurationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "endTimeRelativeEvent"), TimesheetType.class, target));
+        setEndTimeRelativeEvent(XmlAdapterUtils.marshallJAXBElement(ValDurationType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "endTimeRelativeEvent"), TimesheetType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "endeventinterpretation")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "endeventinterpretation_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "endeventinterpretation")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "endeventinterpretationnilreason"))})
     public CodeTimeEventCombinationType getEndEventInterpretationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeTimeEventCombinationType.class, this.getEndEventInterpretation());
     }
 
     public void setEndEventInterpretationItem(CodeTimeEventCombinationType target) {
-        setEndEventInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeTimeEventCombinationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "endEventInterpretation"), TimesheetType.class, target));
+        setEndEventInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeTimeEventCombinationType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "endEventInterpretation"), TimesheetType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "daylightsavingadjust")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "daylightsavingadjust_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "daylightsavingadjust")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "daylightsavingadjustnilreason"))})
     public CodeYesNoType getDaylightSavingAdjustItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getDaylightSavingAdjust());
     }
 
     public void setDaylightSavingAdjustItem(CodeYesNoType target) {
-        setDaylightSavingAdjust(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "daylightSavingAdjust"), TimesheetType.class, target));
+        setDaylightSavingAdjust(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "daylightSavingAdjust"), TimesheetType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "excluded")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "excluded_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "excluded")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "excludednilreason"))})
     public CodeYesNoType getExcludedItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getExcluded());
     }
 
     public void setExcludedItem(CodeYesNoType target) {
-        setExcluded(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "excluded"), TimesheetType.class, target));
+        setExcluded(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "excluded"), TimesheetType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -903,27 +886,40 @@ public class TimesheetType
         }
         final TimesheetType that = ((TimesheetType) object);
         {
-            boolean lhsFieldIsSet = this.isSetEndTime();
-            boolean rhsFieldIsSet = that.isSetEndTime();
-            JAXBElement<TimeType> lhsField;
-            lhsField = this.getEndTime();
-            JAXBElement<TimeType> rhsField;
-            rhsField = that.getEndTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endTime", rhsField);
+            boolean lhsFieldIsSet = this.isSetEndEventInterpretation();
+            boolean rhsFieldIsSet = that.isSetEndEventInterpretation();
+            JAXBElement<CodeTimeEventCombinationType> lhsField;
+            lhsField = this.getEndEventInterpretation();
+            JAXBElement<CodeTimeEventCombinationType> rhsField;
+            rhsField = that.getEndEventInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endEventInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endEventInterpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStartEventInterpretation();
-            boolean rhsFieldIsSet = that.isSetStartEventInterpretation();
-            JAXBElement<CodeTimeEventCombinationType> lhsField;
-            lhsField = this.getStartEventInterpretation();
-            JAXBElement<CodeTimeEventCombinationType> rhsField;
-            rhsField = that.getStartEventInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startEventInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startEventInterpretation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TimesheetTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<TimesheetTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -955,92 +951,14 @@ public class TimesheetType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEndEventInterpretation();
-            boolean rhsFieldIsSet = that.isSetEndEventInterpretation();
-            JAXBElement<CodeTimeEventCombinationType> lhsField;
-            lhsField = this.getEndEventInterpretation();
-            JAXBElement<CodeTimeEventCombinationType> rhsField;
-            rhsField = that.getEndEventInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endEventInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endEventInterpretation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeReference();
-            boolean rhsFieldIsSet = that.isSetTimeReference();
-            JAXBElement<CodeTimeReferenceType> lhsField;
-            lhsField = this.getTimeReference();
-            JAXBElement<CodeTimeReferenceType> rhsField;
-            rhsField = that.getTimeReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndTimeRelativeEvent();
-            boolean rhsFieldIsSet = that.isSetEndTimeRelativeEvent();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getEndTimeRelativeEvent();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getEndTimeRelativeEvent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endTimeRelativeEvent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endTimeRelativeEvent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TimesheetTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<TimesheetTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndDate();
-            boolean rhsFieldIsSet = that.isSetEndDate();
-            JAXBElement<DateMonthDayType> lhsField;
-            lhsField = this.getEndDate();
-            JAXBElement<DateMonthDayType> rhsField;
-            rhsField = that.getEndDate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endDate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endDate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDay();
-            boolean rhsFieldIsSet = that.isSetDay();
-            JAXBElement<CodeDayType> lhsField;
-            lhsField = this.getDay();
-            JAXBElement<CodeDayType> rhsField;
-            rhsField = that.getDay();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "day", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "day", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartTimeRelativeEvent();
-            boolean rhsFieldIsSet = that.isSetStartTimeRelativeEvent();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getStartTimeRelativeEvent();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getStartTimeRelativeEvent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startTimeRelativeEvent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startTimeRelativeEvent", rhsField);
+            boolean lhsFieldIsSet = this.isSetEndEvent();
+            boolean rhsFieldIsSet = that.isSetEndEvent();
+            JAXBElement<CodeTimeEventType> lhsField;
+            lhsField = this.getEndEvent();
+            JAXBElement<CodeTimeEventType> rhsField;
+            rhsField = that.getEndEvent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endEvent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endEvent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1072,14 +990,14 @@ public class TimesheetType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetStartTimeRelativeEvent();
+            boolean rhsFieldIsSet = that.isSetStartTimeRelativeEvent();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getStartTimeRelativeEvent();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getStartTimeRelativeEvent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startTimeRelativeEvent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startTimeRelativeEvent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1098,14 +1016,66 @@ public class TimesheetType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEndEvent();
-            boolean rhsFieldIsSet = that.isSetEndEvent();
-            JAXBElement<CodeTimeEventType> lhsField;
-            lhsField = this.getEndEvent();
-            JAXBElement<CodeTimeEventType> rhsField;
-            rhsField = that.getEndEvent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endEvent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endEvent", rhsField);
+            boolean lhsFieldIsSet = this.isSetStartEventInterpretation();
+            boolean rhsFieldIsSet = that.isSetStartEventInterpretation();
+            JAXBElement<CodeTimeEventCombinationType> lhsField;
+            lhsField = this.getStartEventInterpretation();
+            JAXBElement<CodeTimeEventCombinationType> rhsField;
+            rhsField = that.getStartEventInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startEventInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startEventInterpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDay();
+            boolean rhsFieldIsSet = that.isSetDay();
+            JAXBElement<CodeDayType> lhsField;
+            lhsField = this.getDay();
+            JAXBElement<CodeDayType> rhsField;
+            rhsField = that.getDay();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "day", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "day", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndTimeRelativeEvent();
+            boolean rhsFieldIsSet = that.isSetEndTimeRelativeEvent();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getEndTimeRelativeEvent();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getEndTimeRelativeEvent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endTimeRelativeEvent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endTimeRelativeEvent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeReference();
+            boolean rhsFieldIsSet = that.isSetTimeReference();
+            JAXBElement<CodeTimeReferenceType> lhsField;
+            lhsField = this.getTimeReference();
+            JAXBElement<CodeTimeReferenceType> rhsField;
+            rhsField = that.getTimeReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndTime();
+            boolean rhsFieldIsSet = that.isSetEndTime();
+            JAXBElement<TimeType> lhsField;
+            lhsField = this.getEndTime();
+            JAXBElement<TimeType> rhsField;
+            rhsField = that.getEndTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1119,6 +1089,19 @@ public class TimesheetType
             rhsField = that.getDaylightSavingAdjust();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "daylightSavingAdjust", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "daylightSavingAdjust", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndDate();
+            boolean rhsFieldIsSet = that.isSetEndDate();
+            JAXBElement<DateMonthDayType> lhsField;
+            lhsField = this.getEndDate();
+            JAXBElement<DateMonthDayType> rhsField;
+            rhsField = that.getEndDate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endDate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endDate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1237,14 +1220,14 @@ public class TimesheetType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<TimesheetTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1347,13 +1330,13 @@ public class TimesheetType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<TimesheetTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

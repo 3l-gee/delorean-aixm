@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -23,6 +19,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,39 +30,63 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for MinimaType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for MinimaType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="MinimaType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="altitude" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="altitudeCode" type="{http://www.aixm.aero/schema/5.1.1}CodeMinimumAltitudeType" minOccurs="0"/>
- *         <element name="altitudeReference" type="{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="height" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="militaryHeight" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="radioHeight" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="heightCode" type="{http://www.aixm.aero/schema/5.1.1}CodeMinimumHeightType" minOccurs="0"/>
- *         <element name="heightReference" type="{http://www.aixm.aero/schema/5.1.1}CodeHeightReferenceType" minOccurs="0"/>
- *         <element name="visibility" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="militaryVisibility" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="mandatoryRVR" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="remoteAltimeterMinima" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="adjustmentINOP" type="{http://www.aixm.aero/schema/5.1.1}EquipmentUnavailableAdjustmentPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="altitude" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="altitudeCode" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeMinimumAltitudeType" minOccurs="0"/>
+ *         <element name="altitudeReference" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="height" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="militaryHeight" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="radioHeight" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="heightCode" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeMinimumHeightType" minOccurs="0"/>
+ *         <element name="heightReference" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeHeightReferenceType" minOccurs="0"/>
+ *         <element name="visibility" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="militaryVisibility" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="mandatoryRVR" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="remoteAltimeterMinima" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="adjustmentINOP" type=
+"{http://www.aixm.aero/schema/5.1.1}EquipmentUnavailableAdjustmentPropertyType" maxOccurs
+="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractMinimaExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractMinimaExtension"/>
  *                 </choice>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -72,33 +96,16 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MinimaType", propOrder = {
-    "altitude",
-    "altitudeCode",
-    "altitudeReference",
-    "height",
-    "militaryHeight",
-    "radioHeight",
-    "heightCode",
-    "heightReference",
-    "visibility",
-    "militaryVisibility",
-    "mandatoryRVR",
-    "remoteAltimeterMinima",
-    "adjustmentINOP",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "MinimaType", propOrder = {"altitude", "altitudeCode", "altitudeReference", "height", "militaryHeight",
+        "radioHeight", "heightCode", "heightReference", "visibility", "militaryVisibility", "mandatoryRVR",
+        "remoteAltimeterMinima", "adjustmentINOP", "annotation", "extension"})
 @Entity(name = "MinimaType")
 @Table(name = "minima_o", schema = "procedure")
-public class MinimaType
-    extends AbstractAIXMObjectType
-    implements Serializable
-{
+public class MinimaType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "altitude", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -133,11 +140,10 @@ public class MinimaType
 
     /**
      * Gets the value of the altitude property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getAltitude() {
@@ -146,11 +152,11 @@ public class MinimaType
 
     /**
      * Sets the value of the altitude property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setAltitude(JAXBElement<ValDistanceVerticalType> value) {
         this.altitude = value;
@@ -158,16 +164,15 @@ public class MinimaType
 
     @Transient
     public boolean isSetAltitude() {
-        return (this.altitude!= null);
+        return (this.altitude != null);
     }
 
     /**
      * Gets the value of the altitudeCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeMinimumAltitudeType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeMinimumAltitudeType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeMinimumAltitudeType> getAltitudeCode() {
@@ -176,11 +181,11 @@ public class MinimaType
 
     /**
      * Sets the value of the altitudeCode property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeMinimumAltitudeType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeMinimumAltitudeType }{@code >}
+     *
      */
     public void setAltitudeCode(JAXBElement<CodeMinimumAltitudeType> value) {
         this.altitudeCode = value;
@@ -188,16 +193,15 @@ public class MinimaType
 
     @Transient
     public boolean isSetAltitudeCode() {
-        return (this.altitudeCode!= null);
+        return (this.altitudeCode != null);
     }
 
     /**
      * Gets the value of the altitudeReference property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getAltitudeReference() {
@@ -206,11 +210,11 @@ public class MinimaType
 
     /**
      * Sets the value of the altitudeReference property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *
      */
     public void setAltitudeReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.altitudeReference = value;
@@ -218,16 +222,15 @@ public class MinimaType
 
     @Transient
     public boolean isSetAltitudeReference() {
-        return (this.altitudeReference!= null);
+        return (this.altitudeReference != null);
     }
 
     /**
      * Gets the value of the height property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getHeight() {
@@ -236,11 +239,11 @@ public class MinimaType
 
     /**
      * Sets the value of the height property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setHeight(JAXBElement<ValDistanceVerticalType> value) {
         this.height = value;
@@ -248,16 +251,15 @@ public class MinimaType
 
     @Transient
     public boolean isSetHeight() {
-        return (this.height!= null);
+        return (this.height != null);
     }
 
     /**
      * Gets the value of the militaryHeight property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getMilitaryHeight() {
@@ -266,11 +268,11 @@ public class MinimaType
 
     /**
      * Sets the value of the militaryHeight property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setMilitaryHeight(JAXBElement<ValDistanceVerticalType> value) {
         this.militaryHeight = value;
@@ -278,16 +280,15 @@ public class MinimaType
 
     @Transient
     public boolean isSetMilitaryHeight() {
-        return (this.militaryHeight!= null);
+        return (this.militaryHeight != null);
     }
 
     /**
      * Gets the value of the radioHeight property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getRadioHeight() {
@@ -296,11 +297,11 @@ public class MinimaType
 
     /**
      * Sets the value of the radioHeight property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setRadioHeight(JAXBElement<ValDistanceVerticalType> value) {
         this.radioHeight = value;
@@ -308,16 +309,15 @@ public class MinimaType
 
     @Transient
     public boolean isSetRadioHeight() {
-        return (this.radioHeight!= null);
+        return (this.radioHeight != null);
     }
 
     /**
      * Gets the value of the heightCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeMinimumHeightType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeMinimumHeightType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeMinimumHeightType> getHeightCode() {
@@ -326,11 +326,11 @@ public class MinimaType
 
     /**
      * Sets the value of the heightCode property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeMinimumHeightType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeMinimumHeightType }{@code >}
+     *
      */
     public void setHeightCode(JAXBElement<CodeMinimumHeightType> value) {
         this.heightCode = value;
@@ -338,16 +338,15 @@ public class MinimaType
 
     @Transient
     public boolean isSetHeightCode() {
-        return (this.heightCode!= null);
+        return (this.heightCode != null);
     }
 
     /**
      * Gets the value of the heightReference property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeHeightReferenceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeHeightReferenceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeHeightReferenceType> getHeightReference() {
@@ -356,11 +355,11 @@ public class MinimaType
 
     /**
      * Sets the value of the heightReference property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeHeightReferenceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeHeightReferenceType }{@code >}
+     *
      */
     public void setHeightReference(JAXBElement<CodeHeightReferenceType> value) {
         this.heightReference = value;
@@ -368,16 +367,15 @@ public class MinimaType
 
     @Transient
     public boolean isSetHeightReference() {
-        return (this.heightReference!= null);
+        return (this.heightReference != null);
     }
 
     /**
      * Gets the value of the visibility property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceType> getVisibility() {
@@ -386,11 +384,11 @@ public class MinimaType
 
     /**
      * Sets the value of the visibility property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     public void setVisibility(JAXBElement<ValDistanceType> value) {
         this.visibility = value;
@@ -398,16 +396,15 @@ public class MinimaType
 
     @Transient
     public boolean isSetVisibility() {
-        return (this.visibility!= null);
+        return (this.visibility != null);
     }
 
     /**
      * Gets the value of the militaryVisibility property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceType> getMilitaryVisibility() {
@@ -416,11 +413,11 @@ public class MinimaType
 
     /**
      * Sets the value of the militaryVisibility property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     public void setMilitaryVisibility(JAXBElement<ValDistanceType> value) {
         this.militaryVisibility = value;
@@ -428,16 +425,15 @@ public class MinimaType
 
     @Transient
     public boolean isSetMilitaryVisibility() {
-        return (this.militaryVisibility!= null);
+        return (this.militaryVisibility != null);
     }
 
     /**
      * Gets the value of the mandatoryRVR property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getMandatoryRVR() {
@@ -446,11 +442,11 @@ public class MinimaType
 
     /**
      * Sets the value of the mandatoryRVR property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setMandatoryRVR(JAXBElement<CodeYesNoType> value) {
         this.mandatoryRVR = value;
@@ -458,16 +454,15 @@ public class MinimaType
 
     @Transient
     public boolean isSetMandatoryRVR() {
-        return (this.mandatoryRVR!= null);
+        return (this.mandatoryRVR != null);
     }
 
     /**
      * Gets the value of the remoteAltimeterMinima property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getRemoteAltimeterMinima() {
@@ -476,11 +471,11 @@ public class MinimaType
 
     /**
      * Sets the value of the remoteAltimeterMinima property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setRemoteAltimeterMinima(JAXBElement<CodeYesNoType> value) {
         this.remoteAltimeterMinima = value;
@@ -488,39 +483,37 @@ public class MinimaType
 
     @Transient
     public boolean isSetRemoteAltimeterMinima() {
-        return (this.remoteAltimeterMinima!= null);
+        return (this.remoteAltimeterMinima != null);
     }
 
     /**
      * Gets the value of the adjustmentINOP property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the adjustmentINOP property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the adjustmentINOP property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAdjustmentINOP().add(newItem);
+     * getAdjustmentINOP().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link EquipmentUnavailableAdjustmentPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = EquipmentUnavailableAdjustmentPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "minima_o_adjustmentinop_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "minima_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "adjustmentinop_hjid", referencedColumnName = "hjid")
-    })
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "mnmtp_adjstmntinop_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "minima_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "adjustmentinop_hjid", referencedColumnName = "hjid")})
     public List<EquipmentUnavailableAdjustmentPropertyType> getAdjustmentINOP() {
         if (adjustmentINOP == null) {
             adjustmentINOP = new ArrayList<>();
@@ -529,8 +522,8 @@ public class MinimaType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAdjustmentINOP(List<EquipmentUnavailableAdjustmentPropertyType> adjustmentINOP) {
         this.adjustmentINOP = adjustmentINOP;
@@ -538,7 +531,7 @@ public class MinimaType
 
     @Transient
     public boolean isSetAdjustmentINOP() {
-        return ((this.adjustmentINOP!= null)&&(!this.adjustmentINOP.isEmpty()));
+        return ((this.adjustmentINOP != null) && (!this.adjustmentINOP.isEmpty()));
     }
 
     public void unsetAdjustmentINOP() {
@@ -547,34 +540,31 @@ public class MinimaType
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "minima_o_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "minima_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "mnmtp_annttn_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "minima_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -583,8 +573,8 @@ public class MinimaType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -592,7 +582,7 @@ public class MinimaType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -601,30 +591,29 @@ public class MinimaType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MinimaTypeExtensionType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = MinimaTypeExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "minima_e_hjid", referencedColumnName = "hjid")
+    @OneToMany(targetEntity = MinimaTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "minimae_hjid", referencedColumnName = "hjid")
     public List<MinimaTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -633,8 +622,8 @@ public class MinimaType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<MinimaTypeExtensionType> extension) {
         this.extension = extension;
@@ -642,7 +631,7 @@ public class MinimaType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -651,169 +640,164 @@ public class MinimaType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "altitude")),
-        @AttributeOverride(name = "uom", column = @Column(name = "altitude_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "altitude_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "altitude", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "altitudeuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "altitudenilreason"))})
     public ValDistanceVerticalType getAltitudeItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getAltitude());
     }
 
     public void setAltitudeItem(ValDistanceVerticalType target) {
-        setAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "altitude"), MinimaType.class, target));
+        setAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "altitude"), MinimaType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "altitudecode")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "altitudecode_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "altitudecode")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "altitudecodenilreason"))})
     public CodeMinimumAltitudeType getAltitudeCodeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeMinimumAltitudeType.class, this.getAltitudeCode());
     }
 
     public void setAltitudeCodeItem(CodeMinimumAltitudeType target) {
-        setAltitudeCode(XmlAdapterUtils.marshallJAXBElement(CodeMinimumAltitudeType.class, new QName("http://www.aixm.aero/schema/5.1.1", "altitudeCode"), MinimaType.class, target));
+        setAltitudeCode(XmlAdapterUtils.marshallJAXBElement(CodeMinimumAltitudeType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "altitudeCode"), MinimaType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "altitudereference")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "altitudereference_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "altitudereference")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "altitudereferencenilreason"))})
     public CodeVerticalReferenceType getAltitudeReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getAltitudeReference());
     }
 
     public void setAltitudeReferenceItem(CodeVerticalReferenceType target) {
-        setAltitudeReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "altitudeReference"), MinimaType.class, target));
+        setAltitudeReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "altitudeReference"), MinimaType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "height")),
-        @AttributeOverride(name = "uom", column = @Column(name = "height_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "height_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "height", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "heightuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "heightnilreason"))})
     public ValDistanceVerticalType getHeightItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getHeight());
     }
 
     public void setHeightItem(ValDistanceVerticalType target) {
-        setHeight(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "height"), MinimaType.class, target));
+        setHeight(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "height"), MinimaType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "militaryheight")),
-        @AttributeOverride(name = "uom", column = @Column(name = "militaryheight_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "militaryheight_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "militaryheight", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "militaryheightuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "militaryheightnilreason"))})
     public ValDistanceVerticalType getMilitaryHeightItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getMilitaryHeight());
     }
 
     public void setMilitaryHeightItem(ValDistanceVerticalType target) {
-        setMilitaryHeight(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "militaryHeight"), MinimaType.class, target));
+        setMilitaryHeight(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "militaryHeight"), MinimaType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "radioheight")),
-        @AttributeOverride(name = "uom", column = @Column(name = "radioheight_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "radioheight_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "radioheight", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "radioheightuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "radioheightnilreason"))})
     public ValDistanceVerticalType getRadioHeightItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getRadioHeight());
     }
 
     public void setRadioHeightItem(ValDistanceVerticalType target) {
-        setRadioHeight(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "radioHeight"), MinimaType.class, target));
+        setRadioHeight(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "radioHeight"), MinimaType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "heightcode")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "heightcode_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "heightcode")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "heightcodenilreason"))})
     public CodeMinimumHeightType getHeightCodeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeMinimumHeightType.class, this.getHeightCode());
     }
 
     public void setHeightCodeItem(CodeMinimumHeightType target) {
-        setHeightCode(XmlAdapterUtils.marshallJAXBElement(CodeMinimumHeightType.class, new QName("http://www.aixm.aero/schema/5.1.1", "heightCode"), MinimaType.class, target));
+        setHeightCode(XmlAdapterUtils.marshallJAXBElement(CodeMinimumHeightType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "heightCode"), MinimaType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "heightreference")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "heightreference_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "heightreference")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "heightreferencenilreason"))})
     public CodeHeightReferenceType getHeightReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeHeightReferenceType.class, this.getHeightReference());
     }
 
     public void setHeightReferenceItem(CodeHeightReferenceType target) {
-        setHeightReference(XmlAdapterUtils.marshallJAXBElement(CodeHeightReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "heightReference"), MinimaType.class, target));
+        setHeightReference(XmlAdapterUtils.marshallJAXBElement(CodeHeightReferenceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "heightReference"), MinimaType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "visibility")),
-        @AttributeOverride(name = "uom", column = @Column(name = "visibility_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "visibility_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "visibility", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "visibilityuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "visibilitynilreason"))})
     public ValDistanceType getVisibilityItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getVisibility());
     }
 
     public void setVisibilityItem(ValDistanceType target) {
-        setVisibility(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "visibility"), MinimaType.class, target));
+        setVisibility(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "visibility"), MinimaType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "militaryvisibility")),
-        @AttributeOverride(name = "uom", column = @Column(name = "militaryvisibility_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "militaryvisibility_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "militaryvisibility", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "militaryvisibilityuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "militaryvisibilitynilreason"))})
     public ValDistanceType getMilitaryVisibilityItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getMilitaryVisibility());
     }
 
     public void setMilitaryVisibilityItem(ValDistanceType target) {
-        setMilitaryVisibility(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "militaryVisibility"), MinimaType.class, target));
+        setMilitaryVisibility(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "militaryVisibility"), MinimaType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "mandatoryrvr")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "mandatoryrvr_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "mandatoryrvr")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "mandatoryrvrnilreason"))})
     public CodeYesNoType getMandatoryRVRItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getMandatoryRVR());
     }
 
     public void setMandatoryRVRItem(CodeYesNoType target) {
-        setMandatoryRVR(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "mandatoryRVR"), MinimaType.class, target));
+        setMandatoryRVR(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "mandatoryRVR"), MinimaType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "remotealtimeterminima")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "remotealtimeterminima_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "remotealtimeterminima")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "remotealtimeterminimanilreason"))})
     public CodeYesNoType getRemoteAltimeterMinimaItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getRemoteAltimeterMinima());
     }
 
     public void setRemoteAltimeterMinimaItem(CodeYesNoType target) {
-        setRemoteAltimeterMinima(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "remoteAltimeterMinima"), MinimaType.class, target));
+        setRemoteAltimeterMinima(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "remoteAltimeterMinima"), MinimaType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -824,14 +808,27 @@ public class MinimaType
         }
         final MinimaType that = ((MinimaType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetHeightCode();
+            boolean rhsFieldIsSet = that.isSetHeightCode();
+            JAXBElement<CodeMinimumHeightType> lhsField;
+            lhsField = this.getHeightCode();
+            JAXBElement<CodeMinimumHeightType> rhsField;
+            rhsField = that.getHeightCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "heightCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "heightCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteAltimeterMinima();
+            boolean rhsFieldIsSet = that.isSetRemoteAltimeterMinima();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getRemoteAltimeterMinima();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getRemoteAltimeterMinima();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteAltimeterMinima", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteAltimeterMinima", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -850,6 +847,19 @@ public class MinimaType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAltitudeReference();
             boolean rhsFieldIsSet = that.isSetAltitudeReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
@@ -858,32 +868,6 @@ public class MinimaType
             rhsField = that.getAltitudeReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHeight();
-            boolean rhsFieldIsSet = that.isSetHeight();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getHeight();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getHeight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "height", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "height", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAltitude();
-            boolean rhsFieldIsSet = that.isSetAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -902,19 +886,6 @@ public class MinimaType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHeightReference();
-            boolean rhsFieldIsSet = that.isSetHeightReference();
-            JAXBElement<CodeHeightReferenceType> lhsField;
-            lhsField = this.getHeightReference();
-            JAXBElement<CodeHeightReferenceType> rhsField;
-            rhsField = that.getHeightReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "heightReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "heightReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVisibility();
             boolean rhsFieldIsSet = that.isSetVisibility();
             JAXBElement<ValDistanceType> lhsField;
@@ -923,19 +894,6 @@ public class MinimaType
             rhsField = that.getVisibility();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibility", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibility", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteAltimeterMinima();
-            boolean rhsFieldIsSet = that.isSetRemoteAltimeterMinima();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getRemoteAltimeterMinima();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getRemoteAltimeterMinima();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteAltimeterMinima", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteAltimeterMinima", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -957,11 +915,24 @@ public class MinimaType
             boolean lhsFieldIsSet = this.isSetAdjustmentINOP();
             boolean rhsFieldIsSet = that.isSetAdjustmentINOP();
             List<EquipmentUnavailableAdjustmentPropertyType> lhsField;
-            lhsField = (this.isSetAdjustmentINOP()?this.getAdjustmentINOP():null);
+            lhsField = (this.isSetAdjustmentINOP() ? this.getAdjustmentINOP() : null);
             List<EquipmentUnavailableAdjustmentPropertyType> rhsField;
-            rhsField = (that.isSetAdjustmentINOP()?that.getAdjustmentINOP():null);
+            rhsField = (that.isSetAdjustmentINOP() ? that.getAdjustmentINOP() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "adjustmentINOP", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "adjustmentINOP", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAltitude();
+            boolean rhsFieldIsSet = that.isSetAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -983,9 +954,9 @@ public class MinimaType
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<MinimaTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
             List<MinimaTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -993,14 +964,14 @@ public class MinimaType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHeightCode();
-            boolean rhsFieldIsSet = that.isSetHeightCode();
-            JAXBElement<CodeMinimumHeightType> lhsField;
-            lhsField = this.getHeightCode();
-            JAXBElement<CodeMinimumHeightType> rhsField;
-            rhsField = that.getHeightCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "heightCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "heightCode", rhsField);
+            boolean lhsFieldIsSet = this.isSetHeightReference();
+            boolean rhsFieldIsSet = that.isSetHeightReference();
+            JAXBElement<CodeHeightReferenceType> lhsField;
+            lhsField = this.getHeightReference();
+            JAXBElement<CodeHeightReferenceType> rhsField;
+            rhsField = that.getHeightReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "heightReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "heightReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1014,6 +985,19 @@ public class MinimaType
             rhsField = that.getRadioHeight();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioHeight", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioHeight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHeight();
+            boolean rhsFieldIsSet = that.isSetHeight();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getHeight();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getHeight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "height", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "height", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1111,21 +1095,21 @@ public class MinimaType
         {
             boolean theFieldIsSet = this.isSetAdjustmentINOP();
             List<EquipmentUnavailableAdjustmentPropertyType> theField;
-            theField = (this.isSetAdjustmentINOP()?this.getAdjustmentINOP():null);
+            theField = (this.isSetAdjustmentINOP() ? this.getAdjustmentINOP() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "adjustmentINOP", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<MinimaTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1210,19 +1194,19 @@ public class MinimaType
         {
             boolean theFieldIsSet = this.isSetAdjustmentINOP();
             List<EquipmentUnavailableAdjustmentPropertyType> theField;
-            theField = (this.isSetAdjustmentINOP()?this.getAdjustmentINOP():null);
+            theField = (this.isSetAdjustmentINOP() ? this.getAdjustmentINOP() : null);
             strategy.appendField(locator, this, "adjustmentINOP", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<MinimaTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

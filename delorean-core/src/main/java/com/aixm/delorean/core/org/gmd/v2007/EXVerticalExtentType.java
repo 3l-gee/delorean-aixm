@@ -148,19 +148,6 @@ public class EXVerticalExtentType extends AbstractObjectType implements Serializ
         }
         final EXVerticalExtentType that = ((EXVerticalExtentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVerticalCRS();
-            boolean rhsFieldIsSet = that.isSetVerticalCRS();
-            SCCRSPropertyType lhsField;
-            lhsField = this.getVerticalCRS();
-            SCCRSPropertyType rhsField;
-            rhsField = that.getVerticalCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCRS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMaximumValue();
             boolean rhsFieldIsSet = that.isSetMaximumValue();
             RealPropertyType lhsField;
@@ -182,6 +169,19 @@ public class EXVerticalExtentType extends AbstractObjectType implements Serializ
             rhsField = that.getMinimumValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumValue", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalCRS();
+            boolean rhsFieldIsSet = that.isSetVerticalCRS();
+            SCCRSPropertyType lhsField;
+            lhsField = this.getVerticalCRS();
+            SCCRSPropertyType rhsField;
+            rhsField = that.getVerticalCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCRS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

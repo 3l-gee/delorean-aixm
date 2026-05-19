@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,22 +12,29 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for RadarComponentPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RadarComponentPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RadarComponentPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1.1}RadarComponent"/>
  *       </sequence>
@@ -36,19 +42,14 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RadarComponentPropertyType", propOrder = {
-    "radarComponent"
-})
+@XmlType(name = "RadarComponentPropertyType", propOrder = {"radarComponent"})
 @Entity(name = "RadarComponentPropertyType")
 @Table(name = "radarcomponent_p", schema = "surveillance")
-public class RadarComponentPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class RadarComponentPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "RadarComponent", required = true)
@@ -56,15 +57,11 @@ public class RadarComponentPropertyType
 
     /**
      * Gets the value of the radarComponent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RadarComponentType }
-     *     
+     *
+     * @return possible object is {@link RadarComponentType }
+     *
      */
-    @OneToOne(targetEntity = RadarComponentType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = RadarComponentType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "radarcomponent_hjid", referencedColumnName = "hjid")
     public RadarComponentType getRadarComponent() {
         return radarComponent;
@@ -72,11 +69,10 @@ public class RadarComponentPropertyType
 
     /**
      * Sets the value of the radarComponent property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link RadarComponentType }
-     *     
+     *            allowed object is {@link RadarComponentType }
+     *
      */
     public void setRadarComponent(RadarComponentType value) {
         this.radarComponent = value;
@@ -84,12 +80,13 @@ public class RadarComponentPropertyType
 
     @Transient
     public boolean isSetRadarComponent() {
-        return (this.radarComponent!= null);
+        return (this.radarComponent != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

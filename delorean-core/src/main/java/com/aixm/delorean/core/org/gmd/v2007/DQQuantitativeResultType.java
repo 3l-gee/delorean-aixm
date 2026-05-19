@@ -202,14 +202,14 @@ public class DQQuantitativeResultType extends AbstractDQResultType implements Se
         }
         final DQQuantitativeResultType that = ((DQQuantitativeResultType) object);
         {
-            boolean lhsFieldIsSet = this.isSetValueType();
-            boolean rhsFieldIsSet = that.isSetValueType();
-            RecordTypePropertyType lhsField;
-            lhsField = this.getValueType();
-            RecordTypePropertyType rhsField;
-            rhsField = that.getValueType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueType", rhsField);
+            boolean lhsFieldIsSet = this.isSetErrorStatistic();
+            boolean rhsFieldIsSet = that.isSetErrorStatistic();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getErrorStatistic();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getErrorStatistic();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "errorStatistic", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "errorStatistic", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -241,14 +241,14 @@ public class DQQuantitativeResultType extends AbstractDQResultType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetErrorStatistic();
-            boolean rhsFieldIsSet = that.isSetErrorStatistic();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getErrorStatistic();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getErrorStatistic();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "errorStatistic", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "errorStatistic", rhsField);
+            boolean lhsFieldIsSet = this.isSetValueType();
+            boolean rhsFieldIsSet = that.isSetValueType();
+            RecordTypePropertyType lhsField;
+            lhsField = this.getValueType();
+            RecordTypePropertyType rhsField;
+            rhsField = that.getValueType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -24,6 +20,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,30 +31,45 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for SafeAltitudeAreaSectorType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for SafeAltitudeAreaSectorType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="SafeAltitudeAreaSectorType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="bufferWidth" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
- *         <element name="extent" type="{http://www.aixm.aero/schema/5.1.1}SurfacePropertyType" minOccurs="0"/>
- *         <element name="significantObstacle" type="{http://www.aixm.aero/schema/5.1.1}ObstructionPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="sectorDefinition" type="{http://www.aixm.aero/schema/5.1.1}CircleSectorPropertyType" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="bufferWidth" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="extent" type=
+"{http://www.aixm.aero/schema/5.1.1}SurfacePropertyType" minOccurs="0"/>
+ *         <element name="significantObstacle" type=
+"{http://www.aixm.aero/schema/5.1.1}ObstructionPropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="sectorDefinition" type=
+"{http://www.aixm.aero/schema/5.1.1}CircleSectorPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractSafeAltitudeAreaSectorExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractSafeAltitudeAreaSectorExtension"/>
  *                 </choice>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -64,24 +79,15 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SafeAltitudeAreaSectorType", propOrder = {
-    "bufferWidth",
-    "extent",
-    "significantObstacle",
-    "sectorDefinition",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "SafeAltitudeAreaSectorType", propOrder = {"bufferWidth", "extent", "significantObstacle",
+        "sectorDefinition", "annotation", "extension"})
 @Entity(name = "SafeAltitudeAreaSectorType")
 @Table(name = "safealtitudeareasector_o", schema = "procedure")
-public class SafeAltitudeAreaSectorType
-    extends AbstractAIXMObjectType
-    implements Serializable
-{
+public class SafeAltitudeAreaSectorType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "bufferWidth", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -98,11 +104,10 @@ public class SafeAltitudeAreaSectorType
 
     /**
      * Gets the value of the bufferWidth property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceType> getBufferWidth() {
@@ -111,11 +116,11 @@ public class SafeAltitudeAreaSectorType
 
     /**
      * Sets the value of the bufferWidth property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     public void setBufferWidth(JAXBElement<ValDistanceType> value) {
         this.bufferWidth = value;
@@ -123,16 +128,15 @@ public class SafeAltitudeAreaSectorType
 
     @Transient
     public boolean isSetBufferWidth() {
-        return (this.bufferWidth!= null);
+        return (this.bufferWidth != null);
     }
 
     /**
      * Gets the value of the extent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<AIXMSurfacePropertyType> getExtent() {
@@ -141,11 +145,11 @@ public class SafeAltitudeAreaSectorType
 
     /**
      * Sets the value of the extent property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *
      */
     public void setExtent(JAXBElement<AIXMSurfacePropertyType> value) {
         this.extent = value;
@@ -153,39 +157,36 @@ public class SafeAltitudeAreaSectorType
 
     @Transient
     public boolean isSetExtent() {
-        return (this.extent!= null);
+        return (this.extent != null);
     }
 
     /**
      * Gets the value of the significantObstacle property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the significantObstacle property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the significantObstacle property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getSignificantObstacle().add(newItem);
+     * getSignificantObstacle().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ObstructionPropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = ObstructionPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "safealtitudeareasector_o_significantobstacle_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "significantobstacle_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = ObstructionPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdarsctrtp_sgnfcntobstcl_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "significantobstacle_hjid", referencedColumnName = "hjid")})
     public List<ObstructionPropertyType> getSignificantObstacle() {
         if (significantObstacle == null) {
             significantObstacle = new ArrayList<>();
@@ -194,8 +195,8 @@ public class SafeAltitudeAreaSectorType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setSignificantObstacle(List<ObstructionPropertyType> significantObstacle) {
         this.significantObstacle = significantObstacle;
@@ -203,7 +204,7 @@ public class SafeAltitudeAreaSectorType
 
     @Transient
     public boolean isSetSignificantObstacle() {
-        return ((this.significantObstacle!= null)&&(!this.significantObstacle.isEmpty()));
+        return ((this.significantObstacle != null) && (!this.significantObstacle.isEmpty()));
     }
 
     public void unsetSignificantObstacle() {
@@ -212,11 +213,10 @@ public class SafeAltitudeAreaSectorType
 
     /**
      * Gets the value of the sectorDefinition property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CircleSectorPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CircleSectorPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CircleSectorPropertyType> getSectorDefinition() {
@@ -225,11 +225,11 @@ public class SafeAltitudeAreaSectorType
 
     /**
      * Sets the value of the sectorDefinition property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CircleSectorPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CircleSectorPropertyType }{@code >}
+     *
      */
     public void setSectorDefinition(JAXBElement<CircleSectorPropertyType> value) {
         this.sectorDefinition = value;
@@ -237,39 +237,36 @@ public class SafeAltitudeAreaSectorType
 
     @Transient
     public boolean isSetSectorDefinition() {
-        return (this.sectorDefinition!= null);
+        return (this.sectorDefinition != null);
     }
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "safealtitudeareasector_o_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdarsctrtp_annttn_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -278,8 +275,8 @@ public class SafeAltitudeAreaSectorType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -287,7 +284,7 @@ public class SafeAltitudeAreaSectorType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -296,30 +293,30 @@ public class SafeAltitudeAreaSectorType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SafeAltitudeAreaSectorTypeExtensionType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = SafeAltitudeAreaSectorTypeExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "safealtitudeareasector_e_hjid", referencedColumnName = "hjid")
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "safealtitudeareasectore_hjid", referencedColumnName = "hjid")
     public List<SafeAltitudeAreaSectorTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -328,8 +325,8 @@ public class SafeAltitudeAreaSectorType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<SafeAltitudeAreaSectorTypeExtensionType> extension) {
         this.extension = extension;
@@ -337,7 +334,7 @@ public class SafeAltitudeAreaSectorType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -346,53 +343,50 @@ public class SafeAltitudeAreaSectorType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "bufferwidth")),
-        @AttributeOverride(name = "uom", column = @Column(name = "bufferwidth_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "bufferwidth_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "bufferwidth", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "bufferwidthuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "bufferwidthnilreason"))})
     public ValDistanceType getBufferWidthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getBufferWidth());
     }
 
     public void setBufferWidthItem(ValDistanceType target) {
-        setBufferWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "bufferWidth"), SafeAltitudeAreaSectorType.class, target));
+        setBufferWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "bufferWidth"), SafeAltitudeAreaSectorType.class,
+                target));
     }
 
-    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "safealtitudeareasector_o_extent_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")
-    })
+    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdarsctrtp_extnt_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "extent_hjid", referencedColumnName = "hjid")})
     public AIXMSurfacePropertyType getExtentItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getExtent());
     }
 
     public void setExtentItem(AIXMSurfacePropertyType target) {
-        setExtent(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "extent"), SafeAltitudeAreaSectorType.class, target));
+        setExtent(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "extent"), SafeAltitudeAreaSectorType.class, target));
     }
 
-    @OneToOne(targetEntity = CircleSectorPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "safealtitudeareasector_o_sectordefinition_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "sectordefinition_hjid", referencedColumnName = "hjid")
-    })
+    @OneToOne(targetEntity = CircleSectorPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "sfalttdarsctrtp_sctrdfntn_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "safealtitudeareasector_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "sectordefinition_hjid", referencedColumnName = "hjid")})
     public CircleSectorPropertyType getSectorDefinitionItem() {
         return XmlAdapterUtils.unmarshallSource(CircleSectorPropertyType.class, this.getSectorDefinition());
     }
 
     public void setSectorDefinitionItem(CircleSectorPropertyType target) {
-        setSectorDefinition(XmlAdapterUtils.marshallJAXBElement(CircleSectorPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "sectorDefinition"), SafeAltitudeAreaSectorType.class, target));
+        setSectorDefinition(XmlAdapterUtils.marshallJAXBElement(CircleSectorPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "sectorDefinition"), SafeAltitudeAreaSectorType.class,
+                target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -403,14 +397,14 @@ public class SafeAltitudeAreaSectorType
         }
         final SafeAltitudeAreaSectorType that = ((SafeAltitudeAreaSectorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetBufferWidth();
+            boolean rhsFieldIsSet = that.isSetBufferWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getBufferWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getBufferWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bufferWidth", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bufferWidth", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -432,24 +426,11 @@ public class SafeAltitudeAreaSectorType
             boolean lhsFieldIsSet = this.isSetSignificantObstacle();
             boolean rhsFieldIsSet = that.isSetSignificantObstacle();
             List<ObstructionPropertyType> lhsField;
-            lhsField = (this.isSetSignificantObstacle()?this.getSignificantObstacle():null);
+            lhsField = (this.isSetSignificantObstacle() ? this.getSignificantObstacle() : null);
             List<ObstructionPropertyType> rhsField;
-            rhsField = (that.isSetSignificantObstacle()?that.getSignificantObstacle():null);
+            rhsField = (that.isSetSignificantObstacle() ? that.getSignificantObstacle() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantObstacle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantObstacle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SafeAltitudeAreaSectorTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SafeAltitudeAreaSectorTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -468,14 +449,27 @@ public class SafeAltitudeAreaSectorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetBufferWidth();
-            boolean rhsFieldIsSet = that.isSetBufferWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getBufferWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getBufferWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bufferWidth", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bufferWidth", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SafeAltitudeAreaSectorTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SafeAltitudeAreaSectorTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -503,7 +497,7 @@ public class SafeAltitudeAreaSectorType
         {
             boolean theFieldIsSet = this.isSetSignificantObstacle();
             List<ObstructionPropertyType> theField;
-            theField = (this.isSetSignificantObstacle()?this.getSignificantObstacle():null);
+            theField = (this.isSetSignificantObstacle() ? this.getSignificantObstacle() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "significantObstacle", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -517,14 +511,14 @@ public class SafeAltitudeAreaSectorType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SafeAltitudeAreaSectorTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -549,7 +543,7 @@ public class SafeAltitudeAreaSectorType
         {
             boolean theFieldIsSet = this.isSetSignificantObstacle();
             List<ObstructionPropertyType> theField;
-            theField = (this.isSetSignificantObstacle()?this.getSignificantObstacle():null);
+            theField = (this.isSetSignificantObstacle() ? this.getSignificantObstacle() : null);
             strategy.appendField(locator, this, "significantObstacle", buffer, theField, theFieldIsSet);
         }
         {
@@ -561,13 +555,13 @@ public class SafeAltitudeAreaSectorType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<SafeAltitudeAreaSectorTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

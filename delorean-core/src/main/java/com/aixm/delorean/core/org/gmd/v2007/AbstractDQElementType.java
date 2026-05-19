@@ -383,19 +383,6 @@ public abstract class AbstractDQElementType extends AbstractObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEvaluationMethodType();
-            boolean rhsFieldIsSet = that.isSetEvaluationMethodType();
-            DQEvaluationMethodTypeCodePropertyType lhsField;
-            lhsField = this.getEvaluationMethodType();
-            DQEvaluationMethodTypeCodePropertyType rhsField;
-            rhsField = that.getEvaluationMethodType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMeasureIdentification();
             boolean rhsFieldIsSet = that.isSetMeasureIdentification();
             MDIdentifierPropertyType lhsField;
@@ -409,27 +396,14 @@ public abstract class AbstractDQElementType extends AbstractObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMeasureDescription();
-            boolean rhsFieldIsSet = that.isSetMeasureDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getMeasureDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getMeasureDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measureDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measureDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetResult();
-            boolean rhsFieldIsSet = that.isSetResult();
-            List<DQResultPropertyType> lhsField;
-            lhsField = (this.isSetResult() ? this.getResult() : null);
-            List<DQResultPropertyType> rhsField;
-            rhsField = (that.isSetResult() ? that.getResult() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "result", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "result", rhsField);
+            boolean lhsFieldIsSet = this.isSetEvaluationMethodType();
+            boolean rhsFieldIsSet = that.isSetEvaluationMethodType();
+            DQEvaluationMethodTypeCodePropertyType lhsField;
+            lhsField = this.getEvaluationMethodType();
+            DQEvaluationMethodTypeCodePropertyType rhsField;
+            rhsField = that.getEvaluationMethodType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -448,6 +422,19 @@ public abstract class AbstractDQElementType extends AbstractObjectType implement
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetMeasureDescription();
+            boolean rhsFieldIsSet = that.isSetMeasureDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getMeasureDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getMeasureDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measureDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measureDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEvaluationProcedure();
             boolean rhsFieldIsSet = that.isSetEvaluationProcedure();
             CICitationPropertyType lhsField;
@@ -456,6 +443,19 @@ public abstract class AbstractDQElementType extends AbstractObjectType implement
             rhsField = that.getEvaluationProcedure();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationProcedure", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationProcedure", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetResult();
+            boolean rhsFieldIsSet = that.isSetResult();
+            List<DQResultPropertyType> lhsField;
+            lhsField = (this.isSetResult() ? this.getResult() : null);
+            List<DQResultPropertyType> rhsField;
+            rhsField = (that.isSetResult() ? that.getResult() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "result", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "result", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

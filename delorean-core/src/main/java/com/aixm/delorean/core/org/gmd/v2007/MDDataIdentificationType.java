@@ -419,32 +419,6 @@ public class MDDataIdentificationType extends AbstractMDIdentificationType imple
         }
         final MDDataIdentificationType that = ((MDDataIdentificationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLanguage();
-            boolean rhsFieldIsSet = that.isSetLanguage();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetLanguage() ? this.getLanguage() : null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetLanguage() ? that.getLanguage() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpatialResolution();
-            boolean rhsFieldIsSet = that.isSetSpatialResolution();
-            List<MDResolutionPropertyType> lhsField;
-            lhsField = (this.isSetSpatialResolution() ? this.getSpatialResolution() : null);
-            List<MDResolutionPropertyType> rhsField;
-            rhsField = (that.isSetSpatialResolution() ? that.getSpatialResolution() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "spatialResolution", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "spatialResolution", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCharacterSet();
             boolean rhsFieldIsSet = that.isSetCharacterSet();
             List<MDCharacterSetCodePropertyType> lhsField;
@@ -453,45 +427,6 @@ public class MDDataIdentificationType extends AbstractMDIdentificationType imple
             rhsField = (that.isSetCharacterSet() ? that.getCharacterSet() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "characterSet", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "characterSet", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            List<EXExtentPropertyType> lhsField;
-            lhsField = (this.isSetExtent() ? this.getExtent() : null);
-            List<EXExtentPropertyType> rhsField;
-            rhsField = (that.isSetExtent() ? that.getExtent() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTopicCategory();
-            boolean rhsFieldIsSet = that.isSetTopicCategory();
-            List<MDTopicCategoryCodePropertyType> lhsField;
-            lhsField = (this.isSetTopicCategory() ? this.getTopicCategory() : null);
-            List<MDTopicCategoryCodePropertyType> rhsField;
-            rhsField = (that.isSetTopicCategory() ? that.getTopicCategory() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topicCategory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topicCategory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSupplementalInformation();
-            boolean rhsFieldIsSet = that.isSetSupplementalInformation();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSupplementalInformation();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSupplementalInformation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supplementalInformation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supplementalInformation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -518,6 +453,71 @@ public class MDDataIdentificationType extends AbstractMDIdentificationType imple
             rhsField = that.getEnvironmentDescription();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "environmentDescription", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "environmentDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpatialResolution();
+            boolean rhsFieldIsSet = that.isSetSpatialResolution();
+            List<MDResolutionPropertyType> lhsField;
+            lhsField = (this.isSetSpatialResolution() ? this.getSpatialResolution() : null);
+            List<MDResolutionPropertyType> rhsField;
+            rhsField = (that.isSetSpatialResolution() ? that.getSpatialResolution() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "spatialResolution", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "spatialResolution", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLanguage();
+            boolean rhsFieldIsSet = that.isSetLanguage();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetLanguage() ? this.getLanguage() : null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetLanguage() ? that.getLanguage() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSupplementalInformation();
+            boolean rhsFieldIsSet = that.isSetSupplementalInformation();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSupplementalInformation();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSupplementalInformation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supplementalInformation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supplementalInformation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTopicCategory();
+            boolean rhsFieldIsSet = that.isSetTopicCategory();
+            List<MDTopicCategoryCodePropertyType> lhsField;
+            lhsField = (this.isSetTopicCategory() ? this.getTopicCategory() : null);
+            List<MDTopicCategoryCodePropertyType> rhsField;
+            rhsField = (that.isSetTopicCategory() ? that.getTopicCategory() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topicCategory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topicCategory", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            List<EXExtentPropertyType> lhsField;
+            lhsField = (this.isSetExtent() ? this.getExtent() : null);
+            List<EXExtentPropertyType> rhsField;
+            rhsField = (that.isSetExtent() ? that.getExtent() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

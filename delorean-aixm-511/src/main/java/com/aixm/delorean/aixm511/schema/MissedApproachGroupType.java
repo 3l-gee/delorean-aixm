@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -23,6 +19,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -30,30 +30,45 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for MissedApproachGroupType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for MissedApproachGroupType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="MissedApproachGroupType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="instruction" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
- *         <element name="alternateClimbInstruction" type="{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
- *         <element name="alternateClimbAltitude" type="{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="altimeter" type="{http://www.aixm.aero/schema/5.1.1}AltimeterSourcePropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="instruction" type=
+"{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="alternateClimbInstruction" type=
+"{http://www.aixm.aero/schema/5.1.1}TextInstructionType" minOccurs="0"/>
+ *         <element name="alternateClimbAltitude" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="altimeter" type=
+"{http://www.aixm.aero/schema/5.1.1}AltimeterSourcePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractMissedApproachGroupExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractMissedApproachGroupExtension"/>
  *                 </choice>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -63,24 +78,15 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MissedApproachGroupType", propOrder = {
-    "instruction",
-    "alternateClimbInstruction",
-    "alternateClimbAltitude",
-    "altimeter",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "MissedApproachGroupType", propOrder = {"instruction", "alternateClimbInstruction",
+        "alternateClimbAltitude", "altimeter", "annotation", "extension"})
 @Entity(name = "MissedApproachGroupType")
 @Table(name = "missedapproachgroup_o", schema = "procedure")
-public class MissedApproachGroupType
-    extends AbstractAIXMObjectType
-    implements Serializable
-{
+public class MissedApproachGroupType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "instruction", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -97,11 +103,10 @@ public class MissedApproachGroupType
 
     /**
      * Gets the value of the instruction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link TextInstructionType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextInstructionType> getInstruction() {
@@ -110,11 +115,11 @@ public class MissedApproachGroupType
 
     /**
      * Sets the value of the instruction property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link TextInstructionType }{@code >}
+     *
      */
     public void setInstruction(JAXBElement<TextInstructionType> value) {
         this.instruction = value;
@@ -122,16 +127,15 @@ public class MissedApproachGroupType
 
     @Transient
     public boolean isSetInstruction() {
-        return (this.instruction!= null);
+        return (this.instruction != null);
     }
 
     /**
      * Gets the value of the alternateClimbInstruction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link TextInstructionType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextInstructionType> getAlternateClimbInstruction() {
@@ -140,11 +144,11 @@ public class MissedApproachGroupType
 
     /**
      * Sets the value of the alternateClimbInstruction property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextInstructionType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link TextInstructionType }{@code >}
+     *
      */
     public void setAlternateClimbInstruction(JAXBElement<TextInstructionType> value) {
         this.alternateClimbInstruction = value;
@@ -152,16 +156,15 @@ public class MissedApproachGroupType
 
     @Transient
     public boolean isSetAlternateClimbInstruction() {
-        return (this.alternateClimbInstruction!= null);
+        return (this.alternateClimbInstruction != null);
     }
 
     /**
      * Gets the value of the alternateClimbAltitude property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getAlternateClimbAltitude() {
@@ -170,11 +173,11 @@ public class MissedApproachGroupType
 
     /**
      * Sets the value of the alternateClimbAltitude property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *
      */
     public void setAlternateClimbAltitude(JAXBElement<ValDistanceVerticalType> value) {
         this.alternateClimbAltitude = value;
@@ -182,39 +185,36 @@ public class MissedApproachGroupType
 
     @Transient
     public boolean isSetAlternateClimbAltitude() {
-        return (this.alternateClimbAltitude!= null);
+        return (this.alternateClimbAltitude != null);
     }
 
     /**
      * Gets the value of the altimeter property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the altimeter property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the altimeter property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAltimeter().add(newItem);
+     * getAltimeter().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AltimeterSourcePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = AltimeterSourcePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "missedapproachgroup_o_altimeter_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "missedapproachgroup_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "altimeter_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = AltimeterSourcePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "mssdapprchgrptp_altmtr_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "missedapproachgroup_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "altimeter_hjid", referencedColumnName = "hjid")})
     public List<AltimeterSourcePropertyType> getAltimeter() {
         if (altimeter == null) {
             altimeter = new ArrayList<>();
@@ -223,8 +223,8 @@ public class MissedApproachGroupType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAltimeter(List<AltimeterSourcePropertyType> altimeter) {
         this.altimeter = altimeter;
@@ -232,7 +232,7 @@ public class MissedApproachGroupType
 
     @Transient
     public boolean isSetAltimeter() {
-        return ((this.altimeter!= null)&&(!this.altimeter.isEmpty()));
+        return ((this.altimeter != null) && (!this.altimeter.isEmpty()));
     }
 
     public void unsetAltimeter() {
@@ -241,34 +241,31 @@ public class MissedApproachGroupType
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "missedapproachgroup_o_annotation_link", schema = "public", joinColumns = {
-        @JoinColumn(name = "missedapproachgroup_o_hjid", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
-    })
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "mssdapprchgrptp_annttn_link", schema = "procedure", joinColumns = {
+            @JoinColumn(name = "missedapproachgroup_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -277,8 +274,8 @@ public class MissedApproachGroupType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -286,7 +283,7 @@ public class MissedApproachGroupType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -295,30 +292,30 @@ public class MissedApproachGroupType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MissedApproachGroupTypeExtensionType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = MissedApproachGroupTypeExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "missedapproachgroup_e_hjid", referencedColumnName = "hjid")
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "missedapproachgroupe_hjid", referencedColumnName = "hjid")
     public List<MissedApproachGroupTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -327,8 +324,8 @@ public class MissedApproachGroupType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<MissedApproachGroupTypeExtensionType> extension) {
         this.extension = extension;
@@ -336,7 +333,7 @@ public class MissedApproachGroupType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -345,47 +342,50 @@ public class MissedApproachGroupType
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "instruction")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "instruction_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "instruction", columnDefinition = "TEXT", length = 10000)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "instructionnilreason"))})
     public TextInstructionType getInstructionItem() {
         return XmlAdapterUtils.unmarshallSource(TextInstructionType.class, this.getInstruction());
     }
 
     public void setInstructionItem(TextInstructionType target) {
-        setInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "instruction"), MissedApproachGroupType.class, target));
+        setInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "instruction"), MissedApproachGroupType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "alternateclimbinstruction")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "alternateclimbinstruction_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "alternateclimbinstruction", columnDefinition = "TEXT", length = 10000)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "alternateclimbinstructionnilreason"))})
     public TextInstructionType getAlternateClimbInstructionItem() {
         return XmlAdapterUtils.unmarshallSource(TextInstructionType.class, this.getAlternateClimbInstruction());
     }
 
     public void setAlternateClimbInstructionItem(TextInstructionType target) {
-        setAlternateClimbInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "alternateClimbInstruction"), MissedApproachGroupType.class, target));
+        setAlternateClimbInstruction(XmlAdapterUtils.marshallJAXBElement(TextInstructionType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "alternateClimbInstruction"),
+                MissedApproachGroupType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "alternateclimbaltitude")),
-        @AttributeOverride(name = "uom", column = @Column(name = "alternateclimbaltitude_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "alternateclimbaltitude_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "alternateclimbaltitude", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "uom", column = @Column(name = "alternateclimbaltitudeuom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "alternateclimbaltitudenilreason"))})
     public ValDistanceVerticalType getAlternateClimbAltitudeItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getAlternateClimbAltitude());
     }
 
     public void setAlternateClimbAltitudeItem(ValDistanceVerticalType target) {
-        setAlternateClimbAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "alternateClimbAltitude"), MissedApproachGroupType.class, target));
+        setAlternateClimbAltitude(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "alternateClimbAltitude"), MissedApproachGroupType.class,
+                target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -395,6 +395,19 @@ public class MissedApproachGroupType
             return false;
         }
         final MissedApproachGroupType that = ((MissedApproachGroupType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetAlternateClimbInstruction();
+            boolean rhsFieldIsSet = that.isSetAlternateClimbInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getAlternateClimbInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getAlternateClimbInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbInstruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbInstruction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetInstruction();
             boolean rhsFieldIsSet = that.isSetInstruction();
@@ -425,9 +438,9 @@ public class MissedApproachGroupType
             boolean lhsFieldIsSet = this.isSetAltimeter();
             boolean rhsFieldIsSet = that.isSetAltimeter();
             List<AltimeterSourcePropertyType> lhsField;
-            lhsField = (this.isSetAltimeter()?this.getAltimeter():null);
+            lhsField = (this.isSetAltimeter() ? this.getAltimeter() : null);
             List<AltimeterSourcePropertyType> rhsField;
-            rhsField = (that.isSetAltimeter()?that.getAltimeter():null);
+            rhsField = (that.isSetAltimeter() ? that.getAltimeter() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altimeter", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altimeter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -438,9 +451,9 @@ public class MissedApproachGroupType
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -451,24 +464,11 @@ public class MissedApproachGroupType
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<MissedApproachGroupTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
             List<MissedApproachGroupTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAlternateClimbInstruction();
-            boolean rhsFieldIsSet = that.isSetAlternateClimbInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getAlternateClimbInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getAlternateClimbInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbInstruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbInstruction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -503,21 +503,21 @@ public class MissedApproachGroupType
         {
             boolean theFieldIsSet = this.isSetAltimeter();
             List<AltimeterSourcePropertyType> theField;
-            theField = (this.isSetAltimeter()?this.getAltimeter():null);
+            theField = (this.isSetAltimeter() ? this.getAltimeter() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "altimeter", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<MissedApproachGroupTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -548,19 +548,19 @@ public class MissedApproachGroupType
         {
             boolean theFieldIsSet = this.isSetAltimeter();
             List<AltimeterSourcePropertyType> theField;
-            theField = (this.isSetAltimeter()?this.getAltimeter():null);
+            theField = (this.isSetAltimeter() ? this.getAltimeter() : null);
             strategy.appendField(locator, this, "altimeter", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<MissedApproachGroupTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;
