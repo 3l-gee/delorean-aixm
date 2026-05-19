@@ -1,0 +1,37 @@
+name : "Delorean CLI Task Example"
+pipeline:
+  - container: "container-A"
+    context: "donlon"
+    database:
+      url: "jdbc:postgresql://localhost:5433/aixm51"
+      username: "postgres"
+      password: "postgres"
+      hbm2ddl: "update"
+    actions:
+        - info
+        - unmarshal: "C:/Users/rapha/Downloads/aixm51/baseline.xml"
+        - saxvalidation:
+            severity: "fatal"
+            ignoreWarnings: true
+        - persist:
+            batchSize: 500
+            flushEveryStep: false
+        - marshal: "C:/Users/rapha/Downloads/aixm51/output.xml"
+
+  - container: "container-B"
+    context: "donlon"
+    database:
+      url: "jdbc:postgresql://localhost:5433/aixm51"
+      username: "postgres"
+      password: "postgres"
+    actions:
+      - info
+      - unmarshal: "C:/Users/rapha/Downloads/aixm51/baseline.xml"
+  
+  - merge:
+      source: "container-B"
+      target: "container-A"
+
+  - filter:
+      positive: "container-B"
+      negative: "container-C"

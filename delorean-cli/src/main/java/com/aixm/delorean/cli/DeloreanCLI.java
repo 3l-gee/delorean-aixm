@@ -3,11 +3,28 @@ package com.aixm.delorean.cli;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-import java.util.concurrent.Callable;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.Callable;
+
 import com.aixm.delorean.core.DeloreanProcessor;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.log.ConsoleLogger;
+import com.aixm.delorean.core.log.LogLevel;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.networknt.schema.JsonSchema;
+import com.networknt.schema.JsonSchemaFactory;
+import com.networknt.schema.SpecVersion;
+import com.networknt.schema.ValidationMessage;
 
 @Command(mixinStandardHelpOptions = true, version = "0.2.0")
 public abstract class DeloreanCLI implements Callable<Integer> {
@@ -31,8 +48,152 @@ public abstract class DeloreanCLI implements Callable<Integer> {
             return 1;
         }
 
-        run(processor);
-        return 0;
+        if (!yamlFile.exists()) {
+            System.err.println("Error: Configuration file not found: " + yamlFile.getAbsolutePath());
+            return 1;
+        }
+
+        // Run structural validation against internal resources
+        if (!validateYaml(yamlFile)) {
+            System.err.println("Validation failures encountered. Halting execution pipeline.");
+            return 1;
+        }
+
+        return executePipeline(processor, yamlFile) ? 0 : 1;
+    }
+
+    private boolean validateYaml(File yaml) {
+        String schemaResourcePath = "/delorean-schema.json";
+        
+        try (InputStream schemaStream = getClass().getResourceAsStream(schemaResourcePath)) {
+            if (schemaStream == null) {
+                if (strict) {
+                    System.err.println("Strict Mode Error: Embedded validation schema '" + schemaResourcePath + "' was not found in JAR resources.");
+                    return false;
+                }
+                if (verbose) System.out.println("Validation skipped: Embedded schema file not found in resources.");
+                return true; // Lenient bypass if schema is absent in normal execution
+            }
+
+            ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory());
+            JsonNode jsonNode = yamlMapper.readTree(yaml);
+
+            JsonSchemaFactory factory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V202012);
+            JsonSchema jsonSchema = factory.getSchema(schemaStream);
+            Set<ValidationMessage> errors = jsonSchema.validate(jsonNode);
+
+            if (!errors.isEmpty()) {
+                System.err.println("YAML Configuration Rule Violations Detected:");
+                for (ValidationMessage error : errors) {
+                    System.err.println(" -> " + error.getMessage());
+                }
+                return false;
+            }
+
+            return true;
+        } catch (Exception e) {
+            System.err.println("Pre-flight validation engine error while parsing schema resource: " + e.getMessage());
+            return false;
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private boolean executePipeline(DeloreanProcessor processor, File yaml) {
+        try {
+            ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+            Map<String, Object> rootConfig = mapper.readValue(yaml, Map.class);
+
+            List<Object> pipelineSteps = (List<Object>) rootConfig.get("pipeline");
+            for (Object stepObj : pipelineSteps) {
+
+            }
+
+            // 1. Setup Global Default Variables
+            String context = (String) rootConfig.getOrDefault("context", "donlon");
+            processor.setContext(context, "");
+
+            Map<String, Object> dbCreds = (Map<String, Object>) rootConfig.get("database");
+            List<Object> pipelineSteps = (List<Object>) rootConfig.get("pipeline");
+
+            if (dbCreds == null || pipelineSteps == null) {
+                System.err.println("Malformed configuration file: Missing 'database' or 'pipeline' sequence blocks.");
+                return false;
+            }
+
+            // Track active space context blocks predictably inside an isolation memory map
+            Map<String, Container<?,?,?,?>> containers = new HashMap<>();
+
+            // 2. Drive sequentially through the pipeline sequence
+            for (Object stepObj : pipelineSteps) {
+                if (!(stepObj instanceof Map)) continue;
+                Map<String, Object> block = (Map<String, Object>) stepObj;
+
+                // --- Scenario 1: Process Container Configuration Blocks ---
+                if (block.containsKey("container")) {
+                    String id = String.valueOf(block.get("container"));
+                    List<Object> actionSteps = (List<Object>) block.get("actions");
+
+                    if (verbose) System.out.println("-> Constructing isolation space environment: [" + id + "]");
+                    
+                    Container<?,?,?,?> container = processor.newContainer();
+                    container.getDatabaseBinding().setUrl((String) dbCreds.get("url"));
+                    container.getDatabaseBinding().setUsername((String) dbCreds.get("username"));
+                    container.getDatabaseBinding().setPassword((String) dbCreds.get("password"));
+                    container.getDatabaseBinding().setHbm2ddl("create");
+                    container.startup();
+
+                    if (actionSteps != null) {
+                        for (Object step : actionSteps) {
+                            if (step instanceof String) {
+                                runAtomicAction(container, (String) step, null);
+                            } else if (step instanceof Map) {
+                                Map<String, Object> stepMap = (Map<String, Object>) step;
+                                String commandName = stepMap.keySet().iterator().next();
+                                runAtomicAction(container, commandName, stepMap.get(commandName));
+                            }
+                        }
+                    }
+                    containers.put(id, container);
+                } 
+                
+                // --- Scenario 2: Process Explicit Merge Blocks ---
+                else if (block.containsKey("merge")) {
+                    Map<String, Object> mergeOpts = (Map<String, Object>) block.get("merge");
+                    String srcKey = String.valueOf(mergeOpts.get("source"));
+                    String tgtKey = String.valueOf(mergeOpts.get("target"));
+
+                    Container<?,?,?,?> source = containers.get(srcKey);
+                    Container<?,?,?,?> target = containers.get(tgtKey);
+
+                    if (source == null || target == null) {
+                        throw new IllegalStateException("Execution pipeline fault: Cannot merge '" + srcKey + "' to '" + tgtKey + "'. Active space uninitialized.");
+                    }
+
+                    if (verbose) System.out.println("-> Running Merge Operation: Mapping [" + srcKey + "] into [" + tgtKey + "]");
+                    target.merge(source);
+                } 
+                
+                // --- Scenario 3: Process Explicit Filter Blocks ---
+                else if (block.containsKey("filter")) {
+                    Map<String, Object> filterOpts = (Map<String, Object>) block.get("filter");
+                    String posKey = String.valueOf(filterOpts.get("positive"));
+                    String negKey = String.valueOf(filterOpts.get("negative"));
+
+                    if (verbose) System.out.println("-> Running Split Filter. Tracking outputs across: [" + posKey + " / " + negKey + "]");
+                }
+            }
+
+            // 3. Cleanup tracked dependencies gracefully
+            for (Container<?,?,?,?> activeContainer : containers.values()) {
+                try { activeContainer.shutdown(); } catch (Exception ignored) {}
+            }
+
+            return true;
+        } catch (Exception e) {
+            System.err.println("Fatal execution failure during sequential processing: " + e.getMessage());
+            if (verbose) e.printStackTrace();
+            return false;
+        }
     }
 
     private void run(DeloreanProcessor processor) {
@@ -44,8 +205,13 @@ public abstract class DeloreanCLI implements Callable<Integer> {
             baseline.getDatabaseBinding().setPassword("postgres");
             baseline.getDatabaseBinding().setHbm2ddl("create");
             baseline.startup();
-            baseline.unmarshal("C:/Users/rapha/Downloads/aixm51/baseline.xml");
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm51/baseline.xml");
+            baseline.unmarshal("C:/Users/rapha/Downloads/aixm51/EDDF_AerodromeMapping_2025-08-07_2025-08-07_snapshot.xml");
+            baseline.info();
+            baseline.saxValidation();
+            baseline.printValidation();
             baseline.persist();
+
 
             Container<?,?,?,?> notam = processor.newContainer();
             notam.getDatabaseBinding().setUrl("jdbc:postgresql://localhost:5433/aixm51");
@@ -53,14 +219,21 @@ public abstract class DeloreanCLI implements Callable<Integer> {
             notam.getDatabaseBinding().setPassword("postgres");
             notam.getDatabaseBinding().setHbm2ddl("none");
             notam.startup();
-
-            notam.predicate("2024-01-01T00:00:00Z");
-            notam.integrate("C:/Users/rapha/Downloads/aixm51/permdelta.xml");
-            notam.marshal("C:/Users/rapha/Downloads/aixm51/integrate.xml");
-            notam.merge();
-
             notam.extract(1L);
-            notam.marshal("C:/Users/rapha/Downloads/aixm51/full.xml");
+            baseline.info();
+            notam.saxValidation();
+            notam.printValidation();    
+            notam.marshal("C:/Users/rapha/Downloads/aixm51/obst.xml");
+
+            // notam.predicate("2024-01-01T00:00:00Z");
+            // notam.integrate("C:/Users/rapha/Downloads/aixm51/permdelta.xml");
+            // notam.marshal("C:/Users/rapha/Downloads/aixm51/integrate.xml");
+            // notam.merge();
+
+            // notam.extract(1L);
+            // notam.marshal("C:/Users/rapha/Downloads/aixm51/full.xml");
+            // notam.diff();
+            // notam.marshal("C:/Users/rapha/Downloads/aixm51/diff.xml");
 
 
             // notam.extract(1);

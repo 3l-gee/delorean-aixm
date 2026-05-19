@@ -32,8 +32,7 @@
     <maven-min.version>3.9.0</maven-min.version>
     <annotation.version>2.1.1</annotation.version>
     <eclipselink.version>4.0.2</eclipselink.version>
-    <hisrc-basicjaxb.version>2.2.1</hisrc-basicjaxb.version>
-    <hisrc-hyperjaxb.version>2.2.1</hisrc-hyperjaxb.version>
+    <hisrc.version>2.2.1</hisrc.version>
     <h2database.version>2.2.224</h2database.version>
     <postgresql.version>42.7.3</postgresql.version>
     <postgis.version>2025.1.1</postgis.version>
@@ -45,6 +44,9 @@
     <proj4.version>1.4.1</proj4.version>
     <freemarker.version>2.3.34</freemarker.version>
     <mapstruct.version>1.6.3</mapstruct.version>
+    <picocli.version>4.7.7</picocli.version>
+    <jackson.version>2.20.2</jackson.version>
+    <json-schema-validator.version>1.0.79</json-schema-validator.version>
   </properties>
   <modules>
     <module>post-jaxb</module>
@@ -91,6 +93,11 @@
             <artifactId>hibernate-hikaricp</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
+        <dependency>
+          <groupId>org.hibernate.orm</groupId>
+          <artifactId>hibernate-jcache</artifactId>
+          <version>${hibernate.version}</version>
+      </dependency>
 
 		<!-- MapStruct -->
         <dependency>
@@ -127,12 +134,12 @@
         <dependency>
             <groupId>org.patrodyne.jvnet</groupId>
             <artifactId>hisrc-basicjaxb-runtime</artifactId>
-            <version>${hisrc-basicjaxb.version}</version>
+            <version>${hisrc.version}</version>
         </dependency>
         <dependency>
             <groupId>org.patrodyne.jvnet</groupId>
             <artifactId>hisrc-hyperjaxb-ejb-runtime</artifactId>
-            <version>${hisrc-hyperjaxb.version}</version>
+            <version>${hisrc.version}</version>
         </dependency>
 
 		<dependency>

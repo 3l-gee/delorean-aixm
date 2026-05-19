@@ -37,9 +37,9 @@
 		<dependency>
 			<groupId>org.patrodyne.jvnet</groupId>
 			<artifactId>hisrc-basicjaxb-runtime</artifactId>
-			<version>${hisrc-basicjaxb.version}</version>
+			<version>${hisrc.version}</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.patrodyne.jvnet</groupId>
 			<artifactId>hisrc-hyperjaxb-ejb-runtime</artifactId>
 			<version>${hisrc-hyperjaxb.version}</version>
@@ -53,24 +53,19 @@
             <groupId>org.patrodyne.jvnet</groupId>
             <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
             <version>${hisrc-hyperjaxb.version}</version>
-        </dependency>
+        </dependency> -->
 
         <!-- Database Dependencies -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>${h2database.version}</version>
-		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>${postgresql.version}</version>
-		</dependency>
-        <dependency>
+		</dependency> -->
+        <!-- <dependency>
             <groupId>net.postgis</groupId>
             <artifactId>postgis-jdbc</artifactId>
             <version>${postgis.version}</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
@@ -136,6 +131,13 @@
             <groupId>org.locationtech.proj4j</groupId>
             <artifactId>proj4j-epsg</artifactId>
             <version>${proj4.version}</version>
+        </dependency>
+
+        <!-- Equals Dependencies-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version>
         </dependency>
 
         <!-- XML templates Dependencies -->
@@ -366,12 +368,12 @@
                     <plugin>
                         <groupId>org.patrodyne.jvnet</groupId>
                         <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
-                        <version>${hisrc-hyperjaxb.version}</version>
+                        <version>${hisrc.version}</version>
                         <dependencies>
                             <dependency>
                                 <groupId>org.patrodyne.jvnet</groupId>
                                 <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
-                                <version>${hisrc-hyperjaxb.version}</version>
+                                <version>${hisrc.version}</version>
                             </dependency>
                         </dependencies>
                         <executions>

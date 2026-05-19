@@ -27,6 +27,10 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
         super();
     }
 
+        /**
+     * Computes information about the AIXM message like the earliest and latest feature lifetime, valid time, and counts of different slice types. It combines the temporality information of all features in the message to provide an overall summary.
+     * @param message The AIXM message to analyze.
+     */
     @Override
     public void info(AIXMBasicMessageType message) {
         TemporalityInspector combinedInspector = new TemporalityInspector(Instant.MAX, Instant.MIN, Instant.MAX, Instant.MIN, 0, 0, 0, 0);
@@ -42,6 +46,11 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
         combinedInspector.printSummary();
     }
 
+    /**
+     * Computes statistics about the AIXM message, such as the number of features and time slices.
+     * @param message The AIXM message to analyze.
+     * @return A string summarizing the statistics of the message.
+     */
     @Override
     public String statistics(AIXMBasicMessageType message) {
         Integer featureCount = 0;
@@ -66,17 +75,23 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
     }
 
     @Override
-    public AIXMBasicMessageType merge(AIXMBasicMessageType message) {
+    public AIXMBasicMessageType combine(AIXMBasicMessageType message) {
         return null;
     }
 
+    /**
+     * Integrates a new partial AIXM message with an existing current AIXM message by merging features based on their identifiers. For each feature in the new message, it checks if a corresponding feature exists in the current message. If it does, it merges their time slices to create a complete feature. The result is a new AIXM message that combines the information from both messages, effectively converting temporary or permanent deltas into baseline features.
+     * @param currentMessage The existing AIXM message that serves as the baseline for integration
+     * @param newMessage The new partial AIXM message to integrate
+     * @return The integrated AIXM message
+     */
     @SuppressWarnings("unchecked")
     @Override
     public AIXMBasicMessageType integrate(AIXMBasicMessageType currentMessage, AIXMBasicMessageType newMessage) {
         Map<String, AbstractAIXMFeatureType> currentIdsFeatures = new HashMap<>();
 
         for (BasicMessageMemberAIXMPropertyType currentMember : currentMessage.getHasMember()) {
-
+            System.out.println("Processing currentMessage with id : " + currentMember.getAbstractAIXMFeature().getValue().getIdentifier().getValue());
             AbstractAIXMFeatureType currentFeature = currentMember.getAbstractAIXMFeatureValue();
             if (currentFeature == null || currentFeature.getIdentifier() == null) {
                 continue;
@@ -90,8 +105,7 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
             AbstractAIXMFeatureType previous = currentIdsFeatures.putIfAbsent(currentIdentifier, currentFeature);
 
             if (previous != null) {
-                ConsoleLogger.log(LogLevel.WARN, "Duplicate AIXM feature identifier detected: " + currentIdentifier
-                );
+                ConsoleLogger.log(LogLevel.WARN, "Duplicate AIXM feature identifier detected: " + currentIdentifier);
             }
         }
 
@@ -99,7 +113,7 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
         newMessage.unsetHasMember();
 
         for (BasicMessageMemberAIXMPropertyType newPartialMember  : newPartialMembers) {
-
+            System.out.println("Processing newMessage with id : " + newPartialMember.getAbstractAIXMFeature().getValue().getIdentifier().getValue());
             AbstractAIXMFeatureType newPartialFeature = newPartialMember.getAbstractAIXMFeatureValue();
             AbstractAIXMFeatureType newCompletedFeature;
             try {
@@ -118,39 +132,59 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
 
             AbstractAIXMFeatureType currentFeature = currentIdsFeatures.get(newPartialIdentifier);
             
-
             if (currentFeature != null) {
                 // Existing feature 
                 newCompletedFeature = this.integrateAixmFeature(newPartialFeature.getClass(), currentFeature, newPartialFeature);
                 Class<AbstractAIXMFeatureType> declaredType = (Class<AbstractAIXMFeatureType>) newPartialFeature.getClass();
-                JAXBElement<? extends AbstractAIXMFeatureType> newCompletedFeatureElement = new JAXBElement<>(new QName("http://www.aixm.aero/schema/5.1.1", newPartialFeature.getClass().getSimpleName()), declaredType, newCompletedFeature);
+                JAXBElement<? extends AbstractAIXMFeatureType> newCompletedFeatureElement = new JAXBElement<>(new QName("http://www.aixm.aero/schema/5.1", newPartialFeature.getClass().getSimpleName()), declaredType, newCompletedFeature);
                 newPartialMember.setAbstractAIXMFeature(newCompletedFeatureElement);
-
-                newMessage.getHasMember().add(newPartialMember);
-            } else {
-                // New feature
-                newMessage.getHasMember().add(newPartialMember);
             }
+
+            newMessage.getHasMember().add(newPartialMember);
         }
 
         return newMessage;
     }
 
+    /**
+     * Computes the difference between two AIXM messages by comparing their features time slices. For each feature in the new message, it checks if a corresponding feature exists in the current message. If it does, it compares their time slices to identify changes and creates a new feature that represents the differences. The result is a new AIXM message that contains only the features and time slices that have changed between the two messages, effectively creating a delta message that can be used for updates or synchronization.
+      * @param message The new AIXM message to compare against the current message
+      * @return An AIXM message containing only the differences between the new and current messages
+     */
+    @SuppressWarnings("unchecked")
     @Override
-    public AIXMBasicMessageType delta(AIXMBasicMessageType oldMessage, AIXMBasicMessageType newMessage) {
-        return null;
+    public AIXMBasicMessageType diff(AIXMBasicMessageType message) {
+        List<BasicMessageMemberAIXMPropertyType> messageMember = new ArrayList<>(message.getHasMember());
+        message.unsetHasMember();
+
+        for (BasicMessageMemberAIXMPropertyType member : messageMember) {
+            AbstractAIXMFeatureType fullFeature = member.getAbstractAIXMFeatureValue();
+            AbstractAIXMFeatureType diffFeature;
+            try {
+                diffFeature = fullFeature.getClass().getDeclaredConstructor().newInstance();
+            } catch (Exception e) {
+                throw new RuntimeException("Failed to instantiate " + fullFeature.getClass(), e);
+            }
+            if (fullFeature == null || fullFeature.getIdentifier() == null) {
+                continue;
+            }
+
+            diffFeature = this.diffAixmFeature(fullFeature.getClass(), fullFeature);
+
+            if (diffFeature == null) {
+                System.out.println("No diff for feature with id : " + fullFeature.getIdentifier().getValue());
+                continue;
+            } else {
+                Class<AbstractAIXMFeatureType> declaredType = (Class<AbstractAIXMFeatureType>) fullFeature.getClass();
+                JAXBElement<? extends AbstractAIXMFeatureType> diffFeatureElement = new JAXBElement<>(new QName("http://www.aixm.aero/schema/5.1", fullFeature.getClass().getSimpleName()), declaredType, diffFeature);
+                member.setAbstractAIXMFeature(diffFeatureElement);
+
+                message.getHasMember().add(member);
+            }
+        }
+
+        return message;
     }
-    // @Override
-    // public Object delta(Object oldMessage, Object newMessage) {
-    //     if (AbstractAIXMTimeSliceType.class.isAssignableFrom(type) == false) {
-    //         throw new RuntimeException("Unsupported type for integration: " + type);
-    //     }
-    //     AbstractAIXMTimeSliceType oldTS = (AbstractAIXMTimeSliceType) oldObj;
-    //     AbstractAIXMTimeSliceType newTS = (AbstractAIXMTimeSliceType) newObj;
-    //     @SuppressWarnings("unchecked")
-    //     Object result = deltaAixmTimeSlice((Class<? extends AbstractAIXMTimeSliceType>) type, oldTS, newTS);
-    //     return result;
-    // }
 
     /**
      *  Merges partial feature's timeslice (TEMPDELTA or PERMDELTA) with current feature's timeslice to crate BASELINE slices. effectively converting TEMPDELTA or PERMDELTA into BASELINE slices.
@@ -164,11 +198,14 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
      */ 
     private <FTYPE extends AbstractAIXMFeatureType> FTYPE integrateAixmFeature(Class<FTYPE> featureType, AbstractAIXMFeatureType currentFeature, AbstractAIXMFeatureType newPartialFeature) {
         FTYPE outputFeature; 
+
         try {
             outputFeature = featureType.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             throw new RuntimeException("Failed to instantiate " + featureType.getSimpleName(), e);
         }
+
+        outputFeature.setIdentifier(currentFeature.getIdentifier());
 
         if (featureType != currentFeature.getClass() && featureType != newPartialFeature.getClass() && currentFeature.getClass() != newPartialFeature.getClass()) {
             throw new IllegalArgumentException("Identifier <" + currentFeature.getIdentifier() + "> does not map to the same AIXM type, new : " + newPartialFeature.getClass() + " current : " + currentFeature.getClass());
@@ -207,32 +244,40 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
             newCompletedTimeSlice.setFeatureLifetime(currentTimeSlice.getFeatureLifetime());
 
             for (Field field : timeSliceType.getDeclaredFields()) {
+                System.out.println(" Field :" + field.getName());
                 try {
                     field.setAccessible(true);
                     Object currentVal = field.get(currentTimeSlice);
                     Object newVal = field.get(newTimeSlice);
 
+                    // Skip serialVersionUID
                     if (field.getName().equals("serialVersionUID")) {
                         continue;
 
+                    // Both null => nothing
                     } else if (currentVal == null && newVal == null) {
                         continue;
 
+                    // Was null, is now set => set new val
                     } else if (currentVal == null && newVal != null) {
                         field.set(newCompletedTimeSlice, newVal);
-
+                    
+                    // Was set, is now null => keep old val
                     } else if (currentVal != null && newVal == null) {
                         field.set(newCompletedTimeSlice, currentVal);
 
+                    // Both Set, JAXB Content analyse
                     } else if (currentVal instanceof JAXBElement<?> || newVal instanceof JAXBElement<?>) {
-                        if (isDifferent(currentVal, newVal)) {
+                        if (isDifferentIntegrate((JAXBElement<?>) currentVal, (JAXBElement<?>) newVal)) {
                             field.set(newCompletedTimeSlice, newVal);
+                            System.out.println("Set newVal");
                         } else {
                             field.set(newCompletedTimeSlice, currentVal);
+                            System.out.println("Set currentVal");
                         }
-                        
+                    // Both Set, List Content analyse
                     } else if (currentVal instanceof List<?> || newVal instanceof List<?>) {
-                        if (isDifferent(currentVal, newVal)) {
+                        if (isDifferentIntegrate((List<?>) currentVal, (List<?>) newVal)) {
                             field.set(newCompletedTimeSlice, newVal);
                         } else {
                             field.set(newCompletedTimeSlice, currentVal);
@@ -247,65 +292,113 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
 
                 }
             }
+
+            Aixm511TimeSliceEngine.injectTimeSlice((AbstractAIXMFeatureType) outputFeature, newCompletedTimeSlice);
         }
 
         return outputFeature;
     }
-
-    public <CT extends AbstractAIXMTimeSliceType> CT deltaAixmTimeSlice(Class<CT> type, AbstractAIXMTimeSliceType oldObj, AbstractAIXMTimeSliceType newObj) {
-        CT result;
-        try {
-            result = type.getDeclaredConstructor().newInstance();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to instantiate " + type.getSimpleName(), e);
-        }
-
-        result.setId(newObj.getId());
-        result.setInterpretation("PERMDELTA");
-        result.setSequenceNumber(newObj.getSequenceNumber());
-        result.setCorrectionNumber(newObj.getCorrectionNumber());
-        result.setTimeSliceMetadata(newObj.getTimeSliceMetadata());
-        result.setValidTime(newObj.getValidTime());
-
-        for (Field field : type.getDeclaredFields()) {
-            try {
-                field.setAccessible(true);
-                Object oldVal = field.get(oldObj);
-                Object newVal = field.get(newObj);
-
-                if (field.getName().equals("serialVersionUID")) {
-                    continue;
-
-                } else if (oldVal == null && newVal == null) {
-                    continue;
-
-                } else if (oldVal == null && newVal != null) {
-                    field.set(result, newVal);
-
-                } else if (oldVal != null && newVal == null) {
-                    field.set(result, oldVal);
-
-                } else if (oldVal instanceof JAXBElement<?> || newVal instanceof JAXBElement<?>) {
-                    if (isDifferent(oldVal, newVal)) {
-                        field.set(result, newVal);
-                    }
-                    
-                } else if (oldVal instanceof List<?> || newVal instanceof List<?>) {
-                    if (isDifferent(oldVal, newVal)) {
-                        field.set(result, newVal);
-                    }
-
-                } else {
-                    throw new RuntimeException("AXIM feature should only contain JAXBElement or List fields, got : " + field.getName() + " / " + oldVal.getClass());
-                }
-
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException("Failed to access field " + field.getName(), e);
-
-            }
-        }
-
-        return result;
-    }
     
+    /**
+     * Compares two time slice field values to determine if they are different for the purpose of diffing. It handles null values, JAXBElement content, and List content to accurately identify differences between the current and new values.
+     * @param <FTYPE> the concrete AIXM feature type produced by this method
+     * @param featureType the feature class used to instantiate the result
+     * @param feature the AIXM feature to diff, never {@code null}
+     * @return
+     */
+    public <FTYPE extends AbstractAIXMFeatureType> FTYPE diffAixmFeature(Class<FTYPE> featureType, AbstractAIXMFeatureType feature) {
+        FTYPE diffFeature;
+
+        try {
+            diffFeature = featureType.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to instantiate " + featureType.getSimpleName(), e);
+        }
+
+        diffFeature.setIdentifier(feature.getIdentifier());
+
+        if (featureType != feature.getClass()) {
+            throw new IllegalArgumentException("Identifier <" + feature.getIdentifier() + "> does not map to the same AIXM type, new : " + feature.getClass() + " current : " + feature.getClass());
+        }
+
+        Comparator<AbstractAIXMTimeSliceType> timeSliceComparator = Comparator.comparing(
+            AbstractAIXMTimeSliceType::getSequenceNumber,Comparator.nullsLast(Long::compare))
+            .thenComparing(
+                AbstractAIXMTimeSliceType::getCorrectionNumber,Comparator.nullsLast(Long::compare)
+            );
+
+        List<AbstractAIXMTimeSliceType> listFullTimeSlice = Aixm511TimeSliceEngine.invokeTimeSlice(feature);
+
+        if (listFullTimeSlice.isEmpty() || listFullTimeSlice.size() < 2) {
+            return null;
+        }
+        Class<? extends AbstractAIXMTimeSliceType> timeSliceType = listFullTimeSlice.getFirst().getClass();
+
+        listFullTimeSlice.sort(timeSliceComparator);
+
+        // Sliding Window: Start from index 1 and look back at i-1
+        for (int i = 1; i < listFullTimeSlice.size(); i++) {
+            AbstractAIXMTimeSliceType previous = listFullTimeSlice.get(i - 1);
+            AbstractAIXMTimeSliceType current = listFullTimeSlice.get(i);
+
+            AbstractAIXMTimeSliceType  diffTimeSlice;
+            try {
+                diffTimeSlice = timeSliceType.getDeclaredConstructor().newInstance();
+            } catch (Exception e) {
+                throw new RuntimeException("Failed to instantiate " + timeSliceType, e);
+            }
+
+            diffTimeSlice.setId(current.getId());
+            diffTimeSlice.setInterpretation("PERMDELTA");
+            diffTimeSlice.setSequenceNumber(current.getSequenceNumber());
+            diffTimeSlice.setCorrectionNumber(current.getCorrectionNumber());
+            diffTimeSlice.setTimeSliceMetadata(current.getTimeSliceMetadata());
+            diffTimeSlice.setValidTime(current.getValidTime());
+
+            for (Field field : timeSliceType.getDeclaredFields()) {
+                try {
+                    field.setAccessible(true);
+                    Object previousVal = field.get(previous);
+                    Object currentVal = field.get(current);
+
+                    if (field.getName().equals("serialVersionUID")) {
+                        continue;
+
+                    } else if (previousVal == null && currentVal == null) {
+                        System.out.println("Both null for field " + field.getName() + ", skipping");
+                        continue;
+
+                    } else if (previousVal == null && currentVal != null) {
+                        System.out.println("New value for field " + field.getName() + ", setting currentVal");
+                        field.set(diffTimeSlice, currentVal);
+
+                    } else if (previousVal instanceof JAXBElement<?> || currentVal instanceof JAXBElement<?>) {
+                        System.out.println("Comparing JAXBElement for field " + field.getName());
+                        if (isDifferentDiff((JAXBElement<?>) previousVal, (JAXBElement<?>) currentVal)) {
+                            System.out.println("Different JAXBElement for field " + field.getName() + ", setting currentVal");
+                            field.set(diffTimeSlice, currentVal);
+                        }
+                        
+                    } else if (previousVal instanceof List<?> || currentVal instanceof List<?>) {
+                        System.out.println("Comparing List for field " + field.getName());
+                        if (isDifferentDiff((List<?>) previousVal, (List<?>) currentVal)) {
+                            System.out.println("Different List for field " + field.getName() + ", setting currentVal");
+                            field.set(diffTimeSlice, currentVal);
+                        }
+
+                    } else {
+                        throw new RuntimeException("AXIM TimeSlice should only contain JAXBElement or List fields, got : " + field.getName() + " / " + previousVal.getClass());
+                    }
+
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException("Failed to access field " + field.getName(), e);
+
+                }
+            }
+
+            Aixm511TimeSliceEngine.injectTimeSlice((AbstractAIXMFeatureType) diffFeature, diffTimeSlice);
+        }
+
+        return diffFeature;
+    }
 }
