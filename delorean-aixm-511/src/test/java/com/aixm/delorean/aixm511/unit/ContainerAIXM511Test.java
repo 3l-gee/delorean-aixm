@@ -25,8 +25,8 @@ Simple lifecycle test for AIXM 5.1.1 Delorean container with specific marshallin
 public class ContainerAIXM511Test {
     String firstContainerID;
     String secondContainerID;
-    Container<?,?,?,?> firstContainer;
-    Container<?,?,?,?> secondContainer;
+    Container<?,?,?,?,?,?> firstContainer;
+    Container<?,?,?,?,?,?> secondContainer;
     DeloreanAIXM511 deloreanAIXM511 = new DeloreanAIXM511();
     
     @Test
@@ -85,7 +85,7 @@ public class ContainerAIXM511Test {
         XmlBindingService<?,?> xmlBinding = secondContainer.getXmlBinding();
         assertThat(xmlBinding).isNotNull();
 
-        // ciontainer has Database binding
+        // container has Database binding
         DatabaseBindingService<?,?,?,?> dbBinding = secondContainer.getDatabaseBinding();
         assertThat(dbBinding).isNotNull();
 

@@ -7,21 +7,22 @@ import com.aixm.delorean.core.xml.XMLBindingFactory;
 import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 import javax.xml.namespace.QName;
 
-public class Delorean<ROOT, FEATURE, TIMESLICE, OBJECT> {
+public class Delorean<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, CONFIG> {
 
     private Delorean() {
         // Prevent instantiation without configuration
     }
     
     @SuppressWarnings("unchecked")
-    public static <ROOT, FEATURE, TIMESLICE, OBJECT> ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT> initContainerWarehouse(CoreConfig config) {
+    public static <ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> ContainerWarehouse<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> initContainerWarehouse(CoreConfig config) {
         Class<ROOT> rootClass = (Class<ROOT>) config.getRootClass();
         Class<FEATURE> featureClass = (Class<FEATURE>) config.getFeatureClass();
         Class<TIMESLICE> timeSliceClass = (Class<TIMESLICE>) config.getTimeSliceClass();
         Class<OBJECT> objectClass = (Class<OBJECT>) config.getObjectClass();
+        Class<SEARCH_CONFIG> configClass = (Class<SEARCH_CONFIG>) config.getSearchConfigClass();
 
-        Class<? extends AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT>> engineClass = (Class<? extends AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT>>) config.getDeloreanEngineClass();
-        AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> deloreanEngine;
+        Class<? extends AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>> engineClass = (Class<? extends AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>>) config.getDeloreanEngineClass();
+        AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> deloreanEngine;
         try {
             deloreanEngine = engineClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
@@ -56,7 +57,7 @@ public class Delorean<ROOT, FEATURE, TIMESLICE, OBJECT> {
             config.getAIXMResourceAnchorsClass(), 
             databaseHelper);
 
-        return new ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT>(config.getName(), rootClass, featureClass, timeSliceClass, objectClass, qName, xmlFactory, databaseFactory, deloreanEngine, databaseHelper, config.getCoreResourceAnchorsClass(), config.getAIXMResourceAnchorsClass());
+        return new ContainerWarehouse<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>(config.getName(), rootClass, featureClass, timeSliceClass, objectClass, qName, xmlFactory, databaseFactory, deloreanEngine, databaseHelper, config.getCoreResourceAnchorsClass(), config.getAIXMResourceAnchorsClass());
     }
 
 }

@@ -10,18 +10,23 @@ import java.util.Map;
 
 import javax.xml.namespace.QName;
 
+import org.apache.commons.lang3.SerializationUtils;
+
+import com.aixm.delorean.aixm52.filter.Aixm52FilterConfig;
 import com.aixm.delorean.aixm52.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm52.schema.AbstractAIXMObjectType;
 import com.aixm.delorean.aixm52.schema.AbstractAIXMTimeSliceType;
 import com.aixm.delorean.aixm52.schema.message.AIXMBasicMessageType;
 import com.aixm.delorean.aixm52.schema.message.BasicMessageMemberAIXMPropertyType;
 import com.aixm.delorean.core.engine.TemporalityInspector;
+import com.aixm.delorean.core.filter.AbstractFilterConfig;
+import com.aixm.delorean.core.filter.AbstractFilterSpecification;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 
 import jakarta.xml.bind.JAXBElement;
 
-public class Aixm52Engine extends com.aixm.delorean.core.engine.AbstractEngine<AIXMBasicMessageType, AbstractAIXMFeatureType, AbstractAIXMTimeSliceType, AbstractAIXMObjectType> {
+public class Aixm52Engine extends com.aixm.delorean.core.engine.AbstractEngine<AIXMBasicMessageType, BasicMessageMemberAIXMPropertyType, AbstractAIXMFeatureType, AbstractAIXMTimeSliceType, AbstractAIXMObjectType, Aixm52FilterConfig> {
 
     public Aixm52Engine() {
         super();
@@ -69,14 +74,64 @@ public class Aixm52Engine extends com.aixm.delorean.core.engine.AbstractEngine<A
     }
 
     @Override
-    public AIXMBasicMessageType filter(AIXMBasicMessageType message, String filterExpression) {
-        // TODO Auto-generated method stub
-        return null;
+    public AIXMBasicMessageType filter(AIXMBasicMessageType message, AbstractFilterConfig filterExpression) {
+        if (message == null || message.getHasMember() == null) {
+            return message;
+        }
+
+        List<AbstractFilterSpecification<AbstractAIXMFeatureType>> featureFilter = filterExpression.getFeatureFilter();
+        List<AbstractFilterSpecification<AbstractAIXMTimeSliceType>> timesliceFilter = filterExpression.getTimesliceFilter();
+
+        List<BasicMessageMemberAIXMPropertyType> members = message.getHasMember();
+        
+        members.removeIf(member -> {
+
+            // 1 Feature Check
+            AbstractAIXMFeatureType feature = member.getAbstractAIXMFeature().getValue();
+            if (feature == null) {
+                return true;
+            }
+
+            for (AbstractFilterSpecification<AbstractAIXMFeatureType> spec : featureFilter) {
+                if (!spec.isSatisfiedBy(feature)) {
+                    return true;
+                }
+            }
+
+            // 2 TimeSlice Check
+            List<AbstractAIXMTimeSliceType> timeSlices = Aixm52TimeSliceEngine.invokeTimeSlice(feature);
+            if (timeSlices.isEmpty()) {
+                return true;
+            }
+
+            // Filter the timeslices list itself
+            timeSlices.removeIf(timeSlice -> {
+                for (AbstractFilterSpecification<AbstractAIXMTimeSliceType> spec : timesliceFilter) {
+                    if (!spec.isSatisfiedBy(timeSlice)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+
+            return timeSlices.isEmpty();
+        });
+
+        return message; 
     }
 
     @Override
     public AIXMBasicMessageType combine(AIXMBasicMessageType message) {
         return null;
+    }
+
+    @Override
+    public AIXMBasicMessageType clone(AIXMBasicMessageType message) {
+        if (message == null) {
+            return null;
+        }
+        AIXMBasicMessageType clonedMessage = SerializationUtils.clone(message);
+        return clonedMessage;
     }
 
     /**

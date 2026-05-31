@@ -10,9 +10,9 @@ import com.aixm.delorean.core.context.Context;
 public interface DeloreanProcessor {
     String getVersion();
     boolean supports(String version);
-    Container<?,?,?,?> container();
-    Container<?,?,?,?> newContainer();
-    Container<?,?,?,?> getContainerById(String id);
+    Container<?,?,?,?,?,?> container();
+    Container<?,?,?,?,?,?> newContainer();
+    Container<?,?,?,?,?,?> getContainerById(String id);
     Context setContext(String name, String description);
     Context registerContext(String salt, String name, String description);
     void removeContainerById(String id);

@@ -4,5 +4,6 @@ public enum HrefType {
     URN,
     UUID,
     URL,
-    OID
+    OID,
+    GML
 }

@@ -7,6 +7,7 @@ public class CoreConfig {
     protected final String name;
     protected final Class<?> rootClass;
     protected final Class<?> featureClass;
+    protected final Class<?> messageClass;
     protected final Class<?> timeSliceClass;
     protected final Class<?> objectClass;
     protected final QName qName;
@@ -16,6 +17,7 @@ public class CoreConfig {
     protected final String configurationPath;
     protected final Class<?> deloreanEngineClass;
     protected final Class<?> databaseHelperClass;
+    protected final Class<?> searchConfigClass;
     protected final Class<?> CoreResourceAnchorsClass;
     protected final Class<?> AIXMResourceAnchorsClass;
 
@@ -24,6 +26,7 @@ public class CoreConfig {
         // General settings
         String name,
         Class<?> root,
+        Class<?> message,
         Class<?> feature,
         Class<?> timeSlice,
         Class<?> object,
@@ -31,6 +34,7 @@ public class CoreConfig {
         // Engine settings
         Class<?> engineClass,
         Class<?> databaseHelperClass,
+        Class<?> searchConfigClass,
 
         // XML settings
         QName qName,
@@ -47,6 +51,7 @@ public class CoreConfig {
     ) {
         this.name = name;
         this.rootClass = root;
+        this.messageClass = message;
         this.timeSliceClass = timeSlice;
         this.objectClass = object;
         this.featureClass = feature;
@@ -57,6 +62,7 @@ public class CoreConfig {
         this.configurationPath = configurationPath;
         this.deloreanEngineClass = engineClass;
         this.databaseHelperClass = databaseHelperClass;
+        this.searchConfigClass = searchConfigClass;
         this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
         this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
     }
@@ -67,6 +73,10 @@ public class CoreConfig {
 
     public Class<?> getRootClass() {
         return this.rootClass;
+    }
+
+    public Class<?> getMessageClass() {
+        return this.messageClass;
     }
 
     public Class<?> getFeatureClass() {
@@ -107,6 +117,10 @@ public class CoreConfig {
     
     public Class<?> getDatabaseHelperClass() {
         return this.databaseHelperClass;
+    }
+
+    public Class<?> getSearchConfigClass() {
+        return this.searchConfigClass;
     }
 
     public Class<?> getCoreResourceAnchorsClass() {

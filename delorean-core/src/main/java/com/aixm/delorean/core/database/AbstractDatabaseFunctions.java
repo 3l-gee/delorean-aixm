@@ -12,6 +12,8 @@ import com.aixm.delorean.core.log.LogLevel;
 
 public abstract class AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
+    public abstract void getPersitedMessage(SessionFactory sessionFactory);
+
     public abstract void persist(ROOT message, SessionFactory sessionFactory);
 
     public abstract void merge(ROOT message, SessionFactory sessionFactory);

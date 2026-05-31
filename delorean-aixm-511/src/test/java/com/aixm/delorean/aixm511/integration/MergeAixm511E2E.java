@@ -32,8 +32,8 @@ public class MergeAixm511E2E {
 
     String id;
     DeloreanAIXM511 delorean;
-    Container<?,?,?,?> AContainer;
-    Container<?,?,?,?> BContainer;
+    Container<?,?,?,?,?,?> AContainer;
+    Container<?,?,?,?,?,?> BContainer;
     PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine").asCompatibleSubstituteFor("postgres"));
 
     @Test
@@ -64,7 +64,7 @@ public class MergeAixm511E2E {
         ContextWarehouse.getInstance().getActiveInfo();
 
         // context is correctly set
-        assertThat(ContextWarehouse.getInstance().getActive().getName()).isEqualTo("RoundTripXmlAixm51E2E");
+        assertThat(ContextWarehouse.getInstance().getActive().getName()).isEqualTo("RoundTripXmlAixm511E2E");
 
         // context has a non-null hash
         assertThat(ContextWarehouse.getActiveHash()).isNotNull();

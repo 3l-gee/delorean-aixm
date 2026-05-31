@@ -12,6 +12,7 @@ import com.aixm.delorean.core.database.HibernateHelper;
 import com.aixm.delorean.core.database.MutationFeatureTimeslice;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
+import com.aixm.delorean.core.org.gml.v_3_2.StringOrRefType;
 import com.aixm.delorean.core.database.TimeSliceAction;
 import com.aixm.delorean.core.database.BasicMessage;
 import com.aixm.delorean.core.database.MessageMemberLink;
@@ -154,6 +155,30 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
         "surveillance.radarsystem",
         "surveillance.secondarysurveillanceradar"
     );
+
+    /** Gets and logs all persisted AIXMBasicMessageType instances from the database. This method opens a Hibernate session, retrieves all AIXMBasicMessageType instances using a simple HQL query, and iterates through the results to log key properties of each message, including its HJID, ID, description, and the count of its members. Finally, the session is closed to free up resources.
+     * @param sessionFactory The Hibernate SessionFactory to use for database operations.
+     */
+    @Override
+    public void getPersitedMessage(SessionFactory sessionFactory) {
+        Session session = sessionFactory.openSession();
+        List<AIXMBasicMessageType> messages = session.createQuery("from AIXMBasicMessageType m",AIXMBasicMessageType.class).getResultList();
+        for (AIXMBasicMessageType m : messages) {
+            
+            // Extracting the requested properties (adjust getters if named differently in your JAXB/Entity class)
+            Long hjid = m.gethjid(); 
+            String id = m.getId(); 
+            StringOrRefType description = m.getDescription();
+            int memberCount = m.getHasMember() != null ? m.getHasMember().size() : 0;
+
+            ConsoleLogger.log(LogLevel.INFO, 
+                String.format("HJID: %d | ID: %s | Members: %d | Description: %s", 
+                    hjid, id, memberCount, description != null ? description.getValue() : "N/A")
+            );
+        }
+        
+        session.close();
+    }
 
     /**
      * Persists an AIXMBasicMessageType instance along with its associated BasicMessageMemberAIXMPropertyType instances. This method first persists the message itself, then iterates through the list of BasicMessageMemberAIXMPropertyType instances, persisting each one and creating a link between the message and its members in the database. The method uses batching to optimize performance when persisting a large number of members.

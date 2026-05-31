@@ -1,9 +1,9 @@
-package com.aixm.delorean.aixm52.unit;
+package com.aixm.delorean.aixm51.unit;
 
 import org.junit.jupiter.api.*;
 
-import com.aixm.delorean.aixm52.DeloreanAIXM52;
-import com.aixm.delorean.aixm52.engine.Aixm52Engine;
+import com.aixm.delorean.aixm51.DeloreanAIXM51;
+import com.aixm.delorean.aixm51.engine.Aixm51Engine;
 import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.xml.XmlBindingService;
@@ -22,28 +22,27 @@ Simple lifecycle test for AIXM 5.1.1 Delorean container with specific marshallin
 */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class ContainerAIXM511Test {
+public class ContainerAIXM51Test {
     String firstContainerID;
     String secondContainerID;
-    Container<?,?,?,?> firstContainer;
-    Container<?,?,?,?> secondContainer;
-    DeloreanAIXM52 deloreanAIXM52 = new DeloreanAIXM52();
+    Container<?,?,?,?,?,?> firstContainer;
+    Container<?,?,?,?,?,?> secondContainer;
     
     @Test
     @Order(1)
     void configDeloreanCore() {
 
         // given
-        firstContainer = deloreanAIXM52.newContainer();
+        firstContainer = new DeloreanAIXM51().newContainer();
 
         // container is successfully created
         assertThat(firstContainer).isNotNull();
 
         // container is correctly configured
-        assertThat(firstContainer.getRootClass()).isEqualTo(com.aixm.delorean.aixm52.schema.message.AIXMBasicMessageType.class);
-        assertThat(firstContainer.getFeatureClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMFeatureType.class);
-        assertThat(firstContainer.getTimeSliceClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMTimeSliceType.class);
-        assertThat(firstContainer.getObjectClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMObjectType.class);
+        assertThat(firstContainer.getRootClass()).isEqualTo(com.aixm.delorean.aixm51.schema.message.AIXMBasicMessageType.class);
+        assertThat(firstContainer.getFeatureClass()).isEqualTo(com.aixm.delorean.aixm51.schema.AbstractAIXMFeatureType.class);
+        assertThat(firstContainer.getTimeSliceClass()).isEqualTo(com.aixm.delorean.aixm51.schema.AbstractAIXMTimeSliceType.class);
+        assertThat(firstContainer.getObjectClass()).isEqualTo(com.aixm.delorean.aixm51.schema.AbstractAIXMObjectType.class);
 
         // container has XML binding
         XmlBindingService<?,?> xmlBinding = firstContainer.getXmlBinding();
@@ -54,15 +53,15 @@ public class ContainerAIXM511Test {
         assertThat(dbBinding).isNotNull();
 
         // container has Delorean engine
-        Aixm52Engine deloreanEngine = (Aixm52Engine) firstContainer.getDeloreanEngine();
+        Aixm51Engine deloreanEngine = (Aixm51Engine) firstContainer.getDeloreanEngine();
         assertThat(deloreanEngine).isNotNull();
 
         // container id is the same as the last id used
         firstContainerID = firstContainer.getId();
-        assertThat(firstContainer).isEqualTo(deloreanAIXM52.getContainerById(firstContainerID));
+        assertThat(firstContainer).isEqualTo(new DeloreanAIXM51().getContainerById(firstContainerID));
 
         // warehouse has one containe
-        List<String> idList = deloreanAIXM52.listContainerId();
+        List<String> idList = new DeloreanAIXM51().listContainerId();
         assertThat(idList).hasSize(1);
     }
 
@@ -70,16 +69,16 @@ public class ContainerAIXM511Test {
     @Order(2)
     void addNewContainer() {
 
-        secondContainer = deloreanAIXM52.newContainer();
+        secondContainer = new DeloreanAIXM51().newContainer();
 
         // container is successfully created
         assertThat(secondContainer).isNotNull();
 
         // container is correctly configured
-        assertThat(secondContainer.getRootClass()).isEqualTo(com.aixm.delorean.aixm52.schema.message.AIXMBasicMessageType.class);
-        assertThat(secondContainer.getFeatureClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMFeatureType.class);
-        assertThat(secondContainer.getTimeSliceClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMTimeSliceType.class);
-        assertThat(secondContainer.getObjectClass()).isEqualTo(com.aixm.delorean.aixm52.schema.AbstractAIXMObjectType.class);
+        assertThat(secondContainer.getRootClass()).isEqualTo(com.aixm.delorean.aixm51.schema.message.AIXMBasicMessageType.class);
+        assertThat(secondContainer.getFeatureClass()).isEqualTo(com.aixm.delorean.aixm51.schema.AbstractAIXMFeatureType.class);
+        assertThat(secondContainer.getTimeSliceClass()).isEqualTo(com.aixm.delorean.aixm51.schema.AbstractAIXMTimeSliceType.class);
+        assertThat(secondContainer.getObjectClass()).isEqualTo(com.aixm.delorean.aixm51.schema.AbstractAIXMObjectType.class);
 
         // container has XML binding
         XmlBindingService<?,?> xmlBinding = secondContainer.getXmlBinding();
@@ -90,15 +89,15 @@ public class ContainerAIXM511Test {
         assertThat(dbBinding).isNotNull();
 
         // container has Delorean engine
-        Aixm52Engine deloreanEngine = (Aixm52Engine) secondContainer.getDeloreanEngine();
+        Aixm51Engine deloreanEngine = (Aixm51Engine) secondContainer.getDeloreanEngine();
         assertThat(deloreanEngine).isNotNull();
 
         // container id is the same as the last id used
         String secondContainerID = secondContainer.getId();
-        assertThat(secondContainer).isEqualTo(deloreanAIXM52.getContainerById(secondContainerID));
+        assertThat(secondContainer).isEqualTo(new DeloreanAIXM51().getContainerById(secondContainerID));
 
         // warehouse has two containe
-        List<String> idList = deloreanAIXM52.listContainerId();
+        List<String> idList = new DeloreanAIXM51().listContainerId();
         assertThat(idList).hasSize(2);
 
     }
@@ -107,14 +106,14 @@ public class ContainerAIXM511Test {
     @Order(3)
     void removeFirstContainer() {
 
-        deloreanAIXM52.removeContainerById(firstContainerID);
+        new DeloreanAIXM51().removeContainerById(firstContainerID);
 
         // container id is the same as the last id used
         String id = secondContainer.getId();
-        assertThat(secondContainer).isEqualTo(deloreanAIXM52.getContainerById(id));
+        assertThat(secondContainer).isEqualTo(new DeloreanAIXM51().getContainerById(id));
 
         // warehouse has two containe
-        List<String> idList = deloreanAIXM52.listContainerId();
+        List<String> idList = new DeloreanAIXM51().listContainerId();
         assertThat(idList).hasSize(1);
 
     }

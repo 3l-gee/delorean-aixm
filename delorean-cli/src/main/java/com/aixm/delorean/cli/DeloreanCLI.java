@@ -54,176 +54,189 @@ public abstract class DeloreanCLI implements Callable<Integer> {
         }
 
         // Run structural validation against internal resources
-        if (!validateYaml(yamlFile)) {
-            System.err.println("Validation failures encountered. Halting execution pipeline.");
-            return 1;
-        }
+        // if (!validateYaml(yamlFile)) {
+        //     System.err.println("Validation failures encountered. Halting execution pipeline.");
+        //     return 1;
+        // }
 
-        return executePipeline(processor, yamlFile) ? 0 : 1;
+        run(processor);
+
+        return 0;
+
+        // return executePipeline(processor, yamlFile) ? 0 : 1;
     }
 
-    private boolean validateYaml(File yaml) {
-        String schemaResourcePath = "/delorean-schema.json";
+    // private boolean validateYaml(File yaml) {
+    //     String schemaResourcePath = "/delorean-schema.json";
         
-        try (InputStream schemaStream = getClass().getResourceAsStream(schemaResourcePath)) {
-            if (schemaStream == null) {
-                if (strict) {
-                    System.err.println("Strict Mode Error: Embedded validation schema '" + schemaResourcePath + "' was not found in JAR resources.");
-                    return false;
-                }
-                if (verbose) System.out.println("Validation skipped: Embedded schema file not found in resources.");
-                return true; // Lenient bypass if schema is absent in normal execution
-            }
+    //     try (InputStream schemaStream = getClass().getResourceAsStream(schemaResourcePath)) {
+    //         if (schemaStream == null) {
+    //             if (strict) {
+    //                 System.err.println("Strict Mode Error: Embedded validation schema '" + schemaResourcePath + "' was not found in JAR resources.");
+    //                 return false;
+    //             }
+    //             if (verbose) System.out.println("Validation skipped: Embedded schema file not found in resources.");
+    //             return true; // Lenient bypass if schema is absent in normal execution
+    //         }
 
-            ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory());
-            JsonNode jsonNode = yamlMapper.readTree(yaml);
+    //         ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory());
+    //         JsonNode jsonNode = yamlMapper.readTree(yaml);
 
-            JsonSchemaFactory factory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V202012);
-            JsonSchema jsonSchema = factory.getSchema(schemaStream);
-            Set<ValidationMessage> errors = jsonSchema.validate(jsonNode);
+    //         JsonSchemaFactory factory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V202012);
+    //         JsonSchema jsonSchema = factory.getSchema(schemaStream);
+    //         Set<ValidationMessage> errors = jsonSchema.validate(jsonNode);
 
-            if (!errors.isEmpty()) {
-                System.err.println("YAML Configuration Rule Violations Detected:");
-                for (ValidationMessage error : errors) {
-                    System.err.println(" -> " + error.getMessage());
-                }
-                return false;
-            }
+    //         if (!errors.isEmpty()) {
+    //             System.err.println("YAML Configuration Rule Violations Detected:");
+    //             for (ValidationMessage error : errors) {
+    //                 System.err.println(" -> " + error.getMessage());
+    //             }
+    //             return false;
+    //         }
 
-            return true;
-        } catch (Exception e) {
-            System.err.println("Pre-flight validation engine error while parsing schema resource: " + e.getMessage());
-            return false;
-        }
-    }
+    //         return true;
+    //     } catch (Exception e) {
+    //         System.err.println("Pre-flight validation engine error while parsing schema resource: " + e.getMessage());
+    //         return false;
+    //     }
+    // }
 
-    @SuppressWarnings("unchecked")
-    private boolean executePipeline(DeloreanProcessor processor, File yaml) {
-        try {
-            ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-            Map<String, Object> rootConfig = mapper.readValue(yaml, Map.class);
+    // @SuppressWarnings("unchecked")
+    // private boolean executePipeline(DeloreanProcessor processor, File yaml) {
+    //     try {
+    //         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+    //         Map<String, Object> rootConfig = mapper.readValue(yaml, Map.class);
 
-            List<Object> pipelineSteps = (List<Object>) rootConfig.get("pipeline");
-            for (Object stepObj : pipelineSteps) {
+    //         List<Object> pipelineSteps = (List<Object>) rootConfig.get("pipeline");
+    //         for (Object stepObj : pipelineSteps) {
 
-            }
+    //         }
 
-            // 1. Setup Global Default Variables
-            String context = (String) rootConfig.getOrDefault("context", "donlon");
-            processor.setContext(context, "");
+    //         // 1. Setup Global Default Variables
+    //         String context = (String) rootConfig.getOrDefault("context", "donlon");
+    //         processor.setContext(context, "");
 
-            Map<String, Object> dbCreds = (Map<String, Object>) rootConfig.get("database");
-            List<Object> pipelineSteps = (List<Object>) rootConfig.get("pipeline");
+    //         Map<String, Object> dbCreds = (Map<String, Object>) rootConfig.get("database");
+    //         List<Object> pipelineSteps = (List<Object>) rootConfig.get("pipeline");
 
-            if (dbCreds == null || pipelineSteps == null) {
-                System.err.println("Malformed configuration file: Missing 'database' or 'pipeline' sequence blocks.");
-                return false;
-            }
+    //         if (dbCreds == null || pipelineSteps == null) {
+    //             System.err.println("Malformed configuration file: Missing 'database' or 'pipeline' sequence blocks.");
+    //             return false;
+    //         }
 
-            // Track active space context blocks predictably inside an isolation memory map
-            Map<String, Container<?,?,?,?>> containers = new HashMap<>();
+    //         // Track active space context blocks predictably inside an isolation memory map
+    //         Map<String, Container<?,?,?,?>> containers = new HashMap<>();
 
-            // 2. Drive sequentially through the pipeline sequence
-            for (Object stepObj : pipelineSteps) {
-                if (!(stepObj instanceof Map)) continue;
-                Map<String, Object> block = (Map<String, Object>) stepObj;
+    //         // 2. Drive sequentially through the pipeline sequence
+    //         for (Object stepObj : pipelineSteps) {
+    //             if (!(stepObj instanceof Map)) continue;
+    //             Map<String, Object> block = (Map<String, Object>) stepObj;
 
-                // --- Scenario 1: Process Container Configuration Blocks ---
-                if (block.containsKey("container")) {
-                    String id = String.valueOf(block.get("container"));
-                    List<Object> actionSteps = (List<Object>) block.get("actions");
+    //             // --- Scenario 1: Process Container Configuration Blocks ---
+    //             if (block.containsKey("container")) {
+    //                 String id = String.valueOf(block.get("container"));
+    //                 List<Object> actionSteps = (List<Object>) block.get("actions");
 
-                    if (verbose) System.out.println("-> Constructing isolation space environment: [" + id + "]");
+    //                 if (verbose) System.out.println("-> Constructing isolation space environment: [" + id + "]");
                     
-                    Container<?,?,?,?> container = processor.newContainer();
-                    container.getDatabaseBinding().setUrl((String) dbCreds.get("url"));
-                    container.getDatabaseBinding().setUsername((String) dbCreds.get("username"));
-                    container.getDatabaseBinding().setPassword((String) dbCreds.get("password"));
-                    container.getDatabaseBinding().setHbm2ddl("create");
-                    container.startup();
+    //                 Container<?,?,?,?> container = processor.newContainer();
+    //                 container.getDatabaseBinding().setUrl((String) dbCreds.get("url"));
+    //                 container.getDatabaseBinding().setUsername((String) dbCreds.get("username"));
+    //                 container.getDatabaseBinding().setPassword((String) dbCreds.get("password"));
+    //                 container.getDatabaseBinding().setHbm2ddl("create");
+    //                 container.startup();
 
-                    if (actionSteps != null) {
-                        for (Object step : actionSteps) {
-                            if (step instanceof String) {
-                                runAtomicAction(container, (String) step, null);
-                            } else if (step instanceof Map) {
-                                Map<String, Object> stepMap = (Map<String, Object>) step;
-                                String commandName = stepMap.keySet().iterator().next();
-                                runAtomicAction(container, commandName, stepMap.get(commandName));
-                            }
-                        }
-                    }
-                    containers.put(id, container);
-                } 
+    //                 if (actionSteps != null) {
+    //                     for (Object step : actionSteps) {
+    //                         if (step instanceof String) {
+    //                             runAtomicAction(container, (String) step, null);
+    //                         } else if (step instanceof Map) {
+    //                             Map<String, Object> stepMap = (Map<String, Object>) step;
+    //                             String commandName = stepMap.keySet().iterator().next();
+    //                             runAtomicAction(container, commandName, stepMap.get(commandName));
+    //                         }
+    //                     }
+    //                 }
+    //                 containers.put(id, container);
+    //             } 
                 
-                // --- Scenario 2: Process Explicit Merge Blocks ---
-                else if (block.containsKey("merge")) {
-                    Map<String, Object> mergeOpts = (Map<String, Object>) block.get("merge");
-                    String srcKey = String.valueOf(mergeOpts.get("source"));
-                    String tgtKey = String.valueOf(mergeOpts.get("target"));
+    //             // --- Scenario 2: Process Explicit Merge Blocks ---
+    //             else if (block.containsKey("merge")) {
+    //                 Map<String, Object> mergeOpts = (Map<String, Object>) block.get("merge");
+    //                 String srcKey = String.valueOf(mergeOpts.get("source"));
+    //                 String tgtKey = String.valueOf(mergeOpts.get("target"));
 
-                    Container<?,?,?,?> source = containers.get(srcKey);
-                    Container<?,?,?,?> target = containers.get(tgtKey);
+    //                 Container<?,?,?,?> source = containers.get(srcKey);
+    //                 Container<?,?,?,?> target = containers.get(tgtKey);
 
-                    if (source == null || target == null) {
-                        throw new IllegalStateException("Execution pipeline fault: Cannot merge '" + srcKey + "' to '" + tgtKey + "'. Active space uninitialized.");
-                    }
+    //                 if (source == null || target == null) {
+    //                     throw new IllegalStateException("Execution pipeline fault: Cannot merge '" + srcKey + "' to '" + tgtKey + "'. Active space uninitialized.");
+    //                 }
 
-                    if (verbose) System.out.println("-> Running Merge Operation: Mapping [" + srcKey + "] into [" + tgtKey + "]");
-                    target.merge(source);
-                } 
+    //                 if (verbose) System.out.println("-> Running Merge Operation: Mapping [" + srcKey + "] into [" + tgtKey + "]");
+    //                 target.merge(source);
+    //             } 
                 
-                // --- Scenario 3: Process Explicit Filter Blocks ---
-                else if (block.containsKey("filter")) {
-                    Map<String, Object> filterOpts = (Map<String, Object>) block.get("filter");
-                    String posKey = String.valueOf(filterOpts.get("positive"));
-                    String negKey = String.valueOf(filterOpts.get("negative"));
+    //             // --- Scenario 3: Process Explicit Filter Blocks ---
+    //             else if (block.containsKey("filter")) {
+    //                 Map<String, Object> filterOpts = (Map<String, Object>) block.get("filter");
+    //                 String posKey = String.valueOf(filterOpts.get("positive"));
+    //                 String negKey = String.valueOf(filterOpts.get("negative"));
 
-                    if (verbose) System.out.println("-> Running Split Filter. Tracking outputs across: [" + posKey + " / " + negKey + "]");
-                }
-            }
+    //                 if (verbose) System.out.println("-> Running Split Filter. Tracking outputs across: [" + posKey + " / " + negKey + "]");
+    //             }
+    //         }
 
-            // 3. Cleanup tracked dependencies gracefully
-            for (Container<?,?,?,?> activeContainer : containers.values()) {
-                try { activeContainer.shutdown(); } catch (Exception ignored) {}
-            }
+    //         // 3. Cleanup tracked dependencies gracefully
+    //         for (Container<?,?,?,?> activeContainer : containers.values()) {
+    //             try { activeContainer.shutdown(); } catch (Exception ignored) {}
+    //         }
 
-            return true;
-        } catch (Exception e) {
-            System.err.println("Fatal execution failure during sequential processing: " + e.getMessage());
-            if (verbose) e.printStackTrace();
-            return false;
-        }
-    }
+    //         return true;
+    //     } catch (Exception e) {
+    //         System.err.println("Fatal execution failure during sequential processing: " + e.getMessage());
+    //         if (verbose) e.printStackTrace();
+    //         return false;
+    //     }
+    // }
 
     private void run(DeloreanProcessor processor) {
         try {
             processor.setContext("donlon", "");
-            Container<?,?,?,?> baseline = processor.newContainer();
-            baseline.getDatabaseBinding().setUrl("jdbc:postgresql://localhost:5433/aixm51");
-            baseline.getDatabaseBinding().setUsername("postgres");
-            baseline.getDatabaseBinding().setPassword("postgres");
-            baseline.getDatabaseBinding().setHbm2ddl("create");
+            Container<?,?,?,?,?,?> baseline = processor.newContainer();
+            baseline.SetCredentials("jdbc:postgresql://localhost:5433/aixm51-test", "postgres", "postgres", "create");
             baseline.startup();
-            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm51/baseline.xml");
-            baseline.unmarshal("C:/Users/rapha/Downloads/aixm51/EDDF_AerodromeMapping_2025-08-07_2025-08-07_snapshot.xml");
+            baseline.unmarshal("C:/Users/rapha/Downloads/aixm51/baseline.xml");
             baseline.info();
             baseline.saxValidation();
             baseline.printValidation();
             baseline.persist();
+            baseline.getPersitedMessage();
 
-
-            Container<?,?,?,?> notam = processor.newContainer();
-            notam.getDatabaseBinding().setUrl("jdbc:postgresql://localhost:5433/aixm51");
-            notam.getDatabaseBinding().setUsername("postgres");
-            notam.getDatabaseBinding().setPassword("postgres");
-            notam.getDatabaseBinding().setHbm2ddl("none");
+            processor.setContext("donlon", "");
+            Container<?,?,?,?,?,?> notam = processor.newContainer();
+            notam.SetCredentials("jdbc:postgresql://localhost:5433/aixm51-test", "postgres", "postgres", "none");
             notam.startup();
+            notam.getPersitedMessage();
             notam.extract(1L);
-            baseline.info();
+            notam.info();
             notam.saxValidation();
-            notam.printValidation();    
-            notam.marshal("C:/Users/rapha/Downloads/aixm51/obst.xml");
+            notam.printValidation();
+            notam.marshal("C:/Users/rapha/Downloads/aixm51/2025-10-02-skyguide-obst.aixm.xml");
+
+
+
+            // Container<?,?,?,?> notam = processor.newContainer();
+            // notam.getDatabaseBinding().setUrl("jdbc:postgresql://localhost:5433/aixm51");
+            // notam.getDatabaseBinding().setUsername("postgres");
+            // notam.getDatabaseBinding().setPassword("postgres");
+            // notam.getDatabaseBinding().setHbm2ddl("none");
+            // notam.startup();
+            // notam.extract(1L);
+            // baseline.info();
+            // notam.saxValidation();
+            // notam.printValidation();    
+            // notam.marshal("C:/Users/rapha/Downloads/aixm51/obst.xml");
 
             // notam.predicate("2024-01-01T00:00:00Z");
             // notam.integrate("C:/Users/rapha/Downloads/aixm51/permdelta.xml");

@@ -8,6 +8,9 @@ import com.aixm.delorean.core.org.gml.v_3_2.TimePeriodType;
 import com.aixm.delorean.core.org.gml.v_3_2.TimePositionType;
 import com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType;
 import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
+import com.aixm.delorean.core.validation.ValidationBindingService;
+import com.aixm.delorean.core.validation.ValidationSeverity;
+import com.aixm.delorean.core.validation.ValidationSource;
 import com.aixm.delorean.core.org.gml.v_3_2.TimeIndeterminateValueType;
 
 import jakarta.xml.bind.JAXBElement;
@@ -22,23 +25,30 @@ import javax.xml.namespace.QName;
 
 public class TimeSliceHelper {
 
+    /**
+     * Parse a GML TimePrimitivePropertyType into a DeloreanTimeSliceType. This method supports TimeInstantType and TimePeriodType, but not TimeEdgeType or TimeNodeType, as these are not used in AIXM.
+     * @param validTime the TimePrimitivePropertyType to parse
+     * @return a DeloreanTimeSliceType representing the same time period
+     */
     public static DeloreanTimeSliceType parseValidTime(TimePrimitivePropertyType validTime){
         if (validTime == null) {
-            return null;
+            throw new IllegalArgumentException("validTime cannot be null");
         }
 
-        if (validTime.getAbstractTimePrimitive() == null) {
-            return null;
+        JAXBElement<? extends AbstractTimePrimitiveType> abstractTimePrimitive = validTime.getAbstractTimePrimitive();
+
+        if (abstractTimePrimitive == null || abstractTimePrimitive.getValue() == null) {
+            throw new IllegalArgumentException("validTime must have an AbstractTimePrimitive");
         }
 
         DeloreanTimeSliceType result;
 
-        JAXBElement<? extends AbstractTimePrimitiveType> abstractTimePrimitive = validTime.getAbstractTimePrimitive();
         if (abstractTimePrimitive.getValue() instanceof TimeEdgeType) {
             throw new IllegalArgumentException("Unsupoorted type" + abstractTimePrimitive.getValue().getClass().getName());
 
         } else if (abstractTimePrimitive.getValue() instanceof TimeInstantType) {
-            throw new IllegalArgumentException("Unsupoorted type" + abstractTimePrimitive.getValue().getClass().getName());
+            result = parseTimePeriodType((TimeInstantType) abstractTimePrimitive.getValue());
+            ValidationBindingService.recordEvent(ValidationSource.DELOREAN, ValidationSeverity.INFO, "ParseValidTime", "Converted TimeInstant to TimeSlice", abstractTimePrimitive.getValue().getId());
 
         } else if (abstractTimePrimitive.getValue() instanceof TimeNodeType) {
             throw new IllegalArgumentException("Unsupoorted type" + abstractTimePrimitive.getValue().getClass().getName());
@@ -55,7 +65,7 @@ public class TimeSliceHelper {
 
     public static TimePrimitivePropertyType printValidTime(DeloreanTimeSliceType aixmTime){
         if (aixmTime == null) {
-            return null;
+            throw new IllegalArgumentException("DeloreanTimeSlice1 cannot be null");
         }
 
         TimePrimitivePropertyType validTime = new TimePrimitivePropertyType();
@@ -131,6 +141,38 @@ public class TimeSliceHelper {
     // public static DeloreanTimeSliceType parseTimeNodeType (TimeNodeType v){
     //     throw new IllegalArgumentException("Unsupoorted type" + v.getClass().getName());
     // }
+
+    /**
+     * Parse a GML TimeInstantType into a DeloreanTimeSliceType. This converts Snapshot times (TimeInstantType) into TimeSlices with null end position, as per AIXM convention.
+     * @param v the TimeInstantType to parse
+     * @return a DeloreanTimeSliceType representing the same time instant, with null end position
+     */
+    public static DeloreanTimeSliceType parseTimePeriodType (TimeInstantType v){
+        if (v == null){
+            return null;
+        }
+
+        if (v.getTimePosition() == null){
+            throw new IllegalArgumentException("TimePositionType cannot be null");
+        }
+
+        TimePositionType timePosition = v.getTimePosition();
+
+        String timeString = timePosition.getValue().isEmpty() ? null : timePosition.getValue().get(0);
+
+        Instant time = parseTimeString(timeString);
+        if (time == null) {
+            throw new IllegalArgumentException("Invalid time instant: " + timeString.getClass().getName());
+        }
+
+        DeloreanTimeSliceType aixmTime = new DeloreanTimeSliceType();
+
+        aixmTime.setTimePeriodId(v.getId());
+        aixmTime.setBeginPosition(time);
+        aixmTime.setEndPosition(null);
+
+        return aixmTime;
+    }
 
     public static DeloreanTimeSliceType parseTimePeriodType (TimePeriodType v){
         if (v == null){

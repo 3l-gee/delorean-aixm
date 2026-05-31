@@ -14,14 +14,16 @@ import java.util.UUID;
 import javax.xml.namespace.QName;
 
 import com.aixm.delorean.aixm52.engine.Aixm52Engine;
+import com.aixm.delorean.aixm52.filter.Aixm52FilterConfig;
 import com.aixm.delorean.aixm52.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm52.schema.AbstractAIXMObjectType;
 import com.aixm.delorean.aixm52.schema.AbstractAIXMTimeSliceType;
+import com.aixm.delorean.aixm52.schema.message.BasicMessageMemberAIXMPropertyType;
 import com.aixm.delorean.aixm52.database.Aixm52DatabaseFunction;
 
 public class DeloreanAIXM52 implements com.aixm.delorean.core.DeloreanProcessor {
 
-    private static ContainerWarehouse<?,?,?,?> warehouse;
+    private static ContainerWarehouse<?,?,?,?,?,?> warehouse;
 
     public DeloreanAIXM52() {
     }
@@ -42,11 +44,13 @@ public class DeloreanAIXM52 implements com.aixm.delorean.core.DeloreanProcessor 
         return new CoreConfig(
             "AIXM 5.2",
             AIXMBasicMessageType.class,
+            BasicMessageMemberAIXMPropertyType.class,
             AbstractAIXMFeatureType.class,
             AbstractAIXMTimeSliceType.class,
             AbstractAIXMObjectType.class,
             Aixm52Engine.class,
             Aixm52DatabaseFunction.class,
+            Aixm52FilterConfig.class,
             new QName("http://www.aixm.aero/schema/5.2/message", "AIXMBasicMessage", "message"),
             "/schema/message/AIXM_BasicMessage.xsd",
             "/sql/pre-init.sql",
@@ -58,7 +62,7 @@ public class DeloreanAIXM52 implements com.aixm.delorean.core.DeloreanProcessor 
     }
 
     /** Lazily creates and returns the warehouse */
-    private static ContainerWarehouse<?,?,?,?> warehouse() {
+    private static ContainerWarehouse<?,?,?,?,?,?> warehouse() {
         if (warehouse == null) {
             synchronized (DeloreanAIXM52.class) {
                 if (warehouse == null) {
@@ -92,20 +96,20 @@ public class DeloreanAIXM52 implements com.aixm.delorean.core.DeloreanProcessor 
 
     /** Returns the default (last used) container */
     @Override
-    public Container<?,?,?,?> container() {
+    public Container<?,?,?,?,?,?> container() {
         return warehouse().getLastUsedContainer();
     }
 
     /** Creates a new container and returns it */
     @Override
-    public Container<?,?,?,?> newContainer() {
+    public Container<?,?,?,?,?,?> newContainer() {
         warehouse().createNewContainer();
         return warehouse().getLastUsedContainer();
     }
 
     /** Returns the container by its id */
     @Override
-    public Container<?,?,?,?> getContainerById(String id) {
+    public Container<?,?,?,?,?,?> getContainerById(String id) {
         return warehouse().getContainerById(id);
     }
 

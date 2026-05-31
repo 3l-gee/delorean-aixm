@@ -26,16 +26,20 @@ public class ContextWarehouse {
         return instance; 
     }
 
+    public static boolean hasActiveContext() {
+        return activeContext != null;
+    }
+
     public void setContext(String name, String description) {
         String id = UUID.randomUUID().toString().substring(0, 6);
-        Context ctx = new Context(UUID.randomUUID().toString(), name, description);
+        Context ctx = new Context(id, UUID.randomUUID().toString(), name, description);
         contexts.put(id, ctx);
         ContextWarehouse.activeContext = ctx;
     }
 
     public void registerContext(String salt, String name, String description) {
         String id = UUID.randomUUID().toString().substring(0, 6);
-        Context ctx = new Context(salt, name, description);
+        Context ctx = new Context(id, salt, name, description);
         contexts.put(id, ctx);
         ContextWarehouse.activeContext = ctx;
         ConsoleLogger.log(LogLevel.INFO, "Active Context: " + ctx.getName() + " Hash: " + ctx.getHash());
@@ -85,5 +89,10 @@ public class ContextWarehouse {
 
     public void removeContext(String ref) {
         contexts.remove(ref);
+    }
+
+    public void clearContexts() {
+        contexts.clear();
+        activeContext = null;
     }
 }

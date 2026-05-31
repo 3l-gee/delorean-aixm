@@ -37,7 +37,7 @@ Simple lifecycle test for AIXM 5.1.1 Delorean container
 public class RoundTripXmlAixm51E2E {
     
     String id;
-    Container<?,?,?,?> container;
+    Container<?,?,?,?,?,?> container;
     DeloreanAIXM51 delorean;
     PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine")
         .asCompatibleSubstituteFor("postgres"))

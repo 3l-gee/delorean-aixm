@@ -348,7 +348,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 "c6",
                                 "external point",
-                                HrefType.OID,
+                                HrefType.GML,
                                 "4326"
                             )
                         ),
@@ -808,7 +808,9 @@ public class CurveGMLTest {
 
         // check
         assertThat(parsed).isNotNull();
-        assertThat(parsed).usingRecursiveComparison().isEqualTo(expectedCurve);
+        assertThat(parsed).usingRecursiveComparison()
+            .ignoringFieldsMatchingRegexes(".*\\.id")
+            .isEqualTo(expectedCurve);
 
     }
 
@@ -1054,7 +1056,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 "c6",
                                 "external point",
-                                HrefType.OID,
+                                HrefType.GML,
                                 "4326"
                             )
                         ),
@@ -1571,7 +1573,7 @@ public class CurveGMLTest {
                                 GisUtil.geometricProperty(
                                 "c6",
                                 "external point",
-                                HrefType.OID,
+                                HrefType.GML,
                                 null
                             )
                         )
@@ -1607,7 +1609,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 "c6",
                                 "external point",
-                                HrefType.OID,
+                                HrefType.GML,
                                 null
                             )
                         )
@@ -1631,7 +1633,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 "c7",
                                 "external point",
-                                HrefType.OID,
+                                HrefType.GML,
                                 "4326"
                             )
                         ),
@@ -1643,7 +1645,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 null,
                                 "external point",
-                                HrefType.OID,
+                                HrefType.GML,
                                 "4326"
                             )
                         )

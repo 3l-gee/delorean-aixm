@@ -7,7 +7,9 @@ import java.util.List;
 import jakarta.xml.bind.JAXBElement;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
-public abstract class AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> {
+import com.aixm.delorean.core.filter.AbstractFilterConfig;
+
+public abstract class AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> {
 
     public AbstractEngine() {
     }
@@ -26,9 +28,11 @@ public abstract class AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> {
      */
     public abstract String statistics(ROOT message);
 
-    public abstract ROOT filter(ROOT message, String filterExpression);
+    public abstract ROOT filter(ROOT message, AbstractFilterConfig config);
 
     public abstract ROOT combine(ROOT message);
+
+    public abstract ROOT clone(ROOT message);
 
     public abstract ROOT integrate(ROOT oldMessage, ROOT newMessage);
 

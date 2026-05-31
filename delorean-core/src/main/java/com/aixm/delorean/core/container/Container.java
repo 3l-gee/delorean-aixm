@@ -4,6 +4,7 @@ import com.aixm.delorean.core.xml.XmlBindingService;
 import com.aixm.delorean.core.validation.ValidationBindingService;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.engine.AbstractEngine;
+import com.aixm.delorean.core.filter.AbstractFilterConfig;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 
@@ -14,9 +15,13 @@ import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
 import javax.xml.namespace.QName;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+import org.apache.commons.lang3.SerializationUtils;
+
 import com.aixm.delorean.core.DeloreanUtility;
 
-public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
+public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> {
     protected final String id;
     protected String name;
     protected final QName qName;
@@ -28,7 +33,7 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
     protected MessageType messageType;
     protected XmlBindingService<ROOT, FEATURE> xmlBinding;
     protected DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> databaseBinding;
-    protected AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> deloreanEngine;
+    protected AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> deloreanEngine;
 
     public Container(Class<ROOT> rootClass, Class<FEATURE> featureClass, Class<TIMESLICE> timeSliceClass, Class<OBJECT> objectClass, QName qName, String id) {
         this.rootClass = rootClass;
@@ -80,6 +85,11 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.message = message;
     }
 
+
+    public void getPersitedMessage() {
+        this.databaseBinding.getPersitedMessage();
+    }
+
     public MessageType getMessageType() {
         return this.messageType;
     }
@@ -90,6 +100,20 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
     public void setXmlBinding(XmlBindingService<ROOT, FEATURE> xmlBinding) {
         this.xmlBinding = xmlBinding;
+    }
+
+    public void SetCredentials(String url, String username, String password, String hbm2ddl){
+        if (this.databaseBinding == null) {
+            throw new RuntimeException("DatabaseBinding is not set");
+        }
+        
+        boolean success = this.databaseBinding.SetCredentials(url, username, password, hbm2ddl);
+
+        if (success) {
+            ConsoleLogger.log(LogLevel.INFO, "Connected to <" + this.databaseBinding.getUrl() + ">");
+        } else {
+            ConsoleLogger.log(LogLevel.ERROR, "Failed to connect to <" + this.databaseBinding.getUrl() + ">");
+        }
     }
 
     public XmlBindingService<ROOT, FEATURE> getXmlBinding() {
@@ -104,11 +128,11 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         return this.databaseBinding;
     }
 
-    public void setDeloreanEngine(AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> deloreanEngine) {
+    public void setDeloreanEngine(AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> deloreanEngine) {
         this.deloreanEngine = deloreanEngine;
     }
 
-    public AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> getDeloreanEngine() {
+    public AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> getDeloreanEngine() {
         return this.deloreanEngine;
     }
 
@@ -159,6 +183,7 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         return message;
     }
 
+    // Lifecycle methods
     public void marshal(String path) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
@@ -301,6 +326,39 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.message = this.deloreanEngine.diff(this.message);
         String stats = this.deloreanEngine.statistics(this.message);
         ConsoleLogger.log(LogLevel.INFO, "Diff applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+    }
+
+    public void filter(AbstractFilterConfig config) {
+        this.message = this.deloreanEngine.filter(this.message, config);
+        String stats = this.deloreanEngine.statistics(this.message);
+        ConsoleLogger.log(LogLevel.INFO, "Filter applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+    }
+
+    public Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> prune(AbstractFilterConfig config) {
+        Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> newContainer = new Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>(this.rootClass, this.featureClass, this.timeSliceClass, this.objectClass, this.qName, id);
+        newContainer.setXmlBinding(this.xmlBinding);
+        newContainer.setDatabaseBinding(this.databaseBinding);
+        newContainer.setDeloreanEngine(this.deloreanEngine);
+
+        ROOT clonedMessage = this.deloreanEngine.clone(this.message);
+        ROOT filteredMessage = this.deloreanEngine.filter(clonedMessage, config);
+        String stats = this.deloreanEngine.statistics(filteredMessage);
+        newContainer.setMessage(filteredMessage);
+        ConsoleLogger.log(LogLevel.INFO, "Prune applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+        return newContainer;
+    }
+
+    public Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> clone() {
+        Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> newContainer = new Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>(this.rootClass, this.featureClass, this.timeSliceClass, this.objectClass, this.qName, id);
+        newContainer.setXmlBinding(this.xmlBinding);
+        newContainer.setDatabaseBinding(this.databaseBinding);
+        newContainer.setDeloreanEngine(this.deloreanEngine);
+
+        ROOT clonedMessage = this.deloreanEngine.clone(this.message);
+        String stats = this.deloreanEngine.statistics(clonedMessage);
+        newContainer.setMessage(clonedMessage);
+        ConsoleLogger.log(LogLevel.INFO, "Clone applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+        return newContainer;
     }
 
     // public void serialization(String path) {

@@ -40,6 +40,9 @@ public class HrefHelper {
 
         // --- Local XML fragment ---
         } else {
+            if (!ContextWarehouse.hasActiveContext()) {
+                return id;
+            }
             return DeloreanUtility.generateHash(id, ContextWarehouse.getActiveHash());
         }
     }
@@ -65,7 +68,7 @@ public class HrefHelper {
             return hashed;
 
         } else {
-            throw new IllegalArgumentException("Unsupported hashed format: " + hashed);
+            return hashed;
         }
     }
 
@@ -102,9 +105,14 @@ public class HrefHelper {
 
         // --- Local XML fragment ---
         } else if (normalized.startsWith("#")) {
-            type = HrefType.OID;
-            String originalId = normalized.substring(1);
-            normalized = DeloreanUtility.generateHash(originalId, ContextWarehouse.getActiveHash());
+            if (!ContextWarehouse.hasActiveContext()) {
+                type = HrefType.GML;
+                normalized = normalized.substring(1);
+            } else {
+                type = HrefType.OID;
+                String originalId = normalized.substring(1);
+                normalized = DeloreanUtility.generateHash(originalId, ContextWarehouse.getActiveHash());
+            }
 
         } else {
             throw new IllegalArgumentException("Unsupported href format: " + href);
@@ -142,6 +150,9 @@ public class HrefHelper {
             case OID:
                 String activeId = ContextWarehouse.getActiveId(href);
                 return "#" + activeId;
+
+            case GML:
+                return "#" + href;
 
             default:
                 throw new IllegalArgumentException("Unsupported HrefType: " + type);

@@ -249,7 +249,6 @@ public class XmlBindingService<ROOT, FEATURE> {
         return null;
     }
     
-    
     public void marshal(ROOT record, FileOutputStream outputStream, Class<ROOT> clazz, QName qName) {
         if (record == null) {
             ConsoleLogger.log(LogLevel.ERROR, "Cannot marshal a null record of type: " + clazz.getName());
@@ -279,6 +278,29 @@ public class XmlBindingService<ROOT, FEATURE> {
         } catch (Exception e) {
             ConsoleLogger.log(LogLevel.ERROR, "Error during marshalling: " + e.getMessage());
 
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private ROOT deepCopyMessage(ROOT message) {
+        if (message == null) {
+            return null;
+        }
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(this.rootClass);
+            Document doc = DocumentBuilderFactory.newInstance()
+                                                .newDocumentBuilder()
+                                                .newDocument();
+            
+            Marshaller marshaller = jaxbContext.createMarshaller();
+            marshaller.marshal(message, doc);
+            
+            // 4. Unmarshall it back out into a clean, detached clone
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            return (ROOT) unmarshaller.unmarshal(doc);
+            
+        } catch (Exception e) {
+            throw new RuntimeException("DeLorean Engine failed to deep-copy the AIXM message tree structure.", e);
         }
     }
 }

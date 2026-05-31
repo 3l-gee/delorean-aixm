@@ -23,8 +23,8 @@ import java.io.File;
 public class IntegrateAixm511E2E {
 
     String id;
-    Container<?,?,?,?> firstContainer;
-    Container<?,?,?,?> secondContainer;
+    Container<?,?,?,?,?,?> firstContainer;
+    Container<?,?,?,?,?,?> secondContainer;
     PostgreSQLContainer postgis = new PostgreSQLContainer(DockerImageName.parse("postgis/postgis:16-3.4-alpine").asCompatibleSubstituteFor("postgres"));
 
     @Test

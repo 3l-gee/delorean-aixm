@@ -191,8 +191,6 @@ public class MetadataHelper {
         // qualityClassification
         // horzUnit 
         // vertUnit
-        
-        System.out.println("Metadata printed as JSON: " + result.toPrettyString());
             
         return result;
     }
@@ -423,18 +421,6 @@ public class MetadataHelper {
 
             metadata.setDistributionInfo(property);
         }
-        try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(metadata.getClass());
-            Marshaller marshaller = jaxbContext.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            StringWriter sw = new StringWriter();
-            marshaller.marshal(metadata, sw);
-            System.out.println("Metadata printed as XML:\n" + sw.toString());
-        } catch (Exception e) {
-            System.err.println("Failed to print metadata as XML");
-            e.printStackTrace();
-        }
-
 
         return metadata;
     }

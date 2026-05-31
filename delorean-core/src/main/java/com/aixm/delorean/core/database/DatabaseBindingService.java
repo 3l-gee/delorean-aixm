@@ -83,6 +83,19 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.configuration.setProperty("hibernate.connection.password", password);
     }
 
+    public boolean SetCredentials(String url, String username, String password, String hbm2ddl) {
+        this.setUrl(url);
+        this.setUsername(username);
+        this.setPassword(password);
+        this.setHbm2ddl(hbm2ddl);
+
+        try (java.sql.Connection conn = java.sql.DriverManager.getConnection(url, username, password)) {
+            return true;
+        } catch (java.sql.SQLException e) {
+            return false;
+        }
+    }
+
     private Connection getConnection() throws SQLException {
         String url = configuration.getProperty("hibernate.connection.url");
         String username = configuration.getProperty("hibernate.connection.username");
@@ -206,6 +219,13 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             ConsoleLogger.log(LogLevel.ERROR, "Error initializing Hibernate session factory", e);
 
         }
+    }
+
+    public void getPersitedMessage(){
+        if (this.sessionFactory == null){
+            throw new IllegalArgumentException("sessionfactory is not init");
+        }
+        this.databaseHelper.getPersitedMessage(this.sessionFactory);
     }
 
     /**

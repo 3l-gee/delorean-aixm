@@ -7,6 +7,7 @@ import com.aixm.delorean.core.container.ContainerWarehouse;
 import com.aixm.delorean.core.context.Context;
 import com.aixm.delorean.core.context.ContextWarehouse;
 import com.aixm.delorean.aixm51.schema.message.AIXMBasicMessageType;
+import com.aixm.delorean.aixm51.schema.message.BasicMessageMemberAIXMPropertyType;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,6 +15,7 @@ import java.util.UUID;
 import javax.xml.namespace.QName;
 
 import com.aixm.delorean.aixm51.engine.Aixm51Engine;
+import com.aixm.delorean.aixm51.filter.Aixm51FilterConfig;
 import com.aixm.delorean.aixm51.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm51.schema.AbstractAIXMObjectType;
 import com.aixm.delorean.aixm51.schema.AbstractAIXMTimeSliceType;
@@ -21,7 +23,7 @@ import com.aixm.delorean.aixm51.database.Aixm51DatabaseFunction;
 
 public class DeloreanAIXM51 implements com.aixm.delorean.core.DeloreanProcessor {
 
-    private static ContainerWarehouse<?,?,?,?> containers;
+    private static ContainerWarehouse<?,?,?,?,?,?> containers;
 
     public DeloreanAIXM51() {
     }
@@ -42,11 +44,13 @@ public class DeloreanAIXM51 implements com.aixm.delorean.core.DeloreanProcessor 
         return new CoreConfig(
             "AIXM 5.1",
             AIXMBasicMessageType.class,
+            BasicMessageMemberAIXMPropertyType.class,
             AbstractAIXMFeatureType.class,
             AbstractAIXMTimeSliceType.class,
             AbstractAIXMObjectType.class,
             Aixm51Engine.class,
             Aixm51DatabaseFunction.class,
+            Aixm51FilterConfig.class,
             new QName("http://www.aixm.aero/schema/5.1/message", "AIXMBasicMessage", "message"),
             "/schema/message/AIXM_BasicMessage.xsd",
             "/sql/pre-init.sql",
@@ -58,7 +62,7 @@ public class DeloreanAIXM51 implements com.aixm.delorean.core.DeloreanProcessor 
     }
 
     /** Lazily creates and returns the warehouse */
-    private static ContainerWarehouse<?,?,?,?> containerWarehouse() {
+    private static ContainerWarehouse<?,?,?,?,?,?> containerWarehouse() {
         if (containers == null) {
             synchronized (DeloreanAIXM51.class) {
                 if (containers == null) {
@@ -92,20 +96,20 @@ public class DeloreanAIXM51 implements com.aixm.delorean.core.DeloreanProcessor 
 
     /** Returns the default (last used) container */
     @Override
-    public Container<?,?,?,?> container() {
+    public Container<?,?,?,?,?,?> container() {
         return containerWarehouse().getLastUsedContainer();
     }
 
     /** Creates a new container and returns it */
     @Override
-    public Container<?,?,?,?> newContainer() {
+    public Container<?,?,?,?,?,?> newContainer() {
         containerWarehouse().createNewContainer();
         return containerWarehouse().getLastUsedContainer();
     }
 
     /** Returns the container by its id */
     @Override
-    public Container<?,?,?,?> getContainerById(String id) {
+    public Container<?,?,?,?,?,?> getContainerById(String id) {
         return containerWarehouse().getContainerById(id);
     }
 

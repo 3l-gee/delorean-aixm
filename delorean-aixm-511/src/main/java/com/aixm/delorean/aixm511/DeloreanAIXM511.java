@@ -7,6 +7,7 @@ import com.aixm.delorean.core.container.Container;
 import com.aixm.delorean.core.container.ContainerWarehouse;
 import com.aixm.delorean.core.context.ContextWarehouse;
 import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
+import com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,6 +15,7 @@ import java.util.UUID;
 import javax.xml.namespace.QName;
 
 import com.aixm.delorean.aixm511.engine.Aixm511Engine;
+import com.aixm.delorean.aixm511.filter.Aixm511FilterConfig;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMObjectType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
@@ -21,7 +23,7 @@ import com.aixm.delorean.aixm511.database.Aixm511DatabaseFunction;
 
 public class DeloreanAIXM511 implements com.aixm.delorean.core.DeloreanProcessor {
 
-    private static ContainerWarehouse<?,?,?,?> warehouse;
+    private static ContainerWarehouse<?,?,?,?,?,?> warehouse;
 
     public DeloreanAIXM511() {
     }
@@ -42,11 +44,13 @@ public class DeloreanAIXM511 implements com.aixm.delorean.core.DeloreanProcessor
         return new CoreConfig(
             "AIXM 5.1.1",
             AIXMBasicMessageType.class,
+            BasicMessageMemberAIXMPropertyType.class,
             AbstractAIXMFeatureType.class,
             AbstractAIXMTimeSliceType.class,
             AbstractAIXMObjectType.class,
             Aixm511Engine.class,
             Aixm511DatabaseFunction.class,
+            Aixm511FilterConfig.class,
             new QName("http://www.aixm.aero/schema/5.1.1/message", "AIXMBasicMessage", "message"),
             "/schema/message/AIXM_BasicMessage.xsd",
             "/sql/pre-init.sql",
@@ -58,7 +62,7 @@ public class DeloreanAIXM511 implements com.aixm.delorean.core.DeloreanProcessor
     }
 
     /** Lazily creates and returns the warehouse */
-    private static ContainerWarehouse<?,?,?,?> warehouse() {
+    private static ContainerWarehouse<?,?,?,?,?,?> warehouse() {
         if (warehouse == null) {
             synchronized (DeloreanAIXM511.class) {
                 if (warehouse == null) {
@@ -92,20 +96,20 @@ public class DeloreanAIXM511 implements com.aixm.delorean.core.DeloreanProcessor
 
     /** Returns the default (last used) container */
     @Override
-    public Container<?,?,?,?> container() {
+    public Container<?,?,?,?,?,?> container() {
         return warehouse().getLastUsedContainer();
     }
 
     /** Creates a new container and returns it */
     @Override
-    public Container<?,?,?,?> newContainer() {
+    public Container<?,?,?,?,?,?> newContainer() {
         warehouse().createNewContainer();
         return warehouse().getLastUsedContainer();
     }
 
     /** Returns the container by its id */
     @Override
-    public Container<?,?,?,?> getContainerById(String id) {
+    public Container<?,?,?,?,?,?> getContainerById(String id) {
         return warehouse().getContainerById(id);
     }
 

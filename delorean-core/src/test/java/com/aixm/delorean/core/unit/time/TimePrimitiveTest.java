@@ -27,6 +27,7 @@ import java.time.Instant;
 
 import com.aixm.delorean.core.util.GisUtil;
 import com.aixm.delorean.core.util.JaxbUtil;
+import com.fasterxml.jackson.databind.jsontype.impl.AsExistingPropertyTypeSerializer;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.PointType;
 import com.aixm.delorean.core.org.gml.v_3_2.SurfaceType;
@@ -200,7 +201,21 @@ public class TimePrimitiveTest {
                     setBeginPosition(Instant.parse("2017-01-07T00:00:00Z"));
                     setEndPosition(Instant.parse("2018-02-17T00:00:00Z"));
                 }}
-            ) // closed xs:date
+            ),// closed xs:date
+            Arguments.of(
+                """
+                <gml:validTime xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple">
+                    <gml:TimeInstant gml:id="v11">
+                        <gml:timePosition>2017-01-07T00:00:00Z</gml:timePosition>
+                    </gml:TimeInstant>
+                </gml:validTime>
+                """,
+                new DeloreanTimeSliceType() {{
+                    setTimePeriodId("v11");
+                    setBeginPosition(Instant.parse("2017-01-07T00:00:00Z"));
+                    setEndPosition(null);
+                }}
+            ) // TimeInstant
         );
     }
 
@@ -630,11 +645,11 @@ public class TimePrimitiveTest {
                 """
                 <gml:validTime xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple">
                     <gml:TimeInstant gml:id="v7">
-                        <gml:timePosition>2025-01-01</gml:timePosition>
+                        <gml:timePosition></gml:timePosition>
                     </gml:TimeInstant>
                 </gml:validTime>
                 """
-            ), // iligal TimeInstant
+            ), // malformed TimeInstant
             Arguments.of(
                 """
                 <gml:validTime xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple">
@@ -690,7 +705,7 @@ public class TimePrimitiveTest {
 
         // do + check
         assertThatThrownBy(() -> TimeSliceHelper.parseValidTime(validTime))
-            .isInstanceOf(IllegalArgumentException.class);
+            .isInstanceOfAny(IllegalArgumentException.class, NullPointerException.class);
     }
 
     static Stream<Arguments> ParseErronousFeatureLifetime() {

@@ -12,9 +12,12 @@ import javax.xml.namespace.QName;
 import com.aixm.delorean.core.database.DatabaseBindingFactory;
 import com.aixm.delorean.core.xml.XMLBindingFactory;
 import com.aixm.delorean.core.engine.AbstractEngine;
+import com.aixm.delorean.core.filter.AbstractFilterConfig;
+import com.aixm.delorean.core.log.ConsoleLogger;
+import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 
-public class ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT> {
+public class ContainerWarehouse<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> {
     protected String name;
     protected final Class<ROOT> rootClass;
     protected final Class<FEATURE> featureClass;
@@ -23,9 +26,9 @@ public class ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT> {
     protected final QName qName;
     protected final XMLBindingFactory<ROOT, FEATURE> xmlFactory;
     protected final DatabaseBindingFactory<ROOT, FEATURE, TIMESLICE, OBJECT> databaseFactory;
-    protected final AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> deloreanEngine;
+    protected final AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> deloreanEngine;
     protected final AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> databaseHelper;
-    protected Map<String, Container<ROOT, FEATURE, TIMESLICE, OBJECT>> containers;
+    protected Map<String, Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>> containers;
     protected String lastUsedContainerId; 
     protected final Class<?> CoreResourceAnchorsClass;
     protected final Class<?> AIXMResourceAnchorsClass;
@@ -40,7 +43,7 @@ public class ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT> {
         QName qName, 
         XMLBindingFactory<ROOT, FEATURE> xmlFactory, 
         DatabaseBindingFactory<ROOT, FEATURE, TIMESLICE, OBJECT> databaseFactory, 
-        AbstractEngine<ROOT, FEATURE, TIMESLICE, OBJECT> deloreanEngine,
+        AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> deloreanEngine,
         AbstractDatabaseFunctions<ROOT, FEATURE, TIMESLICE, OBJECT> databaseHelper,
         Class<?> CoreResourceAnchorsClass,
         Class<?> AIXMResourceAnchorsClass
@@ -63,7 +66,7 @@ public class ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT> {
 
     public void createNewContainer() {
         String id = UUID.randomUUID().toString().substring(0, 6);
-        Container<ROOT, FEATURE, TIMESLICE, OBJECT> container = new Container<ROOT, FEATURE, TIMESLICE, OBJECT>(this.rootClass, this.featureClass, this.timeSliceClass, this.objectClass, this.qName, id);
+        Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> container = new Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>(this.rootClass, this.featureClass, this.timeSliceClass, this.objectClass, this.qName, id);
         container.setXmlBinding(this.xmlFactory.createXMLBinding());
         container.setDatabaseBinding(this.databaseFactory.createDatabaseBinding());
         container.setDeloreanEngine(this.deloreanEngine);
@@ -77,7 +80,7 @@ public class ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.lastUsedContainerId = null; 
     }
 
-    public Container<ROOT, FEATURE, TIMESLICE, OBJECT> getContainerById(String id) {
+    public Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> getContainerById(String id) {
         if (!this.containers.containsKey(id)) {
             return null;
         }
@@ -85,8 +88,8 @@ public class ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT> {
         return this.containers.get(id);
     }
 
-    public Container<ROOT, FEATURE, TIMESLICE, OBJECT> getContainerByName(String name) {
-        for (Map.Entry<String, Container<ROOT, FEATURE, TIMESLICE, OBJECT>> entry : this.containers.entrySet()) {
+    public Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> getContainerByName(String name) {
+        for (Map.Entry<String, Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>> entry : this.containers.entrySet()) {
             if (entry.getValue().getId().equals(name)) {
                 this.lastUsedContainerId = entry.getKey();
                 return entry.getValue();
@@ -108,16 +111,35 @@ public class ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT> {
         return this.lastUsedContainerId;
     }
 
-    public Container<ROOT, FEATURE, TIMESLICE, OBJECT> getLastUsedContainer() {
+    public Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> getLastUsedContainer() {
         return this.containers.get(this.lastUsedContainerId);
     }
 
     public List<String> listContainerId() {
         List<String> output = new ArrayList<>();
-        for (Map.Entry<String, Container<ROOT, FEATURE, TIMESLICE, OBJECT>> entry : this.containers.entrySet()) {
+        for (Map.Entry<String, Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>> entry : this.containers.entrySet()) {
             output.add(entry.getKey());
         }
 
         return output;
+    }
+
+    /**
+     * Prunes the message from the last used container, pipes the results into a
+     * brand new container, and sets the new container as the active/last used one.
+     */
+    public void prune(String id, AbstractFilterConfig config) {
+        Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> sourceContainer = this.getContainerById(id);
+        if (sourceContainer == null) {
+            throw new IllegalArgumentException("No container found with id: " + id);
+        }
+
+        ROOT filteredMessage = this.deloreanEngine.filter(sourceContainer.getMessage(), config);
+        String stats = this.deloreanEngine.statistics(filteredMessage);
+        this.createNewContainer();
+        Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> newContainer = this.getLastUsedContainer();
+        newContainer.setMessage(filteredMessage);
+        ConsoleLogger.log(LogLevel.INFO, "Prune from " + sourceContainer.getId() +  " to " + newContainer.getId() + " applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+
     }
 }
