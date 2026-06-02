@@ -1,6 +1,6 @@
 <img src="website/src/assets/logo/delorean-aixm-logo-big-transparent.png" width="900">
                     
-Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more. Where tools relying on an in-memory representation of the AIXM dataset start to struggle at 1 GB, Delorean can easily ingest 10 to hundreads of GB and leverage the power of the normalised AIXM schema, PostGIS GIS tools and PostgreSQL.
+Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more. While tools that rely on an in-memory representation of the AIXM dataset start to struggle at 1 GB, Delorean can easily ingest 10–100 GB and leverage the power of a normalised, 3NF-compliant AIXM HyperJAXB schema, PostGIS tools and PostgreSQL with aggressive indexing and partitioning.
 
 Delorean support all feature types found in aixm for the following aixm versions : 
 * [x] Schema
