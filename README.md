@@ -1,8 +1,8 @@
 <img src="website/src/assets/logo/delorean-aixm-logo-big-transparent.png" width="900">
                     
-Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more.
+Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more. Where tools relying on an in-memory representation of the AIXM dataset start to struggle at 1 GB, Delorean can easily ingest 10 to hundreads of GB and leverage the power of the normalised AIXM schema, PostGIS GIS tools and PostgreSQL.
 
-Delorean support all features types found in aixm for the following aixm versions : 
+Delorean support all feature types found in aixm for the following aixm versions : 
 * [x] Schema
 	* [x] AIXM 5.1
 	* [x] AIXM 5.1.1
@@ -25,7 +25,9 @@ Delorean support all features types found in aixm for the following aixm version
 	* [ ] Combine
 	* [x] Integrate
 	* [ ] Delta
-	* [ ] Filter
+	* [X] Filter
+	* [X] Prune
+	* [X] Clone
 	* [x] Validate
 		* [x] XSD
 		* [ ] EAD Business Rules
@@ -52,9 +54,47 @@ Delorean support all features types found in aixm for the following aixm version
 	* [x] Statistics
 	* [ ] Strict / Loose Mode
 
+I created this tool because I believe the aviation industry needs a simple, accessible solution for handling AIXM data. Delorean-AIXM is heavily inspired by [INTERLIS](https://www.interlis.ch/en) and its robust open-source ecosystem like [ili2db](https://github.com/claeis/ili2db). I believe open-source software is the key to expanding AIXM adoption; right now, there is massive untapped potential as existing tools are too expensive, overly complicated, or poorly suited to user needs. This could be directly implemented for eIAP, Digital NOTAM, national and international data exchange and much more.
+
+```bash
+flowchart LR
+    
+    A[local org] 
+    B[National org]
+    C[European org]
+    D[Inter. org]
+    E[Air travel]
+        
+    A e1@-.-> B
+    B e2@==> C
+    C e3@-.-> D
+    D e4@-.-> E
+    
+    
+    AA((local ltd))
+    AB((inter. ltd))
+   
+    AA e4@<-.-> A
+    AA e5@<-.-> B
+    AA e6@<-.-> E
+      
+    AA <-.-> AB
+    AB <-.-> A
+    AB <-.-> B
+    AB <-.-> C
+    AB <-.-> D
+    AB <-.-> E
+    
+    
+    e1@{ curve: linear }
+    e2@{ curve: linear }
+    e3@{ curve: linear }
+    e4@{ curve: linear }
+```
+
 ## License
 
-Delorean is licensed under the GPLV3
+Delorean-AIXM is open-source software licensed under the GPLv3 License.
 
 ## Using
 
@@ -88,7 +128,7 @@ Please refer to the [wiki](https://github.com/3l-gee/delorean/wiki) for the full
 
 ## Bugs
 
-TODO
+Bugs & Features: Please open an issue on our GitHub Issues page.
 
 ## Community support
 
