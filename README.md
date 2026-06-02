@@ -56,7 +56,7 @@ Delorean support all feature types found in aixm for the following aixm versions
 
 I created this tool because I believe the aviation industry needs a simple, accessible solution for handling AIXM data. Delorean-AIXM is heavily inspired by [INTERLIS](https://www.interlis.ch/en) and its robust open-source ecosystem like [ili2db](https://github.com/claeis/ili2db). I believe open-source software is the key to expanding AIXM adoption; right now, there is massive untapped potential as existing tools are too expensive, overly complicated, or poorly suited to user needs. This could be directly implemented for eIAP, Digital NOTAM, national and international data exchange and much more.
 
-```bash
+```mermaid
 flowchart LR
     
     A[local org] 
