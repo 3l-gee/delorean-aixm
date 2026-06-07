@@ -159,7 +159,7 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine<
             AbstractAIXMFeatureType previous = currentIdsFeatures.putIfAbsent(currentIdentifier, currentFeature);
 
             if (previous != null) {
-                ConsoleLogger.log(LogLevel.WARN, "Duplicate AIXM feature identifier detected: " + currentIdentifier);
+                ConsoleLogger.info("Duplicate AIXM feature identifier detected: " + currentIdentifier);
             }
         }
 

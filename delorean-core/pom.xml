@@ -104,13 +104,6 @@
             <version>6.0.0</version>
         </dependency>
 
-        <!-- SLF4J Implementation -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-
         <!-- GIS Dependencies -->
         <dependency>
             <groupId>org.locationtech.jts</groupId>
@@ -203,6 +196,19 @@
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-jaxb-annotations</artifactId>
             <version>2.20.1</version>
+        </dependency>
+
+        <!-- Logging-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.classic}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
 	</dependencies>

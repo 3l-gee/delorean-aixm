@@ -39,7 +39,6 @@
     <hikaricp.version>7.0.2</hikaricp.version>
     <hibernate.version>7.1.0.Final</hibernate.version>
     <jpa-api.version>3.2.0</jpa-api.version>
-    <slf4j.version>2.0.12</slf4j.version>
     <jts.version>1.20.0</jts.version>
     <proj4.version>1.4.1</proj4.version>
     <freemarker.version>2.3.34</freemarker.version>
@@ -47,6 +46,8 @@
     <picocli.version>4.7.7</picocli.version>
     <jackson.version>2.20.2</jackson.version>
     <json-schema-validator.version>1.0.79</json-schema-validator.version>
+    <logback.classic>1.5.34</logback.classic>
+    <slf4j.version>2.0.18</slf4j.version>
   </properties>
   <modules>
     <module>post-jaxb</module>

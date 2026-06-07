@@ -35,6 +35,7 @@ public class ContextWarehouse {
         Context ctx = new Context(id, UUID.randomUUID().toString(), name, description);
         contexts.put(id, ctx);
         ContextWarehouse.activeContext = ctx;
+        ConsoleLogger.info("Active Context: " + ctx.getName() + " Hash: " + ctx.getHash() + " Description: " + ctx.getDescription());
     }
 
     public void registerContext(String salt, String name, String description) {
@@ -42,7 +43,7 @@ public class ContextWarehouse {
         Context ctx = new Context(id, salt, name, description);
         contexts.put(id, ctx);
         ContextWarehouse.activeContext = ctx;
-        ConsoleLogger.log(LogLevel.INFO, "Active Context: " + ctx.getName() + " Hash: " + ctx.getHash());
+        ConsoleLogger.info("Active Context: " + ctx.getName() + " Hash: " + ctx.getHash() + " Description: " + ctx.getDescription());
     }
 
     public void switchContext(String ref) {
@@ -51,6 +52,7 @@ public class ContextWarehouse {
             throw new IllegalArgumentException("Context " + ref + " not found");
         }
         activeContext = ctx;
+        ConsoleLogger.info("Switched to Context: " + ctx.getName() + " Hash: " + ctx.getHash() + " Description: " + ctx.getDescription());
     }
 
     public Context getActive() {
@@ -76,7 +78,7 @@ public class ContextWarehouse {
 
     public void getActiveInfo() {
         Context current = getActive();
-        ConsoleLogger.log(LogLevel.INFO, "Active Context: " + current.getName() + " Hash: " + current.getHash());
+        ConsoleLogger.info("Active Context: " + current.getName() + " Hash: " + current.getHash() + " Description: " + current.getDescription());
     }
 
     public String getHash() {
@@ -88,11 +90,27 @@ public class ContextWarehouse {
     }
 
     public void removeContext(String ref) {
-        contexts.remove(ref);
+        Context removed = contexts.remove(ref);
+        if (removed != null) {
+            ConsoleLogger.info("Context removed");
+        }
+
+        if (activeContext != null && activeContext.getRef().equals(ref)) {
+            activeContext = null;
+            ConsoleLogger.info("Active context removed");
+        }
     }
 
     public void clearContexts() {
         contexts.clear();
         activeContext = null;
+
+        ConsoleLogger.info("All contexts cleared");
+    }
+
+    public void unSetActiveContext() {
+        activeContext = null;
+
+        ConsoleLogger.info("Active context unset");
     }
 }

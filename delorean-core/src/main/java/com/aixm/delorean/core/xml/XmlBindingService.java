@@ -155,7 +155,7 @@ public class XmlBindingService<ROOT, FEATURE> {
         validator.validate(source);
         return true;
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Validation failed", e);
+            ConsoleLogger.error("Validation failed", e);
             return false;
         }
     }
@@ -214,7 +214,7 @@ public class XmlBindingService<ROOT, FEATURE> {
         try {
             unmarshalledObject = this.unmarshaller.unmarshal(xmlStream);
         } catch (JAXBException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "JAXB exception during unmarshalling : " + e.getMessage());
+            ConsoleLogger.error("JAXB exception during unmarshalling : " + e.getMessage());
             if (e.getLinkedException() != null) {
                 e.getLinkedException().printStackTrace(); 
             }
@@ -223,7 +223,7 @@ public class XmlBindingService<ROOT, FEATURE> {
             return null;
 
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "General exception during unmarshalling : " + e.getMessage());
+            ConsoleLogger.error("General exception during unmarshalling : " + e.getMessage());
             return null;
         }
 
@@ -232,7 +232,7 @@ public class XmlBindingService<ROOT, FEATURE> {
         if (unmarshalledObject instanceof JAXBElement<?>) {
             rootElement = (JAXBElement<?>) unmarshalledObject;
         } else {
-            ConsoleLogger.log(LogLevel.ERROR, "Unsuccessfully unmarshalled : Unknown root element type " + unmarshalledObject.getClass().getName());
+            ConsoleLogger.error("Unsuccessfully unmarshalled : Unknown root element type " + unmarshalledObject.getClass().getName());
             return null;
         }
 
@@ -243,7 +243,7 @@ public class XmlBindingService<ROOT, FEATURE> {
             return (ROOT) aixmElement.getValue();
 
         } else {
-            ConsoleLogger.log(LogLevel.ERROR, "Inconsistent AIXM unmarshalling for: " + rootElement.getValue().getClass().getName());
+            ConsoleLogger.error("Inconsistent AIXM unmarshalling for: " + rootElement.getValue().getClass().getName());
         }
 
         return null;
@@ -251,15 +251,15 @@ public class XmlBindingService<ROOT, FEATURE> {
     
     public void marshal(ROOT record, FileOutputStream outputStream, Class<ROOT> clazz, QName qName) {
         if (record == null) {
-            ConsoleLogger.log(LogLevel.ERROR, "Cannot marshal a null record of type: " + clazz.getName());
+            ConsoleLogger.error("Cannot marshal a null record of type: " + clazz.getName());
             return;
         }
         if (qName == null) {
-            ConsoleLogger.log(LogLevel.ERROR, "Cannot marshal with a null QName for type: " + clazz.getName());
+            ConsoleLogger.error("Cannot marshal with a null QName for type: " + clazz.getName());
             return;
         }
         if (outputStream == null) {
-            ConsoleLogger.log(LogLevel.ERROR, "Cannot marshal to a null OutputStream for type: " + clazz.getName());
+            ConsoleLogger.error("Cannot marshal to a null OutputStream for type: " + clazz.getName());
             return;
         }
 
@@ -273,10 +273,10 @@ public class XmlBindingService<ROOT, FEATURE> {
             customWriter.close();
 
         } catch (JAXBException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "JAXB exception during marshalling: " + e.getMessage());
+            ConsoleLogger.error("JAXB exception during marshalling: " + e.getMessage());
         
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Error during marshalling: " + e.getMessage());
+            ConsoleLogger.error("Error during marshalling: " + e.getMessage());
 
         }
     }

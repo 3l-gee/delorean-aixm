@@ -34,7 +34,7 @@ public class DeloreanUtility {
      */
     public static InputStream absPathToInputStream(String filePath) {
         if (filePath == null || filePath.trim().isEmpty()) {
-            ConsoleLogger.log(LogLevel.ERROR, "File path cannot be null or empty.");
+            ConsoleLogger.error("File path cannot be null or empty.");
             return null;
         }
         
@@ -42,24 +42,24 @@ public class DeloreanUtility {
 
         try {
             if (!Files.exists(path)) {
-                ConsoleLogger.log(LogLevel.ERROR, "File not found at path: " + filePath);
+                ConsoleLogger.error("File not found at path: " + filePath);
                 return null;
             }
             
             if (Files.isDirectory(path)) {
-                ConsoleLogger.log(LogLevel.ERROR, "Path points to a directory, not a file: " + filePath);
+                ConsoleLogger.error("Path points to a directory, not a file: " + filePath);
                 return null;
             }
             
             return new FileInputStream(path.toFile());
         } catch (SecurityException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Access denied for file at path: " + filePath);
+            ConsoleLogger.error("Access denied for file at path: " + filePath);
             return null;
         } catch (FileNotFoundException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "File not found at path: " + filePath);
+            ConsoleLogger.error("File not found at path: " + filePath);
             return null;
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "An unexpected I/O error occurred while accessing: " + filePath + " - " + e.getMessage());
+            ConsoleLogger.error("An unexpected I/O error occurred while accessing: " + filePath + " - " + e.getMessage());
             return null;
         }
     }
@@ -83,12 +83,12 @@ public class DeloreanUtility {
 
     public static InputStream absPathZipToInputStream(String filePath) {
         if (filePath == null || filePath.trim().isEmpty()) {
-            ConsoleLogger.log(LogLevel.ERROR, "File path cannot be null or empty.");
+            ConsoleLogger.error("File path cannot be null or empty.");
             return null;
         }
 
         if (!filePath.toLowerCase().endsWith(".zip")) {
-            ConsoleLogger.log(LogLevel.ERROR, "File path must end with .zip: " + filePath);
+            ConsoleLogger.error("File path must end with .zip: " + filePath);
             return null;
         }
     
@@ -99,7 +99,7 @@ public class DeloreanUtility {
             ZipEntry entry = zis.getNextEntry();
             
             if (entry == null) {
-                ConsoleLogger.log(LogLevel.ERROR, "ZIP file is empty: " + filePath);
+                ConsoleLogger.error("ZIP file is empty: " + filePath);
                 zis.close();
                 return null;
             }
@@ -109,7 +109,7 @@ public class DeloreanUtility {
             return zis; 
             
         } catch (IOException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "I/O error: " + e.getMessage());
+            ConsoleLogger.error("I/O error: " + e.getMessage());
             return null;
         }
     }
@@ -127,10 +127,10 @@ public class DeloreanUtility {
         try {
             Files.createDirectories(path.getParent());
         } catch (AccessDeniedException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Access denied when creating directories for path: " + filePath);
+            ConsoleLogger.error("Access denied when creating directories for path: " + filePath);
             return null;
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Failed to create parent directories for path: " + filePath + " - " + e.getMessage());
+            ConsoleLogger.error("Failed to create parent directories for path: " + filePath + " - " + e.getMessage());
             return null;
         }
 
@@ -138,10 +138,10 @@ public class DeloreanUtility {
         try {
             return new FileOutputStream(path.toFile());
         } catch (FileNotFoundException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "File not found when creating FileOutputStream for path: " + filePath);
+            ConsoleLogger.error("File not found when creating FileOutputStream for path: " + filePath);
             return null;
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "An unexpected I/O error occurred while creating FileOutputStream for: " + filePath + " - " + e.getMessage());
+            ConsoleLogger.error("An unexpected I/O error occurred while creating FileOutputStream for: " + filePath + " - " + e.getMessage());
             return null;
         }
     }
@@ -149,19 +149,19 @@ public class DeloreanUtility {
 
     public static Path validateAndGetPath(String filePath) {
         if (filePath == null || filePath.trim().isEmpty()) {
-            ConsoleLogger.log(LogLevel.ERROR, "File path cannot be null or empty.");
+            ConsoleLogger.error("File path cannot be null or empty.");
             return null;
         }
 
         try {
             Path path = Paths.get(filePath);
             if (!Files.exists(path)) {
-                ConsoleLogger.log(LogLevel.ERROR, "Path does not exist: " + filePath);
+                ConsoleLogger.error("Path does not exist: " + filePath);
                 return null;
             }
             return path;
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Invalid file path: " + filePath + " - " + e.getMessage());
+            ConsoleLogger.error("Invalid file path: " + filePath + " - " + e.getMessage());
             return null;
         }
     }
@@ -171,19 +171,19 @@ public class DeloreanUtility {
         try  {
             inputStream = DeloreanUtility.class.getResourceAsStream(resourcePath);
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Error reading SQL resource: " + resourcePath + " - " + e.getMessage());
+            ConsoleLogger.error("Error reading SQL resource: " + resourcePath + " - " + e.getMessage());
             return null;
         } 
 
         if (inputStream == null) {
-            ConsoleLogger.log(LogLevel.ERROR, "SQL resource not found: " + resourcePath);
+            ConsoleLogger.error("SQL resource not found: " + resourcePath);
             return null;
         }
 
         try {
             return new String(inputStream.readAllBytes(), StandardCharsets.UTF_8).lines().collect(Collectors.joining("\n"));
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Error reading SQL resource stream: " + resourcePath + " - " + e.getMessage());
+            ConsoleLogger.error("Error reading SQL resource stream: " + resourcePath + " - " + e.getMessage());
             return null;
         }
     }

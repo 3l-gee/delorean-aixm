@@ -74,7 +74,7 @@ public class XMLBindingFactory<ROOT, FEATURE> {
         try {
             return schemaFactory.newSchema(schemaSource);
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Failed to load XML Schema from path: " + path + " - " + e.getMessage());
+            ConsoleLogger.error("Failed to load XML Schema from path: " + path + " - " + e.getMessage());
             return null;
         }
     }

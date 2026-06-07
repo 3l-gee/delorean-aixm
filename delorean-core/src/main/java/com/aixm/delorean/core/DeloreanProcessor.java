@@ -4,18 +4,24 @@ import java.util.List;
 import java.util.UUID;
 
 import com.aixm.delorean.core.container.Container;
+import com.aixm.delorean.core.container.ContainerWarehouse;
 import com.aixm.delorean.core.context.Context;
 
 
 public interface DeloreanProcessor {
     String getVersion();
     boolean supports(String version);
-    Container<?,?,?,?,?,?> container();
-    Container<?,?,?,?,?,?> newContainer();
+    Container<?,?,?,?,?,?> createNewContainer();
     Container<?,?,?,?,?,?> getContainerById(String id);
-    Context setContext(String name, String description);
-    Context registerContext(String salt, String name, String description);
+    Container<?,?,?,?,?,?> getContainerByName(String name);
+    Container<?,?,?,?,?,?> createNewContainer(String name);
     void removeContainerById(String id);
+    void removeContainerByName(String name);
+    void setContext(String name, String description);
+    void registerContext(String salt, String name, String description);
+    void removeContext(String ref);
+    void clearContexts();
+    void unSetActiveContext();
     List<String> listContainerId();
     void getActiveInfo();
 }

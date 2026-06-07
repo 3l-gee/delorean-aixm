@@ -152,7 +152,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             String string = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8).lines().collect(Collectors.joining("\n"));
             return string;
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Error reading SQL resource stream", e);
+            ConsoleLogger.error("Error reading SQL resource stream", e);
             return null;
         }
     }
@@ -216,7 +216,7 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
                     throw new IllegalArgumentException("Unknown hbm2ddl.auto value: " + hbm2ddl);
             }
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Error initializing Hibernate session factory", e);
+            ConsoleLogger.error("Error initializing Hibernate session factory", e);
 
         }
     }
@@ -252,9 +252,9 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
             }
 
         } catch (SQLException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Error executing query: " + sql, e);
+            ConsoleLogger.error("Error executing query: " + sql, e);
         } catch (UnsupportedOperationException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Database connection error.", e);
+            ConsoleLogger.error("Database connection error.", e);
         }
         
         return results;
@@ -290,15 +290,15 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
                             stmt.execute(cleaned);
                         }
                     }
-                ConsoleLogger.log(LogLevel.INFO, "SQL script executed successfully.");
+                ConsoleLogger.info("SQL script executed successfully.");
             }           
         } catch (ClassNotFoundException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "PostgreSQL JDBC Driver not found. Please check your dependencies.", e);
+            ConsoleLogger.error("PostgreSQL JDBC Driver not found. Please check your dependencies.", e);
         } catch (SQLException e) {
             String errorMsg = String.format("SQL Error [State: %s, Code: %d]: %s", e.getSQLState(), e.getErrorCode(), e.getMessage());
-            ConsoleLogger.log(LogLevel.ERROR, errorMsg, e);
+            ConsoleLogger.error(errorMsg, e);
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Unexpected error during script execution.", e);
+            ConsoleLogger.error("Unexpected error during script execution.", e);
         }
     }
 

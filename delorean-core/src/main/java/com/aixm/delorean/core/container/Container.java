@@ -110,9 +110,9 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         boolean success = this.databaseBinding.SetCredentials(url, username, password, hbm2ddl);
 
         if (success) {
-            ConsoleLogger.log(LogLevel.INFO, "Connected to <" + this.databaseBinding.getUrl() + ">");
+            ConsoleLogger.info("Connected to <" + this.databaseBinding.getUrl() + ">");
         } else {
-            ConsoleLogger.log(LogLevel.ERROR, "Failed to connect to <" + this.databaseBinding.getUrl() + ">");
+            ConsoleLogger.error("Failed to connect to <" + this.databaseBinding.getUrl() + ">");
         }
     }
 
@@ -155,7 +155,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
 
         this.message = (ROOT) this.xmlBinding.unmarshal(xmlStream);
         String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.log(LogLevel.INFO, "Unmarshalled <" + rootClass.getSimpleName() + "> from: " + path + " stats: " + stats);
+        ConsoleLogger.info("Unmarshalled <" + rootClass.getSimpleName() + "> from: " + path + " stats: " + stats);
 
     }
 
@@ -179,7 +179,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
 
         message = (ROOT) this.xmlBinding.unmarshal(xmlStream);
         String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.log(LogLevel.INFO, "Unmarshalled <" + rootClass.getSimpleName() + "> from: " + path + " stats: " + stats);
+        ConsoleLogger.info("Unmarshalled <" + rootClass.getSimpleName() + "> from: " + path + " stats: " + stats);
         return message;
     }
 
@@ -194,7 +194,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
         this.xmlBinding.marshal(this.message, pathObj, this.rootClass, this.qName);
         String stats = this.xmlBinding.statistics(path);
-        ConsoleLogger.log(LogLevel.INFO, "Marshalled <" + rootClass.getSimpleName() + "> to: " + path + " stats: " + stats);
+        ConsoleLogger.info("Marshalled <" + rootClass.getSimpleName() + "> to: " + path + " stats: " + stats);
     }
 
     public void saxValidation() {
@@ -202,7 +202,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
             throw new RuntimeException("XMLBinding is not set");
         }
         this.xmlBinding.saxValidate(this.message);
-        ConsoleLogger.log(LogLevel.INFO, "SAX Validation <" + rootClass.getSimpleName() + ">");
+        ConsoleLogger.info("SAX Validation <" + rootClass.getSimpleName() + ">");
     }
 
     public void printValidation() {
@@ -230,7 +230,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
         this.databaseBinding.startup();
 
-        ConsoleLogger.log(LogLevel.INFO, "Initialized <" + this.databaseBinding.getUrl() + ">");
+        ConsoleLogger.info("Initialized <" + this.databaseBinding.getUrl() + ">");
     }
 
     public void shutdown() {
@@ -238,7 +238,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
             throw new RuntimeException("DatabaseBinding is not set");
         }
         this.databaseBinding.shutdown();
-        ConsoleLogger.log(LogLevel.INFO, "Shutdown <" + this.databaseBinding.getUrl() + ">");
+        ConsoleLogger.info("Shutdown <" + this.databaseBinding.getUrl() + ">");
     }
 
     public void persist() {
@@ -247,7 +247,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
         this.databaseBinding.persist(this.message);
         String stats = this.databaseBinding.statistics();
-        ConsoleLogger.log(LogLevel.INFO, "Persisted <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        ConsoleLogger.info("Persisted <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
     public void merge() {
@@ -256,7 +256,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }   
         this.databaseBinding.merge(this.message);
         String stats = this.databaseBinding.statistics();
-        ConsoleLogger.log(LogLevel.INFO, "Merged <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        ConsoleLogger.info("Merged <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
     public void integrate(String path) {
@@ -271,7 +271,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
 
         this.message = (ROOT) this.databaseBinding.extract(this.rootClass, id);
         String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.log(LogLevel.INFO, "Extracted <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        ConsoleLogger.info("Extracted <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
     public void predicate(String timeString) {
@@ -305,7 +305,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
 
         this.message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time);
         String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.log(LogLevel.INFO, "Predicated <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        ConsoleLogger.info("Predicated <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
     @SuppressWarnings("unchecked")
@@ -318,20 +318,20 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
 
         message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time);
         String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.log(LogLevel.INFO, "Predicated <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        ConsoleLogger.info("Predicated <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
         return message;
     }
 
     public void diff(){
         this.message = this.deloreanEngine.diff(this.message);
         String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.log(LogLevel.INFO, "Diff applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+        ConsoleLogger.info("Diff applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
     }
 
     public void filter(AbstractFilterConfig config) {
         this.message = this.deloreanEngine.filter(this.message, config);
         String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.log(LogLevel.INFO, "Filter applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+        ConsoleLogger.info("Filter applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
     }
 
     public Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> prune(AbstractFilterConfig config) {
@@ -344,7 +344,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         ROOT filteredMessage = this.deloreanEngine.filter(clonedMessage, config);
         String stats = this.deloreanEngine.statistics(filteredMessage);
         newContainer.setMessage(filteredMessage);
-        ConsoleLogger.log(LogLevel.INFO, "Prune applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+        ConsoleLogger.info("Prune applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
         return newContainer;
     }
 
@@ -357,7 +357,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         ROOT clonedMessage = this.deloreanEngine.clone(this.message);
         String stats = this.deloreanEngine.statistics(clonedMessage);
         newContainer.setMessage(clonedMessage);
-        ConsoleLogger.log(LogLevel.INFO, "Clone applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+        ConsoleLogger.info("Clone applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
         return newContainer;
     }
 

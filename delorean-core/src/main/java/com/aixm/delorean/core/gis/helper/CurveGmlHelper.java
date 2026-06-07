@@ -48,6 +48,9 @@ import com.aixm.delorean.core.gis.type.components.SegmentType;
 import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
 import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 import com.aixm.delorean.core.log.ConsoleLogger;
+import com.aixm.delorean.core.validation.ValidationBindingService;
+import com.aixm.delorean.core.validation.ValidationSeverity;
+import com.aixm.delorean.core.validation.ValidationSource;
 import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.gis.type.Arc;
 import com.aixm.delorean.core.gis.type.Circle;
@@ -233,9 +236,9 @@ public class CurveGmlHelper {
                 result.setGmlPoint(resultPoint);
 
             } else if (com.aixm.delorean.core.org.gml.v_3_2.PointType.class.isAssignableFrom(value.getPointProperty().getPoint().getValue().getClass())) {
-                ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <" + value.getPointProperty().getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. It will be converted to <gml:PointType>.");
                 com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
                 GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
+                ValidationBindingService.recordEvent(ValidationSource.GEOMETRY, ValidationSeverity.WARNING, "Geometry parsing", "Delorean does not support <" + value.getPointProperty().getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. It will be converted to <gml:PointType>.", point.getId());
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
 
@@ -340,8 +343,8 @@ public class CurveGmlHelper {
                 result.setGmlPoint(resultPoint);
 
             } else if (com.aixm.delorean.core.org.gml.v_3_2.PointType.class.isAssignableFrom(value.getPointProperty().getPoint().getValue().getClass())) {
-                ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <" + value.getPointProperty().getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. It will be converted to <gml:PointType>.");
                 com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
+                ValidationBindingService.recordEvent(ValidationSource.GEOMETRY, ValidationSeverity.WARNING, "Geometry parsing", "Delorean does not support <" + value.getPointProperty().getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. It will be converted to <gml:PointType>.", point.getId());
                 GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
@@ -450,8 +453,8 @@ public class CurveGmlHelper {
 
 
                     } else if (com.aixm.delorean.core.org.gml.v_3_2.PointType.class.isAssignableFrom(pointPropertyObj.getPoint().getValue().getClass())) {
-                        ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <" + pointPropertyObj.getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. It will be converted to <gml:PointType>.");
                         com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
+                        ValidationBindingService.recordEvent(ValidationSource.GEOMETRY, ValidationSeverity.WARNING, "Geometry parsing", "Delorean does not support <" + pointPropertyObj.getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. It will be converted to <gml:PointType>.", point.getId());
                         GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);
@@ -547,8 +550,8 @@ public class CurveGmlHelper {
                         result.getGmlPoint().add(resultPoint);
 
                     } else if (com.aixm.delorean.core.org.gml.v_3_2.PointType.class.isAssignableFrom(pointPropertyObj.getPoint().getValue().getClass())) {
-                        ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <" + pointPropertyObj.getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. it will be converted to <gml:PointType>.");
                         com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
+                        ValidationBindingService.recordEvent(ValidationSource.GEOMETRY, ValidationSeverity.WARNING, "Geometry parsing", "Delorean does not support <" + pointPropertyObj.getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. it will be converted to <gml:PointType>.", point.getId());
                         GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);

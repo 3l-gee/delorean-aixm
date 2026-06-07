@@ -87,13 +87,11 @@ public enum XMLConfig {
         // Construct the full classpath resource path for the entry point XSD
         String fullPath = baseDir.endsWith("/") ? baseDir + entryPointXsd : baseDir + "/" + entryPointXsd;
         
-        ConsoleLogger.log(LogLevel.DEBUG, "Loading schema from classpath: " + fullPath, new Exception().getStackTrace()[0]);
+        ConsoleLogger.debug("Loading schema from classpath: " + fullPath);
 
         try (InputStream is = getClass().getClassLoader().getResourceAsStream(fullPath)) {
             if (is == null) {
-                String errorMessage = "Resource not found on classpath: " + fullPath;
-                ConsoleLogger.log(LogLevel.FATAL, errorMessage, new Exception().getStackTrace()[0]);
-                throw new RuntimeException(errorMessage);
+                throw new IllegalArgumentException("Resource not found on classpath: " + fullPath);
             }
             
             Source schemaSource = new StreamSource(is);
@@ -105,8 +103,7 @@ public enum XMLConfig {
 
             return this.schemaFactory.newSchema(schemaSource);
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.FATAL, "Failed to load schema from classpath: " + fullPath, e.getStackTrace()[0]);
-            throw new RuntimeException("Failed to load schema: " + fullPath, e);
+            throw new IllegalArgumentException("Failed to load schema: " + fullPath, e);
         }
     }
 
@@ -156,8 +153,7 @@ public enum XMLConfig {
                 URI normalizedUri = new URI(fullPath).normalize();
                 return normalizedUri.getPath().replaceAll("^/|/$", ""); 
             } catch (Exception e) {
-                 ConsoleLogger.log(LogLevel.WARN, "Path normalization failed for: " + fullPath + ". Using raw path.", new Exception().getStackTrace()[0]);
-                 return fullPath;
+                throw new IllegalArgumentException("Failed path normalization for: " + fullPath + ". Using raw path.", e);
             }
         }
     }

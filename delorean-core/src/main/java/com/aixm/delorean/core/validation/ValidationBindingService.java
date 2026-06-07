@@ -61,6 +61,15 @@ public class ValidationBindingService {
         getInstance().addValidationEvent(event);
     }
 
+    /**
+    * Overload instance method to map Geoemtry Validation Events natively.
+    */
+    public static void recordEventGeometry(ValidationSeverity severity, String method, String error, String identifier) {
+        String location = "gml:id : " + identifier;
+        ValidationEvent event = new ValidationEvent(ValidationSource.GEOMETRY, severity, method, error, location);
+        getInstance().addValidationEvent(event);
+    }
+
     // Single synchronized entry point for adding elements to the main bucket and indexes
     private synchronized void addValidationEvent(ValidationEvent event) {
         allEvents.add(event);
@@ -121,11 +130,11 @@ public class ValidationBindingService {
         ValidationBindingService s = getInstance();
 
         if (s.allEvents.isEmpty()) {
-            ConsoleLogger.log(LogLevel.INFO, "Validation : 0 issues detected.");
+            ConsoleLogger.info("Validation : 0 issues detected.");
             return;
         }
 
-        ConsoleLogger.log(LogLevel.INFO, "Validation : " + s.allEvents.size() + " issue(s) detected.");
+        ConsoleLogger.info("Validation : " + s.allEvents.size() + " issue(s) detected.");
 
         // Grouping Hierarchy: Source -> Severity -> Message String -> Event List
         Map<ValidationSource, Map<ValidationSeverity, Map<String, List<ValidationEvent>>>> groupedEvents = 
@@ -143,18 +152,18 @@ public class ValidationBindingService {
             ));
         
             groupedEvents.forEach((source, severityMap) -> {
-                ConsoleLogger.log(LogLevel.INFO, "Source : [" + source + "]");
+                ConsoleLogger.info("Source : [" + source + "]");
             
                 severityMap.forEach((severity, messageMap) -> {
                     long totalSeverityCount = messageMap.values().stream().mapToLong(List::size).sum();
                     
-                    ConsoleLogger.log(LogLevel.INFO, "  └──  Severity: [" + severity + "] (" + totalSeverityCount + " total instances)");
+                    ConsoleLogger.info("  └──  Severity: [" + severity + "] (" + totalSeverityCount + " total instances)");
                     
                     messageMap.forEach((message, instances) -> {
                         int occurrenceCount = instances.size();
                         ValidationEvent sample = instances.get(0);
                         
-                        ConsoleLogger.log(LogLevel.INFO, String.format(
+                        ConsoleLogger.info(String.format(
                             "      ├── [x%d] %s -> %s", 
                             occurrenceCount, 
                             sample.getMethod(), 
@@ -162,7 +171,7 @@ public class ValidationBindingService {
                         ));
                         
                         // Show a sample reference location spot so developers know where to look
-                        ConsoleLogger.log(LogLevel.INFO, "      │   └──  Sample Location Trace: " + sample.getLocation());
+                        ConsoleLogger.info("      │   └──  Sample Location Trace: " + sample.getLocation());
                     });
                 });
         });

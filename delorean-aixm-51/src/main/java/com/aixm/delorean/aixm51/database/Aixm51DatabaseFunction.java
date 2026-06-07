@@ -171,8 +171,7 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
             StringOrRefType description = m.getDescription();
             int memberCount = m.getHasMember() != null ? m.getHasMember().size() : 0;
 
-            ConsoleLogger.log(LogLevel.INFO, 
-                String.format("HJID: %d | ID: %s | Members: %d | Description: %s", 
+            ConsoleLogger.info(String.format("HJID: %d | ID: %s | Members: %d | Description: %s", 
                     hjid, id, memberCount, description != null ? description.getValue() : "N/A")
             );
         }
@@ -410,7 +409,7 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
             Session session) {
         // 1. malformed timeslice are ignored
         if (timeSlice == null) {
-            ConsoleLogger.log(LogLevel.WARN, "Malformed timeslice for feature [" + feature.getClass().getSimpleName() + "] : " +  feature.getIdentifier());
+            ConsoleLogger.info("Malformed timeslice for feature [" + feature.getClass().getSimpleName() + "] : " +  feature.getIdentifier());
             return existing;
         }
 
@@ -424,14 +423,14 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
                 s.persist(basicMessageMember);
                 return null;
             });
-            ConsoleLogger.log(LogLevel.DEBUG, "New feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
+            ConsoleLogger.info("New feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
             return existing;
 
         // 3. new changes are merged on the existing feature
         } else if (incomingSeq > existing.getSequenceNumber()) {
             // 3.a missing timeslice result in an error
             if (incomingSeq != existing.getSequenceNumber() + 1) {
-                ConsoleLogger.log(LogLevel.WARN, "Missing Timeslice for feature [" + feature.getClass().getSimpleName() + "] : " +  existing.getIdentifier() + " between sequence numbers: " + existing.getSequenceNumber() + " and " + incomingSeq);
+                ConsoleLogger.info("Missing Timeslice for feature [" + feature.getClass().getSimpleName() + "] : " +  existing.getIdentifier() + " between sequence numbers: " + existing.getSequenceNumber() + " and " + incomingSeq);
             }
             HibernateHelper.doWithoutTransaction(session, s -> {
                 s.persist(timeSliceProperty);
@@ -440,7 +439,7 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
             existing.setAction(TimeSliceAction.VERSION);
             existing.setTimeSlicePropertyObject(timeSliceProperty);
             existing.setNewTimeSliceStart(timeSlice.getValidTime().getBeginPosition());
-            ConsoleLogger.log(LogLevel.DEBUG, "Version change for feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
+            ConsoleLogger.info("Version change for feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
             return existing;
 
         
@@ -452,12 +451,12 @@ public class Aixm51DatabaseFunction extends AbstractDatabaseFunctions<AIXMBasicM
             });
             existing.setAction(TimeSliceAction.CORRECTION);
             existing.setTimeSlicePropertyObject(timeSliceProperty);
-            ConsoleLogger.log(LogLevel.DEBUG, "Correction change for feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
+            ConsoleLogger.info("Correction change for feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
             return existing;
 
         } else {
             existing.setAction(TimeSliceAction.NOTHING);
-            ConsoleLogger.log(LogLevel.DEBUG, "No change for feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
+            ConsoleLogger.info("No change for feature [" + feature.getClass().getSimpleName() + "] with identifier: " + feature.getIdentifier());
             return existing;
 
         }
