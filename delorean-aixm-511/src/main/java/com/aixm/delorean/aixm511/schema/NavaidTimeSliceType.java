@@ -146,7 +146,7 @@ public class NavaidTimeSliceType extends AbstractAIXMTimeSliceType implements Se
     protected List<NavaidOperationalStatusPropertyType> availability;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<NavaidExtensionType> extension;
+    protected List<NavaidTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -735,13 +735,13 @@ public class NavaidTimeSliceType extends AbstractAIXMTimeSliceType implements Se
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NavaidExtensionType }
+     * {@link NavaidTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = NavaidExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navaide_hjid", referencedColumnName = "hjid")
-    public List<NavaidExtensionType> getExtension() {
+    @OneToMany(targetEntity = NavaidTimeSliceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "navaid_te_hjid", referencedColumnName = "hjid")
+    public List<NavaidTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -752,7 +752,7 @@ public class NavaidTimeSliceType extends AbstractAIXMTimeSliceType implements Se
      *
      *
      */
-    public void setExtension(List<NavaidExtensionType> extension) {
+    public void setExtension(List<NavaidTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -891,27 +891,14 @@ public class NavaidTimeSliceType extends AbstractAIXMTimeSliceType implements Se
         }
         final NavaidTimeSliceType that = ((NavaidTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSignalPerformance();
-            boolean rhsFieldIsSet = that.isSetSignalPerformance();
-            JAXBElement<CodeSignalPerformanceILSType> lhsField;
-            lhsField = this.getSignalPerformance();
-            JAXBElement<CodeSignalPerformanceILSType> rhsField;
-            rhsField = that.getSignalPerformance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "signalPerformance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "signalPerformance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetServedAirport();
-            boolean rhsFieldIsSet = that.isSetServedAirport();
-            List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetServedAirport() ? this.getServedAirport() : null);
-            List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetServedAirport() ? that.getServedAirport() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "servedAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "servedAirport", rhsField);
+            boolean lhsFieldIsSet = this.isSetCourseQuality();
+            boolean rhsFieldIsSet = that.isSetCourseQuality();
+            JAXBElement<CodeCourseQualityILSType> lhsField;
+            lhsField = this.getCourseQuality();
+            JAXBElement<CodeCourseQualityILSType> rhsField;
+            rhsField = that.getCourseQuality();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseQuality", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseQuality", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -930,32 +917,6 @@ public class NavaidTimeSliceType extends AbstractAIXMTimeSliceType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeNavaidDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeNavaidDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavaidExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NavaidExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAixmName();
             boolean rhsFieldIsSet = that.isSetAixmName();
             JAXBElement<TextNameType> lhsField;
@@ -964,97 +925,6 @@ public class NavaidTimeSliceType extends AbstractAIXMTimeSliceType implements Se
             rhsField = that.getAixmName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeNavaidServiceType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeNavaidServiceType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPurpose();
-            boolean rhsFieldIsSet = that.isSetPurpose();
-            JAXBElement<CodeNavaidPurposeType> lhsField;
-            lhsField = this.getPurpose();
-            JAXBElement<CodeNavaidPurposeType> rhsField;
-            rhsField = that.getPurpose();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "purpose", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "purpose", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCourseQuality();
-            boolean rhsFieldIsSet = that.isSetCourseQuality();
-            JAXBElement<CodeCourseQualityILSType> lhsField;
-            lhsField = this.getCourseQuality();
-            JAXBElement<CodeCourseQualityILSType> rhsField;
-            rhsField = that.getCourseQuality();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseQuality", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseQuality", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIntegrityLevel();
-            boolean rhsFieldIsSet = that.isSetIntegrityLevel();
-            JAXBElement<CodeIntegrityLevelILSType> lhsField;
-            lhsField = this.getIntegrityLevel();
-            JAXBElement<CodeIntegrityLevelILSType> rhsField;
-            rhsField = that.getIntegrityLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integrityLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integrityLevel", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRunwayDirection();
-            boolean rhsFieldIsSet = that.isSetRunwayDirection();
-            List<RunwayDirectionPropertyType> lhsField;
-            lhsField = (this.isSetRunwayDirection() ? this.getRunwayDirection() : null);
-            List<RunwayDirectionPropertyType> rhsField;
-            rhsField = (that.isSetRunwayDirection() ? that.getRunwayDirection() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightChecked();
-            boolean rhsFieldIsSet = that.isSetFlightChecked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlightChecked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlightChecked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<NavaidOperationalStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<NavaidOperationalStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1086,6 +956,19 @@ public class NavaidTimeSliceType extends AbstractAIXMTimeSliceType implements Se
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSignalPerformance();
+            boolean rhsFieldIsSet = that.isSetSignalPerformance();
+            JAXBElement<CodeSignalPerformanceILSType> lhsField;
+            lhsField = this.getSignalPerformance();
+            JAXBElement<CodeSignalPerformanceILSType> rhsField;
+            rhsField = that.getSignalPerformance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "signalPerformance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "signalPerformance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLocation();
             boolean rhsFieldIsSet = that.isSetLocation();
             JAXBElement<AIXMElevatedPointPropertyType> lhsField;
@@ -1094,6 +977,123 @@ public class NavaidTimeSliceType extends AbstractAIXMTimeSliceType implements Se
             rhsField = that.getLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightChecked();
+            boolean rhsFieldIsSet = that.isSetFlightChecked();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlightChecked();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlightChecked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NavaidTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<NavaidTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeNavaidServiceType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeNavaidServiceType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRunwayDirection();
+            boolean rhsFieldIsSet = that.isSetRunwayDirection();
+            List<RunwayDirectionPropertyType> lhsField;
+            lhsField = (this.isSetRunwayDirection() ? this.getRunwayDirection() : null);
+            List<RunwayDirectionPropertyType> rhsField;
+            rhsField = (that.isSetRunwayDirection() ? that.getRunwayDirection() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeNavaidDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeNavaidDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetServedAirport();
+            boolean rhsFieldIsSet = that.isSetServedAirport();
+            List<AirportHeliportPropertyType> lhsField;
+            lhsField = (this.isSetServedAirport() ? this.getServedAirport() : null);
+            List<AirportHeliportPropertyType> rhsField;
+            rhsField = (that.isSetServedAirport() ? that.getServedAirport() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "servedAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "servedAirport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntegrityLevel();
+            boolean rhsFieldIsSet = that.isSetIntegrityLevel();
+            JAXBElement<CodeIntegrityLevelILSType> lhsField;
+            lhsField = this.getIntegrityLevel();
+            JAXBElement<CodeIntegrityLevelILSType> rhsField;
+            rhsField = that.getIntegrityLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integrityLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integrityLevel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPurpose();
+            boolean rhsFieldIsSet = that.isSetPurpose();
+            JAXBElement<CodeNavaidPurposeType> lhsField;
+            lhsField = this.getPurpose();
+            JAXBElement<CodeNavaidPurposeType> rhsField;
+            rhsField = that.getPurpose();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "purpose", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "purpose", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<NavaidOperationalStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
+            List<NavaidOperationalStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1211,7 +1211,7 @@ public class NavaidTimeSliceType extends AbstractAIXMTimeSliceType implements Se
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavaidExtensionType> theField;
+            List<NavaidTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -1314,7 +1314,7 @@ public class NavaidTimeSliceType extends AbstractAIXMTimeSliceType implements Se
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavaidExtensionType> theField;
+            List<NavaidTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

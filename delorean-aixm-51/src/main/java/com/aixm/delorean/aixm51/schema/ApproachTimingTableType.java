@@ -98,7 +98,7 @@ public class ApproachTimingTableType extends AbstractAIXMObjectType implements S
     protected JAXBElement<ValSpeedType> speed;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<ApproachTimingTableTypeExtensionType> extension;
+    protected List<ApproachTimingTableExtensionType> extension;
 
     /**
      * Gets the value of the startingMeasurementPoint property.
@@ -286,14 +286,14 @@ public class ApproachTimingTableType extends AbstractAIXMObjectType implements S
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ApproachTimingTableTypeExtensionType }
+     * {@link ApproachTimingTableExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ApproachTimingTableTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ApproachTimingTableExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "approachtimingtablee_hjid", referencedColumnName = "hjid")
-    public List<ApproachTimingTableTypeExtensionType> getExtension() {
+    @JoinColumn(name = "approachtimingtable_oe_hjid", referencedColumnName = "hjid")
+    public List<ApproachTimingTableExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -304,7 +304,7 @@ public class ApproachTimingTableType extends AbstractAIXMObjectType implements S
      *
      *
      */
-    public void setExtension(List<ApproachTimingTableTypeExtensionType> extension) {
+    public void setExtension(List<ApproachTimingTableExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -411,19 +411,6 @@ public class ApproachTimingTableType extends AbstractAIXMObjectType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStartingMeasurementPoint();
-            boolean rhsFieldIsSet = that.isSetStartingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> lhsField;
-            lhsField = this.getStartingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> rhsField;
-            rhsField = that.getStartingMeasurementPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startingMeasurementPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startingMeasurementPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEndingMeasurementPoint();
             boolean rhsFieldIsSet = that.isSetEndingMeasurementPoint();
             JAXBElement<CodeProcedureDistanceType> lhsField;
@@ -437,6 +424,32 @@ public class ApproachTimingTableType extends AbstractAIXMObjectType implements S
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetStartingMeasurementPoint();
+            boolean rhsFieldIsSet = that.isSetStartingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> lhsField;
+            lhsField = this.getStartingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> rhsField;
+            rhsField = that.getStartingMeasurementPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startingMeasurementPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startingMeasurementPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApproachTimingTableExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ApproachTimingTableExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSpeed();
             boolean rhsFieldIsSet = that.isSetSpeed();
             JAXBElement<ValSpeedType> lhsField;
@@ -445,19 +458,6 @@ public class ApproachTimingTableType extends AbstractAIXMObjectType implements S
             rhsField = that.getSpeed();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApproachTimingTableTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApproachTimingTableTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -505,7 +505,7 @@ public class ApproachTimingTableType extends AbstractAIXMObjectType implements S
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApproachTimingTableTypeExtensionType> theField;
+            List<ApproachTimingTableExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -548,7 +548,7 @@ public class ApproachTimingTableType extends AbstractAIXMObjectType implements S
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApproachTimingTableTypeExtensionType> theField;
+            List<ApproachTimingTableExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

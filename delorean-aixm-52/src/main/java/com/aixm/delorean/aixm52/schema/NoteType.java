@@ -89,7 +89,7 @@ public class NoteType extends AbstractAIXMObjectType implements Serializable {
     protected JAXBElement<CodeNotePurposeType> purpose;
     @XmlElement(nillable = true)
     protected List<LinguisticNotePropertyType> translatedNote;
-    protected List<NoteTypeExtensionType> extension;
+    protected List<NoteExtensionType> extension;
 
     /**
      * Gets the value of the propertyName property.
@@ -219,13 +219,13 @@ public class NoteType extends AbstractAIXMObjectType implements Serializable {
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NoteTypeExtensionType }
+     * {@link NoteExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = NoteTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "notee_hjid", referencedColumnName = "hjid")
-    public List<NoteTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = NoteExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "note_oe_hjid", referencedColumnName = "hjid")
+    public List<NoteExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -236,7 +236,7 @@ public class NoteType extends AbstractAIXMObjectType implements Serializable {
      *
      *
      */
-    public void setExtension(List<NoteTypeExtensionType> extension) {
+    public void setExtension(List<NoteExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -287,6 +287,19 @@ public class NoteType extends AbstractAIXMObjectType implements Serializable {
         }
         final NoteType that = ((NoteType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTranslatedNote();
+            boolean rhsFieldIsSet = that.isSetTranslatedNote();
+            List<LinguisticNotePropertyType> lhsField;
+            lhsField = (this.isSetTranslatedNote() ? this.getTranslatedNote() : null);
+            List<LinguisticNotePropertyType> rhsField;
+            rhsField = (that.isSetTranslatedNote() ? that.getTranslatedNote() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "translatedNote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "translatedNote", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPurpose();
             boolean rhsFieldIsSet = that.isSetPurpose();
             JAXBElement<CodeNotePurposeType> lhsField;
@@ -302,9 +315,9 @@ public class NoteType extends AbstractAIXMObjectType implements Serializable {
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<NoteTypeExtensionType> lhsField;
+            List<NoteExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NoteTypeExtensionType> rhsField;
+            List<NoteExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -321,19 +334,6 @@ public class NoteType extends AbstractAIXMObjectType implements Serializable {
             rhsField = that.getPropertyName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "propertyName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "propertyName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTranslatedNote();
-            boolean rhsFieldIsSet = that.isSetTranslatedNote();
-            List<LinguisticNotePropertyType> lhsField;
-            lhsField = (this.isSetTranslatedNote() ? this.getTranslatedNote() : null);
-            List<LinguisticNotePropertyType> rhsField;
-            rhsField = (that.isSetTranslatedNote() ? that.getTranslatedNote() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "translatedNote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "translatedNote", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -367,7 +367,7 @@ public class NoteType extends AbstractAIXMObjectType implements Serializable {
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NoteTypeExtensionType> theField;
+            List<NoteExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -398,7 +398,7 @@ public class NoteType extends AbstractAIXMObjectType implements Serializable {
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NoteTypeExtensionType> theField;
+            List<NoteExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

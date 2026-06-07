@@ -52,7 +52,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
         RadioCommunicationOperationalStatusType.class, ServiceOperationalStatusType.class, OnlineContactType.class,
         PostalAddressType.class, TelephoneContactType.class, LightElementStatusType.class})
 @Entity(name = "AbstractPropertiesWithScheduleType")
-@Table(name = "abstractpropertieswithscheduletype", schema = "public")
+@Table(name = "abstractpropertieswithschedule_o", schema = "public")
 public abstract class AbstractPropertiesWithScheduleType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;

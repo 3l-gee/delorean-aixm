@@ -42,7 +42,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 @XmlType(name = "AbstractSegmentPointType")
 @XmlSeeAlso({AerialRefuellingPointType.class, EnRouteSegmentPointType.class, TerminalSegmentPointType.class})
 @Entity(name = "AbstractSegmentPointType")
-@Table(name = "abstractsegmentpointtype", schema = "public")
+@Table(name = "abstractsegmentpoint_o", schema = "public")
 public abstract class AbstractSegmentPointType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;

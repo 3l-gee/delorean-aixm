@@ -11521,1378 +11521,1401 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SurveillanceGroundStationTypeExtensionType }
+     * Create an instance of {@link SurveillanceGroundStationExtensionType }
      *
-     * @return the new instance of {@link SurveillanceGroundStationTypeExtensionType
-     *         }
+     * @return the new instance of {@link SurveillanceGroundStationExtensionType }
      */
-    public SurveillanceGroundStationTypeExtensionType createSurveillanceGroundStationTypeExtensionType() {
-        return new SurveillanceGroundStationTypeExtensionType();
+    public SurveillanceGroundStationExtensionType createSurveillanceGroundStationExtensionType() {
+        return new SurveillanceGroundStationExtensionType();
     }
 
     /**
-     * Create an instance of {@link SecondarySurveillanceRadarExtensionType }
-     *
-     * @return the new instance of {@link SecondarySurveillanceRadarExtensionType }
-     */
-    public SecondarySurveillanceRadarExtensionType createSecondarySurveillanceRadarExtensionType() {
-        return new SecondarySurveillanceRadarExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ReflectorTypeExtensionType }
-     *
-     * @return the new instance of {@link ReflectorTypeExtensionType }
-     */
-    public ReflectorTypeExtensionType createReflectorTypeExtensionType() {
-        return new ReflectorTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RadarSystemExtensionType }
-     *
-     * @return the new instance of {@link RadarSystemExtensionType }
-     */
-    public RadarSystemExtensionType createRadarSystemExtensionType() {
-        return new RadarSystemExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RadarComponentTypeExtensionType }
-     *
-     * @return the new instance of {@link RadarComponentTypeExtensionType }
-     */
-    public RadarComponentTypeExtensionType createRadarComponentTypeExtensionType() {
-        return new RadarComponentTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link PrimarySurveillanceRadarExtensionType }
-     *
-     * @return the new instance of {@link PrimarySurveillanceRadarExtensionType }
-     */
-    public PrimarySurveillanceRadarExtensionType createPrimarySurveillanceRadarExtensionType() {
-        return new PrimarySurveillanceRadarExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link PrecisionApproachRadarExtensionType }
-     *
-     * @return the new instance of {@link PrecisionApproachRadarExtensionType }
-     */
-    public PrecisionApproachRadarExtensionType createPrecisionApproachRadarExtensionType() {
-        return new PrecisionApproachRadarExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ObstructionTypeExtensionType }
-     *
-     * @return the new instance of {@link ObstructionTypeExtensionType }
-     */
-    public ObstructionTypeExtensionType createObstructionTypeExtensionType() {
-        return new ObstructionTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ObstaclePlacementTypeExtensionType }
-     *
-     * @return the new instance of {@link ObstaclePlacementTypeExtensionType }
-     */
-    public ObstaclePlacementTypeExtensionType createObstaclePlacementTypeExtensionType() {
-        return new ObstaclePlacementTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ObstacleAssessmentAreaTypeExtensionType }
-     *
-     * @return the new instance of {@link ObstacleAssessmentAreaTypeExtensionType }
-     */
-    public ObstacleAssessmentAreaTypeExtensionType createObstacleAssessmentAreaTypeExtensionType() {
-        return new ObstacleAssessmentAreaTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link HoldingAssessmentExtensionType }
-     *
-     * @return the new instance of {@link HoldingAssessmentExtensionType }
-     */
-    public HoldingAssessmentExtensionType createHoldingAssessmentExtensionType() {
-        return new HoldingAssessmentExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AltitudeAdjustmentTypeExtensionType }
-     *
-     * @return the new instance of {@link AltitudeAdjustmentTypeExtensionType }
-     */
-    public AltitudeAdjustmentTypeExtensionType createAltitudeAdjustmentTypeExtensionType() {
-        return new AltitudeAdjustmentTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link StandardLevelTableExtensionType }
-     *
-     * @return the new instance of {@link StandardLevelTableExtensionType }
-     */
-    public StandardLevelTableExtensionType createStandardLevelTableExtensionType() {
-        return new StandardLevelTableExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link StandardLevelSectorExtensionType }
-     *
-     * @return the new instance of {@link StandardLevelSectorExtensionType }
-     */
-    public StandardLevelSectorExtensionType createStandardLevelSectorExtensionType() {
-        return new StandardLevelSectorExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link StandardLevelColumnExtensionType }
-     *
-     * @return the new instance of {@link StandardLevelColumnExtensionType }
-     */
-    public StandardLevelColumnExtensionType createStandardLevelColumnExtensionType() {
-        return new StandardLevelColumnExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link StandardLevelTypeExtensionType }
-     *
-     * @return the new instance of {@link StandardLevelTypeExtensionType }
-     */
-    public StandardLevelTypeExtensionType createStandardLevelTypeExtensionType() {
-        return new StandardLevelTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TimesheetTypeExtensionType }
-     *
-     * @return the new instance of {@link TimesheetTypeExtensionType }
-     */
-    public TimesheetTypeExtensionType createTimesheetTypeExtensionType() {
-        return new TimesheetTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link SpecialDateExtensionType }
-     *
-     * @return the new instance of {@link SpecialDateExtensionType }
-     */
-    public SpecialDateExtensionType createSpecialDateExtensionType() {
-        return new SpecialDateExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RadioFrequencyAreaExtensionType }
-     *
-     * @return the new instance of {@link RadioFrequencyAreaExtensionType }
-     */
-    public RadioFrequencyAreaExtensionType createRadioFrequencyAreaExtensionType() {
-        return new RadioFrequencyAreaExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link MeteorologyTypeExtensionType }
-     *
-     * @return the new instance of {@link MeteorologyTypeExtensionType }
-     */
-    public MeteorologyTypeExtensionType createMeteorologyTypeExtensionType() {
-        return new MeteorologyTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link LightElementStatusTypeExtensionType }
-     *
-     * @return the new instance of {@link LightElementStatusTypeExtensionType }
-     */
-    public LightElementStatusTypeExtensionType createLightElementStatusTypeExtensionType() {
-        return new LightElementStatusTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link LightElementTypeExtensionType }
-     *
-     * @return the new instance of {@link LightElementTypeExtensionType }
-     */
-    public LightElementTypeExtensionType createLightElementTypeExtensionType() {
-        return new LightElementTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link CircleSectorTypeExtensionType }
-     *
-     * @return the new instance of {@link CircleSectorTypeExtensionType }
-     */
-    public CircleSectorTypeExtensionType createCircleSectorTypeExtensionType() {
-        return new CircleSectorTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AirspaceLayerTypeExtensionType }
-     *
-     * @return the new instance of {@link AirspaceLayerTypeExtensionType }
-     */
-    public AirspaceLayerTypeExtensionType createAirspaceLayerTypeExtensionType() {
-        return new AirspaceLayerTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FlightCharacteristicTypeExtensionType }
-     *
-     * @return the new instance of {@link FlightCharacteristicTypeExtensionType }
-     */
-    public FlightCharacteristicTypeExtensionType createFlightCharacteristicTypeExtensionType() {
-        return new FlightCharacteristicTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AircraftCharacteristicTypeExtensionType }
-     *
-     * @return the new instance of {@link AircraftCharacteristicTypeExtensionType }
-     */
-    public AircraftCharacteristicTypeExtensionType createAircraftCharacteristicTypeExtensionType() {
-        return new AircraftCharacteristicTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TelephoneContactTypeExtensionType }
-     *
-     * @return the new instance of {@link TelephoneContactTypeExtensionType }
-     */
-    public TelephoneContactTypeExtensionType createTelephoneContactTypeExtensionType() {
-        return new TelephoneContactTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link PostalAddressTypeExtensionType }
-     *
-     * @return the new instance of {@link PostalAddressTypeExtensionType }
-     */
-    public PostalAddressTypeExtensionType createPostalAddressTypeExtensionType() {
-        return new PostalAddressTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link OnlineContactTypeExtensionType }
-     *
-     * @return the new instance of {@link OnlineContactTypeExtensionType }
-     */
-    public OnlineContactTypeExtensionType createOnlineContactTypeExtensionType() {
-        return new OnlineContactTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ContactInformationTypeExtensionType }
-     *
-     * @return the new instance of {@link ContactInformationTypeExtensionType }
-     */
-    public ContactInformationTypeExtensionType createContactInformationTypeExtensionType() {
-        return new ContactInformationTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ServiceOperationalStatusTypeExtensionType }
-     *
-     * @return the new instance of {@link ServiceOperationalStatusTypeExtensionType
-     *         }
-     */
-    public ServiceOperationalStatusTypeExtensionType createServiceOperationalStatusTypeExtensionType() {
-        return new ServiceOperationalStatusTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link SearchRescueServiceExtensionType }
-     *
-     * @return the new instance of {@link SearchRescueServiceExtensionType }
-     */
-    public SearchRescueServiceExtensionType createSearchRescueServiceExtensionType() {
-        return new SearchRescueServiceExtensionType();
-    }
-
-    /**
-     * Create an instance of
-     * {@link RadioCommunicationOperationalStatusTypeExtensionType }
-     *
-     * @return the new instance of
-     *         {@link RadioCommunicationOperationalStatusTypeExtensionType }
-     */
-    public RadioCommunicationOperationalStatusTypeExtensionType createRadioCommunicationOperationalStatusTypeExtensionType() {
-        return new RadioCommunicationOperationalStatusTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RadioCommunicationChannelExtensionType }
-     *
-     * @return the new instance of {@link RadioCommunicationChannelExtensionType }
-     */
-    public RadioCommunicationChannelExtensionType createRadioCommunicationChannelExtensionType() {
-        return new RadioCommunicationChannelExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link PilotControlledLightingExtensionType }
-     *
-     * @return the new instance of {@link PilotControlledLightingExtensionType }
-     */
-    public PilotControlledLightingExtensionType createPilotControlledLightingExtensionType() {
-        return new PilotControlledLightingExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link PassengerServiceExtensionType }
-     *
-     * @return the new instance of {@link PassengerServiceExtensionType }
-     */
-    public PassengerServiceExtensionType createPassengerServiceExtensionType() {
-        return new PassengerServiceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link OxygenTypeExtensionType }
-     *
-     * @return the new instance of {@link OxygenTypeExtensionType }
-     */
-    public OxygenTypeExtensionType createOxygenTypeExtensionType() {
-        return new OxygenTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link OilTypeExtensionType }
-     *
-     * @return the new instance of {@link OilTypeExtensionType }
-     */
-    public OilTypeExtensionType createOilTypeExtensionType() {
-        return new OilTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link NitrogenTypeExtensionType }
-     *
-     * @return the new instance of {@link NitrogenTypeExtensionType }
-     */
-    public NitrogenTypeExtensionType createNitrogenTypeExtensionType() {
-        return new NitrogenTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link InformationServiceExtensionType }
-     *
-     * @return the new instance of {@link InformationServiceExtensionType }
-     */
-    public InformationServiceExtensionType createInformationServiceExtensionType() {
-        return new InformationServiceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link GroundTrafficControlServiceExtensionType }
-     *
-     * @return the new instance of {@link GroundTrafficControlServiceExtensionType }
-     */
-    public GroundTrafficControlServiceExtensionType createGroundTrafficControlServiceExtensionType() {
-        return new GroundTrafficControlServiceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FuelTypeExtensionType }
-     *
-     * @return the new instance of {@link FuelTypeExtensionType }
-     */
-    public FuelTypeExtensionType createFuelTypeExtensionType() {
-        return new FuelTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FireFightingServiceExtensionType }
-     *
-     * @return the new instance of {@link FireFightingServiceExtensionType }
-     */
-    public FireFightingServiceExtensionType createFireFightingServiceExtensionType() {
-        return new FireFightingServiceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link CallsignDetailTypeExtensionType }
-     *
-     * @return the new instance of {@link CallsignDetailTypeExtensionType }
-     */
-    public CallsignDetailTypeExtensionType createCallsignDetailTypeExtensionType() {
-        return new CallsignDetailTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AirTrafficManagementServiceExtensionType }
-     *
-     * @return the new instance of {@link AirTrafficManagementServiceExtensionType }
-     */
-    public AirTrafficManagementServiceExtensionType createAirTrafficManagementServiceExtensionType() {
-        return new AirTrafficManagementServiceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AirTrafficControlServiceExtensionType }
-     *
-     * @return the new instance of {@link AirTrafficControlServiceExtensionType }
-     */
-    public AirTrafficControlServiceExtensionType createAirTrafficControlServiceExtensionType() {
-        return new AirTrafficControlServiceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AirportSuppliesServiceExtensionType }
-     *
-     * @return the new instance of {@link AirportSuppliesServiceExtensionType }
-     */
-    public AirportSuppliesServiceExtensionType createAirportSuppliesServiceExtensionType() {
-        return new AirportSuppliesServiceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AirportClearanceServiceExtensionType }
-     *
-     * @return the new instance of {@link AirportClearanceServiceExtensionType }
-     */
-    public AirportClearanceServiceExtensionType createAirportClearanceServiceExtensionType() {
-        return new AirportClearanceServiceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AircraftGroundServiceExtensionType }
-     *
-     * @return the new instance of {@link AircraftGroundServiceExtensionType }
-     */
-    public AircraftGroundServiceExtensionType createAircraftGroundServiceExtensionType() {
-        return new AircraftGroundServiceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RulesProceduresExtensionType }
-     *
-     * @return the new instance of {@link RulesProceduresExtensionType }
-     */
-    public RulesProceduresExtensionType createRulesProceduresExtensionType() {
-        return new RulesProceduresExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FlightRoutingElementTypeExtensionType }
-     *
-     * @return the new instance of {@link FlightRoutingElementTypeExtensionType }
-     */
-    public FlightRoutingElementTypeExtensionType createFlightRoutingElementTypeExtensionType() {
-        return new FlightRoutingElementTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FlightRestrictionRouteTypeExtensionType }
-     *
-     * @return the new instance of {@link FlightRestrictionRouteTypeExtensionType }
-     */
-    public FlightRestrictionRouteTypeExtensionType createFlightRestrictionRouteTypeExtensionType() {
-        return new FlightRestrictionRouteTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FlightRestrictionLevelTypeExtensionType }
-     *
-     * @return the new instance of {@link FlightRestrictionLevelTypeExtensionType }
-     */
-    public FlightRestrictionLevelTypeExtensionType createFlightRestrictionLevelTypeExtensionType() {
-        return new FlightRestrictionLevelTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FlightRestrictionExtensionType }
-     *
-     * @return the new instance of {@link FlightRestrictionExtensionType }
-     */
-    public FlightRestrictionExtensionType createFlightRestrictionExtensionType() {
-        return new FlightRestrictionExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FlightConditionElementTypeExtensionType }
-     *
-     * @return the new instance of {@link FlightConditionElementTypeExtensionType }
-     */
-    public FlightConditionElementTypeExtensionType createFlightConditionElementTypeExtensionType() {
-        return new FlightConditionElementTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FlightConditionCombinationTypeExtensionType }
-     *
-     * @return the new instance of
-     *         {@link FlightConditionCombinationTypeExtensionType }
-     */
-    public FlightConditionCombinationTypeExtensionType createFlightConditionCombinationTypeExtensionType() {
-        return new FlightConditionCombinationTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FlightConditionCircumstanceTypeExtensionType }
-     *
-     * @return the new instance of
-     *         {@link FlightConditionCircumstanceTypeExtensionType }
-     */
-    public FlightConditionCircumstanceTypeExtensionType createFlightConditionCircumstanceTypeExtensionType() {
-        return new FlightConditionCircumstanceTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link DirectFlightSegmentTypeExtensionType }
-     *
-     * @return the new instance of {@link DirectFlightSegmentTypeExtensionType }
-     */
-    public DirectFlightSegmentTypeExtensionType createDirectFlightSegmentTypeExtensionType() {
-        return new DirectFlightSegmentTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link DirectFlightClassTypeExtensionType }
-     *
-     * @return the new instance of {@link DirectFlightClassTypeExtensionType }
-     */
-    public DirectFlightClassTypeExtensionType createDirectFlightClassTypeExtensionType() {
-        return new DirectFlightClassTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AirspaceBorderCrossingExtensionType }
-     *
-     * @return the new instance of {@link AirspaceBorderCrossingExtensionType }
-     */
-    public AirspaceBorderCrossingExtensionType createAirspaceBorderCrossingExtensionType() {
-        return new AirspaceBorderCrossingExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RouteSegmentExtensionType }
-     *
-     * @return the new instance of {@link RouteSegmentExtensionType }
-     */
-    public RouteSegmentExtensionType createRouteSegmentExtensionType() {
-        return new RouteSegmentExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RoutePortionTypeExtensionType }
-     *
-     * @return the new instance of {@link RoutePortionTypeExtensionType }
-     */
-    public RoutePortionTypeExtensionType createRoutePortionTypeExtensionType() {
-        return new RoutePortionTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RouteDMEExtensionType }
-     *
-     * @return the new instance of {@link RouteDMEExtensionType }
-     */
-    public RouteDMEExtensionType createRouteDMEExtensionType() {
-        return new RouteDMEExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RouteAvailabilityTypeExtensionType }
-     *
-     * @return the new instance of {@link RouteAvailabilityTypeExtensionType }
-     */
-    public RouteAvailabilityTypeExtensionType createRouteAvailabilityTypeExtensionType() {
-        return new RouteAvailabilityTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RouteExtensionType }
-     *
-     * @return the new instance of {@link RouteExtensionType }
-     */
-    public RouteExtensionType createRouteExtensionType() {
-        return new RouteExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ChangeOverPointExtensionType }
-     *
-     * @return the new instance of {@link ChangeOverPointExtensionType }
-     */
-    public ChangeOverPointExtensionType createChangeOverPointExtensionType() {
-        return new ChangeOverPointExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ProcedureAvailabilityTypeExtensionType }
-     *
-     * @return the new instance of {@link ProcedureAvailabilityTypeExtensionType }
-     */
-    public ProcedureAvailabilityTypeExtensionType createProcedureAvailabilityTypeExtensionType() {
-        return new ProcedureAvailabilityTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ProcedureTransitionLegTypeExtensionType }
-     *
-     * @return the new instance of {@link ProcedureTransitionLegTypeExtensionType }
-     */
-    public ProcedureTransitionLegTypeExtensionType createProcedureTransitionLegTypeExtensionType() {
-        return new ProcedureTransitionLegTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ProcedureTransitionTypeExtensionType }
-     *
-     * @return the new instance of {@link ProcedureTransitionTypeExtensionType }
-     */
-    public ProcedureTransitionTypeExtensionType createProcedureTransitionTypeExtensionType() {
-        return new ProcedureTransitionTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ProcedureDMEExtensionType }
-     *
-     * @return the new instance of {@link ProcedureDMEExtensionType }
-     */
-    public ProcedureDMEExtensionType createProcedureDMEExtensionType() {
-        return new ProcedureDMEExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link NavigationAreaRestrictionExtensionType }
-     *
-     * @return the new instance of {@link NavigationAreaRestrictionExtensionType }
-     */
-    public NavigationAreaRestrictionExtensionType createNavigationAreaRestrictionExtensionType() {
-        return new NavigationAreaRestrictionExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link MissedApproachLegExtensionType }
-     *
-     * @return the new instance of {@link MissedApproachLegExtensionType }
-     */
-    public MissedApproachLegExtensionType createMissedApproachLegExtensionType() {
-        return new MissedApproachLegExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link LandingTakeoffAreaCollectionTypeExtensionType }
-     *
-     * @return the new instance of
-     *         {@link LandingTakeoffAreaCollectionTypeExtensionType }
-     */
-    public LandingTakeoffAreaCollectionTypeExtensionType createLandingTakeoffAreaCollectionTypeExtensionType() {
-        return new LandingTakeoffAreaCollectionTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link IntermediateLegExtensionType }
-     *
-     * @return the new instance of {@link IntermediateLegExtensionType }
-     */
-    public IntermediateLegExtensionType createIntermediateLegExtensionType() {
-        return new IntermediateLegExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link InitialLegExtensionType }
-     *
-     * @return the new instance of {@link InitialLegExtensionType }
-     */
-    public InitialLegExtensionType createInitialLegExtensionType() {
-        return new InitialLegExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link HoldingUseTypeExtensionType }
-     *
-     * @return the new instance of {@link HoldingUseTypeExtensionType }
-     */
-    public HoldingUseTypeExtensionType createHoldingUseTypeExtensionType() {
-        return new HoldingUseTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FinalLegExtensionType }
-     *
-     * @return the new instance of {@link FinalLegExtensionType }
-     */
-    public FinalLegExtensionType createFinalLegExtensionType() {
-        return new FinalLegExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link DepartureLegExtensionType }
-     *
-     * @return the new instance of {@link DepartureLegExtensionType }
-     */
-    public DepartureLegExtensionType createDepartureLegExtensionType() {
-        return new DepartureLegExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ArrivalLegExtensionType }
-     *
-     * @return the new instance of {@link ArrivalLegExtensionType }
-     */
-    public ArrivalLegExtensionType createArrivalLegExtensionType() {
-        return new ArrivalLegExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ArrivalFeederLegExtensionType }
-     *
-     * @return the new instance of {@link ArrivalFeederLegExtensionType }
-     */
-    public ArrivalFeederLegExtensionType createArrivalFeederLegExtensionType() {
-        return new ArrivalFeederLegExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link SafeAltitudeAreaSectorTypeExtensionType }
-     *
-     * @return the new instance of {@link SafeAltitudeAreaSectorTypeExtensionType }
-     */
-    public SafeAltitudeAreaSectorTypeExtensionType createSafeAltitudeAreaSectorTypeExtensionType() {
-        return new SafeAltitudeAreaSectorTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link SafeAltitudeAreaExtensionType }
-     *
-     * @return the new instance of {@link SafeAltitudeAreaExtensionType }
-     */
-    public SafeAltitudeAreaExtensionType createSafeAltitudeAreaExtensionType() {
-        return new SafeAltitudeAreaExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link StandardInstrumentDepartureExtensionType }
-     *
-     * @return the new instance of {@link StandardInstrumentDepartureExtensionType }
-     */
-    public StandardInstrumentDepartureExtensionType createStandardInstrumentDepartureExtensionType() {
-        return new StandardInstrumentDepartureExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link SectorDesignTypeExtensionType }
-     *
-     * @return the new instance of {@link SectorDesignTypeExtensionType }
-     */
-    public SectorDesignTypeExtensionType createSectorDesignTypeExtensionType() {
-        return new SectorDesignTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link NavigationAreaSectorTypeExtensionType }
-     *
-     * @return the new instance of {@link NavigationAreaSectorTypeExtensionType }
-     */
-    public NavigationAreaSectorTypeExtensionType createNavigationAreaSectorTypeExtensionType() {
-        return new NavigationAreaSectorTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link NavigationAreaExtensionType }
-     *
-     * @return the new instance of {@link NavigationAreaExtensionType }
-     */
-    public NavigationAreaExtensionType createNavigationAreaExtensionType() {
-        return new NavigationAreaExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link DepartureArrivalConditionTypeExtensionType }
-     *
-     * @return the new instance of {@link DepartureArrivalConditionTypeExtensionType
-     *         }
-     */
-    public DepartureArrivalConditionTypeExtensionType createDepartureArrivalConditionTypeExtensionType() {
-        return new DepartureArrivalConditionTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link StandardInstrumentArrivalExtensionType }
-     *
-     * @return the new instance of {@link StandardInstrumentArrivalExtensionType }
-     */
-    public StandardInstrumentArrivalExtensionType createStandardInstrumentArrivalExtensionType() {
-        return new StandardInstrumentArrivalExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link MinimaTypeExtensionType }
-     *
-     * @return the new instance of {@link MinimaTypeExtensionType }
-     */
-    public MinimaTypeExtensionType createMinimaTypeExtensionType() {
-        return new MinimaTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of
-     * {@link EquipmentUnavailableAdjustmentColumnTypeExtensionType }
-     *
-     * @return the new instance of
-     *         {@link EquipmentUnavailableAdjustmentColumnTypeExtensionType }
-     */
-    public EquipmentUnavailableAdjustmentColumnTypeExtensionType createEquipmentUnavailableAdjustmentColumnTypeExtensionType() {
-        return new EquipmentUnavailableAdjustmentColumnTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link EquipmentUnavailableAdjustmentTypeExtensionType
+     * Create an instance of {@link SecondarySurveillanceRadarTimeSliceExtensionType
      * }
      *
      * @return the new instance of
-     *         {@link EquipmentUnavailableAdjustmentTypeExtensionType }
+     *         {@link SecondarySurveillanceRadarTimeSliceExtensionType }
      */
-    public EquipmentUnavailableAdjustmentTypeExtensionType createEquipmentUnavailableAdjustmentTypeExtensionType() {
-        return new EquipmentUnavailableAdjustmentTypeExtensionType();
+    public SecondarySurveillanceRadarTimeSliceExtensionType createSecondarySurveillanceRadarTimeSliceExtensionType() {
+        return new SecondarySurveillanceRadarTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link CirclingRestrictionTypeExtensionType }
+     * Create an instance of {@link ReflectorExtensionType }
      *
-     * @return the new instance of {@link CirclingRestrictionTypeExtensionType }
+     * @return the new instance of {@link ReflectorExtensionType }
      */
-    public CirclingRestrictionTypeExtensionType createCirclingRestrictionTypeExtensionType() {
-        return new CirclingRestrictionTypeExtensionType();
+    public ReflectorExtensionType createReflectorExtensionType() {
+        return new ReflectorExtensionType();
     }
 
     /**
-     * Create an instance of {@link CirclingAreaExtensionType }
+     * Create an instance of {@link RadarSystemTimeSliceExtensionType }
      *
-     * @return the new instance of {@link CirclingAreaExtensionType }
+     * @return the new instance of {@link RadarSystemTimeSliceExtensionType }
      */
-    public CirclingAreaExtensionType createCirclingAreaExtensionType() {
-        return new CirclingAreaExtensionType();
+    public RadarSystemTimeSliceExtensionType createRadarSystemTimeSliceExtensionType() {
+        return new RadarSystemTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link FASDataBlockTypeExtensionType }
+     * Create an instance of {@link RadarComponentExtensionType }
      *
-     * @return the new instance of {@link FASDataBlockTypeExtensionType }
+     * @return the new instance of {@link RadarComponentExtensionType }
      */
-    public FASDataBlockTypeExtensionType createFASDataBlockTypeExtensionType() {
-        return new FASDataBlockTypeExtensionType();
+    public RadarComponentExtensionType createRadarComponentExtensionType() {
+        return new RadarComponentExtensionType();
     }
 
     /**
-     * Create an instance of {@link TerminalArrivalAreaSectorTypeExtensionType }
-     *
-     * @return the new instance of {@link TerminalArrivalAreaSectorTypeExtensionType
-     *         }
-     */
-    public TerminalArrivalAreaSectorTypeExtensionType createTerminalArrivalAreaSectorTypeExtensionType() {
-        return new TerminalArrivalAreaSectorTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TerminalArrivalAreaExtensionType }
-     *
-     * @return the new instance of {@link TerminalArrivalAreaExtensionType }
-     */
-    public TerminalArrivalAreaExtensionType createTerminalArrivalAreaExtensionType() {
-        return new TerminalArrivalAreaExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link MissedApproachGroupTypeExtensionType }
-     *
-     * @return the new instance of {@link MissedApproachGroupTypeExtensionType }
-     */
-    public MissedApproachGroupTypeExtensionType createMissedApproachGroupTypeExtensionType() {
-        return new MissedApproachGroupTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link InstrumentApproachProcedureExtensionType }
-     *
-     * @return the new instance of {@link InstrumentApproachProcedureExtensionType }
-     */
-    public InstrumentApproachProcedureExtensionType createInstrumentApproachProcedureExtensionType() {
-        return new InstrumentApproachProcedureExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FinalProfileTypeExtensionType }
-     *
-     * @return the new instance of {@link FinalProfileTypeExtensionType }
-     */
-    public FinalProfileTypeExtensionType createFinalProfileTypeExtensionType() {
-        return new FinalProfileTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ApproachTimingTableTypeExtensionType }
-     *
-     * @return the new instance of {@link ApproachTimingTableTypeExtensionType }
-     */
-    public ApproachTimingTableTypeExtensionType createApproachTimingTableTypeExtensionType() {
-        return new ApproachTimingTableTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ApproachDistanceTableTypeExtensionType }
-     *
-     * @return the new instance of {@link ApproachDistanceTableTypeExtensionType }
-     */
-    public ApproachDistanceTableTypeExtensionType createApproachDistanceTableTypeExtensionType() {
-        return new ApproachDistanceTableTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ApproachConditionTypeExtensionType }
-     *
-     * @return the new instance of {@link ApproachConditionTypeExtensionType }
-     */
-    public ApproachConditionTypeExtensionType createApproachConditionTypeExtensionType() {
-        return new ApproachConditionTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ApproachAltitudeTableTypeExtensionType }
-     *
-     * @return the new instance of {@link ApproachAltitudeTableTypeExtensionType }
-     */
-    public ApproachAltitudeTableTypeExtensionType createApproachAltitudeTableTypeExtensionType() {
-        return new ApproachAltitudeTableTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link UnitDependencyTypeExtensionType }
-     *
-     * @return the new instance of {@link UnitDependencyTypeExtensionType }
-     */
-    public UnitDependencyTypeExtensionType createUnitDependencyTypeExtensionType() {
-        return new UnitDependencyTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link UnitAvailabilityTypeExtensionType }
-     *
-     * @return the new instance of {@link UnitAvailabilityTypeExtensionType }
-     */
-    public UnitAvailabilityTypeExtensionType createUnitAvailabilityTypeExtensionType() {
-        return new UnitAvailabilityTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link UnitExtensionType }
-     *
-     * @return the new instance of {@link UnitExtensionType }
-     */
-    public UnitExtensionType createUnitExtensionType() {
-        return new UnitExtensionType();
-    }
-
-    /**
-     * Create an instance of
-     * {@link OrganisationAuthorityAssociationTypeExtensionType }
+     * Create an instance of {@link PrimarySurveillanceRadarTimeSliceExtensionType }
      *
      * @return the new instance of
-     *         {@link OrganisationAuthorityAssociationTypeExtensionType }
+     *         {@link PrimarySurveillanceRadarTimeSliceExtensionType }
      */
-    public OrganisationAuthorityAssociationTypeExtensionType createOrganisationAuthorityAssociationTypeExtensionType() {
-        return new OrganisationAuthorityAssociationTypeExtensionType();
+    public PrimarySurveillanceRadarTimeSliceExtensionType createPrimarySurveillanceRadarTimeSliceExtensionType() {
+        return new PrimarySurveillanceRadarTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link OrganisationAuthorityExtensionType }
+     * Create an instance of {@link PrecisionApproachRadarTimeSliceExtensionType }
      *
-     * @return the new instance of {@link OrganisationAuthorityExtensionType }
+     * @return the new instance of
+     *         {@link PrecisionApproachRadarTimeSliceExtensionType }
      */
-    public OrganisationAuthorityExtensionType createOrganisationAuthorityExtensionType() {
-        return new OrganisationAuthorityExtensionType();
+    public PrecisionApproachRadarTimeSliceExtensionType createPrecisionApproachRadarTimeSliceExtensionType() {
+        return new PrecisionApproachRadarTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link VerticalStructurePartTypeExtensionType }
+     * Create an instance of {@link ObstructionExtensionType }
      *
-     * @return the new instance of {@link VerticalStructurePartTypeExtensionType }
+     * @return the new instance of {@link ObstructionExtensionType }
      */
-    public VerticalStructurePartTypeExtensionType createVerticalStructurePartTypeExtensionType() {
-        return new VerticalStructurePartTypeExtensionType();
+    public ObstructionExtensionType createObstructionExtensionType() {
+        return new ObstructionExtensionType();
     }
 
     /**
-     * Create an instance of {@link VerticalStructureLightingStatusTypeExtensionType
+     * Create an instance of {@link ObstaclePlacementExtensionType }
+     *
+     * @return the new instance of {@link ObstaclePlacementExtensionType }
+     */
+    public ObstaclePlacementExtensionType createObstaclePlacementExtensionType() {
+        return new ObstaclePlacementExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ObstacleAssessmentAreaExtensionType }
+     *
+     * @return the new instance of {@link ObstacleAssessmentAreaExtensionType }
+     */
+    public ObstacleAssessmentAreaExtensionType createObstacleAssessmentAreaExtensionType() {
+        return new ObstacleAssessmentAreaExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link HoldingAssessmentTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link HoldingAssessmentTimeSliceExtensionType }
+     */
+    public HoldingAssessmentTimeSliceExtensionType createHoldingAssessmentTimeSliceExtensionType() {
+        return new HoldingAssessmentTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AltitudeAdjustmentExtensionType }
+     *
+     * @return the new instance of {@link AltitudeAdjustmentExtensionType }
+     */
+    public AltitudeAdjustmentExtensionType createAltitudeAdjustmentExtensionType() {
+        return new AltitudeAdjustmentExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link StandardLevelTableTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link StandardLevelTableTimeSliceExtensionType }
+     */
+    public StandardLevelTableTimeSliceExtensionType createStandardLevelTableTimeSliceExtensionType() {
+        return new StandardLevelTableTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link StandardLevelSectorTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link StandardLevelSectorTimeSliceExtensionType
+     *         }
+     */
+    public StandardLevelSectorTimeSliceExtensionType createStandardLevelSectorTimeSliceExtensionType() {
+        return new StandardLevelSectorTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link StandardLevelColumnTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link StandardLevelColumnTimeSliceExtensionType
+     *         }
+     */
+    public StandardLevelColumnTimeSliceExtensionType createStandardLevelColumnTimeSliceExtensionType() {
+        return new StandardLevelColumnTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link StandardLevelExtensionType }
+     *
+     * @return the new instance of {@link StandardLevelExtensionType }
+     */
+    public StandardLevelExtensionType createStandardLevelExtensionType() {
+        return new StandardLevelExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link TimesheetExtensionType }
+     *
+     * @return the new instance of {@link TimesheetExtensionType }
+     */
+    public TimesheetExtensionType createTimesheetExtensionType() {
+        return new TimesheetExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link SpecialDateTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link SpecialDateTimeSliceExtensionType }
+     */
+    public SpecialDateTimeSliceExtensionType createSpecialDateTimeSliceExtensionType() {
+        return new SpecialDateTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link RadioFrequencyAreaTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link RadioFrequencyAreaTimeSliceExtensionType }
+     */
+    public RadioFrequencyAreaTimeSliceExtensionType createRadioFrequencyAreaTimeSliceExtensionType() {
+        return new RadioFrequencyAreaTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link MeteorologyExtensionType }
+     *
+     * @return the new instance of {@link MeteorologyExtensionType }
+     */
+    public MeteorologyExtensionType createMeteorologyExtensionType() {
+        return new MeteorologyExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link LightElementStatusExtensionType }
+     *
+     * @return the new instance of {@link LightElementStatusExtensionType }
+     */
+    public LightElementStatusExtensionType createLightElementStatusExtensionType() {
+        return new LightElementStatusExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link LightElementExtensionType }
+     *
+     * @return the new instance of {@link LightElementExtensionType }
+     */
+    public LightElementExtensionType createLightElementExtensionType() {
+        return new LightElementExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link CircleSectorExtensionType }
+     *
+     * @return the new instance of {@link CircleSectorExtensionType }
+     */
+    public CircleSectorExtensionType createCircleSectorExtensionType() {
+        return new CircleSectorExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirspaceLayerExtensionType }
+     *
+     * @return the new instance of {@link AirspaceLayerExtensionType }
+     */
+    public AirspaceLayerExtensionType createAirspaceLayerExtensionType() {
+        return new AirspaceLayerExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FlightCharacteristicExtensionType }
+     *
+     * @return the new instance of {@link FlightCharacteristicExtensionType }
+     */
+    public FlightCharacteristicExtensionType createFlightCharacteristicExtensionType() {
+        return new FlightCharacteristicExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AircraftCharacteristicExtensionType }
+     *
+     * @return the new instance of {@link AircraftCharacteristicExtensionType }
+     */
+    public AircraftCharacteristicExtensionType createAircraftCharacteristicExtensionType() {
+        return new AircraftCharacteristicExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link TelephoneContactExtensionType }
+     *
+     * @return the new instance of {@link TelephoneContactExtensionType }
+     */
+    public TelephoneContactExtensionType createTelephoneContactExtensionType() {
+        return new TelephoneContactExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link PostalAddressExtensionType }
+     *
+     * @return the new instance of {@link PostalAddressExtensionType }
+     */
+    public PostalAddressExtensionType createPostalAddressExtensionType() {
+        return new PostalAddressExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link OnlineContactExtensionType }
+     *
+     * @return the new instance of {@link OnlineContactExtensionType }
+     */
+    public OnlineContactExtensionType createOnlineContactExtensionType() {
+        return new OnlineContactExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ContactInformationExtensionType }
+     *
+     * @return the new instance of {@link ContactInformationExtensionType }
+     */
+    public ContactInformationExtensionType createContactInformationExtensionType() {
+        return new ContactInformationExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ServiceOperationalStatusExtensionType }
+     *
+     * @return the new instance of {@link ServiceOperationalStatusExtensionType }
+     */
+    public ServiceOperationalStatusExtensionType createServiceOperationalStatusExtensionType() {
+        return new ServiceOperationalStatusExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link SearchRescueServiceTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link SearchRescueServiceTimeSliceExtensionType
+     *         }
+     */
+    public SearchRescueServiceTimeSliceExtensionType createSearchRescueServiceTimeSliceExtensionType() {
+        return new SearchRescueServiceTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link RadioCommunicationOperationalStatusExtensionType
      * }
      *
      * @return the new instance of
-     *         {@link VerticalStructureLightingStatusTypeExtensionType }
+     *         {@link RadioCommunicationOperationalStatusExtensionType }
      */
-    public VerticalStructureLightingStatusTypeExtensionType createVerticalStructureLightingStatusTypeExtensionType() {
-        return new VerticalStructureLightingStatusTypeExtensionType();
+    public RadioCommunicationOperationalStatusExtensionType createRadioCommunicationOperationalStatusExtensionType() {
+        return new RadioCommunicationOperationalStatusExtensionType();
     }
 
     /**
-     * Create an instance of {@link VerticalStructureExtensionType }
-     *
-     * @return the new instance of {@link VerticalStructureExtensionType }
-     */
-    public VerticalStructureExtensionType createVerticalStructureExtensionType() {
-        return new VerticalStructureExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ObstacleAreaExtensionType }
-     *
-     * @return the new instance of {@link ObstacleAreaExtensionType }
-     */
-    public ObstacleAreaExtensionType createObstacleAreaExtensionType() {
-        return new ObstacleAreaExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link NoteTypeExtensionType }
-     *
-     * @return the new instance of {@link NoteTypeExtensionType }
-     */
-    public NoteTypeExtensionType createNoteTypeExtensionType() {
-        return new NoteTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link LinguisticNoteTypeExtensionType }
-     *
-     * @return the new instance of {@link LinguisticNoteTypeExtensionType }
-     */
-    public LinguisticNoteTypeExtensionType createLinguisticNoteTypeExtensionType() {
-        return new LinguisticNoteTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AeronauticalGroundLightExtensionType }
-     *
-     * @return the new instance of {@link AeronauticalGroundLightExtensionType }
-     */
-    public AeronauticalGroundLightExtensionType createAeronauticalGroundLightExtensionType() {
-        return new AeronauticalGroundLightExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link SignificantPointInAirspaceExtensionType }
-     *
-     * @return the new instance of {@link SignificantPointInAirspaceExtensionType }
-     */
-    public SignificantPointInAirspaceExtensionType createSignificantPointInAirspaceExtensionType() {
-        return new SignificantPointInAirspaceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link DesignatedPointExtensionType }
-     *
-     * @return the new instance of {@link DesignatedPointExtensionType }
-     */
-    public DesignatedPointExtensionType createDesignatedPointExtensionType() {
-        return new DesignatedPointExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TerminalSegmentPointTypeExtensionType }
-     *
-     * @return the new instance of {@link TerminalSegmentPointTypeExtensionType }
-     */
-    public TerminalSegmentPointTypeExtensionType createTerminalSegmentPointTypeExtensionType() {
-        return new TerminalSegmentPointTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link PointReferenceTypeExtensionType }
-     *
-     * @return the new instance of {@link PointReferenceTypeExtensionType }
-     */
-    public PointReferenceTypeExtensionType createPointReferenceTypeExtensionType() {
-        return new PointReferenceTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link EnRouteSegmentPointTypeExtensionType }
-     *
-     * @return the new instance of {@link EnRouteSegmentPointTypeExtensionType }
-     */
-    public EnRouteSegmentPointTypeExtensionType createEnRouteSegmentPointTypeExtensionType() {
-        return new EnRouteSegmentPointTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link DistanceIndicationExtensionType }
-     *
-     * @return the new instance of {@link DistanceIndicationExtensionType }
-     */
-    public DistanceIndicationExtensionType createDistanceIndicationExtensionType() {
-        return new DistanceIndicationExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AngleUseTypeExtensionType }
-     *
-     * @return the new instance of {@link AngleUseTypeExtensionType }
-     */
-    public AngleUseTypeExtensionType createAngleUseTypeExtensionType() {
-        return new AngleUseTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AngleIndicationExtensionType }
-     *
-     * @return the new instance of {@link AngleIndicationExtensionType }
-     */
-    public AngleIndicationExtensionType createAngleIndicationExtensionType() {
-        return new AngleIndicationExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link VORExtensionType }
-     *
-     * @return the new instance of {@link VORExtensionType }
-     */
-    public VORExtensionType createVORExtensionType() {
-        return new VORExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TACANExtensionType }
-     *
-     * @return the new instance of {@link TACANExtensionType }
-     */
-    public TACANExtensionType createTACANExtensionType() {
-        return new TACANExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link SpecialNavigationSystemExtensionType }
-     *
-     * @return the new instance of {@link SpecialNavigationSystemExtensionType }
-     */
-    public SpecialNavigationSystemExtensionType createSpecialNavigationSystemExtensionType() {
-        return new SpecialNavigationSystemExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link SpecialNavigationStationStatusTypeExtensionType
+     * Create an instance of {@link RadioCommunicationChannelTimeSliceExtensionType
      * }
      *
      * @return the new instance of
-     *         {@link SpecialNavigationStationStatusTypeExtensionType }
+     *         {@link RadioCommunicationChannelTimeSliceExtensionType }
      */
-    public SpecialNavigationStationStatusTypeExtensionType createSpecialNavigationStationStatusTypeExtensionType() {
-        return new SpecialNavigationStationStatusTypeExtensionType();
+    public RadioCommunicationChannelTimeSliceExtensionType createRadioCommunicationChannelTimeSliceExtensionType() {
+        return new RadioCommunicationChannelTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link SpecialNavigationStationExtensionType }
+     * Create an instance of {@link PilotControlledLightingTimeSliceExtensionType }
      *
-     * @return the new instance of {@link SpecialNavigationStationExtensionType }
+     * @return the new instance of
+     *         {@link PilotControlledLightingTimeSliceExtensionType }
      */
-    public SpecialNavigationStationExtensionType createSpecialNavigationStationExtensionType() {
-        return new SpecialNavigationStationExtensionType();
+    public PilotControlledLightingTimeSliceExtensionType createPilotControlledLightingTimeSliceExtensionType() {
+        return new PilotControlledLightingTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link SDFExtensionType }
+     * Create an instance of {@link PassengerServiceTimeSliceExtensionType }
      *
-     * @return the new instance of {@link SDFExtensionType }
+     * @return the new instance of {@link PassengerServiceTimeSliceExtensionType }
      */
-    public SDFExtensionType createSDFExtensionType() {
-        return new SDFExtensionType();
+    public PassengerServiceTimeSliceExtensionType createPassengerServiceTimeSliceExtensionType() {
+        return new PassengerServiceTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link NDBExtensionType }
+     * Create an instance of {@link OxygenExtensionType }
      *
-     * @return the new instance of {@link NDBExtensionType }
+     * @return the new instance of {@link OxygenExtensionType }
      */
-    public NDBExtensionType createNDBExtensionType() {
-        return new NDBExtensionType();
+    public OxygenExtensionType createOxygenExtensionType() {
+        return new OxygenExtensionType();
     }
 
     /**
-     * Create an instance of {@link NavaidOperationalStatusTypeExtensionType }
+     * Create an instance of {@link OilExtensionType }
      *
-     * @return the new instance of {@link NavaidOperationalStatusTypeExtensionType }
+     * @return the new instance of {@link OilExtensionType }
      */
-    public NavaidOperationalStatusTypeExtensionType createNavaidOperationalStatusTypeExtensionType() {
-        return new NavaidOperationalStatusTypeExtensionType();
+    public OilExtensionType createOilExtensionType() {
+        return new OilExtensionType();
     }
 
     /**
-     * Create an instance of {@link NavaidEquipmentMonitoringTypeExtensionType }
+     * Create an instance of {@link NitrogenExtensionType }
      *
-     * @return the new instance of {@link NavaidEquipmentMonitoringTypeExtensionType
+     * @return the new instance of {@link NitrogenExtensionType }
+     */
+    public NitrogenExtensionType createNitrogenExtensionType() {
+        return new NitrogenExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link InformationServiceTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link InformationServiceTimeSliceExtensionType }
+     */
+    public InformationServiceTimeSliceExtensionType createInformationServiceTimeSliceExtensionType() {
+        return new InformationServiceTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of
+     * {@link GroundTrafficControlServiceTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link GroundTrafficControlServiceTimeSliceExtensionType }
+     */
+    public GroundTrafficControlServiceTimeSliceExtensionType createGroundTrafficControlServiceTimeSliceExtensionType() {
+        return new GroundTrafficControlServiceTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FuelExtensionType }
+     *
+     * @return the new instance of {@link FuelExtensionType }
+     */
+    public FuelExtensionType createFuelExtensionType() {
+        return new FuelExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FireFightingServiceTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link FireFightingServiceTimeSliceExtensionType
      *         }
      */
-    public NavaidEquipmentMonitoringTypeExtensionType createNavaidEquipmentMonitoringTypeExtensionType() {
-        return new NavaidEquipmentMonitoringTypeExtensionType();
+    public FireFightingServiceTimeSliceExtensionType createFireFightingServiceTimeSliceExtensionType() {
+        return new FireFightingServiceTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link NavaidComponentTypeExtensionType }
+     * Create an instance of {@link CallsignDetailExtensionType }
      *
-     * @return the new instance of {@link NavaidComponentTypeExtensionType }
+     * @return the new instance of {@link CallsignDetailExtensionType }
      */
-    public NavaidComponentTypeExtensionType createNavaidComponentTypeExtensionType() {
-        return new NavaidComponentTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link NavaidExtensionType }
-     *
-     * @return the new instance of {@link NavaidExtensionType }
-     */
-    public NavaidExtensionType createNavaidExtensionType() {
-        return new NavaidExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link MarkerBeaconExtensionType }
-     *
-     * @return the new instance of {@link MarkerBeaconExtensionType }
-     */
-    public MarkerBeaconExtensionType createMarkerBeaconExtensionType() {
-        return new MarkerBeaconExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link LocalizerExtensionType }
-     *
-     * @return the new instance of {@link LocalizerExtensionType }
-     */
-    public LocalizerExtensionType createLocalizerExtensionType() {
-        return new LocalizerExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link GlidepathExtensionType }
-     *
-     * @return the new instance of {@link GlidepathExtensionType }
-     */
-    public GlidepathExtensionType createGlidepathExtensionType() {
-        return new GlidepathExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ElevationExtensionType }
-     *
-     * @return the new instance of {@link ElevationExtensionType }
-     */
-    public ElevationExtensionType createElevationExtensionType() {
-        return new ElevationExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link DMEExtensionType }
-     *
-     * @return the new instance of {@link DMEExtensionType }
-     */
-    public DMEExtensionType createDMEExtensionType() {
-        return new DMEExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link DirectionFinderExtensionType }
-     *
-     * @return the new instance of {@link DirectionFinderExtensionType }
-     */
-    public DirectionFinderExtensionType createDirectionFinderExtensionType() {
-        return new DirectionFinderExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link CheckpointVORExtensionType }
-     *
-     * @return the new instance of {@link CheckpointVORExtensionType }
-     */
-    public CheckpointVORExtensionType createCheckpointVORExtensionType() {
-        return new CheckpointVORExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link CheckpointINSExtensionType }
-     *
-     * @return the new instance of {@link CheckpointINSExtensionType }
-     */
-    public CheckpointINSExtensionType createCheckpointINSExtensionType() {
-        return new CheckpointINSExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AzimuthExtensionType }
-     *
-     * @return the new instance of {@link AzimuthExtensionType }
-     */
-    public AzimuthExtensionType createAzimuthExtensionType() {
-        return new AzimuthExtensionType();
+    public CallsignDetailExtensionType createCallsignDetailExtensionType() {
+        return new CallsignDetailExtensionType();
     }
 
     /**
      * Create an instance of
-     * {@link AuthorityForSpecialNavigationSystemTypeExtensionType }
+     * {@link AirTrafficManagementServiceTimeSliceExtensionType }
      *
      * @return the new instance of
-     *         {@link AuthorityForSpecialNavigationSystemTypeExtensionType }
+     *         {@link AirTrafficManagementServiceTimeSliceExtensionType }
      */
-    public AuthorityForSpecialNavigationSystemTypeExtensionType createAuthorityForSpecialNavigationSystemTypeExtensionType() {
-        return new AuthorityForSpecialNavigationSystemTypeExtensionType();
+    public AirTrafficManagementServiceTimeSliceExtensionType createAirTrafficManagementServiceTimeSliceExtensionType() {
+        return new AirTrafficManagementServiceTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirTrafficControlServiceTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link AirTrafficControlServiceTimeSliceExtensionType }
+     */
+    public AirTrafficControlServiceTimeSliceExtensionType createAirTrafficControlServiceTimeSliceExtensionType() {
+        return new AirTrafficControlServiceTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirportSuppliesServiceTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link AirportSuppliesServiceTimeSliceExtensionType }
+     */
+    public AirportSuppliesServiceTimeSliceExtensionType createAirportSuppliesServiceTimeSliceExtensionType() {
+        return new AirportSuppliesServiceTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirportClearanceServiceTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link AirportClearanceServiceTimeSliceExtensionType }
+     */
+    public AirportClearanceServiceTimeSliceExtensionType createAirportClearanceServiceTimeSliceExtensionType() {
+        return new AirportClearanceServiceTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AircraftGroundServiceTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link AircraftGroundServiceTimeSliceExtensionType }
+     */
+    public AircraftGroundServiceTimeSliceExtensionType createAircraftGroundServiceTimeSliceExtensionType() {
+        return new AircraftGroundServiceTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link RulesProceduresTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link RulesProceduresTimeSliceExtensionType }
+     */
+    public RulesProceduresTimeSliceExtensionType createRulesProceduresTimeSliceExtensionType() {
+        return new RulesProceduresTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FlightRoutingElementExtensionType }
+     *
+     * @return the new instance of {@link FlightRoutingElementExtensionType }
+     */
+    public FlightRoutingElementExtensionType createFlightRoutingElementExtensionType() {
+        return new FlightRoutingElementExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FlightRestrictionRouteExtensionType }
+     *
+     * @return the new instance of {@link FlightRestrictionRouteExtensionType }
+     */
+    public FlightRestrictionRouteExtensionType createFlightRestrictionRouteExtensionType() {
+        return new FlightRestrictionRouteExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FlightRestrictionLevelExtensionType }
+     *
+     * @return the new instance of {@link FlightRestrictionLevelExtensionType }
+     */
+    public FlightRestrictionLevelExtensionType createFlightRestrictionLevelExtensionType() {
+        return new FlightRestrictionLevelExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FlightRestrictionTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link FlightRestrictionTimeSliceExtensionType }
+     */
+    public FlightRestrictionTimeSliceExtensionType createFlightRestrictionTimeSliceExtensionType() {
+        return new FlightRestrictionTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FlightConditionElementExtensionType }
+     *
+     * @return the new instance of {@link FlightConditionElementExtensionType }
+     */
+    public FlightConditionElementExtensionType createFlightConditionElementExtensionType() {
+        return new FlightConditionElementExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FlightConditionCombinationExtensionType }
+     *
+     * @return the new instance of {@link FlightConditionCombinationExtensionType }
+     */
+    public FlightConditionCombinationExtensionType createFlightConditionCombinationExtensionType() {
+        return new FlightConditionCombinationExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FlightConditionCircumstanceExtensionType }
+     *
+     * @return the new instance of {@link FlightConditionCircumstanceExtensionType }
+     */
+    public FlightConditionCircumstanceExtensionType createFlightConditionCircumstanceExtensionType() {
+        return new FlightConditionCircumstanceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link DirectFlightSegmentExtensionType }
+     *
+     * @return the new instance of {@link DirectFlightSegmentExtensionType }
+     */
+    public DirectFlightSegmentExtensionType createDirectFlightSegmentExtensionType() {
+        return new DirectFlightSegmentExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link DirectFlightClassExtensionType }
+     *
+     * @return the new instance of {@link DirectFlightClassExtensionType }
+     */
+    public DirectFlightClassExtensionType createDirectFlightClassExtensionType() {
+        return new DirectFlightClassExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirspaceBorderCrossingTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link AirspaceBorderCrossingTimeSliceExtensionType }
+     */
+    public AirspaceBorderCrossingTimeSliceExtensionType createAirspaceBorderCrossingTimeSliceExtensionType() {
+        return new AirspaceBorderCrossingTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link RouteSegmentTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link RouteSegmentTimeSliceExtensionType }
+     */
+    public RouteSegmentTimeSliceExtensionType createRouteSegmentTimeSliceExtensionType() {
+        return new RouteSegmentTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link RoutePortionExtensionType }
+     *
+     * @return the new instance of {@link RoutePortionExtensionType }
+     */
+    public RoutePortionExtensionType createRoutePortionExtensionType() {
+        return new RoutePortionExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link RouteDMETimeSliceExtensionType }
+     *
+     * @return the new instance of {@link RouteDMETimeSliceExtensionType }
+     */
+    public RouteDMETimeSliceExtensionType createRouteDMETimeSliceExtensionType() {
+        return new RouteDMETimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link RouteAvailabilityExtensionType }
+     *
+     * @return the new instance of {@link RouteAvailabilityExtensionType }
+     */
+    public RouteAvailabilityExtensionType createRouteAvailabilityExtensionType() {
+        return new RouteAvailabilityExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link RouteTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link RouteTimeSliceExtensionType }
+     */
+    public RouteTimeSliceExtensionType createRouteTimeSliceExtensionType() {
+        return new RouteTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ChangeOverPointTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link ChangeOverPointTimeSliceExtensionType }
+     */
+    public ChangeOverPointTimeSliceExtensionType createChangeOverPointTimeSliceExtensionType() {
+        return new ChangeOverPointTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ProcedureAvailabilityExtensionType }
+     *
+     * @return the new instance of {@link ProcedureAvailabilityExtensionType }
+     */
+    public ProcedureAvailabilityExtensionType createProcedureAvailabilityExtensionType() {
+        return new ProcedureAvailabilityExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ProcedureTransitionLegExtensionType }
+     *
+     * @return the new instance of {@link ProcedureTransitionLegExtensionType }
+     */
+    public ProcedureTransitionLegExtensionType createProcedureTransitionLegExtensionType() {
+        return new ProcedureTransitionLegExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ProcedureTransitionExtensionType }
+     *
+     * @return the new instance of {@link ProcedureTransitionExtensionType }
+     */
+    public ProcedureTransitionExtensionType createProcedureTransitionExtensionType() {
+        return new ProcedureTransitionExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ProcedureDMETimeSliceExtensionType }
+     *
+     * @return the new instance of {@link ProcedureDMETimeSliceExtensionType }
+     */
+    public ProcedureDMETimeSliceExtensionType createProcedureDMETimeSliceExtensionType() {
+        return new ProcedureDMETimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link NavigationAreaRestrictionTimeSliceExtensionType
+     * }
+     *
+     * @return the new instance of
+     *         {@link NavigationAreaRestrictionTimeSliceExtensionType }
+     */
+    public NavigationAreaRestrictionTimeSliceExtensionType createNavigationAreaRestrictionTimeSliceExtensionType() {
+        return new NavigationAreaRestrictionTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link MissedApproachLegTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link MissedApproachLegTimeSliceExtensionType }
+     */
+    public MissedApproachLegTimeSliceExtensionType createMissedApproachLegTimeSliceExtensionType() {
+        return new MissedApproachLegTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link LandingTakeoffAreaCollectionExtensionType }
+     *
+     * @return the new instance of {@link LandingTakeoffAreaCollectionExtensionType
+     *         }
+     */
+    public LandingTakeoffAreaCollectionExtensionType createLandingTakeoffAreaCollectionExtensionType() {
+        return new LandingTakeoffAreaCollectionExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link IntermediateLegTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link IntermediateLegTimeSliceExtensionType }
+     */
+    public IntermediateLegTimeSliceExtensionType createIntermediateLegTimeSliceExtensionType() {
+        return new IntermediateLegTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link InitialLegTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link InitialLegTimeSliceExtensionType }
+     */
+    public InitialLegTimeSliceExtensionType createInitialLegTimeSliceExtensionType() {
+        return new InitialLegTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link HoldingUseExtensionType }
+     *
+     * @return the new instance of {@link HoldingUseExtensionType }
+     */
+    public HoldingUseExtensionType createHoldingUseExtensionType() {
+        return new HoldingUseExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FinalLegTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link FinalLegTimeSliceExtensionType }
+     */
+    public FinalLegTimeSliceExtensionType createFinalLegTimeSliceExtensionType() {
+        return new FinalLegTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link DepartureLegTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link DepartureLegTimeSliceExtensionType }
+     */
+    public DepartureLegTimeSliceExtensionType createDepartureLegTimeSliceExtensionType() {
+        return new DepartureLegTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ArrivalLegTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link ArrivalLegTimeSliceExtensionType }
+     */
+    public ArrivalLegTimeSliceExtensionType createArrivalLegTimeSliceExtensionType() {
+        return new ArrivalLegTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ArrivalFeederLegTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link ArrivalFeederLegTimeSliceExtensionType }
+     */
+    public ArrivalFeederLegTimeSliceExtensionType createArrivalFeederLegTimeSliceExtensionType() {
+        return new ArrivalFeederLegTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link SafeAltitudeAreaSectorExtensionType }
+     *
+     * @return the new instance of {@link SafeAltitudeAreaSectorExtensionType }
+     */
+    public SafeAltitudeAreaSectorExtensionType createSafeAltitudeAreaSectorExtensionType() {
+        return new SafeAltitudeAreaSectorExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link SafeAltitudeAreaTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link SafeAltitudeAreaTimeSliceExtensionType }
+     */
+    public SafeAltitudeAreaTimeSliceExtensionType createSafeAltitudeAreaTimeSliceExtensionType() {
+        return new SafeAltitudeAreaTimeSliceExtensionType();
     }
 
     /**
      * Create an instance of
-     * {@link AuthorityForSpecialNavigationStationTypeExtensionType }
+     * {@link StandardInstrumentDepartureTimeSliceExtensionType }
      *
      * @return the new instance of
-     *         {@link AuthorityForSpecialNavigationStationTypeExtensionType }
+     *         {@link StandardInstrumentDepartureTimeSliceExtensionType }
      */
-    public AuthorityForSpecialNavigationStationTypeExtensionType createAuthorityForSpecialNavigationStationTypeExtensionType() {
-        return new AuthorityForSpecialNavigationStationTypeExtensionType();
+    public StandardInstrumentDepartureTimeSliceExtensionType createStandardInstrumentDepartureTimeSliceExtensionType() {
+        return new StandardInstrumentDepartureTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AuthorityForNavaidEquipmentTypeExtensionType }
+     * Create an instance of {@link SectorDesignExtensionType }
+     *
+     * @return the new instance of {@link SectorDesignExtensionType }
+     */
+    public SectorDesignExtensionType createSectorDesignExtensionType() {
+        return new SectorDesignExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link NavigationAreaSectorExtensionType }
+     *
+     * @return the new instance of {@link NavigationAreaSectorExtensionType }
+     */
+    public NavigationAreaSectorExtensionType createNavigationAreaSectorExtensionType() {
+        return new NavigationAreaSectorExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link NavigationAreaTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link NavigationAreaTimeSliceExtensionType }
+     */
+    public NavigationAreaTimeSliceExtensionType createNavigationAreaTimeSliceExtensionType() {
+        return new NavigationAreaTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link DepartureArrivalConditionExtensionType }
+     *
+     * @return the new instance of {@link DepartureArrivalConditionExtensionType }
+     */
+    public DepartureArrivalConditionExtensionType createDepartureArrivalConditionExtensionType() {
+        return new DepartureArrivalConditionExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link StandardInstrumentArrivalTimeSliceExtensionType
+     * }
      *
      * @return the new instance of
-     *         {@link AuthorityForNavaidEquipmentTypeExtensionType }
+     *         {@link StandardInstrumentArrivalTimeSliceExtensionType }
      */
-    public AuthorityForNavaidEquipmentTypeExtensionType createAuthorityForNavaidEquipmentTypeExtensionType() {
-        return new AuthorityForNavaidEquipmentTypeExtensionType();
+    public StandardInstrumentArrivalTimeSliceExtensionType createStandardInstrumentArrivalTimeSliceExtensionType() {
+        return new StandardInstrumentArrivalTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link UnplannedHoldingExtensionType }
+     * Create an instance of {@link MinimaExtensionType }
      *
-     * @return the new instance of {@link UnplannedHoldingExtensionType }
+     * @return the new instance of {@link MinimaExtensionType }
      */
-    public UnplannedHoldingExtensionType createUnplannedHoldingExtensionType() {
-        return new UnplannedHoldingExtensionType();
+    public MinimaExtensionType createMinimaExtensionType() {
+        return new MinimaExtensionType();
     }
 
     /**
-     * Create an instance of {@link HoldingPatternDurationTypeExtensionType }
+     * Create an instance of
+     * {@link EquipmentUnavailableAdjustmentColumnExtensionType }
      *
-     * @return the new instance of {@link HoldingPatternDurationTypeExtensionType }
+     * @return the new instance of
+     *         {@link EquipmentUnavailableAdjustmentColumnExtensionType }
      */
-    public HoldingPatternDurationTypeExtensionType createHoldingPatternDurationTypeExtensionType() {
-        return new HoldingPatternDurationTypeExtensionType();
+    public EquipmentUnavailableAdjustmentColumnExtensionType createEquipmentUnavailableAdjustmentColumnExtensionType() {
+        return new EquipmentUnavailableAdjustmentColumnExtensionType();
     }
 
     /**
-     * Create an instance of {@link HoldingPatternDistanceTypeExtensionType }
+     * Create an instance of {@link EquipmentUnavailableAdjustmentExtensionType }
      *
-     * @return the new instance of {@link HoldingPatternDistanceTypeExtensionType }
+     * @return the new instance of
+     *         {@link EquipmentUnavailableAdjustmentExtensionType }
      */
-    public HoldingPatternDistanceTypeExtensionType createHoldingPatternDistanceTypeExtensionType() {
-        return new HoldingPatternDistanceTypeExtensionType();
+    public EquipmentUnavailableAdjustmentExtensionType createEquipmentUnavailableAdjustmentExtensionType() {
+        return new EquipmentUnavailableAdjustmentExtensionType();
     }
 
     /**
-     * Create an instance of {@link HoldingPatternExtensionType }
+     * Create an instance of {@link CirclingRestrictionExtensionType }
      *
-     * @return the new instance of {@link HoldingPatternExtensionType }
+     * @return the new instance of {@link CirclingRestrictionExtensionType }
      */
-    public HoldingPatternExtensionType createHoldingPatternExtensionType() {
-        return new HoldingPatternExtensionType();
+    public CirclingRestrictionExtensionType createCirclingRestrictionExtensionType() {
+        return new CirclingRestrictionExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link CirclingAreaTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link CirclingAreaTimeSliceExtensionType }
+     */
+    public CirclingAreaTimeSliceExtensionType createCirclingAreaTimeSliceExtensionType() {
+        return new CirclingAreaTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FASDataBlockExtensionType }
+     *
+     * @return the new instance of {@link FASDataBlockExtensionType }
+     */
+    public FASDataBlockExtensionType createFASDataBlockExtensionType() {
+        return new FASDataBlockExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link TerminalArrivalAreaSectorExtensionType }
+     *
+     * @return the new instance of {@link TerminalArrivalAreaSectorExtensionType }
+     */
+    public TerminalArrivalAreaSectorExtensionType createTerminalArrivalAreaSectorExtensionType() {
+        return new TerminalArrivalAreaSectorExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link TerminalArrivalAreaTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link TerminalArrivalAreaTimeSliceExtensionType
+     *         }
+     */
+    public TerminalArrivalAreaTimeSliceExtensionType createTerminalArrivalAreaTimeSliceExtensionType() {
+        return new TerminalArrivalAreaTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link MissedApproachGroupExtensionType }
+     *
+     * @return the new instance of {@link MissedApproachGroupExtensionType }
+     */
+    public MissedApproachGroupExtensionType createMissedApproachGroupExtensionType() {
+        return new MissedApproachGroupExtensionType();
+    }
+
+    /**
+     * Create an instance of
+     * {@link InstrumentApproachProcedureTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link InstrumentApproachProcedureTimeSliceExtensionType }
+     */
+    public InstrumentApproachProcedureTimeSliceExtensionType createInstrumentApproachProcedureTimeSliceExtensionType() {
+        return new InstrumentApproachProcedureTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link FinalProfileExtensionType }
+     *
+     * @return the new instance of {@link FinalProfileExtensionType }
+     */
+    public FinalProfileExtensionType createFinalProfileExtensionType() {
+        return new FinalProfileExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ApproachTimingTableExtensionType }
+     *
+     * @return the new instance of {@link ApproachTimingTableExtensionType }
+     */
+    public ApproachTimingTableExtensionType createApproachTimingTableExtensionType() {
+        return new ApproachTimingTableExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ApproachDistanceTableExtensionType }
+     *
+     * @return the new instance of {@link ApproachDistanceTableExtensionType }
+     */
+    public ApproachDistanceTableExtensionType createApproachDistanceTableExtensionType() {
+        return new ApproachDistanceTableExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ApproachConditionExtensionType }
+     *
+     * @return the new instance of {@link ApproachConditionExtensionType }
+     */
+    public ApproachConditionExtensionType createApproachConditionExtensionType() {
+        return new ApproachConditionExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ApproachAltitudeTableExtensionType }
+     *
+     * @return the new instance of {@link ApproachAltitudeTableExtensionType }
+     */
+    public ApproachAltitudeTableExtensionType createApproachAltitudeTableExtensionType() {
+        return new ApproachAltitudeTableExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link UnitDependencyExtensionType }
+     *
+     * @return the new instance of {@link UnitDependencyExtensionType }
+     */
+    public UnitDependencyExtensionType createUnitDependencyExtensionType() {
+        return new UnitDependencyExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link UnitAvailabilityExtensionType }
+     *
+     * @return the new instance of {@link UnitAvailabilityExtensionType }
+     */
+    public UnitAvailabilityExtensionType createUnitAvailabilityExtensionType() {
+        return new UnitAvailabilityExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link UnitTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link UnitTimeSliceExtensionType }
+     */
+    public UnitTimeSliceExtensionType createUnitTimeSliceExtensionType() {
+        return new UnitTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link OrganisationAuthorityAssociationExtensionType }
+     *
+     * @return the new instance of
+     *         {@link OrganisationAuthorityAssociationExtensionType }
+     */
+    public OrganisationAuthorityAssociationExtensionType createOrganisationAuthorityAssociationExtensionType() {
+        return new OrganisationAuthorityAssociationExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link OrganisationAuthorityTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link OrganisationAuthorityTimeSliceExtensionType }
+     */
+    public OrganisationAuthorityTimeSliceExtensionType createOrganisationAuthorityTimeSliceExtensionType() {
+        return new OrganisationAuthorityTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link VerticalStructurePartExtensionType }
+     *
+     * @return the new instance of {@link VerticalStructurePartExtensionType }
+     */
+    public VerticalStructurePartExtensionType createVerticalStructurePartExtensionType() {
+        return new VerticalStructurePartExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link VerticalStructureLightingStatusExtensionType }
+     *
+     * @return the new instance of
+     *         {@link VerticalStructureLightingStatusExtensionType }
+     */
+    public VerticalStructureLightingStatusExtensionType createVerticalStructureLightingStatusExtensionType() {
+        return new VerticalStructureLightingStatusExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link VerticalStructureTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link VerticalStructureTimeSliceExtensionType }
+     */
+    public VerticalStructureTimeSliceExtensionType createVerticalStructureTimeSliceExtensionType() {
+        return new VerticalStructureTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ObstacleAreaTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link ObstacleAreaTimeSliceExtensionType }
+     */
+    public ObstacleAreaTimeSliceExtensionType createObstacleAreaTimeSliceExtensionType() {
+        return new ObstacleAreaTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link NoteExtensionType }
+     *
+     * @return the new instance of {@link NoteExtensionType }
+     */
+    public NoteExtensionType createNoteExtensionType() {
+        return new NoteExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link LinguisticNoteExtensionType }
+     *
+     * @return the new instance of {@link LinguisticNoteExtensionType }
+     */
+    public LinguisticNoteExtensionType createLinguisticNoteExtensionType() {
+        return new LinguisticNoteExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AeronauticalGroundLightTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link AeronauticalGroundLightTimeSliceExtensionType }
+     */
+    public AeronauticalGroundLightTimeSliceExtensionType createAeronauticalGroundLightTimeSliceExtensionType() {
+        return new AeronauticalGroundLightTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link SignificantPointInAirspaceTimeSliceExtensionType
+     * }
+     *
+     * @return the new instance of
+     *         {@link SignificantPointInAirspaceTimeSliceExtensionType }
+     */
+    public SignificantPointInAirspaceTimeSliceExtensionType createSignificantPointInAirspaceTimeSliceExtensionType() {
+        return new SignificantPointInAirspaceTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link DesignatedPointTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link DesignatedPointTimeSliceExtensionType }
+     */
+    public DesignatedPointTimeSliceExtensionType createDesignatedPointTimeSliceExtensionType() {
+        return new DesignatedPointTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link TerminalSegmentPointExtensionType }
+     *
+     * @return the new instance of {@link TerminalSegmentPointExtensionType }
+     */
+    public TerminalSegmentPointExtensionType createTerminalSegmentPointExtensionType() {
+        return new TerminalSegmentPointExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link PointReferenceExtensionType }
+     *
+     * @return the new instance of {@link PointReferenceExtensionType }
+     */
+    public PointReferenceExtensionType createPointReferenceExtensionType() {
+        return new PointReferenceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link EnRouteSegmentPointExtensionType }
+     *
+     * @return the new instance of {@link EnRouteSegmentPointExtensionType }
+     */
+    public EnRouteSegmentPointExtensionType createEnRouteSegmentPointExtensionType() {
+        return new EnRouteSegmentPointExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link DistanceIndicationTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link DistanceIndicationTimeSliceExtensionType }
+     */
+    public DistanceIndicationTimeSliceExtensionType createDistanceIndicationTimeSliceExtensionType() {
+        return new DistanceIndicationTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AngleUseExtensionType }
+     *
+     * @return the new instance of {@link AngleUseExtensionType }
+     */
+    public AngleUseExtensionType createAngleUseExtensionType() {
+        return new AngleUseExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AngleIndicationTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link AngleIndicationTimeSliceExtensionType }
+     */
+    public AngleIndicationTimeSliceExtensionType createAngleIndicationTimeSliceExtensionType() {
+        return new AngleIndicationTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link VORTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link VORTimeSliceExtensionType }
+     */
+    public VORTimeSliceExtensionType createVORTimeSliceExtensionType() {
+        return new VORTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link TACANTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link TACANTimeSliceExtensionType }
+     */
+    public TACANTimeSliceExtensionType createTACANTimeSliceExtensionType() {
+        return new TACANTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link SpecialNavigationSystemTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link SpecialNavigationSystemTimeSliceExtensionType }
+     */
+    public SpecialNavigationSystemTimeSliceExtensionType createSpecialNavigationSystemTimeSliceExtensionType() {
+        return new SpecialNavigationSystemTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link SpecialNavigationStationStatusExtensionType }
+     *
+     * @return the new instance of
+     *         {@link SpecialNavigationStationStatusExtensionType }
+     */
+    public SpecialNavigationStationStatusExtensionType createSpecialNavigationStationStatusExtensionType() {
+        return new SpecialNavigationStationStatusExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link SpecialNavigationStationTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link SpecialNavigationStationTimeSliceExtensionType }
+     */
+    public SpecialNavigationStationTimeSliceExtensionType createSpecialNavigationStationTimeSliceExtensionType() {
+        return new SpecialNavigationStationTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link SDFTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link SDFTimeSliceExtensionType }
+     */
+    public SDFTimeSliceExtensionType createSDFTimeSliceExtensionType() {
+        return new SDFTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link NDBTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link NDBTimeSliceExtensionType }
+     */
+    public NDBTimeSliceExtensionType createNDBTimeSliceExtensionType() {
+        return new NDBTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link NavaidOperationalStatusExtensionType }
+     *
+     * @return the new instance of {@link NavaidOperationalStatusExtensionType }
+     */
+    public NavaidOperationalStatusExtensionType createNavaidOperationalStatusExtensionType() {
+        return new NavaidOperationalStatusExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link NavaidEquipmentMonitoringExtensionType }
+     *
+     * @return the new instance of {@link NavaidEquipmentMonitoringExtensionType }
+     */
+    public NavaidEquipmentMonitoringExtensionType createNavaidEquipmentMonitoringExtensionType() {
+        return new NavaidEquipmentMonitoringExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link NavaidComponentExtensionType }
+     *
+     * @return the new instance of {@link NavaidComponentExtensionType }
+     */
+    public NavaidComponentExtensionType createNavaidComponentExtensionType() {
+        return new NavaidComponentExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link NavaidTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link NavaidTimeSliceExtensionType }
+     */
+    public NavaidTimeSliceExtensionType createNavaidTimeSliceExtensionType() {
+        return new NavaidTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link MarkerBeaconTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link MarkerBeaconTimeSliceExtensionType }
+     */
+    public MarkerBeaconTimeSliceExtensionType createMarkerBeaconTimeSliceExtensionType() {
+        return new MarkerBeaconTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link LocalizerTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link LocalizerTimeSliceExtensionType }
+     */
+    public LocalizerTimeSliceExtensionType createLocalizerTimeSliceExtensionType() {
+        return new LocalizerTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link GlidepathTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link GlidepathTimeSliceExtensionType }
+     */
+    public GlidepathTimeSliceExtensionType createGlidepathTimeSliceExtensionType() {
+        return new GlidepathTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ElevationTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link ElevationTimeSliceExtensionType }
+     */
+    public ElevationTimeSliceExtensionType createElevationTimeSliceExtensionType() {
+        return new ElevationTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link DMETimeSliceExtensionType }
+     *
+     * @return the new instance of {@link DMETimeSliceExtensionType }
+     */
+    public DMETimeSliceExtensionType createDMETimeSliceExtensionType() {
+        return new DMETimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link DirectionFinderTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link DirectionFinderTimeSliceExtensionType }
+     */
+    public DirectionFinderTimeSliceExtensionType createDirectionFinderTimeSliceExtensionType() {
+        return new DirectionFinderTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link CheckpointVORTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link CheckpointVORTimeSliceExtensionType }
+     */
+    public CheckpointVORTimeSliceExtensionType createCheckpointVORTimeSliceExtensionType() {
+        return new CheckpointVORTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link CheckpointINSTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link CheckpointINSTimeSliceExtensionType }
+     */
+    public CheckpointINSTimeSliceExtensionType createCheckpointINSTimeSliceExtensionType() {
+        return new CheckpointINSTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AzimuthTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link AzimuthTimeSliceExtensionType }
+     */
+    public AzimuthTimeSliceExtensionType createAzimuthTimeSliceExtensionType() {
+        return new AzimuthTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AuthorityForSpecialNavigationSystemExtensionType
+     * }
+     *
+     * @return the new instance of
+     *         {@link AuthorityForSpecialNavigationSystemExtensionType }
+     */
+    public AuthorityForSpecialNavigationSystemExtensionType createAuthorityForSpecialNavigationSystemExtensionType() {
+        return new AuthorityForSpecialNavigationSystemExtensionType();
+    }
+
+    /**
+     * Create an instance of
+     * {@link AuthorityForSpecialNavigationStationExtensionType }
+     *
+     * @return the new instance of
+     *         {@link AuthorityForSpecialNavigationStationExtensionType }
+     */
+    public AuthorityForSpecialNavigationStationExtensionType createAuthorityForSpecialNavigationStationExtensionType() {
+        return new AuthorityForSpecialNavigationStationExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AuthorityForNavaidEquipmentExtensionType }
+     *
+     * @return the new instance of {@link AuthorityForNavaidEquipmentExtensionType }
+     */
+    public AuthorityForNavaidEquipmentExtensionType createAuthorityForNavaidEquipmentExtensionType() {
+        return new AuthorityForNavaidEquipmentExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link UnplannedHoldingTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link UnplannedHoldingTimeSliceExtensionType }
+     */
+    public UnplannedHoldingTimeSliceExtensionType createUnplannedHoldingTimeSliceExtensionType() {
+        return new UnplannedHoldingTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link HoldingPatternDurationExtensionType }
+     *
+     * @return the new instance of {@link HoldingPatternDurationExtensionType }
+     */
+    public HoldingPatternDurationExtensionType createHoldingPatternDurationExtensionType() {
+        return new HoldingPatternDurationExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link HoldingPatternDistanceExtensionType }
+     *
+     * @return the new instance of {@link HoldingPatternDistanceExtensionType }
+     */
+    public HoldingPatternDistanceExtensionType createHoldingPatternDistanceExtensionType() {
+        return new HoldingPatternDistanceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link HoldingPatternTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link HoldingPatternTimeSliceExtensionType }
+     */
+    public HoldingPatternTimeSliceExtensionType createHoldingPatternTimeSliceExtensionType() {
+        return new HoldingPatternTimeSliceExtensionType();
     }
 
     /**
@@ -12923,821 +12946,835 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GeoBorderExtensionType }
+     * Create an instance of {@link GeoBorderTimeSliceExtensionType }
      *
-     * @return the new instance of {@link GeoBorderExtensionType }
+     * @return the new instance of {@link GeoBorderTimeSliceExtensionType }
      */
-    public GeoBorderExtensionType createGeoBorderExtensionType() {
-        return new GeoBorderExtensionType();
+    public GeoBorderTimeSliceExtensionType createGeoBorderTimeSliceExtensionType() {
+        return new GeoBorderTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AuthorityForAirspaceExtensionType }
+     * Create an instance of {@link AuthorityForAirspaceTimeSliceExtensionType }
      *
-     * @return the new instance of {@link AuthorityForAirspaceExtensionType }
-     */
-    public AuthorityForAirspaceExtensionType createAuthorityForAirspaceExtensionType() {
-        return new AuthorityForAirspaceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AirspaceVolumeDependencyTypeExtensionType }
-     *
-     * @return the new instance of {@link AirspaceVolumeDependencyTypeExtensionType
+     * @return the new instance of {@link AuthorityForAirspaceTimeSliceExtensionType
      *         }
      */
-    public AirspaceVolumeDependencyTypeExtensionType createAirspaceVolumeDependencyTypeExtensionType() {
-        return new AirspaceVolumeDependencyTypeExtensionType();
+    public AuthorityForAirspaceTimeSliceExtensionType createAuthorityForAirspaceTimeSliceExtensionType() {
+        return new AuthorityForAirspaceTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AirspaceVolumeTypeExtensionType }
+     * Create an instance of {@link AirspaceVolumeDependencyExtensionType }
      *
-     * @return the new instance of {@link AirspaceVolumeTypeExtensionType }
+     * @return the new instance of {@link AirspaceVolumeDependencyExtensionType }
      */
-    public AirspaceVolumeTypeExtensionType createAirspaceVolumeTypeExtensionType() {
-        return new AirspaceVolumeTypeExtensionType();
+    public AirspaceVolumeDependencyExtensionType createAirspaceVolumeDependencyExtensionType() {
+        return new AirspaceVolumeDependencyExtensionType();
     }
 
     /**
-     * Create an instance of {@link AirspaceLayerClassTypeExtensionType }
+     * Create an instance of {@link AirspaceVolumeExtensionType }
      *
-     * @return the new instance of {@link AirspaceLayerClassTypeExtensionType }
+     * @return the new instance of {@link AirspaceVolumeExtensionType }
      */
-    public AirspaceLayerClassTypeExtensionType createAirspaceLayerClassTypeExtensionType() {
-        return new AirspaceLayerClassTypeExtensionType();
+    public AirspaceVolumeExtensionType createAirspaceVolumeExtensionType() {
+        return new AirspaceVolumeExtensionType();
     }
 
     /**
-     * Create an instance of {@link AirspaceGeometryComponentTypeExtensionType }
+     * Create an instance of {@link AirspaceLayerClassExtensionType }
      *
-     * @return the new instance of {@link AirspaceGeometryComponentTypeExtensionType
+     * @return the new instance of {@link AirspaceLayerClassExtensionType }
+     */
+    public AirspaceLayerClassExtensionType createAirspaceLayerClassExtensionType() {
+        return new AirspaceLayerClassExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirspaceGeometryComponentExtensionType }
+     *
+     * @return the new instance of {@link AirspaceGeometryComponentExtensionType }
+     */
+    public AirspaceGeometryComponentExtensionType createAirspaceGeometryComponentExtensionType() {
+        return new AirspaceGeometryComponentExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirspaceActivationExtensionType }
+     *
+     * @return the new instance of {@link AirspaceActivationExtensionType }
+     */
+    public AirspaceActivationExtensionType createAirspaceActivationExtensionType() {
+        return new AirspaceActivationExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirspaceTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link AirspaceTimeSliceExtensionType }
+     */
+    public AirspaceTimeSliceExtensionType createAirspaceTimeSliceExtensionType() {
+        return new AirspaceTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link TaxiwayElementTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link TaxiwayElementTimeSliceExtensionType }
+     */
+    public TaxiwayElementTimeSliceExtensionType createTaxiwayElementTimeSliceExtensionType() {
+        return new TaxiwayElementTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link TaxiwayTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link TaxiwayTimeSliceExtensionType }
+     */
+    public TaxiwayTimeSliceExtensionType createTaxiwayTimeSliceExtensionType() {
+        return new TaxiwayTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link TaxiHoldingPositionTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link TaxiHoldingPositionTimeSliceExtensionType
      *         }
      */
-    public AirspaceGeometryComponentTypeExtensionType createAirspaceGeometryComponentTypeExtensionType() {
-        return new AirspaceGeometryComponentTypeExtensionType();
+    public TaxiHoldingPositionTimeSliceExtensionType createTaxiHoldingPositionTimeSliceExtensionType() {
+        return new TaxiHoldingPositionTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AirspaceActivationTypeExtensionType }
+     * Create an instance of {@link GuidanceLineTimeSliceExtensionType }
      *
-     * @return the new instance of {@link AirspaceActivationTypeExtensionType }
+     * @return the new instance of {@link GuidanceLineTimeSliceExtensionType }
      */
-    public AirspaceActivationTypeExtensionType createAirspaceActivationTypeExtensionType() {
-        return new AirspaceActivationTypeExtensionType();
+    public GuidanceLineTimeSliceExtensionType createGuidanceLineTimeSliceExtensionType() {
+        return new GuidanceLineTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AirspaceExtensionType }
+     * Create an instance of {@link TouchDownLiftOffContaminationExtensionType }
      *
-     * @return the new instance of {@link AirspaceExtensionType }
-     */
-    public AirspaceExtensionType createAirspaceExtensionType() {
-        return new AirspaceExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TaxiwayElementExtensionType }
-     *
-     * @return the new instance of {@link TaxiwayElementExtensionType }
-     */
-    public TaxiwayElementExtensionType createTaxiwayElementExtensionType() {
-        return new TaxiwayElementExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TaxiwayExtensionType }
-     *
-     * @return the new instance of {@link TaxiwayExtensionType }
-     */
-    public TaxiwayExtensionType createTaxiwayExtensionType() {
-        return new TaxiwayExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TaxiHoldingPositionExtensionType }
-     *
-     * @return the new instance of {@link TaxiHoldingPositionExtensionType }
-     */
-    public TaxiHoldingPositionExtensionType createTaxiHoldingPositionExtensionType() {
-        return new TaxiHoldingPositionExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link GuidanceLineExtensionType }
-     *
-     * @return the new instance of {@link GuidanceLineExtensionType }
-     */
-    public GuidanceLineExtensionType createGuidanceLineExtensionType() {
-        return new GuidanceLineExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TouchDownLiftOffContaminationTypeExtensionType }
-     *
-     * @return the new instance of
-     *         {@link TouchDownLiftOffContaminationTypeExtensionType }
-     */
-    public TouchDownLiftOffContaminationTypeExtensionType createTouchDownLiftOffContaminationTypeExtensionType() {
-        return new TouchDownLiftOffContaminationTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TaxiwayContaminationTypeExtensionType }
-     *
-     * @return the new instance of {@link TaxiwayContaminationTypeExtensionType }
-     */
-    public TaxiwayContaminationTypeExtensionType createTaxiwayContaminationTypeExtensionType() {
-        return new TaxiwayContaminationTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link SurfaceContaminationLayerTypeExtensionType }
-     *
-     * @return the new instance of {@link SurfaceContaminationLayerTypeExtensionType
+     * @return the new instance of {@link TouchDownLiftOffContaminationExtensionType
      *         }
      */
-    public SurfaceContaminationLayerTypeExtensionType createSurfaceContaminationLayerTypeExtensionType() {
-        return new SurfaceContaminationLayerTypeExtensionType();
+    public TouchDownLiftOffContaminationExtensionType createTouchDownLiftOffContaminationExtensionType() {
+        return new TouchDownLiftOffContaminationExtensionType();
     }
 
     /**
-     * Create an instance of {@link RunwaySectionContaminationTypeExtensionType }
+     * Create an instance of {@link TaxiwayContaminationExtensionType }
      *
-     * @return the new instance of
-     *         {@link RunwaySectionContaminationTypeExtensionType }
+     * @return the new instance of {@link TaxiwayContaminationExtensionType }
      */
-    public RunwaySectionContaminationTypeExtensionType createRunwaySectionContaminationTypeExtensionType() {
-        return new RunwaySectionContaminationTypeExtensionType();
+    public TaxiwayContaminationExtensionType createTaxiwayContaminationExtensionType() {
+        return new TaxiwayContaminationExtensionType();
     }
 
     /**
-     * Create an instance of {@link RunwayContaminationTypeExtensionType }
+     * Create an instance of {@link SurfaceContaminationLayerExtensionType }
      *
-     * @return the new instance of {@link RunwayContaminationTypeExtensionType }
+     * @return the new instance of {@link SurfaceContaminationLayerExtensionType }
      */
-    public RunwayContaminationTypeExtensionType createRunwayContaminationTypeExtensionType() {
-        return new RunwayContaminationTypeExtensionType();
+    public SurfaceContaminationLayerExtensionType createSurfaceContaminationLayerExtensionType() {
+        return new SurfaceContaminationLayerExtensionType();
     }
 
     /**
-     * Create an instance of {@link RidgeTypeExtensionType }
+     * Create an instance of {@link RunwaySectionContaminationExtensionType }
      *
-     * @return the new instance of {@link RidgeTypeExtensionType }
+     * @return the new instance of {@link RunwaySectionContaminationExtensionType }
      */
-    public RidgeTypeExtensionType createRidgeTypeExtensionType() {
-        return new RidgeTypeExtensionType();
+    public RunwaySectionContaminationExtensionType createRunwaySectionContaminationExtensionType() {
+        return new RunwaySectionContaminationExtensionType();
     }
 
     /**
-     * Create an instance of {@link ApronContaminationTypeExtensionType }
+     * Create an instance of {@link RunwayContaminationExtensionType }
      *
-     * @return the new instance of {@link ApronContaminationTypeExtensionType }
+     * @return the new instance of {@link RunwayContaminationExtensionType }
      */
-    public ApronContaminationTypeExtensionType createApronContaminationTypeExtensionType() {
-        return new ApronContaminationTypeExtensionType();
+    public RunwayContaminationExtensionType createRunwayContaminationExtensionType() {
+        return new RunwayContaminationExtensionType();
     }
 
     /**
-     * Create an instance of {@link AirportHeliportContaminationTypeExtensionType }
+     * Create an instance of {@link RidgeExtensionType }
      *
-     * @return the new instance of
-     *         {@link AirportHeliportContaminationTypeExtensionType }
+     * @return the new instance of {@link RidgeExtensionType }
      */
-    public AirportHeliportContaminationTypeExtensionType createAirportHeliportContaminationTypeExtensionType() {
-        return new AirportHeliportContaminationTypeExtensionType();
+    public RidgeExtensionType createRidgeExtensionType() {
+        return new RidgeExtensionType();
     }
 
     /**
-     * Create an instance of {@link AircraftStandContaminationTypeExtensionType }
+     * Create an instance of {@link ApronContaminationExtensionType }
      *
-     * @return the new instance of
-     *         {@link AircraftStandContaminationTypeExtensionType }
+     * @return the new instance of {@link ApronContaminationExtensionType }
      */
-    public AircraftStandContaminationTypeExtensionType createAircraftStandContaminationTypeExtensionType() {
-        return new AircraftStandContaminationTypeExtensionType();
+    public ApronContaminationExtensionType createApronContaminationExtensionType() {
+        return new ApronContaminationExtensionType();
     }
 
     /**
-     * Create an instance of {@link SeaplaneRampSiteExtensionType }
+     * Create an instance of {@link AirportHeliportContaminationExtensionType }
      *
-     * @return the new instance of {@link SeaplaneRampSiteExtensionType }
-     */
-    public SeaplaneRampSiteExtensionType createSeaplaneRampSiteExtensionType() {
-        return new SeaplaneRampSiteExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link SeaplaneLandingAreaExtensionType }
-     *
-     * @return the new instance of {@link SeaplaneLandingAreaExtensionType }
-     */
-    public SeaplaneLandingAreaExtensionType createSeaplaneLandingAreaExtensionType() {
-        return new SeaplaneLandingAreaExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link MarkingBuoyExtensionType }
-     *
-     * @return the new instance of {@link MarkingBuoyExtensionType }
-     */
-    public MarkingBuoyExtensionType createMarkingBuoyExtensionType() {
-        return new MarkingBuoyExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link FloatingDockSiteExtensionType }
-     *
-     * @return the new instance of {@link FloatingDockSiteExtensionType }
-     */
-    public FloatingDockSiteExtensionType createFloatingDockSiteExtensionType() {
-        return new FloatingDockSiteExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link VisualGlideSlopeIndicatorExtensionType }
-     *
-     * @return the new instance of {@link VisualGlideSlopeIndicatorExtensionType }
-     */
-    public VisualGlideSlopeIndicatorExtensionType createVisualGlideSlopeIndicatorExtensionType() {
-        return new VisualGlideSlopeIndicatorExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RunwayVisualRangeExtensionType }
-     *
-     * @return the new instance of {@link RunwayVisualRangeExtensionType }
-     */
-    public RunwayVisualRangeExtensionType createRunwayVisualRangeExtensionType() {
-        return new RunwayVisualRangeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RunwayProtectAreaExtensionType }
-     *
-     * @return the new instance of {@link RunwayProtectAreaExtensionType }
-     */
-    public RunwayProtectAreaExtensionType createRunwayProtectAreaExtensionType() {
-        return new RunwayProtectAreaExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RunwayElementExtensionType }
-     *
-     * @return the new instance of {@link RunwayElementExtensionType }
-     */
-    public RunwayElementExtensionType createRunwayElementExtensionType() {
-        return new RunwayElementExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RunwayDirectionExtensionType }
-     *
-     * @return the new instance of {@link RunwayDirectionExtensionType }
-     */
-    public RunwayDirectionExtensionType createRunwayDirectionExtensionType() {
-        return new RunwayDirectionExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RunwayDeclaredDistanceValueTypeExtensionType }
-     *
-     * @return the new instance of
-     *         {@link RunwayDeclaredDistanceValueTypeExtensionType }
-     */
-    public RunwayDeclaredDistanceValueTypeExtensionType createRunwayDeclaredDistanceValueTypeExtensionType() {
-        return new RunwayDeclaredDistanceValueTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RunwayDeclaredDistanceTypeExtensionType }
-     *
-     * @return the new instance of {@link RunwayDeclaredDistanceTypeExtensionType }
-     */
-    public RunwayDeclaredDistanceTypeExtensionType createRunwayDeclaredDistanceTypeExtensionType() {
-        return new RunwayDeclaredDistanceTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RunwayCentrelinePointExtensionType }
-     *
-     * @return the new instance of {@link RunwayCentrelinePointExtensionType }
-     */
-    public RunwayCentrelinePointExtensionType createRunwayCentrelinePointExtensionType() {
-        return new RunwayCentrelinePointExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RunwayBlastPadExtensionType }
-     *
-     * @return the new instance of {@link RunwayBlastPadExtensionType }
-     */
-    public RunwayBlastPadExtensionType createRunwayBlastPadExtensionType() {
-        return new RunwayBlastPadExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RunwayExtensionType }
-     *
-     * @return the new instance of {@link RunwayExtensionType }
-     */
-    public RunwayExtensionType createRunwayExtensionType() {
-        return new RunwayExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link NavaidEquipmentDistanceTypeExtensionType }
-     *
-     * @return the new instance of {@link NavaidEquipmentDistanceTypeExtensionType }
-     */
-    public NavaidEquipmentDistanceTypeExtensionType createNavaidEquipmentDistanceTypeExtensionType() {
-        return new NavaidEquipmentDistanceTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ManoeuvringAreaUsageTypeExtensionType }
-     *
-     * @return the new instance of {@link ManoeuvringAreaUsageTypeExtensionType }
-     */
-    public ManoeuvringAreaUsageTypeExtensionType createManoeuvringAreaUsageTypeExtensionType() {
-        return new ManoeuvringAreaUsageTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ManoeuvringAreaAvailabilityTypeExtensionType }
-     *
-     * @return the new instance of
-     *         {@link ManoeuvringAreaAvailabilityTypeExtensionType }
-     */
-    public ManoeuvringAreaAvailabilityTypeExtensionType createManoeuvringAreaAvailabilityTypeExtensionType() {
-        return new ManoeuvringAreaAvailabilityTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ArrestingGearExtensionType }
-     *
-     * @return the new instance of {@link ArrestingGearExtensionType }
-     */
-    public ArrestingGearExtensionType createArrestingGearExtensionType() {
-        return new ArrestingGearExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TouchDownLiftOffMarkingExtensionType }
-     *
-     * @return the new instance of {@link TouchDownLiftOffMarkingExtensionType }
-     */
-    public TouchDownLiftOffMarkingExtensionType createTouchDownLiftOffMarkingExtensionType() {
-        return new TouchDownLiftOffMarkingExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TaxiwayMarkingExtensionType }
-     *
-     * @return the new instance of {@link TaxiwayMarkingExtensionType }
-     */
-    public TaxiwayMarkingExtensionType createTaxiwayMarkingExtensionType() {
-        return new TaxiwayMarkingExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link TaxiHoldingPositionMarkingExtensionType }
-     *
-     * @return the new instance of {@link TaxiHoldingPositionMarkingExtensionType }
-     */
-    public TaxiHoldingPositionMarkingExtensionType createTaxiHoldingPositionMarkingExtensionType() {
-        return new TaxiHoldingPositionMarkingExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link StandMarkingExtensionType }
-     *
-     * @return the new instance of {@link StandMarkingExtensionType }
-     */
-    public StandMarkingExtensionType createStandMarkingExtensionType() {
-        return new StandMarkingExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RunwayMarkingExtensionType }
-     *
-     * @return the new instance of {@link RunwayMarkingExtensionType }
-     */
-    public RunwayMarkingExtensionType createRunwayMarkingExtensionType() {
-        return new RunwayMarkingExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link MarkingElementTypeExtensionType }
-     *
-     * @return the new instance of {@link MarkingElementTypeExtensionType }
-     */
-    public MarkingElementTypeExtensionType createMarkingElementTypeExtensionType() {
-        return new MarkingElementTypeExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link GuidanceLineMarkingExtensionType }
-     *
-     * @return the new instance of {@link GuidanceLineMarkingExtensionType }
-     */
-    public GuidanceLineMarkingExtensionType createGuidanceLineMarkingExtensionType() {
-        return new GuidanceLineMarkingExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link DeicingAreaMarkingExtensionType }
-     *
-     * @return the new instance of {@link DeicingAreaMarkingExtensionType }
-     */
-    public DeicingAreaMarkingExtensionType createDeicingAreaMarkingExtensionType() {
-        return new DeicingAreaMarkingExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link ApronMarkingExtensionType }
-     *
-     * @return the new instance of {@link ApronMarkingExtensionType }
-     */
-    public ApronMarkingExtensionType createApronMarkingExtensionType() {
-        return new ApronMarkingExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AirportProtectionAreaMarkingExtensionType }
-     *
-     * @return the new instance of {@link AirportProtectionAreaMarkingExtensionType
+     * @return the new instance of {@link AirportHeliportContaminationExtensionType
      *         }
      */
-    public AirportProtectionAreaMarkingExtensionType createAirportProtectionAreaMarkingExtensionType() {
-        return new AirportProtectionAreaMarkingExtensionType();
+    public AirportHeliportContaminationExtensionType createAirportHeliportContaminationExtensionType() {
+        return new AirportHeliportContaminationExtensionType();
     }
 
     /**
-     * Create an instance of {@link TouchDownLiftOffLightSystemExtensionType }
+     * Create an instance of {@link AircraftStandContaminationExtensionType }
      *
-     * @return the new instance of {@link TouchDownLiftOffLightSystemExtensionType }
+     * @return the new instance of {@link AircraftStandContaminationExtensionType }
      */
-    public TouchDownLiftOffLightSystemExtensionType createTouchDownLiftOffLightSystemExtensionType() {
-        return new TouchDownLiftOffLightSystemExtensionType();
+    public AircraftStandContaminationExtensionType createAircraftStandContaminationExtensionType() {
+        return new AircraftStandContaminationExtensionType();
     }
 
     /**
-     * Create an instance of {@link TaxiwayLightSystemExtensionType }
+     * Create an instance of {@link SeaplaneRampSiteTimeSliceExtensionType }
      *
-     * @return the new instance of {@link TaxiwayLightSystemExtensionType }
+     * @return the new instance of {@link SeaplaneRampSiteTimeSliceExtensionType }
      */
-    public TaxiwayLightSystemExtensionType createTaxiwayLightSystemExtensionType() {
-        return new TaxiwayLightSystemExtensionType();
+    public SeaplaneRampSiteTimeSliceExtensionType createSeaplaneRampSiteTimeSliceExtensionType() {
+        return new SeaplaneRampSiteTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link TaxiHoldingPositionLightSystemExtensionType }
+     * Create an instance of {@link SeaplaneLandingAreaTimeSliceExtensionType }
      *
-     * @return the new instance of
-     *         {@link TaxiHoldingPositionLightSystemExtensionType }
-     */
-    public TaxiHoldingPositionLightSystemExtensionType createTaxiHoldingPositionLightSystemExtensionType() {
-        return new TaxiHoldingPositionLightSystemExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link RunwayProtectAreaLightSystemExtensionType }
-     *
-     * @return the new instance of {@link RunwayProtectAreaLightSystemExtensionType
+     * @return the new instance of {@link SeaplaneLandingAreaTimeSliceExtensionType
      *         }
      */
-    public RunwayProtectAreaLightSystemExtensionType createRunwayProtectAreaLightSystemExtensionType() {
-        return new RunwayProtectAreaLightSystemExtensionType();
+    public SeaplaneLandingAreaTimeSliceExtensionType createSeaplaneLandingAreaTimeSliceExtensionType() {
+        return new SeaplaneLandingAreaTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link RunwayDirectionLightSystemExtensionType }
+     * Create an instance of {@link MarkingBuoyTimeSliceExtensionType }
      *
-     * @return the new instance of {@link RunwayDirectionLightSystemExtensionType }
+     * @return the new instance of {@link MarkingBuoyTimeSliceExtensionType }
      */
-    public RunwayDirectionLightSystemExtensionType createRunwayDirectionLightSystemExtensionType() {
-        return new RunwayDirectionLightSystemExtensionType();
+    public MarkingBuoyTimeSliceExtensionType createMarkingBuoyTimeSliceExtensionType() {
+        return new MarkingBuoyTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link LightActivationTypeExtensionType }
+     * Create an instance of {@link FloatingDockSiteTimeSliceExtensionType }
      *
-     * @return the new instance of {@link LightActivationTypeExtensionType }
+     * @return the new instance of {@link FloatingDockSiteTimeSliceExtensionType }
      */
-    public LightActivationTypeExtensionType createLightActivationTypeExtensionType() {
-        return new LightActivationTypeExtensionType();
+    public FloatingDockSiteTimeSliceExtensionType createFloatingDockSiteTimeSliceExtensionType() {
+        return new FloatingDockSiteTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link GuidanceLineLightSystemExtensionType }
-     *
-     * @return the new instance of {@link GuidanceLineLightSystemExtensionType }
-     */
-    public GuidanceLineLightSystemExtensionType createGuidanceLineLightSystemExtensionType() {
-        return new GuidanceLineLightSystemExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link GroundLightingAvailabilityTypeExtensionType }
+     * Create an instance of {@link VisualGlideSlopeIndicatorTimeSliceExtensionType
+     * }
      *
      * @return the new instance of
-     *         {@link GroundLightingAvailabilityTypeExtensionType }
+     *         {@link VisualGlideSlopeIndicatorTimeSliceExtensionType }
      */
-    public GroundLightingAvailabilityTypeExtensionType createGroundLightingAvailabilityTypeExtensionType() {
-        return new GroundLightingAvailabilityTypeExtensionType();
+    public VisualGlideSlopeIndicatorTimeSliceExtensionType createVisualGlideSlopeIndicatorTimeSliceExtensionType() {
+        return new VisualGlideSlopeIndicatorTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link ApronLightSystemExtensionType }
+     * Create an instance of {@link RunwayVisualRangeTimeSliceExtensionType }
      *
-     * @return the new instance of {@link ApronLightSystemExtensionType }
+     * @return the new instance of {@link RunwayVisualRangeTimeSliceExtensionType }
      */
-    public ApronLightSystemExtensionType createApronLightSystemExtensionType() {
-        return new ApronLightSystemExtensionType();
+    public RunwayVisualRangeTimeSliceExtensionType createRunwayVisualRangeTimeSliceExtensionType() {
+        return new RunwayVisualRangeTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link ApproachLightingSystemExtensionType }
+     * Create an instance of {@link RunwayProtectAreaTimeSliceExtensionType }
      *
-     * @return the new instance of {@link ApproachLightingSystemExtensionType }
+     * @return the new instance of {@link RunwayProtectAreaTimeSliceExtensionType }
      */
-    public ApproachLightingSystemExtensionType createApproachLightingSystemExtensionType() {
-        return new ApproachLightingSystemExtensionType();
+    public RunwayProtectAreaTimeSliceExtensionType createRunwayProtectAreaTimeSliceExtensionType() {
+        return new RunwayProtectAreaTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link TouchDownLiftOffSafeAreaExtensionType }
+     * Create an instance of {@link RunwayElementTimeSliceExtensionType }
      *
-     * @return the new instance of {@link TouchDownLiftOffSafeAreaExtensionType }
+     * @return the new instance of {@link RunwayElementTimeSliceExtensionType }
      */
-    public TouchDownLiftOffSafeAreaExtensionType createTouchDownLiftOffSafeAreaExtensionType() {
-        return new TouchDownLiftOffSafeAreaExtensionType();
+    public RunwayElementTimeSliceExtensionType createRunwayElementTimeSliceExtensionType() {
+        return new RunwayElementTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link TouchDownLiftOffExtensionType }
+     * Create an instance of {@link RunwayDirectionTimeSliceExtensionType }
      *
-     * @return the new instance of {@link TouchDownLiftOffExtensionType }
+     * @return the new instance of {@link RunwayDirectionTimeSliceExtensionType }
      */
-    public TouchDownLiftOffExtensionType createTouchDownLiftOffExtensionType() {
-        return new TouchDownLiftOffExtensionType();
+    public RunwayDirectionTimeSliceExtensionType createRunwayDirectionTimeSliceExtensionType() {
+        return new RunwayDirectionTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link RoadExtensionType }
+     * Create an instance of {@link RunwayDeclaredDistanceValueExtensionType }
      *
-     * @return the new instance of {@link RoadExtensionType }
+     * @return the new instance of {@link RunwayDeclaredDistanceValueExtensionType }
      */
-    public RoadExtensionType createRoadExtensionType() {
-        return new RoadExtensionType();
+    public RunwayDeclaredDistanceValueExtensionType createRunwayDeclaredDistanceValueExtensionType() {
+        return new RunwayDeclaredDistanceValueExtensionType();
     }
 
     /**
-     * Create an instance of {@link PassengerLoadingBridgeExtensionType }
+     * Create an instance of {@link RunwayDeclaredDistanceExtensionType }
      *
-     * @return the new instance of {@link PassengerLoadingBridgeExtensionType }
+     * @return the new instance of {@link RunwayDeclaredDistanceExtensionType }
      */
-    public PassengerLoadingBridgeExtensionType createPassengerLoadingBridgeExtensionType() {
-        return new PassengerLoadingBridgeExtensionType();
+    public RunwayDeclaredDistanceExtensionType createRunwayDeclaredDistanceExtensionType() {
+        return new RunwayDeclaredDistanceExtensionType();
     }
 
     /**
-     * Create an instance of {@link DeicingAreaExtensionType }
+     * Create an instance of {@link RunwayCentrelinePointTimeSliceExtensionType }
      *
-     * @return the new instance of {@link DeicingAreaExtensionType }
+     * @return the new instance of
+     *         {@link RunwayCentrelinePointTimeSliceExtensionType }
      */
-    public DeicingAreaExtensionType createDeicingAreaExtensionType() {
-        return new DeicingAreaExtensionType();
+    public RunwayCentrelinePointTimeSliceExtensionType createRunwayCentrelinePointTimeSliceExtensionType() {
+        return new RunwayCentrelinePointTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link ApronElementExtensionType }
+     * Create an instance of {@link RunwayBlastPadTimeSliceExtensionType }
      *
-     * @return the new instance of {@link ApronElementExtensionType }
+     * @return the new instance of {@link RunwayBlastPadTimeSliceExtensionType }
      */
-    public ApronElementExtensionType createApronElementExtensionType() {
-        return new ApronElementExtensionType();
+    public RunwayBlastPadTimeSliceExtensionType createRunwayBlastPadTimeSliceExtensionType() {
+        return new RunwayBlastPadTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link ApronAreaUsageTypeExtensionType }
+     * Create an instance of {@link RunwayTimeSliceExtensionType }
      *
-     * @return the new instance of {@link ApronAreaUsageTypeExtensionType }
+     * @return the new instance of {@link RunwayTimeSliceExtensionType }
      */
-    public ApronAreaUsageTypeExtensionType createApronAreaUsageTypeExtensionType() {
-        return new ApronAreaUsageTypeExtensionType();
+    public RunwayTimeSliceExtensionType createRunwayTimeSliceExtensionType() {
+        return new RunwayTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link ApronAreaAvailabilityTypeExtensionType }
+     * Create an instance of {@link NavaidEquipmentDistanceExtensionType }
      *
-     * @return the new instance of {@link ApronAreaAvailabilityTypeExtensionType }
+     * @return the new instance of {@link NavaidEquipmentDistanceExtensionType }
      */
-    public ApronAreaAvailabilityTypeExtensionType createApronAreaAvailabilityTypeExtensionType() {
-        return new ApronAreaAvailabilityTypeExtensionType();
+    public NavaidEquipmentDistanceExtensionType createNavaidEquipmentDistanceExtensionType() {
+        return new NavaidEquipmentDistanceExtensionType();
     }
 
     /**
-     * Create an instance of {@link ApronExtensionType }
+     * Create an instance of {@link ManoeuvringAreaUsageExtensionType }
      *
-     * @return the new instance of {@link ApronExtensionType }
+     * @return the new instance of {@link ManoeuvringAreaUsageExtensionType }
      */
-    public ApronExtensionType createApronExtensionType() {
-        return new ApronExtensionType();
+    public ManoeuvringAreaUsageExtensionType createManoeuvringAreaUsageExtensionType() {
+        return new ManoeuvringAreaUsageExtensionType();
     }
 
     /**
-     * Create an instance of {@link AircraftStandExtensionType }
+     * Create an instance of {@link ManoeuvringAreaAvailabilityExtensionType }
      *
-     * @return the new instance of {@link AircraftStandExtensionType }
+     * @return the new instance of {@link ManoeuvringAreaAvailabilityExtensionType }
      */
-    public AircraftStandExtensionType createAircraftStandExtensionType() {
-        return new AircraftStandExtensionType();
+    public ManoeuvringAreaAvailabilityExtensionType createManoeuvringAreaAvailabilityExtensionType() {
+        return new ManoeuvringAreaAvailabilityExtensionType();
     }
 
     /**
-     * Create an instance of {@link WorkareaActivityTypeExtensionType }
+     * Create an instance of {@link ArrestingGearTimeSliceExtensionType }
      *
-     * @return the new instance of {@link WorkareaActivityTypeExtensionType }
+     * @return the new instance of {@link ArrestingGearTimeSliceExtensionType }
      */
-    public WorkareaActivityTypeExtensionType createWorkareaActivityTypeExtensionType() {
-        return new WorkareaActivityTypeExtensionType();
+    public ArrestingGearTimeSliceExtensionType createArrestingGearTimeSliceExtensionType() {
+        return new ArrestingGearTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link WorkAreaExtensionType }
+     * Create an instance of {@link TouchDownLiftOffMarkingTimeSliceExtensionType }
      *
-     * @return the new instance of {@link WorkAreaExtensionType }
+     * @return the new instance of
+     *         {@link TouchDownLiftOffMarkingTimeSliceExtensionType }
      */
-    public WorkAreaExtensionType createWorkAreaExtensionType() {
-        return new WorkAreaExtensionType();
+    public TouchDownLiftOffMarkingTimeSliceExtensionType createTouchDownLiftOffMarkingTimeSliceExtensionType() {
+        return new TouchDownLiftOffMarkingTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link SurveyControlPointExtensionType }
+     * Create an instance of {@link TaxiwayMarkingTimeSliceExtensionType }
      *
-     * @return the new instance of {@link SurveyControlPointExtensionType }
+     * @return the new instance of {@link TaxiwayMarkingTimeSliceExtensionType }
      */
-    public SurveyControlPointExtensionType createSurveyControlPointExtensionType() {
-        return new SurveyControlPointExtensionType();
+    public TaxiwayMarkingTimeSliceExtensionType createTaxiwayMarkingTimeSliceExtensionType() {
+        return new TaxiwayMarkingTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link SurfaceCharacteristicsTypeExtensionType }
+     * Create an instance of {@link TaxiHoldingPositionMarkingTimeSliceExtensionType
+     * }
      *
-     * @return the new instance of {@link SurfaceCharacteristicsTypeExtensionType }
+     * @return the new instance of
+     *         {@link TaxiHoldingPositionMarkingTimeSliceExtensionType }
      */
-    public SurfaceCharacteristicsTypeExtensionType createSurfaceCharacteristicsTypeExtensionType() {
-        return new SurfaceCharacteristicsTypeExtensionType();
+    public TaxiHoldingPositionMarkingTimeSliceExtensionType createTaxiHoldingPositionMarkingTimeSliceExtensionType() {
+        return new TaxiHoldingPositionMarkingTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link NonMovementAreaExtensionType }
+     * Create an instance of {@link StandMarkingTimeSliceExtensionType }
      *
-     * @return the new instance of {@link NonMovementAreaExtensionType }
+     * @return the new instance of {@link StandMarkingTimeSliceExtensionType }
      */
-    public NonMovementAreaExtensionType createNonMovementAreaExtensionType() {
-        return new NonMovementAreaExtensionType();
+    public StandMarkingTimeSliceExtensionType createStandMarkingTimeSliceExtensionType() {
+        return new StandMarkingTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link ConditionCombinationTypeExtensionType }
+     * Create an instance of {@link RunwayMarkingTimeSliceExtensionType }
      *
-     * @return the new instance of {@link ConditionCombinationTypeExtensionType }
+     * @return the new instance of {@link RunwayMarkingTimeSliceExtensionType }
      */
-    public ConditionCombinationTypeExtensionType createConditionCombinationTypeExtensionType() {
-        return new ConditionCombinationTypeExtensionType();
+    public RunwayMarkingTimeSliceExtensionType createRunwayMarkingTimeSliceExtensionType() {
+        return new RunwayMarkingTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link CityTypeExtensionType }
+     * Create an instance of {@link MarkingElementExtensionType }
      *
-     * @return the new instance of {@link CityTypeExtensionType }
+     * @return the new instance of {@link MarkingElementExtensionType }
      */
-    public CityTypeExtensionType createCityTypeExtensionType() {
-        return new CityTypeExtensionType();
+    public MarkingElementExtensionType createMarkingElementExtensionType() {
+        return new MarkingElementExtensionType();
     }
 
     /**
-     * Create an instance of {@link AltimeterSourceStatusTypeExtensionType }
+     * Create an instance of {@link GuidanceLineMarkingTimeSliceExtensionType }
      *
-     * @return the new instance of {@link AltimeterSourceStatusTypeExtensionType }
+     * @return the new instance of {@link GuidanceLineMarkingTimeSliceExtensionType
+     *         }
      */
-    public AltimeterSourceStatusTypeExtensionType createAltimeterSourceStatusTypeExtensionType() {
-        return new AltimeterSourceStatusTypeExtensionType();
+    public GuidanceLineMarkingTimeSliceExtensionType createGuidanceLineMarkingTimeSliceExtensionType() {
+        return new GuidanceLineMarkingTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AltimeterSourceExtensionType }
+     * Create an instance of {@link DeicingAreaMarkingTimeSliceExtensionType }
      *
-     * @return the new instance of {@link AltimeterSourceExtensionType }
+     * @return the new instance of {@link DeicingAreaMarkingTimeSliceExtensionType }
      */
-    public AltimeterSourceExtensionType createAltimeterSourceExtensionType() {
-        return new AltimeterSourceExtensionType();
+    public DeicingAreaMarkingTimeSliceExtensionType createDeicingAreaMarkingTimeSliceExtensionType() {
+        return new DeicingAreaMarkingTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AirportHotSpotExtensionType }
+     * Create an instance of {@link ApronMarkingTimeSliceExtensionType }
      *
-     * @return the new instance of {@link AirportHotSpotExtensionType }
+     * @return the new instance of {@link ApronMarkingTimeSliceExtensionType }
      */
-    public AirportHotSpotExtensionType createAirportHotSpotExtensionType() {
-        return new AirportHotSpotExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AirportHeliportUsageTypeExtensionType }
-     *
-     * @return the new instance of {@link AirportHeliportUsageTypeExtensionType }
-     */
-    public AirportHeliportUsageTypeExtensionType createAirportHeliportUsageTypeExtensionType() {
-        return new AirportHeliportUsageTypeExtensionType();
+    public ApronMarkingTimeSliceExtensionType createApronMarkingTimeSliceExtensionType() {
+        return new ApronMarkingTimeSliceExtensionType();
     }
 
     /**
      * Create an instance of
-     * {@link AirportHeliportResponsibilityOrganisationTypeExtensionType }
+     * {@link AirportProtectionAreaMarkingTimeSliceExtensionType }
      *
      * @return the new instance of
-     *         {@link AirportHeliportResponsibilityOrganisationTypeExtensionType }
+     *         {@link AirportProtectionAreaMarkingTimeSliceExtensionType }
      */
-    public AirportHeliportResponsibilityOrganisationTypeExtensionType createAirportHeliportResponsibilityOrganisationTypeExtensionType() {
-        return new AirportHeliportResponsibilityOrganisationTypeExtensionType();
+    public AirportProtectionAreaMarkingTimeSliceExtensionType createAirportProtectionAreaMarkingTimeSliceExtensionType() {
+        return new AirportProtectionAreaMarkingTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AirportHeliportCollocationExtensionType }
-     *
-     * @return the new instance of {@link AirportHeliportCollocationExtensionType }
-     */
-    public AirportHeliportCollocationExtensionType createAirportHeliportCollocationExtensionType() {
-        return new AirportHeliportCollocationExtensionType();
-    }
-
-    /**
-     * Create an instance of {@link AirportHeliportAvailabilityTypeExtensionType }
+     * Create an instance of
+     * {@link TouchDownLiftOffLightSystemTimeSliceExtensionType }
      *
      * @return the new instance of
-     *         {@link AirportHeliportAvailabilityTypeExtensionType }
+     *         {@link TouchDownLiftOffLightSystemTimeSliceExtensionType }
      */
-    public AirportHeliportAvailabilityTypeExtensionType createAirportHeliportAvailabilityTypeExtensionType() {
-        return new AirportHeliportAvailabilityTypeExtensionType();
+    public TouchDownLiftOffLightSystemTimeSliceExtensionType createTouchDownLiftOffLightSystemTimeSliceExtensionType() {
+        return new TouchDownLiftOffLightSystemTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AirportHeliportExtensionType }
+     * Create an instance of {@link TaxiwayLightSystemTimeSliceExtensionType }
      *
-     * @return the new instance of {@link AirportHeliportExtensionType }
+     * @return the new instance of {@link TaxiwayLightSystemTimeSliceExtensionType }
      */
-    public AirportHeliportExtensionType createAirportHeliportExtensionType() {
-        return new AirportHeliportExtensionType();
+    public TaxiwayLightSystemTimeSliceExtensionType createTaxiwayLightSystemTimeSliceExtensionType() {
+        return new TaxiwayLightSystemTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AuthorityForAerialRefuellingTypeExtensionType }
+     * Create an instance of
+     * {@link TaxiHoldingPositionLightSystemTimeSliceExtensionType }
      *
      * @return the new instance of
-     *         {@link AuthorityForAerialRefuellingTypeExtensionType }
+     *         {@link TaxiHoldingPositionLightSystemTimeSliceExtensionType }
      */
-    public AuthorityForAerialRefuellingTypeExtensionType createAuthorityForAerialRefuellingTypeExtensionType() {
-        return new AuthorityForAerialRefuellingTypeExtensionType();
+    public TaxiHoldingPositionLightSystemTimeSliceExtensionType createTaxiHoldingPositionLightSystemTimeSliceExtensionType() {
+        return new TaxiHoldingPositionLightSystemTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AerialRefuellingTrackTypeExtensionType }
+     * Create an instance of
+     * {@link RunwayProtectAreaLightSystemTimeSliceExtensionType }
      *
-     * @return the new instance of {@link AerialRefuellingTrackTypeExtensionType }
+     * @return the new instance of
+     *         {@link RunwayProtectAreaLightSystemTimeSliceExtensionType }
      */
-    public AerialRefuellingTrackTypeExtensionType createAerialRefuellingTrackTypeExtensionType() {
-        return new AerialRefuellingTrackTypeExtensionType();
+    public RunwayProtectAreaLightSystemTimeSliceExtensionType createRunwayProtectAreaLightSystemTimeSliceExtensionType() {
+        return new RunwayProtectAreaLightSystemTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AerialRefuellingPointTypeExtensionType }
+     * Create an instance of {@link RunwayDirectionLightSystemTimeSliceExtensionType
+     * }
      *
-     * @return the new instance of {@link AerialRefuellingPointTypeExtensionType }
+     * @return the new instance of
+     *         {@link RunwayDirectionLightSystemTimeSliceExtensionType }
      */
-    public AerialRefuellingPointTypeExtensionType createAerialRefuellingPointTypeExtensionType() {
-        return new AerialRefuellingPointTypeExtensionType();
+    public RunwayDirectionLightSystemTimeSliceExtensionType createRunwayDirectionLightSystemTimeSliceExtensionType() {
+        return new RunwayDirectionLightSystemTimeSliceExtensionType();
     }
 
     /**
-     * Create an instance of {@link AerialRefuellingAnchorTypeExtensionType }
+     * Create an instance of {@link LightActivationExtensionType }
      *
-     * @return the new instance of {@link AerialRefuellingAnchorTypeExtensionType }
+     * @return the new instance of {@link LightActivationExtensionType }
      */
-    public AerialRefuellingAnchorTypeExtensionType createAerialRefuellingAnchorTypeExtensionType() {
-        return new AerialRefuellingAnchorTypeExtensionType();
+    public LightActivationExtensionType createLightActivationExtensionType() {
+        return new LightActivationExtensionType();
     }
 
     /**
-     * Create an instance of {@link AerialRefuellingExtensionType }
+     * Create an instance of {@link GuidanceLineLightSystemTimeSliceExtensionType }
      *
-     * @return the new instance of {@link AerialRefuellingExtensionType }
+     * @return the new instance of
+     *         {@link GuidanceLineLightSystemTimeSliceExtensionType }
      */
-    public AerialRefuellingExtensionType createAerialRefuellingExtensionType() {
-        return new AerialRefuellingExtensionType();
+    public GuidanceLineLightSystemTimeSliceExtensionType createGuidanceLineLightSystemTimeSliceExtensionType() {
+        return new GuidanceLineLightSystemTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link GroundLightingAvailabilityExtensionType }
+     *
+     * @return the new instance of {@link GroundLightingAvailabilityExtensionType }
+     */
+    public GroundLightingAvailabilityExtensionType createGroundLightingAvailabilityExtensionType() {
+        return new GroundLightingAvailabilityExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ApronLightSystemTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link ApronLightSystemTimeSliceExtensionType }
+     */
+    public ApronLightSystemTimeSliceExtensionType createApronLightSystemTimeSliceExtensionType() {
+        return new ApronLightSystemTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ApproachLightingSystemTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link ApproachLightingSystemTimeSliceExtensionType }
+     */
+    public ApproachLightingSystemTimeSliceExtensionType createApproachLightingSystemTimeSliceExtensionType() {
+        return new ApproachLightingSystemTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link TouchDownLiftOffSafeAreaTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link TouchDownLiftOffSafeAreaTimeSliceExtensionType }
+     */
+    public TouchDownLiftOffSafeAreaTimeSliceExtensionType createTouchDownLiftOffSafeAreaTimeSliceExtensionType() {
+        return new TouchDownLiftOffSafeAreaTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link TouchDownLiftOffTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link TouchDownLiftOffTimeSliceExtensionType }
+     */
+    public TouchDownLiftOffTimeSliceExtensionType createTouchDownLiftOffTimeSliceExtensionType() {
+        return new TouchDownLiftOffTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link RoadTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link RoadTimeSliceExtensionType }
+     */
+    public RoadTimeSliceExtensionType createRoadTimeSliceExtensionType() {
+        return new RoadTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link PassengerLoadingBridgeTimeSliceExtensionType }
+     *
+     * @return the new instance of
+     *         {@link PassengerLoadingBridgeTimeSliceExtensionType }
+     */
+    public PassengerLoadingBridgeTimeSliceExtensionType createPassengerLoadingBridgeTimeSliceExtensionType() {
+        return new PassengerLoadingBridgeTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link DeicingAreaTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link DeicingAreaTimeSliceExtensionType }
+     */
+    public DeicingAreaTimeSliceExtensionType createDeicingAreaTimeSliceExtensionType() {
+        return new DeicingAreaTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ApronElementTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link ApronElementTimeSliceExtensionType }
+     */
+    public ApronElementTimeSliceExtensionType createApronElementTimeSliceExtensionType() {
+        return new ApronElementTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ApronAreaUsageExtensionType }
+     *
+     * @return the new instance of {@link ApronAreaUsageExtensionType }
+     */
+    public ApronAreaUsageExtensionType createApronAreaUsageExtensionType() {
+        return new ApronAreaUsageExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ApronAreaAvailabilityExtensionType }
+     *
+     * @return the new instance of {@link ApronAreaAvailabilityExtensionType }
+     */
+    public ApronAreaAvailabilityExtensionType createApronAreaAvailabilityExtensionType() {
+        return new ApronAreaAvailabilityExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ApronTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link ApronTimeSliceExtensionType }
+     */
+    public ApronTimeSliceExtensionType createApronTimeSliceExtensionType() {
+        return new ApronTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AircraftStandTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link AircraftStandTimeSliceExtensionType }
+     */
+    public AircraftStandTimeSliceExtensionType createAircraftStandTimeSliceExtensionType() {
+        return new AircraftStandTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link WorkareaActivityExtensionType }
+     *
+     * @return the new instance of {@link WorkareaActivityExtensionType }
+     */
+    public WorkareaActivityExtensionType createWorkareaActivityExtensionType() {
+        return new WorkareaActivityExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link WorkAreaTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link WorkAreaTimeSliceExtensionType }
+     */
+    public WorkAreaTimeSliceExtensionType createWorkAreaTimeSliceExtensionType() {
+        return new WorkAreaTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link SurveyControlPointTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link SurveyControlPointTimeSliceExtensionType }
+     */
+    public SurveyControlPointTimeSliceExtensionType createSurveyControlPointTimeSliceExtensionType() {
+        return new SurveyControlPointTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link SurfaceCharacteristicsExtensionType }
+     *
+     * @return the new instance of {@link SurfaceCharacteristicsExtensionType }
+     */
+    public SurfaceCharacteristicsExtensionType createSurfaceCharacteristicsExtensionType() {
+        return new SurfaceCharacteristicsExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link NonMovementAreaTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link NonMovementAreaTimeSliceExtensionType }
+     */
+    public NonMovementAreaTimeSliceExtensionType createNonMovementAreaTimeSliceExtensionType() {
+        return new NonMovementAreaTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link ConditionCombinationExtensionType }
+     *
+     * @return the new instance of {@link ConditionCombinationExtensionType }
+     */
+    public ConditionCombinationExtensionType createConditionCombinationExtensionType() {
+        return new ConditionCombinationExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link CityExtensionType }
+     *
+     * @return the new instance of {@link CityExtensionType }
+     */
+    public CityExtensionType createCityExtensionType() {
+        return new CityExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AltimeterSourceStatusExtensionType }
+     *
+     * @return the new instance of {@link AltimeterSourceStatusExtensionType }
+     */
+    public AltimeterSourceStatusExtensionType createAltimeterSourceStatusExtensionType() {
+        return new AltimeterSourceStatusExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AltimeterSourceTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link AltimeterSourceTimeSliceExtensionType }
+     */
+    public AltimeterSourceTimeSliceExtensionType createAltimeterSourceTimeSliceExtensionType() {
+        return new AltimeterSourceTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirportHotSpotTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link AirportHotSpotTimeSliceExtensionType }
+     */
+    public AirportHotSpotTimeSliceExtensionType createAirportHotSpotTimeSliceExtensionType() {
+        return new AirportHotSpotTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirportHeliportUsageExtensionType }
+     *
+     * @return the new instance of {@link AirportHeliportUsageExtensionType }
+     */
+    public AirportHeliportUsageExtensionType createAirportHeliportUsageExtensionType() {
+        return new AirportHeliportUsageExtensionType();
+    }
+
+    /**
+     * Create an instance of
+     * {@link AirportHeliportResponsibilityOrganisationExtensionType }
+     *
+     * @return the new instance of
+     *         {@link AirportHeliportResponsibilityOrganisationExtensionType }
+     */
+    public AirportHeliportResponsibilityOrganisationExtensionType createAirportHeliportResponsibilityOrganisationExtensionType() {
+        return new AirportHeliportResponsibilityOrganisationExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirportHeliportCollocationTimeSliceExtensionType
+     * }
+     *
+     * @return the new instance of
+     *         {@link AirportHeliportCollocationTimeSliceExtensionType }
+     */
+    public AirportHeliportCollocationTimeSliceExtensionType createAirportHeliportCollocationTimeSliceExtensionType() {
+        return new AirportHeliportCollocationTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirportHeliportAvailabilityExtensionType }
+     *
+     * @return the new instance of {@link AirportHeliportAvailabilityExtensionType }
+     */
+    public AirportHeliportAvailabilityExtensionType createAirportHeliportAvailabilityExtensionType() {
+        return new AirportHeliportAvailabilityExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AirportHeliportTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link AirportHeliportTimeSliceExtensionType }
+     */
+    public AirportHeliportTimeSliceExtensionType createAirportHeliportTimeSliceExtensionType() {
+        return new AirportHeliportTimeSliceExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AuthorityForAerialRefuellingExtensionType }
+     *
+     * @return the new instance of {@link AuthorityForAerialRefuellingExtensionType
+     *         }
+     */
+    public AuthorityForAerialRefuellingExtensionType createAuthorityForAerialRefuellingExtensionType() {
+        return new AuthorityForAerialRefuellingExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AerialRefuellingTrackExtensionType }
+     *
+     * @return the new instance of {@link AerialRefuellingTrackExtensionType }
+     */
+    public AerialRefuellingTrackExtensionType createAerialRefuellingTrackExtensionType() {
+        return new AerialRefuellingTrackExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AerialRefuellingPointExtensionType }
+     *
+     * @return the new instance of {@link AerialRefuellingPointExtensionType }
+     */
+    public AerialRefuellingPointExtensionType createAerialRefuellingPointExtensionType() {
+        return new AerialRefuellingPointExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AerialRefuellingAnchorExtensionType }
+     *
+     * @return the new instance of {@link AerialRefuellingAnchorExtensionType }
+     */
+    public AerialRefuellingAnchorExtensionType createAerialRefuellingAnchorExtensionType() {
+        return new AerialRefuellingAnchorExtensionType();
+    }
+
+    /**
+     * Create an instance of {@link AerialRefuellingTimeSliceExtensionType }
+     *
+     * @return the new instance of {@link AerialRefuellingTimeSliceExtensionType }
+     */
+    public AerialRefuellingTimeSliceExtensionType createAerialRefuellingTimeSliceExtensionType() {
+        return new AerialRefuellingTimeSliceExtensionType();
     }
 
     /**

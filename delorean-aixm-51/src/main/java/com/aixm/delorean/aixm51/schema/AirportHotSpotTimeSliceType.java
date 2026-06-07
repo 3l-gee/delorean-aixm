@@ -99,7 +99,7 @@ public class AirportHotSpotTimeSliceType extends AbstractAIXMTimeSliceType imple
     protected JAXBElement<AirportHeliportPropertyType> affectedAirport;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<AirportHotSpotExtensionType> extension;
+    protected List<AirportHotSpotTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the designator property.
@@ -287,13 +287,14 @@ public class AirportHotSpotTimeSliceType extends AbstractAIXMTimeSliceType imple
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirportHotSpotExtensionType }
+     * {@link AirportHotSpotTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirportHotSpotExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airporthotspote_hjid", referencedColumnName = "hjid")
-    public List<AirportHotSpotExtensionType> getExtension() {
+    @OneToMany(targetEntity = AirportHotSpotTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "airporthotspot_te_hjid", referencedColumnName = "hjid")
+    public List<AirportHotSpotTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -304,7 +305,7 @@ public class AirportHotSpotTimeSliceType extends AbstractAIXMTimeSliceType imple
      *
      *
      */
-    public void setExtension(List<AirportHotSpotExtensionType> extension) {
+    public void setExtension(List<AirportHotSpotTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -386,14 +387,14 @@ public class AirportHotSpotTimeSliceType extends AbstractAIXMTimeSliceType imple
         }
         final AirportHotSpotTimeSliceType that = ((AirportHotSpotTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAffectedAirport();
-            boolean rhsFieldIsSet = that.isSetAffectedAirport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getAffectedAirport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getAffectedAirport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affectedAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affectedAirport", rhsField);
+            boolean lhsFieldIsSet = this.isSetArea();
+            boolean rhsFieldIsSet = that.isSetArea();
+            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = this.getArea();
+            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = that.getArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "area", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "area", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -407,19 +408,6 @@ public class AirportHotSpotTimeSliceType extends AbstractAIXMTimeSliceType imple
             rhsField = that.getDesignator();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArea();
-            boolean rhsFieldIsSet = that.isSetArea();
-            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = this.getArea();
-            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = that.getArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "area", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "area", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -440,9 +428,9 @@ public class AirportHotSpotTimeSliceType extends AbstractAIXMTimeSliceType imple
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirportHotSpotExtensionType> lhsField;
+            List<AirportHotSpotTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirportHotSpotExtensionType> rhsField;
+            List<AirportHotSpotTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -459,6 +447,19 @@ public class AirportHotSpotTimeSliceType extends AbstractAIXMTimeSliceType imple
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAffectedAirport();
+            boolean rhsFieldIsSet = that.isSetAffectedAirport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getAffectedAirport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getAffectedAirport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affectedAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affectedAirport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -506,7 +507,7 @@ public class AirportHotSpotTimeSliceType extends AbstractAIXMTimeSliceType imple
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHotSpotExtensionType> theField;
+            List<AirportHotSpotTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -549,7 +550,7 @@ public class AirportHotSpotTimeSliceType extends AbstractAIXMTimeSliceType imple
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHotSpotExtensionType> theField;
+            List<AirportHotSpotTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

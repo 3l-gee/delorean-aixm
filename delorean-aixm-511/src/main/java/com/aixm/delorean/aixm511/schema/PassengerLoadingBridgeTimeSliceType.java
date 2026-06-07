@@ -96,7 +96,7 @@ public class PassengerLoadingBridgeTimeSliceType extends AbstractAIXMTimeSliceTy
     protected List<AircraftStandPropertyType> associatedStand;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<PassengerLoadingBridgeExtensionType> extension;
+    protected List<PassengerLoadingBridgeTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -277,14 +277,14 @@ public class PassengerLoadingBridgeTimeSliceType extends AbstractAIXMTimeSliceTy
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link PassengerLoadingBridgeExtensionType }
+     * {@link PassengerLoadingBridgeTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = PassengerLoadingBridgeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = PassengerLoadingBridgeTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "passengerloadingbridgee_hjid", referencedColumnName = "hjid")
-    public List<PassengerLoadingBridgeExtensionType> getExtension() {
+    @JoinColumn(name = "passengerloadingbridge_te_hjid", referencedColumnName = "hjid")
+    public List<PassengerLoadingBridgeTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -295,7 +295,7 @@ public class PassengerLoadingBridgeTimeSliceType extends AbstractAIXMTimeSliceTy
      *
      *
      */
-    public void setExtension(List<PassengerLoadingBridgeExtensionType> extension) {
+    public void setExtension(List<PassengerLoadingBridgeTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -350,19 +350,6 @@ public class PassengerLoadingBridgeTimeSliceType extends AbstractAIXMTimeSliceTy
         }
         final PassengerLoadingBridgeTimeSliceType that = ((PassengerLoadingBridgeTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedStand();
-            boolean rhsFieldIsSet = that.isSetAssociatedStand();
-            List<AircraftStandPropertyType> lhsField;
-            lhsField = (this.isSetAssociatedStand() ? this.getAssociatedStand() : null);
-            List<AircraftStandPropertyType> rhsField;
-            rhsField = (that.isSetAssociatedStand() ? that.getAssociatedStand() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedStand", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedStand", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeLoadingBridgeType> lhsField;
@@ -391,12 +378,25 @@ public class PassengerLoadingBridgeTimeSliceType extends AbstractAIXMTimeSliceTy
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<PassengerLoadingBridgeExtensionType> lhsField;
+            List<PassengerLoadingBridgeTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<PassengerLoadingBridgeExtensionType> rhsField;
+            List<PassengerLoadingBridgeTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAssociatedStand();
+            boolean rhsFieldIsSet = that.isSetAssociatedStand();
+            List<AircraftStandPropertyType> lhsField;
+            lhsField = (this.isSetAssociatedStand() ? this.getAssociatedStand() : null);
+            List<AircraftStandPropertyType> rhsField;
+            rhsField = (that.isSetAssociatedStand() ? that.getAssociatedStand() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedStand", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedStand", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -450,7 +450,7 @@ public class PassengerLoadingBridgeTimeSliceType extends AbstractAIXMTimeSliceTy
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<PassengerLoadingBridgeExtensionType> theField;
+            List<PassengerLoadingBridgeTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -487,7 +487,7 @@ public class PassengerLoadingBridgeTimeSliceType extends AbstractAIXMTimeSliceTy
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<PassengerLoadingBridgeExtensionType> theField;
+            List<PassengerLoadingBridgeTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

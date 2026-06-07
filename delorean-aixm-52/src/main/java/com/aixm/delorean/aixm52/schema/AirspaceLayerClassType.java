@@ -104,7 +104,7 @@ public class AirspaceLayerClassType extends AbstractPropertiesWithScheduleType i
     protected JAXBElement<CodeAirspaceClassificationType> classification;
     @XmlElement(nillable = true)
     protected List<AirspaceLayerPropertyType> associatedLevels;
-    protected List<AirspaceLayerClassTypeExtensionType> extension;
+    protected List<AirspaceLayerClassExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -359,14 +359,14 @@ public class AirspaceLayerClassType extends AbstractPropertiesWithScheduleType i
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirspaceLayerClassTypeExtensionType }
+     * {@link AirspaceLayerClassExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirspaceLayerClassTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AirspaceLayerClassExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airspacelayerclasse_hjid", referencedColumnName = "hjid")
-    public List<AirspaceLayerClassTypeExtensionType> getExtension() {
+    @JoinColumn(name = "airspacelayerclass_oe_hjid", referencedColumnName = "hjid")
+    public List<AirspaceLayerClassExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -377,7 +377,7 @@ public class AirspaceLayerClassType extends AbstractPropertiesWithScheduleType i
      *
      *
      */
-    public void setExtension(List<AirspaceLayerClassTypeExtensionType> extension) {
+    public void setExtension(List<AirspaceLayerClassExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -416,40 +416,14 @@ public class AirspaceLayerClassType extends AbstractPropertiesWithScheduleType i
         }
         final AirspaceLayerClassType that = ((AirspaceLayerClassType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedLevels();
-            boolean rhsFieldIsSet = that.isSetAssociatedLevels();
-            List<AirspaceLayerPropertyType> lhsField;
-            lhsField = (this.isSetAssociatedLevels() ? this.getAssociatedLevels() : null);
-            List<AirspaceLayerPropertyType> rhsField;
-            rhsField = (that.isSetAssociatedLevels() ? that.getAssociatedLevels() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedLevels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedLevels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceLayerClassTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirspaceLayerClassTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -468,6 +442,19 @@ public class AirspaceLayerClassType extends AbstractPropertiesWithScheduleType i
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAssociatedLevels();
+            boolean rhsFieldIsSet = that.isSetAssociatedLevels();
+            List<AirspaceLayerPropertyType> lhsField;
+            lhsField = (this.isSetAssociatedLevels() ? this.getAssociatedLevels() : null);
+            List<AirspaceLayerPropertyType> rhsField;
+            rhsField = (that.isSetAssociatedLevels() ? that.getAssociatedLevels() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedLevels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedLevels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetClassification();
             boolean rhsFieldIsSet = that.isSetClassification();
             JAXBElement<CodeAirspaceClassificationType> lhsField;
@@ -481,14 +468,27 @@ public class AirspaceLayerClassType extends AbstractPropertiesWithScheduleType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceLayerClassExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirspaceLayerClassExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -536,7 +536,7 @@ public class AirspaceLayerClassType extends AbstractPropertiesWithScheduleType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceLayerClassTypeExtensionType> theField;
+            List<AirspaceLayerClassExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -579,7 +579,7 @@ public class AirspaceLayerClassType extends AbstractPropertiesWithScheduleType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceLayerClassTypeExtensionType> theField;
+            List<AirspaceLayerClassExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

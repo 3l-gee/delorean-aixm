@@ -90,7 +90,7 @@ public class StandardLevelTableTimeSliceType extends AbstractAIXMTimeSliceType i
     protected JAXBElement<CodeYesNoType> standardICAO;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<StandardLevelTableExtensionType> extension;
+    protected List<StandardLevelTableTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the aixmName property.
@@ -220,14 +220,14 @@ public class StandardLevelTableTimeSliceType extends AbstractAIXMTimeSliceType i
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link StandardLevelTableExtensionType }
+     * {@link StandardLevelTableTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = StandardLevelTableExtensionType.class, cascade = {
+    @OneToMany(targetEntity = StandardLevelTableTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "standardleveltablee_hjid", referencedColumnName = "hjid")
-    public List<StandardLevelTableExtensionType> getExtension() {
+    @JoinColumn(name = "standardleveltable_te_hjid", referencedColumnName = "hjid")
+    public List<StandardLevelTableTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -238,7 +238,7 @@ public class StandardLevelTableTimeSliceType extends AbstractAIXMTimeSliceType i
      *
      *
      */
-    public void setExtension(List<StandardLevelTableExtensionType> extension) {
+    public void setExtension(List<StandardLevelTableTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -290,32 +290,6 @@ public class StandardLevelTableTimeSliceType extends AbstractAIXMTimeSliceType i
         }
         final StandardLevelTableTimeSliceType that = ((StandardLevelTableTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<CodeLevelTableDesignatorType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<CodeLevelTableDesignatorType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<StandardLevelTableExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<StandardLevelTableExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetStandardICAO();
             boolean rhsFieldIsSet = that.isSetStandardICAO();
             JAXBElement<CodeYesNoType> lhsField;
@@ -324,6 +298,32 @@ public class StandardLevelTableTimeSliceType extends AbstractAIXMTimeSliceType i
             rhsField = that.getStandardICAO();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardICAO", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardICAO", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<StandardLevelTableTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<StandardLevelTableTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<CodeLevelTableDesignatorType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<CodeLevelTableDesignatorType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -370,7 +370,7 @@ public class StandardLevelTableTimeSliceType extends AbstractAIXMTimeSliceType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<StandardLevelTableExtensionType> theField;
+            List<StandardLevelTableTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -401,7 +401,7 @@ public class StandardLevelTableTimeSliceType extends AbstractAIXMTimeSliceType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<StandardLevelTableExtensionType> theField;
+            List<StandardLevelTableTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

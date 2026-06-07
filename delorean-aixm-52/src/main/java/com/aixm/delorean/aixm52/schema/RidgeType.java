@@ -93,7 +93,7 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
     protected JAXBElement<ValDepthType> depth;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<RidgeTypeExtensionType> extension;
+    protected List<RidgeExtensionType> extension;
 
     /**
      * Gets the value of the side property.
@@ -252,13 +252,13 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RidgeTypeExtensionType }
+     * {@link RidgeExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RidgeTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ridgee_hjid", referencedColumnName = "hjid")
-    public List<RidgeTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = RidgeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ridge_oe_hjid", referencedColumnName = "hjid")
+    public List<RidgeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -269,7 +269,7 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
      *
      *
      */
-    public void setExtension(List<RidgeTypeExtensionType> extension) {
+    public void setExtension(List<RidgeExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -338,14 +338,27 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
         }
         final RidgeType that = ((RidgeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSide();
-            boolean rhsFieldIsSet = that.isSetSide();
-            JAXBElement<CodeSideType> lhsField;
-            lhsField = this.getSide();
-            JAXBElement<CodeSideType> rhsField;
-            rhsField = that.getSide();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "side", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "side", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RidgeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RidgeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -364,27 +377,14 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RidgeTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RidgeTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetSide();
+            boolean rhsFieldIsSet = that.isSetSide();
+            JAXBElement<CodeSideType> lhsField;
+            lhsField = this.getSide();
+            JAXBElement<CodeSideType> rhsField;
+            rhsField = that.getSide();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "side", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "side", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -438,7 +438,7 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RidgeTypeExtensionType> theField;
+            List<RidgeExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -475,7 +475,7 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RidgeTypeExtensionType> theField;
+            List<RidgeExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

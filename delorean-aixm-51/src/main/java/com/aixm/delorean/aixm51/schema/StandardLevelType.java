@@ -85,7 +85,7 @@ public class StandardLevelType extends AbstractAIXMObjectType implements Seriali
     protected JAXBElement<ValDistanceVerticalType> verticalDistance;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<StandardLevelTypeExtensionType> extension;
+    protected List<StandardLevelExtensionType> extension;
 
     /**
      * Gets the value of the verticalDistance property.
@@ -186,14 +186,13 @@ public class StandardLevelType extends AbstractAIXMObjectType implements Seriali
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link StandardLevelTypeExtensionType }
+     * {@link StandardLevelExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = StandardLevelTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "standardlevele_hjid", referencedColumnName = "hjid")
-    public List<StandardLevelTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = StandardLevelExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "standardlevel_oe_hjid", referencedColumnName = "hjid")
+    public List<StandardLevelExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -204,7 +203,7 @@ public class StandardLevelType extends AbstractAIXMObjectType implements Seriali
      *
      *
      */
-    public void setExtension(List<StandardLevelTypeExtensionType> extension) {
+    public void setExtension(List<StandardLevelExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -245,19 +244,6 @@ public class StandardLevelType extends AbstractAIXMObjectType implements Seriali
         }
         final StandardLevelType that = ((StandardLevelType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVerticalDistance();
             boolean rhsFieldIsSet = that.isSetVerticalDistance();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -271,11 +257,24 @@ public class StandardLevelType extends AbstractAIXMObjectType implements Seriali
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<StandardLevelTypeExtensionType> lhsField;
+            List<StandardLevelExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<StandardLevelTypeExtensionType> rhsField;
+            List<StandardLevelExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -305,7 +304,7 @@ public class StandardLevelType extends AbstractAIXMObjectType implements Seriali
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<StandardLevelTypeExtensionType> theField;
+            List<StandardLevelExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -330,7 +329,7 @@ public class StandardLevelType extends AbstractAIXMObjectType implements Seriali
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<StandardLevelTypeExtensionType> theField;
+            List<StandardLevelExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

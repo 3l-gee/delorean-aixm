@@ -82,7 +82,7 @@ public class FloatingDockSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
     protected JAXBElement<AIXMElevatedSurfacePropertyType> extent;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<FloatingDockSiteExtensionType> extension;
+    protected List<FloatingDockSiteTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the extent property.
@@ -183,13 +183,14 @@ public class FloatingDockSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FloatingDockSiteExtensionType }
+     * {@link FloatingDockSiteTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = FloatingDockSiteExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "floatingdocksitee_hjid", referencedColumnName = "hjid")
-    public List<FloatingDockSiteExtensionType> getExtension() {
+    @OneToMany(targetEntity = FloatingDockSiteTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "floatingdocksite_te_hjid", referencedColumnName = "hjid")
+    public List<FloatingDockSiteTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -200,7 +201,7 @@ public class FloatingDockSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
      *
      *
      */
-    public void setExtension(List<FloatingDockSiteExtensionType> extension) {
+    public void setExtension(List<FloatingDockSiteTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -254,19 +255,6 @@ public class FloatingDockSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FloatingDockSiteExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FloatingDockSiteExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -275,6 +263,19 @@ public class FloatingDockSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FloatingDockSiteTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FloatingDockSiteTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -301,7 +302,7 @@ public class FloatingDockSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FloatingDockSiteExtensionType> theField;
+            List<FloatingDockSiteTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -326,7 +327,7 @@ public class FloatingDockSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FloatingDockSiteExtensionType> theField;
+            List<FloatingDockSiteTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

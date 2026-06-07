@@ -96,7 +96,7 @@ public class EquipmentUnavailableAdjustmentType extends AbstractAIXMObjectType i
     protected List<EquipmentUnavailableAdjustmentColumnPropertyType> adjustmentINOPCol;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<EquipmentUnavailableAdjustmentTypeExtensionType> extension;
+    protected List<EquipmentUnavailableAdjustmentExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -278,14 +278,14 @@ public class EquipmentUnavailableAdjustmentType extends AbstractAIXMObjectType i
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link EquipmentUnavailableAdjustmentTypeExtensionType }
+     * {@link EquipmentUnavailableAdjustmentExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = EquipmentUnavailableAdjustmentTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = EquipmentUnavailableAdjustmentExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "equipmentunavailableadjustmente_hjid", referencedColumnName = "hjid")
-    public List<EquipmentUnavailableAdjustmentTypeExtensionType> getExtension() {
+    @JoinColumn(name = "equipmentunavailableadjustment_oe_hjid", referencedColumnName = "hjid")
+    public List<EquipmentUnavailableAdjustmentExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -296,7 +296,7 @@ public class EquipmentUnavailableAdjustmentType extends AbstractAIXMObjectType i
      *
      *
      */
-    public void setExtension(List<EquipmentUnavailableAdjustmentTypeExtensionType> extension) {
+    public void setExtension(List<EquipmentUnavailableAdjustmentExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -349,6 +349,32 @@ public class EquipmentUnavailableAdjustmentType extends AbstractAIXMObjectType i
         }
         final EquipmentUnavailableAdjustmentType that = ((EquipmentUnavailableAdjustmentType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<EquipmentUnavailableAdjustmentExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<EquipmentUnavailableAdjustmentExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAdjustmentINOPCol();
             boolean rhsFieldIsSet = that.isSetAdjustmentINOPCol();
             List<EquipmentUnavailableAdjustmentColumnPropertyType> lhsField;
@@ -362,19 +388,6 @@ public class EquipmentUnavailableAdjustmentType extends AbstractAIXMObjectType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<EquipmentUnavailableAdjustmentTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<EquipmentUnavailableAdjustmentTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeEquipmentUnavailableType> lhsField;
@@ -383,19 +396,6 @@ public class EquipmentUnavailableAdjustmentType extends AbstractAIXMObjectType i
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -449,7 +449,7 @@ public class EquipmentUnavailableAdjustmentType extends AbstractAIXMObjectType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<EquipmentUnavailableAdjustmentTypeExtensionType> theField;
+            List<EquipmentUnavailableAdjustmentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -486,7 +486,7 @@ public class EquipmentUnavailableAdjustmentType extends AbstractAIXMObjectType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<EquipmentUnavailableAdjustmentTypeExtensionType> theField;
+            List<EquipmentUnavailableAdjustmentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

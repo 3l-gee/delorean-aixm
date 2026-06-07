@@ -219,19 +219,6 @@ public class RadarSystemTimeSlicePropertyType implements Serializable, Equals, H
         }
         final RadarSystemTimeSlicePropertyType that = ((RadarSystemTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRadarSystemTimeSlice();
-            boolean rhsFieldIsSet = that.isSetRadarSystemTimeSlice();
-            RadarSystemTimeSliceType lhsField;
-            lhsField = this.getRadarSystemTimeSlice();
-            RadarSystemTimeSliceType rhsField;
-            rhsField = that.getRadarSystemTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarSystemTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarSystemTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -240,6 +227,19 @@ public class RadarSystemTimeSlicePropertyType implements Serializable, Equals, H
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadarSystemTimeSlice();
+            boolean rhsFieldIsSet = that.isSetRadarSystemTimeSlice();
+            RadarSystemTimeSliceType lhsField;
+            lhsField = this.getRadarSystemTimeSlice();
+            RadarSystemTimeSliceType rhsField;
+            rhsField = that.getRadarSystemTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarSystemTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarSystemTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

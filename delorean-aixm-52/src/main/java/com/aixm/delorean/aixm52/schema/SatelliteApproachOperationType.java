@@ -107,7 +107,7 @@ public class SatelliteApproachOperationType extends AbstractPropertiesWithSchedu
     protected JAXBElement<CodeStatusNavaidType> operationalStatus;
     @XmlElementRef(name = "theAirportHeliport", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<AirportHeliportPropertyType> theAirportHeliport;
-    protected List<SatelliteApproachOperationTypeExtensionType> extension;
+    protected List<SatelliteApproachOperationExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -369,14 +369,14 @@ public class SatelliteApproachOperationType extends AbstractPropertiesWithSchedu
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SatelliteApproachOperationTypeExtensionType }
+     * {@link SatelliteApproachOperationExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SatelliteApproachOperationTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = SatelliteApproachOperationExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "satelliteapproachoperatione_hjid", referencedColumnName = "hjid")
-    public List<SatelliteApproachOperationTypeExtensionType> getExtension() {
+    @JoinColumn(name = "satelliteapproachoperation_oe_hjid", referencedColumnName = "hjid")
+    public List<SatelliteApproachOperationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -387,7 +387,7 @@ public class SatelliteApproachOperationType extends AbstractPropertiesWithSchedu
      *
      *
      */
-    public void setExtension(List<SatelliteApproachOperationTypeExtensionType> extension) {
+    public void setExtension(List<SatelliteApproachOperationExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -454,19 +454,6 @@ public class SatelliteApproachOperationType extends AbstractPropertiesWithSchedu
         }
         final SatelliteApproachOperationType that = ((SatelliteApproachOperationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOperationalStatus();
-            boolean rhsFieldIsSet = that.isSetOperationalStatus();
-            JAXBElement<CodeStatusNavaidType> lhsField;
-            lhsField = this.getOperationalStatus();
-            JAXBElement<CodeStatusNavaidType> rhsField;
-            rhsField = that.getOperationalStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -480,14 +467,40 @@ public class SatelliteApproachOperationType extends AbstractPropertiesWithSchedu
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSatelliteApproachType();
-            boolean rhsFieldIsSet = that.isSetSatelliteApproachType();
-            JAXBElement<CodeSatelliteApproachType> lhsField;
-            lhsField = this.getSatelliteApproachType();
-            JAXBElement<CodeSatelliteApproachType> rhsField;
-            rhsField = that.getSatelliteApproachType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satelliteApproachType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satelliteApproachType", rhsField);
+            boolean lhsFieldIsSet = this.isSetTheAirportHeliport();
+            boolean rhsFieldIsSet = that.isSetTheAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getTheAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getTheAirportHeliport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAirportHeliport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAirportHeliport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperationalStatus();
+            boolean rhsFieldIsSet = that.isSetOperationalStatus();
+            JAXBElement<CodeStatusNavaidType> lhsField;
+            lhsField = this.getOperationalStatus();
+            JAXBElement<CodeStatusNavaidType> rhsField;
+            rhsField = that.getOperationalStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SatelliteApproachOperationExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SatelliteApproachOperationExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -519,27 +532,14 @@ public class SatelliteApproachOperationType extends AbstractPropertiesWithSchedu
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SatelliteApproachOperationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SatelliteApproachOperationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheAirportHeliport();
-            boolean rhsFieldIsSet = that.isSetTheAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getTheAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getTheAirportHeliport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAirportHeliport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAirportHeliport", rhsField);
+            boolean lhsFieldIsSet = this.isSetSatelliteApproachType();
+            boolean rhsFieldIsSet = that.isSetSatelliteApproachType();
+            JAXBElement<CodeSatelliteApproachType> lhsField;
+            lhsField = this.getSatelliteApproachType();
+            JAXBElement<CodeSatelliteApproachType> rhsField;
+            rhsField = that.getSatelliteApproachType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satelliteApproachType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satelliteApproachType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -594,7 +594,7 @@ public class SatelliteApproachOperationType extends AbstractPropertiesWithSchedu
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SatelliteApproachOperationTypeExtensionType> theField;
+            List<SatelliteApproachOperationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -643,7 +643,7 @@ public class SatelliteApproachOperationType extends AbstractPropertiesWithSchedu
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SatelliteApproachOperationTypeExtensionType> theField;
+            List<SatelliteApproachOperationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

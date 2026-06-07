@@ -102,7 +102,7 @@ public class SatelliteServiceTimeSliceType extends AbstractAIXMTimeSliceType imp
     protected List<SatelliteApproachOperationPropertyType> approachLocation;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<SatelliteServiceExtensionType> extension;
+    protected List<SatelliteServiceTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the serviceType property.
@@ -336,13 +336,14 @@ public class SatelliteServiceTimeSliceType extends AbstractAIXMTimeSliceType imp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SatelliteServiceExtensionType }
+     * {@link SatelliteServiceTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SatelliteServiceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "satelliteservicee_hjid", referencedColumnName = "hjid")
-    public List<SatelliteServiceExtensionType> getExtension() {
+    @OneToMany(targetEntity = SatelliteServiceTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "satelliteservice_te_hjid", referencedColumnName = "hjid")
+    public List<SatelliteServiceTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -353,7 +354,7 @@ public class SatelliteServiceTimeSliceType extends AbstractAIXMTimeSliceType imp
      *
      *
      */
-    public void setExtension(List<SatelliteServiceExtensionType> extension) {
+    public void setExtension(List<SatelliteServiceTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -407,32 +408,6 @@ public class SatelliteServiceTimeSliceType extends AbstractAIXMTimeSliceType imp
         }
         final SatelliteServiceTimeSliceType that = ((SatelliteServiceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SatelliteServiceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SatelliteServiceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetServiceType();
-            boolean rhsFieldIsSet = that.isSetServiceType();
-            JAXBElement<CodeSatelliteNavigationServiceType> lhsField;
-            lhsField = this.getServiceType();
-            JAXBElement<CodeSatelliteNavigationServiceType> rhsField;
-            rhsField = that.getServiceType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serviceType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serviceType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetApproachLocation();
             boolean rhsFieldIsSet = that.isSetApproachLocation();
             List<SatelliteApproachOperationPropertyType> lhsField;
@@ -459,6 +434,19 @@ public class SatelliteServiceTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetServiceType();
+            boolean rhsFieldIsSet = that.isSetServiceType();
+            JAXBElement<CodeSatelliteNavigationServiceType> lhsField;
+            lhsField = this.getServiceType();
+            JAXBElement<CodeSatelliteNavigationServiceType> rhsField;
+            rhsField = that.getServiceType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serviceType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serviceType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetServiceArea();
             boolean rhsFieldIsSet = that.isSetServiceArea();
             List<SatelliteServiceAreaPropertyType> lhsField;
@@ -480,6 +468,19 @@ public class SatelliteServiceTimeSliceType extends AbstractAIXMTimeSliceType imp
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SatelliteServiceTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SatelliteServiceTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -527,7 +528,7 @@ public class SatelliteServiceTimeSliceType extends AbstractAIXMTimeSliceType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SatelliteServiceExtensionType> theField;
+            List<SatelliteServiceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -570,7 +571,7 @@ public class SatelliteServiceTimeSliceType extends AbstractAIXMTimeSliceType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SatelliteServiceExtensionType> theField;
+            List<SatelliteServiceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

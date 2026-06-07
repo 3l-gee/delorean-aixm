@@ -85,7 +85,7 @@ public class HoldingPatternDurationType extends AbstractAIXMObjectType implement
     protected JAXBElement<ValDurationType> duration;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<HoldingPatternDurationTypeExtensionType> extension;
+    protected List<HoldingPatternDurationExtensionType> extension;
 
     /**
      * Gets the value of the duration property.
@@ -186,14 +186,14 @@ public class HoldingPatternDurationType extends AbstractAIXMObjectType implement
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link HoldingPatternDurationTypeExtensionType }
+     * {@link HoldingPatternDurationExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = HoldingPatternDurationTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = HoldingPatternDurationExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "holdingpatternduratione_hjid", referencedColumnName = "hjid")
-    public List<HoldingPatternDurationTypeExtensionType> getExtension() {
+    @JoinColumn(name = "holdingpatternduration_oe_hjid", referencedColumnName = "hjid")
+    public List<HoldingPatternDurationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -204,7 +204,7 @@ public class HoldingPatternDurationType extends AbstractAIXMObjectType implement
      *
      *
      */
-    public void setExtension(List<HoldingPatternDurationTypeExtensionType> extension) {
+    public void setExtension(List<HoldingPatternDurationExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -245,6 +245,19 @@ public class HoldingPatternDurationType extends AbstractAIXMObjectType implement
         }
         final HoldingPatternDurationType that = ((HoldingPatternDurationType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<HoldingPatternDurationExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<HoldingPatternDurationExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDuration();
             boolean rhsFieldIsSet = that.isSetDuration();
             JAXBElement<ValDurationType> lhsField;
@@ -266,19 +279,6 @@ public class HoldingPatternDurationType extends AbstractAIXMObjectType implement
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<HoldingPatternDurationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<HoldingPatternDurationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -305,7 +305,7 @@ public class HoldingPatternDurationType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<HoldingPatternDurationTypeExtensionType> theField;
+            List<HoldingPatternDurationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -330,7 +330,7 @@ public class HoldingPatternDurationType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<HoldingPatternDurationTypeExtensionType> theField;
+            List<HoldingPatternDurationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

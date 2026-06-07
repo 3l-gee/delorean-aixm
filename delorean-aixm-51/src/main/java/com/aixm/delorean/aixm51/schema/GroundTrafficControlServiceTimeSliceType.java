@@ -153,7 +153,7 @@ public class GroundTrafficControlServiceTimeSliceType extends AbstractAIXMTimeSl
     protected JAXBElement<CodeServiceGroundControlType> type;
     @XmlElementRef(name = "clientAirport", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
     protected JAXBElement<AirportHeliportPropertyType> clientAirport;
-    protected List<GroundTrafficControlServiceExtensionType> extension;
+    protected List<GroundTrafficControlServiceTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the flightOperations property.
@@ -751,14 +751,14 @@ public class GroundTrafficControlServiceTimeSliceType extends AbstractAIXMTimeSl
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link GroundTrafficControlServiceExtensionType }
+     * {@link GroundTrafficControlServiceTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = GroundTrafficControlServiceExtensionType.class, cascade = {
+    @OneToMany(targetEntity = GroundTrafficControlServiceTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "groundtrafficcontrolservicee_hjid", referencedColumnName = "hjid")
-    public List<GroundTrafficControlServiceExtensionType> getExtension() {
+    @JoinColumn(name = "groundtrafficcontrolservice_te_hjid", referencedColumnName = "hjid")
+    public List<GroundTrafficControlServiceTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -769,7 +769,7 @@ public class GroundTrafficControlServiceTimeSliceType extends AbstractAIXMTimeSl
      *
      *
      */
-    public void setExtension(List<GroundTrafficControlServiceExtensionType> extension) {
+    public void setExtension(List<GroundTrafficControlServiceTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -943,79 +943,27 @@ public class GroundTrafficControlServiceTimeSliceType extends AbstractAIXMTimeSl
         }
         final GroundTrafficControlServiceTimeSliceType that = ((GroundTrafficControlServiceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCompliantICAO();
-            boolean rhsFieldIsSet = that.isSetCompliantICAO();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getCompliantICAO();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getCompliantICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compliantICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compliantICAO", rhsField);
+            boolean lhsFieldIsSet = this.isSetCallSign();
+            boolean rhsFieldIsSet = that.isSetCallSign();
+            List<CallsignDetailPropertyType> lhsField;
+            lhsField = (this.isSetCallSign() ? this.getCallSign() : null);
+            List<CallsignDetailPropertyType> rhsField;
+            rhsField = (that.isSetCallSign() ? that.getCallSign() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "callSign", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "callSign", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRadarAssisted();
-            boolean rhsFieldIsSet = that.isSetRadarAssisted();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getRadarAssisted();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getRadarAssisted();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarAssisted", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarAssisted", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRank();
-            boolean rhsFieldIsSet = that.isSetRank();
-            JAXBElement<CodeFacilityRankingType> lhsField;
-            lhsField = this.getRank();
-            JAXBElement<CodeFacilityRankingType> rhsField;
-            rhsField = that.getRank();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rank", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rank", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDataLinkChannel();
-            boolean rhsFieldIsSet = that.isSetDataLinkChannel();
-            JAXBElement<CodeCommunicationChannelType> lhsField;
-            lhsField = this.getDataLinkChannel();
-            JAXBElement<CodeCommunicationChannelType> rhsField;
-            rhsField = that.getDataLinkChannel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataLinkChannel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataLinkChannel", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<GroundTrafficControlServiceTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<GroundTrafficControlServiceTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1034,14 +982,66 @@ public class GroundTrafficControlServiceTimeSliceType extends AbstractAIXMTimeSl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCallSign();
-            boolean rhsFieldIsSet = that.isSetCallSign();
-            List<CallsignDetailPropertyType> lhsField;
-            lhsField = (this.isSetCallSign() ? this.getCallSign() : null);
-            List<CallsignDetailPropertyType> rhsField;
-            rhsField = (that.isSetCallSign() ? that.getCallSign() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "callSign", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "callSign", rhsField);
+            boolean lhsFieldIsSet = this.isSetRank();
+            boolean rhsFieldIsSet = that.isSetRank();
+            JAXBElement<CodeFacilityRankingType> lhsField;
+            lhsField = this.getRank();
+            JAXBElement<CodeFacilityRankingType> rhsField;
+            rhsField = that.getRank();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rank", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rank", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataLinkEnabled();
+            boolean rhsFieldIsSet = that.isSetDataLinkEnabled();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getDataLinkEnabled();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getDataLinkEnabled();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataLinkEnabled", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataLinkEnabled", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetServiceProvider();
+            boolean rhsFieldIsSet = that.isSetServiceProvider();
+            JAXBElement<UnitPropertyType> lhsField;
+            lhsField = this.getServiceProvider();
+            JAXBElement<UnitPropertyType> rhsField;
+            rhsField = that.getServiceProvider();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serviceProvider", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serviceProvider", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadarAssisted();
+            boolean rhsFieldIsSet = that.isSetRadarAssisted();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getRadarAssisted();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getRadarAssisted();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarAssisted", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarAssisted", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1060,6 +1060,19 @@ public class GroundTrafficControlServiceTimeSliceType extends AbstractAIXMTimeSl
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRadioCommunication();
             boolean rhsFieldIsSet = that.isSetRadioCommunication();
             List<RadioCommunicationChannelPropertyType> lhsField;
@@ -1068,6 +1081,19 @@ public class GroundTrafficControlServiceTimeSliceType extends AbstractAIXMTimeSl
             rhsField = (that.isSetRadioCommunication() ? that.getRadioCommunication() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunication", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunication", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCompliantICAO();
+            boolean rhsFieldIsSet = that.isSetCompliantICAO();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getCompliantICAO();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getCompliantICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compliantICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compliantICAO", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1099,32 +1125,6 @@ public class GroundTrafficControlServiceTimeSliceType extends AbstractAIXMTimeSl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetClientAirport();
-            boolean rhsFieldIsSet = that.isSetClientAirport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getClientAirport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getClientAirport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientAirport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<GroundTrafficControlServiceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<GroundTrafficControlServiceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetGroundCommunication();
             boolean rhsFieldIsSet = that.isSetGroundCommunication();
             List<ContactInformationPropertyType> lhsField;
@@ -1138,27 +1138,27 @@ public class GroundTrafficControlServiceTimeSliceType extends AbstractAIXMTimeSl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDataLinkEnabled();
-            boolean rhsFieldIsSet = that.isSetDataLinkEnabled();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getDataLinkEnabled();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getDataLinkEnabled();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataLinkEnabled", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataLinkEnabled", rhsField);
+            boolean lhsFieldIsSet = this.isSetDataLinkChannel();
+            boolean rhsFieldIsSet = that.isSetDataLinkChannel();
+            JAXBElement<CodeCommunicationChannelType> lhsField;
+            lhsField = this.getDataLinkChannel();
+            JAXBElement<CodeCommunicationChannelType> rhsField;
+            rhsField = that.getDataLinkChannel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataLinkChannel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataLinkChannel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetServiceProvider();
-            boolean rhsFieldIsSet = that.isSetServiceProvider();
-            JAXBElement<UnitPropertyType> lhsField;
-            lhsField = this.getServiceProvider();
-            JAXBElement<UnitPropertyType> rhsField;
-            rhsField = that.getServiceProvider();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serviceProvider", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serviceProvider", rhsField);
+            boolean lhsFieldIsSet = this.isSetClientAirport();
+            boolean rhsFieldIsSet = that.isSetClientAirport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getClientAirport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getClientAirport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientAirport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1283,7 +1283,7 @@ public class GroundTrafficControlServiceTimeSliceType extends AbstractAIXMTimeSl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GroundTrafficControlServiceExtensionType> theField;
+            List<GroundTrafficControlServiceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -1392,7 +1392,7 @@ public class GroundTrafficControlServiceTimeSliceType extends AbstractAIXMTimeSl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GroundTrafficControlServiceExtensionType> theField;
+            List<GroundTrafficControlServiceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

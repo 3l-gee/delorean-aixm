@@ -156,7 +156,7 @@ public class TerminalSegmentPointType extends AbstractSegmentPointType implement
     protected JAXBElement<ValDistanceType> leadDME;
     @XmlElementRef(name = "indicatorFACF", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeYesNoType> indicatorFACF;
-    protected List<TerminalSegmentPointTypeExtensionType> extension;
+    protected List<TerminalSegmentPointExtensionType> extension;
 
     /**
      * Gets the value of the reportingATC property.
@@ -714,14 +714,14 @@ public class TerminalSegmentPointType extends AbstractSegmentPointType implement
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link TerminalSegmentPointTypeExtensionType }
+     * {@link TerminalSegmentPointExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = TerminalSegmentPointTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = TerminalSegmentPointExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "terminalsegmentpointe_hjid", referencedColumnName = "hjid")
-    public List<TerminalSegmentPointTypeExtensionType> getExtension() {
+    @JoinColumn(name = "terminalsegmentpoint_oe_hjid", referencedColumnName = "hjid")
+    public List<TerminalSegmentPointExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -732,7 +732,7 @@ public class TerminalSegmentPointType extends AbstractSegmentPointType implement
      *
      *
      */
-    public void setExtension(List<TerminalSegmentPointTypeExtensionType> extension) {
+    public void setExtension(List<TerminalSegmentPointExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -962,159 +962,14 @@ public class TerminalSegmentPointType extends AbstractSegmentPointType implement
         }
         final TerminalSegmentPointType that = ((TerminalSegmentPointType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlyOver();
-            boolean rhsFieldIsSet = that.isSetFlyOver();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlyOver();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlyOver();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flyOver", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flyOver", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLeadRadial();
-            boolean rhsFieldIsSet = that.isSetLeadRadial();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getLeadRadial();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getLeadRadial();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "leadRadial", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "leadRadial", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TerminalSegmentPointTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TerminalSegmentPointTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFacilityMakeup();
-            boolean rhsFieldIsSet = that.isSetFacilityMakeup();
-            List<PointReferencePropertyType> lhsField;
-            lhsField = (this.isSetFacilityMakeup() ? this.getFacilityMakeup() : null);
-            List<PointReferencePropertyType> rhsField;
-            rhsField = (that.isSetFacilityMakeup() ? that.getFacilityMakeup() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityMakeup", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityMakeup", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWaypoint();
-            boolean rhsFieldIsSet = that.isSetWaypoint();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getWaypoint();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getWaypoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "waypoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "waypoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            JAXBElement<CodeProcedureFixRoleType> lhsField;
-            lhsField = this.getRole();
-            JAXBElement<CodeProcedureFixRoleType> rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getPointChoiceRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getPointChoiceRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLeadDME();
-            boolean rhsFieldIsSet = that.isSetLeadDME();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLeadDME();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLeadDME();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "leadDME", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "leadDME", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getPointChoiceFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getPointChoiceFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceFixDesignatedPoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceFixDesignatedPoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIndicatorFACF();
-            boolean rhsFieldIsSet = that.isSetIndicatorFACF();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIndicatorFACF();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIndicatorFACF();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "indicatorFACF", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "indicatorFACF", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtendedServiceVolume();
-            boolean rhsFieldIsSet = that.isSetExtendedServiceVolume();
-            JAXBElement<RadioFrequencyAreaPropertyType> lhsField;
-            lhsField = this.getExtendedServiceVolume();
-            JAXBElement<RadioFrequencyAreaPropertyType> rhsField;
-            rhsField = that.getExtendedServiceVolume();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedServiceVolume", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedServiceVolume", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getPointChoiceNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1146,27 +1001,94 @@ public class TerminalSegmentPointType extends AbstractSegmentPointType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRadarGuidance();
-            boolean rhsFieldIsSet = that.isSetRadarGuidance();
+            boolean lhsFieldIsSet = this.isSetWaypoint();
+            boolean rhsFieldIsSet = that.isSetWaypoint();
             JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getRadarGuidance();
+            lhsField = this.getWaypoint();
             JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getRadarGuidance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarGuidance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarGuidance", rhsField);
+            rhsField = that.getWaypoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "waypoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "waypoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getPointChoiceNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            JAXBElement<CodeProcedureFixRoleType> lhsField;
+            lhsField = this.getRole();
+            JAXBElement<CodeProcedureFixRoleType> rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getPointChoiceAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getPointChoiceAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAirportReferencePoint",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAirportReferencePoint",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtendedServiceVolume();
+            boolean rhsFieldIsSet = that.isSetExtendedServiceVolume();
+            JAXBElement<RadioFrequencyAreaPropertyType> lhsField;
+            lhsField = this.getExtendedServiceVolume();
+            JAXBElement<RadioFrequencyAreaPropertyType> rhsField;
+            rhsField = that.getExtendedServiceVolume();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedServiceVolume", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedServiceVolume", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TerminalSegmentPointExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<TerminalSegmentPointExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getPointChoiceRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getPointChoiceRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLeadDME();
+            boolean rhsFieldIsSet = that.isSetLeadDME();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLeadDME();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLeadDME();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "leadDME", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "leadDME", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1185,16 +1107,94 @@ public class TerminalSegmentPointType extends AbstractSegmentPointType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointChoiceAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getPointChoiceAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getPointChoiceAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAirportReferencePoint",
+            boolean lhsFieldIsSet = this.isSetFlyOver();
+            boolean rhsFieldIsSet = that.isSetFlyOver();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlyOver();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlyOver();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flyOver", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flyOver", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getPointChoiceFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getPointChoiceFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceFixDesignatedPoint",
                     lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAirportReferencePoint",
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceFixDesignatedPoint",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFacilityMakeup();
+            boolean rhsFieldIsSet = that.isSetFacilityMakeup();
+            List<PointReferencePropertyType> lhsField;
+            lhsField = (this.isSetFacilityMakeup() ? this.getFacilityMakeup() : null);
+            List<PointReferencePropertyType> rhsField;
+            rhsField = (that.isSetFacilityMakeup() ? that.getFacilityMakeup() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityMakeup", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityMakeup", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadarGuidance();
+            boolean rhsFieldIsSet = that.isSetRadarGuidance();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getRadarGuidance();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getRadarGuidance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarGuidance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarGuidance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLeadRadial();
+            boolean rhsFieldIsSet = that.isSetLeadRadial();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getLeadRadial();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getLeadRadial();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "leadRadial", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "leadRadial", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIndicatorFACF();
+            boolean rhsFieldIsSet = that.isSetIndicatorFACF();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getIndicatorFACF();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getIndicatorFACF();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "indicatorFACF", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "indicatorFACF", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1327,7 +1327,7 @@ public class TerminalSegmentPointType extends AbstractSegmentPointType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TerminalSegmentPointTypeExtensionType> theField;
+            List<TerminalSegmentPointExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -1442,7 +1442,7 @@ public class TerminalSegmentPointType extends AbstractSegmentPointType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TerminalSegmentPointTypeExtensionType> theField;
+            List<TerminalSegmentPointExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

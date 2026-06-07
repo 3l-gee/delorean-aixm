@@ -109,7 +109,7 @@ public class DepartureArrivalConditionType extends AbstractAIXMObjectType implem
     protected JAXBElement<AircraftCharacteristicPropertyType> engineType;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<DepartureArrivalConditionTypeExtensionType> extension;
+    protected List<DepartureArrivalConditionExtensionType> extension;
 
     /**
      * Gets the value of the minimumEnrouteAltitude property.
@@ -355,14 +355,14 @@ public class DepartureArrivalConditionType extends AbstractAIXMObjectType implem
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link DepartureArrivalConditionTypeExtensionType }
+     * {@link DepartureArrivalConditionExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = DepartureArrivalConditionTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = DepartureArrivalConditionExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "departurearrivalconditione_hjid", referencedColumnName = "hjid")
-    public List<DepartureArrivalConditionTypeExtensionType> getExtension() {
+    @JoinColumn(name = "departurearrivalcondition_oe_hjid", referencedColumnName = "hjid")
+    public List<DepartureArrivalConditionExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -373,7 +373,7 @@ public class DepartureArrivalConditionType extends AbstractAIXMObjectType implem
      *
      *
      */
-    public void setExtension(List<DepartureArrivalConditionTypeExtensionType> extension) {
+    public void setExtension(List<DepartureArrivalConditionExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -488,15 +488,15 @@ public class DepartureArrivalConditionType extends AbstractAIXMObjectType implem
         }
         final DepartureArrivalConditionType that = ((DepartureArrivalConditionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEndReference();
-            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEndReference();
+            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEndReference();
+            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEndReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getMaximumCrossingAtEndReference();
+            lhsField = this.getMinimumCrossingAtEndReference();
             JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getMaximumCrossingAtEndReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEndReference",
+            rhsField = that.getMinimumCrossingAtEndReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference",
                     lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEndReference",
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference",
                     rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
@@ -518,25 +518,12 @@ public class DepartureArrivalConditionType extends AbstractAIXMObjectType implem
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<DepartureArrivalConditionTypeExtensionType> lhsField;
+            List<DepartureArrivalConditionExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<DepartureArrivalConditionTypeExtensionType> rhsField;
+            List<DepartureArrivalConditionExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEnd();
-            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEnd();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumCrossingAtEnd();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumCrossingAtEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEnd", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEnd", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -555,16 +542,29 @@ public class DepartureArrivalConditionType extends AbstractAIXMObjectType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEndReference();
-            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEndReference();
+            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEndReference();
+            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEndReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getMinimumCrossingAtEndReference();
+            lhsField = this.getMaximumCrossingAtEndReference();
             JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getMinimumCrossingAtEndReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference",
+            rhsField = that.getMaximumCrossingAtEndReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEndReference",
                     lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference",
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEndReference",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEnd();
+            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEnd();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumCrossingAtEnd();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumCrossingAtEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEnd", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEnd", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -652,7 +652,7 @@ public class DepartureArrivalConditionType extends AbstractAIXMObjectType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<DepartureArrivalConditionTypeExtensionType> theField;
+            List<DepartureArrivalConditionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -707,7 +707,7 @@ public class DepartureArrivalConditionType extends AbstractAIXMObjectType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<DepartureArrivalConditionTypeExtensionType> theField;
+            List<DepartureArrivalConditionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

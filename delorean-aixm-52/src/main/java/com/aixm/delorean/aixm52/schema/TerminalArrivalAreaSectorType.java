@@ -108,7 +108,7 @@ public class TerminalArrivalAreaSectorType extends AbstractAIXMObjectType implem
     protected List<ObstructionPropertyType> significantObstacle;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<TerminalArrivalAreaSectorTypeExtensionType> extension;
+    protected List<TerminalArrivalAreaSectorExtensionType> extension;
 
     /**
      * Gets the value of the flyByCode property.
@@ -376,14 +376,14 @@ public class TerminalArrivalAreaSectorType extends AbstractAIXMObjectType implem
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link TerminalArrivalAreaSectorTypeExtensionType }
+     * {@link TerminalArrivalAreaSectorExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = TerminalArrivalAreaSectorTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = TerminalArrivalAreaSectorExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "terminalarrivalareasectore_hjid", referencedColumnName = "hjid")
-    public List<TerminalArrivalAreaSectorTypeExtensionType> getExtension() {
+    @JoinColumn(name = "terminalarrivalareasector_oe_hjid", referencedColumnName = "hjid")
+    public List<TerminalArrivalAreaSectorExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -394,7 +394,7 @@ public class TerminalArrivalAreaSectorType extends AbstractAIXMObjectType implem
      *
      *
      */
-    public void setExtension(List<TerminalArrivalAreaSectorTypeExtensionType> extension) {
+    public void setExtension(List<TerminalArrivalAreaSectorExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -500,6 +500,45 @@ public class TerminalArrivalAreaSectorType extends AbstractAIXMObjectType implem
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAltitudeDescription();
+            boolean rhsFieldIsSet = that.isSetAltitudeDescription();
+            JAXBElement<CodeAltitudeUseType> lhsField;
+            lhsField = this.getAltitudeDescription();
+            JAXBElement<CodeAltitudeUseType> rhsField;
+            rhsField = that.getAltitudeDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlyByCode();
+            boolean rhsFieldIsSet = that.isSetFlyByCode();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlyByCode();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlyByCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flyByCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flyByCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSectorDefinition();
             boolean rhsFieldIsSet = that.isSetSectorDefinition();
             JAXBElement<CircleSectorPropertyType> lhsField;
@@ -515,25 +554,12 @@ public class TerminalArrivalAreaSectorType extends AbstractAIXMObjectType implem
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<TerminalArrivalAreaSectorTypeExtensionType> lhsField;
+            List<TerminalArrivalAreaSectorExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TerminalArrivalAreaSectorTypeExtensionType> rhsField;
+            List<TerminalArrivalAreaSectorExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAltitudeDescription();
-            boolean rhsFieldIsSet = that.isSetAltitudeDescription();
-            JAXBElement<CodeAltitudeUseType> lhsField;
-            lhsField = this.getAltitudeDescription();
-            JAXBElement<CodeAltitudeUseType> rhsField;
-            rhsField = that.getAltitudeDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -560,32 +586,6 @@ public class TerminalArrivalAreaSectorType extends AbstractAIXMObjectType implem
             rhsField = (that.isSetSignificantObstacle() ? that.getSignificantObstacle() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantObstacle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantObstacle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlyByCode();
-            boolean rhsFieldIsSet = that.isSetFlyByCode();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlyByCode();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlyByCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flyByCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flyByCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -647,7 +647,7 @@ public class TerminalArrivalAreaSectorType extends AbstractAIXMObjectType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TerminalArrivalAreaSectorTypeExtensionType> theField;
+            List<TerminalArrivalAreaSectorExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -702,7 +702,7 @@ public class TerminalArrivalAreaSectorType extends AbstractAIXMObjectType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TerminalArrivalAreaSectorTypeExtensionType> theField;
+            List<TerminalArrivalAreaSectorExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

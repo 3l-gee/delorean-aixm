@@ -108,7 +108,7 @@ public class AirportHeliportUsageType extends AbstractUsageConditionType impleme
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "operation", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeOperationAirportHeliportType> operation;
-    protected List<AirportHeliportUsageTypeExtensionType> extension;
+    protected List<AirportHeliportUsageExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -348,14 +348,14 @@ public class AirportHeliportUsageType extends AbstractUsageConditionType impleme
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirportHeliportUsageTypeExtensionType }
+     * {@link AirportHeliportUsageExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirportHeliportUsageTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AirportHeliportUsageExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airportheliportusagee_hjid", referencedColumnName = "hjid")
-    public List<AirportHeliportUsageTypeExtensionType> getExtension() {
+    @JoinColumn(name = "airportheliportusage_oe_hjid", referencedColumnName = "hjid")
+    public List<AirportHeliportUsageExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -366,7 +366,7 @@ public class AirportHeliportUsageType extends AbstractUsageConditionType impleme
      *
      *
      */
-    public void setExtension(List<AirportHeliportUsageTypeExtensionType> extension) {
+    public void setExtension(List<AirportHeliportUsageExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -446,27 +446,14 @@ public class AirportHeliportUsageType extends AbstractUsageConditionType impleme
         }
         final AirportHeliportUsageType that = ((AirportHeliportUsageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeUsageLimitationType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeUsageLimitationType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPriorPermission();
-            boolean rhsFieldIsSet = that.isSetPriorPermission();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getPriorPermission();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getPriorPermission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -485,14 +472,40 @@ public class AirportHeliportUsageType extends AbstractUsageConditionType impleme
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetPriorPermission();
+            boolean rhsFieldIsSet = that.isSetPriorPermission();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getPriorPermission();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getPriorPermission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirportHeliportUsageTypeExtensionType> lhsField;
+            List<AirportHeliportUsageExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirportHeliportUsageTypeExtensionType> rhsField;
+            List<AirportHeliportUsageExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeUsageLimitationType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeUsageLimitationType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -506,19 +519,6 @@ public class AirportHeliportUsageType extends AbstractUsageConditionType impleme
             rhsField = that.getOperation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -586,7 +586,7 @@ public class AirportHeliportUsageType extends AbstractUsageConditionType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHeliportUsageTypeExtensionType> theField;
+            List<AirportHeliportUsageExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -635,7 +635,7 @@ public class AirportHeliportUsageType extends AbstractUsageConditionType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHeliportUsageTypeExtensionType> theField;
+            List<AirportHeliportUsageExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

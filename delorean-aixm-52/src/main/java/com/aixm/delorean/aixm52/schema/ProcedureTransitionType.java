@@ -119,7 +119,7 @@ public class ProcedureTransitionType extends AbstractAIXMObjectType implements S
     protected JAXBElement<LandingTakeoffAreaCollectionPropertyType> runwayTransition;
     @XmlElement(nillable = true)
     protected List<AirportHeliportPropertyType> airportTransition;
-    protected List<ProcedureTransitionTypeExtensionType> extension;
+    protected List<ProcedureTransitionExtensionType> extension;
 
     /**
      * Gets the value of the transitionId property.
@@ -469,14 +469,14 @@ public class ProcedureTransitionType extends AbstractAIXMObjectType implements S
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ProcedureTransitionTypeExtensionType }
+     * {@link ProcedureTransitionExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ProcedureTransitionTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ProcedureTransitionExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "proceduretransitione_hjid", referencedColumnName = "hjid")
-    public List<ProcedureTransitionTypeExtensionType> getExtension() {
+    @JoinColumn(name = "proceduretransition_oe_hjid", referencedColumnName = "hjid")
+    public List<ProcedureTransitionExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -487,7 +487,7 @@ public class ProcedureTransitionType extends AbstractAIXMObjectType implements S
      *
      *
      */
-    public void setExtension(List<ProcedureTransitionTypeExtensionType> extension) {
+    public void setExtension(List<ProcedureTransitionExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -595,58 +595,6 @@ public class ProcedureTransitionType extends AbstractAIXMObjectType implements S
         }
         final ProcedureTransitionType that = ((ProcedureTransitionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTransitionLeg();
-            boolean rhsFieldIsSet = that.isSetTransitionLeg();
-            List<ProcedureTransitionLegPropertyType> lhsField;
-            lhsField = (this.isSetTransitionLeg() ? this.getTransitionLeg() : null);
-            List<ProcedureTransitionLegPropertyType> rhsField;
-            rhsField = (that.isSetTransitionLeg() ? that.getTransitionLeg() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transitionLeg", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transitionLeg", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTransitionId();
-            boolean rhsFieldIsSet = that.isSetTransitionId();
-            JAXBElement<CodeDesignatedPointDesignatorType> lhsField;
-            lhsField = this.getTransitionId();
-            JAXBElement<CodeDesignatedPointDesignatorType> rhsField;
-            rhsField = that.getTransitionId();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transitionId", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transitionId", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVectorHeading();
-            boolean rhsFieldIsSet = that.isSetVectorHeading();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getVectorHeading();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getVectorHeading();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vectorHeading", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vectorHeading", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAirportTransition();
-            boolean rhsFieldIsSet = that.isSetAirportTransition();
-            List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetAirportTransition() ? this.getAirportTransition() : null);
-            List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetAirportTransition() ? that.getAirportTransition() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportTransition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportTransition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeProcedurePhaseType> lhsField;
@@ -655,19 +603,6 @@ public class ProcedureTransitionType extends AbstractAIXMObjectType implements S
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRunwayTransition();
-            boolean rhsFieldIsSet = that.isSetRunwayTransition();
-            JAXBElement<LandingTakeoffAreaCollectionPropertyType> lhsField;
-            lhsField = this.getRunwayTransition();
-            JAXBElement<LandingTakeoffAreaCollectionPropertyType> rhsField;
-            rhsField = that.getRunwayTransition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayTransition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayTransition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -686,14 +621,66 @@ public class ProcedureTransitionType extends AbstractAIXMObjectType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ProcedureTransitionTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ProcedureTransitionTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAirportTransition();
+            boolean rhsFieldIsSet = that.isSetAirportTransition();
+            List<AirportHeliportPropertyType> lhsField;
+            lhsField = (this.isSetAirportTransition() ? this.getAirportTransition() : null);
+            List<AirportHeliportPropertyType> rhsField;
+            rhsField = (that.isSetAirportTransition() ? that.getAirportTransition() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportTransition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportTransition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTransitionId();
+            boolean rhsFieldIsSet = that.isSetTransitionId();
+            JAXBElement<CodeDesignatedPointDesignatorType> lhsField;
+            lhsField = this.getTransitionId();
+            JAXBElement<CodeDesignatedPointDesignatorType> rhsField;
+            rhsField = that.getTransitionId();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transitionId", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transitionId", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInstruction();
+            boolean rhsFieldIsSet = that.isSetInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instruction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRunwayTransition();
+            boolean rhsFieldIsSet = that.isSetRunwayTransition();
+            JAXBElement<LandingTakeoffAreaCollectionPropertyType> lhsField;
+            lhsField = this.getRunwayTransition();
+            JAXBElement<LandingTakeoffAreaCollectionPropertyType> rhsField;
+            rhsField = that.getRunwayTransition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayTransition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayTransition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVectorHeading();
+            boolean rhsFieldIsSet = that.isSetVectorHeading();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getVectorHeading();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getVectorHeading();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vectorHeading", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vectorHeading", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -712,14 +699,27 @@ public class ProcedureTransitionType extends AbstractAIXMObjectType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetInstruction();
-            boolean rhsFieldIsSet = that.isSetInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instruction", rhsField);
+            boolean lhsFieldIsSet = this.isSetTransitionLeg();
+            boolean rhsFieldIsSet = that.isSetTransitionLeg();
+            List<ProcedureTransitionLegPropertyType> lhsField;
+            lhsField = (this.isSetTransitionLeg() ? this.getTransitionLeg() : null);
+            List<ProcedureTransitionLegPropertyType> rhsField;
+            rhsField = (that.isSetTransitionLeg() ? that.getTransitionLeg() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transitionLeg", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transitionLeg", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ProcedureTransitionExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ProcedureTransitionExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -795,7 +795,7 @@ public class ProcedureTransitionType extends AbstractAIXMObjectType implements S
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ProcedureTransitionTypeExtensionType> theField;
+            List<ProcedureTransitionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -862,7 +862,7 @@ public class ProcedureTransitionType extends AbstractAIXMObjectType implements S
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ProcedureTransitionTypeExtensionType> theField;
+            List<ProcedureTransitionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

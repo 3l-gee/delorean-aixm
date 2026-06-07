@@ -42,7 +42,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 @XmlType(name = "AbstractUsageConditionType")
 @XmlSeeAlso({AirportHeliportUsageType.class, ApronAreaUsageType.class, ManoeuvringAreaUsageType.class})
 @Entity(name = "AbstractUsageConditionType")
-@Table(name = "abstractusageconditiontype", schema = "public")
+@Table(name = "abstractusagecondition_o", schema = "public")
 public abstract class AbstractUsageConditionType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;

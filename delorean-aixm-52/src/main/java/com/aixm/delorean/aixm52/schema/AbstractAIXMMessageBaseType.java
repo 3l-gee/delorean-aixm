@@ -136,19 +136,6 @@ public abstract class AbstractAIXMMessageBaseType extends AbstractAIXMFeatureBas
         }
         final AbstractAIXMMessageBaseType that = ((AbstractAIXMMessageBaseType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSequenceNumber();
-            boolean rhsFieldIsSet = that.isSetSequenceNumber();
-            Long lhsField;
-            lhsField = this.getSequenceNumber();
-            Long rhsField;
-            rhsField = that.getSequenceNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceNumber", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMessageMetadata();
             boolean rhsFieldIsSet = that.isSetMessageMetadata();
             MessageMetadataPropertyType lhsField;
@@ -157,6 +144,19 @@ public abstract class AbstractAIXMMessageBaseType extends AbstractAIXMFeatureBas
             rhsField = that.getMessageMetadata();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "messageMetadata", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "messageMetadata", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSequenceNumber();
+            boolean rhsFieldIsSet = that.isSetSequenceNumber();
+            Long lhsField;
+            lhsField = this.getSequenceNumber();
+            Long rhsField;
+            rhsField = that.getSequenceNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceNumber", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

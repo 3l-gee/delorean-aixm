@@ -89,7 +89,7 @@ public class DesignStandardType extends AbstractAIXMObjectType implements Serial
     protected JAXBElement<TextNameType> version;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<DesignStandardTypeExtensionType> extension;
+    protected List<DesignStandardExtensionType> extension;
 
     /**
      * Gets the value of the aixmName property.
@@ -219,14 +219,13 @@ public class DesignStandardType extends AbstractAIXMObjectType implements Serial
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link DesignStandardTypeExtensionType }
+     * {@link DesignStandardExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = DesignStandardTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "designstandarde_hjid", referencedColumnName = "hjid")
-    public List<DesignStandardTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = DesignStandardExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "designstandard_oe_hjid", referencedColumnName = "hjid")
+    public List<DesignStandardExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -237,7 +236,7 @@ public class DesignStandardType extends AbstractAIXMObjectType implements Serial
      *
      *
      */
-    public void setExtension(List<DesignStandardTypeExtensionType> extension) {
+    public void setExtension(List<DesignStandardExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -289,14 +288,14 @@ public class DesignStandardType extends AbstractAIXMObjectType implements Serial
         }
         final DesignStandardType that = ((DesignStandardType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<DesignStandardTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<DesignStandardTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetVersion();
+            boolean rhsFieldIsSet = that.isSetVersion();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getVersion();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getVersion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -315,14 +314,14 @@ public class DesignStandardType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVersion();
-            boolean rhsFieldIsSet = that.isSetVersion();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getVersion();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getVersion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<DesignStandardExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<DesignStandardExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -369,7 +368,7 @@ public class DesignStandardType extends AbstractAIXMObjectType implements Serial
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<DesignStandardTypeExtensionType> theField;
+            List<DesignStandardExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -400,7 +399,7 @@ public class DesignStandardType extends AbstractAIXMObjectType implements Serial
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<DesignStandardTypeExtensionType> theField;
+            List<DesignStandardExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

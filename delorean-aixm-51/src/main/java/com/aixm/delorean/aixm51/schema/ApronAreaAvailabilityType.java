@@ -91,7 +91,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "ApronAreaAvailabilityType", propOrder = {"timeInterval", "annotation", "specialDateAuthority",
         "operationalStatus", "warning", "usage", "extension"})
 @Entity(name = "ApronAreaAvailabilityType")
-@Table(name = "apronareaavailabilitytype", schema = "airport_heliport")
+@Table(name = "apronareaavailability_o", schema = "airport_heliport")
 public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -107,7 +107,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
     protected JAXBElement<CodeAirportWarningType> warning;
     @XmlElement(nillable = true)
     protected List<ApronAreaUsagePropertyType> usage;
-    protected List<ApronAreaAvailabilityTypeExtensionType> extension;
+    protected List<ApronAreaAvailabilityExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -134,7 +134,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "aprnaravlblttp_tmintrvl_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apronareaavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "apronareaavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -185,7 +185,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "aprnaravlblttp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apronareaavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "apronareaavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -237,7 +237,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "aprnaravlblttp_spcldtathrt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apronareaavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "apronareaavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -346,7 +346,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
      */
     @OneToMany(targetEntity = ApronAreaUsagePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "aprnaravlblttp_usg_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apronareaavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "apronareaavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "usage_hjid", referencedColumnName = "hjid")})
     public List<ApronAreaUsagePropertyType> getUsage() {
         if (usage == null) {
@@ -391,14 +391,14 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ApronAreaAvailabilityTypeExtensionType }
+     * {@link ApronAreaAvailabilityExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ApronAreaAvailabilityTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ApronAreaAvailabilityExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "apronareaavailabilitye_hjid", referencedColumnName = "hjid")
-    public List<ApronAreaAvailabilityTypeExtensionType> getExtension() {
+    @JoinColumn(name = "apronareaavailability_oe_hjid", referencedColumnName = "hjid")
+    public List<ApronAreaAvailabilityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -409,7 +409,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
      *
      *
      */
-    public void setExtension(List<ApronAreaAvailabilityTypeExtensionType> extension) {
+    public void setExtension(List<ApronAreaAvailabilityExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -474,14 +474,14 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApronAreaAvailabilityTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApronAreaAvailabilityTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -513,14 +513,27 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            boolean lhsFieldIsSet = this.isSetWarning();
+            boolean rhsFieldIsSet = that.isSetWarning();
+            JAXBElement<CodeAirportWarningType> lhsField;
+            lhsField = this.getWarning();
+            JAXBElement<CodeAirportWarningType> rhsField;
+            rhsField = that.getWarning();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "warning", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "warning", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApronAreaAvailabilityExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ApronAreaAvailabilityExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -534,19 +547,6 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
             rhsField = (that.isSetUsage() ? that.getUsage() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usage", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWarning();
-            boolean rhsFieldIsSet = that.isSetWarning();
-            JAXBElement<CodeAirportWarningType> lhsField;
-            lhsField = this.getWarning();
-            JAXBElement<CodeAirportWarningType> rhsField;
-            rhsField = that.getWarning();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "warning", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "warning", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -601,7 +601,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApronAreaAvailabilityTypeExtensionType> theField;
+            List<ApronAreaAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -650,7 +650,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApronAreaAvailabilityTypeExtensionType> theField;
+            List<ApronAreaAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

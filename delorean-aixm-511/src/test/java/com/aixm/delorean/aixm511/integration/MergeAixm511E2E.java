@@ -76,7 +76,7 @@ public class MergeAixm511E2E {
     void configAContainerDeloreanCore() {
 
         // given
-        AContainer = delorean.newContainer();
+        AContainer = delorean.createNewContainer();
 
         // container is successfully created
         assertThat(AContainer).isNotNull();
@@ -174,7 +174,7 @@ public class MergeAixm511E2E {
     void configBContainerDeloreanCore() {
 
         // given
-        BContainer = delorean.newContainer();
+        BContainer = delorean.createNewContainer();
 
         // container is successfully created
         assertThat(BContainer).isNotNull();

@@ -89,7 +89,7 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
     protected AirspacePropertyType theAirspace;
-    protected List<AirspaceVolumeDependencyTypeExtensionType> extension;
+    protected List<AirspaceVolumeDependencyExtensionType> extension;
 
     /**
      * Gets the value of the dependency property.
@@ -220,14 +220,14 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirspaceVolumeDependencyTypeExtensionType }
+     * {@link AirspaceVolumeDependencyExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirspaceVolumeDependencyTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AirspaceVolumeDependencyExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airspacevolumedependencye_hjid", referencedColumnName = "hjid")
-    public List<AirspaceVolumeDependencyTypeExtensionType> getExtension() {
+    @JoinColumn(name = "airspacevolumedependency_oe_hjid", referencedColumnName = "hjid")
+    public List<AirspaceVolumeDependencyExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -238,7 +238,7 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
      *
      *
      */
-    public void setExtension(List<AirspaceVolumeDependencyTypeExtensionType> extension) {
+    public void setExtension(List<AirspaceVolumeDependencyExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -291,19 +291,6 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceVolumeDependencyTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirspaceVolumeDependencyTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDependency();
             boolean rhsFieldIsSet = that.isSetDependency();
             JAXBElement<CodeAirspaceDependencyType> lhsField;
@@ -325,6 +312,19 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceVolumeDependencyExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirspaceVolumeDependencyExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -358,7 +358,7 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceVolumeDependencyTypeExtensionType> theField;
+            List<AirspaceVolumeDependencyExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -389,7 +389,7 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceVolumeDependencyTypeExtensionType> theField;
+            List<AirspaceVolumeDependencyExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

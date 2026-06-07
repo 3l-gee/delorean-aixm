@@ -90,7 +90,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "AirportHeliportResponsibilityOrganisationType", propOrder = {"timeInterval", "annotation",
         "specialDateAuthority", "role", "theOrganisationAuthority", "extension"})
 @Entity(name = "AirportHeliportResponsibilityOrganisationType")
-@Table(name = "airportheliportresponsibilityorganisationtype", schema = "airport_heliport")
+@Table(name = "airportheliportresponsibilityorganisation_o", schema = "airport_heliport")
 public class AirportHeliportResponsibilityOrganisationType extends AbstractPropertiesWithScheduleType
         implements
             Serializable {
@@ -105,7 +105,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
     @XmlElementRef(name = "role", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeAuthorityRoleType> role;
     protected OrganisationAuthorityPropertyType theOrganisationAuthority;
-    protected List<AirportHeliportResponsibilityOrganisationTypeExtensionType> extension;
+    protected List<AirportHeliportResponsibilityOrganisationExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -132,7 +132,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "arprthlprtrspnsbltorgnstntp_tmintrvl_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportheliportresponsibilityorganisationtype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "airportheliportresponsibilityorganisation_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -183,7 +183,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "arprthlprtrspnsbltorgnstntp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportheliportresponsibilityorganisationtype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "airportheliportresponsibilityorganisation_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -235,7 +235,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "arprthlprtrspnsbltorgnstntp_spcldtathrt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportheliportresponsibilityorganisationtype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "airportheliportresponsibilityorganisation_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -299,7 +299,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
     @OneToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "arprthlprtrspnsbltorgnstntp_thorgnstnathrt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportheliportresponsibilityorganisationtype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "airportheliportresponsibilityorganisation_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "theorganisationauthority_hjid", referencedColumnName = "hjid")})
     public OrganisationAuthorityPropertyType getTheOrganisationAuthority() {
         return theOrganisationAuthority;
@@ -340,14 +340,14 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirportHeliportResponsibilityOrganisationTypeExtensionType }
+     * {@link AirportHeliportResponsibilityOrganisationExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirportHeliportResponsibilityOrganisationTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AirportHeliportResponsibilityOrganisationExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airportheliportresponsibilityorganisatione_hjid", referencedColumnName = "hjid")
-    public List<AirportHeliportResponsibilityOrganisationTypeExtensionType> getExtension() {
+    @JoinColumn(name = "airportheliportresponsibilityorganisation_oe_hjid", referencedColumnName = "hjid")
+    public List<AirportHeliportResponsibilityOrganisationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -358,7 +358,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
      *
      *
      */
-    public void setExtension(List<AirportHeliportResponsibilityOrganisationTypeExtensionType> extension) {
+    public void setExtension(List<AirportHeliportResponsibilityOrganisationExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -398,53 +398,14 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
         }
         final AirportHeliportResponsibilityOrganisationType that = ((AirportHeliportResponsibilityOrganisationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
-            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
-            OrganisationAuthorityPropertyType lhsField;
-            lhsField = this.getTheOrganisationAuthority();
-            OrganisationAuthorityPropertyType rhsField;
-            rhsField = that.getTheOrganisationAuthority();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirportHeliportResponsibilityOrganisationTypeExtensionType> lhsField;
+            List<AirportHeliportResponsibilityOrganisationExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirportHeliportResponsibilityOrganisationTypeExtensionType> rhsField;
+            List<AirportHeliportResponsibilityOrganisationExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            JAXBElement<CodeAuthorityRoleType> lhsField;
-            lhsField = this.getRole();
-            JAXBElement<CodeAuthorityRoleType> rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -463,6 +424,32 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            JAXBElement<CodeAuthorityRoleType> lhsField;
+            lhsField = this.getRole();
+            JAXBElement<CodeAuthorityRoleType> rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -471,6 +458,19 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
             rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
+            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
+            OrganisationAuthorityPropertyType lhsField;
+            lhsField = this.getTheOrganisationAuthority();
+            OrganisationAuthorityPropertyType rhsField;
+            rhsField = that.getTheOrganisationAuthority();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -518,7 +518,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHeliportResponsibilityOrganisationTypeExtensionType> theField;
+            List<AirportHeliportResponsibilityOrganisationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -561,7 +561,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHeliportResponsibilityOrganisationTypeExtensionType> theField;
+            List<AirportHeliportResponsibilityOrganisationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -140,7 +140,7 @@ public class GBASServiceTimeSliceType extends AbstractAIXMTimeSliceType implemen
     protected List<RunwayDirectionPropertyType> servedApproach;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<GBASServiceExtensionType> extension;
+    protected List<GBASServiceTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the aixmName property.
@@ -679,13 +679,14 @@ public class GBASServiceTimeSliceType extends AbstractAIXMTimeSliceType implemen
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link GBASServiceExtensionType }
+     * {@link GBASServiceTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = GBASServiceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "gbasservicee_hjid", referencedColumnName = "hjid")
-    public List<GBASServiceExtensionType> getExtension() {
+    @OneToMany(targetEntity = GBASServiceTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "gbasservice_te_hjid", referencedColumnName = "hjid")
+    public List<GBASServiceTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -696,7 +697,7 @@ public class GBASServiceTimeSliceType extends AbstractAIXMTimeSliceType implemen
      *
      *
      */
-    public void setExtension(List<GBASServiceExtensionType> extension) {
+    public void setExtension(List<GBASServiceTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -845,110 +846,6 @@ public class GBASServiceTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         final GBASServiceTimeSliceType that = ((GBASServiceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRegionalService();
-            boolean rhsFieldIsSet = that.isSetRegionalService();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getRegionalService();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getRegionalService();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "regionalService", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "regionalService", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePoint();
-            boolean rhsFieldIsSet = that.isSetCentrePoint();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getCentrePoint();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getCentrePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPositioningService();
-            boolean rhsFieldIsSet = that.isSetPositioningService();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getPositioningService();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getPositioningService();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "positioningService", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "positioningService", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetServedApproach();
-            boolean rhsFieldIsSet = that.isSetServedApproach();
-            List<RunwayDirectionPropertyType> lhsField;
-            lhsField = (this.isSetServedApproach() ? this.getServedApproach() : null);
-            List<RunwayDirectionPropertyType> rhsField;
-            rhsField = (that.isSetServedApproach() ? that.getServedApproach() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "servedApproach", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "servedApproach", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<GBASServiceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<GBASServiceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetChannelRSDS();
-            boolean rhsFieldIsSet = that.isSetChannelRSDS();
-            JAXBElement<ValChannelNumberType> lhsField;
-            lhsField = this.getChannelRSDS();
-            JAXBElement<ValChannelNumberType> rhsField;
-            rhsField = that.getChannelRSDS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "channelRSDS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "channelRSDS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArea();
-            boolean rhsFieldIsSet = that.isSetArea();
-            List<AIXMSurfacePropertyType> lhsField;
-            lhsField = (this.isSetArea() ? this.getArea() : null);
-            List<AIXMSurfacePropertyType> rhsField;
-            rhsField = (that.isSetArea() ? that.getArea() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "area", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "area", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetApproachServicePoint();
             boolean rhsFieldIsSet = that.isSetApproachServicePoint();
             JAXBElement<CodeCourseQualityGBASType> lhsField;
@@ -957,58 +854,6 @@ public class GBASServiceTimeSliceType extends AbstractAIXMTimeSliceType implemen
             rhsField = that.getApproachServicePoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachServicePoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachServicePoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAugmentationSystem();
-            boolean rhsFieldIsSet = that.isSetAugmentationSystem();
-            JAXBElement<GBASPropertyType> lhsField;
-            lhsField = this.getAugmentationSystem();
-            JAXBElement<GBASPropertyType> rhsField;
-            rhsField = that.getAugmentationSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "augmentationSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "augmentationSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumDecisionHeight();
-            boolean rhsFieldIsSet = that.isSetMinimumDecisionHeight();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumDecisionHeight();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumDecisionHeight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumDecisionHeight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumDecisionHeight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApproachServiceType();
-            boolean rhsFieldIsSet = that.isSetApproachServiceType();
-            JAXBElement<CodeGBASApproachServiceType> lhsField;
-            lhsField = this.getApproachServiceType();
-            JAXBElement<CodeGBASApproachServiceType> rhsField;
-            rhsField = that.getApproachServiceType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachServiceType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachServiceType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1027,6 +872,97 @@ public class GBASServiceTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetArea();
+            boolean rhsFieldIsSet = that.isSetArea();
+            List<AIXMSurfacePropertyType> lhsField;
+            lhsField = (this.isSetArea() ? this.getArea() : null);
+            List<AIXMSurfacePropertyType> rhsField;
+            rhsField = (that.isSetArea() ? that.getArea() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "area", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "area", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPositioningService();
+            boolean rhsFieldIsSet = that.isSetPositioningService();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getPositioningService();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getPositioningService();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "positioningService", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "positioningService", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApproachServiceType();
+            boolean rhsFieldIsSet = that.isSetApproachServiceType();
+            JAXBElement<CodeGBASApproachServiceType> lhsField;
+            lhsField = this.getApproachServiceType();
+            JAXBElement<CodeGBASApproachServiceType> rhsField;
+            rhsField = that.getApproachServiceType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachServiceType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachServiceType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetChannelRSDS();
+            boolean rhsFieldIsSet = that.isSetChannelRSDS();
+            JAXBElement<ValChannelNumberType> lhsField;
+            lhsField = this.getChannelRSDS();
+            JAXBElement<ValChannelNumberType> rhsField;
+            rhsField = that.getChannelRSDS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "channelRSDS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "channelRSDS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumDecisionHeight();
+            boolean rhsFieldIsSet = that.isSetMinimumDecisionHeight();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumDecisionHeight();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumDecisionHeight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumDecisionHeight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumDecisionHeight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePoint();
+            boolean rhsFieldIsSet = that.isSetCentrePoint();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getCentrePoint();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getCentrePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRegionalService();
+            boolean rhsFieldIsSet = that.isSetRegionalService();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getRegionalService();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getRegionalService();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "regionalService", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "regionalService", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAvailability();
             boolean rhsFieldIsSet = that.isSetAvailability();
             List<NavaidOperationalStatusPropertyType> lhsField;
@@ -1035,6 +971,71 @@ public class GBASServiceTimeSliceType extends AbstractAIXMTimeSliceType implemen
             rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAugmentationSystem();
+            boolean rhsFieldIsSet = that.isSetAugmentationSystem();
+            JAXBElement<GBASPropertyType> lhsField;
+            lhsField = this.getAugmentationSystem();
+            JAXBElement<GBASPropertyType> rhsField;
+            rhsField = that.getAugmentationSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "augmentationSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "augmentationSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<GBASServiceTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<GBASServiceTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetServedApproach();
+            boolean rhsFieldIsSet = that.isSetServedApproach();
+            List<RunwayDirectionPropertyType> lhsField;
+            lhsField = (this.isSetServedApproach() ? this.getServedApproach() : null);
+            List<RunwayDirectionPropertyType> rhsField;
+            rhsField = (that.isSetServedApproach() ? that.getServedApproach() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "servedApproach", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "servedApproach", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1145,7 +1146,7 @@ public class GBASServiceTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GBASServiceExtensionType> theField;
+            List<GBASServiceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -1242,7 +1243,7 @@ public class GBASServiceTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GBASServiceExtensionType> theField;
+            List<GBASServiceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

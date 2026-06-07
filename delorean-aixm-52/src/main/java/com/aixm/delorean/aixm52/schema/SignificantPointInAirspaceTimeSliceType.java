@@ -124,7 +124,7 @@ public class SignificantPointInAirspaceTimeSliceType extends AbstractAIXMTimeSli
     protected List<NotePropertyType> annotation;
     @XmlElement(nillable = true)
     protected List<PointUsagePropertyType> usage;
-    protected List<SignificantPointInAirspaceExtensionType> extension;
+    protected List<SignificantPointInAirspaceTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the relativeLocation property.
@@ -479,14 +479,14 @@ public class SignificantPointInAirspaceTimeSliceType extends AbstractAIXMTimeSli
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SignificantPointInAirspaceExtensionType }
+     * {@link SignificantPointInAirspaceTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SignificantPointInAirspaceExtensionType.class, cascade = {
+    @OneToMany(targetEntity = SignificantPointInAirspaceTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "significantpointinairspacee_hjid", referencedColumnName = "hjid")
-    public List<SignificantPointInAirspaceExtensionType> getExtension() {
+    @JoinColumn(name = "significantpointinairspace_te_hjid", referencedColumnName = "hjid")
+    public List<SignificantPointInAirspaceTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -497,7 +497,7 @@ public class SignificantPointInAirspaceTimeSliceType extends AbstractAIXMTimeSli
      *
      *
      */
-    public void setExtension(List<SignificantPointInAirspaceExtensionType> extension) {
+    public void setExtension(List<SignificantPointInAirspaceTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -651,6 +651,19 @@ public class SignificantPointInAirspaceTimeSliceType extends AbstractAIXMTimeSli
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLocationRunwayPoint();
             boolean rhsFieldIsSet = that.isSetLocationRunwayPoint();
             JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
@@ -664,40 +677,14 @@ public class SignificantPointInAirspaceTimeSliceType extends AbstractAIXMTimeSli
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRelativeLocation();
-            boolean rhsFieldIsSet = that.isSetRelativeLocation();
-            JAXBElement<CodeAirspacePointPositionType> lhsField;
-            lhsField = this.getRelativeLocation();
-            JAXBElement<CodeAirspacePointPositionType> rhsField;
-            rhsField = that.getRelativeLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocationPosition();
-            boolean rhsFieldIsSet = that.isSetLocationPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getLocationPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getLocationPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUsage();
-            boolean rhsFieldIsSet = that.isSetUsage();
-            List<PointUsagePropertyType> lhsField;
-            lhsField = (this.isSetUsage() ? this.getUsage() : null);
-            List<PointUsagePropertyType> rhsField;
-            rhsField = (that.isSetUsage() ? that.getUsage() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usage", rhsField);
+            boolean lhsFieldIsSet = this.isSetContainingAirspace();
+            boolean rhsFieldIsSet = that.isSetContainingAirspace();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getContainingAirspace();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getContainingAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "containingAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "containingAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -716,27 +703,27 @@ public class SignificantPointInAirspaceTimeSliceType extends AbstractAIXMTimeSli
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetUsage();
+            boolean rhsFieldIsSet = that.isSetUsage();
+            List<PointUsagePropertyType> lhsField;
+            lhsField = (this.isSetUsage() ? this.getUsage() : null);
+            List<PointUsagePropertyType> rhsField;
+            rhsField = (that.isSetUsage() ? that.getUsage() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocationFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetLocationFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getLocationFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getLocationFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationFixDesignatedPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocationPosition();
+            boolean rhsFieldIsSet = that.isSetLocationPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getLocationPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getLocationPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -744,12 +731,25 @@ public class SignificantPointInAirspaceTimeSliceType extends AbstractAIXMTimeSli
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<SignificantPointInAirspaceExtensionType> lhsField;
+            List<SignificantPointInAirspaceTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SignificantPointInAirspaceExtensionType> rhsField;
+            List<SignificantPointInAirspaceTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRelativeLocation();
+            boolean rhsFieldIsSet = that.isSetRelativeLocation();
+            JAXBElement<CodeAirspacePointPositionType> lhsField;
+            lhsField = this.getRelativeLocation();
+            JAXBElement<CodeAirspacePointPositionType> rhsField;
+            rhsField = that.getRelativeLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -770,14 +770,14 @@ public class SignificantPointInAirspaceTimeSliceType extends AbstractAIXMTimeSli
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetContainingAirspace();
-            boolean rhsFieldIsSet = that.isSetContainingAirspace();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getContainingAirspace();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getContainingAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "containingAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "containingAirspace", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocationFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetLocationFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getLocationFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getLocationFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationFixDesignatedPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -860,7 +860,7 @@ public class SignificantPointInAirspaceTimeSliceType extends AbstractAIXMTimeSli
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SignificantPointInAirspaceExtensionType> theField;
+            List<SignificantPointInAirspaceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -933,7 +933,7 @@ public class SignificantPointInAirspaceTimeSliceType extends AbstractAIXMTimeSli
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SignificantPointInAirspaceExtensionType> theField;
+            List<SignificantPointInAirspaceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

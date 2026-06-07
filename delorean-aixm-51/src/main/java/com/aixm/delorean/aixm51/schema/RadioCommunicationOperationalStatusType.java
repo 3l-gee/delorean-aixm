@@ -86,7 +86,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "RadioCommunicationOperationalStatusType", propOrder = {"timeInterval", "annotation",
         "specialDateAuthority", "operationalStatus", "extension"})
 @Entity(name = "RadioCommunicationOperationalStatusType")
-@Table(name = "radiocommunicationoperationalstatustype", schema = "service")
+@Table(name = "radiocommunicationoperationalstatus_o", schema = "service")
 public class RadioCommunicationOperationalStatusType extends AbstractPropertiesWithScheduleType
         implements
             Serializable {
@@ -100,7 +100,7 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
     protected List<OrganisationAuthorityPropertyType> specialDateAuthority;
     @XmlElementRef(name = "operationalStatus", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeStatusServiceType> operationalStatus;
-    protected List<RadioCommunicationOperationalStatusTypeExtensionType> extension;
+    protected List<RadioCommunicationOperationalStatusExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -127,7 +127,7 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "rdcmmnctnoprtnlsttstp_tmintrvl_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "radiocommunicationoperationalstatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "radiocommunicationoperationalstatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -178,7 +178,7 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "rdcmmnctnoprtnlsttstp_annttn_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "radiocommunicationoperationalstatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "radiocommunicationoperationalstatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -230,7 +230,7 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "rdcmmnctnoprtnlsttstp_spcldtathrt_link", schema = "service", joinColumns = {
-            @JoinColumn(name = "radiocommunicationoperationalstatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "radiocommunicationoperationalstatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -304,14 +304,14 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RadioCommunicationOperationalStatusTypeExtensionType }
+     * {@link RadioCommunicationOperationalStatusExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RadioCommunicationOperationalStatusTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = RadioCommunicationOperationalStatusExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "radiocommunicationoperationalstatuse_hjid", referencedColumnName = "hjid")
-    public List<RadioCommunicationOperationalStatusTypeExtensionType> getExtension() {
+    @JoinColumn(name = "radiocommunicationoperationalstatus_oe_hjid", referencedColumnName = "hjid")
+    public List<RadioCommunicationOperationalStatusExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -322,7 +322,7 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
      *
      *
      */
-    public void setExtension(List<RadioCommunicationOperationalStatusTypeExtensionType> extension) {
+    public void setExtension(List<RadioCommunicationOperationalStatusExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -364,9 +364,9 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<RadioCommunicationOperationalStatusTypeExtensionType> lhsField;
+            List<RadioCommunicationOperationalStatusExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RadioCommunicationOperationalStatusTypeExtensionType> rhsField;
+            List<RadioCommunicationOperationalStatusExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -375,14 +375,14 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -401,6 +401,19 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOperationalStatus();
             boolean rhsFieldIsSet = that.isSetOperationalStatus();
             JAXBElement<CodeStatusServiceType> lhsField;
@@ -409,19 +422,6 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
             rhsField = that.getOperationalStatus();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -462,7 +462,7 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RadioCommunicationOperationalStatusTypeExtensionType> theField;
+            List<RadioCommunicationOperationalStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -499,7 +499,7 @@ public class RadioCommunicationOperationalStatusType extends AbstractPropertiesW
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RadioCommunicationOperationalStatusTypeExtensionType> theField;
+            List<RadioCommunicationOperationalStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

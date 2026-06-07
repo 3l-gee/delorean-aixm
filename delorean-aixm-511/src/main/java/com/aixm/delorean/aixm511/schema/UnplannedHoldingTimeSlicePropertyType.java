@@ -219,19 +219,6 @@ public class UnplannedHoldingTimeSlicePropertyType implements Serializable, Equa
         }
         final UnplannedHoldingTimeSlicePropertyType that = ((UnplannedHoldingTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUnplannedHoldingTimeSlice();
-            boolean rhsFieldIsSet = that.isSetUnplannedHoldingTimeSlice();
-            UnplannedHoldingTimeSliceType lhsField;
-            lhsField = this.getUnplannedHoldingTimeSlice();
-            UnplannedHoldingTimeSliceType rhsField;
-            rhsField = that.getUnplannedHoldingTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unplannedHoldingTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unplannedHoldingTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -240,6 +227,19 @@ public class UnplannedHoldingTimeSlicePropertyType implements Serializable, Equa
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUnplannedHoldingTimeSlice();
+            boolean rhsFieldIsSet = that.isSetUnplannedHoldingTimeSlice();
+            UnplannedHoldingTimeSliceType lhsField;
+            lhsField = this.getUnplannedHoldingTimeSlice();
+            UnplannedHoldingTimeSliceType rhsField;
+            rhsField = that.getUnplannedHoldingTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unplannedHoldingTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unplannedHoldingTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

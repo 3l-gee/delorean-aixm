@@ -90,7 +90,7 @@ public class ReflectorType extends AbstractAIXMObjectType implements Serializabl
     protected JAXBElement<AIXMElevatedPointPropertyType> touchdownReflector;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<ReflectorTypeExtensionType> extension;
+    protected List<ReflectorExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -220,13 +220,13 @@ public class ReflectorType extends AbstractAIXMObjectType implements Serializabl
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ReflectorTypeExtensionType }
+     * {@link ReflectorExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ReflectorTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "reflectore_hjid", referencedColumnName = "hjid")
-    public List<ReflectorTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = ReflectorExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "reflector_oe_hjid", referencedColumnName = "hjid")
+    public List<ReflectorExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -237,7 +237,7 @@ public class ReflectorType extends AbstractAIXMObjectType implements Serializabl
      *
      *
      */
-    public void setExtension(List<ReflectorTypeExtensionType> extension) {
+    public void setExtension(List<ReflectorExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -302,19 +302,6 @@ public class ReflectorType extends AbstractAIXMObjectType implements Serializabl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ReflectorTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ReflectorTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTouchdownReflector();
             boolean rhsFieldIsSet = that.isSetTouchdownReflector();
             JAXBElement<AIXMElevatedPointPropertyType> lhsField;
@@ -323,6 +310,19 @@ public class ReflectorType extends AbstractAIXMObjectType implements Serializabl
             rhsField = that.getTouchdownReflector();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "touchdownReflector", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "touchdownReflector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ReflectorExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ReflectorExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -369,7 +369,7 @@ public class ReflectorType extends AbstractAIXMObjectType implements Serializabl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ReflectorTypeExtensionType> theField;
+            List<ReflectorExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -400,7 +400,7 @@ public class ReflectorType extends AbstractAIXMObjectType implements Serializabl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ReflectorTypeExtensionType> theField;
+            List<ReflectorExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -117,7 +117,7 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
     protected List<OrganisationAuthorityPropertyType> user;
     @XmlElement(nillable = true)
     protected List<AircraftCharacteristicPropertyType> aircraft;
-    protected List<AirspaceActivationTypeExtensionType> extension;
+    protected List<AirspaceActivationExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -505,14 +505,14 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirspaceActivationTypeExtensionType }
+     * {@link AirspaceActivationExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirspaceActivationTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AirspaceActivationExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airspaceactivatione_hjid", referencedColumnName = "hjid")
-    public List<AirspaceActivationTypeExtensionType> getExtension() {
+    @JoinColumn(name = "airspaceactivation_oe_hjid", referencedColumnName = "hjid")
+    public List<AirspaceActivationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -523,7 +523,7 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
      *
      *
      */
-    public void setExtension(List<AirspaceActivationTypeExtensionType> extension) {
+    public void setExtension(List<AirspaceActivationExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -574,14 +574,14 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
         }
         final AirspaceActivationType that = ((AirspaceActivationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetStatus();
+            boolean rhsFieldIsSet = that.isSetStatus();
+            JAXBElement<CodeStatusAirspaceType> lhsField;
+            lhsField = this.getStatus();
+            JAXBElement<CodeStatusAirspaceType> rhsField;
+            rhsField = that.getStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -600,6 +600,45 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAircraft();
+            boolean rhsFieldIsSet = that.isSetAircraft();
+            List<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetAircraft() ? this.getAircraft() : null);
+            List<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetAircraft() ? that.getAircraft() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceActivationExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirspaceActivationExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLevels();
+            boolean rhsFieldIsSet = that.isSetLevels();
+            List<AirspaceLayerPropertyType> lhsField;
+            lhsField = (this.isSetLevels() ? this.getLevels() : null);
+            List<AirspaceLayerPropertyType> rhsField;
+            rhsField = (that.isSetLevels() ? that.getLevels() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -608,32 +647,6 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
             rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActivity();
-            boolean rhsFieldIsSet = that.isSetActivity();
-            JAXBElement<CodeAirspaceActivityType> lhsField;
-            lhsField = this.getActivity();
-            JAXBElement<CodeAirspaceActivityType> rhsField;
-            rhsField = that.getActivity();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activity", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activity", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceActivationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirspaceActivationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -652,40 +665,27 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAircraft();
-            boolean rhsFieldIsSet = that.isSetAircraft();
-            List<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetAircraft() ? this.getAircraft() : null);
-            List<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetAircraft() ? that.getAircraft() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStatus();
-            boolean rhsFieldIsSet = that.isSetStatus();
-            JAXBElement<CodeStatusAirspaceType> lhsField;
-            lhsField = this.getStatus();
-            JAXBElement<CodeStatusAirspaceType> rhsField;
-            rhsField = that.getStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLevels();
-            boolean rhsFieldIsSet = that.isSetLevels();
-            List<AirspaceLayerPropertyType> lhsField;
-            lhsField = (this.isSetLevels() ? this.getLevels() : null);
-            List<AirspaceLayerPropertyType> rhsField;
-            rhsField = (that.isSetLevels() ? that.getLevels() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levels", rhsField);
+            boolean lhsFieldIsSet = this.isSetActivity();
+            boolean rhsFieldIsSet = that.isSetActivity();
+            JAXBElement<CodeAirspaceActivityType> lhsField;
+            lhsField = this.getActivity();
+            JAXBElement<CodeAirspaceActivityType> rhsField;
+            rhsField = that.getActivity();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activity", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activity", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -754,7 +754,7 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceActivationTypeExtensionType> theField;
+            List<AirspaceActivationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -815,7 +815,7 @@ public class AirspaceActivationType extends AbstractPropertiesWithScheduleType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceActivationTypeExtensionType> theField;
+            List<AirspaceActivationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

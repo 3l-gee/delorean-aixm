@@ -108,7 +108,7 @@ public class SatelliteServiceAreaType extends AbstractPropertiesWithScheduleType
     protected List<OrganisationAuthorityPropertyType> country;
     @XmlElement(nillable = true)
     protected List<AIXMSurfacePropertyType> area;
-    protected List<SatelliteServiceAreaTypeExtensionType> extension;
+    protected List<SatelliteServiceAreaExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -415,14 +415,14 @@ public class SatelliteServiceAreaType extends AbstractPropertiesWithScheduleType
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SatelliteServiceAreaTypeExtensionType }
+     * {@link SatelliteServiceAreaExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SatelliteServiceAreaTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = SatelliteServiceAreaExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "satelliteserviceareae_hjid", referencedColumnName = "hjid")
-    public List<SatelliteServiceAreaTypeExtensionType> getExtension() {
+    @JoinColumn(name = "satelliteservicearea_oe_hjid", referencedColumnName = "hjid")
+    public List<SatelliteServiceAreaExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -433,7 +433,7 @@ public class SatelliteServiceAreaType extends AbstractPropertiesWithScheduleType
      *
      *
      */
-    public void setExtension(List<SatelliteServiceAreaTypeExtensionType> extension) {
+    public void setExtension(List<SatelliteServiceAreaExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -473,27 +473,14 @@ public class SatelliteServiceAreaType extends AbstractPropertiesWithScheduleType
         }
         final SatelliteServiceAreaType that = ((SatelliteServiceAreaType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SatelliteServiceAreaExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SatelliteServiceAreaExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -538,19 +525,6 @@ public class SatelliteServiceAreaType extends AbstractPropertiesWithScheduleType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SatelliteServiceAreaTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SatelliteServiceAreaTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOperationalStatus();
             boolean rhsFieldIsSet = that.isSetOperationalStatus();
             JAXBElement<CodeStatusNavaidType> lhsField;
@@ -559,6 +533,32 @@ public class SatelliteServiceAreaType extends AbstractPropertiesWithScheduleType
             rhsField = that.getOperationalStatus();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -613,7 +613,7 @@ public class SatelliteServiceAreaType extends AbstractPropertiesWithScheduleType
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SatelliteServiceAreaTypeExtensionType> theField;
+            List<SatelliteServiceAreaExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -662,7 +662,7 @@ public class SatelliteServiceAreaType extends AbstractPropertiesWithScheduleType
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SatelliteServiceAreaTypeExtensionType> theField;
+            List<SatelliteServiceAreaExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

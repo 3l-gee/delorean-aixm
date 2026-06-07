@@ -90,7 +90,7 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
     protected JAXBElement<CodeLocationQualifierType> relationWithLocation;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<FlightConditionCircumstanceTypeExtensionType> extension;
+    protected List<FlightConditionCircumstanceExtensionType> extension;
 
     /**
      * Gets the value of the referenceLocation property.
@@ -220,14 +220,14 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FlightConditionCircumstanceTypeExtensionType }
+     * {@link FlightConditionCircumstanceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = FlightConditionCircumstanceTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = FlightConditionCircumstanceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "flightconditioncircumstancee_hjid", referencedColumnName = "hjid")
-    public List<FlightConditionCircumstanceTypeExtensionType> getExtension() {
+    @JoinColumn(name = "flightconditioncircumstance_oe_hjid", referencedColumnName = "hjid")
+    public List<FlightConditionCircumstanceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -238,7 +238,7 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
      *
      *
      */
-    public void setExtension(List<FlightConditionCircumstanceTypeExtensionType> extension) {
+    public void setExtension(List<FlightConditionCircumstanceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -293,9 +293,9 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightConditionCircumstanceTypeExtensionType> lhsField;
+            List<FlightConditionCircumstanceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FlightConditionCircumstanceTypeExtensionType> rhsField;
+            List<FlightConditionCircumstanceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -371,7 +371,7 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FlightConditionCircumstanceTypeExtensionType> theField;
+            List<FlightConditionCircumstanceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -402,7 +402,7 @@ public class FlightConditionCircumstanceType extends AbstractAIXMObjectType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FlightConditionCircumstanceTypeExtensionType> theField;
+            List<FlightConditionCircumstanceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -86,7 +86,7 @@ public class SeaplaneRampSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
     protected JAXBElement<AIXMElevatedCurvePropertyType> centreline;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<SeaplaneRampSiteExtensionType> extension;
+    protected List<SeaplaneRampSiteTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the extent property.
@@ -216,13 +216,14 @@ public class SeaplaneRampSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SeaplaneRampSiteExtensionType }
+     * {@link SeaplaneRampSiteTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SeaplaneRampSiteExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "seaplanerampsitee_hjid", referencedColumnName = "hjid")
-    public List<SeaplaneRampSiteExtensionType> getExtension() {
+    @OneToMany(targetEntity = SeaplaneRampSiteTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "seaplanerampsite_te_hjid", referencedColumnName = "hjid")
+    public List<SeaplaneRampSiteTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -233,7 +234,7 @@ public class SeaplaneRampSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
      *
      *
      */
-    public void setExtension(List<SeaplaneRampSiteExtensionType> extension) {
+    public void setExtension(List<SeaplaneRampSiteTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -288,32 +289,6 @@ public class SeaplaneRampSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
         }
         final SeaplaneRampSiteTimeSliceType that = ((SeaplaneRampSiteTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SeaplaneRampSiteExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SeaplaneRampSiteExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCentreline();
             boolean rhsFieldIsSet = that.isSetCentreline();
             JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
@@ -335,6 +310,32 @@ public class SeaplaneRampSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
             rhsField = that.getExtent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SeaplaneRampSiteTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SeaplaneRampSiteTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -368,7 +369,7 @@ public class SeaplaneRampSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SeaplaneRampSiteExtensionType> theField;
+            List<SeaplaneRampSiteTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -399,7 +400,7 @@ public class SeaplaneRampSiteTimeSliceType extends AbstractAIXMTimeSliceType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SeaplaneRampSiteExtensionType> theField;
+            List<SeaplaneRampSiteTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

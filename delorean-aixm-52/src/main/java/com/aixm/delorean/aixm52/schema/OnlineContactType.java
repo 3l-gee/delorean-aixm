@@ -110,7 +110,7 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
     protected JAXBElement<TextNameType> protocol;
     @XmlElementRef(name = "eMail", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<TextAddressType> eMail;
-    protected List<OnlineContactTypeExtensionType> extension;
+    protected List<OnlineContactExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -401,14 +401,13 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link OnlineContactTypeExtensionType }
+     * {@link OnlineContactExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = OnlineContactTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "onlinecontacte_hjid", referencedColumnName = "hjid")
-    public List<OnlineContactTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = OnlineContactExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "onlinecontact_oe_hjid", referencedColumnName = "hjid")
+    public List<OnlineContactExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -419,7 +418,7 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
      *
      *
      */
-    public void setExtension(List<OnlineContactTypeExtensionType> extension) {
+    public void setExtension(List<OnlineContactExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -497,27 +496,14 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
         }
         final OnlineContactType that = ((OnlineContactType) object);
         {
-            boolean lhsFieldIsSet = this.isSetProtocol();
-            boolean rhsFieldIsSet = that.isSetProtocol();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getProtocol();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getProtocol();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLinkage();
-            boolean rhsFieldIsSet = that.isSetLinkage();
-            JAXBElement<TextAddressType> lhsField;
-            lhsField = this.getLinkage();
-            JAXBElement<TextAddressType> rhsField;
-            rhsField = that.getLinkage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -536,6 +522,32 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetProtocol();
+            boolean rhsFieldIsSet = that.isSetProtocol();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getProtocol();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getProtocol();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<OnlineContactExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<OnlineContactExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -549,27 +561,14 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<OnlineContactTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<OnlineContactTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetEMail();
+            boolean rhsFieldIsSet = that.isSetEMail();
+            JAXBElement<TextAddressType> lhsField;
+            lhsField = this.getEMail();
+            JAXBElement<TextAddressType> rhsField;
+            rhsField = that.getEMail();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "eMail", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "eMail", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -588,14 +587,14 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEMail();
-            boolean rhsFieldIsSet = that.isSetEMail();
+            boolean lhsFieldIsSet = this.isSetLinkage();
+            boolean rhsFieldIsSet = that.isSetLinkage();
             JAXBElement<TextAddressType> lhsField;
-            lhsField = this.getEMail();
+            lhsField = this.getLinkage();
             JAXBElement<TextAddressType> rhsField;
-            rhsField = that.getEMail();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "eMail", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "eMail", rhsField);
+            rhsField = that.getLinkage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -657,7 +656,7 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<OnlineContactTypeExtensionType> theField;
+            List<OnlineContactExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -712,7 +711,7 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<OnlineContactTypeExtensionType> theField;
+            List<OnlineContactExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -94,7 +94,7 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
     protected AirspaceVolumePropertyType theAirspaceVolume;
-    protected List<AirspaceGeometryComponentTypeExtensionType> extension;
+    protected List<AirspaceGeometryComponentExtensionType> extension;
 
     /**
      * Gets the value of the operation property.
@@ -254,14 +254,14 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirspaceGeometryComponentTypeExtensionType }
+     * {@link AirspaceGeometryComponentExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirspaceGeometryComponentTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AirspaceGeometryComponentExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airspacegeometrycomponente_hjid", referencedColumnName = "hjid")
-    public List<AirspaceGeometryComponentTypeExtensionType> getExtension() {
+    @JoinColumn(name = "airspacegeometrycomponent_oe_hjid", referencedColumnName = "hjid")
+    public List<AirspaceGeometryComponentExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -272,7 +272,7 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
      *
      *
      */
-    public void setExtension(List<AirspaceGeometryComponentTypeExtensionType> extension) {
+    public void setExtension(List<AirspaceGeometryComponentExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -325,27 +325,14 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
         }
         final AirspaceGeometryComponentType that = ((AirspaceGeometryComponentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOperation();
-            boolean rhsFieldIsSet = that.isSetOperation();
-            JAXBElement<CodeAirspaceAggregationType> lhsField;
-            lhsField = this.getOperation();
-            JAXBElement<CodeAirspaceAggregationType> rhsField;
-            rhsField = that.getOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceGeometryComponentTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirspaceGeometryComponentTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -364,14 +351,14 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceGeometryComponentExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirspaceGeometryComponentExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -385,6 +372,19 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
             rhsField = that.getOperationSequence();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationSequence", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationSequence", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperation();
+            boolean rhsFieldIsSet = that.isSetOperation();
+            JAXBElement<CodeAirspaceAggregationType> lhsField;
+            lhsField = this.getOperation();
+            JAXBElement<CodeAirspaceAggregationType> rhsField;
+            rhsField = that.getOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -425,7 +425,7 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceGeometryComponentTypeExtensionType> theField;
+            List<AirspaceGeometryComponentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -462,7 +462,7 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceGeometryComponentTypeExtensionType> theField;
+            List<AirspaceGeometryComponentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

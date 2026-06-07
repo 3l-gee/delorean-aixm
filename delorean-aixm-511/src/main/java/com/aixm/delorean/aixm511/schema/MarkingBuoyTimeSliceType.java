@@ -104,7 +104,7 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
     protected JAXBElement<AIXMElevatedPointPropertyType> location;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<MarkingBuoyExtensionType> extension;
+    protected List<MarkingBuoyTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the designator property.
@@ -321,13 +321,14 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link MarkingBuoyExtensionType }
+     * {@link MarkingBuoyTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = MarkingBuoyExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "markingbuoye_hjid", referencedColumnName = "hjid")
-    public List<MarkingBuoyExtensionType> getExtension() {
+    @OneToMany(targetEntity = MarkingBuoyTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "markingbuoy_te_hjid", referencedColumnName = "hjid")
+    public List<MarkingBuoyTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -338,7 +339,7 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
      *
      *
      */
-    public void setExtension(List<MarkingBuoyExtensionType> extension) {
+    public void setExtension(List<MarkingBuoyTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -431,19 +432,6 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         final MarkingBuoyTimeSliceType that = ((MarkingBuoyTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeBuoyType> lhsField;
@@ -457,14 +445,14 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeBuoyDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeBuoyDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            boolean lhsFieldIsSet = this.isSetColour();
+            boolean rhsFieldIsSet = that.isSetColour();
+            JAXBElement<CodeColourType> lhsField;
+            lhsField = this.getColour();
+            JAXBElement<CodeColourType> rhsField;
+            rhsField = that.getColour();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -478,19 +466,6 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
             rhsField = that.getTheSeaplaneLandingArea();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSeaplaneLandingArea", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSeaplaneLandingArea", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetColour();
-            boolean rhsFieldIsSet = that.isSetColour();
-            JAXBElement<CodeColourType> lhsField;
-            lhsField = this.getColour();
-            JAXBElement<CodeColourType> rhsField;
-            rhsField = that.getColour();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -511,12 +486,38 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<MarkingBuoyExtensionType> lhsField;
+            List<MarkingBuoyTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<MarkingBuoyExtensionType> rhsField;
+            List<MarkingBuoyTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeBuoyDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeBuoyDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -571,7 +572,7 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<MarkingBuoyExtensionType> theField;
+            List<MarkingBuoyTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -620,7 +621,7 @@ public class MarkingBuoyTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<MarkingBuoyExtensionType> theField;
+            List<MarkingBuoyTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

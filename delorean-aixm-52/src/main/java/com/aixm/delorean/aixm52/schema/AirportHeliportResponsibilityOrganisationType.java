@@ -106,7 +106,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
     protected JAXBElement<CodeAuthorityRoleType> role;
     @XmlElementRef(name = "theOrganisationAuthority", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<OrganisationAuthorityPropertyType> theOrganisationAuthority;
-    protected List<AirportHeliportResponsibilityOrganisationTypeExtensionType> extension;
+    protected List<AirportHeliportResponsibilityOrganisationExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -339,14 +339,14 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirportHeliportResponsibilityOrganisationTypeExtensionType }
+     * {@link AirportHeliportResponsibilityOrganisationExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirportHeliportResponsibilityOrganisationTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AirportHeliportResponsibilityOrganisationExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airportheliportresponsibilityorganisatione_hjid", referencedColumnName = "hjid")
-    public List<AirportHeliportResponsibilityOrganisationTypeExtensionType> getExtension() {
+    @JoinColumn(name = "airportheliportresponsibilityorganisation_oe_hjid", referencedColumnName = "hjid")
+    public List<AirportHeliportResponsibilityOrganisationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -357,7 +357,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
      *
      *
      */
-    public void setExtension(List<AirportHeliportResponsibilityOrganisationTypeExtensionType> extension) {
+    public void setExtension(List<AirportHeliportResponsibilityOrganisationExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -413,27 +413,14 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
         }
         final AirportHeliportResponsibilityOrganisationType that = ((AirportHeliportResponsibilityOrganisationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirportHeliportResponsibilityOrganisationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirportHeliportResponsibilityOrganisationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
-            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
-            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = this.getTheOrganisationAuthority();
-            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = that.getTheOrganisationAuthority();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            JAXBElement<CodeAuthorityRoleType> lhsField;
+            lhsField = this.getRole();
+            JAXBElement<CodeAuthorityRoleType> rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -452,6 +439,19 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirportHeliportResponsibilityOrganisationExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirportHeliportResponsibilityOrganisationExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -465,19 +465,6 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            JAXBElement<CodeAuthorityRoleType> lhsField;
-            lhsField = this.getRole();
-            JAXBElement<CodeAuthorityRoleType> rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -486,6 +473,19 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
             rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
+            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
+            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = this.getTheOrganisationAuthority();
+            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = that.getTheOrganisationAuthority();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -533,7 +533,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHeliportResponsibilityOrganisationTypeExtensionType> theField;
+            List<AirportHeliportResponsibilityOrganisationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -576,7 +576,7 @@ public class AirportHeliportResponsibilityOrganisationType extends AbstractPrope
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHeliportResponsibilityOrganisationTypeExtensionType> theField;
+            List<AirportHeliportResponsibilityOrganisationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

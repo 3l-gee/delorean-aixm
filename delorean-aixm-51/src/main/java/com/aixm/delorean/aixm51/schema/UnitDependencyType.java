@@ -89,7 +89,7 @@ public class UnitDependencyType extends AbstractAIXMObjectType implements Serial
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
     protected UnitPropertyType theUnit;
-    protected List<UnitDependencyTypeExtensionType> extension;
+    protected List<UnitDependencyExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -220,14 +220,13 @@ public class UnitDependencyType extends AbstractAIXMObjectType implements Serial
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link UnitDependencyTypeExtensionType }
+     * {@link UnitDependencyExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = UnitDependencyTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "unitdependencye_hjid", referencedColumnName = "hjid")
-    public List<UnitDependencyTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = UnitDependencyExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "unitdependency_oe_hjid", referencedColumnName = "hjid")
+    public List<UnitDependencyExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -238,7 +237,7 @@ public class UnitDependencyType extends AbstractAIXMObjectType implements Serial
      *
      *
      */
-    public void setExtension(List<UnitDependencyTypeExtensionType> extension) {
+    public void setExtension(List<UnitDependencyExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -277,27 +276,27 @@ public class UnitDependencyType extends AbstractAIXMObjectType implements Serial
         }
         final UnitDependencyType that = ((UnitDependencyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeUnitDependencyType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeUnitDependencyType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<UnitDependencyExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<UnitDependencyExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<UnitDependencyTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<UnitDependencyTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetTheUnit();
+            boolean rhsFieldIsSet = that.isSetTheUnit();
+            UnitPropertyType lhsField;
+            lhsField = this.getTheUnit();
+            UnitPropertyType rhsField;
+            rhsField = that.getTheUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theUnit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -316,14 +315,14 @@ public class UnitDependencyType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTheUnit();
-            boolean rhsFieldIsSet = that.isSetTheUnit();
-            UnitPropertyType lhsField;
-            lhsField = this.getTheUnit();
-            UnitPropertyType rhsField;
-            rhsField = that.getTheUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theUnit", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeUnitDependencyType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeUnitDependencyType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -357,7 +356,7 @@ public class UnitDependencyType extends AbstractAIXMObjectType implements Serial
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<UnitDependencyTypeExtensionType> theField;
+            List<UnitDependencyExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -388,7 +387,7 @@ public class UnitDependencyType extends AbstractAIXMObjectType implements Serial
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<UnitDependencyTypeExtensionType> theField;
+            List<UnitDependencyExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

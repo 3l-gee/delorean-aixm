@@ -136,7 +136,7 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
     protected List<AIXMSurfacePropertyType> extent;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<RadioFrequencyAreaExtensionType> extension;
+    protected List<RadioFrequencyAreaTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -571,14 +571,14 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RadioFrequencyAreaExtensionType }
+     * {@link RadioFrequencyAreaTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RadioFrequencyAreaExtensionType.class, cascade = {
+    @OneToMany(targetEntity = RadioFrequencyAreaTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "radiofrequencyareae_hjid", referencedColumnName = "hjid")
-    public List<RadioFrequencyAreaExtensionType> getExtension() {
+    @JoinColumn(name = "radiofrequencyarea_te_hjid", referencedColumnName = "hjid")
+    public List<RadioFrequencyAreaTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -589,7 +589,7 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
      *
      *
      */
-    public void setExtension(List<RadioFrequencyAreaExtensionType> extension) {
+    public void setExtension(List<RadioFrequencyAreaTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -748,32 +748,6 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
         }
         final RadioFrequencyAreaTimeSliceType that = ((RadioFrequencyAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSector();
-            boolean rhsFieldIsSet = that.isSetSector();
-            List<CircleSectorPropertyType> lhsField;
-            lhsField = (this.isSetSector() ? this.getSector() : null);
-            List<CircleSectorPropertyType> rhsField;
-            rhsField = (that.isSetSector() ? that.getSector() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEquipmentFrequency();
-            boolean rhsFieldIsSet = that.isSetEquipmentFrequency();
-            JAXBElement<RadioCommunicationChannelPropertyType> lhsField;
-            lhsField = this.getEquipmentFrequency();
-            JAXBElement<RadioCommunicationChannelPropertyType> rhsField;
-            rhsField = that.getEquipmentFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentFrequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentFrequency", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEquipmentPrecisionApproachRadar();
             boolean rhsFieldIsSet = that.isSetEquipmentPrecisionApproachRadar();
             JAXBElement<PrecisionApproachRadarPropertyType> lhsField;
@@ -789,6 +763,45 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSector();
+            boolean rhsFieldIsSet = that.isSetSector();
+            List<CircleSectorPropertyType> lhsField;
+            lhsField = (this.isSetSector() ? this.getSector() : null);
+            List<CircleSectorPropertyType> rhsField;
+            rhsField = (that.isSetSector() ? that.getSector() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAngleScallop();
+            boolean rhsFieldIsSet = that.isSetAngleScallop();
+            JAXBElement<ValAngleType> lhsField;
+            lhsField = this.getAngleScallop();
+            JAXBElement<ValAngleType> rhsField;
+            rhsField = that.getAngleScallop();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleScallop", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleScallop", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEquipmentNavaidEquipment();
             boolean rhsFieldIsSet = that.isSetEquipmentNavaidEquipment();
             JAXBElement<NavaidEquipmentPropertyType> lhsField;
@@ -797,19 +810,6 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
             rhsField = that.getEquipmentNavaidEquipment();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentNavaidEquipment", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentNavaidEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RadioFrequencyAreaExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RadioFrequencyAreaExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -830,14 +830,14 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RadioFrequencyAreaTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RadioFrequencyAreaTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -856,27 +856,14 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeRadioFrequencyAreaType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeRadioFrequencyAreaType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEquipmentRadar();
-            boolean rhsFieldIsSet = that.isSetEquipmentRadar();
-            JAXBElement<SecondarySurveillanceRadarPropertyType> lhsField;
-            lhsField = this.getEquipmentRadar();
-            JAXBElement<SecondarySurveillanceRadarPropertyType> rhsField;
-            rhsField = that.getEquipmentRadar();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentRadar", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentRadar", rhsField);
+            boolean lhsFieldIsSet = this.isSetEquipmentFrequency();
+            boolean rhsFieldIsSet = that.isSetEquipmentFrequency();
+            JAXBElement<RadioCommunicationChannelPropertyType> lhsField;
+            lhsField = this.getEquipmentFrequency();
+            JAXBElement<RadioCommunicationChannelPropertyType> rhsField;
+            rhsField = that.getEquipmentFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentFrequency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentFrequency", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -890,6 +877,19 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
             rhsField = (that.isSetExtent() ? that.getExtent() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeRadioFrequencyAreaType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeRadioFrequencyAreaType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -910,14 +910,14 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAngleScallop();
-            boolean rhsFieldIsSet = that.isSetAngleScallop();
-            JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getAngleScallop();
-            JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getAngleScallop();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleScallop", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleScallop", rhsField);
+            boolean lhsFieldIsSet = this.isSetEquipmentRadar();
+            boolean rhsFieldIsSet = that.isSetEquipmentRadar();
+            JAXBElement<SecondarySurveillanceRadarPropertyType> lhsField;
+            lhsField = this.getEquipmentRadar();
+            JAXBElement<SecondarySurveillanceRadarPropertyType> rhsField;
+            rhsField = that.getEquipmentRadar();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentRadar", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentRadar", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1015,7 +1015,7 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RadioFrequencyAreaExtensionType> theField;
+            List<RadioFrequencyAreaTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -1100,7 +1100,7 @@ public class RadioFrequencyAreaTimeSliceType extends AbstractAIXMTimeSliceType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RadioFrequencyAreaExtensionType> theField;
+            List<RadioFrequencyAreaTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

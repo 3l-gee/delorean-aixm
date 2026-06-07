@@ -98,7 +98,7 @@ public class AirportSignStatusType extends AbstractPropertiesWithScheduleType im
     protected List<OrganisationAuthorityPropertyType> specialDateAuthority;
     @XmlElementRef(name = "status", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeStatusOperationsType> status;
-    protected List<AirportSignStatusTypeExtensionType> extension;
+    protected List<AirportSignStatusExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -302,14 +302,14 @@ public class AirportSignStatusType extends AbstractPropertiesWithScheduleType im
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirportSignStatusTypeExtensionType }
+     * {@link AirportSignStatusExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirportSignStatusTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AirportSignStatusExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airportsignstatuse_hjid", referencedColumnName = "hjid")
-    public List<AirportSignStatusTypeExtensionType> getExtension() {
+    @JoinColumn(name = "airportsignstatus_oe_hjid", referencedColumnName = "hjid")
+    public List<AirportSignStatusExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -320,7 +320,7 @@ public class AirportSignStatusType extends AbstractPropertiesWithScheduleType im
      *
      *
      */
-    public void setExtension(List<AirportSignStatusTypeExtensionType> extension) {
+    public void setExtension(List<AirportSignStatusExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -359,19 +359,6 @@ public class AirportSignStatusType extends AbstractPropertiesWithScheduleType im
         }
         final AirportSignStatusType that = ((AirportSignStatusType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStatus();
-            boolean rhsFieldIsSet = that.isSetStatus();
-            JAXBElement<CodeStatusOperationsType> lhsField;
-            lhsField = this.getStatus();
-            JAXBElement<CodeStatusOperationsType> rhsField;
-            rhsField = that.getStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -387,25 +374,12 @@ public class AirportSignStatusType extends AbstractPropertiesWithScheduleType im
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirportSignStatusTypeExtensionType> lhsField;
+            List<AirportSignStatusExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirportSignStatusTypeExtensionType> rhsField;
+            List<AirportSignStatusExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -419,6 +393,32 @@ public class AirportSignStatusType extends AbstractPropertiesWithScheduleType im
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStatus();
+            boolean rhsFieldIsSet = that.isSetStatus();
+            JAXBElement<CodeStatusOperationsType> lhsField;
+            lhsField = this.getStatus();
+            JAXBElement<CodeStatusOperationsType> rhsField;
+            rhsField = that.getStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -459,7 +459,7 @@ public class AirportSignStatusType extends AbstractPropertiesWithScheduleType im
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportSignStatusTypeExtensionType> theField;
+            List<AirportSignStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -496,7 +496,7 @@ public class AirportSignStatusType extends AbstractPropertiesWithScheduleType im
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportSignStatusTypeExtensionType> theField;
+            List<AirportSignStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

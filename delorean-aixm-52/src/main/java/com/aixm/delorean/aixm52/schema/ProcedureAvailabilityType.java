@@ -98,7 +98,7 @@ public class ProcedureAvailabilityType extends AbstractPropertiesWithScheduleTyp
     protected List<OrganisationAuthorityPropertyType> specialDateAuthority;
     @XmlElementRef(name = "status", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeProcedureAvailabilityType> status;
-    protected List<ProcedureAvailabilityTypeExtensionType> extension;
+    protected List<ProcedureAvailabilityExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -302,14 +302,14 @@ public class ProcedureAvailabilityType extends AbstractPropertiesWithScheduleTyp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ProcedureAvailabilityTypeExtensionType }
+     * {@link ProcedureAvailabilityExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ProcedureAvailabilityTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ProcedureAvailabilityExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "procedureavailabilitye_hjid", referencedColumnName = "hjid")
-    public List<ProcedureAvailabilityTypeExtensionType> getExtension() {
+    @JoinColumn(name = "procedureavailability_oe_hjid", referencedColumnName = "hjid")
+    public List<ProcedureAvailabilityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -320,7 +320,7 @@ public class ProcedureAvailabilityType extends AbstractPropertiesWithScheduleTyp
      *
      *
      */
-    public void setExtension(List<ProcedureAvailabilityTypeExtensionType> extension) {
+    public void setExtension(List<ProcedureAvailabilityExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -372,6 +372,19 @@ public class ProcedureAvailabilityType extends AbstractPropertiesWithScheduleTyp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ProcedureAvailabilityExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ProcedureAvailabilityExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -385,14 +398,14 @@ public class ProcedureAvailabilityType extends AbstractPropertiesWithScheduleTyp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ProcedureAvailabilityTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ProcedureAvailabilityTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetStatus();
+            boolean rhsFieldIsSet = that.isSetStatus();
+            JAXBElement<CodeProcedureAvailabilityType> lhsField;
+            lhsField = this.getStatus();
+            JAXBElement<CodeProcedureAvailabilityType> rhsField;
+            rhsField = that.getStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -406,19 +419,6 @@ public class ProcedureAvailabilityType extends AbstractPropertiesWithScheduleTyp
             rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStatus();
-            boolean rhsFieldIsSet = that.isSetStatus();
-            JAXBElement<CodeProcedureAvailabilityType> lhsField;
-            lhsField = this.getStatus();
-            JAXBElement<CodeProcedureAvailabilityType> rhsField;
-            rhsField = that.getStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -459,7 +459,7 @@ public class ProcedureAvailabilityType extends AbstractPropertiesWithScheduleTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ProcedureAvailabilityTypeExtensionType> theField;
+            List<ProcedureAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -496,7 +496,7 @@ public class ProcedureAvailabilityType extends AbstractPropertiesWithScheduleTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ProcedureAvailabilityTypeExtensionType> theField;
+            List<ProcedureAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

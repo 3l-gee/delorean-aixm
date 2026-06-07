@@ -96,7 +96,7 @@ public class AuthorityForAirspaceTimeSliceType extends AbstractAIXMTimeSliceType
     protected JAXBElement<AirspacePropertyType> assignedAirspace;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<AuthorityForAirspaceExtensionType> extension;
+    protected List<AuthorityForAirspaceTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -255,14 +255,14 @@ public class AuthorityForAirspaceTimeSliceType extends AbstractAIXMTimeSliceType
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AuthorityForAirspaceExtensionType }
+     * {@link AuthorityForAirspaceTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AuthorityForAirspaceExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AuthorityForAirspaceTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "authorityforairspacee_hjid", referencedColumnName = "hjid")
-    public List<AuthorityForAirspaceExtensionType> getExtension() {
+    @JoinColumn(name = "authorityforairspace_te_hjid", referencedColumnName = "hjid")
+    public List<AuthorityForAirspaceTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -273,7 +273,7 @@ public class AuthorityForAirspaceTimeSliceType extends AbstractAIXMTimeSliceType
      *
      *
      */
-    public void setExtension(List<AuthorityForAirspaceExtensionType> extension) {
+    public void setExtension(List<AuthorityForAirspaceTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -342,14 +342,14 @@ public class AuthorityForAirspaceTimeSliceType extends AbstractAIXMTimeSliceType
         }
         final AuthorityForAirspaceTimeSliceType that = ((AuthorityForAirspaceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AuthorityForAirspaceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AuthorityForAirspaceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAuthorityType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAuthorityType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -381,14 +381,14 @@ public class AuthorityForAirspaceTimeSliceType extends AbstractAIXMTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAuthorityType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAuthorityType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AuthorityForAirspaceTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AuthorityForAirspaceTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -442,7 +442,7 @@ public class AuthorityForAirspaceTimeSliceType extends AbstractAIXMTimeSliceType
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AuthorityForAirspaceExtensionType> theField;
+            List<AuthorityForAirspaceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -479,7 +479,7 @@ public class AuthorityForAirspaceTimeSliceType extends AbstractAIXMTimeSliceType
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AuthorityForAirspaceExtensionType> theField;
+            List<AuthorityForAirspaceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

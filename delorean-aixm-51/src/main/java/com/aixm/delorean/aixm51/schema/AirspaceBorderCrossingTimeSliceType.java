@@ -87,7 +87,7 @@ public class AirspaceBorderCrossingTimeSliceType extends AbstractAIXMTimeSliceTy
     protected JAXBElement<AirspacePropertyType> enteredAirspace;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<AirspaceBorderCrossingExtensionType> extension;
+    protected List<AirspaceBorderCrossingTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the exitedAirspace property.
@@ -217,14 +217,14 @@ public class AirspaceBorderCrossingTimeSliceType extends AbstractAIXMTimeSliceTy
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirspaceBorderCrossingExtensionType }
+     * {@link AirspaceBorderCrossingTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirspaceBorderCrossingExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AirspaceBorderCrossingTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airspacebordercrossinge_hjid", referencedColumnName = "hjid")
-    public List<AirspaceBorderCrossingExtensionType> getExtension() {
+    @JoinColumn(name = "airspacebordercrossing_te_hjid", referencedColumnName = "hjid")
+    public List<AirspaceBorderCrossingTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -235,7 +235,7 @@ public class AirspaceBorderCrossingTimeSliceType extends AbstractAIXMTimeSliceTy
      *
      *
      */
-    public void setExtension(List<AirspaceBorderCrossingExtensionType> extension) {
+    public void setExtension(List<AirspaceBorderCrossingTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -292,9 +292,9 @@ public class AirspaceBorderCrossingTimeSliceType extends AbstractAIXMTimeSliceTy
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceBorderCrossingExtensionType> lhsField;
+            List<AirspaceBorderCrossingTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirspaceBorderCrossingExtensionType> rhsField;
+            List<AirspaceBorderCrossingTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -316,19 +316,6 @@ public class AirspaceBorderCrossingTimeSliceType extends AbstractAIXMTimeSliceTy
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEnteredAirspace();
-            boolean rhsFieldIsSet = that.isSetEnteredAirspace();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getEnteredAirspace();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getEnteredAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "enteredAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "enteredAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -337,6 +324,19 @@ public class AirspaceBorderCrossingTimeSliceType extends AbstractAIXMTimeSliceTy
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEnteredAirspace();
+            boolean rhsFieldIsSet = that.isSetEnteredAirspace();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getEnteredAirspace();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getEnteredAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "enteredAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "enteredAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -370,7 +370,7 @@ public class AirspaceBorderCrossingTimeSliceType extends AbstractAIXMTimeSliceTy
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceBorderCrossingExtensionType> theField;
+            List<AirspaceBorderCrossingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -401,7 +401,7 @@ public class AirspaceBorderCrossingTimeSliceType extends AbstractAIXMTimeSliceTy
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceBorderCrossingExtensionType> theField;
+            List<AirspaceBorderCrossingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

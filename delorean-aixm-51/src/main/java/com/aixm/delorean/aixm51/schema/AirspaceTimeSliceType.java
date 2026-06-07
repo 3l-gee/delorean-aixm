@@ -131,7 +131,7 @@ public class AirspaceTimeSliceType extends AbstractAIXMTimeSliceType implements 
     protected List<AirspaceActivationPropertyType> activation;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<AirspaceExtensionType> extension;
+    protected List<AirspaceTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -591,13 +591,14 @@ public class AirspaceTimeSliceType extends AbstractAIXMTimeSliceType implements 
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirspaceExtensionType }
+     * {@link AirspaceTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirspaceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airspacee_hjid", referencedColumnName = "hjid")
-    public List<AirspaceExtensionType> getExtension() {
+    @OneToMany(targetEntity = AirspaceTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "airspace_te_hjid", referencedColumnName = "hjid")
+    public List<AirspaceTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -608,7 +609,7 @@ public class AirspaceTimeSliceType extends AbstractAIXMTimeSliceType implements 
      *
      *
      */
-    public void setExtension(List<AirspaceExtensionType> extension) {
+    public void setExtension(List<AirspaceTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -737,14 +738,14 @@ public class AirspaceTimeSliceType extends AbstractAIXMTimeSliceType implements 
         }
         final AirspaceTimeSliceType that = ((AirspaceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGeometryComponent();
-            boolean rhsFieldIsSet = that.isSetGeometryComponent();
-            List<AirspaceGeometryComponentPropertyType> lhsField;
-            lhsField = (this.isSetGeometryComponent() ? this.getGeometryComponent() : null);
-            List<AirspaceGeometryComponentPropertyType> rhsField;
-            rhsField = (that.isSetGeometryComponent() ? that.getGeometryComponent() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometryComponent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometryComponent", rhsField);
+            boolean lhsFieldIsSet = this.isSetUpperLowerSeparation();
+            boolean rhsFieldIsSet = that.isSetUpperLowerSeparation();
+            JAXBElement<ValFLType> lhsField;
+            lhsField = this.getUpperLowerSeparation();
+            JAXBElement<ValFLType> rhsField;
+            rhsField = that.getUpperLowerSeparation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLowerSeparation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLowerSeparation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -763,40 +764,53 @@ public class AirspaceTimeSliceType extends AbstractAIXMTimeSliceType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActivation();
-            boolean rhsFieldIsSet = that.isSetActivation();
-            List<AirspaceActivationPropertyType> lhsField;
-            lhsField = (this.isSetActivation() ? this.getActivation() : null);
-            List<AirspaceActivationPropertyType> rhsField;
-            rhsField = (that.isSetActivation() ? that.getActivation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirspaceTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUpperLowerSeparation();
-            boolean rhsFieldIsSet = that.isSetUpperLowerSeparation();
-            JAXBElement<ValFLType> lhsField;
-            lhsField = this.getUpperLowerSeparation();
-            JAXBElement<ValFLType> rhsField;
-            rhsField = that.getUpperLowerSeparation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLowerSeparation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLowerSeparation", rhsField);
+            boolean lhsFieldIsSet = this.isSetDesignatorICAO();
+            boolean rhsFieldIsSet = that.isSetDesignatorICAO();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getDesignatorICAO();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getDesignatorICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorICAO", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetProtectedRoute();
-            boolean rhsFieldIsSet = that.isSetProtectedRoute();
-            JAXBElement<RoutePropertyType> lhsField;
-            lhsField = this.getProtectedRoute();
-            JAXBElement<RoutePropertyType> rhsField;
-            rhsField = that.getProtectedRoute();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectedRoute", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectedRoute", rhsField);
+            boolean lhsFieldIsSet = this.isSetGeometryComponent();
+            boolean rhsFieldIsSet = that.isSetGeometryComponent();
+            List<AirspaceGeometryComponentPropertyType> lhsField;
+            lhsField = (this.isSetGeometryComponent() ? this.getGeometryComponent() : null);
+            List<AirspaceGeometryComponentPropertyType> rhsField;
+            rhsField = (that.isSetGeometryComponent() ? that.getGeometryComponent() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometryComponent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometryComponent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAirspaceType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAirspaceType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -828,58 +842,6 @@ public class AirspaceTimeSliceType extends AbstractAIXMTimeSliceType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocalType();
-            boolean rhsFieldIsSet = that.isSetLocalType();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getLocalType();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getLocalType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirspaceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAirspaceType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAirspaceType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignatorICAO();
-            boolean rhsFieldIsSet = that.isSetDesignatorICAO();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getDesignatorICAO();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getDesignatorICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorICAO", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDesignator();
             boolean rhsFieldIsSet = that.isSetDesignator();
             JAXBElement<CodeAirspaceDesignatorType> lhsField;
@@ -901,6 +863,45 @@ public class AirspaceTimeSliceType extends AbstractAIXMTimeSliceType implements 
             rhsField = that.getAixmName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetProtectedRoute();
+            boolean rhsFieldIsSet = that.isSetProtectedRoute();
+            JAXBElement<RoutePropertyType> lhsField;
+            lhsField = this.getProtectedRoute();
+            JAXBElement<RoutePropertyType> rhsField;
+            rhsField = that.getProtectedRoute();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectedRoute", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectedRoute", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActivation();
+            boolean rhsFieldIsSet = that.isSetActivation();
+            List<AirspaceActivationPropertyType> lhsField;
+            lhsField = (this.isSetActivation() ? this.getActivation() : null);
+            List<AirspaceActivationPropertyType> rhsField;
+            rhsField = (that.isSetActivation() ? that.getActivation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocalType();
+            boolean rhsFieldIsSet = that.isSetLocalType();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getLocalType();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getLocalType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -997,7 +998,7 @@ public class AirspaceTimeSliceType extends AbstractAIXMTimeSliceType implements 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceExtensionType> theField;
+            List<AirspaceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -1082,7 +1083,7 @@ public class AirspaceTimeSliceType extends AbstractAIXMTimeSliceType implements 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirspaceExtensionType> theField;
+            List<AirspaceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

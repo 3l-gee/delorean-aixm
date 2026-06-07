@@ -92,7 +92,7 @@ public class AuthorityForNavaidEquipmentType extends AbstractAIXMObjectType impl
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "theOrganisationAuthority", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<OrganisationAuthorityPropertyType> theOrganisationAuthority;
-    protected List<AuthorityForNavaidEquipmentTypeExtensionType> extension;
+    protected List<AuthorityForNavaidEquipmentExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -222,14 +222,14 @@ public class AuthorityForNavaidEquipmentType extends AbstractAIXMObjectType impl
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AuthorityForNavaidEquipmentTypeExtensionType }
+     * {@link AuthorityForNavaidEquipmentExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AuthorityForNavaidEquipmentTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AuthorityForNavaidEquipmentExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "authorityfornavaidequipmente_hjid", referencedColumnName = "hjid")
-    public List<AuthorityForNavaidEquipmentTypeExtensionType> getExtension() {
+    @JoinColumn(name = "authorityfornavaidequipment_oe_hjid", referencedColumnName = "hjid")
+    public List<AuthorityForNavaidEquipmentExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -240,7 +240,7 @@ public class AuthorityForNavaidEquipmentType extends AbstractAIXMObjectType impl
      *
      *
      */
-    public void setExtension(List<AuthorityForNavaidEquipmentTypeExtensionType> extension) {
+    public void setExtension(List<AuthorityForNavaidEquipmentExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -295,6 +295,19 @@ public class AuthorityForNavaidEquipmentType extends AbstractAIXMObjectType impl
         }
         final AuthorityForNavaidEquipmentType that = ((AuthorityForNavaidEquipmentType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AuthorityForNavaidEquipmentExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AuthorityForNavaidEquipmentExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
             boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
             JAXBElement<OrganisationAuthorityPropertyType> lhsField;
@@ -316,19 +329,6 @@ public class AuthorityForNavaidEquipmentType extends AbstractAIXMObjectType impl
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AuthorityForNavaidEquipmentTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AuthorityForNavaidEquipmentTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -375,7 +375,7 @@ public class AuthorityForNavaidEquipmentType extends AbstractAIXMObjectType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AuthorityForNavaidEquipmentTypeExtensionType> theField;
+            List<AuthorityForNavaidEquipmentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -406,7 +406,7 @@ public class AuthorityForNavaidEquipmentType extends AbstractAIXMObjectType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AuthorityForNavaidEquipmentTypeExtensionType> theField;
+            List<AuthorityForNavaidEquipmentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

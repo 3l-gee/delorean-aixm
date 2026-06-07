@@ -87,7 +87,7 @@ public class DirectFlightClassType extends AbstractDirectFlightType implements S
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "exceedLength", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<ValDistanceType> exceedLength;
-    protected List<DirectFlightClassTypeExtensionType> extension;
+    protected List<DirectFlightClassExtensionType> extension;
 
     /**
      * Gets the value of the annotation property.
@@ -188,14 +188,14 @@ public class DirectFlightClassType extends AbstractDirectFlightType implements S
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link DirectFlightClassTypeExtensionType }
+     * {@link DirectFlightClassExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = DirectFlightClassTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = DirectFlightClassExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "directflightclasse_hjid", referencedColumnName = "hjid")
-    public List<DirectFlightClassTypeExtensionType> getExtension() {
+    @JoinColumn(name = "directflightclass_oe_hjid", referencedColumnName = "hjid")
+    public List<DirectFlightClassExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -206,7 +206,7 @@ public class DirectFlightClassType extends AbstractDirectFlightType implements S
      *
      *
      */
-    public void setExtension(List<DirectFlightClassTypeExtensionType> extension) {
+    public void setExtension(List<DirectFlightClassExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -276,9 +276,9 @@ public class DirectFlightClassType extends AbstractDirectFlightType implements S
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<DirectFlightClassTypeExtensionType> lhsField;
+            List<DirectFlightClassExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<DirectFlightClassTypeExtensionType> rhsField;
+            List<DirectFlightClassExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -308,7 +308,7 @@ public class DirectFlightClassType extends AbstractDirectFlightType implements S
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<DirectFlightClassTypeExtensionType> theField;
+            List<DirectFlightClassExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -333,7 +333,7 @@ public class DirectFlightClassType extends AbstractDirectFlightType implements S
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<DirectFlightClassTypeExtensionType> theField;
+            List<DirectFlightClassExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

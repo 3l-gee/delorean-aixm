@@ -123,7 +123,7 @@ public class RadarSystemTimeSliceType extends AbstractAIXMTimeSliceType implemen
     protected JAXBElement<AIXMElevatedPointPropertyType> location;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<RadarSystemExtensionType> extension;
+    protected List<RadarSystemTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -523,13 +523,14 @@ public class RadarSystemTimeSliceType extends AbstractAIXMTimeSliceType implemen
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RadarSystemExtensionType }
+     * {@link RadarSystemTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RadarSystemExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "radarsysteme_hjid", referencedColumnName = "hjid")
-    public List<RadarSystemExtensionType> getExtension() {
+    @OneToMany(targetEntity = RadarSystemTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "radarsystem_te_hjid", referencedColumnName = "hjid")
+    public List<RadarSystemTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -540,7 +541,7 @@ public class RadarSystemTimeSliceType extends AbstractAIXMTimeSliceType implemen
      *
      *
      */
-    public void setExtension(List<RadarSystemExtensionType> extension) {
+    public void setExtension(List<RadarSystemTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -646,84 +647,6 @@ public class RadarSystemTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         final RadarSystemTimeSliceType that = ((RadarSystemTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetModel();
-            boolean rhsFieldIsSet = that.isSetModel();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getModel();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getModel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "model", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "model", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGeneralTerrainMonitor();
-            boolean rhsFieldIsSet = that.isSetGeneralTerrainMonitor();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getGeneralTerrainMonitor();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getGeneralTerrainMonitor();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "generalTerrainMonitor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "generalTerrainMonitor", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RadarSystemExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RadarSystemExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRadarEquipment();
-            boolean rhsFieldIsSet = that.isSetRadarEquipment();
-            List<RadarComponentPropertyType> lhsField;
-            lhsField = (this.isSetRadarEquipment() ? this.getRadarEquipment() : null);
-            List<RadarComponentPropertyType> rhsField;
-            rhsField = (that.isSetRadarEquipment() ? that.getRadarEquipment() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetBroadcastIdentifier();
-            boolean rhsFieldIsSet = that.isSetBroadcastIdentifier();
-            JAXBElement<TextDesignatorType> lhsField;
-            lhsField = this.getBroadcastIdentifier();
-            JAXBElement<TextDesignatorType> rhsField;
-            rhsField = that.getBroadcastIdentifier();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "broadcastIdentifier", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "broadcastIdentifier", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeRadarServiceType> lhsField;
@@ -750,14 +673,14 @@ public class RadarSystemTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAirportHeliport();
-            boolean rhsFieldIsSet = that.isSetAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getAirportHeliport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliport", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -776,6 +699,19 @@ public class RadarSystemTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRadarEquipment();
+            boolean rhsFieldIsSet = that.isSetRadarEquipment();
+            List<RadarComponentPropertyType> lhsField;
+            lhsField = (this.isSetRadarEquipment() ? this.getRadarEquipment() : null);
+            List<RadarComponentPropertyType> rhsField;
+            rhsField = (that.isSetRadarEquipment() ? that.getRadarEquipment() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -784,6 +720,71 @@ public class RadarSystemTimeSliceType extends AbstractAIXMTimeSliceType implemen
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAirportHeliport();
+            boolean rhsFieldIsSet = that.isSetAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getAirportHeliport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetModel();
+            boolean rhsFieldIsSet = that.isSetModel();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getModel();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getModel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "model", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "model", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeneralTerrainMonitor();
+            boolean rhsFieldIsSet = that.isSetGeneralTerrainMonitor();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getGeneralTerrainMonitor();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getGeneralTerrainMonitor();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "generalTerrainMonitor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "generalTerrainMonitor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBroadcastIdentifier();
+            boolean rhsFieldIsSet = that.isSetBroadcastIdentifier();
+            JAXBElement<TextDesignatorType> lhsField;
+            lhsField = this.getBroadcastIdentifier();
+            JAXBElement<TextDesignatorType> rhsField;
+            rhsField = that.getBroadcastIdentifier();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "broadcastIdentifier", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "broadcastIdentifier", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RadarSystemTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RadarSystemTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -866,7 +867,7 @@ public class RadarSystemTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RadarSystemExtensionType> theField;
+            List<RadarSystemTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -939,7 +940,7 @@ public class RadarSystemTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RadarSystemExtensionType> theField;
+            List<RadarSystemTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

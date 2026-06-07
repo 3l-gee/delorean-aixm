@@ -104,7 +104,7 @@ public class WorkAreaTimeSliceType extends AbstractAIXMTimeSliceType implements 
     protected List<WorkareaActivityPropertyType> activation;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<WorkAreaExtensionType> extension;
+    protected List<WorkAreaTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -343,13 +343,14 @@ public class WorkAreaTimeSliceType extends AbstractAIXMTimeSliceType implements 
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link WorkAreaExtensionType }
+     * {@link WorkAreaTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = WorkAreaExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "workareae_hjid", referencedColumnName = "hjid")
-    public List<WorkAreaExtensionType> getExtension() {
+    @OneToMany(targetEntity = WorkAreaTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "workarea_te_hjid", referencedColumnName = "hjid")
+    public List<WorkAreaTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -360,7 +361,7 @@ public class WorkAreaTimeSliceType extends AbstractAIXMTimeSliceType implements 
      *
      *
      */
-    public void setExtension(List<WorkAreaExtensionType> extension) {
+    public void setExtension(List<WorkAreaTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -440,40 +441,14 @@ public class WorkAreaTimeSliceType extends AbstractAIXMTimeSliceType implements 
         }
         final WorkAreaTimeSliceType that = ((WorkAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPlannedOperational();
-            boolean rhsFieldIsSet = that.isSetPlannedOperational();
-            JAXBElement<DateType> lhsField;
-            lhsField = this.getPlannedOperational();
-            JAXBElement<DateType> rhsField;
-            rhsField = that.getPlannedOperational();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "plannedOperational", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "plannedOperational", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<WorkAreaExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<WorkAreaExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeWorkAreaType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeWorkAreaType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -492,27 +467,27 @@ public class WorkAreaTimeSliceType extends AbstractAIXMTimeSliceType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedAirportHeliport();
-            boolean rhsFieldIsSet = that.isSetAssociatedAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getAssociatedAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getAssociatedAirportHeliport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirportHeliport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirportHeliport", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeWorkAreaType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeWorkAreaType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            boolean lhsFieldIsSet = this.isSetPlannedOperational();
+            boolean rhsFieldIsSet = that.isSetPlannedOperational();
+            JAXBElement<DateType> lhsField;
+            lhsField = this.getPlannedOperational();
+            JAXBElement<DateType> rhsField;
+            rhsField = that.getPlannedOperational();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "plannedOperational", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "plannedOperational", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -526,6 +501,32 @@ public class WorkAreaTimeSliceType extends AbstractAIXMTimeSliceType implements 
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAssociatedAirportHeliport();
+            boolean rhsFieldIsSet = that.isSetAssociatedAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getAssociatedAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getAssociatedAirportHeliport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirportHeliport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirportHeliport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<WorkAreaTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<WorkAreaTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -580,7 +581,7 @@ public class WorkAreaTimeSliceType extends AbstractAIXMTimeSliceType implements 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<WorkAreaExtensionType> theField;
+            List<WorkAreaTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -629,7 +630,7 @@ public class WorkAreaTimeSliceType extends AbstractAIXMTimeSliceType implements 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<WorkAreaExtensionType> theField;
+            List<WorkAreaTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

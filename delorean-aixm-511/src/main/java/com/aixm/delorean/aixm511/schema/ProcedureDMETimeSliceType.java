@@ -99,7 +99,7 @@ public class ProcedureDMETimeSliceType extends AbstractAIXMTimeSliceType impleme
     protected JAXBElement<SegmentLegPropertyType> segmentLeg;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<ProcedureDMEExtensionType> extension;
+    protected List<ProcedureDMETimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the criticalDME property.
@@ -287,13 +287,14 @@ public class ProcedureDMETimeSliceType extends AbstractAIXMTimeSliceType impleme
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ProcedureDMEExtensionType }
+     * {@link ProcedureDMETimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ProcedureDMEExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "proceduredmee_hjid", referencedColumnName = "hjid")
-    public List<ProcedureDMEExtensionType> getExtension() {
+    @OneToMany(targetEntity = ProcedureDMETimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "proceduredme_te_hjid", referencedColumnName = "hjid")
+    public List<ProcedureDMETimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -304,7 +305,7 @@ public class ProcedureDMETimeSliceType extends AbstractAIXMTimeSliceType impleme
      *
      *
      */
-    public void setExtension(List<ProcedureDMEExtensionType> extension) {
+    public void setExtension(List<ProcedureDMETimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -383,6 +384,19 @@ public class ProcedureDMETimeSliceType extends AbstractAIXMTimeSliceType impleme
         }
         final ProcedureDMETimeSliceType that = ((ProcedureDMETimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetSatisfactory();
+            boolean rhsFieldIsSet = that.isSetSatisfactory();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getSatisfactory();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getSatisfactory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satisfactory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satisfactory", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSegmentLeg();
             boolean rhsFieldIsSet = that.isSetSegmentLeg();
             JAXBElement<SegmentLegPropertyType> lhsField;
@@ -398,9 +412,9 @@ public class ProcedureDMETimeSliceType extends AbstractAIXMTimeSliceType impleme
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<ProcedureDMEExtensionType> lhsField;
+            List<ProcedureDMETimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ProcedureDMEExtensionType> rhsField;
+            List<ProcedureDMETimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -443,19 +457,6 @@ public class ProcedureDMETimeSliceType extends AbstractAIXMTimeSliceType impleme
             rhsField = that.getCriticalDME();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalDME", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalDME", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSatisfactory();
-            boolean rhsFieldIsSet = that.isSetSatisfactory();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getSatisfactory();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getSatisfactory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satisfactory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satisfactory", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -503,7 +504,7 @@ public class ProcedureDMETimeSliceType extends AbstractAIXMTimeSliceType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ProcedureDMEExtensionType> theField;
+            List<ProcedureDMETimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -546,7 +547,7 @@ public class ProcedureDMETimeSliceType extends AbstractAIXMTimeSliceType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ProcedureDMEExtensionType> theField;
+            List<ProcedureDMETimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

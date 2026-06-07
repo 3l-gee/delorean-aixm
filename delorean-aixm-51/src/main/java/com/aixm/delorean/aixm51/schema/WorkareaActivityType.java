@@ -86,7 +86,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "WorkareaActivityType", propOrder = {"timeInterval", "annotation", "specialDateAuthority", "isActive",
         "extension"})
 @Entity(name = "WorkareaActivityType")
-@Table(name = "workareaactivitytype", schema = "airport_heliport")
+@Table(name = "workareaactivity_o", schema = "airport_heliport")
 public class WorkareaActivityType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -98,7 +98,7 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
     protected List<OrganisationAuthorityPropertyType> specialDateAuthority;
     @XmlElementRef(name = "isActive", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeYesNoType> isActive;
-    protected List<WorkareaActivityTypeExtensionType> extension;
+    protected List<WorkareaActivityExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -125,7 +125,7 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "wrkractvttp_tmintrvl_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "workareaactivitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "workareaactivity_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -176,7 +176,7 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "wrkractvttp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "workareaactivitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "workareaactivity_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -228,7 +228,7 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "wrkractvttp_spcldtathrt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "workareaactivitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "workareaactivity_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -302,14 +302,13 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link WorkareaActivityTypeExtensionType }
+     * {@link WorkareaActivityExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = WorkareaActivityTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "workareaactivitye_hjid", referencedColumnName = "hjid")
-    public List<WorkareaActivityTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = WorkareaActivityExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "workareaactivity_oe_hjid", referencedColumnName = "hjid")
+    public List<WorkareaActivityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -320,7 +319,7 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
      *
      *
      */
-    public void setExtension(List<WorkareaActivityTypeExtensionType> extension) {
+    public void setExtension(List<WorkareaActivityExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -359,32 +358,6 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
         }
         final WorkareaActivityType that = ((WorkareaActivityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<WorkareaActivityTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<WorkareaActivityTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -398,14 +371,27 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIsActive();
-            boolean rhsFieldIsSet = that.isSetIsActive();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIsActive();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIsActive();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isActive", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isActive", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<WorkareaActivityExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<WorkareaActivityExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -419,6 +405,19 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
             rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIsActive();
+            boolean rhsFieldIsSet = that.isSetIsActive();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getIsActive();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getIsActive();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isActive", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isActive", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -459,7 +458,7 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<WorkareaActivityTypeExtensionType> theField;
+            List<WorkareaActivityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -496,7 +495,7 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<WorkareaActivityTypeExtensionType> theField;
+            List<WorkareaActivityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

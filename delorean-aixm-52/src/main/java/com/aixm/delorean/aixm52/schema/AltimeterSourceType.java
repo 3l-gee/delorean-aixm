@@ -99,7 +99,7 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
     protected JAXBElement<ValDistanceType> distance;
     @XmlElementRef(name = "altimeterData", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<WeatherSourcePropertyType> altimeterData;
-    protected List<AltimeterSourceTypeExtensionType> extension;
+    protected List<AltimeterSourceExtensionType> extension;
 
     /**
      * Gets the value of the annotation property.
@@ -287,14 +287,13 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AltimeterSourceTypeExtensionType }
+     * {@link AltimeterSourceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AltimeterSourceTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "altimetersourcee_hjid", referencedColumnName = "hjid")
-    public List<AltimeterSourceTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = AltimeterSourceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "altimetersource_oe_hjid", referencedColumnName = "hjid")
+    public List<AltimeterSourceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -305,7 +304,7 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
      *
      *
      */
-    public void setExtension(List<AltimeterSourceTypeExtensionType> extension) {
+    public void setExtension(List<AltimeterSourceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -397,37 +396,11 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRelativeLocation();
-            boolean rhsFieldIsSet = that.isSetRelativeLocation();
-            JAXBElement<CodeRelativeLocationType> lhsField;
-            lhsField = this.getRelativeLocation();
-            JAXBElement<CodeRelativeLocationType> rhsField;
-            rhsField = that.getRelativeLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<AltimeterSourceTypeExtensionType> lhsField;
+            List<AltimeterSourceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AltimeterSourceTypeExtensionType> rhsField;
+            List<AltimeterSourceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -449,6 +422,19 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRelativeLocation();
+            boolean rhsFieldIsSet = that.isSetRelativeLocation();
+            JAXBElement<CodeRelativeLocationType> lhsField;
+            lhsField = this.getRelativeLocation();
+            JAXBElement<CodeRelativeLocationType> rhsField;
+            rhsField = that.getRelativeLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeLocation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDistance();
             boolean rhsFieldIsSet = that.isSetDistance();
             JAXBElement<ValDistanceType> lhsField;
@@ -457,6 +443,19 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
             rhsField = that.getDistance();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -504,7 +503,7 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AltimeterSourceTypeExtensionType> theField;
+            List<AltimeterSourceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -547,7 +546,7 @@ public class AltimeterSourceType extends AbstractAIXMObjectType implements Seria
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AltimeterSourceTypeExtensionType> theField;
+            List<AltimeterSourceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

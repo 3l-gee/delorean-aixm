@@ -129,7 +129,7 @@ public class GBASTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
     protected List<AirportHeliportPropertyType> servedAirport;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<GBASExtensionType> extension;
+    protected List<GBASTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the designator property.
@@ -580,13 +580,13 @@ public class GBASTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link GBASExtensionType }
+     * {@link GBASTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = GBASExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "gbase_hjid", referencedColumnName = "hjid")
-    public List<GBASExtensionType> getExtension() {
+    @OneToMany(targetEntity = GBASTimeSliceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "gbas_te_hjid", referencedColumnName = "hjid")
+    public List<GBASTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -597,7 +597,7 @@ public class GBASTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
      *
      *
      */
-    public void setExtension(List<GBASExtensionType> extension) {
+    public void setExtension(List<GBASTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -704,79 +704,14 @@ public class GBASTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
         }
         final GBASTimeSliceType that = ((GBASTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAugmentedSystem();
-            boolean rhsFieldIsSet = that.isSetAugmentedSystem();
-            List<SatelliteSystemPropertyType> lhsField;
-            lhsField = (this.isSetAugmentedSystem() ? this.getAugmentedSystem() : null);
-            List<SatelliteSystemPropertyType> rhsField;
-            rhsField = (that.isSetAugmentedSystem() ? that.getAugmentedSystem() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "augmentedSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "augmentedSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightChecked();
-            boolean rhsFieldIsSet = that.isSetFlightChecked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlightChecked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlightChecked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<NavaidOperationalStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<NavaidOperationalStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<GBASExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<GBASExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeICAOType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeICAOType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -795,14 +730,14 @@ public class GBASTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOperator();
-            boolean rhsFieldIsSet = that.isSetOperator();
-            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = this.getOperator();
-            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = that.getOperator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operator", rhsField);
+            boolean lhsFieldIsSet = this.isSetAugmentedSystem();
+            boolean rhsFieldIsSet = that.isSetAugmentedSystem();
+            List<SatelliteSystemPropertyType> lhsField;
+            lhsField = (this.isSetAugmentedSystem() ? this.getAugmentedSystem() : null);
+            List<SatelliteSystemPropertyType> rhsField;
+            rhsField = (that.isSetAugmentedSystem() ? that.getAugmentedSystem() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "augmentedSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "augmentedSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -834,14 +769,27 @@ public class GBASTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeICAOType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeICAOType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<GBASTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<GBASTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -855,6 +803,58 @@ public class GBASTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
             rhsField = that.getMaximumUseDistance();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumUseDistance", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumUseDistance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperator();
+            boolean rhsFieldIsSet = that.isSetOperator();
+            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = this.getOperator();
+            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = that.getOperator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<NavaidOperationalStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
+            List<NavaidOperationalStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightChecked();
+            boolean rhsFieldIsSet = that.isSetFlightChecked();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlightChecked();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlightChecked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -944,7 +944,7 @@ public class GBASTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GBASExtensionType> theField;
+            List<GBASTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -1023,7 +1023,7 @@ public class GBASTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GBASExtensionType> theField;
+            List<GBASTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

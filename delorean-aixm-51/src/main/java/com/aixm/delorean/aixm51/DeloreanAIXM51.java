@@ -77,10 +77,8 @@ public class DeloreanAIXM51 implements com.aixm.delorean.core.DeloreanProcessor 
      * Creates a new context with a random salt and sets it as active.
     */
     @Override
-    public Context setContext(String name, String description) {
+    public void setContext(String name, String description) {
         ContextWarehouse.getInstance().setContext(name, description);
-
-        return ContextWarehouse.getInstance().getActive();
     }
 
     /**
@@ -88,24 +86,49 @@ public class DeloreanAIXM51 implements com.aixm.delorean.core.DeloreanProcessor 
     * This allows for consistent ID generation across different runs or documents when the same salt is used.
     */
     @Override
-    public Context registerContext(String salt, String name, String description) {
+    public void registerContext(String salt, String name, String description) {
         ContextWarehouse.getInstance().registerContext(salt, name, description);
-
-        return ContextWarehouse.getInstance().getActive();
     }
 
-    /** Returns the default (last used) container */
+    /**
+     *  Removes the context with the given reference. If the removed context is currently active, it unsets the active context.
+     * @param ref The reference ID of the context to remove.
+     */
     @Override
-    public Container<?,?,?,?,?,?> container() {
+    public void removeContext(String ref) {
+        ContextWarehouse.getInstance().removeContext(ref);
+    }
+
+    /**
+     * Clears all contexts from the ContextWarehouse and unsets any active context.
+     */
+    @Override
+    public void clearContexts() {
+        ContextWarehouse.getInstance().clearContexts();
+    }
+
+    /**
+     * Unsets the currently active context without removing it from the ContextWarehouse. This allows the context to be reactivated later if needed.
+     */
+    @Override
+    public void unSetActiveContext() {
+        ContextWarehouse.getInstance().unSetActiveContext();
+    }
+
+    /** Creates a new container and returns it */
+    @Override
+    public Container<?,?,?,?,?,?> createNewContainer() {
+        containerWarehouse().createNewContainer();
         return containerWarehouse().getLastUsedContainer();
     }
 
     /** Creates a new container and returns it */
     @Override
-    public Container<?,?,?,?,?,?> newContainer() {
-        containerWarehouse().createNewContainer();
+    public Container<?,?,?,?,?,?> createNewContainer(String name) {
+        containerWarehouse().createNewContainer(name);
         return containerWarehouse().getLastUsedContainer();
     }
+
 
     /** Returns the container by its id */
     @Override
@@ -113,10 +136,28 @@ public class DeloreanAIXM51 implements com.aixm.delorean.core.DeloreanProcessor 
         return containerWarehouse().getContainerById(id);
     }
 
-    /** Removes the container by its id */
+    /** Returns the container by its name */
+    @Override
+    public Container<?,?,?,?,?,?> getContainerByName(String name) {
+        return containerWarehouse().getContainerByName(name);
+    }
+
+    /**
+     * Removes the container with the specified ID.
+     * @param id The ID of the container to remove.
+     */
     @Override
     public void removeContainerById(String id) {
-        containerWarehouse().removeContainer(id);
+        containerWarehouse().removeContainerById(id);
+    }
+
+    /**
+     * Removes the container with the specified name.
+      * @param name The name of the container(s) to remove.
+     */
+    @Override
+    public void removeContainerByName(String name) {
+        containerWarehouse().removeContainerByName(name);
     }
 
     /** Returns a list of all container IDs */

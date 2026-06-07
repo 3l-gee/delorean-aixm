@@ -104,7 +104,7 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "authority", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
     protected JAXBElement<OrganisationAuthorityPropertyType> authority;
-    protected List<SpecialDateExtensionType> extension;
+    protected List<SpecialDateTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -321,13 +321,14 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SpecialDateExtensionType }
+     * {@link SpecialDateTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SpecialDateExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "specialdatee_hjid", referencedColumnName = "hjid")
-    public List<SpecialDateExtensionType> getExtension() {
+    @OneToMany(targetEntity = SpecialDateTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "specialdate_te_hjid", referencedColumnName = "hjid")
+    public List<SpecialDateTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -338,7 +339,7 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
      *
      *
      */
-    public void setExtension(List<SpecialDateExtensionType> extension) {
+    public void setExtension(List<SpecialDateTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -430,32 +431,6 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         final SpecialDateTimeSliceType that = ((SpecialDateTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDateDay();
-            boolean rhsFieldIsSet = that.isSetDateDay();
-            JAXBElement<DateMonthDayType> lhsField;
-            lhsField = this.getDateDay();
-            JAXBElement<DateMonthDayType> rhsField;
-            rhsField = that.getDateDay();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateDay", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateDay", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDateYear();
-            boolean rhsFieldIsSet = that.isSetDateYear();
-            JAXBElement<DateYearType> lhsField;
-            lhsField = this.getDateYear();
-            JAXBElement<DateYearType> rhsField;
-            rhsField = that.getDateYear();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateYear", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateYear", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -464,19 +439,6 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SpecialDateExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SpecialDateExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -495,14 +457,14 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            boolean lhsFieldIsSet = this.isSetDateDay();
+            boolean rhsFieldIsSet = that.isSetDateDay();
+            JAXBElement<DateMonthDayType> lhsField;
+            lhsField = this.getDateDay();
+            JAXBElement<DateMonthDayType> rhsField;
+            rhsField = that.getDateDay();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateDay", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateDay", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -516,6 +478,45 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
             rhsField = that.getAuthority();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authority", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDateYear();
+            boolean rhsFieldIsSet = that.isSetDateYear();
+            JAXBElement<DateYearType> lhsField;
+            lhsField = this.getDateYear();
+            JAXBElement<DateYearType> rhsField;
+            rhsField = that.getDateYear();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateYear", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateYear", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SpecialDateTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SpecialDateTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -570,7 +571,7 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SpecialDateExtensionType> theField;
+            List<SpecialDateTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -619,7 +620,7 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SpecialDateExtensionType> theField;
+            List<SpecialDateTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

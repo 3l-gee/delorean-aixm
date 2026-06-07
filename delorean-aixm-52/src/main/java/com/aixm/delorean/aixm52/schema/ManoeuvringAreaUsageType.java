@@ -108,7 +108,7 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "operation", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeOperationManoeuvringAreaType> operation;
-    protected List<ManoeuvringAreaUsageTypeExtensionType> extension;
+    protected List<ManoeuvringAreaUsageExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -348,14 +348,14 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ManoeuvringAreaUsageTypeExtensionType }
+     * {@link ManoeuvringAreaUsageExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ManoeuvringAreaUsageTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ManoeuvringAreaUsageExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "manoeuvringareausagee_hjid", referencedColumnName = "hjid")
-    public List<ManoeuvringAreaUsageTypeExtensionType> getExtension() {
+    @JoinColumn(name = "manoeuvringareausage_oe_hjid", referencedColumnName = "hjid")
+    public List<ManoeuvringAreaUsageExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -366,7 +366,7 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
      *
      *
      */
-    public void setExtension(List<ManoeuvringAreaUsageTypeExtensionType> extension) {
+    public void setExtension(List<ManoeuvringAreaUsageExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -446,14 +446,14 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
         }
         final ManoeuvringAreaUsageType that = ((ManoeuvringAreaUsageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOperation();
-            boolean rhsFieldIsSet = that.isSetOperation();
-            JAXBElement<CodeOperationManoeuvringAreaType> lhsField;
-            lhsField = this.getOperation();
-            JAXBElement<CodeOperationManoeuvringAreaType> rhsField;
-            rhsField = that.getOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
+            boolean lhsFieldIsSet = this.isSetSelection();
+            boolean rhsFieldIsSet = that.isSetSelection();
+            JAXBElement<ConditionCombinationPropertyType> lhsField;
+            lhsField = this.getSelection();
+            JAXBElement<ConditionCombinationPropertyType> rhsField;
+            rhsField = that.getSelection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -467,19 +467,6 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
             rhsField = that.getPriorPermission();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ManoeuvringAreaUsageTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ManoeuvringAreaUsageTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -511,6 +498,32 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetOperation();
+            boolean rhsFieldIsSet = that.isSetOperation();
+            JAXBElement<CodeOperationManoeuvringAreaType> lhsField;
+            lhsField = this.getOperation();
+            JAXBElement<CodeOperationManoeuvringAreaType> rhsField;
+            rhsField = that.getOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ManoeuvringAreaUsageExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ManoeuvringAreaUsageExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeUsageLimitationType> lhsField;
@@ -519,19 +532,6 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSelection();
-            boolean rhsFieldIsSet = that.isSetSelection();
-            JAXBElement<ConditionCombinationPropertyType> lhsField;
-            lhsField = this.getSelection();
-            JAXBElement<ConditionCombinationPropertyType> rhsField;
-            rhsField = that.getSelection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -586,7 +586,7 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ManoeuvringAreaUsageTypeExtensionType> theField;
+            List<ManoeuvringAreaUsageExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -635,7 +635,7 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ManoeuvringAreaUsageTypeExtensionType> theField;
+            List<ManoeuvringAreaUsageExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

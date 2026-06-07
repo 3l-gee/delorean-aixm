@@ -114,7 +114,7 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "protectedTouchDownLiftOff", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
     protected JAXBElement<TouchDownLiftOffPropertyType> protectedTouchDownLiftOff;
-    protected List<TouchDownLiftOffSafeAreaExtensionType> extension;
+    protected List<TouchDownLiftOffSafeAreaTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the width property.
@@ -389,14 +389,14 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link TouchDownLiftOffSafeAreaExtensionType }
+     * {@link TouchDownLiftOffSafeAreaTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = TouchDownLiftOffSafeAreaExtensionType.class, cascade = {
+    @OneToMany(targetEntity = TouchDownLiftOffSafeAreaTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "touchdownliftoffsafeareae_hjid", referencedColumnName = "hjid")
-    public List<TouchDownLiftOffSafeAreaExtensionType> getExtension() {
+    @JoinColumn(name = "touchdownliftoffsafearea_te_hjid", referencedColumnName = "hjid")
+    public List<TouchDownLiftOffSafeAreaTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -407,7 +407,7 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
      *
      *
      */
-    public void setExtension(List<TouchDownLiftOffSafeAreaExtensionType> extension) {
+    public void setExtension(List<TouchDownLiftOffSafeAreaTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -535,40 +535,14 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
         }
         final TouchDownLiftOffSafeAreaTimeSliceType that = ((TouchDownLiftOffSafeAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
-            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
-            lhsField = this.getSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
-            rhsField = that.getSurfaceProperties();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<TouchDownLiftOffSafeAreaExtensionType> lhsField;
+            List<TouchDownLiftOffSafeAreaTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TouchDownLiftOffSafeAreaExtensionType> rhsField;
+            List<TouchDownLiftOffSafeAreaTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWidth();
-            boolean rhsFieldIsSet = that.isSetWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -582,32 +556,6 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
             rhsField = that.getObstacleFree();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleFree", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleFree", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLighting();
-            boolean rhsFieldIsSet = that.isSetLighting();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLighting();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLighting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighting", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLength();
-            boolean rhsFieldIsSet = that.isSetLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -639,6 +587,32 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetWidth();
+            boolean rhsFieldIsSet = that.isSetWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLighting();
+            boolean rhsFieldIsSet = that.isSetLighting();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getLighting();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getLighting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighting", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtent();
             boolean rhsFieldIsSet = that.isSetExtent();
             JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
@@ -647,6 +621,32 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
             rhsField = that.getExtent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLength();
+            boolean rhsFieldIsSet = that.isSetLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
+            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
+            lhsField = this.getSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
+            rhsField = that.getSurfaceProperties();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -715,7 +715,7 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TouchDownLiftOffSafeAreaExtensionType> theField;
+            List<TouchDownLiftOffSafeAreaTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -776,7 +776,7 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TouchDownLiftOffSafeAreaExtensionType> theField;
+            List<TouchDownLiftOffSafeAreaTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -106,7 +106,7 @@ public class RunwayMarkingTimeSliceType extends AbstractAIXMTimeSliceType implem
     protected JAXBElement<CodeRunwaySectionType> markingLocation;
     @XmlElementRef(name = "markedRunway", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<RunwayPropertyType> markedRunway;
-    protected List<RunwayMarkingExtensionType> extension;
+    protected List<RunwayMarkingTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the markingICAOStandard property.
@@ -345,13 +345,14 @@ public class RunwayMarkingTimeSliceType extends AbstractAIXMTimeSliceType implem
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RunwayMarkingExtensionType }
+     * {@link RunwayMarkingTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RunwayMarkingExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "runwaymarkinge_hjid", referencedColumnName = "hjid")
-    public List<RunwayMarkingExtensionType> getExtension() {
+    @OneToMany(targetEntity = RunwayMarkingTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "runwaymarking_te_hjid", referencedColumnName = "hjid")
+    public List<RunwayMarkingTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -362,7 +363,7 @@ public class RunwayMarkingTimeSliceType extends AbstractAIXMTimeSliceType implem
      *
      *
      */
-    public void setExtension(List<RunwayMarkingExtensionType> extension) {
+    public void setExtension(List<RunwayMarkingTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -441,45 +442,6 @@ public class RunwayMarkingTimeSliceType extends AbstractAIXMTimeSliceType implem
         }
         final RunwayMarkingTimeSliceType that = ((RunwayMarkingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMarkedRunway();
-            boolean rhsFieldIsSet = that.isSetMarkedRunway();
-            JAXBElement<RunwayPropertyType> lhsField;
-            lhsField = this.getMarkedRunway();
-            JAXBElement<RunwayPropertyType> rhsField;
-            rhsField = that.getMarkedRunway();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedRunway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedRunway", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RunwayMarkingExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RunwayMarkingExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCondition();
-            boolean rhsFieldIsSet = that.isSetCondition();
-            JAXBElement<CodeMarkingConditionType> lhsField;
-            lhsField = this.getCondition();
-            JAXBElement<CodeMarkingConditionType> rhsField;
-            rhsField = that.getCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetElement();
             boolean rhsFieldIsSet = that.isSetElement();
             List<MarkingElementPropertyType> lhsField;
@@ -527,6 +489,45 @@ public class RunwayMarkingTimeSliceType extends AbstractAIXMTimeSliceType implem
             rhsField = that.getMarkingICAOStandard();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkedRunway();
+            boolean rhsFieldIsSet = that.isSetMarkedRunway();
+            JAXBElement<RunwayPropertyType> lhsField;
+            lhsField = this.getMarkedRunway();
+            JAXBElement<RunwayPropertyType> rhsField;
+            rhsField = that.getMarkedRunway();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedRunway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedRunway", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCondition();
+            boolean rhsFieldIsSet = that.isSetCondition();
+            JAXBElement<CodeMarkingConditionType> lhsField;
+            lhsField = this.getCondition();
+            JAXBElement<CodeMarkingConditionType> rhsField;
+            rhsField = that.getCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RunwayMarkingTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RunwayMarkingTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -581,7 +582,7 @@ public class RunwayMarkingTimeSliceType extends AbstractAIXMTimeSliceType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RunwayMarkingExtensionType> theField;
+            List<RunwayMarkingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -630,7 +631,7 @@ public class RunwayMarkingTimeSliceType extends AbstractAIXMTimeSliceType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RunwayMarkingExtensionType> theField;
+            List<RunwayMarkingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

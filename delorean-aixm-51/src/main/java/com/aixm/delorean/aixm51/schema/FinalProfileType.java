@@ -88,7 +88,7 @@ public class FinalProfileType extends AbstractAIXMObjectType implements Serializ
     protected List<ApproachTimingTablePropertyType> timing;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<FinalProfileTypeExtensionType> extension;
+    protected List<FinalProfileExtensionType> extension;
 
     /**
      * Gets the value of the altitude property.
@@ -316,13 +316,13 @@ public class FinalProfileType extends AbstractAIXMObjectType implements Serializ
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FinalProfileTypeExtensionType }
+     * {@link FinalProfileExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = FinalProfileTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "finalprofilee_hjid", referencedColumnName = "hjid")
-    public List<FinalProfileTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = FinalProfileExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "finalprofile_oe_hjid", referencedColumnName = "hjid")
+    public List<FinalProfileExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -333,7 +333,7 @@ public class FinalProfileType extends AbstractAIXMObjectType implements Serializ
      *
      *
      */
-    public void setExtension(List<FinalProfileTypeExtensionType> extension) {
+    public void setExtension(List<FinalProfileExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -360,27 +360,27 @@ public class FinalProfileType extends AbstractAIXMObjectType implements Serializ
         }
         final FinalProfileType that = ((FinalProfileType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAltitude();
-            boolean rhsFieldIsSet = that.isSetAltitude();
-            List<ApproachAltitudeTablePropertyType> lhsField;
-            lhsField = (this.isSetAltitude() ? this.getAltitude() : null);
-            List<ApproachAltitudeTablePropertyType> rhsField;
-            rhsField = (that.isSetAltitude() ? that.getAltitude() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FinalProfileExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FinalProfileExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FinalProfileTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FinalProfileTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            List<ApproachDistanceTablePropertyType> lhsField;
+            lhsField = (this.isSetDistance() ? this.getDistance() : null);
+            List<ApproachDistanceTablePropertyType> rhsField;
+            rhsField = (that.isSetDistance() ? that.getDistance() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -399,6 +399,19 @@ public class FinalProfileType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAltitude();
+            boolean rhsFieldIsSet = that.isSetAltitude();
+            List<ApproachAltitudeTablePropertyType> lhsField;
+            lhsField = (this.isSetAltitude() ? this.getAltitude() : null);
+            List<ApproachAltitudeTablePropertyType> rhsField;
+            rhsField = (that.isSetAltitude() ? that.getAltitude() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTiming();
             boolean rhsFieldIsSet = that.isSetTiming();
             List<ApproachTimingTablePropertyType> lhsField;
@@ -407,19 +420,6 @@ public class FinalProfileType extends AbstractAIXMObjectType implements Serializ
             rhsField = (that.isSetTiming() ? that.getTiming() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timing", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            List<ApproachDistanceTablePropertyType> lhsField;
-            lhsField = (this.isSetDistance() ? this.getDistance() : null);
-            List<ApproachDistanceTablePropertyType> rhsField;
-            rhsField = (that.isSetDistance() ? that.getDistance() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -460,7 +460,7 @@ public class FinalProfileType extends AbstractAIXMObjectType implements Serializ
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FinalProfileTypeExtensionType> theField;
+            List<FinalProfileExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -497,7 +497,7 @@ public class FinalProfileType extends AbstractAIXMObjectType implements Serializ
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FinalProfileTypeExtensionType> theField;
+            List<FinalProfileExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

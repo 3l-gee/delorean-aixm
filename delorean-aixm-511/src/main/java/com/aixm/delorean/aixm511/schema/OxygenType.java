@@ -85,7 +85,7 @@ public class OxygenType extends AbstractAIXMObjectType implements Serializable {
     protected JAXBElement<CodeOxygenType> type;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<OxygenTypeExtensionType> extension;
+    protected List<OxygenExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -186,13 +186,13 @@ public class OxygenType extends AbstractAIXMObjectType implements Serializable {
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link OxygenTypeExtensionType }
+     * {@link OxygenExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = OxygenTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "oxygene_hjid", referencedColumnName = "hjid")
-    public List<OxygenTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = OxygenExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "oxygen_oe_hjid", referencedColumnName = "hjid")
+    public List<OxygenExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -203,7 +203,7 @@ public class OxygenType extends AbstractAIXMObjectType implements Serializable {
      *
      *
      */
-    public void setExtension(List<OxygenTypeExtensionType> extension) {
+    public void setExtension(List<OxygenExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -244,9 +244,9 @@ public class OxygenType extends AbstractAIXMObjectType implements Serializable {
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<OxygenTypeExtensionType> lhsField;
+            List<OxygenExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<OxygenTypeExtensionType> rhsField;
+            List<OxygenExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -302,7 +302,7 @@ public class OxygenType extends AbstractAIXMObjectType implements Serializable {
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<OxygenTypeExtensionType> theField;
+            List<OxygenExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -327,7 +327,7 @@ public class OxygenType extends AbstractAIXMObjectType implements Serializable {
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<OxygenTypeExtensionType> theField;
+            List<OxygenExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

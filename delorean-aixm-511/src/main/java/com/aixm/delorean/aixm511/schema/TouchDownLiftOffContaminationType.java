@@ -105,7 +105,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
         "frictionEstimation", "frictionDevice", "obscuredLights", "furtherClearanceTime", "furtherTotalClearance",
         "nextObservationTime", "proportion", "criticalRidge", "layer", "annotation", "extension"})
 @Entity(name = "TouchDownLiftOffContaminationType")
-@Table(name = "touchdownliftoffcontaminationtype", schema = "airport_heliport")
+@Table(name = "touchdownliftoffcontamination_o", schema = "airport_heliport")
 public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminationType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -135,7 +135,7 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
     protected List<SurfaceContaminationLayerPropertyType> layer;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<TouchDownLiftOffContaminationTypeExtensionType> extension;
+    protected List<TouchDownLiftOffContaminationExtensionType> extension;
 
     /**
      * Gets the value of the observationTime property.
@@ -452,7 +452,7 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
      */
     @OneToMany(targetEntity = RidgePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "tchdwnlftoffcntmntntp_crtclrdg_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "touchdownliftoffcontaminationtype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "touchdownliftoffcontamination_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "criticalridge_hjid", referencedColumnName = "hjid")})
     public List<RidgePropertyType> getCriticalRidge() {
         if (criticalRidge == null) {
@@ -504,7 +504,7 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
     @OneToMany(targetEntity = SurfaceContaminationLayerPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "tchdwnlftoffcntmntntp_lr_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "touchdownliftoffcontaminationtype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "touchdownliftoffcontamination_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "layer_hjid", referencedColumnName = "hjid")})
     public List<SurfaceContaminationLayerPropertyType> getLayer() {
         if (layer == null) {
@@ -555,7 +555,7 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "tchdwnlftoffcntmntntp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "touchdownliftoffcontaminationtype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "touchdownliftoffcontamination_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -600,14 +600,14 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link TouchDownLiftOffContaminationTypeExtensionType }
+     * {@link TouchDownLiftOffContaminationExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = TouchDownLiftOffContaminationTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = TouchDownLiftOffContaminationExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "touchdownliftoffcontaminatione_hjid", referencedColumnName = "hjid")
-    public List<TouchDownLiftOffContaminationTypeExtensionType> getExtension() {
+    @JoinColumn(name = "touchdownliftoffcontamination_oe_hjid", referencedColumnName = "hjid")
+    public List<TouchDownLiftOffContaminationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -618,7 +618,7 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
      *
      *
      */
-    public void setExtension(List<TouchDownLiftOffContaminationTypeExtensionType> extension) {
+    public void setExtension(List<TouchDownLiftOffContaminationExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -780,14 +780,14 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
         }
         final TouchDownLiftOffContaminationType that = ((TouchDownLiftOffContaminationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFrictionDevice();
-            boolean rhsFieldIsSet = that.isSetFrictionDevice();
-            JAXBElement<CodeFrictionDeviceType> lhsField;
-            lhsField = this.getFrictionDevice();
-            JAXBElement<CodeFrictionDeviceType> rhsField;
-            rhsField = that.getFrictionDevice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionDevice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionDevice", rhsField);
+            boolean lhsFieldIsSet = this.isSetProportion();
+            boolean rhsFieldIsSet = that.isSetProportion();
+            JAXBElement<ValPercentType> lhsField;
+            lhsField = this.getProportion();
+            JAXBElement<ValPercentType> rhsField;
+            rhsField = that.getProportion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "proportion", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "proportion", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -806,19 +806,6 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFurtherClearanceTime();
-            boolean rhsFieldIsSet = that.isSetFurtherClearanceTime();
-            JAXBElement<TimeType> lhsField;
-            lhsField = this.getFurtherClearanceTime();
-            JAXBElement<TimeType> rhsField;
-            rhsField = that.getFurtherClearanceTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherClearanceTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherClearanceTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDepth();
             boolean rhsFieldIsSet = that.isSetDepth();
             JAXBElement<ValDepthType> lhsField;
@@ -832,27 +819,14 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetObscuredLights();
-            boolean rhsFieldIsSet = that.isSetObscuredLights();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getObscuredLights();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getObscuredLights();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obscuredLights", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obscuredLights", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetObservationTime();
-            boolean rhsFieldIsSet = that.isSetObservationTime();
-            JAXBElement<DateTimeType> lhsField;
-            lhsField = this.getObservationTime();
-            JAXBElement<DateTimeType> rhsField;
-            rhsField = that.getObservationTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "observationTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "observationTime", rhsField);
+            boolean lhsFieldIsSet = this.isSetFurtherClearanceTime();
+            boolean rhsFieldIsSet = that.isSetFurtherClearanceTime();
+            JAXBElement<TimeType> lhsField;
+            lhsField = this.getFurtherClearanceTime();
+            JAXBElement<TimeType> rhsField;
+            rhsField = that.getFurtherClearanceTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherClearanceTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherClearanceTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -871,14 +845,27 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetProportion();
-            boolean rhsFieldIsSet = that.isSetProportion();
-            JAXBElement<ValPercentType> lhsField;
-            lhsField = this.getProportion();
-            JAXBElement<ValPercentType> rhsField;
-            rhsField = that.getProportion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "proportion", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "proportion", rhsField);
+            boolean lhsFieldIsSet = this.isSetCriticalRidge();
+            boolean rhsFieldIsSet = that.isSetCriticalRidge();
+            List<RidgePropertyType> lhsField;
+            lhsField = (this.isSetCriticalRidge() ? this.getCriticalRidge() : null);
+            List<RidgePropertyType> rhsField;
+            rhsField = (that.isSetCriticalRidge() ? that.getCriticalRidge() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalRidge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalRidge", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetObservationTime();
+            boolean rhsFieldIsSet = that.isSetObservationTime();
+            JAXBElement<DateTimeType> lhsField;
+            lhsField = this.getObservationTime();
+            JAXBElement<DateTimeType> rhsField;
+            rhsField = that.getObservationTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "observationTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "observationTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -897,27 +884,40 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFurtherTotalClearance();
-            boolean rhsFieldIsSet = that.isSetFurtherTotalClearance();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFurtherTotalClearance();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFurtherTotalClearance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherTotalClearance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherTotalClearance", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TouchDownLiftOffContaminationExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<TouchDownLiftOffContaminationExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFrictionCoefficient();
-            boolean rhsFieldIsSet = that.isSetFrictionCoefficient();
-            JAXBElement<ValFrictionType> lhsField;
-            lhsField = this.getFrictionCoefficient();
-            JAXBElement<ValFrictionType> rhsField;
-            rhsField = that.getFrictionCoefficient();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionCoefficient", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionCoefficient", rhsField);
+            boolean lhsFieldIsSet = this.isSetObscuredLights();
+            boolean rhsFieldIsSet = that.isSetObscuredLights();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getObscuredLights();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getObscuredLights();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obscuredLights", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obscuredLights", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrictionDevice();
+            boolean rhsFieldIsSet = that.isSetFrictionDevice();
+            JAXBElement<CodeFrictionDeviceType> lhsField;
+            lhsField = this.getFrictionDevice();
+            JAXBElement<CodeFrictionDeviceType> rhsField;
+            rhsField = that.getFrictionDevice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionDevice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionDevice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -936,27 +936,27 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCriticalRidge();
-            boolean rhsFieldIsSet = that.isSetCriticalRidge();
-            List<RidgePropertyType> lhsField;
-            lhsField = (this.isSetCriticalRidge() ? this.getCriticalRidge() : null);
-            List<RidgePropertyType> rhsField;
-            rhsField = (that.isSetCriticalRidge() ? that.getCriticalRidge() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalRidge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalRidge", rhsField);
+            boolean lhsFieldIsSet = this.isSetFrictionCoefficient();
+            boolean rhsFieldIsSet = that.isSetFrictionCoefficient();
+            JAXBElement<ValFrictionType> lhsField;
+            lhsField = this.getFrictionCoefficient();
+            JAXBElement<ValFrictionType> rhsField;
+            rhsField = that.getFrictionCoefficient();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionCoefficient", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionCoefficient", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TouchDownLiftOffContaminationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TouchDownLiftOffContaminationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetFurtherTotalClearance();
+            boolean rhsFieldIsSet = that.isSetFurtherTotalClearance();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFurtherTotalClearance();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFurtherTotalClearance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherTotalClearance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherTotalClearance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1060,7 +1060,7 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TouchDownLiftOffContaminationTypeExtensionType> theField;
+            List<TouchDownLiftOffContaminationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -1151,7 +1151,7 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TouchDownLiftOffContaminationTypeExtensionType> theField;
+            List<TouchDownLiftOffContaminationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

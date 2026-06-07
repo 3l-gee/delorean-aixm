@@ -131,7 +131,7 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
     protected JAXBElement<ValWeightType> weightAUW;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<SurfaceCharacteristicsTypeExtensionType> extension;
+    protected List<SurfaceCharacteristicsExtensionType> extension;
 
     /**
      * Gets the value of the composition property.
@@ -551,14 +551,14 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SurfaceCharacteristicsTypeExtensionType }
+     * {@link SurfaceCharacteristicsExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SurfaceCharacteristicsTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = SurfaceCharacteristicsExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "surfacecharacteristicse_hjid", referencedColumnName = "hjid")
-    public List<SurfaceCharacteristicsTypeExtensionType> getExtension() {
+    @JoinColumn(name = "surfacecharacteristics_oe_hjid", referencedColumnName = "hjid")
+    public List<SurfaceCharacteristicsExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -569,7 +569,7 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
      *
      *
      */
-    public void setExtension(List<SurfaceCharacteristicsTypeExtensionType> extension) {
+    public void setExtension(List<SurfaceCharacteristicsExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -754,58 +754,6 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
         }
         final SurfaceCharacteristicsType that = ((SurfaceCharacteristicsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetEvaluationMethodPCN();
-            boolean rhsFieldIsSet = that.isSetEvaluationMethodPCN();
-            JAXBElement<CodePCNMethodType> lhsField;
-            lhsField = this.getEvaluationMethodPCN();
-            JAXBElement<CodePCNMethodType> rhsField;
-            rhsField = that.getEvaluationMethodPCN();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodPCN", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodPCN", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetComposition();
-            boolean rhsFieldIsSet = that.isSetComposition();
-            JAXBElement<CodeSurfaceCompositionType> lhsField;
-            lhsField = this.getComposition();
-            JAXBElement<CodeSurfaceCompositionType> rhsField;
-            rhsField = that.getComposition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClassLCN();
-            boolean rhsFieldIsSet = that.isSetClassLCN();
-            JAXBElement<ValLCNType> lhsField;
-            lhsField = this.getClassLCN();
-            JAXBElement<ValLCNType> rhsField;
-            rhsField = that.getClassLCN();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classLCN", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classLCN", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTyrePressureSIWL();
-            boolean rhsFieldIsSet = that.isSetTyrePressureSIWL();
-            JAXBElement<ValPressureType> lhsField;
-            lhsField = this.getTyrePressureSIWL();
-            JAXBElement<ValPressureType> rhsField;
-            rhsField = that.getTyrePressureSIWL();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tyrePressureSIWL", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tyrePressureSIWL", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetWeightSIWL();
             boolean rhsFieldIsSet = that.isSetWeightSIWL();
             JAXBElement<ValWeightType> lhsField;
@@ -819,14 +767,14 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SurfaceCharacteristicsTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SurfaceCharacteristicsTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetSurfaceCondition();
+            boolean rhsFieldIsSet = that.isSetSurfaceCondition();
+            JAXBElement<CodeSurfaceConditionType> lhsField;
+            lhsField = this.getSurfaceCondition();
+            JAXBElement<CodeSurfaceConditionType> rhsField;
+            rhsField = that.getSurfaceCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceCondition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -858,19 +806,6 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSurfaceCondition();
-            boolean rhsFieldIsSet = that.isSetSurfaceCondition();
-            JAXBElement<CodeSurfaceConditionType> lhsField;
-            lhsField = this.getSurfaceCondition();
-            JAXBElement<CodeSurfaceConditionType> rhsField;
-            rhsField = that.getSurfaceCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMaxTyrePressurePCN();
             boolean rhsFieldIsSet = that.isSetMaxTyrePressurePCN();
             JAXBElement<CodePCNTyrePressureType> lhsField;
@@ -879,32 +814,6 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
             rhsField = that.getMaxTyrePressurePCN();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxTyrePressurePCN", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxTyrePressurePCN", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPreparation();
-            boolean rhsFieldIsSet = that.isSetPreparation();
-            JAXBElement<CodeSurfacePreparationType> lhsField;
-            lhsField = this.getPreparation();
-            JAXBElement<CodeSurfacePreparationType> rhsField;
-            rhsField = that.getPreparation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "preparation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "preparation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClassPCN();
-            boolean rhsFieldIsSet = that.isSetClassPCN();
-            JAXBElement<ValPCNType> lhsField;
-            lhsField = this.getClassPCN();
-            JAXBElement<ValPCNType> rhsField;
-            rhsField = that.getClassPCN();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classPCN", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classPCN", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -923,6 +832,19 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetTyrePressureSIWL();
+            boolean rhsFieldIsSet = that.isSetTyrePressureSIWL();
+            JAXBElement<ValPressureType> lhsField;
+            lhsField = this.getTyrePressureSIWL();
+            JAXBElement<ValPressureType> rhsField;
+            rhsField = that.getTyrePressureSIWL();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tyrePressureSIWL", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tyrePressureSIWL", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPavementSubgradePCN();
             boolean rhsFieldIsSet = that.isSetPavementSubgradePCN();
             JAXBElement<CodePCNSubgradeType> lhsField;
@@ -931,6 +853,84 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
             rhsField = that.getPavementSubgradePCN();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pavementSubgradePCN", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pavementSubgradePCN", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SurfaceCharacteristicsExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SurfaceCharacteristicsExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEvaluationMethodPCN();
+            boolean rhsFieldIsSet = that.isSetEvaluationMethodPCN();
+            JAXBElement<CodePCNMethodType> lhsField;
+            lhsField = this.getEvaluationMethodPCN();
+            JAXBElement<CodePCNMethodType> rhsField;
+            rhsField = that.getEvaluationMethodPCN();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodPCN", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodPCN", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClassLCN();
+            boolean rhsFieldIsSet = that.isSetClassLCN();
+            JAXBElement<ValLCNType> lhsField;
+            lhsField = this.getClassLCN();
+            JAXBElement<ValLCNType> rhsField;
+            rhsField = that.getClassLCN();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classLCN", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classLCN", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetComposition();
+            boolean rhsFieldIsSet = that.isSetComposition();
+            JAXBElement<CodeSurfaceCompositionType> lhsField;
+            lhsField = this.getComposition();
+            JAXBElement<CodeSurfaceCompositionType> rhsField;
+            rhsField = that.getComposition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClassPCN();
+            boolean rhsFieldIsSet = that.isSetClassPCN();
+            JAXBElement<ValPCNType> lhsField;
+            lhsField = this.getClassPCN();
+            JAXBElement<ValPCNType> rhsField;
+            rhsField = that.getClassPCN();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classPCN", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classPCN", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPreparation();
+            boolean rhsFieldIsSet = that.isSetPreparation();
+            JAXBElement<CodeSurfacePreparationType> lhsField;
+            lhsField = this.getPreparation();
+            JAXBElement<CodeSurfacePreparationType> rhsField;
+            rhsField = that.getPreparation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "preparation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "preparation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1034,7 +1034,7 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SurfaceCharacteristicsTypeExtensionType> theField;
+            List<SurfaceCharacteristicsExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -1125,7 +1125,7 @@ public class SurfaceCharacteristicsType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SurfaceCharacteristicsTypeExtensionType> theField;
+            List<SurfaceCharacteristicsExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

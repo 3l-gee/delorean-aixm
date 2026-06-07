@@ -104,7 +104,7 @@ public class TaxiHoldingPositionTimeSliceType extends AbstractAIXMTimeSliceType 
     protected JAXBElement<AIXMElevatedPointPropertyType> location;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<TaxiHoldingPositionExtensionType> extension;
+    protected List<TaxiHoldingPositionTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the landingCategory property.
@@ -343,14 +343,14 @@ public class TaxiHoldingPositionTimeSliceType extends AbstractAIXMTimeSliceType 
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link TaxiHoldingPositionExtensionType }
+     * {@link TaxiHoldingPositionTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = TaxiHoldingPositionExtensionType.class, cascade = {
+    @OneToMany(targetEntity = TaxiHoldingPositionTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "taxiholdingpositione_hjid", referencedColumnName = "hjid")
-    public List<TaxiHoldingPositionExtensionType> getExtension() {
+    @JoinColumn(name = "taxiholdingposition_te_hjid", referencedColumnName = "hjid")
+    public List<TaxiHoldingPositionTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -361,7 +361,7 @@ public class TaxiHoldingPositionTimeSliceType extends AbstractAIXMTimeSliceType 
      *
      *
      */
-    public void setExtension(List<TaxiHoldingPositionExtensionType> extension) {
+    public void setExtension(List<TaxiHoldingPositionTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -455,32 +455,6 @@ public class TaxiHoldingPositionTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStatus();
-            boolean rhsFieldIsSet = that.isSetStatus();
-            JAXBElement<CodeStatusOperationsType> lhsField;
-            lhsField = this.getStatus();
-            JAXBElement<CodeStatusOperationsType> rhsField;
-            rhsField = that.getStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLandingCategory();
-            boolean rhsFieldIsSet = that.isSetLandingCategory();
-            JAXBElement<CodeHoldingCategoryType> lhsField;
-            lhsField = this.getLandingCategory();
-            JAXBElement<CodeHoldingCategoryType> rhsField;
-            rhsField = that.getLandingCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landingCategory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landingCategory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetProtectedRunway();
             boolean rhsFieldIsSet = that.isSetProtectedRunway();
             List<RunwayPropertyType> lhsField;
@@ -507,11 +481,37 @@ public class TaxiHoldingPositionTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetStatus();
+            boolean rhsFieldIsSet = that.isSetStatus();
+            JAXBElement<CodeStatusOperationsType> lhsField;
+            lhsField = this.getStatus();
+            JAXBElement<CodeStatusOperationsType> rhsField;
+            rhsField = that.getStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLandingCategory();
+            boolean rhsFieldIsSet = that.isSetLandingCategory();
+            JAXBElement<CodeHoldingCategoryType> lhsField;
+            lhsField = this.getLandingCategory();
+            JAXBElement<CodeHoldingCategoryType> rhsField;
+            rhsField = that.getLandingCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landingCategory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landingCategory", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<TaxiHoldingPositionExtensionType> lhsField;
+            List<TaxiHoldingPositionTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TaxiHoldingPositionExtensionType> rhsField;
+            List<TaxiHoldingPositionTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -582,7 +582,7 @@ public class TaxiHoldingPositionTimeSliceType extends AbstractAIXMTimeSliceType 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TaxiHoldingPositionExtensionType> theField;
+            List<TaxiHoldingPositionTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -631,7 +631,7 @@ public class TaxiHoldingPositionTimeSliceType extends AbstractAIXMTimeSliceType 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TaxiHoldingPositionExtensionType> theField;
+            List<TaxiHoldingPositionTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

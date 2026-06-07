@@ -44,7 +44,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
         RunwayContaminationType.class, RunwaySectionContaminationType.class, TaxiwayContaminationType.class,
         TouchDownLiftOffContaminationType.class})
 @Entity(name = "AbstractSurfaceContaminationType")
-@Table(name = "abstractsurfacecontaminationtype", schema = "public")
+@Table(name = "abstractsurfacecontamination_o", schema = "public")
 public abstract class AbstractSurfaceContaminationType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;

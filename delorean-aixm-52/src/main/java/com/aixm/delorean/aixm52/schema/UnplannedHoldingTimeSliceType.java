@@ -103,7 +103,7 @@ public class UnplannedHoldingTimeSliceType extends AbstractAIXMTimeSliceType imp
     protected JAXBElement<SegmentPointPropertyType> holdingPoint;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<UnplannedHoldingExtensionType> extension;
+    protected List<UnplannedHoldingTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the unplannedHolding property.
@@ -320,13 +320,14 @@ public class UnplannedHoldingTimeSliceType extends AbstractAIXMTimeSliceType imp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link UnplannedHoldingExtensionType }
+     * {@link UnplannedHoldingTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = UnplannedHoldingExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "unplannedholdinge_hjid", referencedColumnName = "hjid")
-    public List<UnplannedHoldingExtensionType> getExtension() {
+    @OneToMany(targetEntity = UnplannedHoldingTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "unplannedholding_te_hjid", referencedColumnName = "hjid")
+    public List<UnplannedHoldingTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -337,7 +338,7 @@ public class UnplannedHoldingTimeSliceType extends AbstractAIXMTimeSliceType imp
      *
      *
      */
-    public void setExtension(List<UnplannedHoldingExtensionType> extension) {
+    public void setExtension(List<UnplannedHoldingTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -446,6 +447,19 @@ public class UnplannedHoldingTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAltitudeReference();
             boolean rhsFieldIsSet = that.isSetAltitudeReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
@@ -454,6 +468,19 @@ public class UnplannedHoldingTimeSliceType extends AbstractAIXMTimeSliceType imp
             rhsField = that.getAltitudeReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetControlledAirspace();
+            boolean rhsFieldIsSet = that.isSetControlledAirspace();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getControlledAirspace();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getControlledAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlledAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlledAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -472,37 +499,11 @@ public class UnplannedHoldingTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUnplannedHolding();
-            boolean rhsFieldIsSet = that.isSetUnplannedHolding();
-            JAXBElement<CodeApprovalType> lhsField;
-            lhsField = this.getUnplannedHolding();
-            JAXBElement<CodeApprovalType> rhsField;
-            rhsField = that.getUnplannedHolding();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unplannedHolding", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unplannedHolding", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<UnplannedHoldingExtensionType> lhsField;
+            List<UnplannedHoldingTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<UnplannedHoldingExtensionType> rhsField;
+            List<UnplannedHoldingTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -511,14 +512,14 @@ public class UnplannedHoldingTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetControlledAirspace();
-            boolean rhsFieldIsSet = that.isSetControlledAirspace();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getControlledAirspace();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getControlledAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlledAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlledAirspace", rhsField);
+            boolean lhsFieldIsSet = this.isSetUnplannedHolding();
+            boolean rhsFieldIsSet = that.isSetUnplannedHolding();
+            JAXBElement<CodeApprovalType> lhsField;
+            lhsField = this.getUnplannedHolding();
+            JAXBElement<CodeApprovalType> rhsField;
+            rhsField = that.getUnplannedHolding();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unplannedHolding", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unplannedHolding", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -573,7 +574,7 @@ public class UnplannedHoldingTimeSliceType extends AbstractAIXMTimeSliceType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<UnplannedHoldingExtensionType> theField;
+            List<UnplannedHoldingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -622,7 +623,7 @@ public class UnplannedHoldingTimeSliceType extends AbstractAIXMTimeSliceType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<UnplannedHoldingExtensionType> theField;
+            List<UnplannedHoldingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

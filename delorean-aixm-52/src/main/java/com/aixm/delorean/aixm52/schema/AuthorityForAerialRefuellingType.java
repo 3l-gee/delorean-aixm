@@ -92,7 +92,7 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "theOrganisationAuthority", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<OrganisationAuthorityPropertyType> theOrganisationAuthority;
-    protected List<AuthorityForAerialRefuellingTypeExtensionType> extension;
+    protected List<AuthorityForAerialRefuellingExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -222,14 +222,14 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AuthorityForAerialRefuellingTypeExtensionType }
+     * {@link AuthorityForAerialRefuellingExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AuthorityForAerialRefuellingTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AuthorityForAerialRefuellingExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "authorityforaerialrefuellinge_hjid", referencedColumnName = "hjid")
-    public List<AuthorityForAerialRefuellingTypeExtensionType> getExtension() {
+    @JoinColumn(name = "authorityforaerialrefuelling_oe_hjid", referencedColumnName = "hjid")
+    public List<AuthorityForAerialRefuellingExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -240,7 +240,7 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
      *
      *
      */
-    public void setExtension(List<AuthorityForAerialRefuellingTypeExtensionType> extension) {
+    public void setExtension(List<AuthorityForAerialRefuellingExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -310,9 +310,9 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<AuthorityForAerialRefuellingTypeExtensionType> lhsField;
+            List<AuthorityForAerialRefuellingExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AuthorityForAerialRefuellingTypeExtensionType> rhsField;
+            List<AuthorityForAerialRefuellingExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -375,7 +375,7 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AuthorityForAerialRefuellingTypeExtensionType> theField;
+            List<AuthorityForAerialRefuellingExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -406,7 +406,7 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AuthorityForAerialRefuellingTypeExtensionType> theField;
+            List<AuthorityForAerialRefuellingExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

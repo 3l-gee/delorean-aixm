@@ -96,7 +96,7 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
     protected JAXBElement<AirportHeliportPropertyType> dependentAirport;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<AirportHeliportCollocationExtensionType> extension;
+    protected List<AirportHeliportCollocationTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -255,14 +255,14 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirportHeliportCollocationExtensionType }
+     * {@link AirportHeliportCollocationTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirportHeliportCollocationExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AirportHeliportCollocationTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airportheliportcollocatione_hjid", referencedColumnName = "hjid")
-    public List<AirportHeliportCollocationExtensionType> getExtension() {
+    @JoinColumn(name = "airportheliportcollocation_te_hjid", referencedColumnName = "hjid")
+    public List<AirportHeliportCollocationTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -273,7 +273,7 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
      *
      *
      */
-    public void setExtension(List<AirportHeliportCollocationExtensionType> extension) {
+    public void setExtension(List<AirportHeliportCollocationTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -354,32 +354,6 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHostAirport();
-            boolean rhsFieldIsSet = that.isSetHostAirport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getHostAirport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getHostAirport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostAirport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirportHeliportCollocationExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirportHeliportCollocationExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeAirportHeliportCollocationType> lhsField;
@@ -401,6 +375,32 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
             rhsField = that.getDependentAirport();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependentAirport", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependentAirport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirportHeliportCollocationTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirportHeliportCollocationTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHostAirport();
+            boolean rhsFieldIsSet = that.isSetHostAirport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getHostAirport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getHostAirport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostAirport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -441,7 +441,7 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHeliportCollocationExtensionType> theField;
+            List<AirportHeliportCollocationTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -478,7 +478,7 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHeliportCollocationExtensionType> theField;
+            List<AirportHeliportCollocationTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

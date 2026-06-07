@@ -94,7 +94,7 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
     protected JAXBElement<CodeVerticalReferenceType> altitudeReference;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<ApproachAltitudeTableTypeExtensionType> extension;
+    protected List<ApproachAltitudeTableExtensionType> extension;
 
     /**
      * Gets the value of the measurementPoint property.
@@ -253,14 +253,14 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ApproachAltitudeTableTypeExtensionType }
+     * {@link ApproachAltitudeTableExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ApproachAltitudeTableTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ApproachAltitudeTableExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "approachaltitudetablee_hjid", referencedColumnName = "hjid")
-    public List<ApproachAltitudeTableTypeExtensionType> getExtension() {
+    @JoinColumn(name = "approachaltitudetable_oe_hjid", referencedColumnName = "hjid")
+    public List<ApproachAltitudeTableExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -271,7 +271,7 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
      *
      *
      */
-    public void setExtension(List<ApproachAltitudeTableTypeExtensionType> extension) {
+    public void setExtension(List<ApproachAltitudeTableExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -338,6 +338,19 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
         }
         final ApproachAltitudeTableType that = ((ApproachAltitudeTableType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAltitudeReference();
+            boolean rhsFieldIsSet = that.isSetAltitudeReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getAltitudeReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getAltitudeReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -353,25 +366,12 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApproachAltitudeTableTypeExtensionType> lhsField;
+            List<ApproachAltitudeTableExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApproachAltitudeTableTypeExtensionType> rhsField;
+            List<ApproachAltitudeTableExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAltitudeReference();
-            boolean rhsFieldIsSet = that.isSetAltitudeReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getAltitudeReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getAltitudeReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -438,7 +438,7 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApproachAltitudeTableTypeExtensionType> theField;
+            List<ApproachAltitudeTableExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -475,7 +475,7 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApproachAltitudeTableTypeExtensionType> theField;
+            List<ApproachAltitudeTableExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

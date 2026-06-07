@@ -94,7 +94,7 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
     protected JAXBElement<CodeVerticalReferenceType> altitudeReference;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<ApproachAltitudeTableTypeExtensionType> extension;
+    protected List<ApproachAltitudeTableExtensionType> extension;
 
     /**
      * Gets the value of the measurementPoint property.
@@ -253,14 +253,14 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ApproachAltitudeTableTypeExtensionType }
+     * {@link ApproachAltitudeTableExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ApproachAltitudeTableTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ApproachAltitudeTableExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "approachaltitudetablee_hjid", referencedColumnName = "hjid")
-    public List<ApproachAltitudeTableTypeExtensionType> getExtension() {
+    @JoinColumn(name = "approachaltitudetable_oe_hjid", referencedColumnName = "hjid")
+    public List<ApproachAltitudeTableExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -271,7 +271,7 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
      *
      *
      */
-    public void setExtension(List<ApproachAltitudeTableTypeExtensionType> extension) {
+    public void setExtension(List<ApproachAltitudeTableExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -338,45 +338,6 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
         }
         final ApproachAltitudeTableType that = ((ApproachAltitudeTableType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMeasurementPoint();
-            boolean rhsFieldIsSet = that.isSetMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> lhsField;
-            lhsField = this.getMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> rhsField;
-            rhsField = that.getMeasurementPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measurementPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measurementPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApproachAltitudeTableTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApproachAltitudeTableTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAltitude();
-            boolean rhsFieldIsSet = that.isSetAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAltitudeReference();
             boolean rhsFieldIsSet = that.isSetAltitudeReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
@@ -398,6 +359,45 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMeasurementPoint();
+            boolean rhsFieldIsSet = that.isSetMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> lhsField;
+            lhsField = this.getMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> rhsField;
+            rhsField = that.getMeasurementPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measurementPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measurementPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApproachAltitudeTableExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ApproachAltitudeTableExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAltitude();
+            boolean rhsFieldIsSet = that.isSetAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -438,7 +438,7 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApproachAltitudeTableTypeExtensionType> theField;
+            List<ApproachAltitudeTableExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -475,7 +475,7 @@ public class ApproachAltitudeTableType extends AbstractAIXMObjectType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApproachAltitudeTableTypeExtensionType> theField;
+            List<ApproachAltitudeTableExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

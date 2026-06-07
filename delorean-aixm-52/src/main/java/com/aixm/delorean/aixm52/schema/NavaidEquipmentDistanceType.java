@@ -91,7 +91,7 @@ public class NavaidEquipmentDistanceType extends AbstractAIXMObjectType implemen
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "theNavaidEquipment", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<NavaidEquipmentPropertyType> theNavaidEquipment;
-    protected List<NavaidEquipmentDistanceTypeExtensionType> extension;
+    protected List<NavaidEquipmentDistanceExtensionType> extension;
 
     /**
      * Gets the value of the distance property.
@@ -221,14 +221,14 @@ public class NavaidEquipmentDistanceType extends AbstractAIXMObjectType implemen
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NavaidEquipmentDistanceTypeExtensionType }
+     * {@link NavaidEquipmentDistanceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = NavaidEquipmentDistanceTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = NavaidEquipmentDistanceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navaidequipmentdistancee_hjid", referencedColumnName = "hjid")
-    public List<NavaidEquipmentDistanceTypeExtensionType> getExtension() {
+    @JoinColumn(name = "navaidequipmentdistance_oe_hjid", referencedColumnName = "hjid")
+    public List<NavaidEquipmentDistanceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -239,7 +239,7 @@ public class NavaidEquipmentDistanceType extends AbstractAIXMObjectType implemen
      *
      *
      */
-    public void setExtension(List<NavaidEquipmentDistanceTypeExtensionType> extension) {
+    public void setExtension(List<NavaidEquipmentDistanceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -295,14 +295,14 @@ public class NavaidEquipmentDistanceType extends AbstractAIXMObjectType implemen
         }
         final NavaidEquipmentDistanceType that = ((NavaidEquipmentDistanceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -321,27 +321,27 @@ public class NavaidEquipmentDistanceType extends AbstractAIXMObjectType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavaidEquipmentDistanceTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NavaidEquipmentDistanceTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NavaidEquipmentDistanceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<NavaidEquipmentDistanceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -375,7 +375,7 @@ public class NavaidEquipmentDistanceType extends AbstractAIXMObjectType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavaidEquipmentDistanceTypeExtensionType> theField;
+            List<NavaidEquipmentDistanceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -406,7 +406,7 @@ public class NavaidEquipmentDistanceType extends AbstractAIXMObjectType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavaidEquipmentDistanceTypeExtensionType> theField;
+            List<NavaidEquipmentDistanceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -99,7 +99,7 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "theNavaidEquipment", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<NavaidEquipmentPropertyType> theNavaidEquipment;
-    protected List<NavaidComponentTypeExtensionType> extension;
+    protected List<NavaidComponentExtensionType> extension;
 
     /**
      * Gets the value of the collocationGroup property.
@@ -287,14 +287,13 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NavaidComponentTypeExtensionType }
+     * {@link NavaidComponentExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = NavaidComponentTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navaidcomponente_hjid", referencedColumnName = "hjid")
-    public List<NavaidComponentTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = NavaidComponentExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "navaidcomponent_oe_hjid", referencedColumnName = "hjid")
+    public List<NavaidComponentExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -305,7 +304,7 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
      *
      *
      */
-    public void setExtension(List<NavaidComponentTypeExtensionType> extension) {
+    public void setExtension(List<NavaidComponentExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -382,14 +381,14 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
         }
         final NavaidComponentType that = ((NavaidComponentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCollocationGroup();
-            boolean rhsFieldIsSet = that.isSetCollocationGroup();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getCollocationGroup();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getCollocationGroup();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "collocationGroup", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "collocationGroup", rhsField);
+            boolean lhsFieldIsSet = this.isSetMarkerPosition();
+            boolean rhsFieldIsSet = that.isSetMarkerPosition();
+            JAXBElement<CodePositionInILSType> lhsField;
+            lhsField = this.getMarkerPosition();
+            JAXBElement<CodePositionInILSType> rhsField;
+            rhsField = that.getMarkerPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markerPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markerPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -397,25 +396,12 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavaidComponentTypeExtensionType> lhsField;
+            List<NavaidComponentExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NavaidComponentTypeExtensionType> rhsField;
+            List<NavaidComponentExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheNavaidEquipment();
-            boolean rhsFieldIsSet = that.isSetTheNavaidEquipment();
-            JAXBElement<NavaidEquipmentPropertyType> lhsField;
-            lhsField = this.getTheNavaidEquipment();
-            JAXBElement<NavaidEquipmentPropertyType> rhsField;
-            rhsField = that.getTheNavaidEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theNavaidEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theNavaidEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -434,6 +420,19 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetTheNavaidEquipment();
+            boolean rhsFieldIsSet = that.isSetTheNavaidEquipment();
+            JAXBElement<NavaidEquipmentPropertyType> lhsField;
+            lhsField = this.getTheNavaidEquipment();
+            JAXBElement<NavaidEquipmentPropertyType> rhsField;
+            rhsField = that.getTheNavaidEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theNavaidEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theNavaidEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -447,14 +446,14 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkerPosition();
-            boolean rhsFieldIsSet = that.isSetMarkerPosition();
-            JAXBElement<CodePositionInILSType> lhsField;
-            lhsField = this.getMarkerPosition();
-            JAXBElement<CodePositionInILSType> rhsField;
-            rhsField = that.getMarkerPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markerPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markerPosition", rhsField);
+            boolean lhsFieldIsSet = this.isSetCollocationGroup();
+            boolean rhsFieldIsSet = that.isSetCollocationGroup();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getCollocationGroup();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getCollocationGroup();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "collocationGroup", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "collocationGroup", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -502,7 +501,7 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavaidComponentTypeExtensionType> theField;
+            List<NavaidComponentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -545,7 +544,7 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavaidComponentTypeExtensionType> theField;
+            List<NavaidComponentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

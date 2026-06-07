@@ -94,7 +94,7 @@ public class GeoBorderTimeSliceType extends AbstractAIXMTimeSliceType implements
     protected JAXBElement<AIXMCurvePropertyType> border;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<GeoBorderExtensionType> extension;
+    protected List<GeoBorderTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the aixmName property.
@@ -253,13 +253,14 @@ public class GeoBorderTimeSliceType extends AbstractAIXMTimeSliceType implements
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link GeoBorderExtensionType }
+     * {@link GeoBorderTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = GeoBorderExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "geobordere_hjid", referencedColumnName = "hjid")
-    public List<GeoBorderExtensionType> getExtension() {
+    @OneToMany(targetEntity = GeoBorderTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "geoborder_te_hjid", referencedColumnName = "hjid")
+    public List<GeoBorderTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -270,7 +271,7 @@ public class GeoBorderTimeSliceType extends AbstractAIXMTimeSliceType implements
      *
      *
      */
-    public void setExtension(List<GeoBorderExtensionType> extension) {
+    public void setExtension(List<GeoBorderTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -335,14 +336,14 @@ public class GeoBorderTimeSliceType extends AbstractAIXMTimeSliceType implements
         }
         final GeoBorderTimeSliceType that = ((GeoBorderTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeGeoBorderType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeGeoBorderType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<GeoBorderTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<GeoBorderTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -356,6 +357,19 @@ public class GeoBorderTimeSliceType extends AbstractAIXMTimeSliceType implements
             rhsField = that.getBorder();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "border", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "border", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeGeoBorderType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeGeoBorderType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -382,19 +396,6 @@ public class GeoBorderTimeSliceType extends AbstractAIXMTimeSliceType implements
             rhsField = that.getAixmName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<GeoBorderExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<GeoBorderExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -435,7 +436,7 @@ public class GeoBorderTimeSliceType extends AbstractAIXMTimeSliceType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GeoBorderExtensionType> theField;
+            List<GeoBorderTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -472,7 +473,7 @@ public class GeoBorderTimeSliceType extends AbstractAIXMTimeSliceType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GeoBorderExtensionType> theField;
+            List<GeoBorderTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

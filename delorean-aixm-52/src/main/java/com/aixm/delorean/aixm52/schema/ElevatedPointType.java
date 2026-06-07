@@ -298,6 +298,19 @@ public class ElevatedPointType extends PointType implements Serializable {
         }
         final ElevatedPointType that = ((ElevatedPointType) object);
         {
+            boolean lhsFieldIsSet = this.isSetGeoidUndulation();
+            boolean rhsFieldIsSet = that.isSetGeoidUndulation();
+            JAXBElement<ValDistanceSignedType> lhsField;
+            lhsField = this.getGeoidUndulation();
+            JAXBElement<ValDistanceSignedType> rhsField;
+            rhsField = that.getGeoidUndulation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geoidUndulation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geoidUndulation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetVerticalDatum();
             boolean rhsFieldIsSet = that.isSetVerticalDatum();
             JAXBElement<TextNameType> lhsField;
@@ -311,14 +324,14 @@ public class ElevatedPointType extends PointType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGeoidUndulation();
-            boolean rhsFieldIsSet = that.isSetGeoidUndulation();
-            JAXBElement<ValDistanceSignedType> lhsField;
-            lhsField = this.getGeoidUndulation();
-            JAXBElement<ValDistanceSignedType> rhsField;
-            rhsField = that.getGeoidUndulation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geoidUndulation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geoidUndulation", rhsField);
+            boolean lhsFieldIsSet = this.isSetHorizontalAccuracy();
+            boolean rhsFieldIsSet = that.isSetHorizontalAccuracy();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getHorizontalAccuracy();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getHorizontalAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAccuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -345,19 +358,6 @@ public class ElevatedPointType extends PointType implements Serializable {
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHorizontalAccuracy();
-            boolean rhsFieldIsSet = that.isSetHorizontalAccuracy();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getHorizontalAccuracy();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getHorizontalAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAccuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

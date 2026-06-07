@@ -86,7 +86,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "GroundLightingAvailabilityType", propOrder = {"timeInterval", "annotation", "specialDateAuthority",
         "operationalStatus", "extension"})
 @Entity(name = "GroundLightingAvailabilityType")
-@Table(name = "groundlightingavailabilitytype", schema = "airport_heliport")
+@Table(name = "groundlightingavailability_o", schema = "airport_heliport")
 public class GroundLightingAvailabilityType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -98,7 +98,7 @@ public class GroundLightingAvailabilityType extends AbstractPropertiesWithSchedu
     protected List<OrganisationAuthorityPropertyType> specialDateAuthority;
     @XmlElementRef(name = "operationalStatus", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeStatusOperationsType> operationalStatus;
-    protected List<GroundLightingAvailabilityTypeExtensionType> extension;
+    protected List<GroundLightingAvailabilityExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -125,7 +125,7 @@ public class GroundLightingAvailabilityType extends AbstractPropertiesWithSchedu
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "grndlghtngavlblttp_tmintrvl_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "groundlightingavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "groundlightingavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -176,7 +176,7 @@ public class GroundLightingAvailabilityType extends AbstractPropertiesWithSchedu
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "grndlghtngavlblttp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "groundlightingavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "groundlightingavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -228,7 +228,7 @@ public class GroundLightingAvailabilityType extends AbstractPropertiesWithSchedu
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "grndlghtngavlblttp_spcldtathrt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "groundlightingavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "groundlightingavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -302,14 +302,14 @@ public class GroundLightingAvailabilityType extends AbstractPropertiesWithSchedu
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link GroundLightingAvailabilityTypeExtensionType }
+     * {@link GroundLightingAvailabilityExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = GroundLightingAvailabilityTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = GroundLightingAvailabilityExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "groundlightingavailabilitye_hjid", referencedColumnName = "hjid")
-    public List<GroundLightingAvailabilityTypeExtensionType> getExtension() {
+    @JoinColumn(name = "groundlightingavailability_oe_hjid", referencedColumnName = "hjid")
+    public List<GroundLightingAvailabilityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -320,7 +320,7 @@ public class GroundLightingAvailabilityType extends AbstractPropertiesWithSchedu
      *
      *
      */
-    public void setExtension(List<GroundLightingAvailabilityTypeExtensionType> extension) {
+    public void setExtension(List<GroundLightingAvailabilityExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -360,45 +360,6 @@ public class GroundLightingAvailabilityType extends AbstractPropertiesWithSchedu
         }
         final GroundLightingAvailabilityType that = ((GroundLightingAvailabilityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<GroundLightingAvailabilityTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<GroundLightingAvailabilityTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOperationalStatus();
-            boolean rhsFieldIsSet = that.isSetOperationalStatus();
-            JAXBElement<CodeStatusOperationsType> lhsField;
-            lhsField = this.getOperationalStatus();
-            JAXBElement<CodeStatusOperationsType> rhsField;
-            rhsField = that.getOperationalStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -420,6 +381,45 @@ public class GroundLightingAvailabilityType extends AbstractPropertiesWithSchedu
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<GroundLightingAvailabilityExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<GroundLightingAvailabilityExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperationalStatus();
+            boolean rhsFieldIsSet = that.isSetOperationalStatus();
+            JAXBElement<CodeStatusOperationsType> lhsField;
+            lhsField = this.getOperationalStatus();
+            JAXBElement<CodeStatusOperationsType> rhsField;
+            rhsField = that.getOperationalStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -460,7 +460,7 @@ public class GroundLightingAvailabilityType extends AbstractPropertiesWithSchedu
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GroundLightingAvailabilityTypeExtensionType> theField;
+            List<GroundLightingAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -497,7 +497,7 @@ public class GroundLightingAvailabilityType extends AbstractPropertiesWithSchedu
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GroundLightingAvailabilityTypeExtensionType> theField;
+            List<GroundLightingAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

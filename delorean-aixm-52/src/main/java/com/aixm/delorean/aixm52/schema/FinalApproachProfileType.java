@@ -110,7 +110,7 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
     protected JAXBElement<ValSpeedType> rateOfDescent;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<FinalApproachProfileTypeExtensionType> extension;
+    protected List<FinalApproachProfileExtensionType> extension;
 
     /**
      * Gets the value of the startPoint property.
@@ -385,14 +385,14 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FinalApproachProfileTypeExtensionType }
+     * {@link FinalApproachProfileExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = FinalApproachProfileTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = FinalApproachProfileExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "finalapproachprofilee_hjid", referencedColumnName = "hjid")
-    public List<FinalApproachProfileTypeExtensionType> getExtension() {
+    @JoinColumn(name = "finalapproachprofile_oe_hjid", referencedColumnName = "hjid")
+    public List<FinalApproachProfileExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -403,7 +403,7 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
      *
      *
      */
-    public void setExtension(List<FinalApproachProfileTypeExtensionType> extension) {
+    public void setExtension(List<FinalApproachProfileExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -524,27 +524,14 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
         }
         final FinalApproachProfileType that = ((FinalApproachProfileType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSpeedReference();
-            boolean rhsFieldIsSet = that.isSetSpeedReference();
-            JAXBElement<CodeSpeedReferenceType> lhsField;
-            lhsField = this.getSpeedReference();
-            JAXBElement<CodeSpeedReferenceType> rhsField;
-            rhsField = that.getSpeedReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FinalApproachProfileTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FinalApproachProfileTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetEndPoint();
+            boolean rhsFieldIsSet = that.isSetEndPoint();
+            JAXBElement<CodeFinalSegmentPointType> lhsField;
+            lhsField = this.getEndPoint();
+            JAXBElement<CodeFinalSegmentPointType> rhsField;
+            rhsField = that.getEndPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -563,27 +550,14 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTime();
-            boolean rhsFieldIsSet = that.isSetTime();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getTime();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "time", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "time", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpeedReference();
+            boolean rhsFieldIsSet = that.isSetSpeedReference();
+            JAXBElement<CodeSpeedReferenceType> lhsField;
+            lhsField = this.getSpeedReference();
+            JAXBElement<CodeSpeedReferenceType> rhsField;
+            rhsField = that.getSpeedReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -602,14 +576,14 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEndPoint();
-            boolean rhsFieldIsSet = that.isSetEndPoint();
-            JAXBElement<CodeFinalSegmentPointType> lhsField;
-            lhsField = this.getEndPoint();
-            JAXBElement<CodeFinalSegmentPointType> rhsField;
-            rhsField = that.getEndPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FinalApproachProfileExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FinalApproachProfileExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -628,6 +602,19 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetTime();
+            boolean rhsFieldIsSet = that.isSetTime();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getTime();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "time", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "time", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -636,6 +623,19 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -704,7 +704,7 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FinalApproachProfileTypeExtensionType> theField;
+            List<FinalApproachProfileExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -765,7 +765,7 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FinalApproachProfileTypeExtensionType> theField;
+            List<FinalApproachProfileExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

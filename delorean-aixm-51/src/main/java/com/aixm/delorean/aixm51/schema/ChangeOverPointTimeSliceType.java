@@ -119,7 +119,7 @@ public class ChangeOverPointTimeSliceType extends AbstractAIXMTimeSliceType impl
     protected JAXBElement<RoutePortionPropertyType> applicableRoutePortion;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<ChangeOverPointExtensionType> extension;
+    protected List<ChangeOverPointTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the distance property.
@@ -423,13 +423,14 @@ public class ChangeOverPointTimeSliceType extends AbstractAIXMTimeSliceType impl
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ChangeOverPointExtensionType }
+     * {@link ChangeOverPointTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ChangeOverPointExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "changeoverpointe_hjid", referencedColumnName = "hjid")
-    public List<ChangeOverPointExtensionType> getExtension() {
+    @OneToMany(targetEntity = ChangeOverPointTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "changeoverpoint_te_hjid", referencedColumnName = "hjid")
+    public List<ChangeOverPointTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -440,7 +441,7 @@ public class ChangeOverPointTimeSliceType extends AbstractAIXMTimeSliceType impl
      *
      *
      */
-    public void setExtension(List<ChangeOverPointExtensionType> extension) {
+    public void setExtension(List<ChangeOverPointTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -582,6 +583,73 @@ public class ChangeOverPointTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         final ChangeOverPointTimeSliceType that = ((ChangeOverPointTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetLocationRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetLocationRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getLocationRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getLocationRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocationAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetLocationAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getLocationAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getLocationAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationAirportReferencePoint",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationAirportReferencePoint",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocationNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetLocationNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getLocationNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getLocationNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ChangeOverPointTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ChangeOverPointTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLocationFixDesignatedPoint();
             boolean rhsFieldIsSet = that.isSetLocationFixDesignatedPoint();
             JAXBElement<DesignatedPointPropertyType> lhsField;
@@ -608,14 +676,14 @@ public class ChangeOverPointTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocationRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetLocationRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getLocationRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getLocationRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationRunwayPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocationAimingPoint();
+            boolean rhsFieldIsSet = that.isSetLocationAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getLocationAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getLocationAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationAimingPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -634,19 +702,6 @@ public class ChangeOverPointTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocationAimingPoint();
-            boolean rhsFieldIsSet = that.isSetLocationAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getLocationAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getLocationAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetApplicableRoutePortion();
             boolean rhsFieldIsSet = that.isSetApplicableRoutePortion();
             JAXBElement<RoutePortionPropertyType> lhsField;
@@ -655,60 +710,6 @@ public class ChangeOverPointTimeSliceType extends AbstractAIXMTimeSliceType impl
             rhsField = that.getApplicableRoutePortion();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableRoutePortion", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableRoutePortion", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocationNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetLocationNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getLocationNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getLocationNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocationAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetLocationAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getLocationAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getLocationAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationAirportReferencePoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationAirportReferencePoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ChangeOverPointExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ChangeOverPointExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -784,7 +785,7 @@ public class ChangeOverPointTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ChangeOverPointExtensionType> theField;
+            List<ChangeOverPointTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -851,7 +852,7 @@ public class ChangeOverPointTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ChangeOverPointExtensionType> theField;
+            List<ChangeOverPointTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

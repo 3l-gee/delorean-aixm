@@ -89,7 +89,7 @@ public class AngleUseType extends AbstractAIXMObjectType implements Serializable
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
     protected AngleIndicationPropertyType theAngleIndication;
-    protected List<AngleUseTypeExtensionType> extension;
+    protected List<AngleUseExtensionType> extension;
 
     /**
      * Gets the value of the alongCourseGuidance property.
@@ -220,13 +220,13 @@ public class AngleUseType extends AbstractAIXMObjectType implements Serializable
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AngleUseTypeExtensionType }
+     * {@link AngleUseExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AngleUseTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "angleusee_hjid", referencedColumnName = "hjid")
-    public List<AngleUseTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = AngleUseExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "angleuse_oe_hjid", referencedColumnName = "hjid")
+    public List<AngleUseExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -237,7 +237,7 @@ public class AngleUseType extends AbstractAIXMObjectType implements Serializable
      *
      *
      */
-    public void setExtension(List<AngleUseTypeExtensionType> extension) {
+    public void setExtension(List<AngleUseExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -276,6 +276,19 @@ public class AngleUseType extends AbstractAIXMObjectType implements Serializable
         }
         final AngleUseType that = ((AngleUseType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAlongCourseGuidance();
+            boolean rhsFieldIsSet = that.isSetAlongCourseGuidance();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getAlongCourseGuidance();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getAlongCourseGuidance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alongCourseGuidance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alongCourseGuidance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -284,19 +297,6 @@ public class AngleUseType extends AbstractAIXMObjectType implements Serializable
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AngleUseTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AngleUseTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -315,14 +315,14 @@ public class AngleUseType extends AbstractAIXMObjectType implements Serializable
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAlongCourseGuidance();
-            boolean rhsFieldIsSet = that.isSetAlongCourseGuidance();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getAlongCourseGuidance();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getAlongCourseGuidance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alongCourseGuidance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alongCourseGuidance", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AngleUseExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AngleUseExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -356,7 +356,7 @@ public class AngleUseType extends AbstractAIXMObjectType implements Serializable
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AngleUseTypeExtensionType> theField;
+            List<AngleUseExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -387,7 +387,7 @@ public class AngleUseType extends AbstractAIXMObjectType implements Serializable
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AngleUseTypeExtensionType> theField;
+            List<AngleUseExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

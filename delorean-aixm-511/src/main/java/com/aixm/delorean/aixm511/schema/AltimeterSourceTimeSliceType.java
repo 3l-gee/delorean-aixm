@@ -95,7 +95,7 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
     protected List<AltimeterSourceStatusPropertyType> availability;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<AltimeterSourceExtensionType> extension;
+    protected List<AltimeterSourceTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the isRemote property.
@@ -277,13 +277,14 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AltimeterSourceExtensionType }
+     * {@link AltimeterSourceTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AltimeterSourceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "altimetersourcee_hjid", referencedColumnName = "hjid")
-    public List<AltimeterSourceExtensionType> getExtension() {
+    @OneToMany(targetEntity = AltimeterSourceTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "altimetersource_te_hjid", referencedColumnName = "hjid")
+    public List<AltimeterSourceTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -294,7 +295,7 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
      *
      *
      */
-    public void setExtension(List<AltimeterSourceExtensionType> extension) {
+    public void setExtension(List<AltimeterSourceTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -347,27 +348,14 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         final AltimeterSourceTimeSliceType that = ((AltimeterSourceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetIsRemote();
-            boolean rhsFieldIsSet = that.isSetIsRemote();
+            boolean lhsFieldIsSet = this.isSetIsPrimary();
+            boolean rhsFieldIsSet = that.isSetIsPrimary();
             JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIsRemote();
+            lhsField = this.getIsPrimary();
             JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIsRemote();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isRemote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isRemote", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<AltimeterSourceStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<AltimeterSourceStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            rhsField = that.getIsPrimary();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPrimary", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPrimary", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -386,27 +374,40 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIsPrimary();
-            boolean rhsFieldIsSet = that.isSetIsPrimary();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIsPrimary();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIsPrimary();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPrimary", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPrimary", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AltimeterSourceTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AltimeterSourceTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AltimeterSourceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AltimeterSourceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<AltimeterSourceStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
+            List<AltimeterSourceStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIsRemote();
+            boolean rhsFieldIsSet = that.isSetIsRemote();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getIsRemote();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getIsRemote();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isRemote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isRemote", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -447,7 +448,7 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AltimeterSourceExtensionType> theField;
+            List<AltimeterSourceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -484,7 +485,7 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AltimeterSourceExtensionType> theField;
+            List<AltimeterSourceTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

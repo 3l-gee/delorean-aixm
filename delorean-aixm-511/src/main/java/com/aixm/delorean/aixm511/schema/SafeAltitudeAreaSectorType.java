@@ -100,7 +100,7 @@ public class SafeAltitudeAreaSectorType extends AbstractAIXMObjectType implement
     protected JAXBElement<CircleSectorPropertyType> sectorDefinition;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<SafeAltitudeAreaSectorTypeExtensionType> extension;
+    protected List<SafeAltitudeAreaSectorExtensionType> extension;
 
     /**
      * Gets the value of the bufferWidth property.
@@ -310,14 +310,14 @@ public class SafeAltitudeAreaSectorType extends AbstractAIXMObjectType implement
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SafeAltitudeAreaSectorTypeExtensionType }
+     * {@link SafeAltitudeAreaSectorExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SafeAltitudeAreaSectorTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = SafeAltitudeAreaSectorExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "safealtitudeareasectore_hjid", referencedColumnName = "hjid")
-    public List<SafeAltitudeAreaSectorTypeExtensionType> getExtension() {
+    @JoinColumn(name = "safealtitudeareasector_oe_hjid", referencedColumnName = "hjid")
+    public List<SafeAltitudeAreaSectorExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -328,7 +328,7 @@ public class SafeAltitudeAreaSectorType extends AbstractAIXMObjectType implement
      *
      *
      */
-    public void setExtension(List<SafeAltitudeAreaSectorTypeExtensionType> extension) {
+    public void setExtension(List<SafeAltitudeAreaSectorExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -410,14 +410,14 @@ public class SafeAltitudeAreaSectorType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            boolean lhsFieldIsSet = this.isSetSectorDefinition();
+            boolean rhsFieldIsSet = that.isSetSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> lhsField;
+            lhsField = this.getSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> rhsField;
+            rhsField = that.getSectorDefinition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectorDefinition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectorDefinition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -436,27 +436,27 @@ public class SafeAltitudeAreaSectorType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSectorDefinition();
-            boolean rhsFieldIsSet = that.isSetSectorDefinition();
-            JAXBElement<CircleSectorPropertyType> lhsField;
-            lhsField = this.getSectorDefinition();
-            JAXBElement<CircleSectorPropertyType> rhsField;
-            rhsField = that.getSectorDefinition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectorDefinition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectorDefinition", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SafeAltitudeAreaSectorExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SafeAltitudeAreaSectorExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SafeAltitudeAreaSectorTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SafeAltitudeAreaSectorTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -517,7 +517,7 @@ public class SafeAltitudeAreaSectorType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SafeAltitudeAreaSectorTypeExtensionType> theField;
+            List<SafeAltitudeAreaSectorExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -560,7 +560,7 @@ public class SafeAltitudeAreaSectorType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SafeAltitudeAreaSectorTypeExtensionType> theField;
+            List<SafeAltitudeAreaSectorExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

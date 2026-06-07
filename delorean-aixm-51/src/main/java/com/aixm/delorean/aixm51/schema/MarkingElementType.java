@@ -105,7 +105,7 @@ public class MarkingElementType extends AbstractAIXMObjectType implements Serial
     protected JAXBElement<AIXMElevatedPointPropertyType> extentLocation;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<MarkingElementTypeExtensionType> extension;
+    protected List<MarkingElementExtensionType> extension;
 
     /**
      * Gets the value of the colour property.
@@ -322,14 +322,13 @@ public class MarkingElementType extends AbstractAIXMObjectType implements Serial
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link MarkingElementTypeExtensionType }
+     * {@link MarkingElementExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = MarkingElementTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "markingelemente_hjid", referencedColumnName = "hjid")
-    public List<MarkingElementTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = MarkingElementExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "markingelement_oe_hjid", referencedColumnName = "hjid")
+    public List<MarkingElementExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -340,7 +339,7 @@ public class MarkingElementType extends AbstractAIXMObjectType implements Serial
      *
      *
      */
-    public void setExtension(List<MarkingElementTypeExtensionType> extension) {
+    public void setExtension(List<MarkingElementExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -432,53 +431,14 @@ public class MarkingElementType extends AbstractAIXMObjectType implements Serial
         }
         final MarkingElementType that = ((MarkingElementType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStyle();
-            boolean rhsFieldIsSet = that.isSetStyle();
-            JAXBElement<CodeMarkingStyleType> lhsField;
-            lhsField = this.getStyle();
-            JAXBElement<CodeMarkingStyleType> rhsField;
-            rhsField = that.getStyle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "style", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "style", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<MarkingElementTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<MarkingElementTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtentCurveExtent();
-            boolean rhsFieldIsSet = that.isSetExtentCurveExtent();
-            JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
-            lhsField = this.getExtentCurveExtent();
-            JAXBElement<AIXMElevatedCurvePropertyType> rhsField;
-            rhsField = that.getExtentCurveExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentCurveExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentCurveExtent", rhsField);
+            boolean lhsFieldIsSet = this.isSetColour();
+            boolean rhsFieldIsSet = that.isSetColour();
+            JAXBElement<CodeColourType> lhsField;
+            lhsField = this.getColour();
+            JAXBElement<CodeColourType> rhsField;
+            rhsField = that.getColour();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -497,14 +457,53 @@ public class MarkingElementType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetColour();
-            boolean rhsFieldIsSet = that.isSetColour();
-            JAXBElement<CodeColourType> lhsField;
-            lhsField = this.getColour();
-            JAXBElement<CodeColourType> rhsField;
-            rhsField = that.getColour();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtentCurveExtent();
+            boolean rhsFieldIsSet = that.isSetExtentCurveExtent();
+            JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
+            lhsField = this.getExtentCurveExtent();
+            JAXBElement<AIXMElevatedCurvePropertyType> rhsField;
+            rhsField = that.getExtentCurveExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentCurveExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentCurveExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<MarkingElementExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<MarkingElementExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStyle();
+            boolean rhsFieldIsSet = that.isSetStyle();
+            JAXBElement<CodeMarkingStyleType> lhsField;
+            lhsField = this.getStyle();
+            JAXBElement<CodeMarkingStyleType> rhsField;
+            rhsField = that.getStyle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "style", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "style", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -572,7 +571,7 @@ public class MarkingElementType extends AbstractAIXMObjectType implements Serial
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<MarkingElementTypeExtensionType> theField;
+            List<MarkingElementExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -621,7 +620,7 @@ public class MarkingElementType extends AbstractAIXMObjectType implements Serial
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<MarkingElementTypeExtensionType> theField;
+            List<MarkingElementExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

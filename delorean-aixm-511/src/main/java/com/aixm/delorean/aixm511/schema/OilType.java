@@ -85,7 +85,7 @@ public class OilType extends AbstractAIXMObjectType implements Serializable {
     protected JAXBElement<CodeOilType> category;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<OilTypeExtensionType> extension;
+    protected List<OilExtensionType> extension;
 
     /**
      * Gets the value of the category property.
@@ -186,13 +186,13 @@ public class OilType extends AbstractAIXMObjectType implements Serializable {
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link OilTypeExtensionType }
+     * {@link OilExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = OilTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "oile_hjid", referencedColumnName = "hjid")
-    public List<OilTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = OilExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "oil_oe_hjid", referencedColumnName = "hjid")
+    public List<OilExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -203,7 +203,7 @@ public class OilType extends AbstractAIXMObjectType implements Serializable {
      *
      *
      */
-    public void setExtension(List<OilTypeExtensionType> extension) {
+    public void setExtension(List<OilExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -242,14 +242,14 @@ public class OilType extends AbstractAIXMObjectType implements Serializable {
         }
         final OilType that = ((OilType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<OilTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<OilTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetCategory();
+            boolean rhsFieldIsSet = that.isSetCategory();
+            JAXBElement<CodeOilType> lhsField;
+            lhsField = this.getCategory();
+            JAXBElement<CodeOilType> rhsField;
+            rhsField = that.getCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -268,14 +268,14 @@ public class OilType extends AbstractAIXMObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCategory();
-            boolean rhsFieldIsSet = that.isSetCategory();
-            JAXBElement<CodeOilType> lhsField;
-            lhsField = this.getCategory();
-            JAXBElement<CodeOilType> rhsField;
-            rhsField = that.getCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<OilExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<OilExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -302,7 +302,7 @@ public class OilType extends AbstractAIXMObjectType implements Serializable {
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<OilTypeExtensionType> theField;
+            List<OilExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -327,7 +327,7 @@ public class OilType extends AbstractAIXMObjectType implements Serializable {
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<OilTypeExtensionType> theField;
+            List<OilExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

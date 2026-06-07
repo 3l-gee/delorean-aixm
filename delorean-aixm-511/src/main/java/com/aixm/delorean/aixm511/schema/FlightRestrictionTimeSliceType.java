@@ -106,7 +106,7 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
     protected List<FlightRestrictionRoutePropertyType> regulatedRoute;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<FlightRestrictionExtensionType> extension;
+    protected List<FlightRestrictionTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the designator property.
@@ -346,14 +346,14 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FlightRestrictionExtensionType }
+     * {@link FlightRestrictionTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = FlightRestrictionExtensionType.class, cascade = {
+    @OneToMany(targetEntity = FlightRestrictionTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "flightrestrictione_hjid", referencedColumnName = "hjid")
-    public List<FlightRestrictionExtensionType> getExtension() {
+    @JoinColumn(name = "flightrestriction_te_hjid", referencedColumnName = "hjid")
+    public List<FlightRestrictionTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -364,7 +364,7 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
      *
      *
      */
-    public void setExtension(List<FlightRestrictionExtensionType> extension) {
+    public void setExtension(List<FlightRestrictionTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -446,27 +446,14 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
         }
         final FlightRestrictionTimeSliceType that = ((FlightRestrictionTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRegulatedRoute();
-            boolean rhsFieldIsSet = that.isSetRegulatedRoute();
-            List<FlightRestrictionRoutePropertyType> lhsField;
-            lhsField = (this.isSetRegulatedRoute() ? this.getRegulatedRoute() : null);
-            List<FlightRestrictionRoutePropertyType> rhsField;
-            rhsField = (that.isSetRegulatedRoute() ? that.getRegulatedRoute() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "regulatedRoute", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "regulatedRoute", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeFlightRestrictionType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeFlightRestrictionType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightRestrictionTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FlightRestrictionTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -485,19 +472,6 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightRestrictionExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FlightRestrictionExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFlight();
             boolean rhsFieldIsSet = that.isSetFlight();
             JAXBElement<FlightConditionCombinationPropertyType> lhsField;
@@ -506,6 +480,32 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
             rhsField = that.getFlight();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flight", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeFlightRestrictionDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeFlightRestrictionDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeFlightRestrictionType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeFlightRestrictionType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -524,14 +524,14 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeFlightRestrictionDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeFlightRestrictionDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            boolean lhsFieldIsSet = this.isSetRegulatedRoute();
+            boolean rhsFieldIsSet = that.isSetRegulatedRoute();
+            List<FlightRestrictionRoutePropertyType> lhsField;
+            lhsField = (this.isSetRegulatedRoute() ? this.getRegulatedRoute() : null);
+            List<FlightRestrictionRoutePropertyType> rhsField;
+            rhsField = (that.isSetRegulatedRoute() ? that.getRegulatedRoute() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "regulatedRoute", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "regulatedRoute", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -586,7 +586,7 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FlightRestrictionExtensionType> theField;
+            List<FlightRestrictionTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -635,7 +635,7 @@ public class FlightRestrictionTimeSliceType extends AbstractAIXMTimeSliceType im
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FlightRestrictionExtensionType> theField;
+            List<FlightRestrictionTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

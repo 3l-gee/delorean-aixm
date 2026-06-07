@@ -102,7 +102,7 @@ public class NavigationAreaRestrictionTimeSliceType extends AbstractAIXMTimeSlic
     protected JAXBElement<CircleSectorPropertyType> sectorDefinition;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<NavigationAreaRestrictionExtensionType> extension;
+    protected List<NavigationAreaRestrictionTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -312,14 +312,14 @@ public class NavigationAreaRestrictionTimeSliceType extends AbstractAIXMTimeSlic
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NavigationAreaRestrictionExtensionType }
+     * {@link NavigationAreaRestrictionTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = NavigationAreaRestrictionExtensionType.class, cascade = {
+    @OneToMany(targetEntity = NavigationAreaRestrictionTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navigationarearestrictione_hjid", referencedColumnName = "hjid")
-    public List<NavigationAreaRestrictionExtensionType> getExtension() {
+    @JoinColumn(name = "navigationarearestriction_te_hjid", referencedColumnName = "hjid")
+    public List<NavigationAreaRestrictionTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -330,7 +330,7 @@ public class NavigationAreaRestrictionTimeSliceType extends AbstractAIXMTimeSlic
      *
      *
      */
-    public void setExtension(List<NavigationAreaRestrictionExtensionType> extension) {
+    public void setExtension(List<NavigationAreaRestrictionTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -399,6 +399,45 @@ public class NavigationAreaRestrictionTimeSliceType extends AbstractAIXMTimeSlic
         }
         final NavigationAreaRestrictionTimeSliceType that = ((NavigationAreaRestrictionTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetProcedure();
+            boolean rhsFieldIsSet = that.isSetProcedure();
+            List<ProcedurePropertyType> lhsField;
+            lhsField = (this.isSetProcedure() ? this.getProcedure() : null);
+            List<ProcedurePropertyType> rhsField;
+            rhsField = (that.isSetProcedure() ? that.getProcedure() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "procedure", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "procedure", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NavigationAreaRestrictionTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<NavigationAreaRestrictionTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSectorDefinition();
+            boolean rhsFieldIsSet = that.isSetSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> lhsField;
+            lhsField = this.getSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> rhsField;
+            rhsField = that.getSectorDefinition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectorDefinition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectorDefinition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -433,45 +472,6 @@ public class NavigationAreaRestrictionTimeSliceType extends AbstractAIXMTimeSlic
             rhsField = that.getDesignSurface();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designSurface", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designSurface", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSectorDefinition();
-            boolean rhsFieldIsSet = that.isSetSectorDefinition();
-            JAXBElement<CircleSectorPropertyType> lhsField;
-            lhsField = this.getSectorDefinition();
-            JAXBElement<CircleSectorPropertyType> rhsField;
-            rhsField = that.getSectorDefinition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectorDefinition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectorDefinition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavigationAreaRestrictionExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NavigationAreaRestrictionExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProcedure();
-            boolean rhsFieldIsSet = that.isSetProcedure();
-            List<ProcedurePropertyType> lhsField;
-            lhsField = (this.isSetProcedure() ? this.getProcedure() : null);
-            List<ProcedurePropertyType> rhsField;
-            rhsField = (that.isSetProcedure() ? that.getProcedure() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "procedure", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "procedure", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -519,7 +519,7 @@ public class NavigationAreaRestrictionTimeSliceType extends AbstractAIXMTimeSlic
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavigationAreaRestrictionExtensionType> theField;
+            List<NavigationAreaRestrictionTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -562,7 +562,7 @@ public class NavigationAreaRestrictionTimeSliceType extends AbstractAIXMTimeSlic
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavigationAreaRestrictionExtensionType> theField;
+            List<NavigationAreaRestrictionTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

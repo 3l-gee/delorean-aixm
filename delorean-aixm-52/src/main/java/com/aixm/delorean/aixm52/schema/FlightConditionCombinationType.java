@@ -104,7 +104,7 @@ public class FlightConditionCombinationType extends AbstractPropertiesWithSchedu
     protected JAXBElement<CodeFlowConditionOperationType> logicalOperator;
     @XmlElement(nillable = true)
     protected List<FlightConditionElementPropertyType> element;
-    protected List<FlightConditionCombinationTypeExtensionType> extension;
+    protected List<FlightConditionCombinationExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -360,14 +360,14 @@ public class FlightConditionCombinationType extends AbstractPropertiesWithSchedu
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FlightConditionCombinationTypeExtensionType }
+     * {@link FlightConditionCombinationExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = FlightConditionCombinationTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = FlightConditionCombinationExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "flightconditioncombinatione_hjid", referencedColumnName = "hjid")
-    public List<FlightConditionCombinationTypeExtensionType> getExtension() {
+    @JoinColumn(name = "flightconditioncombination_oe_hjid", referencedColumnName = "hjid")
+    public List<FlightConditionCombinationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -378,7 +378,7 @@ public class FlightConditionCombinationType extends AbstractPropertiesWithSchedu
      *
      *
      */
-    public void setExtension(List<FlightConditionCombinationTypeExtensionType> extension) {
+    public void setExtension(List<FlightConditionCombinationExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -418,40 +418,14 @@ public class FlightConditionCombinationType extends AbstractPropertiesWithSchedu
         }
         final FlightConditionCombinationType that = ((FlightConditionCombinationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightConditionCombinationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FlightConditionCombinationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLogicalOperator();
-            boolean rhsFieldIsSet = that.isSetLogicalOperator();
-            JAXBElement<CodeFlowConditionOperationType> lhsField;
-            lhsField = this.getLogicalOperator();
-            JAXBElement<CodeFlowConditionOperationType> rhsField;
-            rhsField = that.getLogicalOperator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "logicalOperator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "logicalOperator", rhsField);
+            boolean lhsFieldIsSet = this.isSetElement();
+            boolean rhsFieldIsSet = that.isSetElement();
+            List<FlightConditionElementPropertyType> lhsField;
+            lhsField = (this.isSetElement() ? this.getElement() : null);
+            List<FlightConditionElementPropertyType> rhsField;
+            rhsField = (that.isSetElement() ? that.getElement() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -470,6 +444,19 @@ public class FlightConditionCombinationType extends AbstractPropertiesWithSchedu
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -483,14 +470,27 @@ public class FlightConditionCombinationType extends AbstractPropertiesWithSchedu
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetElement();
-            boolean rhsFieldIsSet = that.isSetElement();
-            List<FlightConditionElementPropertyType> lhsField;
-            lhsField = (this.isSetElement() ? this.getElement() : null);
-            List<FlightConditionElementPropertyType> rhsField;
-            rhsField = (that.isSetElement() ? that.getElement() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
+            boolean lhsFieldIsSet = this.isSetLogicalOperator();
+            boolean rhsFieldIsSet = that.isSetLogicalOperator();
+            JAXBElement<CodeFlowConditionOperationType> lhsField;
+            lhsField = this.getLogicalOperator();
+            JAXBElement<CodeFlowConditionOperationType> rhsField;
+            rhsField = that.getLogicalOperator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "logicalOperator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "logicalOperator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightConditionCombinationExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FlightConditionCombinationExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -538,7 +538,7 @@ public class FlightConditionCombinationType extends AbstractPropertiesWithSchedu
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FlightConditionCombinationTypeExtensionType> theField;
+            List<FlightConditionCombinationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -581,7 +581,7 @@ public class FlightConditionCombinationType extends AbstractPropertiesWithSchedu
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FlightConditionCombinationTypeExtensionType> theField;
+            List<FlightConditionCombinationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -86,7 +86,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "SpecialNavigationStationStatusType", propOrder = {"timeInterval", "annotation", "specialDateAuthority",
         "operationalStatus", "extension"})
 @Entity(name = "SpecialNavigationStationStatusType")
-@Table(name = "specialnavigationstationstatustype", schema = "navaids_point")
+@Table(name = "specialnavigationstationstatus_o", schema = "navaids_point")
 public class SpecialNavigationStationStatusType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -98,7 +98,7 @@ public class SpecialNavigationStationStatusType extends AbstractPropertiesWithSc
     protected List<OrganisationAuthorityPropertyType> specialDateAuthority;
     @XmlElementRef(name = "operationalStatus", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeStatusNavaidType> operationalStatus;
-    protected List<SpecialNavigationStationStatusTypeExtensionType> extension;
+    protected List<SpecialNavigationStationStatusExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -125,7 +125,7 @@ public class SpecialNavigationStationStatusType extends AbstractPropertiesWithSc
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "spclnvgtnsttnsttstp_tmintrvl_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "specialnavigationstationstatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "specialnavigationstationstatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -176,7 +176,7 @@ public class SpecialNavigationStationStatusType extends AbstractPropertiesWithSc
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "spclnvgtnsttnsttstp_annttn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "specialnavigationstationstatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "specialnavigationstationstatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -228,7 +228,7 @@ public class SpecialNavigationStationStatusType extends AbstractPropertiesWithSc
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "spclnvgtnsttnsttstp_spcldtathrt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "specialnavigationstationstatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "specialnavigationstationstatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -302,14 +302,14 @@ public class SpecialNavigationStationStatusType extends AbstractPropertiesWithSc
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SpecialNavigationStationStatusTypeExtensionType }
+     * {@link SpecialNavigationStationStatusExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SpecialNavigationStationStatusTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = SpecialNavigationStationStatusExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "specialnavigationstationstatuse_hjid", referencedColumnName = "hjid")
-    public List<SpecialNavigationStationStatusTypeExtensionType> getExtension() {
+    @JoinColumn(name = "specialnavigationstationstatus_oe_hjid", referencedColumnName = "hjid")
+    public List<SpecialNavigationStationStatusExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -320,7 +320,7 @@ public class SpecialNavigationStationStatusType extends AbstractPropertiesWithSc
      *
      *
      */
-    public void setExtension(List<SpecialNavigationStationStatusTypeExtensionType> extension) {
+    public void setExtension(List<SpecialNavigationStationStatusExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -360,19 +360,6 @@ public class SpecialNavigationStationStatusType extends AbstractPropertiesWithSc
         }
         final SpecialNavigationStationStatusType that = ((SpecialNavigationStationStatusType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -386,19 +373,6 @@ public class SpecialNavigationStationStatusType extends AbstractPropertiesWithSc
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SpecialNavigationStationStatusTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SpecialNavigationStationStatusTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOperationalStatus();
             boolean rhsFieldIsSet = that.isSetOperationalStatus();
             JAXBElement<CodeStatusNavaidType> lhsField;
@@ -407,6 +381,32 @@ public class SpecialNavigationStationStatusType extends AbstractPropertiesWithSc
             rhsField = that.getOperationalStatus();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SpecialNavigationStationStatusExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SpecialNavigationStationStatusExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -460,7 +460,7 @@ public class SpecialNavigationStationStatusType extends AbstractPropertiesWithSc
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SpecialNavigationStationStatusTypeExtensionType> theField;
+            List<SpecialNavigationStationStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -497,7 +497,7 @@ public class SpecialNavigationStationStatusType extends AbstractPropertiesWithSc
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SpecialNavigationStationStatusTypeExtensionType> theField;
+            List<SpecialNavigationStationStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -106,7 +106,7 @@ public class TelephoneContactType extends AbstractPropertiesWithScheduleType imp
     protected JAXBElement<TextPhoneType> facsimile;
     @XmlElementRef(name = "type", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeTelephoneSystemType> type;
-    protected List<TelephoneContactTypeExtensionType> extension;
+    protected List<TelephoneContactExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -368,14 +368,13 @@ public class TelephoneContactType extends AbstractPropertiesWithScheduleType imp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link TelephoneContactTypeExtensionType }
+     * {@link TelephoneContactExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = TelephoneContactTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "telephonecontacte_hjid", referencedColumnName = "hjid")
-    public List<TelephoneContactTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = TelephoneContactExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "telephonecontact_oe_hjid", referencedColumnName = "hjid")
+    public List<TelephoneContactExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -386,7 +385,7 @@ public class TelephoneContactType extends AbstractPropertiesWithScheduleType imp
      *
      *
      */
-    public void setExtension(List<TelephoneContactTypeExtensionType> extension) {
+    public void setExtension(List<TelephoneContactExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -451,19 +450,6 @@ public class TelephoneContactType extends AbstractPropertiesWithScheduleType imp
         }
         final TelephoneContactType that = ((TelephoneContactType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFacsimile();
-            boolean rhsFieldIsSet = that.isSetFacsimile();
-            JAXBElement<TextPhoneType> lhsField;
-            lhsField = this.getFacsimile();
-            JAXBElement<TextPhoneType> rhsField;
-            rhsField = that.getFacsimile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facsimile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facsimile", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -472,32 +458,6 @@ public class TelephoneContactType extends AbstractPropertiesWithScheduleType imp
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeTelephoneSystemType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeTelephoneSystemType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -529,11 +489,50 @@ public class TelephoneContactType extends AbstractPropertiesWithScheduleType imp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetFacsimile();
+            boolean rhsFieldIsSet = that.isSetFacsimile();
+            JAXBElement<TextPhoneType> lhsField;
+            lhsField = this.getFacsimile();
+            JAXBElement<TextPhoneType> rhsField;
+            rhsField = that.getFacsimile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facsimile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facsimile", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeTelephoneSystemType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeTelephoneSystemType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<TelephoneContactTypeExtensionType> lhsField;
+            List<TelephoneContactExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TelephoneContactTypeExtensionType> rhsField;
+            List<TelephoneContactExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -591,7 +590,7 @@ public class TelephoneContactType extends AbstractPropertiesWithScheduleType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TelephoneContactTypeExtensionType> theField;
+            List<TelephoneContactExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -640,7 +639,7 @@ public class TelephoneContactType extends AbstractPropertiesWithScheduleType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<TelephoneContactTypeExtensionType> theField;
+            List<TelephoneContactExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

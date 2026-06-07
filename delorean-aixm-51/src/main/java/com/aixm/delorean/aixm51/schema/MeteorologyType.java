@@ -102,7 +102,7 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
     protected JAXBElement<CodeValueInterpretationType> runwayVisualRangeInterpretation;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<MeteorologyTypeExtensionType> extension;
+    protected List<MeteorologyExtensionType> extension;
 
     /**
      * Gets the value of the flightConditions property.
@@ -319,13 +319,13 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link MeteorologyTypeExtensionType }
+     * {@link MeteorologyExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = MeteorologyTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "meteorologye_hjid", referencedColumnName = "hjid")
-    public List<MeteorologyTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = MeteorologyExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "meteorology_oe_hjid", referencedColumnName = "hjid")
+    public List<MeteorologyExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -336,7 +336,7 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
      *
      *
      */
-    public void setExtension(List<MeteorologyTypeExtensionType> extension) {
+    public void setExtension(List<MeteorologyExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -430,14 +430,27 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
         }
         final MeteorologyType that = ((MeteorologyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRunwayVisualRange();
-            boolean rhsFieldIsSet = that.isSetRunwayVisualRange();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getRunwayVisualRange();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getRunwayVisualRange();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRange", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRange", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightConditions();
+            boolean rhsFieldIsSet = that.isSetFlightConditions();
+            JAXBElement<CodeMeteoConditionsType> lhsField;
+            lhsField = this.getFlightConditions();
+            JAXBElement<CodeMeteoConditionsType> rhsField;
+            rhsField = that.getFlightConditions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -451,19 +464,6 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
             rhsField = that.getVisibilityInterpretation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibilityInterpretation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibilityInterpretation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightConditions();
-            boolean rhsFieldIsSet = that.isSetFlightConditions();
-            JAXBElement<CodeMeteoConditionsType> lhsField;
-            lhsField = this.getFlightConditions();
-            JAXBElement<CodeMeteoConditionsType> rhsField;
-            rhsField = that.getFlightConditions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -486,25 +486,12 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<MeteorologyTypeExtensionType> lhsField;
+            List<MeteorologyExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<MeteorologyTypeExtensionType> rhsField;
+            List<MeteorologyExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -518,6 +505,19 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
             rhsField = that.getVisibility();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibility", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibility", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRunwayVisualRange();
+            boolean rhsFieldIsSet = that.isSetRunwayVisualRange();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getRunwayVisualRange();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getRunwayVisualRange();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRange", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRange", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -572,7 +572,7 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<MeteorologyTypeExtensionType> theField;
+            List<MeteorologyExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -621,7 +621,7 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<MeteorologyTypeExtensionType> theField;
+            List<MeteorologyExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -96,7 +96,7 @@ public class RunwayVisualRangeEquipmentTimeSliceType extends AbstractAIXMTimeSli
     protected List<RunwayDirectionPropertyType> associatedRunwayDirection;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<RunwayVisualRangeEquipmentExtensionType> extension;
+    protected List<RunwayVisualRangeEquipmentTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the readingPosition property.
@@ -277,14 +277,14 @@ public class RunwayVisualRangeEquipmentTimeSliceType extends AbstractAIXMTimeSli
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RunwayVisualRangeEquipmentExtensionType }
+     * {@link RunwayVisualRangeEquipmentTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RunwayVisualRangeEquipmentExtensionType.class, cascade = {
+    @OneToMany(targetEntity = RunwayVisualRangeEquipmentTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "runwayvisualrangeequipmente_hjid", referencedColumnName = "hjid")
-    public List<RunwayVisualRangeEquipmentExtensionType> getExtension() {
+    @JoinColumn(name = "runwayvisualrangeequipment_te_hjid", referencedColumnName = "hjid")
+    public List<RunwayVisualRangeEquipmentTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -295,7 +295,7 @@ public class RunwayVisualRangeEquipmentTimeSliceType extends AbstractAIXMTimeSli
      *
      *
      */
-    public void setExtension(List<RunwayVisualRangeEquipmentExtensionType> extension) {
+    public void setExtension(List<RunwayVisualRangeEquipmentTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -349,14 +349,14 @@ public class RunwayVisualRangeEquipmentTimeSliceType extends AbstractAIXMTimeSli
         }
         final RunwayVisualRangeEquipmentTimeSliceType that = ((RunwayVisualRangeEquipmentTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedRunwayDirection();
-            boolean rhsFieldIsSet = that.isSetAssociatedRunwayDirection();
-            List<RunwayDirectionPropertyType> lhsField;
-            lhsField = (this.isSetAssociatedRunwayDirection() ? this.getAssociatedRunwayDirection() : null);
-            List<RunwayDirectionPropertyType> rhsField;
-            rhsField = (that.isSetAssociatedRunwayDirection() ? that.getAssociatedRunwayDirection() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedRunwayDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedRunwayDirection", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -375,14 +375,27 @@ public class RunwayVisualRangeEquipmentTimeSliceType extends AbstractAIXMTimeSli
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetAssociatedRunwayDirection();
+            boolean rhsFieldIsSet = that.isSetAssociatedRunwayDirection();
+            List<RunwayDirectionPropertyType> lhsField;
+            lhsField = (this.isSetAssociatedRunwayDirection() ? this.getAssociatedRunwayDirection() : null);
+            List<RunwayDirectionPropertyType> rhsField;
+            rhsField = (that.isSetAssociatedRunwayDirection() ? that.getAssociatedRunwayDirection() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedRunwayDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedRunwayDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RunwayVisualRangeEquipmentTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RunwayVisualRangeEquipmentTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -396,19 +409,6 @@ public class RunwayVisualRangeEquipmentTimeSliceType extends AbstractAIXMTimeSli
             rhsField = that.getLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RunwayVisualRangeEquipmentExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RunwayVisualRangeEquipmentExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -449,7 +449,7 @@ public class RunwayVisualRangeEquipmentTimeSliceType extends AbstractAIXMTimeSli
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RunwayVisualRangeEquipmentExtensionType> theField;
+            List<RunwayVisualRangeEquipmentTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -486,7 +486,7 @@ public class RunwayVisualRangeEquipmentTimeSliceType extends AbstractAIXMTimeSli
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RunwayVisualRangeEquipmentExtensionType> theField;
+            List<RunwayVisualRangeEquipmentTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

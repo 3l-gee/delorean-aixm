@@ -88,7 +88,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "NavaidOperationalStatusType", propOrder = {"timeInterval", "annotation", "specialDateAuthority",
         "operationalStatus", "signalType", "extension"})
 @Entity(name = "NavaidOperationalStatusType")
-@Table(name = "navaidoperationalstatustype", schema = "navaids_point")
+@Table(name = "navaidoperationalstatus_o", schema = "navaids_point")
 public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -102,7 +102,7 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
     protected JAXBElement<CodeStatusNavaidType> operationalStatus;
     @XmlElementRef(name = "signalType", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeRadioSignalType> signalType;
-    protected List<NavaidOperationalStatusTypeExtensionType> extension;
+    protected List<NavaidOperationalStatusExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -129,7 +129,7 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "nvdoprtnlsttstp_tmintrvl_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "navaidoperationalstatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "navaidoperationalstatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -180,7 +180,7 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "nvdoprtnlsttstp_annttn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "navaidoperationalstatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "navaidoperationalstatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -232,7 +232,7 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "nvdoprtnlsttstp_spcldtathrt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "navaidoperationalstatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "navaidoperationalstatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -335,14 +335,14 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NavaidOperationalStatusTypeExtensionType }
+     * {@link NavaidOperationalStatusExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = NavaidOperationalStatusTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = NavaidOperationalStatusExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navaidoperationalstatuse_hjid", referencedColumnName = "hjid")
-    public List<NavaidOperationalStatusTypeExtensionType> getExtension() {
+    @JoinColumn(name = "navaidoperationalstatus_oe_hjid", referencedColumnName = "hjid")
+    public List<NavaidOperationalStatusExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -353,7 +353,7 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
      *
      *
      */
-    public void setExtension(List<NavaidOperationalStatusTypeExtensionType> extension) {
+    public void setExtension(List<NavaidOperationalStatusExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -406,19 +406,6 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
         }
         final NavaidOperationalStatusType that = ((NavaidOperationalStatusType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOperationalStatus();
             boolean rhsFieldIsSet = that.isSetOperationalStatus();
             JAXBElement<CodeStatusNavaidType> lhsField;
@@ -440,6 +427,19 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
             rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -473,9 +473,9 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavaidOperationalStatusTypeExtensionType> lhsField;
+            List<NavaidOperationalStatusExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NavaidOperationalStatusTypeExtensionType> rhsField;
+            List<NavaidOperationalStatusExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -526,7 +526,7 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavaidOperationalStatusTypeExtensionType> theField;
+            List<NavaidOperationalStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -569,7 +569,7 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavaidOperationalStatusTypeExtensionType> theField;
+            List<NavaidOperationalStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

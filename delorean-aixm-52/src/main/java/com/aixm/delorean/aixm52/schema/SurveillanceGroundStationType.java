@@ -90,7 +90,7 @@ public class SurveillanceGroundStationType extends AbstractAIXMObjectType implem
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "theUnit", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<UnitPropertyType> theUnit;
-    protected List<SurveillanceGroundStationTypeExtensionType> extension;
+    protected List<SurveillanceGroundStationExtensionType> extension;
 
     /**
      * Gets the value of the videoMap property.
@@ -220,14 +220,14 @@ public class SurveillanceGroundStationType extends AbstractAIXMObjectType implem
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SurveillanceGroundStationTypeExtensionType }
+     * {@link SurveillanceGroundStationExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SurveillanceGroundStationTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = SurveillanceGroundStationExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "surveillancegroundstatione_hjid", referencedColumnName = "hjid")
-    public List<SurveillanceGroundStationTypeExtensionType> getExtension() {
+    @JoinColumn(name = "surveillancegroundstation_oe_hjid", referencedColumnName = "hjid")
+    public List<SurveillanceGroundStationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -238,7 +238,7 @@ public class SurveillanceGroundStationType extends AbstractAIXMObjectType implem
      *
      *
      */
-    public void setExtension(List<SurveillanceGroundStationTypeExtensionType> extension) {
+    public void setExtension(List<SurveillanceGroundStationExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -290,6 +290,32 @@ public class SurveillanceGroundStationType extends AbstractAIXMObjectType implem
         }
         final SurveillanceGroundStationType that = ((SurveillanceGroundStationType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTheUnit();
+            boolean rhsFieldIsSet = that.isSetTheUnit();
+            JAXBElement<UnitPropertyType> lhsField;
+            lhsField = this.getTheUnit();
+            JAXBElement<UnitPropertyType> rhsField;
+            rhsField = that.getTheUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theUnit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SurveillanceGroundStationExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SurveillanceGroundStationExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetVideoMap();
             boolean rhsFieldIsSet = that.isSetVideoMap();
             JAXBElement<CodeYesNoType> lhsField;
@@ -311,32 +337,6 @@ public class SurveillanceGroundStationType extends AbstractAIXMObjectType implem
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheUnit();
-            boolean rhsFieldIsSet = that.isSetTheUnit();
-            JAXBElement<UnitPropertyType> lhsField;
-            lhsField = this.getTheUnit();
-            JAXBElement<UnitPropertyType> rhsField;
-            rhsField = that.getTheUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theUnit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SurveillanceGroundStationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SurveillanceGroundStationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -370,7 +370,7 @@ public class SurveillanceGroundStationType extends AbstractAIXMObjectType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SurveillanceGroundStationTypeExtensionType> theField;
+            List<SurveillanceGroundStationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -401,7 +401,7 @@ public class SurveillanceGroundStationType extends AbstractAIXMObjectType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SurveillanceGroundStationTypeExtensionType> theField;
+            List<SurveillanceGroundStationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

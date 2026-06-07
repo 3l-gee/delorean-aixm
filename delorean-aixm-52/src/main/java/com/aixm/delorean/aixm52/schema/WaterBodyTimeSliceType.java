@@ -87,7 +87,7 @@ public class WaterBodyTimeSliceType extends AbstractAIXMTimeSliceType implements
     protected List<AirportHeliportPropertyType> location;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<WaterBodyExtensionType> extension;
+    protected List<WaterBodyTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the extent property.
@@ -239,13 +239,14 @@ public class WaterBodyTimeSliceType extends AbstractAIXMTimeSliceType implements
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link WaterBodyExtensionType }
+     * {@link WaterBodyTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = WaterBodyExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "waterbodye_hjid", referencedColumnName = "hjid")
-    public List<WaterBodyExtensionType> getExtension() {
+    @OneToMany(targetEntity = WaterBodyTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "waterbody_te_hjid", referencedColumnName = "hjid")
+    public List<WaterBodyTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -256,7 +257,7 @@ public class WaterBodyTimeSliceType extends AbstractAIXMTimeSliceType implements
      *
      *
      */
-    public void setExtension(List<WaterBodyExtensionType> extension) {
+    public void setExtension(List<WaterBodyTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -296,6 +297,19 @@ public class WaterBodyTimeSliceType extends AbstractAIXMTimeSliceType implements
         }
         final WaterBodyTimeSliceType that = ((WaterBodyTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<WaterBodyTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<WaterBodyTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -304,19 +318,6 @@ public class WaterBodyTimeSliceType extends AbstractAIXMTimeSliceType implements
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -335,14 +336,14 @@ public class WaterBodyTimeSliceType extends AbstractAIXMTimeSliceType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<WaterBodyExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<WaterBodyExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -376,7 +377,7 @@ public class WaterBodyTimeSliceType extends AbstractAIXMTimeSliceType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<WaterBodyExtensionType> theField;
+            List<WaterBodyTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -407,7 +408,7 @@ public class WaterBodyTimeSliceType extends AbstractAIXMTimeSliceType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<WaterBodyExtensionType> theField;
+            List<WaterBodyTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -88,7 +88,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "RunwayDeclaredDistanceValueType", propOrder = {"timeInterval", "annotation", "specialDateAuthority",
         "distance", "distanceAccuracy", "extension"})
 @Entity(name = "RunwayDeclaredDistanceValueType")
-@Table(name = "runwaydeclareddistancevaluetype", schema = "airport_heliport")
+@Table(name = "runwaydeclareddistancevalue_o", schema = "airport_heliport")
 public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -102,7 +102,7 @@ public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithSched
     protected JAXBElement<ValDistanceType> distance;
     @XmlElementRef(name = "distanceAccuracy", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
     protected JAXBElement<ValDistanceType> distanceAccuracy;
-    protected List<RunwayDeclaredDistanceValueTypeExtensionType> extension;
+    protected List<RunwayDeclaredDistanceValueExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -129,7 +129,7 @@ public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithSched
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "rnwdclrddstncvltp_tmintrvl_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "runwaydeclareddistancevaluetype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "runwaydeclareddistancevalue_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -180,7 +180,7 @@ public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithSched
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "rnwdclrddstncvltp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "runwaydeclareddistancevaluetype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "runwaydeclareddistancevalue_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -232,7 +232,7 @@ public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithSched
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "rnwdclrddstncvltp_spcldtathrt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "runwaydeclareddistancevaluetype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "runwaydeclareddistancevalue_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -335,14 +335,14 @@ public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithSched
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RunwayDeclaredDistanceValueTypeExtensionType }
+     * {@link RunwayDeclaredDistanceValueExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RunwayDeclaredDistanceValueTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = RunwayDeclaredDistanceValueExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "runwaydeclareddistancevaluee_hjid", referencedColumnName = "hjid")
-    public List<RunwayDeclaredDistanceValueTypeExtensionType> getExtension() {
+    @JoinColumn(name = "runwaydeclareddistancevalue_oe_hjid", referencedColumnName = "hjid")
+    public List<RunwayDeclaredDistanceValueExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -353,7 +353,7 @@ public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithSched
      *
      *
      */
-    public void setExtension(List<RunwayDeclaredDistanceValueTypeExtensionType> extension) {
+    public void setExtension(List<RunwayDeclaredDistanceValueExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -410,6 +410,19 @@ public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithSched
         }
         final RunwayDeclaredDistanceValueType that = ((RunwayDeclaredDistanceValueType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RunwayDeclaredDistanceValueExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RunwayDeclaredDistanceValueExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -418,45 +431,6 @@ public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithSched
             rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -475,14 +449,40 @@ public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithSched
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RunwayDeclaredDistanceValueTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RunwayDeclaredDistanceValueTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -530,7 +530,7 @@ public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithSched
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RunwayDeclaredDistanceValueTypeExtensionType> theField;
+            List<RunwayDeclaredDistanceValueExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -573,7 +573,7 @@ public class RunwayDeclaredDistanceValueType extends AbstractPropertiesWithSched
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RunwayDeclaredDistanceValueTypeExtensionType> theField;
+            List<RunwayDeclaredDistanceValueExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

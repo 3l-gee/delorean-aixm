@@ -98,7 +98,7 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
     protected JAXBElement<CodeYesNoType> localRemoteCode;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<AltitudeAdjustmentTypeExtensionType> extension;
+    protected List<AltitudeAdjustmentExtensionType> extension;
 
     /**
      * Gets the value of the altitudeAdjustmentType property.
@@ -286,14 +286,14 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AltitudeAdjustmentTypeExtensionType }
+     * {@link AltitudeAdjustmentExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AltitudeAdjustmentTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AltitudeAdjustmentExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "altitudeadjustmente_hjid", referencedColumnName = "hjid")
-    public List<AltitudeAdjustmentTypeExtensionType> getExtension() {
+    @JoinColumn(name = "altitudeadjustment_oe_hjid", referencedColumnName = "hjid")
+    public List<AltitudeAdjustmentExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -304,7 +304,7 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
      *
      *
      */
-    public void setExtension(List<AltitudeAdjustmentTypeExtensionType> extension) {
+    public void setExtension(List<AltitudeAdjustmentExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -385,32 +385,6 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
         }
         final AltitudeAdjustmentType that = ((AltitudeAdjustmentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLocalRemoteCode();
-            boolean rhsFieldIsSet = that.isSetLocalRemoteCode();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLocalRemoteCode();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLocalRemoteCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localRemoteCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localRemoteCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAltitudeAdjustmentType();
-            boolean rhsFieldIsSet = that.isSetAltitudeAdjustmentType();
-            JAXBElement<CodeAltitudeAdjustmentType> lhsField;
-            lhsField = this.getAltitudeAdjustmentType();
-            JAXBElement<CodeAltitudeAdjustmentType> rhsField;
-            rhsField = that.getAltitudeAdjustmentType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeAdjustmentType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeAdjustmentType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -419,19 +393,6 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AltitudeAdjustmentTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AltitudeAdjustmentTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -450,6 +411,32 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AltitudeAdjustmentExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AltitudeAdjustmentExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAltitudeAdjustmentType();
+            boolean rhsFieldIsSet = that.isSetAltitudeAdjustmentType();
+            JAXBElement<CodeAltitudeAdjustmentType> lhsField;
+            lhsField = this.getAltitudeAdjustmentType();
+            JAXBElement<CodeAltitudeAdjustmentType> rhsField;
+            rhsField = that.getAltitudeAdjustmentType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeAdjustmentType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeAdjustmentType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAltitudeAdjustment();
             boolean rhsFieldIsSet = that.isSetAltitudeAdjustment();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -458,6 +445,19 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
             rhsField = that.getAltitudeAdjustment();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeAdjustment", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeAdjustment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocalRemoteCode();
+            boolean rhsFieldIsSet = that.isSetLocalRemoteCode();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getLocalRemoteCode();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getLocalRemoteCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localRemoteCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localRemoteCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -505,7 +505,7 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AltitudeAdjustmentTypeExtensionType> theField;
+            List<AltitudeAdjustmentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -548,7 +548,7 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AltitudeAdjustmentTypeExtensionType> theField;
+            List<AltitudeAdjustmentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

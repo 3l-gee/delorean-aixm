@@ -172,7 +172,7 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
     protected JAXBElement<CodeTransponderType> surveillanceEquipment;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<AircraftCharacteristicTypeExtensionType> extension;
+    protected List<AircraftCharacteristicExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -853,14 +853,14 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AircraftCharacteristicTypeExtensionType }
+     * {@link AircraftCharacteristicExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AircraftCharacteristicTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AircraftCharacteristicExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "aircraftcharacteristice_hjid", referencedColumnName = "hjid")
-    public List<AircraftCharacteristicTypeExtensionType> getExtension() {
+    @JoinColumn(name = "aircraftcharacteristic_oe_hjid", referencedColumnName = "hjid")
+    public List<AircraftCharacteristicExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -871,7 +871,7 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
      *
      *
      */
-    public void setExtension(List<AircraftCharacteristicTypeExtensionType> extension) {
+    public void setExtension(List<AircraftCharacteristicExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -1175,14 +1175,27 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
         }
         final AircraftCharacteristicType that = ((AircraftCharacteristicType) object);
         {
-            boolean lhsFieldIsSet = this.isSetWeight();
-            boolean rhsFieldIsSet = that.isSetWeight();
-            JAXBElement<ValWeightType> lhsField;
-            lhsField = this.getWeight();
-            JAXBElement<ValWeightType> rhsField;
-            rhsField = that.getWeight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weight", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAircraftType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAircraftType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNavigationSpecification();
+            boolean rhsFieldIsSet = that.isSetNavigationSpecification();
+            JAXBElement<CodeNavigationSpecificationType> lhsField;
+            lhsField = this.getNavigationSpecification();
+            JAXBElement<CodeNavigationSpecificationType> rhsField;
+            rhsField = that.getNavigationSpecification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationSpecification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationSpecification", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1201,32 +1214,6 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEngine();
-            boolean rhsFieldIsSet = that.isSetEngine();
-            JAXBElement<CodeAircraftEngineType> lhsField;
-            lhsField = this.getEngine();
-            JAXBElement<CodeAircraftEngineType> rhsField;
-            rhsField = that.getEngine();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engine", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurveillanceEquipment();
-            boolean rhsFieldIsSet = that.isSetSurveillanceEquipment();
-            JAXBElement<CodeTransponderType> lhsField;
-            lhsField = this.getSurveillanceEquipment();
-            JAXBElement<CodeTransponderType> rhsField;
-            rhsField = that.getSurveillanceEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surveillanceEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surveillanceEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -1235,19 +1222,6 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWingSpanInterpretation();
-            boolean rhsFieldIsSet = that.isSetWingSpanInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getWingSpanInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getWingSpanInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "wingSpanInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "wingSpanInterpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1266,14 +1240,27 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPassengers();
-            boolean rhsFieldIsSet = that.isSetPassengers();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getPassengers();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getPassengers();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengers", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengers", rhsField);
+            boolean lhsFieldIsSet = this.isSetEngine();
+            boolean rhsFieldIsSet = that.isSetEngine();
+            JAXBElement<CodeAircraftEngineType> lhsField;
+            lhsField = this.getEngine();
+            JAXBElement<CodeAircraftEngineType> rhsField;
+            rhsField = that.getEngine();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engine", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWeight();
+            boolean rhsFieldIsSet = that.isSetWeight();
+            JAXBElement<ValWeightType> lhsField;
+            lhsField = this.getWeight();
+            JAXBElement<ValWeightType> rhsField;
+            rhsField = that.getWeight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weight", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1292,40 +1279,42 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAircraftType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAircraftType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetAircraftLandingCategory();
+            boolean rhsFieldIsSet = that.isSetAircraftLandingCategory();
+            JAXBElement<CodeAircraftCategoryType> lhsField;
+            lhsField = this.getAircraftLandingCategory();
+            JAXBElement<CodeAircraftCategoryType> rhsField;
+            rhsField = that.getAircraftLandingCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftLandingCategory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftLandingCategory", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCommunicationEquipment();
-            boolean rhsFieldIsSet = that.isSetCommunicationEquipment();
-            JAXBElement<CodeCommunicationModeType> lhsField;
-            lhsField = this.getCommunicationEquipment();
-            JAXBElement<CodeCommunicationModeType> rhsField;
-            rhsField = that.getCommunicationEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "communicationEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "communicationEquipment", rhsField);
+            boolean lhsFieldIsSet = this.isSetVerticalSeparationCapability();
+            boolean rhsFieldIsSet = that.isSetVerticalSeparationCapability();
+            JAXBElement<CodeRVSMType> lhsField;
+            lhsField = this.getVerticalSeparationCapability();
+            JAXBElement<CodeRVSMType> rhsField;
+            rhsField = that.getVerticalSeparationCapability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalSeparationCapability",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalSeparationCapability",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWeightInterpretation();
-            boolean rhsFieldIsSet = that.isSetWeightInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getWeightInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getWeightInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weightInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weightInterpretation", rhsField);
+            boolean lhsFieldIsSet = this.isSetNumberEngine();
+            boolean rhsFieldIsSet = that.isSetNumberEngine();
+            JAXBElement<CodeAircraftEngineNumberType> lhsField;
+            lhsField = this.getNumberEngine();
+            JAXBElement<CodeAircraftEngineNumberType> rhsField;
+            rhsField = that.getNumberEngine();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberEngine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberEngine", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1344,16 +1333,14 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVerticalSeparationCapability();
-            boolean rhsFieldIsSet = that.isSetVerticalSeparationCapability();
-            JAXBElement<CodeRVSMType> lhsField;
-            lhsField = this.getVerticalSeparationCapability();
-            JAXBElement<CodeRVSMType> rhsField;
-            rhsField = that.getVerticalSeparationCapability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalSeparationCapability",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalSeparationCapability",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetSpeedInterpretation();
+            boolean rhsFieldIsSet = that.isSetSpeedInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getSpeedInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getSpeedInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedInterpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1387,45 +1374,6 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAircraftLandingCategory();
-            boolean rhsFieldIsSet = that.isSetAircraftLandingCategory();
-            JAXBElement<CodeAircraftCategoryType> lhsField;
-            lhsField = this.getAircraftLandingCategory();
-            JAXBElement<CodeAircraftCategoryType> rhsField;
-            rhsField = that.getAircraftLandingCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftLandingCategory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftLandingCategory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AircraftCharacteristicTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AircraftCharacteristicTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNumberEngine();
-            boolean rhsFieldIsSet = that.isSetNumberEngine();
-            JAXBElement<CodeAircraftEngineNumberType> lhsField;
-            lhsField = this.getNumberEngine();
-            JAXBElement<CodeAircraftEngineNumberType> rhsField;
-            rhsField = that.getNumberEngine();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberEngine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberEngine", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTypeAircraftICAO();
             boolean rhsFieldIsSet = that.isSetTypeAircraftICAO();
             JAXBElement<CodeAircraftICAOType> lhsField;
@@ -1434,6 +1382,71 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             rhsField = that.getTypeAircraftICAO();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "typeAircraftICAO", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "typeAircraftICAO", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWingSpanInterpretation();
+            boolean rhsFieldIsSet = that.isSetWingSpanInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getWingSpanInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getWingSpanInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "wingSpanInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "wingSpanInterpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AircraftCharacteristicExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AircraftCharacteristicExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCommunicationEquipment();
+            boolean rhsFieldIsSet = that.isSetCommunicationEquipment();
+            JAXBElement<CodeCommunicationModeType> lhsField;
+            lhsField = this.getCommunicationEquipment();
+            JAXBElement<CodeCommunicationModeType> rhsField;
+            rhsField = that.getCommunicationEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "communicationEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "communicationEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWeightInterpretation();
+            boolean rhsFieldIsSet = that.isSetWeightInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getWeightInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getWeightInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weightInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weightInterpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurveillanceEquipment();
+            boolean rhsFieldIsSet = that.isSetSurveillanceEquipment();
+            JAXBElement<CodeTransponderType> lhsField;
+            lhsField = this.getSurveillanceEquipment();
+            JAXBElement<CodeTransponderType> rhsField;
+            rhsField = that.getSurveillanceEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surveillanceEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surveillanceEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1452,27 +1465,14 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpeedInterpretation();
-            boolean rhsFieldIsSet = that.isSetSpeedInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getSpeedInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getSpeedInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedInterpretation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNavigationSpecification();
-            boolean rhsFieldIsSet = that.isSetNavigationSpecification();
-            JAXBElement<CodeNavigationSpecificationType> lhsField;
-            lhsField = this.getNavigationSpecification();
-            JAXBElement<CodeNavigationSpecificationType> rhsField;
-            rhsField = that.getNavigationSpecification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationSpecification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationSpecification", rhsField);
+            boolean lhsFieldIsSet = this.isSetPassengers();
+            boolean rhsFieldIsSet = that.isSetPassengers();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getPassengers();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getPassengers();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengers", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengers", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1640,7 +1640,7 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AircraftCharacteristicTypeExtensionType> theField;
+            List<AircraftCharacteristicExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -1785,7 +1785,7 @@ public class AircraftCharacteristicType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AircraftCharacteristicTypeExtensionType> theField;
+            List<AircraftCharacteristicExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

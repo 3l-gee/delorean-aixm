@@ -93,7 +93,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "RouteAvailabilityType", propOrder = {"timeInterval", "annotation", "specialDateAuthority", "direction",
         "cardinalDirection", "status", "levels", "extension"})
 @Entity(name = "RouteAvailabilityType")
-@Table(name = "routeavailabilitytype", schema = "route")
+@Table(name = "routeavailability_o", schema = "route")
 public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -111,7 +111,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
     protected JAXBElement<CodeRouteAvailabilityType> status;
     @XmlElement(nillable = true)
     protected List<AirspaceLayerPropertyType> levels;
-    protected List<RouteAvailabilityTypeExtensionType> extension;
+    protected List<RouteAvailabilityExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -138,7 +138,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "rtavlblttp_tmintrvl_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "routeavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "routeavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -189,7 +189,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "rtavlblttp_annttn_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "routeavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "routeavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -241,7 +241,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "rtavlblttp_spcldtathrt_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "routeavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "routeavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -379,7 +379,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
      */
     @OneToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "rtavlblttp_lvls_link", schema = "route", joinColumns = {
-            @JoinColumn(name = "routeavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "routeavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "levels_hjid", referencedColumnName = "hjid")})
     public List<AirspaceLayerPropertyType> getLevels() {
         if (levels == null) {
@@ -424,14 +424,14 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RouteAvailabilityTypeExtensionType }
+     * {@link RouteAvailabilityExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RouteAvailabilityTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = RouteAvailabilityExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "routeavailabilitye_hjid", referencedColumnName = "hjid")
-    public List<RouteAvailabilityTypeExtensionType> getExtension() {
+    @JoinColumn(name = "routeavailability_oe_hjid", referencedColumnName = "hjid")
+    public List<RouteAvailabilityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -442,7 +442,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
      *
      *
      */
-    public void setExtension(List<RouteAvailabilityTypeExtensionType> extension) {
+    public void setExtension(List<RouteAvailabilityExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -506,19 +506,6 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
         }
         final RouteAvailabilityType that = ((RouteAvailabilityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLevels();
-            boolean rhsFieldIsSet = that.isSetLevels();
-            List<AirspaceLayerPropertyType> lhsField;
-            lhsField = (this.isSetLevels() ? this.getLevels() : null);
-            List<AirspaceLayerPropertyType> rhsField;
-            rhsField = (that.isSetLevels() ? that.getLevels() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -545,14 +532,14 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStatus();
-            boolean rhsFieldIsSet = that.isSetStatus();
-            JAXBElement<CodeRouteAvailabilityType> lhsField;
-            lhsField = this.getStatus();
-            JAXBElement<CodeRouteAvailabilityType> rhsField;
-            rhsField = that.getStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            boolean lhsFieldIsSet = this.isSetLevels();
+            boolean rhsFieldIsSet = that.isSetLevels();
+            List<AirspaceLayerPropertyType> lhsField;
+            lhsField = (this.isSetLevels() ? this.getLevels() : null);
+            List<AirspaceLayerPropertyType> rhsField;
+            rhsField = (that.isSetLevels() ? that.getLevels() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -571,14 +558,27 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDirection();
-            boolean rhsFieldIsSet = that.isSetDirection();
-            JAXBElement<CodeDirectionType> lhsField;
-            lhsField = this.getDirection();
-            JAXBElement<CodeDirectionType> rhsField;
-            rhsField = that.getDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
+            boolean lhsFieldIsSet = this.isSetStatus();
+            boolean rhsFieldIsSet = that.isSetStatus();
+            JAXBElement<CodeRouteAvailabilityType> lhsField;
+            lhsField = this.getStatus();
+            JAXBElement<CodeRouteAvailabilityType> rhsField;
+            rhsField = that.getStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RouteAvailabilityExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RouteAvailabilityExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -597,14 +597,14 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RouteAvailabilityTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RouteAvailabilityTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetDirection();
+            boolean rhsFieldIsSet = that.isSetDirection();
+            JAXBElement<CodeDirectionType> lhsField;
+            lhsField = this.getDirection();
+            JAXBElement<CodeDirectionType> rhsField;
+            rhsField = that.getDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -666,7 +666,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RouteAvailabilityTypeExtensionType> theField;
+            List<RouteAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -721,7 +721,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RouteAvailabilityTypeExtensionType> theField;
+            List<RouteAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

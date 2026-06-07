@@ -98,7 +98,7 @@ public class UnitAvailabilityType extends AbstractPropertiesWithScheduleType imp
     protected List<OrganisationAuthorityPropertyType> specialDateAuthority;
     @XmlElementRef(name = "operationalStatus", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeStatusOperationsType> operationalStatus;
-    protected List<UnitAvailabilityTypeExtensionType> extension;
+    protected List<UnitAvailabilityExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -302,14 +302,13 @@ public class UnitAvailabilityType extends AbstractPropertiesWithScheduleType imp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link UnitAvailabilityTypeExtensionType }
+     * {@link UnitAvailabilityExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = UnitAvailabilityTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "unitavailabilitye_hjid", referencedColumnName = "hjid")
-    public List<UnitAvailabilityTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = UnitAvailabilityExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "unitavailability_oe_hjid", referencedColumnName = "hjid")
+    public List<UnitAvailabilityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -320,7 +319,7 @@ public class UnitAvailabilityType extends AbstractPropertiesWithScheduleType imp
      *
      *
      */
-    public void setExtension(List<UnitAvailabilityTypeExtensionType> extension) {
+    public void setExtension(List<UnitAvailabilityExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -372,24 +371,11 @@ public class UnitAvailabilityType extends AbstractPropertiesWithScheduleType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<UnitAvailabilityTypeExtensionType> lhsField;
+            List<UnitAvailabilityExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<UnitAvailabilityTypeExtensionType> rhsField;
+            List<UnitAvailabilityExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -419,6 +405,19 @@ public class UnitAvailabilityType extends AbstractPropertiesWithScheduleType imp
             rhsField = that.getOperationalStatus();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -459,7 +458,7 @@ public class UnitAvailabilityType extends AbstractPropertiesWithScheduleType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<UnitAvailabilityTypeExtensionType> theField;
+            List<UnitAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -496,7 +495,7 @@ public class UnitAvailabilityType extends AbstractPropertiesWithScheduleType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<UnitAvailabilityTypeExtensionType> theField;
+            List<UnitAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

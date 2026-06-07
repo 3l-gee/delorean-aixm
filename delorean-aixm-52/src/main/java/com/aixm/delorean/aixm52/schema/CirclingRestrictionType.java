@@ -99,7 +99,7 @@ public class CirclingRestrictionType extends AbstractPropertiesWithScheduleType 
     protected JAXBElement<CircleSectorPropertyType> sectorDescription;
     @XmlElementRef(name = "restrictionArea", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<AIXMSurfacePropertyType> restrictionArea;
-    protected List<CirclingRestrictionTypeExtensionType> extension;
+    protected List<CirclingRestrictionExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -332,14 +332,14 @@ public class CirclingRestrictionType extends AbstractPropertiesWithScheduleType 
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CirclingRestrictionTypeExtensionType }
+     * {@link CirclingRestrictionExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = CirclingRestrictionTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = CirclingRestrictionExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "circlingrestrictione_hjid", referencedColumnName = "hjid")
-    public List<CirclingRestrictionTypeExtensionType> getExtension() {
+    @JoinColumn(name = "circlingrestriction_oe_hjid", referencedColumnName = "hjid")
+    public List<CirclingRestrictionExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -350,7 +350,7 @@ public class CirclingRestrictionType extends AbstractPropertiesWithScheduleType 
      *
      *
      */
-    public void setExtension(List<CirclingRestrictionTypeExtensionType> extension) {
+    public void setExtension(List<CirclingRestrictionExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -405,19 +405,6 @@ public class CirclingRestrictionType extends AbstractPropertiesWithScheduleType 
         }
         final CirclingRestrictionType that = ((CirclingRestrictionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -426,6 +413,32 @@ public class CirclingRestrictionType extends AbstractPropertiesWithScheduleType 
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<CirclingRestrictionExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<CirclingRestrictionExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -444,19 +457,6 @@ public class CirclingRestrictionType extends AbstractPropertiesWithScheduleType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRestrictionArea();
-            boolean rhsFieldIsSet = that.isSetRestrictionArea();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getRestrictionArea();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getRestrictionArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "restrictionArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "restrictionArea", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -470,14 +470,14 @@ public class CirclingRestrictionType extends AbstractPropertiesWithScheduleType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<CirclingRestrictionTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<CirclingRestrictionTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetRestrictionArea();
+            boolean rhsFieldIsSet = that.isSetRestrictionArea();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getRestrictionArea();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getRestrictionArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "restrictionArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "restrictionArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -525,7 +525,7 @@ public class CirclingRestrictionType extends AbstractPropertiesWithScheduleType 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<CirclingRestrictionTypeExtensionType> theField;
+            List<CirclingRestrictionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -568,7 +568,7 @@ public class CirclingRestrictionType extends AbstractPropertiesWithScheduleType 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<CirclingRestrictionTypeExtensionType> theField;
+            List<CirclingRestrictionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

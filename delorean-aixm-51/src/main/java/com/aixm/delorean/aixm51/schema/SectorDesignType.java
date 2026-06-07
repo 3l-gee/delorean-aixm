@@ -98,7 +98,7 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
     protected JAXBElement<CodeYesNoType> turnPermitted;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<SectorDesignTypeExtensionType> extension;
+    protected List<SectorDesignExtensionType> extension;
 
     /**
      * Gets the value of the turnDirection property.
@@ -286,13 +286,13 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SectorDesignTypeExtensionType }
+     * {@link SectorDesignExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SectorDesignTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "sectordesigne_hjid", referencedColumnName = "hjid")
-    public List<SectorDesignTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = SectorDesignExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "sectordesign_oe_hjid", referencedColumnName = "hjid")
+    public List<SectorDesignExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -303,7 +303,7 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
      *
      *
      */
-    public void setExtension(List<SectorDesignTypeExtensionType> extension) {
+    public void setExtension(List<SectorDesignExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -381,19 +381,6 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
         }
         final SectorDesignType that = ((SectorDesignType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTerminationAltitude();
             boolean rhsFieldIsSet = that.isSetTerminationAltitude();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -407,14 +394,40 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<SectorDesignTypeExtensionType> lhsField;
+            List<SectorDesignExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SectorDesignTypeExtensionType> rhsField;
+            List<SectorDesignExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTurnDirection();
+            boolean rhsFieldIsSet = that.isSetTurnDirection();
+            JAXBElement<CodeDirectionTurnType> lhsField;
+            lhsField = this.getTurnDirection();
+            JAXBElement<CodeDirectionTurnType> rhsField;
+            rhsField = that.getTurnDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -441,19 +454,6 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
             rhsField = that.getTurnPermitted();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnPermitted", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnPermitted", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTurnDirection();
-            boolean rhsFieldIsSet = that.isSetTurnDirection();
-            JAXBElement<CodeDirectionTurnType> lhsField;
-            lhsField = this.getTurnDirection();
-            JAXBElement<CodeDirectionTurnType> rhsField;
-            rhsField = that.getTurnDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -501,7 +501,7 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SectorDesignTypeExtensionType> theField;
+            List<SectorDesignExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -544,7 +544,7 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SectorDesignTypeExtensionType> theField;
+            List<SectorDesignExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

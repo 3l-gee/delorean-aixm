@@ -99,7 +99,7 @@ public class MissedApproachGroupType extends AbstractAIXMObjectType implements S
     protected List<AltimeterSourcePropertyType> altimeter;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<MissedApproachGroupTypeExtensionType> extension;
+    protected List<MissedApproachGroupExtensionType> extension;
 
     /**
      * Gets the value of the instruction property.
@@ -309,14 +309,14 @@ public class MissedApproachGroupType extends AbstractAIXMObjectType implements S
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link MissedApproachGroupTypeExtensionType }
+     * {@link MissedApproachGroupExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = MissedApproachGroupTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = MissedApproachGroupExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "missedapproachgroupe_hjid", referencedColumnName = "hjid")
-    public List<MissedApproachGroupTypeExtensionType> getExtension() {
+    @JoinColumn(name = "missedapproachgroup_oe_hjid", referencedColumnName = "hjid")
+    public List<MissedApproachGroupExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -327,7 +327,7 @@ public class MissedApproachGroupType extends AbstractAIXMObjectType implements S
      *
      *
      */
-    public void setExtension(List<MissedApproachGroupTypeExtensionType> extension) {
+    public void setExtension(List<MissedApproachGroupExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -396,14 +396,14 @@ public class MissedApproachGroupType extends AbstractAIXMObjectType implements S
         }
         final MissedApproachGroupType that = ((MissedApproachGroupType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetAlternateClimbAltitude();
+            boolean rhsFieldIsSet = that.isSetAlternateClimbAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAlternateClimbAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAlternateClimbAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbAltitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -422,6 +422,19 @@ public class MissedApproachGroupType extends AbstractAIXMObjectType implements S
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAlternateClimbInstruction();
+            boolean rhsFieldIsSet = that.isSetAlternateClimbInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getAlternateClimbInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getAlternateClimbInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbInstruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbInstruction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAltimeter();
             boolean rhsFieldIsSet = that.isSetAltimeter();
             List<AltimeterSourcePropertyType> lhsField;
@@ -435,40 +448,27 @@ public class MissedApproachGroupType extends AbstractAIXMObjectType implements S
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<MissedApproachGroupTypeExtensionType> lhsField;
+            List<MissedApproachGroupExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<MissedApproachGroupTypeExtensionType> rhsField;
+            List<MissedApproachGroupExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAlternateClimbAltitude();
-            boolean rhsFieldIsSet = that.isSetAlternateClimbAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getAlternateClimbAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getAlternateClimbAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAlternateClimbInstruction();
-            boolean rhsFieldIsSet = that.isSetAlternateClimbInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getAlternateClimbInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getAlternateClimbInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbInstruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbInstruction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -516,7 +516,7 @@ public class MissedApproachGroupType extends AbstractAIXMObjectType implements S
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<MissedApproachGroupTypeExtensionType> theField;
+            List<MissedApproachGroupExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -559,7 +559,7 @@ public class MissedApproachGroupType extends AbstractAIXMObjectType implements S
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<MissedApproachGroupTypeExtensionType> theField;
+            List<MissedApproachGroupExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

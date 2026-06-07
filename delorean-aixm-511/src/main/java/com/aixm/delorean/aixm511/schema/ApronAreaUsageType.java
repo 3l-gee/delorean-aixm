@@ -89,7 +89,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "ApronAreaUsageType", propOrder = {"type", "priorPermission", "contact", "selection", "annotation",
         "extension"})
 @Entity(name = "ApronAreaUsageType")
-@Table(name = "apronareausagetype", schema = "airport_heliport")
+@Table(name = "apronareausage_o", schema = "airport_heliport")
 public class ApronAreaUsageType extends AbstractUsageConditionType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -103,7 +103,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
     protected JAXBElement<ConditionCombinationPropertyType> selection;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<ApronAreaUsageTypeExtensionType> extension;
+    protected List<ApronAreaUsageExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -189,7 +189,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
     @OneToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "aprnarusgtp_cntct_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apronareausagetype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "apronareausage_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "contact_hjid", referencedColumnName = "hjid")})
     public List<ContactInformationPropertyType> getContact() {
         if (contact == null) {
@@ -269,7 +269,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "aprnarusgtp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apronareausagetype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "apronareausage_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -314,14 +314,13 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ApronAreaUsageTypeExtensionType }
+     * {@link ApronAreaUsageExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ApronAreaUsageTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "apronareausagee_hjid", referencedColumnName = "hjid")
-    public List<ApronAreaUsageTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = ApronAreaUsageExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "apronareausage_oe_hjid", referencedColumnName = "hjid")
+    public List<ApronAreaUsageExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -332,7 +331,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
      *
      *
      */
-    public void setExtension(List<ApronAreaUsageTypeExtensionType> extension) {
+    public void setExtension(List<ApronAreaUsageExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -374,7 +373,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
     @OneToOne(targetEntity = ConditionCombinationPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "aprnarusgtp_slctn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "apronareausagetype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "apronareausage_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "selection_hjid", referencedColumnName = "hjid")})
     public ConditionCombinationPropertyType getSelectionItem() {
         return XmlAdapterUtils.unmarshallSource(ConditionCombinationPropertyType.class, this.getSelection());
@@ -399,14 +398,14 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
         }
         final ApronAreaUsageType that = ((ApronAreaUsageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetContact();
-            boolean rhsFieldIsSet = that.isSetContact();
-            List<ContactInformationPropertyType> lhsField;
-            lhsField = (this.isSetContact() ? this.getContact() : null);
-            List<ContactInformationPropertyType> rhsField;
-            rhsField = (that.isSetContact() ? that.getContact() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApronAreaUsageExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ApronAreaUsageExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -420,19 +419,6 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
             rhsField = that.getSelection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApronAreaUsageTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApronAreaUsageTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -472,6 +458,19 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContact();
+            boolean rhsFieldIsSet = that.isSetContact();
+            List<ContactInformationPropertyType> lhsField;
+            lhsField = (this.isSetContact() ? this.getContact() : null);
+            List<ContactInformationPropertyType> rhsField;
+            rhsField = (that.isSetContact() ? that.getContact() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -519,7 +518,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApronAreaUsageTypeExtensionType> theField;
+            List<ApronAreaUsageExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -562,7 +561,7 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApronAreaUsageTypeExtensionType> theField;
+            List<ApronAreaUsageExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

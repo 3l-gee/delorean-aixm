@@ -115,7 +115,7 @@ public class FinalApproachControlPositionType extends AbstractAIXMObjectType imp
     protected JAXBElement<AirportHeliportPropertyType> relativeFromAirportReferencePoint;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<FinalApproachControlPositionTypeExtensionType> extension;
+    protected List<FinalApproachControlPositionExtensionType> extension;
 
     /**
      * Gets the value of the distance property.
@@ -390,14 +390,14 @@ public class FinalApproachControlPositionType extends AbstractAIXMObjectType imp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FinalApproachControlPositionTypeExtensionType }
+     * {@link FinalApproachControlPositionExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = FinalApproachControlPositionTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = FinalApproachControlPositionExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "finalapproachcontrolpositione_hjid", referencedColumnName = "hjid")
-    public List<FinalApproachControlPositionTypeExtensionType> getExtension() {
+    @JoinColumn(name = "finalapproachcontrolposition_oe_hjid", referencedColumnName = "hjid")
+    public List<FinalApproachControlPositionExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -408,7 +408,7 @@ public class FinalApproachControlPositionType extends AbstractAIXMObjectType imp
      *
      *
      */
-    public void setExtension(List<FinalApproachControlPositionTypeExtensionType> extension) {
+    public void setExtension(List<FinalApproachControlPositionExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -539,45 +539,6 @@ public class FinalApproachControlPositionType extends AbstractAIXMObjectType imp
         }
         final FinalApproachControlPositionType that = ((FinalApproachControlPositionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRelativeFromNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetRelativeFromNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getRelativeFromNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getRelativeFromNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRelativeFromPosition();
-            boolean rhsFieldIsSet = that.isSetRelativeFromPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getRelativeFromPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getRelativeFromPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRelativeFromRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetRelativeFromRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getRelativeFromRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getRelativeFromRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDistance();
             boolean rhsFieldIsSet = that.isSetDistance();
             JAXBElement<ValDistanceType> lhsField;
@@ -586,34 +547,6 @@ public class FinalApproachControlPositionType extends AbstractAIXMObjectType imp
             rhsField = that.getDistance();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRelativeFromAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetRelativeFromAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getRelativeFromAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getRelativeFromAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromAirportReferencePoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromAirportReferencePoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FinalApproachControlPositionTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FinalApproachControlPositionTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -647,6 +580,19 @@ public class FinalApproachControlPositionType extends AbstractAIXMObjectType imp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRelativeFromNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetRelativeFromNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getRelativeFromNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getRelativeFromNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -655,6 +601,60 @@ public class FinalApproachControlPositionType extends AbstractAIXMObjectType imp
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRelativeFromRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetRelativeFromRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getRelativeFromRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getRelativeFromRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FinalApproachControlPositionExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FinalApproachControlPositionExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRelativeFromPosition();
+            boolean rhsFieldIsSet = that.isSetRelativeFromPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getRelativeFromPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getRelativeFromPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRelativeFromAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetRelativeFromAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getRelativeFromAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getRelativeFromAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeFromAirportReferencePoint",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeFromAirportReferencePoint",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -724,7 +724,7 @@ public class FinalApproachControlPositionType extends AbstractAIXMObjectType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FinalApproachControlPositionTypeExtensionType> theField;
+            List<FinalApproachControlPositionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -785,7 +785,7 @@ public class FinalApproachControlPositionType extends AbstractAIXMObjectType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FinalApproachControlPositionTypeExtensionType> theField;
+            List<FinalApproachControlPositionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

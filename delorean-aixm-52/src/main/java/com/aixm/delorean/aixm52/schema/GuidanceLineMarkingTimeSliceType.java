@@ -102,7 +102,7 @@ public class GuidanceLineMarkingTimeSliceType extends AbstractAIXMTimeSliceType 
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "markedGuidanceLine", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<GuidanceLinePropertyType> markedGuidanceLine;
-    protected List<GuidanceLineMarkingExtensionType> extension;
+    protected List<GuidanceLineMarkingTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the markingICAOStandard property.
@@ -312,14 +312,14 @@ public class GuidanceLineMarkingTimeSliceType extends AbstractAIXMTimeSliceType 
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link GuidanceLineMarkingExtensionType }
+     * {@link GuidanceLineMarkingTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = GuidanceLineMarkingExtensionType.class, cascade = {
+    @OneToMany(targetEntity = GuidanceLineMarkingTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "guidancelinemarkinge_hjid", referencedColumnName = "hjid")
-    public List<GuidanceLineMarkingExtensionType> getExtension() {
+    @JoinColumn(name = "guidancelinemarking_te_hjid", referencedColumnName = "hjid")
+    public List<GuidanceLineMarkingTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -330,7 +330,7 @@ public class GuidanceLineMarkingTimeSliceType extends AbstractAIXMTimeSliceType 
      *
      *
      */
-    public void setExtension(List<GuidanceLineMarkingExtensionType> extension) {
+    public void setExtension(List<GuidanceLineMarkingTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -397,32 +397,6 @@ public class GuidanceLineMarkingTimeSliceType extends AbstractAIXMTimeSliceType 
         }
         final GuidanceLineMarkingTimeSliceType that = ((GuidanceLineMarkingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMarkingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<GuidanceLineMarkingExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<GuidanceLineMarkingExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -431,6 +405,32 @@ public class GuidanceLineMarkingTimeSliceType extends AbstractAIXMTimeSliceType 
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkedGuidanceLine();
+            boolean rhsFieldIsSet = that.isSetMarkedGuidanceLine();
+            JAXBElement<GuidanceLinePropertyType> lhsField;
+            lhsField = this.getMarkedGuidanceLine();
+            JAXBElement<GuidanceLinePropertyType> rhsField;
+            rhsField = that.getMarkedGuidanceLine();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedGuidanceLine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedGuidanceLine", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<GuidanceLineMarkingTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<GuidanceLineMarkingTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -449,6 +449,19 @@ public class GuidanceLineMarkingTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMarkingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCondition();
             boolean rhsFieldIsSet = that.isSetCondition();
             JAXBElement<CodeMarkingConditionType> lhsField;
@@ -457,19 +470,6 @@ public class GuidanceLineMarkingTimeSliceType extends AbstractAIXMTimeSliceType 
             rhsField = that.getCondition();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarkedGuidanceLine();
-            boolean rhsFieldIsSet = that.isSetMarkedGuidanceLine();
-            JAXBElement<GuidanceLinePropertyType> lhsField;
-            lhsField = this.getMarkedGuidanceLine();
-            JAXBElement<GuidanceLinePropertyType> rhsField;
-            rhsField = that.getMarkedGuidanceLine();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedGuidanceLine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedGuidanceLine", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -517,7 +517,7 @@ public class GuidanceLineMarkingTimeSliceType extends AbstractAIXMTimeSliceType 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GuidanceLineMarkingExtensionType> theField;
+            List<GuidanceLineMarkingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -560,7 +560,7 @@ public class GuidanceLineMarkingTimeSliceType extends AbstractAIXMTimeSliceType 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GuidanceLineMarkingExtensionType> theField;
+            List<GuidanceLineMarkingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

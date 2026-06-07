@@ -34,7 +34,7 @@ public class ContainerAIXM52Test {
     void configDeloreanCore() {
 
         // given
-        firstContainer = deloreanAIXM52.newContainer();
+        firstContainer = deloreanAIXM52.createNewContainer();
 
         // container is successfully created
         assertThat(firstContainer).isNotNull();
@@ -70,7 +70,7 @@ public class ContainerAIXM52Test {
     @Order(2)
     void addNewContainer() {
 
-        secondContainer = deloreanAIXM52.newContainer();
+        secondContainer = deloreanAIXM52.createNewContainer();
 
         // container is successfully created
         assertThat(secondContainer).isNotNull();

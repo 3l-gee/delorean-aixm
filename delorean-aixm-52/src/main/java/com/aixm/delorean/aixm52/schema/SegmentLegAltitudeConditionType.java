@@ -109,7 +109,7 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
     protected JAXBElement<AircraftCharacteristicPropertyType> engineType;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<SegmentLegAltitudeConditionTypeExtensionType> extension;
+    protected List<SegmentLegAltitudeConditionExtensionType> extension;
 
     /**
      * Gets the value of the minimumEnrouteAltitude property.
@@ -355,14 +355,14 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SegmentLegAltitudeConditionTypeExtensionType }
+     * {@link SegmentLegAltitudeConditionExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SegmentLegAltitudeConditionTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = SegmentLegAltitudeConditionExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "segmentlegaltitudeconditione_hjid", referencedColumnName = "hjid")
-    public List<SegmentLegAltitudeConditionTypeExtensionType> getExtension() {
+    @JoinColumn(name = "segmentlegaltitudecondition_oe_hjid", referencedColumnName = "hjid")
+    public List<SegmentLegAltitudeConditionExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -373,7 +373,7 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
      *
      *
      */
-    public void setExtension(List<SegmentLegAltitudeConditionTypeExtensionType> extension) {
+    public void setExtension(List<SegmentLegAltitudeConditionExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -491,6 +491,32 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
         }
         final SegmentLegAltitudeConditionType that = ((SegmentLegAltitudeConditionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEnd();
+            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEnd();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMaximumCrossingAtEnd();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMaximumCrossingAtEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEnd", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEnd", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SegmentLegAltitudeConditionExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SegmentLegAltitudeConditionExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEnd();
             boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEnd();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -504,6 +530,19 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetEngineType();
+            boolean rhsFieldIsSet = that.isSetEngineType();
+            JAXBElement<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = this.getEngineType();
+            JAXBElement<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = that.getEngineType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engineType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engineType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMinimumEnrouteAltitude();
             boolean rhsFieldIsSet = that.isSetMinimumEnrouteAltitude();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -512,6 +551,21 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
             rhsField = that.getMinimumEnrouteAltitude();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumEnrouteAltitude", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumEnrouteAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEndReference();
+            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEndReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getMinimumCrossingAtEndReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getMinimumCrossingAtEndReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -532,19 +586,6 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEngineType();
-            boolean rhsFieldIsSet = that.isSetEngineType();
-            JAXBElement<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = this.getEngineType();
-            JAXBElement<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = that.getEngineType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "engineType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "engineType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -553,47 +594,6 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SegmentLegAltitudeConditionTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SegmentLegAltitudeConditionTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEnd();
-            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEnd();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMaximumCrossingAtEnd();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMaximumCrossingAtEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEnd", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEnd", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEndReference();
-            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEndReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getMinimumCrossingAtEndReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getMinimumCrossingAtEndReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference",
-                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -655,7 +655,7 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SegmentLegAltitudeConditionTypeExtensionType> theField;
+            List<SegmentLegAltitudeConditionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -710,7 +710,7 @@ public class SegmentLegAltitudeConditionType extends AbstractAIXMObjectType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SegmentLegAltitudeConditionTypeExtensionType> theField;
+            List<SegmentLegAltitudeConditionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -107,7 +107,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
     protected JAXBElement<CodeAirportWarningType> warning;
     @XmlElement(nillable = true)
     protected List<ApronAreaUsagePropertyType> usage;
-    protected List<ApronAreaAvailabilityTypeExtensionType> extension;
+    protected List<ApronAreaAvailabilityExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -391,14 +391,14 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ApronAreaAvailabilityTypeExtensionType }
+     * {@link ApronAreaAvailabilityExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ApronAreaAvailabilityTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ApronAreaAvailabilityExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "apronareaavailabilitye_hjid", referencedColumnName = "hjid")
-    public List<ApronAreaAvailabilityTypeExtensionType> getExtension() {
+    @JoinColumn(name = "apronareaavailability_oe_hjid", referencedColumnName = "hjid")
+    public List<ApronAreaAvailabilityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -409,7 +409,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
      *
      *
      */
-    public void setExtension(List<ApronAreaAvailabilityTypeExtensionType> extension) {
+    public void setExtension(List<ApronAreaAvailabilityExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -463,9 +463,9 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApronAreaAvailabilityTypeExtensionType> lhsField;
+            List<ApronAreaAvailabilityExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApronAreaAvailabilityTypeExtensionType> rhsField;
+            List<ApronAreaAvailabilityExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -526,19 +526,6 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -547,6 +534,19 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -601,7 +601,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApronAreaAvailabilityTypeExtensionType> theField;
+            List<ApronAreaAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -650,7 +650,7 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApronAreaAvailabilityTypeExtensionType> theField;
+            List<ApronAreaAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

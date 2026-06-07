@@ -85,7 +85,7 @@ public class NitrogenType extends AbstractAIXMObjectType implements Serializable
     protected JAXBElement<CodeNitrogenType> type;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<NitrogenTypeExtensionType> extension;
+    protected List<NitrogenExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -186,13 +186,13 @@ public class NitrogenType extends AbstractAIXMObjectType implements Serializable
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NitrogenTypeExtensionType }
+     * {@link NitrogenExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = NitrogenTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "nitrogene_hjid", referencedColumnName = "hjid")
-    public List<NitrogenTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = NitrogenExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "nitrogen_oe_hjid", referencedColumnName = "hjid")
+    public List<NitrogenExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -203,7 +203,7 @@ public class NitrogenType extends AbstractAIXMObjectType implements Serializable
      *
      *
      */
-    public void setExtension(List<NitrogenTypeExtensionType> extension) {
+    public void setExtension(List<NitrogenExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -242,24 +242,11 @@ public class NitrogenType extends AbstractAIXMObjectType implements Serializable
         }
         final NitrogenType that = ((NitrogenType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeNitrogenType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeNitrogenType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<NitrogenTypeExtensionType> lhsField;
+            List<NitrogenExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NitrogenTypeExtensionType> rhsField;
+            List<NitrogenExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -276,6 +263,19 @@ public class NitrogenType extends AbstractAIXMObjectType implements Serializable
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeNitrogenType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeNitrogenType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -302,7 +302,7 @@ public class NitrogenType extends AbstractAIXMObjectType implements Serializable
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NitrogenTypeExtensionType> theField;
+            List<NitrogenExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -327,7 +327,7 @@ public class NitrogenType extends AbstractAIXMObjectType implements Serializable
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NitrogenTypeExtensionType> theField;
+            List<NitrogenExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

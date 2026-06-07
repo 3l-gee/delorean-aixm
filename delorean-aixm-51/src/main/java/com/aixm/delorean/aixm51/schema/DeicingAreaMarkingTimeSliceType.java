@@ -102,7 +102,7 @@ public class DeicingAreaMarkingTimeSliceType extends AbstractAIXMTimeSliceType i
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "markedDeicingArea", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
     protected JAXBElement<DeicingAreaPropertyType> markedDeicingArea;
-    protected List<DeicingAreaMarkingExtensionType> extension;
+    protected List<DeicingAreaMarkingTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the markingICAOStandard property.
@@ -312,14 +312,14 @@ public class DeicingAreaMarkingTimeSliceType extends AbstractAIXMTimeSliceType i
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link DeicingAreaMarkingExtensionType }
+     * {@link DeicingAreaMarkingTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = DeicingAreaMarkingExtensionType.class, cascade = {
+    @OneToMany(targetEntity = DeicingAreaMarkingTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "deicingareamarkinge_hjid", referencedColumnName = "hjid")
-    public List<DeicingAreaMarkingExtensionType> getExtension() {
+    @JoinColumn(name = "deicingareamarking_te_hjid", referencedColumnName = "hjid")
+    public List<DeicingAreaMarkingTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -330,7 +330,7 @@ public class DeicingAreaMarkingTimeSliceType extends AbstractAIXMTimeSliceType i
      *
      *
      */
-    public void setExtension(List<DeicingAreaMarkingExtensionType> extension) {
+    public void setExtension(List<DeicingAreaMarkingTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -397,45 +397,6 @@ public class DeicingAreaMarkingTimeSliceType extends AbstractAIXMTimeSliceType i
         }
         final DeicingAreaMarkingTimeSliceType that = ((DeicingAreaMarkingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMarkedDeicingArea();
-            boolean rhsFieldIsSet = that.isSetMarkedDeicingArea();
-            JAXBElement<DeicingAreaPropertyType> lhsField;
-            lhsField = this.getMarkedDeicingArea();
-            JAXBElement<DeicingAreaPropertyType> rhsField;
-            rhsField = that.getMarkedDeicingArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedDeicingArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedDeicingArea", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<DeicingAreaMarkingExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<DeicingAreaMarkingExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCondition();
             boolean rhsFieldIsSet = that.isSetCondition();
             JAXBElement<CodeMarkingConditionType> lhsField;
@@ -470,6 +431,45 @@ public class DeicingAreaMarkingTimeSliceType extends AbstractAIXMTimeSliceType i
             rhsField = that.getMarkingICAOStandard();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<DeicingAreaMarkingTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<DeicingAreaMarkingTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkedDeicingArea();
+            boolean rhsFieldIsSet = that.isSetMarkedDeicingArea();
+            JAXBElement<DeicingAreaPropertyType> lhsField;
+            lhsField = this.getMarkedDeicingArea();
+            JAXBElement<DeicingAreaPropertyType> rhsField;
+            rhsField = that.getMarkedDeicingArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedDeicingArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedDeicingArea", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -517,7 +517,7 @@ public class DeicingAreaMarkingTimeSliceType extends AbstractAIXMTimeSliceType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<DeicingAreaMarkingExtensionType> theField;
+            List<DeicingAreaMarkingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -560,7 +560,7 @@ public class DeicingAreaMarkingTimeSliceType extends AbstractAIXMTimeSliceType i
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<DeicingAreaMarkingExtensionType> theField;
+            List<DeicingAreaMarkingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

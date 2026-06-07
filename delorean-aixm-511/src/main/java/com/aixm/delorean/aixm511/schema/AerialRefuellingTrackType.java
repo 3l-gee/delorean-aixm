@@ -93,7 +93,7 @@ public class AerialRefuellingTrackType extends AbstractAIXMObjectType implements
     protected List<AirspaceLayerPropertyType> verticalExtent;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<AerialRefuellingTrackTypeExtensionType> extension;
+    protected List<AerialRefuellingTrackExtensionType> extension;
 
     /**
      * Gets the value of the extent property.
@@ -297,14 +297,14 @@ public class AerialRefuellingTrackType extends AbstractAIXMObjectType implements
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AerialRefuellingTrackTypeExtensionType }
+     * {@link AerialRefuellingTrackExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AerialRefuellingTrackTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AerialRefuellingTrackExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "aerialrefuellingtracke_hjid", referencedColumnName = "hjid")
-    public List<AerialRefuellingTrackTypeExtensionType> getExtension() {
+    @JoinColumn(name = "aerialrefuellingtrack_oe_hjid", referencedColumnName = "hjid")
+    public List<AerialRefuellingTrackExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -315,7 +315,7 @@ public class AerialRefuellingTrackType extends AbstractAIXMObjectType implements
      *
      *
      */
-    public void setExtension(List<AerialRefuellingTrackTypeExtensionType> extension) {
+    public void setExtension(List<AerialRefuellingTrackExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -355,32 +355,6 @@ public class AerialRefuellingTrackType extends AbstractAIXMObjectType implements
         }
         final AerialRefuellingTrackType that = ((AerialRefuellingTrackType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AerialRefuellingTrackTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AerialRefuellingTrackTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPoint();
             boolean rhsFieldIsSet = that.isSetPoint();
             List<AerialRefuellingPointPropertyType> lhsField;
@@ -389,6 +363,19 @@ public class AerialRefuellingTrackType extends AbstractAIXMObjectType implements
             rhsField = (that.isSetPoint() ? that.getPoint() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AerialRefuellingTrackExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AerialRefuellingTrackExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -415,6 +402,19 @@ public class AerialRefuellingTrackType extends AbstractAIXMObjectType implements
             rhsField = (that.isSetVerticalExtent() ? that.getVerticalExtent() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalExtent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -455,7 +455,7 @@ public class AerialRefuellingTrackType extends AbstractAIXMObjectType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AerialRefuellingTrackTypeExtensionType> theField;
+            List<AerialRefuellingTrackExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -492,7 +492,7 @@ public class AerialRefuellingTrackType extends AbstractAIXMObjectType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AerialRefuellingTrackTypeExtensionType> theField;
+            List<AerialRefuellingTrackExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

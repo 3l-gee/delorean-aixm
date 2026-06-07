@@ -61,7 +61,7 @@ public class FilterAixm51E2E {
     void preparation() {
         delorean = new DeloreanAIXM51();
         delorean.setContext("RoundTripXmlAixm51E2E","");
-        container = delorean.newContainer();
+        container = delorean.createNewContainer();
         String xmlPath = "src/test/resources/roundtrip/donlon-aixm-51.xml";
         container.unmarshal(xmlPath);
     }

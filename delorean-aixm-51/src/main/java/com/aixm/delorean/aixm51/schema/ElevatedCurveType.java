@@ -258,14 +258,14 @@ public class ElevatedCurveType extends CurveType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVerticalDatum();
-            boolean rhsFieldIsSet = that.isSetVerticalDatum();
-            JAXBElement<CodeVerticalDatumType> lhsField;
-            lhsField = this.getVerticalDatum();
-            JAXBElement<CodeVerticalDatumType> rhsField;
-            rhsField = that.getVerticalDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
+            boolean lhsFieldIsSet = this.isSetGeoidUndulation();
+            boolean rhsFieldIsSet = that.isSetGeoidUndulation();
+            JAXBElement<ValDistanceSignedType> lhsField;
+            lhsField = this.getGeoidUndulation();
+            JAXBElement<ValDistanceSignedType> rhsField;
+            rhsField = that.getGeoidUndulation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geoidUndulation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geoidUndulation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -284,19 +284,6 @@ public class ElevatedCurveType extends CurveType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGeoidUndulation();
-            boolean rhsFieldIsSet = that.isSetGeoidUndulation();
-            JAXBElement<ValDistanceSignedType> lhsField;
-            lhsField = this.getGeoidUndulation();
-            JAXBElement<ValDistanceSignedType> rhsField;
-            rhsField = that.getGeoidUndulation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geoidUndulation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geoidUndulation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVerticalAccuracy();
             boolean rhsFieldIsSet = that.isSetVerticalAccuracy();
             JAXBElement<ValDistanceType> lhsField;
@@ -305,6 +292,19 @@ public class ElevatedCurveType extends CurveType implements Serializable {
             rhsField = that.getVerticalAccuracy();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalAccuracy", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalDatum();
+            boolean rhsFieldIsSet = that.isSetVerticalDatum();
+            JAXBElement<CodeVerticalDatumType> lhsField;
+            lhsField = this.getVerticalDatum();
+            JAXBElement<CodeVerticalDatumType> rhsField;
+            rhsField = that.getVerticalDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

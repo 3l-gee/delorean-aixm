@@ -129,7 +129,7 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
     protected JAXBElement<AirportHeliportPropertyType> associatedAirport;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<AirportSignExtensionType> extension;
+    protected List<AirportSignTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -542,13 +542,14 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirportSignExtensionType }
+     * {@link AirportSignTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirportSignExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airportsigne_hjid", referencedColumnName = "hjid")
-    public List<AirportSignExtensionType> getExtension() {
+    @OneToMany(targetEntity = AirportSignTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "airportsign_te_hjid", referencedColumnName = "hjid")
+    public List<AirportSignTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -559,7 +560,7 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
      *
      *
      */
-    public void setExtension(List<AirportSignExtensionType> extension) {
+    public void setExtension(List<AirportSignTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -734,6 +735,19 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDirection();
+            boolean rhsFieldIsSet = that.isSetDirection();
+            JAXBElement<CodeCardinalDirectionType> lhsField;
+            lhsField = this.getDirection();
+            JAXBElement<CodeCardinalDirectionType> rhsField;
+            rhsField = that.getDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSide();
             boolean rhsFieldIsSet = that.isSetSide();
             JAXBElement<CodeSideType> lhsField;
@@ -747,14 +761,92 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirportSignTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirportSignTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBackMessageText();
+            boolean rhsFieldIsSet = that.isSetBackMessageText();
+            JAXBElement<TextNoteType> lhsField;
+            lhsField = this.getBackMessageText();
+            JAXBElement<TextNoteType> rhsField;
+            rhsField = that.getBackMessageText();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "backMessageText", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "backMessageText", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrontMessageText();
+            boolean rhsFieldIsSet = that.isSetFrontMessageText();
+            JAXBElement<TextNoteType> lhsField;
+            lhsField = this.getFrontMessageText();
+            JAXBElement<TextNoteType> rhsField;
+            rhsField = that.getFrontMessageText();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frontMessageText", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frontMessageText", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAirportSignType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAirportSignType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrontSignBearing();
+            boolean rhsFieldIsSet = that.isSetFrontSignBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getFrontSignBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getFrontSignBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frontSignBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frontSignBearing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLighted();
+            boolean rhsFieldIsSet = that.isSetLighted();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getLighted();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getLighted();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighted", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighted", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSignStatus();
+            boolean rhsFieldIsSet = that.isSetSignStatus();
+            List<AirportSignStatusPropertyType> lhsField;
+            lhsField = (this.isSetSignStatus() ? this.getSignStatus() : null);
+            List<AirportSignStatusPropertyType> rhsField;
+            rhsField = (that.isSetSignStatus() ? that.getSignStatus() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "signStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "signStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -786,105 +878,14 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFrontSignBearing();
-            boolean rhsFieldIsSet = that.isSetFrontSignBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getFrontSignBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getFrontSignBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frontSignBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frontSignBearing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSignStatus();
-            boolean rhsFieldIsSet = that.isSetSignStatus();
-            List<AirportSignStatusPropertyType> lhsField;
-            lhsField = (this.isSetSignStatus() ? this.getSignStatus() : null);
-            List<AirportSignStatusPropertyType> rhsField;
-            rhsField = (that.isSetSignStatus() ? that.getSignStatus() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "signStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "signStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAirportSignType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAirportSignType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirportSignExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirportSignExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDirection();
-            boolean rhsFieldIsSet = that.isSetDirection();
-            JAXBElement<CodeCardinalDirectionType> lhsField;
-            lhsField = this.getDirection();
-            JAXBElement<CodeCardinalDirectionType> rhsField;
-            rhsField = that.getDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLighted();
-            boolean rhsFieldIsSet = that.isSetLighted();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLighted();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLighted();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighted", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighted", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetBackMessageText();
-            boolean rhsFieldIsSet = that.isSetBackMessageText();
-            JAXBElement<TextNoteType> lhsField;
-            lhsField = this.getBackMessageText();
-            JAXBElement<TextNoteType> rhsField;
-            rhsField = that.getBackMessageText();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "backMessageText", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "backMessageText", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFrontMessageText();
-            boolean rhsFieldIsSet = that.isSetFrontMessageText();
-            JAXBElement<TextNoteType> lhsField;
-            lhsField = this.getFrontMessageText();
-            JAXBElement<TextNoteType> rhsField;
-            rhsField = that.getFrontMessageText();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frontMessageText", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frontMessageText", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -981,7 +982,7 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportSignExtensionType> theField;
+            List<AirportSignTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -1066,7 +1067,7 @@ public class AirportSignTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportSignExtensionType> theField;
+            List<AirportSignTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

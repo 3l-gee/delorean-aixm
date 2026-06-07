@@ -93,7 +93,7 @@ public class RoundTripXmlAixm511E2E {
     void configDeloreanCore() {
 
         // given
-        container = delorean.newContainer();
+        container = delorean.createNewContainer();
 
         // container is successfully created
         assertThat(container).isNotNull();

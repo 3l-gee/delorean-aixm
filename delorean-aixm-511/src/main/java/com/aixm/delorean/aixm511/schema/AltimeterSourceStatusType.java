@@ -86,7 +86,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "AltimeterSourceStatusType", propOrder = {"timeInterval", "annotation", "specialDateAuthority",
         "operationalStatus", "extension"})
 @Entity(name = "AltimeterSourceStatusType")
-@Table(name = "altimetersourcestatustype", schema = "airport_heliport")
+@Table(name = "altimetersourcestatus_o", schema = "airport_heliport")
 public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -98,7 +98,7 @@ public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleTyp
     protected List<OrganisationAuthorityPropertyType> specialDateAuthority;
     @XmlElementRef(name = "operationalStatus", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeStatusOperationsType> operationalStatus;
-    protected List<AltimeterSourceStatusTypeExtensionType> extension;
+    protected List<AltimeterSourceStatusExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -125,7 +125,7 @@ public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleTyp
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "altmtrsrcsttstp_tmintrvl_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "altimetersourcestatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "altimetersourcestatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -176,7 +176,7 @@ public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleTyp
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "altmtrsrcsttstp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "altimetersourcestatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "altimetersourcestatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -228,7 +228,7 @@ public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleTyp
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "altmtrsrcsttstp_spcldtathrt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "altimetersourcestatustype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "altimetersourcestatus_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -302,14 +302,14 @@ public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleTyp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AltimeterSourceStatusTypeExtensionType }
+     * {@link AltimeterSourceStatusExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AltimeterSourceStatusTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AltimeterSourceStatusExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "altimetersourcestatuse_hjid", referencedColumnName = "hjid")
-    public List<AltimeterSourceStatusTypeExtensionType> getExtension() {
+    @JoinColumn(name = "altimetersourcestatus_oe_hjid", referencedColumnName = "hjid")
+    public List<AltimeterSourceStatusExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -320,7 +320,7 @@ public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleTyp
      *
      *
      */
-    public void setExtension(List<AltimeterSourceStatusTypeExtensionType> extension) {
+    public void setExtension(List<AltimeterSourceStatusExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -360,6 +360,19 @@ public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleTyp
         }
         final AltimeterSourceStatusType that = ((AltimeterSourceStatusType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AltimeterSourceStatusExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AltimeterSourceStatusExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOperationalStatus();
             boolean rhsFieldIsSet = that.isSetOperationalStatus();
             JAXBElement<CodeStatusOperationsType> lhsField;
@@ -368,6 +381,19 @@ public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleTyp
             rhsField = that.getOperationalStatus();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -394,32 +420,6 @@ public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleTyp
             rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AltimeterSourceStatusTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AltimeterSourceStatusTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -460,7 +460,7 @@ public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AltimeterSourceStatusTypeExtensionType> theField;
+            List<AltimeterSourceStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -497,7 +497,7 @@ public class AltimeterSourceStatusType extends AbstractPropertiesWithScheduleTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AltimeterSourceStatusTypeExtensionType> theField;
+            List<AltimeterSourceStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

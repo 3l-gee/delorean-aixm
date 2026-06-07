@@ -70,7 +70,7 @@ public class RoundTripZipAixm51E2E {
     void configDeloreanCore() {
 
         // given
-        container = delorean.newContainer();
+        container = delorean.createNewContainer();
 
         // container is successfully created
         assertThat(container).isNotNull();

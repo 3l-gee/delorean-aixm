@@ -93,7 +93,7 @@ public class CourseGroupType extends AbstractAIXMObjectType implements Serializa
     protected JAXBElement<CodeDirectionReferenceType> courseDirection;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<CourseGroupTypeExtensionType> extension;
+    protected List<CourseGroupExtensionType> extension;
 
     /**
      * Gets the value of the course property.
@@ -252,13 +252,13 @@ public class CourseGroupType extends AbstractAIXMObjectType implements Serializa
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CourseGroupTypeExtensionType }
+     * {@link CourseGroupExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = CourseGroupTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "coursegroupe_hjid", referencedColumnName = "hjid")
-    public List<CourseGroupTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = CourseGroupExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "coursegroup_oe_hjid", referencedColumnName = "hjid")
+    public List<CourseGroupExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -269,7 +269,7 @@ public class CourseGroupType extends AbstractAIXMObjectType implements Serializa
      *
      *
      */
-    public void setExtension(List<CourseGroupTypeExtensionType> extension) {
+    public void setExtension(List<CourseGroupExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -334,27 +334,14 @@ public class CourseGroupType extends AbstractAIXMObjectType implements Serializa
         }
         final CourseGroupType that = ((CourseGroupType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCourse();
-            boolean rhsFieldIsSet = that.isSetCourse();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getCourse();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getCourse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "course", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "course", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCourseDirection();
-            boolean rhsFieldIsSet = that.isSetCourseDirection();
-            JAXBElement<CodeDirectionReferenceType> lhsField;
-            lhsField = this.getCourseDirection();
-            JAXBElement<CodeDirectionReferenceType> rhsField;
-            rhsField = that.getCourseDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseDirection", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<CourseGroupExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<CourseGroupExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -373,14 +360,14 @@ public class CourseGroupType extends AbstractAIXMObjectType implements Serializa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<CourseGroupTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<CourseGroupTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetCourse();
+            boolean rhsFieldIsSet = that.isSetCourse();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getCourse();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getCourse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "course", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "course", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -394,6 +381,19 @@ public class CourseGroupType extends AbstractAIXMObjectType implements Serializa
             rhsField = that.getCourseType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCourseDirection();
+            boolean rhsFieldIsSet = that.isSetCourseDirection();
+            JAXBElement<CodeDirectionReferenceType> lhsField;
+            lhsField = this.getCourseDirection();
+            JAXBElement<CodeDirectionReferenceType> rhsField;
+            rhsField = that.getCourseDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -434,7 +434,7 @@ public class CourseGroupType extends AbstractAIXMObjectType implements Serializa
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<CourseGroupTypeExtensionType> theField;
+            List<CourseGroupExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -471,7 +471,7 @@ public class CourseGroupType extends AbstractAIXMObjectType implements Serializa
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<CourseGroupTypeExtensionType> theField;
+            List<CourseGroupExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

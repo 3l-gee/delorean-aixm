@@ -42,7 +42,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 @XmlType(name = "AbstractDirectFlightType")
 @XmlSeeAlso({DirectFlightClassType.class, DirectFlightSegmentType.class})
 @Entity(name = "AbstractDirectFlightType")
-@Table(name = "abstractdirectflighttype", schema = "public")
+@Table(name = "abstractdirectflight_o", schema = "public")
 public abstract class AbstractDirectFlightType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;

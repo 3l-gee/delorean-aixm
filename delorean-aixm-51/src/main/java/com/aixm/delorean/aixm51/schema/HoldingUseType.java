@@ -102,7 +102,7 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
     protected HoldingPatternPropertyType theHoldingPattern;
-    protected List<HoldingUseTypeExtensionType> extension;
+    protected List<HoldingUseExtensionType> extension;
 
     /**
      * Gets the value of the holdingUse property.
@@ -320,13 +320,13 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link HoldingUseTypeExtensionType }
+     * {@link HoldingUseExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = HoldingUseTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "holdingusee_hjid", referencedColumnName = "hjid")
-    public List<HoldingUseTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = HoldingUseExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "holdinguse_oe_hjid", referencedColumnName = "hjid")
+    public List<HoldingUseExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -337,7 +337,7 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
      *
      *
      */
-    public void setExtension(List<HoldingUseTypeExtensionType> extension) {
+    public void setExtension(List<HoldingUseExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -417,19 +417,6 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
         }
         final HoldingUseType that = ((HoldingUseType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheHoldingPattern();
-            boolean rhsFieldIsSet = that.isSetTheHoldingPattern();
-            HoldingPatternPropertyType lhsField;
-            lhsField = this.getTheHoldingPattern();
-            HoldingPatternPropertyType rhsField;
-            rhsField = that.getTheHoldingPattern();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theHoldingPattern", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theHoldingPattern", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetInstructedAltitude();
             boolean rhsFieldIsSet = that.isSetInstructedAltitude();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -453,6 +440,32 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instructionAltitudeReference",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<HoldingUseExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<HoldingUseExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -484,27 +497,14 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<HoldingUseTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<HoldingUseTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetTheHoldingPattern();
+            boolean rhsFieldIsSet = that.isSetTheHoldingPattern();
+            HoldingPatternPropertyType lhsField;
+            lhsField = this.getTheHoldingPattern();
+            HoldingPatternPropertyType rhsField;
+            rhsField = that.getTheHoldingPattern();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theHoldingPattern", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theHoldingPattern", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -559,7 +559,7 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<HoldingUseTypeExtensionType> theField;
+            List<HoldingUseExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -608,7 +608,7 @@ public class HoldingUseType extends AbstractAIXMObjectType implements Serializab
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<HoldingUseTypeExtensionType> theField;
+            List<HoldingUseExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -87,7 +87,7 @@ public class NonMovementAreaTimeSliceType extends AbstractAIXMTimeSliceType impl
     protected JAXBElement<AIXMElevatedSurfacePropertyType> extent;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<NonMovementAreaExtensionType> extension;
+    protected List<NonMovementAreaTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the associatedAirportHeliport property.
@@ -217,13 +217,14 @@ public class NonMovementAreaTimeSliceType extends AbstractAIXMTimeSliceType impl
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NonMovementAreaExtensionType }
+     * {@link NonMovementAreaTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = NonMovementAreaExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "nonmovementareae_hjid", referencedColumnName = "hjid")
-    public List<NonMovementAreaExtensionType> getExtension() {
+    @OneToMany(targetEntity = NonMovementAreaTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "nonmovementarea_te_hjid", referencedColumnName = "hjid")
+    public List<NonMovementAreaTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -234,7 +235,7 @@ public class NonMovementAreaTimeSliceType extends AbstractAIXMTimeSliceType impl
      *
      *
      */
-    public void setExtension(List<NonMovementAreaExtensionType> extension) {
+    public void setExtension(List<NonMovementAreaTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -291,9 +292,9 @@ public class NonMovementAreaTimeSliceType extends AbstractAIXMTimeSliceType impl
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<NonMovementAreaExtensionType> lhsField;
+            List<NonMovementAreaTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NonMovementAreaExtensionType> rhsField;
+            List<NonMovementAreaTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -315,19 +316,6 @@ public class NonMovementAreaTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAssociatedAirportHeliport();
             boolean rhsFieldIsSet = that.isSetAssociatedAirportHeliport();
             JAXBElement<AirportHeliportPropertyType> lhsField;
@@ -336,6 +324,19 @@ public class NonMovementAreaTimeSliceType extends AbstractAIXMTimeSliceType impl
             rhsField = that.getAssociatedAirportHeliport();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirportHeliport", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirportHeliport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -369,7 +370,7 @@ public class NonMovementAreaTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NonMovementAreaExtensionType> theField;
+            List<NonMovementAreaTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -400,7 +401,7 @@ public class NonMovementAreaTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NonMovementAreaExtensionType> theField;
+            List<NonMovementAreaTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

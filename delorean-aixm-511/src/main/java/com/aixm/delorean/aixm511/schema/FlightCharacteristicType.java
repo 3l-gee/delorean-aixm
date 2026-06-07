@@ -106,7 +106,7 @@ public class FlightCharacteristicType extends AbstractAIXMObjectType implements 
     protected JAXBElement<CodeFlightPurposeType> purpose;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<FlightCharacteristicTypeExtensionType> extension;
+    protected List<FlightCharacteristicExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -352,14 +352,14 @@ public class FlightCharacteristicType extends AbstractAIXMObjectType implements 
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FlightCharacteristicTypeExtensionType }
+     * {@link FlightCharacteristicExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = FlightCharacteristicTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = FlightCharacteristicExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "flightcharacteristice_hjid", referencedColumnName = "hjid")
-    public List<FlightCharacteristicTypeExtensionType> getExtension() {
+    @JoinColumn(name = "flightcharacteristic_oe_hjid", referencedColumnName = "hjid")
+    public List<FlightCharacteristicExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -370,7 +370,7 @@ public class FlightCharacteristicType extends AbstractAIXMObjectType implements 
      *
      *
      */
-    public void setExtension(List<FlightCharacteristicTypeExtensionType> extension) {
+    public void setExtension(List<FlightCharacteristicExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -469,6 +469,19 @@ public class FlightCharacteristicType extends AbstractAIXMObjectType implements 
         }
         final FlightCharacteristicType that = ((FlightCharacteristicType) object);
         {
+            boolean lhsFieldIsSet = this.isSetRule();
+            boolean rhsFieldIsSet = that.isSetRule();
+            JAXBElement<CodeFlightRuleType> lhsField;
+            lhsField = this.getRule();
+            JAXBElement<CodeFlightRuleType> rhsField;
+            rhsField = that.getRule();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rule", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rule", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -477,6 +490,19 @@ public class FlightCharacteristicType extends AbstractAIXMObjectType implements 
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStatus();
+            boolean rhsFieldIsSet = that.isSetStatus();
+            JAXBElement<CodeFlightStatusType> lhsField;
+            lhsField = this.getStatus();
+            JAXBElement<CodeFlightStatusType> rhsField;
+            rhsField = that.getStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -495,27 +521,27 @@ public class FlightCharacteristicType extends AbstractAIXMObjectType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightCharacteristicTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FlightCharacteristicTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetMilitary();
+            boolean rhsFieldIsSet = that.isSetMilitary();
+            JAXBElement<CodeMilitaryStatusType> lhsField;
+            lhsField = this.getMilitary();
+            JAXBElement<CodeMilitaryStatusType> rhsField;
+            rhsField = that.getMilitary();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "military", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "military", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStatus();
-            boolean rhsFieldIsSet = that.isSetStatus();
-            JAXBElement<CodeFlightStatusType> lhsField;
-            lhsField = this.getStatus();
-            JAXBElement<CodeFlightStatusType> rhsField;
-            rhsField = that.getStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightCharacteristicExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FlightCharacteristicExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -542,32 +568,6 @@ public class FlightCharacteristicType extends AbstractAIXMObjectType implements 
             rhsField = that.getPurpose();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "purpose", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "purpose", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRule();
-            boolean rhsFieldIsSet = that.isSetRule();
-            JAXBElement<CodeFlightRuleType> lhsField;
-            lhsField = this.getRule();
-            JAXBElement<CodeFlightRuleType> rhsField;
-            rhsField = that.getRule();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rule", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rule", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMilitary();
-            boolean rhsFieldIsSet = that.isSetMilitary();
-            JAXBElement<CodeMilitaryStatusType> lhsField;
-            lhsField = this.getMilitary();
-            JAXBElement<CodeMilitaryStatusType> rhsField;
-            rhsField = that.getMilitary();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "military", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "military", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -629,7 +629,7 @@ public class FlightCharacteristicType extends AbstractAIXMObjectType implements 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FlightCharacteristicTypeExtensionType> theField;
+            List<FlightCharacteristicExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -684,7 +684,7 @@ public class FlightCharacteristicType extends AbstractAIXMObjectType implements 
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FlightCharacteristicTypeExtensionType> theField;
+            List<FlightCharacteristicExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

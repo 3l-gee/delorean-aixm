@@ -103,7 +103,7 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
     protected JAXBElement<AIXMCurvePropertyType> groundTrajectory;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<FlightInspectionTrajectoryTypeExtensionType> extension;
+    protected List<FlightInspectionTrajectoryExtensionType> extension;
 
     /**
      * Gets the value of the aixmName property.
@@ -320,14 +320,14 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FlightInspectionTrajectoryTypeExtensionType }
+     * {@link FlightInspectionTrajectoryExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = FlightInspectionTrajectoryTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = FlightInspectionTrajectoryExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "flightinspectiontrajectorye_hjid", referencedColumnName = "hjid")
-    public List<FlightInspectionTrajectoryTypeExtensionType> getExtension() {
+    @JoinColumn(name = "flightinspectiontrajectory_oe_hjid", referencedColumnName = "hjid")
+    public List<FlightInspectionTrajectoryExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -338,7 +338,7 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
      *
      *
      */
-    public void setExtension(List<FlightInspectionTrajectoryTypeExtensionType> extension) {
+    public void setExtension(List<FlightInspectionTrajectoryExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -437,14 +437,27 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
         }
         final FlightInspectionTrajectoryType that = ((FlightInspectionTrajectoryType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightInspectionTrajectoryExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FlightInspectionTrajectoryExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGroundTrajectory();
+            boolean rhsFieldIsSet = that.isSetGroundTrajectory();
+            JAXBElement<AIXMCurvePropertyType> lhsField;
+            lhsField = this.getGroundTrajectory();
+            JAXBElement<AIXMCurvePropertyType> rhsField;
+            rhsField = that.getGroundTrajectory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "groundTrajectory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "groundTrajectory", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -476,27 +489,14 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightInspectionTrajectoryTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FlightInspectionTrajectoryTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGroundTrajectory();
-            boolean rhsFieldIsSet = that.isSetGroundTrajectory();
-            JAXBElement<AIXMCurvePropertyType> lhsField;
-            lhsField = this.getGroundTrajectory();
-            JAXBElement<AIXMCurvePropertyType> rhsField;
-            rhsField = that.getGroundTrajectory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "groundTrajectory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "groundTrajectory", rhsField);
+            boolean lhsFieldIsSet = this.isSetElevationReference();
+            boolean rhsFieldIsSet = that.isSetElevationReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getElevationReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getElevationReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevationReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevationReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -515,14 +515,14 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetElevationReference();
-            boolean rhsFieldIsSet = that.isSetElevationReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getElevationReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getElevationReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevationReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevationReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -577,7 +577,7 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FlightInspectionTrajectoryTypeExtensionType> theField;
+            List<FlightInspectionTrajectoryExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -626,7 +626,7 @@ public class FlightInspectionTrajectoryType extends AbstractAIXMObjectType imple
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FlightInspectionTrajectoryTypeExtensionType> theField;
+            List<FlightInspectionTrajectoryExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

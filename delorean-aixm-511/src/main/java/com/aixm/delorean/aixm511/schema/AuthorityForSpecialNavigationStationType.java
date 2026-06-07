@@ -91,7 +91,7 @@ public class AuthorityForSpecialNavigationStationType extends AbstractAIXMObject
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
     protected OrganisationAuthorityPropertyType theOrganisationAuthority;
-    protected List<AuthorityForSpecialNavigationStationTypeExtensionType> extension;
+    protected List<AuthorityForSpecialNavigationStationExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -223,14 +223,14 @@ public class AuthorityForSpecialNavigationStationType extends AbstractAIXMObject
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AuthorityForSpecialNavigationStationTypeExtensionType }
+     * {@link AuthorityForSpecialNavigationStationExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AuthorityForSpecialNavigationStationTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AuthorityForSpecialNavigationStationExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "authorityforspecialnavigationstatione_hjid", referencedColumnName = "hjid")
-    public List<AuthorityForSpecialNavigationStationTypeExtensionType> getExtension() {
+    @JoinColumn(name = "authorityforspecialnavigationstation_oe_hjid", referencedColumnName = "hjid")
+    public List<AuthorityForSpecialNavigationStationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -241,7 +241,7 @@ public class AuthorityForSpecialNavigationStationType extends AbstractAIXMObject
      *
      *
      */
-    public void setExtension(List<AuthorityForSpecialNavigationStationTypeExtensionType> extension) {
+    public void setExtension(List<AuthorityForSpecialNavigationStationExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -281,19 +281,6 @@ public class AuthorityForSpecialNavigationStationType extends AbstractAIXMObject
         }
         final AuthorityForSpecialNavigationStationType that = ((AuthorityForSpecialNavigationStationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AuthorityForSpecialNavigationStationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AuthorityForSpecialNavigationStationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeAuthorityRoleType> lhsField;
@@ -302,6 +289,19 @@ public class AuthorityForSpecialNavigationStationType extends AbstractAIXMObject
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -320,14 +320,14 @@ public class AuthorityForSpecialNavigationStationType extends AbstractAIXMObject
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AuthorityForSpecialNavigationStationExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AuthorityForSpecialNavigationStationExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -361,7 +361,7 @@ public class AuthorityForSpecialNavigationStationType extends AbstractAIXMObject
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AuthorityForSpecialNavigationStationTypeExtensionType> theField;
+            List<AuthorityForSpecialNavigationStationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -392,7 +392,7 @@ public class AuthorityForSpecialNavigationStationType extends AbstractAIXMObject
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AuthorityForSpecialNavigationStationTypeExtensionType> theField;
+            List<AuthorityForSpecialNavigationStationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

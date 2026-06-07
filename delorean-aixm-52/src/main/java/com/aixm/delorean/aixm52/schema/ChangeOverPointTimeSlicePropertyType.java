@@ -219,19 +219,6 @@ public class ChangeOverPointTimeSlicePropertyType implements Serializable, Equal
         }
         final ChangeOverPointTimeSlicePropertyType that = ((ChangeOverPointTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetChangeOverPointTimeSlice();
-            boolean rhsFieldIsSet = that.isSetChangeOverPointTimeSlice();
-            ChangeOverPointTimeSliceType lhsField;
-            lhsField = this.getChangeOverPointTimeSlice();
-            ChangeOverPointTimeSliceType rhsField;
-            rhsField = that.getChangeOverPointTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "changeOverPointTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "changeOverPointTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -240,6 +227,19 @@ public class ChangeOverPointTimeSlicePropertyType implements Serializable, Equal
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetChangeOverPointTimeSlice();
+            boolean rhsFieldIsSet = that.isSetChangeOverPointTimeSlice();
+            ChangeOverPointTimeSliceType lhsField;
+            lhsField = this.getChangeOverPointTimeSlice();
+            ChangeOverPointTimeSliceType rhsField;
+            rhsField = that.getChangeOverPointTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "changeOverPointTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "changeOverPointTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

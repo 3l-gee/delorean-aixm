@@ -85,7 +85,7 @@ public class HoldingPatternDistanceType extends AbstractAIXMObjectType implement
     protected JAXBElement<ValDistanceType> length;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<HoldingPatternDistanceTypeExtensionType> extension;
+    protected List<HoldingPatternDistanceExtensionType> extension;
 
     /**
      * Gets the value of the length property.
@@ -186,14 +186,14 @@ public class HoldingPatternDistanceType extends AbstractAIXMObjectType implement
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link HoldingPatternDistanceTypeExtensionType }
+     * {@link HoldingPatternDistanceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = HoldingPatternDistanceTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = HoldingPatternDistanceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "holdingpatterndistancee_hjid", referencedColumnName = "hjid")
-    public List<HoldingPatternDistanceTypeExtensionType> getExtension() {
+    @JoinColumn(name = "holdingpatterndistance_oe_hjid", referencedColumnName = "hjid")
+    public List<HoldingPatternDistanceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -204,7 +204,7 @@ public class HoldingPatternDistanceType extends AbstractAIXMObjectType implement
      *
      *
      */
-    public void setExtension(List<HoldingPatternDistanceTypeExtensionType> extension) {
+    public void setExtension(List<HoldingPatternDistanceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -245,6 +245,19 @@ public class HoldingPatternDistanceType extends AbstractAIXMObjectType implement
         }
         final HoldingPatternDistanceType that = ((HoldingPatternDistanceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetLength();
+            boolean rhsFieldIsSet = that.isSetLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -260,25 +273,12 @@ public class HoldingPatternDistanceType extends AbstractAIXMObjectType implement
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<HoldingPatternDistanceTypeExtensionType> lhsField;
+            List<HoldingPatternDistanceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<HoldingPatternDistanceTypeExtensionType> rhsField;
+            List<HoldingPatternDistanceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLength();
-            boolean rhsFieldIsSet = that.isSetLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -305,7 +305,7 @@ public class HoldingPatternDistanceType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<HoldingPatternDistanceTypeExtensionType> theField;
+            List<HoldingPatternDistanceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -330,7 +330,7 @@ public class HoldingPatternDistanceType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<HoldingPatternDistanceTypeExtensionType> theField;
+            List<HoldingPatternDistanceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -86,7 +86,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "NavaidEquipmentMonitoringType", propOrder = {"timeInterval", "annotation", "specialDateAuthority",
         "monitored", "extension"})
 @Entity(name = "NavaidEquipmentMonitoringType")
-@Table(name = "navaidequipmentmonitoringtype", schema = "navaids_point")
+@Table(name = "navaidequipmentmonitoring_o", schema = "navaids_point")
 public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -98,7 +98,7 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
     protected List<OrganisationAuthorityPropertyType> specialDateAuthority;
     @XmlElementRef(name = "monitored", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeYesNoType> monitored;
-    protected List<NavaidEquipmentMonitoringTypeExtensionType> extension;
+    protected List<NavaidEquipmentMonitoringExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -125,7 +125,7 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "nvdeqpmntmntrngtp_tmintrvl_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "navaidequipmentmonitoringtype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "navaidequipmentmonitoring_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -176,7 +176,7 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "nvdeqpmntmntrngtp_annttn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "navaidequipmentmonitoringtype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "navaidequipmentmonitoring_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -228,7 +228,7 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "nvdeqpmntmntrngtp_spcldtathrt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "navaidequipmentmonitoringtype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "navaidequipmentmonitoring_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -302,14 +302,14 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NavaidEquipmentMonitoringTypeExtensionType }
+     * {@link NavaidEquipmentMonitoringExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = NavaidEquipmentMonitoringTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = NavaidEquipmentMonitoringExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navaidequipmentmonitoringe_hjid", referencedColumnName = "hjid")
-    public List<NavaidEquipmentMonitoringTypeExtensionType> getExtension() {
+    @JoinColumn(name = "navaidequipmentmonitoring_oe_hjid", referencedColumnName = "hjid")
+    public List<NavaidEquipmentMonitoringExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -320,7 +320,7 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
      *
      *
      */
-    public void setExtension(List<NavaidEquipmentMonitoringTypeExtensionType> extension) {
+    public void setExtension(List<NavaidEquipmentMonitoringExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -360,19 +360,6 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
         }
         final NavaidEquipmentMonitoringType that = ((NavaidEquipmentMonitoringType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMonitored();
             boolean rhsFieldIsSet = that.isSetMonitored();
             JAXBElement<CodeYesNoType> lhsField;
@@ -386,6 +373,32 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NavaidEquipmentMonitoringExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<NavaidEquipmentMonitoringExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -394,19 +407,6 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavaidEquipmentMonitoringTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NavaidEquipmentMonitoringTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -460,7 +460,7 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavaidEquipmentMonitoringTypeExtensionType> theField;
+            List<NavaidEquipmentMonitoringExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -497,7 +497,7 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<NavaidEquipmentMonitoringTypeExtensionType> theField;
+            List<NavaidEquipmentMonitoringExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

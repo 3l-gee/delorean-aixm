@@ -196,7 +196,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
     protected JAXBElement<CodeDataAssessmentStatusType> dataAssessmentStatus;
     @XmlElement(nillable = true)
     protected List<ArrestingGearPropertyType> arrestingDevice;
-    protected List<VerticalStructureExtensionType> extension;
+    protected List<VerticalStructureTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the aixmName property.
@@ -1217,14 +1217,14 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link VerticalStructureExtensionType }
+     * {@link VerticalStructureTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = VerticalStructureExtensionType.class, cascade = {
+    @OneToMany(targetEntity = VerticalStructureTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "verticalstructuree_hjid", referencedColumnName = "hjid")
-    public List<VerticalStructureExtensionType> getExtension() {
+    @JoinColumn(name = "verticalstructure_te_hjid", referencedColumnName = "hjid")
+    public List<VerticalStructureTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -1235,7 +1235,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
      *
      *
      */
-    public void setExtension(List<VerticalStructureExtensionType> extension) {
+    public void setExtension(List<VerticalStructureTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -1461,27 +1461,144 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
         }
         final VerticalStructureTimeSliceType that = ((VerticalStructureTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetRadius();
+            boolean rhsFieldIsSet = that.isSetRadius();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getRadius();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getRadius();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radius", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radius", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSupportedGroundLight();
-            boolean rhsFieldIsSet = that.isSetSupportedGroundLight();
-            List<GroundLightSystemPropertyType> lhsField;
-            lhsField = (this.isSetSupportedGroundLight() ? this.getSupportedGroundLight() : null);
-            List<GroundLightSystemPropertyType> rhsField;
-            rhsField = (that.isSetSupportedGroundLight() ? that.getSupportedGroundLight() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supportedGroundLight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supportedGroundLight", rhsField);
+            boolean lhsFieldIsSet = this.isSetLength();
+            boolean rhsFieldIsSet = that.isSetLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArrestingDevice();
+            boolean rhsFieldIsSet = that.isSetArrestingDevice();
+            List<ArrestingGearPropertyType> lhsField;
+            lhsField = (this.isSetArrestingDevice() ? this.getArrestingDevice() : null);
+            List<ArrestingGearPropertyType> rhsField;
+            rhsField = (that.isSetArrestingDevice() ? that.getArrestingDevice() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arrestingDevice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arrestingDevice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarked();
+            boolean rhsFieldIsSet = that.isSetMarked();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMarked();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMarked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "marked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "marked", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWidth();
+            boolean rhsFieldIsSet = that.isSetWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarker();
+            boolean rhsFieldIsSet = that.isSetMarker();
+            JAXBElement<MarkerBeaconPropertyType> lhsField;
+            lhsField = this.getMarker();
+            JAXBElement<MarkerBeaconPropertyType> rhsField;
+            rhsField = that.getMarker();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "marker", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "marker", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSupportedService();
+            boolean rhsFieldIsSet = that.isSetSupportedService();
+            List<ServicePropertyType> lhsField;
+            lhsField = (this.isSetSupportedService() ? this.getSupportedService() : null);
+            List<ServicePropertyType> rhsField;
+            rhsField = (that.isSetSupportedService() ? that.getSupportedService() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supportedService", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supportedService", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLightingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetLightingICAOStandard();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getLightingICAOStandard();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getLightingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightingICAOStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHostedNavaidEquipment();
+            boolean rhsFieldIsSet = that.isSetHostedNavaidEquipment();
+            List<NavaidEquipmentPropertyType> lhsField;
+            lhsField = (this.isSetHostedNavaidEquipment() ? this.getHostedNavaidEquipment() : null);
+            List<NavaidEquipmentPropertyType> rhsField;
+            rhsField = (that.isSetHostedNavaidEquipment() ? that.getHostedNavaidEquipment() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedNavaidEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedNavaidEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPart();
+            boolean rhsFieldIsSet = that.isSetPart();
+            List<VerticalStructurePartPropertyType> lhsField;
+            lhsField = (this.isSetPart() ? this.getPart() : null);
+            List<VerticalStructurePartPropertyType> rhsField;
+            rhsField = (that.isSetPart() ? that.getPart() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "part", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "part", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeVerticalStructureType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeVerticalStructureType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1513,97 +1630,6 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<VerticalStructureExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<VerticalStructureExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLightingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetLightingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLightingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLightingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightingICAOStandard", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHostedPassengerService();
-            boolean rhsFieldIsSet = that.isSetHostedPassengerService();
-            List<PassengerServicePropertyType> lhsField;
-            lhsField = (this.isSetHostedPassengerService() ? this.getHostedPassengerService() : null);
-            List<PassengerServicePropertyType> rhsField;
-            rhsField = (that.isSetHostedPassengerService() ? that.getHostedPassengerService() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedPassengerService", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedPassengerService", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHostedSpecialNavStation();
-            boolean rhsFieldIsSet = that.isSetHostedSpecialNavStation();
-            List<SpecialNavigationStationPropertyType> lhsField;
-            lhsField = (this.isSetHostedSpecialNavStation() ? this.getHostedSpecialNavStation() : null);
-            List<SpecialNavigationStationPropertyType> rhsField;
-            rhsField = (that.isSetHostedSpecialNavStation() ? that.getHostedSpecialNavStation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedSpecialNavStation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedSpecialNavStation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGroup();
-            boolean rhsFieldIsSet = that.isSetGroup();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getGroup();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getGroup();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSupportedService();
-            boolean rhsFieldIsSet = that.isSetSupportedService();
-            List<ServicePropertyType> lhsField;
-            lhsField = (this.isSetSupportedService() ? this.getSupportedService() : null);
-            List<ServicePropertyType> rhsField;
-            rhsField = (that.isSetSupportedService() ? that.getSupportedService() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supportedService", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supportedService", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLightingAvailability();
-            boolean rhsFieldIsSet = that.isSetLightingAvailability();
-            List<VerticalStructureLightingStatusPropertyType> lhsField;
-            lhsField = (this.isSetLightingAvailability() ? this.getLightingAvailability() : null);
-            List<VerticalStructureLightingStatusPropertyType> rhsField;
-            rhsField = (that.isSetLightingAvailability() ? that.getLightingAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightingAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightingAvailability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAixmName();
             boolean rhsFieldIsSet = that.isSetAixmName();
             JAXBElement<TextNameType> lhsField;
@@ -1617,144 +1643,14 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMarkingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarker();
-            boolean rhsFieldIsSet = that.isSetMarker();
-            JAXBElement<MarkerBeaconPropertyType> lhsField;
-            lhsField = this.getMarker();
-            JAXBElement<MarkerBeaconPropertyType> rhsField;
-            rhsField = that.getMarker();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "marker", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "marker", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarked();
-            boolean rhsFieldIsSet = that.isSetMarked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMarked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMarked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "marked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "marked", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHostedOrganisation();
-            boolean rhsFieldIsSet = that.isSetHostedOrganisation();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetHostedOrganisation() ? this.getHostedOrganisation() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetHostedOrganisation() ? that.getHostedOrganisation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedOrganisation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedOrganisation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHostedNavaidEquipment();
-            boolean rhsFieldIsSet = that.isSetHostedNavaidEquipment();
-            List<NavaidEquipmentPropertyType> lhsField;
-            lhsField = (this.isSetHostedNavaidEquipment() ? this.getHostedNavaidEquipment() : null);
-            List<NavaidEquipmentPropertyType> rhsField;
-            rhsField = (that.isSetHostedNavaidEquipment() ? that.getHostedNavaidEquipment() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedNavaidEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedNavaidEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeVerticalStructureType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeVerticalStructureType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRadius();
-            boolean rhsFieldIsSet = that.isSetRadius();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getRadius();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getRadius();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radius", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radius", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPlaceName();
-            boolean rhsFieldIsSet = that.isSetPlaceName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getPlaceName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getPlaceName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "placeName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "placeName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<TextDesignatorLongType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<TextDesignatorLongType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWidth();
-            boolean rhsFieldIsSet = that.isSetWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPart();
-            boolean rhsFieldIsSet = that.isSetPart();
-            List<VerticalStructurePartPropertyType> lhsField;
-            lhsField = (this.isSetPart() ? this.getPart() : null);
-            List<VerticalStructurePartPropertyType> rhsField;
-            rhsField = (that.isSetPart() ? that.getPart() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "part", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "part", rhsField);
+            boolean lhsFieldIsSet = this.isSetSupportedGroundLight();
+            boolean rhsFieldIsSet = that.isSetSupportedGroundLight();
+            List<GroundLightSystemPropertyType> lhsField;
+            lhsField = (this.isSetSupportedGroundLight() ? this.getSupportedGroundLight() : null);
+            List<GroundLightSystemPropertyType> rhsField;
+            rhsField = (that.isSetSupportedGroundLight() ? that.getSupportedGroundLight() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supportedGroundLight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supportedGroundLight", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1773,14 +1669,14 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLength();
-            boolean rhsFieldIsSet = that.isSetLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
+            boolean lhsFieldIsSet = this.isSetHostedOrganisation();
+            boolean rhsFieldIsSet = that.isSetHostedOrganisation();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetHostedOrganisation() ? this.getHostedOrganisation() : null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetHostedOrganisation() ? that.getHostedOrganisation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedOrganisation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedOrganisation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1799,14 +1695,118 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetArrestingDevice();
-            boolean rhsFieldIsSet = that.isSetArrestingDevice();
-            List<ArrestingGearPropertyType> lhsField;
-            lhsField = (this.isSetArrestingDevice() ? this.getArrestingDevice() : null);
-            List<ArrestingGearPropertyType> rhsField;
-            rhsField = (that.isSetArrestingDevice() ? that.getArrestingDevice() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arrestingDevice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arrestingDevice", rhsField);
+            boolean lhsFieldIsSet = this.isSetHostedSpecialNavStation();
+            boolean rhsFieldIsSet = that.isSetHostedSpecialNavStation();
+            List<SpecialNavigationStationPropertyType> lhsField;
+            lhsField = (this.isSetHostedSpecialNavStation() ? this.getHostedSpecialNavStation() : null);
+            List<SpecialNavigationStationPropertyType> rhsField;
+            rhsField = (that.isSetHostedSpecialNavStation() ? that.getHostedSpecialNavStation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedSpecialNavStation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedSpecialNavStation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLightingAvailability();
+            boolean rhsFieldIsSet = that.isSetLightingAvailability();
+            List<VerticalStructureLightingStatusPropertyType> lhsField;
+            lhsField = (this.isSetLightingAvailability() ? this.getLightingAvailability() : null);
+            List<VerticalStructureLightingStatusPropertyType> rhsField;
+            rhsField = (that.isSetLightingAvailability() ? that.getLightingAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightingAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightingAvailability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<VerticalStructureTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<VerticalStructureTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<TextDesignatorLongType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<TextDesignatorLongType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHostedPassengerService();
+            boolean rhsFieldIsSet = that.isSetHostedPassengerService();
+            List<PassengerServicePropertyType> lhsField;
+            lhsField = (this.isSetHostedPassengerService() ? this.getHostedPassengerService() : null);
+            List<PassengerServicePropertyType> rhsField;
+            rhsField = (that.isSetHostedPassengerService() ? that.getHostedPassengerService() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostedPassengerService", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostedPassengerService", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPlaceName();
+            boolean rhsFieldIsSet = that.isSetPlaceName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getPlaceName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getPlaceName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "placeName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "placeName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMarkingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGroup();
+            boolean rhsFieldIsSet = that.isSetGroup();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getGroup();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getGroup();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -2001,7 +2001,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<VerticalStructureExtensionType> theField;
+            List<VerticalStructureTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -2170,7 +2170,7 @@ public class VerticalStructureTimeSliceType extends AbstractAIXMTimeSliceType im
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<VerticalStructureExtensionType> theField;
+            List<VerticalStructureTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

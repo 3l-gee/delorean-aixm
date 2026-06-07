@@ -98,7 +98,7 @@ public class ApproachDistanceTableType extends AbstractAIXMObjectType implements
     protected JAXBElement<ValDistanceType> distance;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<ApproachDistanceTableTypeExtensionType> extension;
+    protected List<ApproachDistanceTableExtensionType> extension;
 
     /**
      * Gets the value of the startingMeasurementPoint property.
@@ -286,14 +286,14 @@ public class ApproachDistanceTableType extends AbstractAIXMObjectType implements
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ApproachDistanceTableTypeExtensionType }
+     * {@link ApproachDistanceTableExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ApproachDistanceTableTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ApproachDistanceTableExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "approachdistancetablee_hjid", referencedColumnName = "hjid")
-    public List<ApproachDistanceTableTypeExtensionType> getExtension() {
+    @JoinColumn(name = "approachdistancetable_oe_hjid", referencedColumnName = "hjid")
+    public List<ApproachDistanceTableExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -304,7 +304,7 @@ public class ApproachDistanceTableType extends AbstractAIXMObjectType implements
      *
      *
      */
-    public void setExtension(List<ApproachDistanceTableTypeExtensionType> extension) {
+    public void setExtension(List<ApproachDistanceTableExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -385,19 +385,6 @@ public class ApproachDistanceTableType extends AbstractAIXMObjectType implements
         }
         final ApproachDistanceTableType that = ((ApproachDistanceTableType) object);
         {
-            boolean lhsFieldIsSet = this.isSetEndingMeasurementPoint();
-            boolean rhsFieldIsSet = that.isSetEndingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> lhsField;
-            lhsField = this.getEndingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> rhsField;
-            rhsField = that.getEndingMeasurementPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endingMeasurementPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endingMeasurementPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValueHAT();
             boolean rhsFieldIsSet = that.isSetValueHAT();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -406,19 +393,6 @@ public class ApproachDistanceTableType extends AbstractAIXMObjectType implements
             rhsField = that.getValueHAT();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueHAT", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueHAT", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApproachDistanceTableTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApproachDistanceTableTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -458,6 +432,32 @@ public class ApproachDistanceTableType extends AbstractAIXMObjectType implements
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApproachDistanceTableExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ApproachDistanceTableExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndingMeasurementPoint();
+            boolean rhsFieldIsSet = that.isSetEndingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> lhsField;
+            lhsField = this.getEndingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> rhsField;
+            rhsField = that.getEndingMeasurementPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endingMeasurementPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endingMeasurementPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -505,7 +505,7 @@ public class ApproachDistanceTableType extends AbstractAIXMObjectType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApproachDistanceTableTypeExtensionType> theField;
+            List<ApproachDistanceTableExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -548,7 +548,7 @@ public class ApproachDistanceTableType extends AbstractAIXMObjectType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApproachDistanceTableTypeExtensionType> theField;
+            List<ApproachDistanceTableExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

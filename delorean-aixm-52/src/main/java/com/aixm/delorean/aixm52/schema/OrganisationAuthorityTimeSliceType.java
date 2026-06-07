@@ -109,7 +109,7 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
     protected List<OrganisationAuthorityAssociationPropertyType> relatedOrganisationAuthority;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<OrganisationAuthorityExtensionType> extension;
+    protected List<OrganisationAuthorityTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the aixmName property.
@@ -402,14 +402,14 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link OrganisationAuthorityExtensionType }
+     * {@link OrganisationAuthorityTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = OrganisationAuthorityExtensionType.class, cascade = {
+    @OneToMany(targetEntity = OrganisationAuthorityTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "organisationauthoritye_hjid", referencedColumnName = "hjid")
-    public List<OrganisationAuthorityExtensionType> getExtension() {
+    @JoinColumn(name = "organisationauthority_te_hjid", referencedColumnName = "hjid")
+    public List<OrganisationAuthorityTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -420,7 +420,7 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
      *
      *
      */
-    public void setExtension(List<OrganisationAuthorityExtensionType> extension) {
+    public void setExtension(List<OrganisationAuthorityTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -501,19 +501,6 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
         }
         final OrganisationAuthorityTimeSliceType that = ((OrganisationAuthorityTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMilitary();
-            boolean rhsFieldIsSet = that.isSetMilitary();
-            JAXBElement<CodeMilitaryOperationsType> lhsField;
-            lhsField = this.getMilitary();
-            JAXBElement<CodeMilitaryOperationsType> rhsField;
-            rhsField = that.getMilitary();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "military", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "military", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRelatedOrganisationAuthority();
             boolean rhsFieldIsSet = that.isSetRelatedOrganisationAuthority();
             List<OrganisationAuthorityAssociationPropertyType> lhsField;
@@ -529,27 +516,14 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetContact();
-            boolean rhsFieldIsSet = that.isSetContact();
-            List<ContactInformationPropertyType> lhsField;
-            lhsField = (this.isSetContact() ? this.getContact() : null);
-            List<ContactInformationPropertyType> rhsField;
-            rhsField = (that.isSetContact() ? that.getContact() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeOrganisationDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeOrganisationDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            boolean lhsFieldIsSet = this.isSetMilitary();
+            boolean rhsFieldIsSet = that.isSetMilitary();
+            JAXBElement<CodeMilitaryOperationsType> lhsField;
+            lhsField = this.getMilitary();
+            JAXBElement<CodeMilitaryOperationsType> rhsField;
+            rhsField = that.getMilitary();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "military", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "military", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -570,12 +544,38 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<OrganisationAuthorityExtensionType> lhsField;
+            List<OrganisationAuthorityTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<OrganisationAuthorityExtensionType> rhsField;
+            List<OrganisationAuthorityTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeOrganisationType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeOrganisationType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeOrganisationDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeOrganisationDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -594,14 +594,14 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeOrganisationType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeOrganisationType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetContact();
+            boolean rhsFieldIsSet = that.isSetContact();
+            List<ContactInformationPropertyType> lhsField;
+            lhsField = (this.isSetContact() ? this.getContact() : null);
+            List<ContactInformationPropertyType> rhsField;
+            rhsField = (that.isSetContact() ? that.getContact() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -663,7 +663,7 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<OrganisationAuthorityExtensionType> theField;
+            List<OrganisationAuthorityTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -718,7 +718,7 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<OrganisationAuthorityExtensionType> theField;
+            List<OrganisationAuthorityTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

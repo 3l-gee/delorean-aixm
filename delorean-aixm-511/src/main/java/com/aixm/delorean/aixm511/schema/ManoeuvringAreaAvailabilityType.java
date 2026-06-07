@@ -91,7 +91,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "ManoeuvringAreaAvailabilityType", propOrder = {"timeInterval", "annotation", "specialDateAuthority",
         "operationalStatus", "warning", "usage", "extension"})
 @Entity(name = "ManoeuvringAreaAvailabilityType")
-@Table(name = "manoeuvringareaavailabilitytype", schema = "airport_heliport")
+@Table(name = "manoeuvringareaavailability_o", schema = "airport_heliport")
 public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -107,7 +107,7 @@ public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithSched
     protected JAXBElement<CodeAirportWarningType> warning;
     @XmlElement(nillable = true)
     protected List<ManoeuvringAreaUsagePropertyType> usage;
-    protected List<ManoeuvringAreaAvailabilityTypeExtensionType> extension;
+    protected List<ManoeuvringAreaAvailabilityExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -134,7 +134,7 @@ public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithSched
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "mnvrngaravlblttp_tmintrvl_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "manoeuvringareaavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "manoeuvringareaavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -185,7 +185,7 @@ public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithSched
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "mnvrngaravlblttp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "manoeuvringareaavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "manoeuvringareaavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -237,7 +237,7 @@ public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithSched
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "mnvrngaravlblttp_spcldtathrt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "manoeuvringareaavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "manoeuvringareaavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -347,7 +347,7 @@ public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithSched
     @OneToMany(targetEntity = ManoeuvringAreaUsagePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "mnvrngaravlblttp_usg_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "manoeuvringareaavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "manoeuvringareaavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "usage_hjid", referencedColumnName = "hjid")})
     public List<ManoeuvringAreaUsagePropertyType> getUsage() {
         if (usage == null) {
@@ -392,14 +392,14 @@ public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithSched
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ManoeuvringAreaAvailabilityTypeExtensionType }
+     * {@link ManoeuvringAreaAvailabilityExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ManoeuvringAreaAvailabilityTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ManoeuvringAreaAvailabilityExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "manoeuvringareaavailabilitye_hjid", referencedColumnName = "hjid")
-    public List<ManoeuvringAreaAvailabilityTypeExtensionType> getExtension() {
+    @JoinColumn(name = "manoeuvringareaavailability_oe_hjid", referencedColumnName = "hjid")
+    public List<ManoeuvringAreaAvailabilityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -410,7 +410,7 @@ public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithSched
      *
      *
      */
-    public void setExtension(List<ManoeuvringAreaAvailabilityTypeExtensionType> extension) {
+    public void setExtension(List<ManoeuvringAreaAvailabilityExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -463,58 +463,6 @@ public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithSched
         }
         final ManoeuvringAreaAvailabilityType that = ((ManoeuvringAreaAvailabilityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUsage();
-            boolean rhsFieldIsSet = that.isSetUsage();
-            List<ManoeuvringAreaUsagePropertyType> lhsField;
-            lhsField = (this.isSetUsage() ? this.getUsage() : null);
-            List<ManoeuvringAreaUsagePropertyType> rhsField;
-            rhsField = (that.isSetUsage() ? that.getUsage() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOperationalStatus();
-            boolean rhsFieldIsSet = that.isSetOperationalStatus();
-            JAXBElement<CodeStatusAirportType> lhsField;
-            lhsField = this.getOperationalStatus();
-            JAXBElement<CodeStatusAirportType> rhsField;
-            rhsField = that.getOperationalStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWarning();
-            boolean rhsFieldIsSet = that.isSetWarning();
-            JAXBElement<CodeAirportWarningType> lhsField;
-            lhsField = this.getWarning();
-            JAXBElement<CodeAirportWarningType> rhsField;
-            rhsField = that.getWarning();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "warning", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "warning", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ManoeuvringAreaAvailabilityTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ManoeuvringAreaAvailabilityTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -549,6 +497,58 @@ public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithSched
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperationalStatus();
+            boolean rhsFieldIsSet = that.isSetOperationalStatus();
+            JAXBElement<CodeStatusAirportType> lhsField;
+            lhsField = this.getOperationalStatus();
+            JAXBElement<CodeStatusAirportType> rhsField;
+            rhsField = that.getOperationalStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ManoeuvringAreaAvailabilityExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ManoeuvringAreaAvailabilityExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWarning();
+            boolean rhsFieldIsSet = that.isSetWarning();
+            JAXBElement<CodeAirportWarningType> lhsField;
+            lhsField = this.getWarning();
+            JAXBElement<CodeAirportWarningType> rhsField;
+            rhsField = that.getWarning();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "warning", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "warning", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsage();
+            boolean rhsFieldIsSet = that.isSetUsage();
+            List<ManoeuvringAreaUsagePropertyType> lhsField;
+            lhsField = (this.isSetUsage() ? this.getUsage() : null);
+            List<ManoeuvringAreaUsagePropertyType> rhsField;
+            rhsField = (that.isSetUsage() ? that.getUsage() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -603,7 +603,7 @@ public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithSched
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ManoeuvringAreaAvailabilityTypeExtensionType> theField;
+            List<ManoeuvringAreaAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -652,7 +652,7 @@ public class ManoeuvringAreaAvailabilityType extends AbstractPropertiesWithSched
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ManoeuvringAreaAvailabilityTypeExtensionType> theField;
+            List<ManoeuvringAreaAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

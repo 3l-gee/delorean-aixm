@@ -85,7 +85,7 @@ public class FuelType extends AbstractAIXMObjectType implements Serializable {
     protected JAXBElement<CodeFuelType> category;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<FuelTypeExtensionType> extension;
+    protected List<FuelExtensionType> extension;
 
     /**
      * Gets the value of the category property.
@@ -186,13 +186,13 @@ public class FuelType extends AbstractAIXMObjectType implements Serializable {
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FuelTypeExtensionType }
+     * {@link FuelExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = FuelTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "fuele_hjid", referencedColumnName = "hjid")
-    public List<FuelTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = FuelExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "fuel_oe_hjid", referencedColumnName = "hjid")
+    public List<FuelExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -203,7 +203,7 @@ public class FuelType extends AbstractAIXMObjectType implements Serializable {
      *
      *
      */
-    public void setExtension(List<FuelTypeExtensionType> extension) {
+    public void setExtension(List<FuelExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -242,14 +242,14 @@ public class FuelType extends AbstractAIXMObjectType implements Serializable {
         }
         final FuelType that = ((FuelType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCategory();
-            boolean rhsFieldIsSet = that.isSetCategory();
-            JAXBElement<CodeFuelType> lhsField;
-            lhsField = this.getCategory();
-            JAXBElement<CodeFuelType> rhsField;
-            rhsField = that.getCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FuelExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FuelExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -268,14 +268,14 @@ public class FuelType extends AbstractAIXMObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FuelTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FuelTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetCategory();
+            boolean rhsFieldIsSet = that.isSetCategory();
+            JAXBElement<CodeFuelType> lhsField;
+            lhsField = this.getCategory();
+            JAXBElement<CodeFuelType> rhsField;
+            rhsField = that.getCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -302,7 +302,7 @@ public class FuelType extends AbstractAIXMObjectType implements Serializable {
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FuelTypeExtensionType> theField;
+            List<FuelExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -327,7 +327,7 @@ public class FuelType extends AbstractAIXMObjectType implements Serializable {
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FuelTypeExtensionType> theField;
+            List<FuelExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

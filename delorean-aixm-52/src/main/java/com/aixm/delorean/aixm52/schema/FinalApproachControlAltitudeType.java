@@ -107,7 +107,7 @@ public class FinalApproachControlAltitudeType extends AbstractAIXMObjectType imp
     protected List<FinalApproachControlPositionPropertyType> location;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<FinalApproachControlAltitudeTypeExtensionType> extension;
+    protected List<FinalApproachControlAltitudeExtensionType> extension;
 
     /**
      * Gets the value of the altitude property.
@@ -376,14 +376,14 @@ public class FinalApproachControlAltitudeType extends AbstractAIXMObjectType imp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FinalApproachControlAltitudeTypeExtensionType }
+     * {@link FinalApproachControlAltitudeExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = FinalApproachControlAltitudeTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = FinalApproachControlAltitudeExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "finalapproachcontrolaltitudee_hjid", referencedColumnName = "hjid")
-    public List<FinalApproachControlAltitudeTypeExtensionType> getExtension() {
+    @JoinColumn(name = "finalapproachcontrolaltitude_oe_hjid", referencedColumnName = "hjid")
+    public List<FinalApproachControlAltitudeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -394,7 +394,7 @@ public class FinalApproachControlAltitudeType extends AbstractAIXMObjectType imp
      *
      *
      */
-    public void setExtension(List<FinalApproachControlAltitudeTypeExtensionType> extension) {
+    public void setExtension(List<FinalApproachControlAltitudeExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -492,19 +492,6 @@ public class FinalApproachControlAltitudeType extends AbstractAIXMObjectType imp
         }
         final FinalApproachControlAltitudeType that = ((FinalApproachControlAltitudeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            List<FinalApproachControlPositionPropertyType> lhsField;
-            lhsField = (this.isSetLocation() ? this.getLocation() : null);
-            List<FinalApproachControlPositionPropertyType> rhsField;
-            rhsField = (that.isSetLocation() ? that.getLocation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAltitude();
             boolean rhsFieldIsSet = that.isSetAltitude();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -526,6 +513,32 @@ public class FinalApproachControlAltitudeType extends AbstractAIXMObjectType imp
             rhsField = that.getMeasurementPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measurementPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measurementPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHeight();
+            boolean rhsFieldIsSet = that.isSetHeight();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getHeight();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getHeight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "height", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "height", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FinalApproachControlAltitudeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FinalApproachControlAltitudeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -557,32 +570,6 @@ public class FinalApproachControlAltitudeType extends AbstractAIXMObjectType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FinalApproachControlAltitudeTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FinalApproachControlAltitudeTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHeight();
-            boolean rhsFieldIsSet = that.isSetHeight();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getHeight();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getHeight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "height", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "height", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetHeightReference();
             boolean rhsFieldIsSet = that.isSetHeightReference();
             JAXBElement<CodeHeightReferenceType> lhsField;
@@ -591,6 +578,19 @@ public class FinalApproachControlAltitudeType extends AbstractAIXMObjectType imp
             rhsField = that.getHeightReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "heightReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "heightReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            List<FinalApproachControlPositionPropertyType> lhsField;
+            lhsField = (this.isSetLocation() ? this.getLocation() : null);
+            List<FinalApproachControlPositionPropertyType> rhsField;
+            rhsField = (that.isSetLocation() ? that.getLocation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -652,7 +652,7 @@ public class FinalApproachControlAltitudeType extends AbstractAIXMObjectType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FinalApproachControlAltitudeTypeExtensionType> theField;
+            List<FinalApproachControlAltitudeExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -707,7 +707,7 @@ public class FinalApproachControlAltitudeType extends AbstractAIXMObjectType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<FinalApproachControlAltitudeTypeExtensionType> theField;
+            List<FinalApproachControlAltitudeExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

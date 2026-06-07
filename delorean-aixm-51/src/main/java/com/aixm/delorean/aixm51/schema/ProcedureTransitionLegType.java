@@ -90,7 +90,7 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
     protected SegmentLegPropertyType theSegmentLeg;
-    protected List<ProcedureTransitionLegTypeExtensionType> extension;
+    protected List<ProcedureTransitionLegExtensionType> extension;
 
     /**
      * Gets the value of the seqNumberARINC property.
@@ -221,14 +221,14 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ProcedureTransitionLegTypeExtensionType }
+     * {@link ProcedureTransitionLegExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ProcedureTransitionLegTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ProcedureTransitionLegExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "proceduretransitionlege_hjid", referencedColumnName = "hjid")
-    public List<ProcedureTransitionLegTypeExtensionType> getExtension() {
+    @JoinColumn(name = "proceduretransitionleg_oe_hjid", referencedColumnName = "hjid")
+    public List<ProcedureTransitionLegExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -239,7 +239,7 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
      *
      *
      */
-    public void setExtension(List<ProcedureTransitionLegTypeExtensionType> extension) {
+    public void setExtension(List<ProcedureTransitionLegExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -292,24 +292,11 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTheSegmentLeg();
-            boolean rhsFieldIsSet = that.isSetTheSegmentLeg();
-            SegmentLegPropertyType lhsField;
-            lhsField = this.getTheSegmentLeg();
-            SegmentLegPropertyType rhsField;
-            rhsField = that.getTheSegmentLeg();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSegmentLeg", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSegmentLeg", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<ProcedureTransitionLegTypeExtensionType> lhsField;
+            List<ProcedureTransitionLegExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ProcedureTransitionLegTypeExtensionType> rhsField;
+            List<ProcedureTransitionLegExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -326,6 +313,19 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheSegmentLeg();
+            boolean rhsFieldIsSet = that.isSetTheSegmentLeg();
+            SegmentLegPropertyType lhsField;
+            lhsField = this.getTheSegmentLeg();
+            SegmentLegPropertyType rhsField;
+            rhsField = that.getTheSegmentLeg();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSegmentLeg", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSegmentLeg", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -359,7 +359,7 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ProcedureTransitionLegTypeExtensionType> theField;
+            List<ProcedureTransitionLegExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -390,7 +390,7 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ProcedureTransitionLegTypeExtensionType> theField;
+            List<ProcedureTransitionLegExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

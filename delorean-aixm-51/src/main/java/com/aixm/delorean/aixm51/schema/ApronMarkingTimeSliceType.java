@@ -106,7 +106,7 @@ public class ApronMarkingTimeSliceType extends AbstractAIXMTimeSliceType impleme
     protected JAXBElement<CodeApronSectionType> markingLocation;
     @XmlElementRef(name = "markedApron", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
     protected JAXBElement<ApronPropertyType> markedApron;
-    protected List<ApronMarkingExtensionType> extension;
+    protected List<ApronMarkingTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the markingICAOStandard property.
@@ -345,13 +345,14 @@ public class ApronMarkingTimeSliceType extends AbstractAIXMTimeSliceType impleme
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ApronMarkingExtensionType }
+     * {@link ApronMarkingTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ApronMarkingExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "apronmarkinge_hjid", referencedColumnName = "hjid")
-    public List<ApronMarkingExtensionType> getExtension() {
+    @OneToMany(targetEntity = ApronMarkingTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "apronmarking_te_hjid", referencedColumnName = "hjid")
+    public List<ApronMarkingTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -362,7 +363,7 @@ public class ApronMarkingTimeSliceType extends AbstractAIXMTimeSliceType impleme
      *
      *
      */
-    public void setExtension(List<ApronMarkingExtensionType> extension) {
+    public void setExtension(List<ApronMarkingTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -453,6 +454,32 @@ public class ApronMarkingTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkedApron();
+            boolean rhsFieldIsSet = that.isSetMarkedApron();
+            JAXBElement<ApronPropertyType> lhsField;
+            lhsField = this.getMarkedApron();
+            JAXBElement<ApronPropertyType> rhsField;
+            rhsField = that.getMarkedApron();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedApron", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedApron", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCondition();
             boolean rhsFieldIsSet = that.isSetCondition();
             JAXBElement<CodeMarkingConditionType> lhsField;
@@ -479,24 +506,11 @@ public class ApronMarkingTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkedApron();
-            boolean rhsFieldIsSet = that.isSetMarkedApron();
-            JAXBElement<ApronPropertyType> lhsField;
-            lhsField = this.getMarkedApron();
-            JAXBElement<ApronPropertyType> rhsField;
-            rhsField = that.getMarkedApron();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedApron", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedApron", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApronMarkingExtensionType> lhsField;
+            List<ApronMarkingTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApronMarkingExtensionType> rhsField;
+            List<ApronMarkingTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -513,19 +527,6 @@ public class ApronMarkingTimeSliceType extends AbstractAIXMTimeSliceType impleme
             rhsField = that.getMarkingLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingLocation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -580,7 +581,7 @@ public class ApronMarkingTimeSliceType extends AbstractAIXMTimeSliceType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApronMarkingExtensionType> theField;
+            List<ApronMarkingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -629,7 +630,7 @@ public class ApronMarkingTimeSliceType extends AbstractAIXMTimeSliceType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ApronMarkingExtensionType> theField;
+            List<ApronMarkingTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

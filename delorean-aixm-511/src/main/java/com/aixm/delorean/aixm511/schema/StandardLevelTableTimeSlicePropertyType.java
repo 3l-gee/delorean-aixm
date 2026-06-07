@@ -220,19 +220,6 @@ public class StandardLevelTableTimeSlicePropertyType implements Serializable, Eq
         }
         final StandardLevelTableTimeSlicePropertyType that = ((StandardLevelTableTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStandardLevelTableTimeSlice();
-            boolean rhsFieldIsSet = that.isSetStandardLevelTableTimeSlice();
-            StandardLevelTableTimeSliceType lhsField;
-            lhsField = this.getStandardLevelTableTimeSlice();
-            StandardLevelTableTimeSliceType rhsField;
-            rhsField = that.getStandardLevelTableTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardLevelTableTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardLevelTableTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -241,6 +228,19 @@ public class StandardLevelTableTimeSlicePropertyType implements Serializable, Eq
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStandardLevelTableTimeSlice();
+            boolean rhsFieldIsSet = that.isSetStandardLevelTableTimeSlice();
+            StandardLevelTableTimeSliceType lhsField;
+            lhsField = this.getStandardLevelTableTimeSlice();
+            StandardLevelTableTimeSliceType rhsField;
+            rhsField = that.getStandardLevelTableTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardLevelTableTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardLevelTableTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -110,7 +110,7 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
     protected List<RadioFrequencyPropertyType> emission;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<SatelliteSystemExtensionType> extension;
+    protected List<SatelliteSystemTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -400,13 +400,14 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SatelliteSystemExtensionType }
+     * {@link SatelliteSystemTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SatelliteSystemExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "satellitesysteme_hjid", referencedColumnName = "hjid")
-    public List<SatelliteSystemExtensionType> getExtension() {
+    @OneToMany(targetEntity = SatelliteSystemTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "satellitesystem_te_hjid", referencedColumnName = "hjid")
+    public List<SatelliteSystemTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -417,7 +418,7 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
      *
      *
      */
-    public void setExtension(List<SatelliteSystemExtensionType> extension) {
+    public void setExtension(List<SatelliteSystemTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -497,27 +498,27 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         final SatelliteSystemTimeSliceType that = ((SatelliteSystemTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAugmentedSystem();
-            boolean rhsFieldIsSet = that.isSetAugmentedSystem();
-            List<SatelliteSystemPropertyType> lhsField;
-            lhsField = (this.isSetAugmentedSystem() ? this.getAugmentedSystem() : null);
-            List<SatelliteSystemPropertyType> rhsField;
-            rhsField = (that.isSetAugmentedSystem() ? that.getAugmentedSystem() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "augmentedSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "augmentedSystem", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOperator();
-            boolean rhsFieldIsSet = that.isSetOperator();
-            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = this.getOperator();
-            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = that.getOperator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operator", rhsField);
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -531,6 +532,32 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
             rhsField = (that.isSetEmission() ? that.getEmission() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emission", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emission", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SatelliteSystemTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SatelliteSystemTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperator();
+            boolean rhsFieldIsSet = that.isSetOperator();
+            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = this.getOperator();
+            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = that.getOperator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -562,40 +589,14 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SatelliteSystemExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SatelliteSystemExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            boolean lhsFieldIsSet = this.isSetAugmentedSystem();
+            boolean rhsFieldIsSet = that.isSetAugmentedSystem();
+            List<SatelliteSystemPropertyType> lhsField;
+            lhsField = (this.isSetAugmentedSystem() ? this.getAugmentedSystem() : null);
+            List<SatelliteSystemPropertyType> rhsField;
+            rhsField = (that.isSetAugmentedSystem() ? that.getAugmentedSystem() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "augmentedSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "augmentedSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -657,7 +658,7 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SatelliteSystemExtensionType> theField;
+            List<SatelliteSystemTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -712,7 +713,7 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SatelliteSystemExtensionType> theField;
+            List<SatelliteSystemTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

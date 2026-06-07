@@ -78,7 +78,7 @@ public class LinguisticNoteType extends AbstractAIXMObjectType implements Serial
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "note", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<TextNoteType> note;
-    protected List<LinguisticNoteTypeExtensionType> extension;
+    protected List<LinguisticNoteExtensionType> extension;
 
     /**
      * Gets the value of the note property.
@@ -128,14 +128,13 @@ public class LinguisticNoteType extends AbstractAIXMObjectType implements Serial
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link LinguisticNoteTypeExtensionType }
+     * {@link LinguisticNoteExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = LinguisticNoteTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "linguisticnotee_hjid", referencedColumnName = "hjid")
-    public List<LinguisticNoteTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = LinguisticNoteExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "linguisticnote_oe_hjid", referencedColumnName = "hjid")
+    public List<LinguisticNoteExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -146,7 +145,7 @@ public class LinguisticNoteType extends AbstractAIXMObjectType implements Serial
      *
      *
      */
-    public void setExtension(List<LinguisticNoteTypeExtensionType> extension) {
+    public void setExtension(List<LinguisticNoteExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -189,9 +188,9 @@ public class LinguisticNoteType extends AbstractAIXMObjectType implements Serial
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<LinguisticNoteTypeExtensionType> lhsField;
+            List<LinguisticNoteExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<LinguisticNoteTypeExtensionType> rhsField;
+            List<LinguisticNoteExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -227,7 +226,7 @@ public class LinguisticNoteType extends AbstractAIXMObjectType implements Serial
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<LinguisticNoteTypeExtensionType> theField;
+            List<LinguisticNoteExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -246,7 +245,7 @@ public class LinguisticNoteType extends AbstractAIXMObjectType implements Serial
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<LinguisticNoteTypeExtensionType> theField;
+            List<LinguisticNoteExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

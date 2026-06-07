@@ -85,7 +85,7 @@ public class RadioFrequencyType extends AbstractAIXMObjectType implements Serial
     protected JAXBElement<ValFrequencyType> frequency;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<RadioFrequencyTypeExtensionType> extension;
+    protected List<RadioFrequencyExtensionType> extension;
 
     /**
      * Gets the value of the frequency property.
@@ -186,14 +186,13 @@ public class RadioFrequencyType extends AbstractAIXMObjectType implements Serial
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RadioFrequencyTypeExtensionType }
+     * {@link RadioFrequencyExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RadioFrequencyTypeExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "radiofrequencye_hjid", referencedColumnName = "hjid")
-    public List<RadioFrequencyTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = RadioFrequencyExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "radiofrequency_oe_hjid", referencedColumnName = "hjid")
+    public List<RadioFrequencyExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -204,7 +203,7 @@ public class RadioFrequencyType extends AbstractAIXMObjectType implements Serial
      *
      *
      */
-    public void setExtension(List<RadioFrequencyTypeExtensionType> extension) {
+    public void setExtension(List<RadioFrequencyExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -258,6 +257,19 @@ public class RadioFrequencyType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RadioFrequencyExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RadioFrequencyExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetFrequency();
             boolean rhsFieldIsSet = that.isSetFrequency();
             JAXBElement<ValFrequencyType> lhsField;
@@ -266,19 +278,6 @@ public class RadioFrequencyType extends AbstractAIXMObjectType implements Serial
             rhsField = that.getFrequency();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequency", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequency", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RadioFrequencyTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RadioFrequencyTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -305,7 +304,7 @@ public class RadioFrequencyType extends AbstractAIXMObjectType implements Serial
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RadioFrequencyTypeExtensionType> theField;
+            List<RadioFrequencyExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -330,7 +329,7 @@ public class RadioFrequencyType extends AbstractAIXMObjectType implements Serial
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RadioFrequencyTypeExtensionType> theField;
+            List<RadioFrequencyExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

@@ -91,7 +91,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "AirportHeliportAvailabilityType", propOrder = {"timeInterval", "annotation", "specialDateAuthority",
         "operationalStatus", "warning", "usage", "extension"})
 @Entity(name = "AirportHeliportAvailabilityType")
-@Table(name = "airportheliportavailabilitytype", schema = "airport_heliport")
+@Table(name = "airportheliportavailability_o", schema = "airport_heliport")
 public class AirportHeliportAvailabilityType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -107,7 +107,7 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
     protected JAXBElement<CodeAirportWarningType> warning;
     @XmlElement(nillable = true)
     protected List<AirportHeliportUsagePropertyType> usage;
-    protected List<AirportHeliportAvailabilityTypeExtensionType> extension;
+    protected List<AirportHeliportAvailabilityExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -134,7 +134,7 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
      */
     @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "arprthlprtavlblttp_tmintrvl_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportheliportavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "airportheliportavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "timeinterval_hjid", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
@@ -185,7 +185,7 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "arprthlprtavlblttp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportheliportavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "airportheliportavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -237,7 +237,7 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
     @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "arprthlprtavlblttp_spcldtathrt_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportheliportavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "airportheliportavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "specialdateauthority_hjid", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
@@ -347,7 +347,7 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
     @OneToMany(targetEntity = AirportHeliportUsagePropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "arprthlprtavlblttp_usg_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "airportheliportavailabilitytype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "airportheliportavailability_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "usage_hjid", referencedColumnName = "hjid")})
     public List<AirportHeliportUsagePropertyType> getUsage() {
         if (usage == null) {
@@ -392,14 +392,14 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AirportHeliportAvailabilityTypeExtensionType }
+     * {@link AirportHeliportAvailabilityExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AirportHeliportAvailabilityTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AirportHeliportAvailabilityExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "airportheliportavailabilitye_hjid", referencedColumnName = "hjid")
-    public List<AirportHeliportAvailabilityTypeExtensionType> getExtension() {
+    @JoinColumn(name = "airportheliportavailability_oe_hjid", referencedColumnName = "hjid")
+    public List<AirportHeliportAvailabilityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -410,7 +410,7 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
      *
      *
      */
-    public void setExtension(List<AirportHeliportAvailabilityTypeExtensionType> extension) {
+    public void setExtension(List<AirportHeliportAvailabilityExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -463,19 +463,6 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
         }
         final AirportHeliportAvailabilityType that = ((AirportHeliportAvailabilityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirportHeliportAvailabilityTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirportHeliportAvailabilityTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -484,19 +471,6 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
             rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOperationalStatus();
-            boolean rhsFieldIsSet = that.isSetOperationalStatus();
-            JAXBElement<CodeStatusAirportType> lhsField;
-            lhsField = this.getOperationalStatus();
-            JAXBElement<CodeStatusAirportType> rhsField;
-            rhsField = that.getOperationalStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -515,6 +489,32 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetOperationalStatus();
+            boolean rhsFieldIsSet = that.isSetOperationalStatus();
+            JAXBElement<CodeStatusAirportType> lhsField;
+            lhsField = this.getOperationalStatus();
+            JAXBElement<CodeStatusAirportType> rhsField;
+            rhsField = that.getOperationalStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirportHeliportAvailabilityExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirportHeliportAvailabilityExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -528,19 +528,6 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWarning();
-            boolean rhsFieldIsSet = that.isSetWarning();
-            JAXBElement<CodeAirportWarningType> lhsField;
-            lhsField = this.getWarning();
-            JAXBElement<CodeAirportWarningType> rhsField;
-            rhsField = that.getWarning();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "warning", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "warning", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUsage();
             boolean rhsFieldIsSet = that.isSetUsage();
             List<AirportHeliportUsagePropertyType> lhsField;
@@ -549,6 +536,19 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
             rhsField = (that.isSetUsage() ? that.getUsage() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usage", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usage", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWarning();
+            boolean rhsFieldIsSet = that.isSetWarning();
+            JAXBElement<CodeAirportWarningType> lhsField;
+            lhsField = this.getWarning();
+            JAXBElement<CodeAirportWarningType> rhsField;
+            rhsField = that.getWarning();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "warning", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "warning", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -603,7 +603,7 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHeliportAvailabilityTypeExtensionType> theField;
+            List<AirportHeliportAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -652,7 +652,7 @@ public class AirportHeliportAvailabilityType extends AbstractPropertiesWithSched
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AirportHeliportAvailabilityTypeExtensionType> theField;
+            List<AirportHeliportAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

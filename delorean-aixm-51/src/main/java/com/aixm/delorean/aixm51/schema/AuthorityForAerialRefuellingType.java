@@ -91,7 +91,7 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
     protected OrganisationAuthorityPropertyType theOrganisationAuthority;
-    protected List<AuthorityForAerialRefuellingTypeExtensionType> extension;
+    protected List<AuthorityForAerialRefuellingExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -223,14 +223,14 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AuthorityForAerialRefuellingTypeExtensionType }
+     * {@link AuthorityForAerialRefuellingExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AuthorityForAerialRefuellingTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AuthorityForAerialRefuellingExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "authorityforaerialrefuellinge_hjid", referencedColumnName = "hjid")
-    public List<AuthorityForAerialRefuellingTypeExtensionType> getExtension() {
+    @JoinColumn(name = "authorityforaerialrefuelling_oe_hjid", referencedColumnName = "hjid")
+    public List<AuthorityForAerialRefuellingExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -241,7 +241,7 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
      *
      *
      */
-    public void setExtension(List<AuthorityForAerialRefuellingTypeExtensionType> extension) {
+    public void setExtension(List<AuthorityForAerialRefuellingExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -293,6 +293,19 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAuthorityType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAuthorityType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -308,25 +321,12 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<AuthorityForAerialRefuellingTypeExtensionType> lhsField;
+            List<AuthorityForAerialRefuellingExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AuthorityForAerialRefuellingTypeExtensionType> rhsField;
+            List<AuthorityForAerialRefuellingExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAuthorityType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAuthorityType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -360,7 +360,7 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AuthorityForAerialRefuellingTypeExtensionType> theField;
+            List<AuthorityForAerialRefuellingExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -391,7 +391,7 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AuthorityForAerialRefuellingTypeExtensionType> theField;
+            List<AuthorityForAerialRefuellingExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

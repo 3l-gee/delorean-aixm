@@ -85,7 +85,7 @@ public class AircraftNavigationEquipmentType extends AbstractAIXMObjectType impl
     protected JAXBElement<CodeNavigationEquipmentType> navigationEquipment;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<AircraftNavigationEquipmentTypeExtensionType> extension;
+    protected List<AircraftNavigationEquipmentExtensionType> extension;
 
     /**
      * Gets the value of the navigationEquipment property.
@@ -186,14 +186,14 @@ public class AircraftNavigationEquipmentType extends AbstractAIXMObjectType impl
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AircraftNavigationEquipmentTypeExtensionType }
+     * {@link AircraftNavigationEquipmentExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = AircraftNavigationEquipmentTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = AircraftNavigationEquipmentExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "aircraftnavigationequipmente_hjid", referencedColumnName = "hjid")
-    public List<AircraftNavigationEquipmentTypeExtensionType> getExtension() {
+    @JoinColumn(name = "aircraftnavigationequipment_oe_hjid", referencedColumnName = "hjid")
+    public List<AircraftNavigationEquipmentExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -204,7 +204,7 @@ public class AircraftNavigationEquipmentType extends AbstractAIXMObjectType impl
      *
      *
      */
-    public void setExtension(List<AircraftNavigationEquipmentTypeExtensionType> extension) {
+    public void setExtension(List<AircraftNavigationEquipmentExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -259,9 +259,9 @@ public class AircraftNavigationEquipmentType extends AbstractAIXMObjectType impl
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<AircraftNavigationEquipmentTypeExtensionType> lhsField;
+            List<AircraftNavigationEquipmentExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AircraftNavigationEquipmentTypeExtensionType> rhsField;
+            List<AircraftNavigationEquipmentExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -304,7 +304,7 @@ public class AircraftNavigationEquipmentType extends AbstractAIXMObjectType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AircraftNavigationEquipmentTypeExtensionType> theField;
+            List<AircraftNavigationEquipmentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -329,7 +329,7 @@ public class AircraftNavigationEquipmentType extends AbstractAIXMObjectType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<AircraftNavigationEquipmentTypeExtensionType> theField;
+            List<AircraftNavigationEquipmentExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

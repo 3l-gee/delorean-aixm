@@ -94,7 +94,7 @@ public class RoundTripXmlAixm51E2E {
 
         // given
 
-        container = delorean.newContainer();
+        container = delorean.createNewContainer();
 
         // container is successfully created
         assertThat(container).isNotNull();

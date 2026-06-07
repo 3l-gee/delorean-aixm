@@ -98,7 +98,7 @@ public class WeatherSourceAvailabilityType extends AbstractPropertiesWithSchedul
     protected List<OrganisationAuthorityPropertyType> specialDateAuthority;
     @XmlElementRef(name = "operationalStatus", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeStatusServiceType> operationalStatus;
-    protected List<WeatherSourceAvailabilityTypeExtensionType> extension;
+    protected List<WeatherSourceAvailabilityExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -302,14 +302,14 @@ public class WeatherSourceAvailabilityType extends AbstractPropertiesWithSchedul
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link WeatherSourceAvailabilityTypeExtensionType }
+     * {@link WeatherSourceAvailabilityExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = WeatherSourceAvailabilityTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = WeatherSourceAvailabilityExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "weathersourceavailabilitye_hjid", referencedColumnName = "hjid")
-    public List<WeatherSourceAvailabilityTypeExtensionType> getExtension() {
+    @JoinColumn(name = "weathersourceavailability_oe_hjid", referencedColumnName = "hjid")
+    public List<WeatherSourceAvailabilityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -320,7 +320,7 @@ public class WeatherSourceAvailabilityType extends AbstractPropertiesWithSchedul
      *
      *
      */
-    public void setExtension(List<WeatherSourceAvailabilityTypeExtensionType> extension) {
+    public void setExtension(List<WeatherSourceAvailabilityExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -360,19 +360,6 @@ public class WeatherSourceAvailabilityType extends AbstractPropertiesWithSchedul
         }
         final WeatherSourceAvailabilityType that = ((WeatherSourceAvailabilityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOperationalStatus();
             boolean rhsFieldIsSet = that.isSetOperationalStatus();
             JAXBElement<CodeStatusServiceType> lhsField;
@@ -386,19 +373,6 @@ public class WeatherSourceAvailabilityType extends AbstractPropertiesWithSchedul
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<WeatherSourceAvailabilityTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<WeatherSourceAvailabilityTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -407,6 +381,32 @@ public class WeatherSourceAvailabilityType extends AbstractPropertiesWithSchedul
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<WeatherSourceAvailabilityExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<WeatherSourceAvailabilityExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -460,7 +460,7 @@ public class WeatherSourceAvailabilityType extends AbstractPropertiesWithSchedul
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<WeatherSourceAvailabilityTypeExtensionType> theField;
+            List<WeatherSourceAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -497,7 +497,7 @@ public class WeatherSourceAvailabilityType extends AbstractPropertiesWithSchedul
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<WeatherSourceAvailabilityTypeExtensionType> theField;
+            List<WeatherSourceAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

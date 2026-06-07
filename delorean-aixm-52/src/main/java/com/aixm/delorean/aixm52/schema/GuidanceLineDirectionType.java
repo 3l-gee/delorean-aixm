@@ -96,7 +96,7 @@ public class GuidanceLineDirectionType extends AbstractAIXMObjectType implements
     protected JAXBElement<ManoeuvringAreaAvailabilityPropertyType> theManoeuvringAreaAvailability;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<GuidanceLineDirectionTypeExtensionType> extension;
+    protected List<GuidanceLineDirectionExtensionType> extension;
 
     /**
      * Gets the value of the direction property.
@@ -256,14 +256,14 @@ public class GuidanceLineDirectionType extends AbstractAIXMObjectType implements
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link GuidanceLineDirectionTypeExtensionType }
+     * {@link GuidanceLineDirectionExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = GuidanceLineDirectionTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = GuidanceLineDirectionExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "guidancelinedirectione_hjid", referencedColumnName = "hjid")
-    public List<GuidanceLineDirectionTypeExtensionType> getExtension() {
+    @JoinColumn(name = "guidancelinedirection_oe_hjid", referencedColumnName = "hjid")
+    public List<GuidanceLineDirectionExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -274,7 +274,7 @@ public class GuidanceLineDirectionType extends AbstractAIXMObjectType implements
      *
      *
      */
-    public void setExtension(List<GuidanceLineDirectionTypeExtensionType> extension) {
+    public void setExtension(List<GuidanceLineDirectionExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -343,32 +343,6 @@ public class GuidanceLineDirectionType extends AbstractAIXMObjectType implements
         }
         final GuidanceLineDirectionType that = ((GuidanceLineDirectionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDirection();
-            boolean rhsFieldIsSet = that.isSetDirection();
-            JAXBElement<CodeDirectionType> lhsField;
-            lhsField = this.getDirection();
-            JAXBElement<CodeDirectionType> rhsField;
-            rhsField = that.getDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCardinalDirection();
-            boolean rhsFieldIsSet = that.isSetCardinalDirection();
-            JAXBElement<CodeCardinalDirectionType> lhsField;
-            lhsField = this.getCardinalDirection();
-            JAXBElement<CodeCardinalDirectionType> rhsField;
-            rhsField = that.getCardinalDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cardinalDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cardinalDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTheManoeuvringAreaAvailability();
             boolean rhsFieldIsSet = that.isSetTheManoeuvringAreaAvailability();
             JAXBElement<ManoeuvringAreaAvailabilityPropertyType> lhsField;
@@ -379,6 +353,19 @@ public class GuidanceLineDirectionType extends AbstractAIXMObjectType implements
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theManoeuvringAreaAvailability",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDirection();
+            boolean rhsFieldIsSet = that.isSetDirection();
+            JAXBElement<CodeDirectionType> lhsField;
+            lhsField = this.getDirection();
+            JAXBElement<CodeDirectionType> rhsField;
+            rhsField = that.getDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -399,12 +386,25 @@ public class GuidanceLineDirectionType extends AbstractAIXMObjectType implements
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<GuidanceLineDirectionTypeExtensionType> lhsField;
+            List<GuidanceLineDirectionExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<GuidanceLineDirectionTypeExtensionType> rhsField;
+            List<GuidanceLineDirectionExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCardinalDirection();
+            boolean rhsFieldIsSet = that.isSetCardinalDirection();
+            JAXBElement<CodeCardinalDirectionType> lhsField;
+            lhsField = this.getCardinalDirection();
+            JAXBElement<CodeCardinalDirectionType> rhsField;
+            rhsField = that.getCardinalDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cardinalDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cardinalDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -445,7 +445,7 @@ public class GuidanceLineDirectionType extends AbstractAIXMObjectType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GuidanceLineDirectionTypeExtensionType> theField;
+            List<GuidanceLineDirectionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -482,7 +482,7 @@ public class GuidanceLineDirectionType extends AbstractAIXMObjectType implements
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GuidanceLineDirectionTypeExtensionType> theField;
+            List<GuidanceLineDirectionExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

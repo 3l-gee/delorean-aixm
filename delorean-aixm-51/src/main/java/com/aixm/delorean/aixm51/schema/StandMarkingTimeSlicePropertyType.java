@@ -219,19 +219,6 @@ public class StandMarkingTimeSlicePropertyType implements Serializable, Equals, 
         }
         final StandMarkingTimeSlicePropertyType that = ((StandMarkingTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStandMarkingTimeSlice();
-            boolean rhsFieldIsSet = that.isSetStandMarkingTimeSlice();
-            StandMarkingTimeSliceType lhsField;
-            lhsField = this.getStandMarkingTimeSlice();
-            StandMarkingTimeSliceType rhsField;
-            rhsField = that.getStandMarkingTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standMarkingTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standMarkingTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -240,6 +227,19 @@ public class StandMarkingTimeSlicePropertyType implements Serializable, Equals, 
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStandMarkingTimeSlice();
+            boolean rhsFieldIsSet = that.isSetStandMarkingTimeSlice();
+            StandMarkingTimeSliceType lhsField;
+            lhsField = this.getStandMarkingTimeSlice();
+            StandMarkingTimeSliceType rhsField;
+            rhsField = that.getStandMarkingTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standMarkingTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standMarkingTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

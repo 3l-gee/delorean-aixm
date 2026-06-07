@@ -98,7 +98,7 @@ public class ServiceOperationalStatusType extends AbstractPropertiesWithSchedule
     protected List<OrganisationAuthorityPropertyType> specialDateAuthority;
     @XmlElementRef(name = "operationalStatus", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeStatusServiceType> operationalStatus;
-    protected List<ServiceOperationalStatusTypeExtensionType> extension;
+    protected List<ServiceOperationalStatusExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -302,14 +302,14 @@ public class ServiceOperationalStatusType extends AbstractPropertiesWithSchedule
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ServiceOperationalStatusTypeExtensionType }
+     * {@link ServiceOperationalStatusExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ServiceOperationalStatusTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ServiceOperationalStatusExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "serviceoperationalstatuse_hjid", referencedColumnName = "hjid")
-    public List<ServiceOperationalStatusTypeExtensionType> getExtension() {
+    @JoinColumn(name = "serviceoperationalstatus_oe_hjid", referencedColumnName = "hjid")
+    public List<ServiceOperationalStatusExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -320,7 +320,7 @@ public class ServiceOperationalStatusType extends AbstractPropertiesWithSchedule
      *
      *
      */
-    public void setExtension(List<ServiceOperationalStatusTypeExtensionType> extension) {
+    public void setExtension(List<ServiceOperationalStatusExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -360,6 +360,19 @@ public class ServiceOperationalStatusType extends AbstractPropertiesWithSchedule
         }
         final ServiceOperationalStatusType that = ((ServiceOperationalStatusType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ServiceOperationalStatusExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ServiceOperationalStatusExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -373,32 +386,6 @@ public class ServiceOperationalStatusType extends AbstractPropertiesWithSchedule
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOperationalStatus();
-            boolean rhsFieldIsSet = that.isSetOperationalStatus();
-            JAXBElement<CodeStatusServiceType> lhsField;
-            lhsField = this.getOperationalStatus();
-            JAXBElement<CodeStatusServiceType> rhsField;
-            rhsField = that.getOperationalStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ServiceOperationalStatusTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ServiceOperationalStatusTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -407,6 +394,19 @@ public class ServiceOperationalStatusType extends AbstractPropertiesWithSchedule
             rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperationalStatus();
+            boolean rhsFieldIsSet = that.isSetOperationalStatus();
+            JAXBElement<CodeStatusServiceType> lhsField;
+            lhsField = this.getOperationalStatus();
+            JAXBElement<CodeStatusServiceType> rhsField;
+            rhsField = that.getOperationalStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -460,7 +460,7 @@ public class ServiceOperationalStatusType extends AbstractPropertiesWithSchedule
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ServiceOperationalStatusTypeExtensionType> theField;
+            List<ServiceOperationalStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -497,7 +497,7 @@ public class ServiceOperationalStatusType extends AbstractPropertiesWithSchedule
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ServiceOperationalStatusTypeExtensionType> theField;
+            List<ServiceOperationalStatusExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

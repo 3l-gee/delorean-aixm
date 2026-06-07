@@ -92,7 +92,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 @XmlType(name = "ManoeuvringAreaUsageType", propOrder = {"type", "priorPermission", "contact", "selection",
         "annotation", "operation", "extension"})
 @Entity(name = "ManoeuvringAreaUsageType")
-@Table(name = "manoeuvringareausagetype", schema = "airport_heliport")
+@Table(name = "manoeuvringareausage_o", schema = "airport_heliport")
 public class ManoeuvringAreaUsageType extends AbstractUsageConditionType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
@@ -108,7 +108,7 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "operation", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeOperationManoeuvringAreaType> operation;
-    protected List<ManoeuvringAreaUsageTypeExtensionType> extension;
+    protected List<ManoeuvringAreaUsageExtensionType> extension;
 
     /**
      * Gets the value of the type property.
@@ -194,7 +194,7 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
     @OneToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "mnvrngarusgtp_cntct_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "manoeuvringareausagetype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "manoeuvringareausage_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "contact_hjid", referencedColumnName = "hjid")})
     public List<ContactInformationPropertyType> getContact() {
         if (contact == null) {
@@ -274,7 +274,7 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
      */
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "mnvrngarusgtp_annttn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "manoeuvringareausagetype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "manoeuvringareausage_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
@@ -348,14 +348,14 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ManoeuvringAreaUsageTypeExtensionType }
+     * {@link ManoeuvringAreaUsageExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ManoeuvringAreaUsageTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ManoeuvringAreaUsageExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "manoeuvringareausagee_hjid", referencedColumnName = "hjid")
-    public List<ManoeuvringAreaUsageTypeExtensionType> getExtension() {
+    @JoinColumn(name = "manoeuvringareausage_oe_hjid", referencedColumnName = "hjid")
+    public List<ManoeuvringAreaUsageExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -366,7 +366,7 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
      *
      *
      */
-    public void setExtension(List<ManoeuvringAreaUsageTypeExtensionType> extension) {
+    public void setExtension(List<ManoeuvringAreaUsageExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -409,7 +409,7 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
     @OneToOne(targetEntity = ConditionCombinationPropertyType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "mnvrngarusgtp_slctn_link", schema = "airport_heliport", joinColumns = {
-            @JoinColumn(name = "manoeuvringareausagetype_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
+            @JoinColumn(name = "manoeuvringareausage_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
                     @JoinColumn(name = "selection_hjid", referencedColumnName = "hjid")})
     public ConditionCombinationPropertyType getSelectionItem() {
         return XmlAdapterUtils.unmarshallSource(ConditionCombinationPropertyType.class, this.getSelection());
@@ -446,19 +446,6 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
         }
         final ManoeuvringAreaUsageType that = ((ManoeuvringAreaUsageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSelection();
-            boolean rhsFieldIsSet = that.isSetSelection();
-            JAXBElement<ConditionCombinationPropertyType> lhsField;
-            lhsField = this.getSelection();
-            JAXBElement<ConditionCombinationPropertyType> rhsField;
-            rhsField = that.getSelection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOperation();
             boolean rhsFieldIsSet = that.isSetOperation();
             JAXBElement<CodeOperationManoeuvringAreaType> lhsField;
@@ -467,32 +454,6 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
             rhsField = that.getOperation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPriorPermission();
-            boolean rhsFieldIsSet = that.isSetPriorPermission();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getPriorPermission();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getPriorPermission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetContact();
-            boolean rhsFieldIsSet = that.isSetContact();
-            List<ContactInformationPropertyType> lhsField;
-            lhsField = (this.isSetContact() ? this.getContact() : null);
-            List<ContactInformationPropertyType> rhsField;
-            rhsField = (that.isSetContact() ? that.getContact() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -513,12 +474,51 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<ManoeuvringAreaUsageTypeExtensionType> lhsField;
+            List<ManoeuvringAreaUsageExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ManoeuvringAreaUsageTypeExtensionType> rhsField;
+            List<ManoeuvringAreaUsageExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContact();
+            boolean rhsFieldIsSet = that.isSetContact();
+            List<ContactInformationPropertyType> lhsField;
+            lhsField = (this.isSetContact() ? this.getContact() : null);
+            List<ContactInformationPropertyType> rhsField;
+            rhsField = (that.isSetContact() ? that.getContact() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSelection();
+            boolean rhsFieldIsSet = that.isSetSelection();
+            JAXBElement<ConditionCombinationPropertyType> lhsField;
+            lhsField = this.getSelection();
+            JAXBElement<ConditionCombinationPropertyType> rhsField;
+            rhsField = that.getSelection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPriorPermission();
+            boolean rhsFieldIsSet = that.isSetPriorPermission();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getPriorPermission();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getPriorPermission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -586,7 +586,7 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ManoeuvringAreaUsageTypeExtensionType> theField;
+            List<ManoeuvringAreaUsageExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -635,7 +635,7 @@ public class ManoeuvringAreaUsageType extends AbstractUsageConditionType impleme
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ManoeuvringAreaUsageTypeExtensionType> theField;
+            List<ManoeuvringAreaUsageExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

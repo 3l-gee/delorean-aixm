@@ -103,7 +103,7 @@ public class VDBAntennaType extends AbstractAIXMObjectType implements Serializab
     protected JAXBElement<AIXMElevatedPointPropertyType> location;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<VDBAntennaTypeExtensionType> extension;
+    protected List<VDBAntennaExtensionType> extension;
 
     /**
      * Gets the value of the frequency property.
@@ -320,13 +320,13 @@ public class VDBAntennaType extends AbstractAIXMObjectType implements Serializab
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link VDBAntennaTypeExtensionType }
+     * {@link VDBAntennaExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = VDBAntennaTypeExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "vdbantennae_hjid", referencedColumnName = "hjid")
-    public List<VDBAntennaTypeExtensionType> getExtension() {
+    @OneToMany(targetEntity = VDBAntennaExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "vdbantenna_oe_hjid", referencedColumnName = "hjid")
+    public List<VDBAntennaExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -337,7 +337,7 @@ public class VDBAntennaType extends AbstractAIXMObjectType implements Serializab
      *
      *
      */
-    public void setExtension(List<VDBAntennaTypeExtensionType> extension) {
+    public void setExtension(List<VDBAntennaExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -430,14 +430,27 @@ public class VDBAntennaType extends AbstractAIXMObjectType implements Serializab
         }
         final VDBAntennaType that = ((VDBAntennaType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<VDBAntennaTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<VDBAntennaTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrequency();
+            boolean rhsFieldIsSet = that.isSetFrequency();
+            JAXBElement<ValFrequencyType> lhsField;
+            lhsField = this.getFrequency();
+            JAXBElement<ValFrequencyType> rhsField;
+            rhsField = that.getFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequency", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -456,14 +469,14 @@ public class VDBAntennaType extends AbstractAIXMObjectType implements Serializab
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFrequency();
-            boolean rhsFieldIsSet = that.isSetFrequency();
-            JAXBElement<ValFrequencyType> lhsField;
-            lhsField = this.getFrequency();
-            JAXBElement<ValFrequencyType> rhsField;
-            rhsField = that.getFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequency", rhsField);
+            boolean lhsFieldIsSet = this.isSetPolarization();
+            boolean rhsFieldIsSet = that.isSetPolarization();
+            JAXBElement<CodeSignalPolarizationType> lhsField;
+            lhsField = this.getPolarization();
+            JAXBElement<CodeSignalPolarizationType> rhsField;
+            rhsField = that.getPolarization();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "polarization", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "polarization", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -495,27 +508,14 @@ public class VDBAntennaType extends AbstractAIXMObjectType implements Serializab
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPolarization();
-            boolean rhsFieldIsSet = that.isSetPolarization();
-            JAXBElement<CodeSignalPolarizationType> lhsField;
-            lhsField = this.getPolarization();
-            JAXBElement<CodeSignalPolarizationType> rhsField;
-            rhsField = that.getPolarization();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "polarization", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "polarization", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<VDBAntennaExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<VDBAntennaExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -570,7 +570,7 @@ public class VDBAntennaType extends AbstractAIXMObjectType implements Serializab
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<VDBAntennaTypeExtensionType> theField;
+            List<VDBAntennaExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -619,7 +619,7 @@ public class VDBAntennaType extends AbstractAIXMObjectType implements Serializab
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<VDBAntennaTypeExtensionType> theField;
+            List<VDBAntennaExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

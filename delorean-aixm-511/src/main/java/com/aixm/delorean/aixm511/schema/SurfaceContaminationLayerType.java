@@ -95,7 +95,7 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
     protected List<AIXMElevatedSurfacePropertyType> extent;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<SurfaceContaminationLayerTypeExtensionType> extension;
+    protected List<SurfaceContaminationLayerExtensionType> extension;
 
     /**
      * Gets the value of the layerOrder property.
@@ -277,14 +277,14 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SurfaceContaminationLayerTypeExtensionType }
+     * {@link SurfaceContaminationLayerExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = SurfaceContaminationLayerTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = SurfaceContaminationLayerExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "surfacecontaminationlayere_hjid", referencedColumnName = "hjid")
-    public List<SurfaceContaminationLayerTypeExtensionType> getExtension() {
+    @JoinColumn(name = "surfacecontaminationlayer_oe_hjid", referencedColumnName = "hjid")
+    public List<SurfaceContaminationLayerExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -295,7 +295,7 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
      *
      *
      */
-    public void setExtension(List<SurfaceContaminationLayerTypeExtensionType> extension) {
+    public void setExtension(List<SurfaceContaminationLayerExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -347,32 +347,6 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
         }
         final SurfaceContaminationLayerType that = ((SurfaceContaminationLayerType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            List<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = (this.isSetExtent() ? this.getExtent() : null);
-            List<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = (that.isSetExtent() ? that.getExtent() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLayerOrder();
             boolean rhsFieldIsSet = that.isSetLayerOrder();
             JAXBElement<NoSequenceType> lhsField;
@@ -401,12 +375,38 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<SurfaceContaminationLayerTypeExtensionType> lhsField;
+            List<SurfaceContaminationLayerExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SurfaceContaminationLayerTypeExtensionType> rhsField;
+            List<SurfaceContaminationLayerExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            List<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = (this.isSetExtent() ? this.getExtent() : null);
+            List<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = (that.isSetExtent() ? that.getExtent() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -447,7 +447,7 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SurfaceContaminationLayerTypeExtensionType> theField;
+            List<SurfaceContaminationLayerExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -484,7 +484,7 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<SurfaceContaminationLayerTypeExtensionType> theField;
+            List<SurfaceContaminationLayerExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

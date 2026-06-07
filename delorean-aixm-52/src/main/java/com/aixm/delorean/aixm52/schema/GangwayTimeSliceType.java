@@ -97,7 +97,7 @@ public class GangwayTimeSliceType extends AbstractAIXMTimeSliceType implements S
     protected JAXBElement<CodeYesNoType> mobility;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<GangwayExtensionType> extension;
+    protected List<GangwayTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the width property.
@@ -285,13 +285,13 @@ public class GangwayTimeSliceType extends AbstractAIXMTimeSliceType implements S
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link GangwayExtensionType }
+     * {@link GangwayTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = GangwayExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "gangwaye_hjid", referencedColumnName = "hjid")
-    public List<GangwayExtensionType> getExtension() {
+    @OneToMany(targetEntity = GangwayTimeSliceExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "gangway_te_hjid", referencedColumnName = "hjid")
+    public List<GangwayTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -302,7 +302,7 @@ public class GangwayTimeSliceType extends AbstractAIXMTimeSliceType implements S
      *
      *
      */
-    public void setExtension(List<GangwayExtensionType> extension) {
+    public void setExtension(List<GangwayTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -383,27 +383,27 @@ public class GangwayTimeSliceType extends AbstractAIXMTimeSliceType implements S
         }
         final GangwayTimeSliceType that = ((GangwayTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<GangwayExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<GangwayExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeGangwayType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeGangwayType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMobility();
-            boolean rhsFieldIsSet = that.isSetMobility();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMobility();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMobility();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mobility", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mobility", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<GangwayTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<GangwayTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -422,6 +422,19 @@ public class GangwayTimeSliceType extends AbstractAIXMTimeSliceType implements S
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetMobility();
+            boolean rhsFieldIsSet = that.isSetMobility();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMobility();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMobility();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mobility", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mobility", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLength();
             boolean rhsFieldIsSet = that.isSetLength();
             JAXBElement<ValDistanceType> lhsField;
@@ -430,19 +443,6 @@ public class GangwayTimeSliceType extends AbstractAIXMTimeSliceType implements S
             rhsField = that.getLength();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeGangwayType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeGangwayType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -503,7 +503,7 @@ public class GangwayTimeSliceType extends AbstractAIXMTimeSliceType implements S
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GangwayExtensionType> theField;
+            List<GangwayTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -546,7 +546,7 @@ public class GangwayTimeSliceType extends AbstractAIXMTimeSliceType implements S
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<GangwayExtensionType> theField;
+            List<GangwayTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

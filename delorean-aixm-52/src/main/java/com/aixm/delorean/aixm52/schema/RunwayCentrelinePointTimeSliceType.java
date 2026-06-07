@@ -114,7 +114,7 @@ public class RunwayCentrelinePointTimeSliceType extends AbstractAIXMTimeSliceTyp
     protected JAXBElement<ValDistanceType> relativeDistance;
     @XmlElementRef(name = "onRunwayDirection", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<RunwayDirectionPropertyType> onRunwayDirection;
-    protected List<RunwayCentrelinePointExtensionType> extension;
+    protected List<RunwayCentrelinePointTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the role property.
@@ -435,14 +435,14 @@ public class RunwayCentrelinePointTimeSliceType extends AbstractAIXMTimeSliceTyp
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RunwayCentrelinePointExtensionType }
+     * {@link RunwayCentrelinePointTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RunwayCentrelinePointExtensionType.class, cascade = {
+    @OneToMany(targetEntity = RunwayCentrelinePointTimeSliceExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "runwaycentrelinepointe_hjid", referencedColumnName = "hjid")
-    public List<RunwayCentrelinePointExtensionType> getExtension() {
+    @JoinColumn(name = "runwaycentrelinepoint_te_hjid", referencedColumnName = "hjid")
+    public List<RunwayCentrelinePointTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -453,7 +453,7 @@ public class RunwayCentrelinePointTimeSliceType extends AbstractAIXMTimeSliceTyp
      *
      *
      */
-    public void setExtension(List<RunwayCentrelinePointExtensionType> extension) {
+    public void setExtension(List<RunwayCentrelinePointTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -551,40 +551,14 @@ public class RunwayCentrelinePointTimeSliceType extends AbstractAIXMTimeSliceTyp
         }
         final RunwayCentrelinePointTimeSliceType that = ((RunwayCentrelinePointTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRelativeDistance();
-            boolean rhsFieldIsSet = that.isSetRelativeDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getRelativeDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getRelativeDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeDistance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RunwayCentrelinePointExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RunwayCentrelinePointExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAssociatedDeclaredDistance();
+            boolean rhsFieldIsSet = that.isSetAssociatedDeclaredDistance();
+            List<RunwayDeclaredDistancePropertyType> lhsField;
+            lhsField = (this.isSetAssociatedDeclaredDistance() ? this.getAssociatedDeclaredDistance() : null);
+            List<RunwayDeclaredDistancePropertyType> rhsField;
+            rhsField = (that.isSetAssociatedDeclaredDistance() ? that.getAssociatedDeclaredDistance() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedDeclaredDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedDeclaredDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -603,14 +577,27 @@ public class RunwayCentrelinePointTimeSliceType extends AbstractAIXMTimeSliceTyp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNavaidEquipment();
-            boolean rhsFieldIsSet = that.isSetNavaidEquipment();
-            List<NavaidEquipmentDistancePropertyType> lhsField;
-            lhsField = (this.isSetNavaidEquipment() ? this.getNavaidEquipment() : null);
-            List<NavaidEquipmentDistancePropertyType> rhsField;
-            rhsField = (that.isSetNavaidEquipment() ? that.getNavaidEquipment() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navaidEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navaidEquipment", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -629,19 +616,6 @@ public class RunwayCentrelinePointTimeSliceType extends AbstractAIXMTimeSliceTyp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedDeclaredDistance();
-            boolean rhsFieldIsSet = that.isSetAssociatedDeclaredDistance();
-            List<RunwayDeclaredDistancePropertyType> lhsField;
-            lhsField = (this.isSetAssociatedDeclaredDistance() ? this.getAssociatedDeclaredDistance() : null);
-            List<RunwayDeclaredDistancePropertyType> rhsField;
-            rhsField = (that.isSetAssociatedDeclaredDistance() ? that.getAssociatedDeclaredDistance() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedDeclaredDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedDeclaredDistance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDesignator();
             boolean rhsFieldIsSet = that.isSetDesignator();
             JAXBElement<TextDesignatorType> lhsField;
@@ -655,14 +629,40 @@ public class RunwayCentrelinePointTimeSliceType extends AbstractAIXMTimeSliceTyp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RunwayCentrelinePointTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RunwayCentrelinePointTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNavaidEquipment();
+            boolean rhsFieldIsSet = that.isSetNavaidEquipment();
+            List<NavaidEquipmentDistancePropertyType> lhsField;
+            lhsField = (this.isSetNavaidEquipment() ? this.getNavaidEquipment() : null);
+            List<NavaidEquipmentDistancePropertyType> rhsField;
+            rhsField = (that.isSetNavaidEquipment() ? that.getNavaidEquipment() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navaidEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navaidEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRelativeDistance();
+            boolean rhsFieldIsSet = that.isSetRelativeDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getRelativeDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getRelativeDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -731,7 +731,7 @@ public class RunwayCentrelinePointTimeSliceType extends AbstractAIXMTimeSliceTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RunwayCentrelinePointExtensionType> theField;
+            List<RunwayCentrelinePointTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -792,7 +792,7 @@ public class RunwayCentrelinePointTimeSliceType extends AbstractAIXMTimeSliceTyp
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RunwayCentrelinePointExtensionType> theField;
+            List<RunwayCentrelinePointTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

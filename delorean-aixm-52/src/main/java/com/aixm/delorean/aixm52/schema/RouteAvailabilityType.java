@@ -111,7 +111,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
     protected JAXBElement<CodeRouteAvailabilityType> status;
     @XmlElement(nillable = true)
     protected List<AirspaceLayerPropertyType> levels;
-    protected List<RouteAvailabilityTypeExtensionType> extension;
+    protected List<RouteAvailabilityExtensionType> extension;
 
     /**
      * Gets the value of the timeInterval property.
@@ -424,14 +424,14 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RouteAvailabilityTypeExtensionType }
+     * {@link RouteAvailabilityExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RouteAvailabilityTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = RouteAvailabilityExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "routeavailabilitye_hjid", referencedColumnName = "hjid")
-    public List<RouteAvailabilityTypeExtensionType> getExtension() {
+    @JoinColumn(name = "routeavailability_oe_hjid", referencedColumnName = "hjid")
+    public List<RouteAvailabilityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -442,7 +442,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
      *
      *
      */
-    public void setExtension(List<RouteAvailabilityTypeExtensionType> extension) {
+    public void setExtension(List<RouteAvailabilityExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -506,19 +506,6 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
         }
         final RouteAvailabilityType that = ((RouteAvailabilityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RouteAvailabilityTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RouteAvailabilityTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -558,14 +545,14 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDirection();
-            boolean rhsFieldIsSet = that.isSetDirection();
-            JAXBElement<CodeRouteDirectionType> lhsField;
-            lhsField = this.getDirection();
-            JAXBElement<CodeRouteDirectionType> rhsField;
-            rhsField = that.getDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RouteAvailabilityExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RouteAvailabilityExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -592,6 +579,19 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
             rhsField = that.getCardinalDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cardinalDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cardinalDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDirection();
+            boolean rhsFieldIsSet = that.isSetDirection();
+            JAXBElement<CodeRouteDirectionType> lhsField;
+            lhsField = this.getDirection();
+            JAXBElement<CodeRouteDirectionType> rhsField;
+            rhsField = that.getDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -666,7 +666,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RouteAvailabilityTypeExtensionType> theField;
+            List<RouteAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -721,7 +721,7 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RouteAvailabilityTypeExtensionType> theField;
+            List<RouteAvailabilityExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

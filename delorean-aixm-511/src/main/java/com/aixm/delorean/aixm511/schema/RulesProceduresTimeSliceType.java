@@ -105,7 +105,7 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
     protected List<AirspacePropertyType> affectedArea;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<RulesProceduresExtensionType> extension;
+    protected List<RulesProceduresTimeSliceExtensionType> extension;
 
     /**
      * Gets the value of the category property.
@@ -366,13 +366,14 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RulesProceduresExtensionType }
+     * {@link RulesProceduresTimeSliceExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = RulesProceduresExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "rulesprocedurese_hjid", referencedColumnName = "hjid")
-    public List<RulesProceduresExtensionType> getExtension() {
+    @OneToMany(targetEntity = RulesProceduresTimeSliceExtensionType.class, cascade = {
+            CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "rulesprocedures_te_hjid", referencedColumnName = "hjid")
+    public List<RulesProceduresTimeSliceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -383,7 +384,7 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
      *
      *
      */
-    public void setExtension(List<RulesProceduresExtensionType> extension) {
+    public void setExtension(List<RulesProceduresTimeSliceExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -447,19 +448,6 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         final RulesProceduresTimeSliceType that = ((RulesProceduresTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCategory();
-            boolean rhsFieldIsSet = that.isSetCategory();
-            JAXBElement<CodeRuleProcedureType> lhsField;
-            lhsField = this.getCategory();
-            JAXBElement<CodeRuleProcedureType> rhsField;
-            rhsField = that.getCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetContent();
             boolean rhsFieldIsSet = that.isSetContent();
             JAXBElement<XHTMLType> lhsField;
@@ -475,9 +463,9 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
         {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<RulesProceduresExtensionType> lhsField;
+            List<RulesProceduresTimeSliceExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RulesProceduresExtensionType> rhsField;
+            List<RulesProceduresTimeSliceExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -494,19 +482,6 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
             rhsField = (that.isSetAffectedLocation() ? that.getAffectedLocation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affectedLocation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affectedLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAffectedArea();
-            boolean rhsFieldIsSet = that.isSetAffectedArea();
-            List<AirspacePropertyType> lhsField;
-            lhsField = (this.isSetAffectedArea() ? this.getAffectedArea() : null);
-            List<AirspacePropertyType> rhsField;
-            rhsField = (that.isSetAffectedArea() ? that.getAffectedArea() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affectedArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affectedArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -533,6 +508,32 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
             rhsField = that.getTitle();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCategory();
+            boolean rhsFieldIsSet = that.isSetCategory();
+            JAXBElement<CodeRuleProcedureType> lhsField;
+            lhsField = this.getCategory();
+            JAXBElement<CodeRuleProcedureType> rhsField;
+            rhsField = that.getCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAffectedArea();
+            boolean rhsFieldIsSet = that.isSetAffectedArea();
+            List<AirspacePropertyType> lhsField;
+            lhsField = (this.isSetAffectedArea() ? this.getAffectedArea() : null);
+            List<AirspacePropertyType> rhsField;
+            rhsField = (that.isSetAffectedArea() ? that.getAffectedArea() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affectedArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affectedArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -587,7 +588,7 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RulesProceduresExtensionType> theField;
+            List<RulesProceduresTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -636,7 +637,7 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<RulesProceduresExtensionType> theField;
+            List<RulesProceduresTimeSliceExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }

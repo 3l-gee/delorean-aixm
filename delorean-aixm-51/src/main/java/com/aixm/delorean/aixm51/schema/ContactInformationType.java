@@ -105,7 +105,7 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
     protected List<TelephoneContactPropertyType> phoneFax;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
-    protected List<ContactInformationTypeExtensionType> extension;
+    protected List<ContactInformationExtensionType> extension;
 
     /**
      * Gets the value of the aixmName property.
@@ -388,14 +388,14 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ContactInformationTypeExtensionType }
+     * {@link ContactInformationExtensionType }
      *
      *
      */
-    @OneToMany(targetEntity = ContactInformationTypeExtensionType.class, cascade = {
+    @OneToMany(targetEntity = ContactInformationExtensionType.class, cascade = {
             CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "contactinformatione_hjid", referencedColumnName = "hjid")
-    public List<ContactInformationTypeExtensionType> getExtension() {
+    @JoinColumn(name = "contactinformation_oe_hjid", referencedColumnName = "hjid")
+    public List<ContactInformationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
@@ -406,7 +406,7 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
      *
      *
      */
-    public void setExtension(List<ContactInformationTypeExtensionType> extension) {
+    public void setExtension(List<ContactInformationExtensionType> extension) {
         this.extension = extension;
     }
 
@@ -459,11 +459,24 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
         }
         final ContactInformationType that = ((ContactInformationType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTitle();
+            boolean rhsFieldIsSet = that.isSetTitle();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getTitle();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
-            List<ContactInformationTypeExtensionType> lhsField;
+            List<ContactInformationExtensionType> lhsField;
             lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ContactInformationTypeExtensionType> rhsField;
+            List<ContactInformationExtensionType> rhsField;
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
@@ -472,14 +485,14 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAddress();
-            boolean rhsFieldIsSet = that.isSetAddress();
-            List<PostalAddressPropertyType> lhsField;
-            lhsField = (this.isSetAddress() ? this.getAddress() : null);
-            List<PostalAddressPropertyType> rhsField;
-            rhsField = (that.isSetAddress() ? that.getAddress() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "address", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "address", rhsField);
+            boolean lhsFieldIsSet = this.isSetNetworkNode();
+            boolean rhsFieldIsSet = that.isSetNetworkNode();
+            List<OnlineContactPropertyType> lhsField;
+            lhsField = (this.isSetNetworkNode() ? this.getNetworkNode() : null);
+            List<OnlineContactPropertyType> rhsField;
+            rhsField = (that.isSetNetworkNode() ? that.getNetworkNode() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "networkNode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "networkNode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -511,14 +524,14 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTitle();
-            boolean rhsFieldIsSet = that.isSetTitle();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getTitle();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            boolean lhsFieldIsSet = this.isSetAddress();
+            boolean rhsFieldIsSet = that.isSetAddress();
+            List<PostalAddressPropertyType> lhsField;
+            lhsField = (this.isSetAddress() ? this.getAddress() : null);
+            List<PostalAddressPropertyType> rhsField;
+            rhsField = (that.isSetAddress() ? that.getAddress() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "address", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "address", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -532,19 +545,6 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
             rhsField = (that.isSetPhoneFax() ? that.getPhoneFax() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phoneFax", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phoneFax", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNetworkNode();
-            boolean rhsFieldIsSet = that.isSetNetworkNode();
-            List<OnlineContactPropertyType> lhsField;
-            lhsField = (this.isSetNetworkNode() ? this.getNetworkNode() : null);
-            List<OnlineContactPropertyType> rhsField;
-            rhsField = (that.isSetNetworkNode() ? that.getNetworkNode() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "networkNode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "networkNode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -599,7 +599,7 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ContactInformationTypeExtensionType> theField;
+            List<ContactInformationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -648,7 +648,7 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
-            List<ContactInformationTypeExtensionType> theField;
+            List<ContactInformationExtensionType> theField;
             theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
