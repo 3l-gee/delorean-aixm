@@ -1380,19 +1380,41 @@ object:
     ]/@name
   list:
   - AerialRefuellingAnchorType
+  - AerialRefuellingPointType
   - AerialRefuellingTrackType
   - AuthorityForAerialRefuellingType
+  - AirportHeliportAvailabilityType
+  - AirportHeliportResponsibilityOrganisationType
+  - AirportHeliportUsageType
+  - AltimeterSourceStatusType
   - CityType
+  - ConditionCombinationType
   - SurfaceCharacteristicsType
   - AbstractUsageConditionType
+  - WorkareaActivityType
+  - ApronAreaAvailabilityType
+  - ApronAreaUsageType
+  - GroundLightingAvailabilityType
   - LightActivationType
   - MarkingElementType
+  - ManoeuvringAreaAvailabilityType
+  - ManoeuvringAreaUsageType
   - NavaidEquipmentDistanceType
   - RunwayDeclaredDistanceType
+  - RunwayDeclaredDistanceValueType
+  - AircraftStandContaminationType
+  - AirportHeliportContaminationType
+  - ApronContaminationType
   - RidgeType
+  - RunwayContaminationType
+  - RunwaySectionContaminationType
   - AbstractSurfaceContaminationType
   - SurfaceContaminationLayerType
+  - TaxiwayContaminationType
+  - TouchDownLiftOffContaminationType
+  - AirspaceActivationType
   - AirspaceGeometryComponentType
+  - AirspaceLayerClassType
   - AirspaceVolumeType
   - AirspaceVolumeDependencyType
   - HoldingPatternDistanceType
@@ -1401,12 +1423,20 @@ object:
   - AuthorityForSpecialNavigationStationType
   - AuthorityForSpecialNavigationSystemType
   - NavaidComponentType
+  - NavaidEquipmentMonitoringType
+  - NavaidOperationalStatusType
+  - SpecialNavigationStationStatusType
   - AngleUseType
+  - EnRouteSegmentPointType
   - PointReferenceType
   - AbstractSegmentPointType
+  - TerminalSegmentPointType
   - LinguisticNoteType
   - NoteType
+  - VerticalStructureLightingStatusType
+  - VerticalStructurePartType
   - OrganisationAuthorityAssociationType
+  - UnitAvailabilityType
   - UnitDependencyType
   - ApproachAltitudeTableType
   - ApproachConditionType
@@ -1416,6 +1446,7 @@ object:
   - MissedApproachGroupType
   - TerminalArrivalAreaSectorType
   - FASDataBlockType
+  - CirclingRestrictionType
   - EquipmentUnavailableAdjustmentType
   - EquipmentUnavailableAdjustmentColumnType
   - MinimaType
@@ -1427,9 +1458,14 @@ object:
   - LandingTakeoffAreaCollectionType
   - ProcedureTransitionType
   - ProcedureTransitionLegType
+  - ProcedureAvailabilityType
+  - RouteAvailabilityType
   - RoutePortionType
   - AbstractDirectFlightType
+  - DirectFlightClassType
+  - DirectFlightSegmentType
   - FlightConditionCircumstanceType
+  - FlightConditionCombinationType
   - FlightConditionElementType
   - FlightRestrictionLevelType
   - FlightRestrictionRouteType
@@ -1439,12 +1475,18 @@ object:
   - NitrogenType
   - OilType
   - OxygenType
+  - RadioCommunicationOperationalStatusType
+  - ServiceOperationalStatusType
   - ContactInformationType
+  - OnlineContactType
+  - PostalAddressType
+  - TelephoneContactType
   - AircraftCharacteristicType
   - FlightCharacteristicType
   - AirspaceLayerType
   - CircleSectorType
   - LightElementType
+  - LightElementStatusType
   - MeteorologyType
   - AbstractPropertiesWithScheduleType
   - TimesheetType
@@ -1457,156 +1499,199 @@ object:
   - ReflectorType
   - SurveillanceGroundStationType
 
-extension:
-  replace: "ExtensionType"
-  prefix: "_e"
-  xpath: //xs:element[@substitutionGroup='aixm:AbstractExtension']/@name
+timeslice_extension:
+  replace: "TimeSliceExtensionType"
+  prefix: "_te"
+  xpath:
   list:
-  - AerialRefuellingExtensionType
+  - AerialRefuellingTimeSliceExtensionType
+  - AirportHeliportTimeSliceExtensionType
+  - AirportHeliportCollocationTimeSliceExtensionType
+  - AirportHotSpotTimeSliceExtensionType
+  - AltimeterSourceTimeSliceExtensionType
+  - NonMovementAreaTimeSliceExtensionType
+  - SurveyControlPointTimeSliceExtensionType
+  - WorkAreaTimeSliceExtensionType
+  - AircraftStandTimeSliceExtensionType
+  - ApronTimeSliceExtensionType
+  - ApronElementTimeSliceExtensionType
+  - DeicingAreaTimeSliceExtensionType
+  - PassengerLoadingBridgeTimeSliceExtensionType
+  - RoadTimeSliceExtensionType
+  - TouchDownLiftOffTimeSliceExtensionType
+  - TouchDownLiftOffSafeAreaTimeSliceExtensionType
+  - ApproachLightingSystemTimeSliceExtensionType
+  - ApronLightSystemTimeSliceExtensionType
+  - GuidanceLineLightSystemTimeSliceExtensionType
+  - RunwayDirectionLightSystemTimeSliceExtensionType
+  - RunwayProtectAreaLightSystemTimeSliceExtensionType
+  - TaxiHoldingPositionLightSystemTimeSliceExtensionType
+  - TaxiwayLightSystemTimeSliceExtensionType
+  - TouchDownLiftOffLightSystemTimeSliceExtensionType
+  - AirportProtectionAreaMarkingTimeSliceExtensionType
+  - ApronMarkingTimeSliceExtensionType
+  - DeicingAreaMarkingTimeSliceExtensionType
+  - GuidanceLineMarkingTimeSliceExtensionType
+  - RunwayMarkingTimeSliceExtensionType
+  - StandMarkingTimeSliceExtensionType
+  - TaxiHoldingPositionMarkingTimeSliceExtensionType
+  - TaxiwayMarkingTimeSliceExtensionType
+  - TouchDownLiftOffMarkingTimeSliceExtensionType
+  - ArrestingGearTimeSliceExtensionType
+  - RunwayTimeSliceExtensionType
+  - RunwayBlastPadTimeSliceExtensionType
+  - RunwayCentrelinePointTimeSliceExtensionType
+  - RunwayDirectionTimeSliceExtensionType
+  - RunwayElementTimeSliceExtensionType
+  - RunwayProtectAreaTimeSliceExtensionType
+  - RunwayVisualRangeTimeSliceExtensionType
+  - VisualGlideSlopeIndicatorTimeSliceExtensionType
+  - FloatingDockSiteTimeSliceExtensionType
+  - MarkingBuoyTimeSliceExtensionType
+  - SeaplaneLandingAreaTimeSliceExtensionType
+  - SeaplaneRampSiteTimeSliceExtensionType
+  - GuidanceLineTimeSliceExtensionType
+  - TaxiHoldingPositionTimeSliceExtensionType
+  - TaxiwayTimeSliceExtensionType
+  - TaxiwayElementTimeSliceExtensionType
+  - AirspaceTimeSliceExtensionType
+  - AuthorityForAirspaceTimeSliceExtensionType
+  - GeoBorderTimeSliceExtensionType
+  - HoldingPatternTimeSliceExtensionType
+  - UnplannedHoldingTimeSliceExtensionType
+  - AzimuthTimeSliceExtensionType
+  - CheckpointINSTimeSliceExtensionType
+  - CheckpointVORTimeSliceExtensionType
+  - DirectionFinderTimeSliceExtensionType
+  - DMETimeSliceExtensionType
+  - ElevationTimeSliceExtensionType
+  - GlidepathTimeSliceExtensionType
+  - LocalizerTimeSliceExtensionType
+  - MarkerBeaconTimeSliceExtensionType
+  - NavaidTimeSliceExtensionType
+  - NDBTimeSliceExtensionType
+  - SDFTimeSliceExtensionType
+  - SpecialNavigationStationTimeSliceExtensionType
+  - SpecialNavigationSystemTimeSliceExtensionType
+  - TACANTimeSliceExtensionType
+  - VORTimeSliceExtensionType
+  - AngleIndicationTimeSliceExtensionType
+  - DistanceIndicationTimeSliceExtensionType
+  - DesignatedPointTimeSliceExtensionType
+  - SignificantPointInAirspaceTimeSliceExtensionType
+  - AeronauticalGroundLightTimeSliceExtensionType
+  - ObstacleAreaTimeSliceExtensionType
+  - VerticalStructureTimeSliceExtensionType
+  - OrganisationAuthorityTimeSliceExtensionType
+  - UnitTimeSliceExtensionType
+  - InstrumentApproachProcedureTimeSliceExtensionType
+  - TerminalArrivalAreaTimeSliceExtensionType
+  - CirclingAreaTimeSliceExtensionType
+  - StandardInstrumentArrivalTimeSliceExtensionType
+  - NavigationAreaTimeSliceExtensionType
+  - StandardInstrumentDepartureTimeSliceExtensionType
+  - SafeAltitudeAreaTimeSliceExtensionType
+  - ArrivalFeederLegTimeSliceExtensionType
+  - ArrivalLegTimeSliceExtensionType
+  - DepartureLegTimeSliceExtensionType
+  - FinalLegTimeSliceExtensionType
+  - InitialLegTimeSliceExtensionType
+  - IntermediateLegTimeSliceExtensionType
+  - MissedApproachLegTimeSliceExtensionType
+  - NavigationAreaRestrictionTimeSliceExtensionType
+  - ProcedureDMETimeSliceExtensionType
+  - ChangeOverPointTimeSliceExtensionType
+  - RouteTimeSliceExtensionType
+  - RouteDMETimeSliceExtensionType
+  - RouteSegmentTimeSliceExtensionType
+  - AirspaceBorderCrossingTimeSliceExtensionType
+  - FlightRestrictionTimeSliceExtensionType
+  - RulesProceduresTimeSliceExtensionType
+  - AircraftGroundServiceTimeSliceExtensionType
+  - AirportClearanceServiceTimeSliceExtensionType
+  - AirportSuppliesServiceTimeSliceExtensionType
+  - AirTrafficControlServiceTimeSliceExtensionType
+  - AirTrafficManagementServiceTimeSliceExtensionType
+  - FireFightingServiceTimeSliceExtensionType
+  - GroundTrafficControlServiceTimeSliceExtensionType
+  - InformationServiceTimeSliceExtensionType
+  - PassengerServiceTimeSliceExtensionType
+  - PilotControlledLightingTimeSliceExtensionType
+  - RadioCommunicationChannelTimeSliceExtensionType
+  - SearchRescueServiceTimeSliceExtensionType
+  - RadioFrequencyAreaTimeSliceExtensionType
+  - SpecialDateTimeSliceExtensionType
+  - StandardLevelColumnTimeSliceExtensionType
+  - StandardLevelSectorTimeSliceExtensionType
+  - StandardLevelTableTimeSliceExtensionType
+  - HoldingAssessmentTimeSliceExtensionType
+  - PrecisionApproachRadarTimeSliceExtensionType
+  - PrimarySurveillanceRadarTimeSliceExtensionType
+  - RadarSystemTimeSliceExtensionType
+  - SecondarySurveillanceRadarTimeSliceExtensionType
+
+object_extension:
+  replace: "ExtensionType"
+  prefix: "_oe"
+  xpath: 
+  list:
   - AerialRefuellingAnchorExtensionType
   - AerialRefuellingPointExtensionType
   - AerialRefuellingTrackExtensionType
   - AuthorityForAerialRefuellingExtensionType
-  - AirportHeliportExtensionType
   - AirportHeliportAvailabilityExtensionType
-  - AirportHeliportCollocationExtensionType
-  - AirportHeliportProtectionAreaExtensionType
   - AirportHeliportResponsibilityOrganisationExtensionType
   - AirportHeliportUsageExtensionType
-  - AirportHotSpotExtensionType
-  - AltimeterSourceExtensionType
   - AltimeterSourceStatusExtensionType
   - CityExtensionType
   - ConditionCombinationExtensionType
-  - NonMovementAreaExtensionType
   - SurfaceCharacteristicsExtensionType
-  - SurveyControlPointExtensionType
-  - UsageConditionExtensionType
-  - WorkAreaExtensionType
+  - AbstractUsageConditionExtensionType
   - WorkareaActivityExtensionType
-  - AircraftStandExtensionType
-  - ApronExtensionType
   - ApronAreaAvailabilityExtensionType
   - ApronAreaUsageExtensionType
-  - ApronElementExtensionType
-  - DeicingAreaExtensionType
-  - PassengerLoadingBridgeExtensionType
-  - RoadExtensionType
-  - TouchDownLiftOffExtensionType
-  - TouchDownLiftOffSafeAreaExtensionType
-  - ApproachLightingSystemExtensionType
-  - ApronLightSystemExtensionType
   - GroundLightingAvailabilityExtensionType
-  - GroundLightSystemExtensionType
-  - GuidanceLineLightSystemExtensionType
   - LightActivationExtensionType
-  - RunwayDirectionLightSystemExtensionType
-  - RunwayProtectAreaLightSystemExtensionType
-  - TaxiHoldingPositionLightSystemExtensionType
-  - TaxiwayLightSystemExtensionType
-  - TouchDownLiftOffLightSystemExtensionType
-  - AirportProtectionAreaMarkingExtensionType
-  - ApronMarkingExtensionType
-  - DeicingAreaMarkingExtensionType
-  - GuidanceLineMarkingExtensionType
-  - MarkingExtensionType
   - MarkingElementExtensionType
-  - RunwayMarkingExtensionType
-  - StandMarkingExtensionType
-  - TaxiHoldingPositionMarkingExtensionType
-  - TaxiwayMarkingExtensionType
-  - TouchDownLiftOffMarkingExtensionType
-  - ArrestingGearExtensionType
   - ManoeuvringAreaAvailabilityExtensionType
   - ManoeuvringAreaUsageExtensionType
   - NavaidEquipmentDistanceExtensionType
-  - RunwayExtensionType
-  - RunwayBlastPadExtensionType
-  - RunwayCentrelinePointExtensionType
   - RunwayDeclaredDistanceExtensionType
   - RunwayDeclaredDistanceValueExtensionType
-  - RunwayDirectionExtensionType
-  - RunwayElementExtensionType
-  - RunwayProtectAreaExtensionType
-  - RunwayVisualRangeExtensionType
-  - VisualGlideSlopeIndicatorExtensionType
-  - FloatingDockSiteExtensionType
-  - MarkingBuoyExtensionType
-  - SeaplaneLandingAreaExtensionType
-  - SeaplaneRampSiteExtensionType
   - AircraftStandContaminationExtensionType
   - AirportHeliportContaminationExtensionType
   - ApronContaminationExtensionType
   - RidgeExtensionType
   - RunwayContaminationExtensionType
   - RunwaySectionContaminationExtensionType
-  - SurfaceContaminationExtensionType
+  - AbstractSurfaceContaminationExtensionType
   - SurfaceContaminationLayerExtensionType
   - TaxiwayContaminationExtensionType
   - TouchDownLiftOffContaminationExtensionType
-  - GuidanceLineExtensionType
-  - TaxiHoldingPositionExtensionType
-  - TaxiwayExtensionType
-  - TaxiwayElementExtensionType
-  - AirspaceExtensionType
   - AirspaceActivationExtensionType
   - AirspaceGeometryComponentExtensionType
   - AirspaceLayerClassExtensionType
   - AirspaceVolumeExtensionType
   - AirspaceVolumeDependencyExtensionType
-  - AuthorityForAirspaceExtensionType
-  - GeoBorderExtensionType
-  - ElevatedCurveExtensionType
-  - ElevatedPointExtensionType
-  - ElevatedSurfaceExtensionType
-  - HoldingPatternExtensionType
   - HoldingPatternDistanceExtensionType
   - HoldingPatternDurationExtensionType
-  - UnplannedHoldingExtensionType
   - AuthorityForNavaidEquipmentExtensionType
   - AuthorityForSpecialNavigationStationExtensionType
   - AuthorityForSpecialNavigationSystemExtensionType
-  - AzimuthExtensionType
-  - CheckpointINSExtensionType
-  - CheckpointVORExtensionType
-  - DirectionFinderExtensionType
-  - DMEExtensionType
-  - ElevationExtensionType
-  - GlidepathExtensionType
-  - LocalizerExtensionType
-  - MarkerBeaconExtensionType
-  - NavaidExtensionType
   - NavaidComponentExtensionType
-  - NavaidEquipmentExtensionType
   - NavaidEquipmentMonitoringExtensionType
   - NavaidOperationalStatusExtensionType
-  - NavigationSystemCheckpointExtensionType
-  - NDBExtensionType
-  - SDFExtensionType
-  - SpecialNavigationStationExtensionType
   - SpecialNavigationStationStatusExtensionType
-  - SpecialNavigationSystemExtensionType
-  - TACANExtensionType
-  - VORExtensionType
-  - AngleIndicationExtensionType
   - AngleUseExtensionType
-  - DistanceIndicationExtensionType
   - EnRouteSegmentPointExtensionType
   - PointReferenceExtensionType
-  - SegmentPointExtensionType
+  - AbstractSegmentPointExtensionType
   - TerminalSegmentPointExtensionType
-  - DesignatedPointExtensionType
-  - SignificantPointInAirspaceExtensionType
-  - AeronauticalGroundLightExtensionType
   - LinguisticNoteExtensionType
   - NoteExtensionType
-  - ObstacleAreaExtensionType
-  - VerticalStructureExtensionType
   - VerticalStructureLightingStatusExtensionType
   - VerticalStructurePartExtensionType
-  - OrganisationAuthorityExtensionType
   - OrganisationAuthorityAssociationExtensionType
-  - UnitExtensionType
   - UnitAvailabilityExtensionType
   - UnitDependencyExtensionType
   - ApproachAltitudeTableExtensionType
@@ -1614,81 +1699,40 @@ extension:
   - ApproachDistanceTableExtensionType
   - ApproachTimingTableExtensionType
   - FinalProfileExtensionType
-  - InstrumentApproachProcedureExtensionType
   - MissedApproachGroupExtensionType
-  - TerminalArrivalAreaExtensionType
   - TerminalArrivalAreaSectorExtensionType
   - FASDataBlockExtensionType
-  - CirclingAreaExtensionType
   - CirclingRestrictionExtensionType
   - EquipmentUnavailableAdjustmentExtensionType
   - EquipmentUnavailableAdjustmentColumnExtensionType
   - MinimaExtensionType
-  - StandardInstrumentArrivalExtensionType
   - DepartureArrivalConditionExtensionType
-  - NavigationAreaExtensionType
   - NavigationAreaSectorExtensionType
   - SectorDesignExtensionType
-  - StandardInstrumentDepartureExtensionType
-  - SafeAltitudeAreaExtensionType
   - SafeAltitudeAreaSectorExtensionType
-  - ApproachLegExtensionType
-  - ArrivalFeederLegExtensionType
-  - ArrivalLegExtensionType
-  - DepartureLegExtensionType
-  - FinalLegExtensionType
   - HoldingUseExtensionType
-  - InitialLegExtensionType
-  - IntermediateLegExtensionType
   - LandingTakeoffAreaCollectionExtensionType
-  - MissedApproachLegExtensionType
-  - NavigationAreaRestrictionExtensionType
-  - ProcedureExtensionType
-  - ProcedureDMEExtensionType
   - ProcedureTransitionExtensionType
   - ProcedureTransitionLegExtensionType
-  - SegmentLegExtensionType
   - ProcedureAvailabilityExtensionType
-  - ChangeOverPointExtensionType
-  - RouteExtensionType
   - RouteAvailabilityExtensionType
-  - RouteDMEExtensionType
   - RoutePortionExtensionType
-  - RouteSegmentExtensionType
-  - AirspaceBorderCrossingExtensionType
-  - DirectFlightExtensionType
+  - AbstractDirectFlightExtensionType
   - DirectFlightClassExtensionType
   - DirectFlightSegmentExtensionType
   - FlightConditionCircumstanceExtensionType
   - FlightConditionCombinationExtensionType
   - FlightConditionElementExtensionType
-  - FlightRestrictionExtensionType
   - FlightRestrictionLevelExtensionType
   - FlightRestrictionRouteExtensionType
   - FlightRoutingElementExtensionType
-  - RulesProceduresExtensionType
-  - AircraftGroundServiceExtensionType
-  - AirportClearanceServiceExtensionType
-  - AirportGroundServiceExtensionType
-  - AirportSuppliesServiceExtensionType
-  - AirTrafficControlServiceExtensionType
-  - AirTrafficManagementServiceExtensionType
   - CallsignDetailExtensionType
-  - FireFightingServiceExtensionType
   - FuelExtensionType
-  - GroundTrafficControlServiceExtensionType
-  - InformationServiceExtensionType
   - NitrogenExtensionType
   - OilExtensionType
   - OxygenExtensionType
-  - PassengerServiceExtensionType
-  - PilotControlledLightingExtensionType
-  - RadioCommunicationChannelExtensionType
   - RadioCommunicationOperationalStatusExtensionType
-  - SearchRescueServiceExtensionType
-  - ServiceExtensionType
   - ServiceOperationalStatusExtensionType
-  - TrafficSeparationServiceExtensionType
   - ContactInformationExtensionType
   - OnlineContactExtensionType
   - PostalAddressExtensionType
@@ -1700,28 +1744,16 @@ extension:
   - LightElementExtensionType
   - LightElementStatusExtensionType
   - MeteorologyExtensionType
-  - RadioFrequencyAreaExtensionType
-  - PropertiesWithScheduleExtensionType
-  - SpecialDateExtensionType
+  - AbstractPropertiesWithScheduleExtensionType
   - TimesheetExtensionType
   - StandardLevelExtensionType
-  - StandardLevelColumnExtensionType
-  - StandardLevelSectorExtensionType
-  - StandardLevelTableExtensionType
   - AltitudeAdjustmentExtensionType
-  - HoldingAssessmentExtensionType
   - ObstacleAssessmentAreaExtensionType
   - ObstaclePlacementExtensionType
   - ObstructionExtensionType
-  - PrecisionApproachRadarExtensionType
-  - PrimarySurveillanceRadarExtensionType
   - RadarComponentExtensionType
-  - RadarEquipmentExtensionType
-  - RadarSystemExtensionType
   - ReflectorExtensionType
-  - SecondarySurveillanceRadarExtensionType
   - SurveillanceGroundStationExtensionType
-  - SurveillanceRadarExtensionType
 
 propertygroup:
   replace: "PropertyGroupType"

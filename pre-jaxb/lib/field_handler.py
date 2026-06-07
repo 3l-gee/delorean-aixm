@@ -92,14 +92,16 @@ class FieldHandler:
         # special case extension must point to specific class
         if element.attrib.get("name") == "extension":
             extension_class = node[-1].replace('">', '/xs:complexType">')
-            node.extend(OrmHandler.inline_complex_type(parent))
+            extension_name = str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType")
+            node.extend(OrmHandler.inline_complex_type(parent, extension_name))
             node.append(Jaxb.end)
             node.append(extension_class)
-            Content().append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType"))
-            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType")))
+            Content().append_entity(str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType"))
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType")))
+            print(element, parent)
             return node
         
-        return FieldHandler.element_reference(node, element, parent)
+        return FieldHandler.element_reference(node, element, parent, None)
 
     @staticmethod
     def handle_sequence_attribute(attribute, parent, parent_xpath):
@@ -129,11 +131,14 @@ class FieldHandler:
         # special case extension must point to specific class
         if attribute.attrib.get("name") == "extension":
             extension_class = node[-1].replace('">', '/xs:complexType">')
-            node.extend(OrmHandler.inline_complex_type(parent))
+            extension_name = str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType")
+            node.extend(OrmHandler.inline_complex_type(parent, extension_name))
             node.append(Jaxb.end)
             node.append(extension_class)
-            Content().append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType"))
-            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType")))
+            Content().append_entity(str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType"))
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType")))
+
+            return FieldHandler.element_reference(node, attribute, parent, extension_name)
 
         return FieldHandler.element_reference(node, attribute, parent)
 
@@ -141,7 +146,6 @@ class FieldHandler:
     def handle_complex_element(element, parent, parent_xpath):
         """Handle attributes in a sequence."""
         node = []
-
         # generate xpath to xsd element
         if str(parent.attrib.get("name","") + "." + element.attrib.get("name","")) in Config().get_ignore():
             return node
@@ -169,11 +173,13 @@ class FieldHandler:
         # special case extension must point to specific class
         if element.attrib.get("name") == "extension":
             extension_class = node[-1].replace('">', '/xs:complexType">')
-            node.extend(OrmHandler.inline_complex_type(parent))
+            extension_name = str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType")
+            node.extend(OrmHandler.inline_complex_type(parent, extension_name))
             node.append(Jaxb.end)
             node.append(extension_class)
-            Content().append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType"))
-            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType")))
+            Content().append_entity(str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType"))
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType")))
+            return FieldHandler.element_reference(node, element, parent, extension_name)
 
         return FieldHandler.element_reference(node, element, parent)
 
@@ -202,18 +208,20 @@ class FieldHandler:
         if attribute.attrib.get("name") == "dataSource":
             node.append(Jaxb.property.name("aixmDataSource"))
 
-        # special case extension must point to specific class
-        if attribute.attrib.get("name") == "extension":
+        # special case to handel anonymus extension in TimeSliceType
+        if attribute.attrib.get("name") == "extension" :
             extension_class = node[-1].replace('">', '/xs:complexType">')
+            extension_name = str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType")
             node.extend(OrmHandler.inline_complex_type(parent))
             node.append(Jaxb.end)
             node.append(extension_class)
-            Content().append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType"))
-            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType")))
+            Content().append_entity(str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType"))
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("Type") + "ExtensionType")))
+            return FieldHandler.element_reference(node, attribute, parent, extension_name)
 
         return FieldHandler.element_reference(node, attribute, parent)
 
-    def element_reference(node, object, parent) :
+    def element_reference(node, object, parent, extension_name=None) :
 
         embeded = None
         type = object.attrib.get("type", None)
@@ -222,8 +230,8 @@ class FieldHandler:
         ref = object.attrib.get("ref", None)
 
         # element defines an inline complexType
-        if object.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
-            node.extend(OrmHandler.inline_complex_class(parent))
+        if object.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None and extension_name != None:
+            node.extend(OrmHandler.inline_complex_class(parent, extension_name))
             node.append(Jaxb.end)
             return node
 

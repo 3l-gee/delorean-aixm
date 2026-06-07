@@ -248,57 +248,33 @@ class OrmHandler:
         return res
     
     @staticmethod
-    def inline_complex_type(parent):
+    def inline_complex_type(parent, name):
         res = ["<!-- Complex-->"]
 
         if "name" not in parent.attrib:
             raise KeyError("Element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
-        owning_table = parent.attrib["name"]
+        parent_name = parent.attrib["name"]
 
-        schema = Schema.get_schema(owning_table)
-        suffix = Schema.get_suffix(owning_table)
+        schema = Schema.get_schema(parent_name)
+        suffix = Schema.get_suffix(parent_name)
 
-        if "TimeSliceType" in owning_table:
-            target_table = owning_table.replace("TimeSliceType", "_e")
-            res.append(HyperJAXB.hj_one_to_many_start())
-            res.append(HyperJAXB.orm_join_column(target_table))
-            res.append(HyperJAXB.hj_one_to_many_end())
-            return res
-
-        elif "Type" in owning_table:
-            target_table = owning_table.replace("Type", "_e")
-            res.append(HyperJAXB.hj_one_to_many_start())
-            res.append(HyperJAXB.orm_join_column(target_table))
-            res.append(HyperJAXB.hj_one_to_many_end())
-            return res
-
-        else:
-            raise KeyError("Unknown inline complex type", ET.tostring(parent, encoding='unicode', method='xml'))
+        res.append(HyperJAXB.hj_one_to_many_start())
+        res.append(HyperJAXB.orm_join_column(name))
+        res.append(HyperJAXB.hj_one_to_many_end())
+        return res
     
     @staticmethod
-    def inline_complex_class(parent):
+    def inline_complex_class(parent, name):
         res = ["<!-- Complex-->"]
 
         if "name" not in parent.attrib:
             raise KeyError("Element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
-        name = parent.attrib["name"]
+        parent_name = parent.attrib["name"]
 
-        schema = Schema.get_schema(name)
-        suffix = Schema.get_suffix(name)
+        schema = Schema.get_schema(parent_name)
+        suffix = Schema.get_suffix(parent_name)
 
-        if "TimeSliceType" in name:
-            extension_name = name.replace("TimeSliceType", "_e")
-            res.append(HyperJAXB.hj_entity_start())
-            res.append(HyperJAXB.table(extension_name,schema,suffix))
-            res.append(HyperJAXB.hj_entity_end())
-            return res
-
-        elif "Type" in name:
-            extension_name = name.replace("Type", "_e")
-            res.append(HyperJAXB.hj_entity_start())
-            res.append(HyperJAXB.table(extension_name,schema,suffix))
-            res.append(HyperJAXB.hj_entity_end())
-            return res
-
-        else:
-            raise KeyError("Unknown inline complex type", ET.tostring(parent, encoding='unicode', method='xml'))
+        res.append(HyperJAXB.hj_entity_start())
+        res.append(HyperJAXB.table(name,schema,suffix))
+        res.append(HyperJAXB.hj_entity_end())
+        return res

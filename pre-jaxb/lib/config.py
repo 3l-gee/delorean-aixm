@@ -38,7 +38,8 @@ class Config(metaclass=SingletonMeta):
         self.timeslice: MappingSection = MappingSection(**data["timeslice"])
         self.property: MappingSection = MappingSection(**data["property"])
         self.object: MappingSection = MappingSection(**data["object"])
-        self.extension: MappingSection = MappingSection(**data["extension"])
+        self.timeslice_extension: MappingSection = MappingSection(**data["timeslice_extension"])
+        self.object_extension: MappingSection = MappingSection(**data["object_extension"])
 
         self.SQL_NON_RESERVED_KEY_WORD: List[str] = [
             "ABORT",
@@ -653,9 +654,14 @@ class Config(metaclass=SingletonMeta):
             value.append(Config().object.prefix)
             dbname.append(xsdname)
 
-        if xsdname in Config().extension.list:
-            key.append(Config().extension.replace)
-            value.append(Config().extension.prefix)
+        if xsdname in Config().timeslice_extension.list:
+            key.append(Config().timeslice_extension.replace)
+            value.append(Config().timeslice_extension.prefix)
+            dbname.append(xsdname)
+
+        if xsdname in Config().object_extension.list:
+            key.append(Config().object_extension.replace)
+            value.append(Config().object_extension.prefix)
             dbname.append(xsdname)
 
         if len(dbname) == 0 or len(key) == 0 or len(value) == 0 :
