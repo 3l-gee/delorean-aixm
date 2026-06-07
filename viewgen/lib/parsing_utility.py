@@ -3,35 +3,65 @@ import json
 from collections import defaultdict, deque
 from lib.feature import Feature
 from lib.property import Property
-from lib.generic_helper_function import GenericHeleperFunction
+from lib.helper_function import HeleperFunction
 
-class Parsing :
-    def __init__(self, parsing, inheritance, formated_sql, association, qlr_attr, input_path):
-        self.parsing = parsing
-        self.input_path = input_path
+class ParsingUtility :
 
-        self.qlr_attr = qlr_attr
-        self.formated_sql =  formated_sql
-        self.ignore_set = set(inheritance["ignore"])
-        self.feature_set = set(inheritance["features"])
-        self.timeslice_parent_set = set(inheritance["timeslice_parent"])
-        self.object_set = set(inheritance["objects"])
-        self.property_parent_set = set(inheritance["property_parent"])
+    @staticmethod
+    def extract_core(parsing, content):
+        class_name = re.findall(parsing["class"]["method"].strip(), content) or [None]
+        parent_name = re.findall(parsing["extends"]["method"].strip(), content) or [None]
+        table_name = re.search(parsing["table"]["method"].strip(), content) or None
+        table_schema = None
 
-        self.feature_association_set = association["feature"]
+        if table_name :
+            table_name, table_schema = table_name.groups()
+        
+        if class_name :
+            class_name = class_name[0]
 
-        self.suffix = {
-            "TimeSlicePropertyType": "",
-            "PropertyType": "",
-            "TimeSliceType": "",
-            "TimeSlice": "",
-            "Type": "", 
+        else : 
+            raise ValueError(f"[ERROR] parsing class name: {content}")
+        
+        if parent_name :
+            parent_name = parent_name[0]
+        
+        res = {
+            "class" : class_name,
+            "table" : table_name,
+            "parent": parent_name,
+            "schema": table_schema
         }
         
-        self.feature = {}
-        self.property = {}
-        self.datatype = {}
-        self.assosication = {}
+        return res
+
+
+    # def __init__(self, parsing, inheritance, formated_sql, association, qlr_attr, input_path):
+    #     self.parsing = parsing
+    #     self.input_path = input_path
+
+    #     self.qlr_attr = qlr_attr
+    #     self.formated_sql =  formated_sql
+    #     self.ignore_set = set(inheritance["ignore"])
+    #     self.feature_set = set(inheritance["features"])
+    #     self.timeslice_parent_set = set(inheritance["timeslice_parent"])
+    #     self.object_set = set(inheritance["objects"])
+    #     self.property_parent_set = set(inheritance["property_parent"])
+
+    #     self.feature_association_set = association["feature"]
+
+    #     self.suffix = {
+    #         "TimeSlicePropertyType": "",
+    #         "PropertyType": "",
+    #         "TimeSliceType": "",
+    #         "TimeSlice": "",
+    #         "Type": "", 
+    #     }
+        
+    #     self.feature = {}
+    #     self.property = {}
+    #     self.datatype = {}
+    #     self.assosication = {}
 
     def get_layer(self):
         propeties_layers = self.property.values()
@@ -330,32 +360,33 @@ class Parsing :
             else : 
                 raise ValueError(f"[ERROR] {property.get_type()} {type} can not be found in property, feature, snowflake, ignore:")
 
-    def extract_core(self, content):
-        class_name = re.findall(self.parsing["class"]["method"], content) or [None]
-        parent_name = re.findall(self.parsing["extends"]["method"], content) or [None]
-        table_name = re.search(self.parsing["table"]["method"], content) or None
-        table_schema = None
+    # def extract_core(self, content):
 
-        if table_name :
-            table_name, table_schema = table_name.groups()
-        
-        if class_name :
-            class_name = class_name[0]
+    #     class_name = re.findall(self.parsing["class"]["method"], content) or [None]
+    #     parent_name = re.findall(self.parsing["extends"]["method"], content) or [None]
+    #     table_name = re.search(self.parsing["table"]["method"], content) or None
+    #     table_schema = None
 
-        else : 
-            raise ValueError(f"[ERROR] parsing class name: {content}")
+    #     if table_name :
+    #         table_name, table_schema = table_name.groups()
         
-        if parent_name :
-            parent_name = parent_name[0]
+    #     if class_name :
+    #         class_name = class_name[0]
+
+    #     else : 
+    #         raise ValueError(f"[ERROR] parsing class name: {content}")
         
-        res = {
-            "class" : class_name,
-            "table" : table_name,
-            "parent": parent_name,
-            "schema": table_schema
-        }
+    #     if parent_name :
+    #         parent_name = parent_name[0]
         
-        return res
+    #     res = {
+    #         "class" : class_name,
+    #         "table" : table_name,
+    #         "parent": parent_name,
+    #         "schema": table_schema
+    #     }
+        
+    #     return res
 
     def extract_columns(self, schema, table, content):
         """Extract simple column definitions."""

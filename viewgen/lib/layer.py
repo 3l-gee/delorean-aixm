@@ -4,7 +4,7 @@ from lxml import etree
 import os
 import uuid
 import copy
-from lib.generic_helper_function import GenericHeleperFunction
+from lib.helper_function import HeleperFunction
 
 class Layer:
 
@@ -13,17 +13,17 @@ class Layer:
         self.dependecy = set()
         self.type = type
         self.input_path = input_path
-        self.name = GenericHeleperFunction.remove_suffix(self.type)
+        self.name = HeleperFunction.remove_suffix(self.type)
         self.schema = schema
         self.snowflake = snowflake
-        self.geom_map_layer_template = GenericHeleperFunction.load_xml(self.input_path, "xml/geom-maplayer.xml")
-        self.table_map_layer_template = GenericHeleperFunction.load_xml(self.input_path, "xml/table-maplayer.xml")
-        self.layer_tree_layer_template = GenericHeleperFunction.load_xml(self.input_path, "xml/layer-tree-layer.xml")
-        self.label_style = GenericHeleperFunction.load_xml(self.input_path, "xml/labelStyle.xml")
-        self.attribute_editor_container = GenericHeleperFunction.load_xml(self.input_path, "xml/attributeEditorContainer.xml")
-        self.attribut_editor_field = GenericHeleperFunction.load_xml(self.input_path, "xml/attributeEditorField.xml")
-        self.attribut_editor_html_element = GenericHeleperFunction.load_xml(self.input_path, "xml/attributeEditorHtmlElement.xml")
-        self.alias = GenericHeleperFunction.load_xml(self.input_path, "xml/alias.xml")
+        self.geom_map_layer_template = HeleperFunction.load_xml(self.input_path, "xml/geom-maplayer.xml")
+        self.table_map_layer_template = HeleperFunction.load_xml(self.input_path, "xml/table-maplayer.xml")
+        self.layer_tree_layer_template = HeleperFunction.load_xml(self.input_path, "xml/layer-tree-layer.xml")
+        self.label_style = HeleperFunction.load_xml(self.input_path, "xml/labelStyle.xml")
+        self.attribute_editor_container = HeleperFunction.load_xml(self.input_path, "xml/attributeEditorContainer.xml")
+        self.attribut_editor_field = HeleperFunction.load_xml(self.input_path, "xml/attributeEditorField.xml")
+        self.attribut_editor_html_element = HeleperFunction.load_xml(self.input_path, "xml/attributeEditorHtmlElement.xml")
+        self.alias = HeleperFunction.load_xml(self.input_path, "xml/alias.xml")
         self.full_sql = ""
         self.publish = {
             }
@@ -65,8 +65,6 @@ class Layer:
         return self.attributes
     
     def generate_sql(self):
-        if self.snowflake :
-            return None
         # Combine attributes from all attribute types
         attributes = []
         for attr_list in self.attributes["attributes"].values():

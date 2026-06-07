@@ -1,143 +1,139 @@
-from lib.layer import Layer, GenericHeleperFunction
+from lib.layer import Layer, HeleperFunction
+
+
+# SELECT distinct on  (aixm.aixm_feature.identifier, aixm.aixm_timeslice.sequence_number)
+# aixm.aixm_message.hjid as message_id,
+# aixm.aixm_message.id as message_tid,
+# aixm.aixm_message.identifier as message_tidentifier,
+# aixm.aixm_feature.hjid as feature_id,
+# aixm.aixm_feature.id as feature_tid,
+# aixm.aixm_feature.identifier,
+# aixm.aixm_timeslice.id as timeslice_id,
+# aixm.aixm_timeslice.hjid as timeslice_tid,
+# aixm.aixm_timeslice.interpretation,
+# aixm.aixm_timeslice.sequence_number,
+# aixm.aixm_timeslice.correction_number,
+# aixm.aixm_timeslice.feature_lifetime_begin,
+# aixm.aixm_timeslice.feature_lifetime_end,
+# aixm.aixm_timeslice.valid_time_begin,
+# aixm.aixm_timeslice.valid_time_end,
+# *
+# FROM aixm.aixm_feature
+# INNER JOIN navaids_point.dme_f ON aixm.aixm_feature.hjid = navaids_point.dme_f.hjid
+# INNER JOIN navaids_point.dme_tp ON aixm.aixm_feature.hjid = navaids_point.dme_tp.timeslice_hjid
+# INNER JOIN navaids_point.dme_t ON navaids_point.dme_tp.dmetimeslice_hjid = navaids_point.dme_t.hjid
+# INNER JOIN aixm.aixm_timeslice ON navaids_point.dme_t.hjid = aixm.aixm_timeslice.hjid
+# INNER JOIN aixm.message_member ON aixm.aixm_feature.hjid = aixm.message_member.feature_hjid
+# INNER JOIN aixm.message_member_link ON aixm.message_member.hjid = aixm.message_member_link.member_hjid
+# INNER JOIN aixm.aixm_message ON aixm.message_member_link.message_hjid = aixm.aixm_message.hjid
+# -- WHERE aixm.aixm_message.hjid =1
+# -- WHERE 
+# -- aixm.aixm_feature.lifecycle_status = 'APPROVED' 
+# -- AND 
+# -- aixm.aixm_timeslice.lifecycle_status = 'APPROVED' 
+# ORDER BY aixm.aixm_feature.identifier, aixm.aixm_timeslice.sequence_number DESC, aixm.aixm_timeslice.correction_number DESC;
 
 class Feature(Layer) :
 
-    def __init__(self, input_path, type, schema, snowflake=False):
-        super().__init__(input_path, type, schema, snowflake)
+    def __init__(self, type, schema):
         self.layer_type = "feature"
-        self.publish = {
-                "form" : {
-                    "generic" : [
-                        {
-                            "field": "identifier",
-                            "name": "identifier",
-                        },
-                        {
-                            "field": "interpretation",
-                            "name": "interpretation",
-                        },
-                        {
-                            "field": "sequence_number",
-                            "name": "sequence_number",
-                        },
-                        {
-                            "field": "correction_number",
-                            "name": "correction_number",
-                        },
-                        {
-                            "field": "valid_time_begin",
-                            "name": "valid_time_begin",
-                        },
-                        {
-                            "field": "valid_time_end",
-                            "name": "valid_time_end",
-                        },
-                        {
-                            "field": "feature_lifetime_begin",
-                            "name": "feature_lifetime_begin",
-                        },
-                        {
-                            "field": "feature_lifetime_end",
-                            "name": "feature_lifetime_end",
-                        }
-                    ],
-                    "attributes" : []},
-                "geometry" : [],
-                "action" : {
-
-                },
-                "html" : {
-
-                },
-            }
+        self.dependecy = set()
+        self.name = HeleperFunction.remove_suffix(type)
+        self.schema = schema
+        self.full_sql = ""
+        self.attributes = {
+            "view": self.generate_view(self.name, schema),
+            "select": self.generate_select(self.name, schema),
+            "attributes": {
+                "feature": self.generate_attributes(self.name, schema)
+            },
+            "inner": self.generate_inner(self.name, schema),
+            "left": self.generate_left(self.name, schema),
+            "lateral" : [],
+            "where": self.generate_where(),
+            "group": self.generate_group(self.name, schema),
+            "order": self.generate_order(self.name, schema),
+            "index" : [f"create index if not exists {self.schema}_{self.name}_id on {self.schema}.{self.name}_view (id)"]
+        }
 
     def get_name(self):
         return f"{self.schema}.{self.name}_view"
 
-    def generate_view(self, type, schema) :
-        name = GenericHeleperFunction.remove_suffix(type)
+    def generate_view(self, name, schema) :
         return [
-            f"drop materialized view if exists {schema}.{name}_view cascade;",
-            f"create materialized view {schema}.{name}_view as"
+            f"drop view if exists {schema}.{name}_view cascade;",
+            f"create view {schema}.{name}_view as"
             ]
 
-    def generate_select(self, type, schema) :
-        name = GenericHeleperFunction.remove_suffix(type)
-        return [f"select distinct on ({name}.identifier,{name}_ts.sequence_number)"]
+    def generate_select(self, name, schema) :
+        return [f"select distinct on (aixm.aixm_feature.identifier, aixm.aixm_timeslice.sequence_number)"]
    
-    def generate_attributes(self, type, schema) : 
-        name = GenericHeleperFunction.remove_suffix(type)
-        res = ["(row_number() over ())::integer as row"]
-        res.append(f"{schema}.{name}.id::integer as id")
-        res.append(f"{schema}.{name}_ts.id::integer as ts_id")
-        res.append(f"{schema}.{name}_tsp.id::integer as tsp_id")
-        res.append(f"{schema}.{name}.identifier::uuid")
-        res.append(f"{schema}.{name}_ts.interpretation::text")
-        res.append(f"{schema}.{name}_ts.sequence_number::integer")
-        res.append(f"{schema}.{name}_ts.correction_number::integer")        
-        res.append(f"{schema}.{name}_ts.valid_time_begin::timestamp")
-        res.append(f"{schema}.{name}_ts.valid_time_end::timestamp")
-        res.append(f"{schema}.{name}_ts.feature_lifetime_begin::timestamp")
-        res.append(f"{schema}.{name}_ts.feature_lifetime_end::timestamp")
+    def generate_attributes(self, name, schema) : 
+        res = [
+            "(row_number() over ())::integer as row",
+            "aixm.aixm_message.hjid as message_id",
+            "aixm.aixm_message.id as message_tid",
+            "aixm.aixm_message.identifier as message_tidentifier",
+            "aixm.aixm_feature.hjid as feature_id",
+            "aixm.aixm_feature.id as feature_tid",
+            "aixm.aixm_feature.identifier",
+            "aixm.aixm_timeslice.id as timeslice_id",
+            "aixm.aixm_timeslice.hjid as timeslice_tid",
+            "aixm.aixm_timeslice.interpretation",
+            "aixm.aixm_timeslice.sequence_number",
+            "aixm.aixm_timeslice.correction_number",
+            "aixm.aixm_timeslice.feature_lifetime_begin",
+            "aixm.aixm_timeslice.feature_lifetime_end",
+            "aixm.aixm_timeslice.valid_time_begin",
+            "aixm.aixm_timeslice.valid_time_end"
+        ]
 
         return res
         
-    def generate_inner(self, type, schema) : 
-        name = GenericHeleperFunction.remove_suffix(type)
-    # TODO : once basic messgae is linked with master_join and that the new ts are linked back to the old dataset
-#         return f"""
-# from aixm_basic_message 
-# inner join master_join mj1 on aixm_basic_message.id = mj1.source_id
-# inner join basic_message_member	on mj1.target_id = basic_message_member.id
-# inner join {group}.{name} on basic_message_member.abstract_aixm_feature_id = {group}.{name}.id
-# inner join master_join mj2 on {group}.{name}.id = mj2.source_id
-# inner join {group}.{name}_tsp on mj2.target_id = {group}.{name}_tsp.id
-# inner join {group}.{name}_ts on {group}.{name}_tsp.{name}_timeslice_id = {group}.{name}_ts.id
-#     """
+    def generate_inner(self, name, schema) : 
         return [
-            f"from {schema}.{name} ", 
-            f"inner join master_join mj2 on {schema}.{name}.id = mj2.source_id",
-            f"inner join {schema}.{name}_tsp on mj2.target_id = {schema}.{name}_tsp.id",
-            f"inner join {schema}.{name}_ts on {schema}.{name}_tsp.{name}timeslice_id = {schema}.{name}_ts.id"
+            f"from aixm.aixm_feature",
+            f"inner join {schema}.{name}_f on aixm.aixm_feature.hjid = {schema}.{name}_f.hjid",
+            f"inner join {schema}.{name}_tp on aixm.aixm_feature.hjid = {schema}.{name}_tp.timeslice_hjid",
+            f"inner join {schema}.{name}_t on {schema}.{name}_tp.{name}timeslice_hjid = {schema}.{name}_t.hjid",
+            f"inner join aixm.aixm_timeslice on {schema}.{name}_t.hjid = aixm.aixm_timeslice.hjid",
+            f"inner join aixm.message_member on aixm.aixm_feature.hjid = aixm.message_member.feature_hjid",
+            f"inner join aixm.message_member_link on aixm.message_member.hjid = aixm.message_member_link.member_hjid",
+            f"inner join aixm.aixm_message on aixm.message_member_link.message_hjid = aixm.aixm_message.hjid"
         ]
 
-    def generate_left(self, type, schema) :
-        name = GenericHeleperFunction.remove_suffix(type)
+    def generate_left(self, name, schema) :
         return [
         ]
 
-    def generate_where(self, type, schema) : 
-        name = GenericHeleperFunction.remove_suffix(type)
+    def generate_where(self) : 
         return [
-            f"{schema}.{name}.feature_status = 'APPROVED'",
-            f"{schema}.{name}_ts.feature_status = 'APPROVED'"
+            f"aixm.aixm_feature.feature_status = 'APPROVED'",
+            f"aixm.aixm_timeslice.feature_status = 'APPROVED'"
         ]
     
-    def generate_order(self, type, schema) : 
-        name = GenericHeleperFunction.remove_suffix(type)
+    def generate_order(self, name, schema) : 
         return [
-            f"order by {name}.identifier",
-            f"{name}_ts.sequence_number",
-            f"{name}_ts.correction_number DESC"
+            f"order by aixm.aixm_feature.identifier",
+            f"aixm.aixm_timeslice.sequence_number desc",
+            f"aixm.aixm_timeslice.correction_number desc"
         ]
     
-    def generate_group(self, type, schema) :
-        name = GenericHeleperFunction.remove_suffix(type)
+    def generate_group(self, name, schema) :
         res = [f"{schema}.{name}.id"]
         res.append(f"{schema}.{name}_ts.id")
         res.append(f"{schema}.{name}_tsp.id")
-        res.append(f"{schema}.{name}.identifier")
-        res.append(f"{schema}.{name}_ts.interpretation")
-        res.append(f"{schema}.{name}_ts.sequence_number")
-        res.append(f"{schema}.{name}_ts.correction_number")        
-        res.append(f"{schema}.{name}_ts.valid_time_begin")
-        res.append(f"{schema}.{name}_ts.valid_time_end")
-        res.append(f"{schema}.{name}_ts.feature_lifetime_begin")
-        res.append(f"{schema}.{name}_ts.feature_lifetime_end")
+        res.append(f"aixm.aixm_feature.identifier.identifier")
+        res.append(f"aixm.aixm_timeslice.interpretation")
+        res.append(f"aixm.aixm_timeslice.sequence_number")
+        res.append(f"aixm.aixm_timeslice.correction_number")        
+        res.append(f"aixm.aixm_timeslice.valid_time_begin")
+        res.append(f"aixm.aixm_timeslice.valid_time_end")
+        res.append(f"aixm.aixm_timeslice.feature_lifetime_begin")
+        res.append(f"aixm.aixm_timeslice.feature_lifetime_end")
         return res 
 
-    def add_attributes_two(self, type, role, value, nil) :
-        name = GenericHeleperFunction.remove_suffix(type)
+    def add_attributes_two(self, name, role, value, nil) :
         self.attributes["attributes"]["feature"].append(f"coalesce(cast({self.schema}.{self.name}_ts.{value} as varchar), '(' || {self.schema}.{self.name}_ts.{nil} || ')')::text as {role}")
         self.add_group(str(self.name + "_ts"), value, self.schema)
         self.add_group(str(self.name + "_ts"), nil, self.schema)
@@ -150,7 +146,7 @@ class Feature(Layer) :
             })
         
     def add_attributes_three(self, type, role, value, uom, nil) :
-        name = GenericHeleperFunction.remove_suffix(type)
+        name = HeleperFunction.remove_suffix(type)
         self.attributes["attributes"]["feature"].append(f"coalesce(cast({self.schema}.{self.name}_ts.{value} as varchar) || ' ' || {self.schema}.{self.name}_ts.{uom}, '(' || {self.schema}.{self.name}_ts.{nil} || ')')::text as {role}")
         self.add_group(str(self.name + "_ts"), value, self.schema)
         self.add_group(str(self.name + "_ts"), uom, self.schema)
@@ -169,7 +165,7 @@ class Feature(Layer) :
 
         ref_types.append(type.replace("Property",""))
 
-        name = GenericHeleperFunction.remove_suffix(type)
+        name = HeleperFunction.remove_suffix(type)
 
         if not self.attributes["attributes"].get(type):
             self.attributes["attributes"][type] = []
@@ -228,7 +224,7 @@ class Feature(Layer) :
         ])
     
     def add_association_object_one(self, schema, type, role, col):
-        name = GenericHeleperFunction.remove_suffix(type)
+        name = HeleperFunction.remove_suffix(type)
 
         self.dependecy.add(f"{schema}.{name}_view")
         if not self.attributes["attributes"].get(type):
@@ -286,7 +282,7 @@ class Feature(Layer) :
 
         ref_types.append(type.replace("Property",""))
 
-        name = GenericHeleperFunction.remove_suffix(type)
+        name = HeleperFunction.remove_suffix(type)
 
         if not self.attributes["attributes"].get(type):
             self.attributes["attributes"][type] = []
@@ -348,7 +344,7 @@ class Feature(Layer) :
         ])
 
     def add_association_object_many(self, schema, type, role):
-        name = GenericHeleperFunction.remove_suffix(type)
+        name = HeleperFunction.remove_suffix(type)
 
         self.dependecy.add(f"{schema}.{name}_view")
         if not self.attributes["attributes"].get(type):
@@ -407,7 +403,7 @@ class Feature(Layer) :
         ])
 
     def add_association_snowflake_one(self, schema, type, publish_param, attribute, col, role):
-        name = GenericHeleperFunction.remove_suffix(type)
+        name = HeleperFunction.remove_suffix(type)
 
         self.dependecy.add(f"{schema}.{name}_view")
         if not self.attributes["attributes"].get(type):
@@ -427,10 +423,10 @@ class Feature(Layer) :
             self.publish["form"][role] = []
             
         if publish_param.get("form") :
-            self.publish["form"][role].extend(GenericHeleperFunction.format_structure(publish_param.get("form"), role=role))
+            self.publish["form"][role].extend(HeleperFunction.format_structure(publish_param.get("form"), role=role))
 
     def add_association_snowflake_many(self, schema, type, publish_param, argument, attribute, col, role):
-        name = GenericHeleperFunction.remove_suffix(type)
+        name = HeleperFunction.remove_suffix(type)
 
         self.dependecy.add(f"{schema}.{name}_view")
         if not self.attributes["attributes"].get(type):
@@ -468,4 +464,4 @@ class Feature(Layer) :
             self.publish["form"][role] = []
             
         if publish_param.get("form") :
-            self.publish["form"][role].extend(GenericHeleperFunction.format_structure(publish_param.get("form"), role=role))
+            self.publish["form"][role].extend(HeleperFunction.format_structure(publish_param.get("form"), role=role))

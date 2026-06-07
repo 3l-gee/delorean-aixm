@@ -1,60 +1,196 @@
 import os
-import json
-from lxml import etree
-from lxml import html
-from lib.parsing import Parsing
-from lib.generic_helper_function import GenericHeleperFunction
-from lib.qlr_generator import QLRGenerator
+from os import path
+import re
+import yaml
+from lib.parsing_utility import ParsingUtility
+from lib.helper_function import HeleperFunction
+from lib.feature import Feature
+from lib.property import Property
+from lib.helper_function import HeleperFunction
 import copy
 
 
 class InteractionMachinery:
-    def __init__(self, name, parsing, input_path, output_path, directory,):
-        self.name = name
-        # Attribute
-        self.association_attr = GenericHeleperFunction.load_json(input_path, "association.json")
-        self.qlr_attr = GenericHeleperFunction.load_json(input_path, "qlr.json")
-        self.inheritance_attr = GenericHeleperFunction.load_json(input_path, "inheritance.json")
-        self.formated_sql = GenericHeleperFunction.load_json(input_path, "sql.json")
-        self.ignore_set = set(self.inheritance_attr["ignore"])
+    JAXB_IGNORE_FILES = {
+        "package-info.java",
+        "ObjectFactory.java"
+    }
 
-        # Templates
-        self.publisher_qgis = GenericHeleperFunction.load_xml(input_path, "xml/publisher.qgs.ftl")
-        self.layer_tree_group = GenericHeleperFunction.load_xml(input_path, "xml/layer-tree-group.xml")
+    def __init__(self, parsing_path: str, config_path: str, output_path: str, directory_path: str):
+        config = HeleperFunction.load_yaml(config_path)
+        self.parsing = HeleperFunction.load_yaml(parsing_path)
+        self.feature_set = set(config["feature"]["list"])
+        self.timesliceproperty_set = set(config["timesliceproperty"]["list"])
+        self.timeslice_set = set(config["timeslice"]["list"])
+        self.object_set = set(config["object"]["list"])
+        self.property_set = set(config["property"]["list"])
+        self.timeslice_extension_set = set(config["timeslice_extension"]["list"])
+        self.object_extension_set = set(config["object_extension"]["list"])
+        self.basetype_set = set(config["basetype"]["list"])
+        self.type_set = set(config["type"]["list"])
+        self.ignore_set = set(config["ignore"])
+        self.abstract_set = set(config["abstract"])
+        self.files = HeleperFunction.get_file_path(directory_path, ".java", self.JAXB_IGNORE_FILES)
+        self.views = {"feature": {}, "object": {}, "property": {}}
 
-        self.parsing = Parsing(parsing, self.inheritance_attr, self.formated_sql, self.association_attr, self.qlr_attr,  input_path)
-        self.qlr_generator = QLRGenerator(input_path)
-        self.files = self.get_file_path(directory)
-        self.layers = self.get_layers()
+        for file in self.files:
+            content = HeleperFunction.load_java(file)
+            core = ParsingUtility.extract_core(self.parsing, content)
+            if core.get("class") in self.feature_set:
+                self.views["feature"][core.get("class")] = Feature(core.get("class"), core.get("schema"))
+                continue
+
+            elif core.get("class").replace("PropertyType", "Type") in self.feature_set:
+                self.views["feature"][core.get("class")] = Feature(core.get("class"), core.get("schema"))
+                continue
+
+            elif core.get("class") in self.property_set or core.get("parent") in self.property_set:
+                # self.views["property"][core.get("class")] = Property(core.get("class"), core.get("schema"))
+                # self.property[class_name] = Property(self.input_path, class_name, schema_name, True)  
+                # self.property[class_name].load_sql(self.formated_sql[class_name].get("path"))
+                # self.property[class_name].load_dependecy(self.formated_sql[class_name].get("dependency"))ontinue
+                continue
+
+
+            elif core.get("class") in self.object_set or core.get("parent") in self.object_set:
+                continue
+
+            elif core.get("class").replace("ExtensionType", "Type") in self.object_set:
+                continue
+
+            elif core.get("class") in self.timesliceproperty_set:
+                continue
+
+            elif core.get("class") in self.timeslice_set:
+                continue
+
+            elif core.get("class") in self.timeslice_extension_set:
+                continue
+
+            elif core.get("class") in self.object_extension_set:
+                continue
+
+            elif core.get("class") in self.basetype_set:
+                continue
+
+            elif core.get("class") in self.type_set:
+                continue
+
+            elif core.get("class") in self.ignore_set:
+                continue
+
+            elif core.get("class") in self.abstract_set:
+                continue
+
+            elif core.get("parent") in self.abstract_set:
+                continue
         
-        self.populate_qgis_prj(self.publisher_qgis)
-        self.export_sql(output_path, "postgres/view.sql")
-        self.export_publish_qgis(output_path, "qgis/publisher.qgs.ftl")
-       
-    def get_file_path(self, directory):
-        # Common JAXB-generated files to ignore
-        jaxb_ignored_files = {
-            "package-info.java",
-            "ObjectFactory.java"
-        }
+            else :
+                print(f"Class {core.get('class')} {core.get('parent')} not classified")
 
-        return [
-            os.path.join(directory, f)
-            for f in os.listdir(directory)
-            if f.endswith(".java") and f not in jaxb_ignored_files
-        ]
-                   
-    def export_publish_qgis(self, output_path, name):
-        file_path = os.path.join(output_path, name).replace("\\", "/")
 
-        try:
-            xml_str = etree.tostring(self.publisher_qgis, method='xml', encoding='utf-8', pretty_print=True)
+        # for file in self.files:
+        #     content = HeleperFunction.load_java(file)
+        #     core = ParsingUtility.extract_core(self.parsing, content)
+        #     if core.get("class") in self.feature_set:
+        #         continue
 
-            with open(file_path, 'wb') as f:
-                f.write(xml_str)
+        #     elif core.get("class").replace("PropertyType", "Type") in self.feature_set:
+        #         continue
 
-        except Exception as e:
-            raise IOError(f"Failed to export XML to '{file_path}': {e}")
+        #     elif core.get("class") in self.property_set or core.get("parent") in self.property_set:
+        #         continue
+
+        #     elif core.get("parent") in self.property_set:
+        #         continue
+
+        #     elif core.get("class") in self.object_set or core.get("parent") in self.object_set:
+        #         continue
+
+        #     elif core.get("parent") in self.object_set:
+        #         continue
+
+        #     elif core.get("class").replace("ExtensionType", "Type") in self.object_set:
+        #         continue
+
+        #     elif core.get("class") in self.timesliceproperty_set:
+        #         continue
+
+        #     elif core.get("class") in self.timeslice_set:
+        #         continue
+
+        #     elif core.get("class") in self.extension_set or core.get("parent") in self.extension_set:
+        #         continue
+
+        #     elif core.get("parent") in self.extension_set:
+        #         continue
+
+        #     elif core.get("class") in self.basetype_set:
+        #         continue
+
+        #     elif core.get("class") in self.type_set:
+        #         continue
+
+        #     elif core.get("class") in self.ignore_set:
+        #         continue
+
+        #     elif core.get("parent") in self.ignore_set:
+        #         continue
+
+        #     elif core.get("class") in self.abstract_set:
+        #         continue
+
+        #     elif core.get("parent") in self.abstract_set:
+        #         continue
+        
+        #     else :
+        #         print(f"Class {core.get('class')} {core.get('parent')} not classified")
+
+        for feature in self.views["feature"].values():
+            feature.generate_sql()
+
+        for feature in self.views["feature"].values() :
+            print(feature.get_sql())
+
+    # def __init__(self, name, parsing, input_path, output_path, directory,):
+    #     self.name = name
+    #     # Attribute
+    #     self.association_attr = GenericHeleperFunction.load_json(input_path, "association.json")
+    #     self.qlr_attr = GenericHeleperFunction.load_json(input_path, "qlr.json")
+    #     self.inheritance_attr = GenericHeleperFunction.load_json(input_path, "inheritance.json")
+    #     self.formated_sql = GenericHeleperFunction.load_json(input_path, "sql.json")
+    #     self.ignore_set = set(self.inheritance_attr["ignore"])
+    #     self.parsing = Parsing(parsing, self.inheritance_attr, self.formated_sql, self.association_attr, self.qlr_attr,  input_path)
+    #     self.files = self.get_file_path(directory)
+    #     self.layers = self.get_layers()
+    #     self.export_sql(output_path, "postgres/view.sql")
+    
+    def classify_file(self, path):
+        content = HeleperFunction.load_java(path)
+        core =  ParsingUtility.extract_core(self.parsing, content)
+
+        # files are either in: 
+        # - Feature
+        # - Object
+            
+        if class_name in self.feature_set :
+            self.feature[class_name] = Feature(self.input_path, class_name, schema_name)
+        
+        # elif parent_name in self.property_parent_set:
+        #     if class_name in self.formated_sql:
+        #         self.property[class_name] = Property(self.input_path, class_name, schema_name, True)  
+        #         self.property[class_name].load_sql(self.formated_sql[class_name].get("path"))
+        #         self.property[class_name].load_dependecy(self.formated_sql[class_name].get("dependency"))
+
+        #     if class_name not in self.property.keys() : 
+        #         self.property[class_name] = Property(self.input_path, class_name, schema_name)
+
+        # else :
+
+        #     self.assosication[class_name] = {
+        #         "schema" : schema_name,
+        #         "table" : table_name
+        #     }
 
             
     def export_sql(self, output_path, name):

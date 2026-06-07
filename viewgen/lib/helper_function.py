@@ -1,9 +1,46 @@
 import os
 import json
+from unicodedata import name
+import yaml
 from lxml import etree
 from lxml import html
 
-class GenericHeleperFunction:
+class HeleperFunction:
+
+    @staticmethod
+    def load_yaml(path):
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"'{path}' not found")
+
+        with open(path, 'r', encoding='utf-8') as f:
+            try:
+                data = yaml.safe_load(f)
+                return data
+            except yaml.YAMLError as e:
+                raise ValueError(f"Invalid YAML in '{path}': {e}")
+            
+    @staticmethod
+    def get_file_path(directory, file_extension, files_to_ignore=None):
+        if files_to_ignore is None:
+            files_to_ignore = set()
+
+        return [
+            os.path.join(directory, f)
+            for f in os.listdir(directory)
+            if f.endswith(file_extension) and f not in files_to_ignore
+        ]
+    
+    @staticmethod
+    def load_java(path):
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"'{path}' not found")
+        
+        if not path.endswith('.java'):
+            raise ValueError(f"'{path}' is not a Java file")
+
+        with open(path, 'r', encoding='utf-8') as file:
+            content = file.read()
+        return content
 
     @staticmethod
     def load_json(path, name):
@@ -53,9 +90,9 @@ class GenericHeleperFunction:
         Recursively formats all strings in a nested structure using Python's str.format().
         """
         if isinstance(structure, dict):
-            return {k: GenericHeleperFunction.format_structure(v, **kwargs) for k, v in structure.items()}
+            return {k: HeleperFunction.format_structure(v, **kwargs) for k, v in structure.items()}
         elif isinstance(structure, list):
-            return [GenericHeleperFunction.format_structure(item, **kwargs) for item in structure]
+            return [HeleperFunction.format_structure(item, **kwargs) for item in structure]
         elif isinstance(structure, str):
             return structure.format(**kwargs)
         else:
