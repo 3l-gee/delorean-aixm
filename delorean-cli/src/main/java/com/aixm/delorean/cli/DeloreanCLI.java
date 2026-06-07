@@ -3,18 +3,26 @@ package com.aixm.delorean.cli;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.LoggerContext;
+import org.slf4j.LoggerFactory;
+import java.util.Properties;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.Callable;
 
 import com.aixm.delorean.core.DeloreanProcessor;
 import com.aixm.delorean.core.container.Container;
+import com.aixm.delorean.core.container.ContainerWarehouse;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 
@@ -29,13 +37,13 @@ import com.networknt.schema.ValidationMessage;
 @Command(mixinStandardHelpOptions = true, version = "0.2.0")
 public abstract class DeloreanCLI implements Callable<Integer> {
 
-    @Option(names = {"-y", "--yaml"}, required = false, description = "YAML configuration file")
+    @Option(names = {"-y", "--yaml"}, required = true, description = "YAML configuration file")
     File yamlFile;
 
-    @Option(names = {"--verbose"}, description = "Enable verbose output")
+    @Option(names = {"-v","--verbose"}, required = false, description = "Enable verbose output")
     boolean verbose;
 
-    @Option(names = {"--strict"}, description = "Enable strict mode")
+    @Option(names = {"-s","--strict"}, required = false, description = "Enable strict mode")
     boolean strict;
 
     protected abstract DeloreanProcessor createProcessor();
@@ -48,58 +56,230 @@ public abstract class DeloreanCLI implements Callable<Integer> {
             return 1;
         }
 
-        if (!yamlFile.exists()) {
-            System.err.println("Error: Configuration file not found: " + yamlFile.getAbsolutePath());
+        if (yamlFile == null || !yamlFile.exists()) {
+            System.err.println("Error: Configuration file not found: " + 
+                (yamlFile != null ? yamlFile.getAbsolutePath() : "No file specified"));
             return 1;
         }
 
-        // Run structural validation against internal resources
-        // if (!validateYaml(yamlFile)) {
-        //     System.err.println("Validation failures encountered. Halting execution pipeline.");
-        //     return 1;
-        // }
+        if (!validateYaml(yamlFile)) {
+            System.err.println("Validation failures encountered. Halting execution pipeline.");
+            return 1;
+        }
 
-        run(processor);
-
-        return 0;
-
-        // return executePipeline(processor, yamlFile) ? 0 : 1;
+        return executePipeline(processor, yamlFile) ? 0 : 1;
     }
 
-    // private boolean validateYaml(File yaml) {
-    //     String schemaResourcePath = "/delorean-schema.json";
-        
-    //     try (InputStream schemaStream = getClass().getResourceAsStream(schemaResourcePath)) {
-    //         if (schemaStream == null) {
-    //             if (strict) {
-    //                 System.err.println("Strict Mode Error: Embedded validation schema '" + schemaResourcePath + "' was not found in JAR resources.");
-    //                 return false;
-    //             }
-    //             if (verbose) System.out.println("Validation skipped: Embedded schema file not found in resources.");
-    //             return true; // Lenient bypass if schema is absent in normal execution
-    //         }
+    private boolean validateYaml(File yaml) {
+        return true;
+    }
 
-    //         ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory());
-    //         JsonNode jsonNode = yamlMapper.readTree(yaml);
+    public void configureEnvironment() {
+        if (this.verbose) {
+            LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
+            
+            // Turn the root logger to DEBUG
+            loggerContext.getLogger("ROOT").setLevel(Level.DEBUG);
+            
+            // Turn framework loggers to DEBUG
+            loggerContext.getLogger("org.hibernate").setLevel(Level.DEBUG);
+            loggerContext.getLogger("com.zaxxer.hikari").setLevel(Level.DEBUG);
+            loggerContext.getLogger("com.aixm.delorean").setLevel(Level.DEBUG);
+            
+            ConsoleLogger.info("Verbose mode enabled");
+        }
+    }
 
-    //         JsonSchemaFactory factory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V202012);
-    //         JsonSchema jsonSchema = factory.getSchema(schemaStream);
-    //         Set<ValidationMessage> errors = jsonSchema.validate(jsonNode);
+    private boolean executePipeline(DeloreanProcessor processor, File yaml) {
+        try {
+            ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+            JsonNode rootNode = mapper.readTree(yamlFile);
+            String name = rootNode.path("name").asText("Unnamed Workflow");
+            String logLevel = rootNode.path("logging").asText("INFO");
+            boolean verbose = rootNode.path("verbose").asBoolean(false);
+            
+            // Initialize Containers
+            JsonNode containersNode = rootNode.path("containers");
+            Set<Map.Entry<String, JsonNode>> containerFields = containersNode.properties();
+            for (Map.Entry<String, JsonNode> containerNode : containerFields) {
+                String containerName = containerNode.getKey();
+                JsonNode dbNode = containerNode.getValue().path("database");
 
-    //         if (!errors.isEmpty()) {
-    //             System.err.println("YAML Configuration Rule Violations Detected:");
-    //             for (ValidationMessage error : errors) {
-    //                 System.err.println(" -> " + error.getMessage());
-    //             }
-    //             return false;
-    //         }
+                processor.createNewContainer(containerName);
+                Container<?,?,?,?,?,?> container = processor.getContainerByName(containerName);
+            
+                if (container != null && dbNode != null) {
+                    container.SetCredentials(
+                        dbNode.path("url").asText(),
+                        dbNode.path("username").asText(),
+                        dbNode.path("password").asText(),
+                        dbNode.path("hbm2ddl").asText()
+                    );
+                }
+            }
 
-    //         return true;
-    //     } catch (Exception e) {
-    //         System.err.println("Pre-flight validation engine error while parsing schema resource: " + e.getMessage());
-    //         return false;
-    //     }
-    // }
+            // Process Pipeline Steps
+            JsonNode actionsNode = rootNode.path("pipeline");
+            Set<Map.Entry<String, JsonNode>> actionsFields = actionsNode.properties();
+            for (Map.Entry<String, JsonNode> actionNode : actionsFields) {
+                String actionName = actionNode.getKey();
+                JsonNode dbNode = actionNode.getValue();
+
+                switch (actionName) {
+                    case "startup":
+                    case "shutdown":
+                    case "unmarshal":
+                    case "marshal":
+                    case "persist":
+                    case "merge":
+                    case "diff":
+                    case "sax_validation":
+                    case "print_validation":
+                    case "statistics":
+                    case "info":
+                    case "get_persisted_message":
+                    case "extract":
+                    case "predicate":
+                    case "integrate":
+                        String containerName = actionNode.getValue().path("target").asText();
+                        Container<?,?,?,?,?,?> container = processor.getContainerByName(containerName);
+                        if (container != null) {
+                            runContainerAtomicAction(container, actionName, actionNode.getValue());
+                        } else {
+                            throw new IllegalArgumentException("Container not found with name: " + containerName);
+                        }
+                        break;
+                    
+                    case "set_context":
+                    case "register_context":
+                    case "remove_context":
+                    case "clear_contexts":
+                    case "un_set_active_context":
+                        runGlobalAtomicAction(processor, actionName, actionNode.getValue());
+                        break;
+                    
+                    case "prune":
+                    case "clone":
+                        break;
+
+                    default:
+                        break;
+                }
+
+
+            }
+            ConsoleLogger.info("Workflow successfully completed.");
+            return true;
+        } catch (Exception e) {
+            System.err.println("Fatal execution failure during sequential processing: " + e.getMessage());
+            if (verbose) e.printStackTrace();
+            return false;
+        }
+    }
+
+    private void runContainerWarehouseAtomicAction(Container<?,?,?,?,?,?> container, String commandName, JsonNode args) {
+        switch (commandName.toLowerCase().trim()) {
+            case "prune":
+                break;
+                
+            case "clone":
+                System.out.println("Registering context with salt: " + args.path("salt").asText());
+                break;
+
+            case "log_summary":
+                System.out.println("Pipeline step milestone completed.");
+                break;
+
+            default:
+                System.err.println("Unknown global command: " + commandName);
+                break;
+        }
+    }
+
+    private void runContainerAtomicAction(Container<?,?,?,?,?,?> container, String commandName, JsonNode args) {
+        switch (commandName.toLowerCase().trim()) {
+            case "startup":
+                container.startup();
+                break;
+            case "shutdown":
+                container.shutdown();
+                break;
+            case "unmarshal":
+                if (args != null && args.has("path")) {
+                    container.unmarshal(args.get("path").asText());
+                }
+                break;
+            case "marshal":
+                if (args != null && args.has("path")) {
+                    container.marshal(args.get("path").asText());
+                }
+                break;
+            case "persist":
+                container.persist();
+                break;
+            case "merge":
+                container.merge();
+                break;
+            case "diff":
+                container.diff();
+                break;
+            case "sax_validation":
+                container.saxValidation();
+                break;
+            case "print_validation":
+                container.printValidation();
+                break;
+            case "statistics":
+                container.statistics();
+                break;
+            case "info":
+                container.info();
+                break;
+            case "get_persisted_message":
+                container.getPersitedMessage();
+                break;
+            case "extract":
+                if (args != null && args.has("id")) {
+                    // Extracts handling String or Int identifiers dynamically
+                    JsonNode idNode = args.get("id");
+                    Object id = idNode.isInt() ? idNode.asInt() : idNode.asText();
+                    container.extract(id);
+                }
+                break;
+            case "predicate":
+                if (args != null && args.has("time")) {
+                    container.predicate(args.get("time").asText());
+                }
+                break;
+            case "integrate":
+                if (args != null && args.has("path")) {
+                    container.integrate(args.get("path").asText());
+                }
+                break;
+            default:
+                System.err.println("Unknown container command: " + commandName);
+                break;
+        }
+    }
+
+    private void runGlobalAtomicAction(DeloreanProcessor processor, String commandName, JsonNode args) {
+        switch (commandName.toLowerCase().trim()) {
+            case "set_context":
+                break;
+                
+            case "register_context":
+                System.out.println("Registering context with salt: " + args.path("salt").asText());
+                break;
+
+            case "log_summary":
+                System.out.println("Pipeline step milestone completed.");
+                break;
+
+            default:
+                System.err.println("Unknown global command: " + commandName);
+                break;
+        }
+    }
 
     // @SuppressWarnings("unchecked")
     // private boolean executePipeline(DeloreanProcessor processor, File yaml) {
@@ -202,28 +382,162 @@ public abstract class DeloreanCLI implements Callable<Integer> {
 
     private void run(DeloreanProcessor processor) {
         try {
-            processor.setContext("donlon", "");
-            Container<?,?,?,?,?,?> baseline = processor.newContainer();
-            baseline.SetCredentials("jdbc:postgresql://localhost:5433/aixm51-test", "postgres", "postgres", "create");
-            baseline.startup();
-            baseline.unmarshal("C:/Users/rapha/Downloads/aixm51/baseline.xml");
-            baseline.info();
-            baseline.saxValidation();
-            baseline.printValidation();
-            baseline.persist();
-            baseline.getPersitedMessage();
+            // processor.setContext("donlon", "");
+            // Container<?,?,?,?,?,?> baseline = processor.newContainer();
+            // baseline.SetCredentials("jdbc:postgresql://localhost:5433/aixm51-test", "postgres", "postgres", "create");
+            // baseline.startup();
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm51/baseline.xml");
+            // baseline.info();
+            // baseline.saxValidation();
+            // baseline.printValidation();
+            // baseline.persist();
+            // baseline.getPersitedMessage();
 
-            processor.setContext("donlon", "");
-            Container<?,?,?,?,?,?> notam = processor.newContainer();
-            notam.SetCredentials("jdbc:postgresql://localhost:5433/aixm51-test", "postgres", "postgres", "none");
-            notam.startup();
-            notam.getPersitedMessage();
-            notam.extract(1L);
-            notam.info();
-            notam.saxValidation();
-            notam.printValidation();
-            notam.marshal("C:/Users/rapha/Downloads/aixm51/2025-10-02-skyguide-obst.aixm.xml");
+            // processor.setContext("donlon", "");
+            // Container<?,?,?,?,?,?> notam = processor.newContainer();
+            // notam.SetCredentials("jdbc:postgresql://localhost:5433/aixm51-test", "postgres", "postgres", "none");
+            // notam.startup();
+            // notam.getPersitedMessage();
+            // notam.extract(1L);
+            // notam.info();
+            // notam.saxValidation();
+            // notam.printValidation();
+            // notam.marshal("C:/Users/rapha/Downloads/aixm51/2025-10-02-skyguide-obst.aixm.xml");
 
+            // processor.setContext("donlon", "");
+            // Container<?,?,?,?,?,?> baseline = processor.newContainer();
+            // baseline.SetCredentials("jdbc:postgresql://localhost:5433/aixm51", "postgres", "postgres", "create");
+            // baseline.startup();
+            // // Skyguide AIP Obstacles
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm51/2025-10-02-skyguide-obst.aixm.xml");
+            // baseline.persist();
+
+            // processor.setContext("donlon", "");
+            // Container<?,?,?,?,?,?> supplement = processor.newContainer();
+            // supplement.SetCredentials("jdbc:postgresql://localhost:5433/aixm51", "postgres", "postgres", "none");
+            // supplement.startup();
+
+            // // SIA AIP Datasets
+            // supplement.unmarshal("C:/Users/rapha/Downloads/aixm51/LF_AIP_DS_PartOf_20240516_AIRAC.xml");
+            // supplement.persist();
+
+            // // DONLOON Aerodrome Mapping
+            // supplement.unmarshal("C:/Users/rapha/Downloads/aixm51/EA_AIP_DS_FULL_20170701_mod.xml");
+            // supplement.persist();
+
+            // // PANSA AIP Datasets
+            // supplement.unmarshal("C:/Users/rapha/Downloads/aixm51/EP_AIP_DS_FULL_20220421_AIRAC.xml");
+            // supplement.persist();
+
+            // // PANSA AIP Datasets
+            // supplement.unmarshal("C:/Users/rapha/Downloads/aixm51/EP_OBS_DS_FULL_20220421_AIRAC.xml");
+            // supplement.persist();
+
+            // processor.setContext("donlon", "");
+            // Container<?,?,?,?,?,?> first = processor.createNewContainer();
+            // first.SetCredentials("jdbc:postgresql://localhost:5433/aixm511", "postgres", "postgres", "create");
+            // first.startup();
+
+            // first.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDB_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // first.persist();
+
+
+            // processor.setContext("donlon", "");
+            // Container<?,?,?,?,?,?> baseline = processor.createNewContainer();
+            // baseline.SetCredentials("jdbc:postgresql://localhost:5433/aixm511", "postgres", "postgres", "none");
+            // baseline.startup();
+            
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDB_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDLP_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDN_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDN_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDLN_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDG_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDAZ_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDFQ_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDMA_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDFH_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDTL_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDSB_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDSB_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDHI_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDQD_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDC_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDGS_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDLW_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDE_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDF_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDK_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDLV_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDQA_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDVE_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDL_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDS_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDJA_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDR_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDDM_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDQC_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
+
+            // baseline.unmarshal("C:/Users/rapha/Downloads/aixm511/aerodrome_mapping_EDTY_AerodromeMapping_2026-05-14_2026-05-14_snapshot.zip");
+            // baseline.persist();
 
 
             // Container<?,?,?,?> notam = processor.newContainer();
@@ -283,7 +597,6 @@ public abstract class DeloreanCLI implements Callable<Integer> {
             // container.getDatabaseBinding().setHbm2ddl("create");
             // container.startup();
             // container.persist();
-            ConsoleLogger.getInstance().logOverride(com.aixm.delorean.core.log.LogLevel.INFO, "Workflow successfully completed.");
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
             if (verbose) e.printStackTrace();
@@ -304,7 +617,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
         System.out.println("         license : GPL v3");
         System.out.println("          author : Raphaël Gerth");
         System.out.println("            repo : https://github.com/3l-gee/delorean-aixm");
-        System.out.println("             web : https://delorean-aixm.io/");
+        System.out.println("             web : https://delorean-aixm.com/");
         System.out.println("            help : 'help' ");
         System.out.println("");
     }

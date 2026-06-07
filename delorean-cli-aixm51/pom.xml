@@ -35,6 +35,26 @@
             <artifactId>delorean-aixm-51</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!-- Jackson parsing support for YAML configurations -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+
+        <!-- JSON Schema Validator engine -->
+        <dependency>
+            <groupId>com.networknt</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${json-schema-validator.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

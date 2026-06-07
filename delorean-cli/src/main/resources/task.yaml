@@ -1,37 +1,37 @@
-name : "Delorean CLI Task Example"
+name: "Delorean CLI Task Example"
+version: "1.0"
+verbose: true
+logging: "DEBUG"
+
+containers:
+  container-A:
+    database:
+      url: "jdbc:postgresql://localhost:5433/aixm51"
+      username: "postgres"
+      password: "postgres"
+      hbm2ddl: "create"
+
 pipeline:
-  - container: "container-A"
-    context: "donlon"
-    database:
-      url: "jdbc:postgresql://localhost:5433/aixm51"
-      username: "postgres"
-      password: "postgres"
-      hbm2ddl: "update"
-    actions:
-        - info
-        - unmarshal: "C:/Users/rapha/Downloads/aixm51/baseline.xml"
-        - saxvalidation:
-            severity: "fatal"
-            ignoreWarnings: true
-        - persist:
-            batchSize: 500
-            flushEveryStep: false
-        - marshal: "C:/Users/rapha/Downloads/aixm51/output.xml"
+  set_context:
+    name: "AIXM 5.1 Context"
+    description: "Context for AIXM 5.1 processing"
 
-  - container: "container-B"
-    context: "donlon"
-    database:
-      url: "jdbc:postgresql://localhost:5433/aixm51"
-      username: "postgres"
-      password: "postgres"
-    actions:
-      - info
-      - unmarshal: "C:/Users/rapha/Downloads/aixm51/baseline.xml"
-  
-  - merge:
-      source: "container-B"
-      target: "container-A"
+  unmarshal: 
+    target: "container-A"
+    path: "C:/Users/rapha/Downloads/aixm51/baseline.xml"
 
-  - filter:
-      positive: "container-B"
-      negative: "container-C"
+  sax_validation: 
+    target: "container-A"
+
+  startup:
+    target: "container-A"
+
+  persist:
+    target: "container-A"
+
+  extract:
+    target: "container-A"
+
+  marshal: 
+    target: "container-A"
+    path: "C:/Users/rapha/Downloads/aixm51/output.xml"

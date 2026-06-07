@@ -1,0 +1,19 @@
+<configuration>
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%black(%replace(%level){'INFO', '%blue(INFO)'}{'WARN', '%yellow(WARN)'}{'ERROR', '%red(ERROR)'})] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.hibernate" level="ERROR" />
+    <logger name="org.hibernate.metamodel" level="ERROR" />
+    <logger name="org.hibernate.engine" level="ERROR" />
+    <logger name="org.hibernate.orm" level="ERROR" />
+    <logger name="com.zaxxer.hikari" level="INFO" />
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
