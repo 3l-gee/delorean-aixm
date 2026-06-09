@@ -54,6 +54,8 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 	<group name="AIXMBasicMessagePropertyGroup">
 		<sequence>
 			<element name="hasMember" type="message:BasicMessageMemberAIXMPropertyType" maxOccurs="unbounded"/>
+			<element name="salt" type="string" minOccurs="0"/>
+            <element name="saltDescription" type="string" minOccurs="0"/>
 		</sequence>
 	</group>
 	<complexType name="AIXMBasicMessageType">

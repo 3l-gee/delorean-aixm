@@ -43,7 +43,7 @@ public class HrefHelper {
             if (!ContextWarehouse.hasActiveContext()) {
                 return id;
             }
-            return DeloreanUtility.generateHash(id, ContextWarehouse.getActiveHash());
+            return DeloreanUtility.generateHash(id, ContextWarehouse.getActiveSalt());
         }
     }
 
@@ -58,7 +58,7 @@ public class HrefHelper {
 
         } else if (hashed.startsWith("urn:oid:")) {
             String originalId = hashed.substring("urn:oid:".length());
-            return DeloreanUtility.generateHash(originalId, ContextWarehouse.getActiveHash());
+            return DeloreanUtility.generateHash(originalId, ContextWarehouse.getActiveSalt());
 
         } else if (hashed.startsWith("urn:")) {
             return hashed;
@@ -111,7 +111,7 @@ public class HrefHelper {
             } else {
                 type = HrefType.OID;
                 String originalId = normalized.substring(1);
-                normalized = DeloreanUtility.generateHash(originalId, ContextWarehouse.getActiveHash());
+                normalized = DeloreanUtility.generateHash(originalId, ContextWarehouse.getActiveSalt());
             }
 
         } else {

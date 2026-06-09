@@ -120,10 +120,8 @@ public abstract class DeloreanCLI implements Callable<Integer> {
 
             // Process Pipeline Steps
             JsonNode actionsNode = rootNode.path("pipeline");
-            Set<Map.Entry<String, JsonNode>> actionsFields = actionsNode.properties();
-            for (Map.Entry<String, JsonNode> actionNode : actionsFields) {
-                String actionName = actionNode.getKey();
-                JsonNode dbNode = actionNode.getValue();
+            for (JsonNode actionNode : actionsNode) {
+                String actionName = actionNode.path("action").asText();
 
                 switch (actionName) {
                     case "startup":
@@ -141,10 +139,10 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                     case "extract":
                     case "predicate":
                     case "integrate":
-                        String containerName = actionNode.getValue().path("target").asText();
+                        String containerName = actionNode.path("target").asText();
                         Container<?,?,?,?,?,?> container = processor.getContainerByName(containerName);
                         if (container != null) {
-                            runContainerAtomicAction(container, actionName, actionNode.getValue());
+                            runContainerAtomicAction(container, actionName, actionNode);
                         } else {
                             throw new IllegalArgumentException("Container not found with name: " + containerName);
                         }
@@ -155,7 +153,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                     case "remove_context":
                     case "clear_contexts":
                     case "un_set_active_context":
-                        runGlobalAtomicAction(processor, actionName, actionNode.getValue());
+                        runGlobalAtomicAction(processor, actionName, actionNode);
                         break;
                     
                     case "prune":
@@ -163,6 +161,7 @@ public abstract class DeloreanCLI implements Callable<Integer> {
                         break;
 
                     default:
+                        ConsoleLogger.error("Warning: Skipping unknown pipeline action: " + actionName);
                         break;
                 }
 
@@ -265,6 +264,11 @@ public abstract class DeloreanCLI implements Callable<Integer> {
     private void runGlobalAtomicAction(DeloreanProcessor processor, String commandName, JsonNode args) {
         switch (commandName.toLowerCase().trim()) {
             case "set_context":
+                if (args != null && args.has("description")){
+                    String description = args.get("description").asText();
+                    processor.setContext(description);
+                }
+
                 break;
                 
             case "register_context":

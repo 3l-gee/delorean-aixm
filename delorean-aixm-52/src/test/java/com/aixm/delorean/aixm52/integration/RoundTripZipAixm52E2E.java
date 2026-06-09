@@ -52,16 +52,16 @@ public class RoundTripZipAixm52E2E {
     void setContext() {
 
         //given
-        delorean.setContext("RoundTripZipAixm52E2E","");
+        delorean.setContext("RoundTripZipAixm52E2E");
 
         // context is successfully created
         ContextWarehouse.getInstance().getActiveInfo();
 
         // context is correctly set
-        assertThat(ContextWarehouse.getInstance().getActive().getName()).isEqualTo("RoundTripZipAixm52E2E");
+        assertThat(ContextWarehouse.getInstance().getActive().getDescription()).isEqualTo("RoundTripZipAixm52E2E");
 
         // context has a non-null hash
-        assertThat(ContextWarehouse.getActiveHash()).isNotNull();
+        assertThat(ContextWarehouse.getActiveSalt()).isNotNull();
 
     }
     

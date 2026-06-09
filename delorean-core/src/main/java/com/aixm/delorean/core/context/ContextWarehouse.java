@@ -30,20 +30,20 @@ public class ContextWarehouse {
         return activeContext != null;
     }
 
-    public void setContext(String name, String description) {
+    public void setContext(String description) {
         String id = UUID.randomUUID().toString().substring(0, 6);
-        Context ctx = new Context(id, UUID.randomUUID().toString(), name, description);
+        Context ctx = new Context(id, UUID.randomUUID().toString(), description);
         contexts.put(id, ctx);
         ContextWarehouse.activeContext = ctx;
-        ConsoleLogger.info("Active Context: " + ctx.getName() + " Hash: " + ctx.getHash() + " Description: " + ctx.getDescription());
+        ConsoleLogger.info("Active Context: " + ctx.getRef() + " Hash: " + ctx.getSalt() + " Description: " + ctx.getDescription());
     }
 
-    public void registerContext(String salt, String name, String description) {
+    public void registerContext(String salt, String description) {
         String id = UUID.randomUUID().toString().substring(0, 6);
-        Context ctx = new Context(id, salt, name, description);
+        Context ctx = new Context(id, salt, description);
         contexts.put(id, ctx);
         ContextWarehouse.activeContext = ctx;
-        ConsoleLogger.info("Active Context: " + ctx.getName() + " Hash: " + ctx.getHash() + " Description: " + ctx.getDescription());
+        ConsoleLogger.info("Active Context: " + ctx.getRef() + " Hash: " + ctx.getSalt() + " Description: " + ctx.getDescription());
     }
 
     public void switchContext(String ref) {
@@ -52,7 +52,7 @@ public class ContextWarehouse {
             throw new IllegalArgumentException("Context " + ref + " not found");
         }
         activeContext = ctx;
-        ConsoleLogger.info("Switched to Context: " + ctx.getName() + " Hash: " + ctx.getHash() + " Description: " + ctx.getDescription());
+        ConsoleLogger.info("Switched to Context: " + ctx.getRef() + " Hash: " + ctx.getSalt() + " Description: " + ctx.getDescription());
     }
 
     public Context getActive() {
@@ -68,8 +68,8 @@ public class ContextWarehouse {
         return getInstance().getActive().getId(uuid);
     }
 
-    public static String getActiveHash() {
-        return getInstance().getActive().getHash();
+    public static String getActiveSalt() {
+        return getInstance().getActive().getSalt();
     }
 
     public Map<String, Context> listContexts() {
@@ -78,11 +78,11 @@ public class ContextWarehouse {
 
     public void getActiveInfo() {
         Context current = getActive();
-        ConsoleLogger.info("Active Context: " + current.getName() + " Hash: " + current.getHash() + " Description: " + current.getDescription());
+        ConsoleLogger.info("Active Context: " + current.getRef() + " Salt: " + current.getSalt() + " Description: " + current.getDescription());
     }
 
-    public String getHash() {
-        return getActive().getHash();
+    public String getSalt() {
+        return getActive().getSalt();
     }
 
     public String getId(String uuid) {

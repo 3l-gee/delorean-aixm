@@ -27,7 +27,6 @@
 
         <!-- Set Hibernate batching -->
         <property name="hibernate.jdbc.batch_size">50</property>
-        <property name="hibernate.jdbc.batch_size">50</property>
         <property name="hibernate.jdbc.fetch_size">100</property>
         <property name="hibernate.order_inserts">true</property>
         <property name="hibernate.order_updates">true</property>
@@ -38,10 +37,12 @@
         <mapping class="com.aixm.delorean.core.gis.type.Geodesic"/>
         <mapping class="com.aixm.delorean.core.gis.type.Arc"/>
         <mapping class="com.aixm.delorean.core.gis.type.LineString"/>
+        <mapping class="com.aixm.delorean.core.gis.type.LinearSegment"/>
         <mapping class="com.aixm.delorean.core.gis.type.Ring"/>
         <mapping class="com.aixm.delorean.core.gis.type.Circle"/>
         <mapping class="com.aixm.delorean.core.gis.type.Polygon"/>
         <mapping class="com.aixm.delorean.core.gis.type.Segment"/>
+        <mapping class="com.aixm.delorean.core.gis.type.Point"/>
 
         <mapping class="com.aixm.delorean.aixm51.schema.message.AIXMBasicMessageType"/>
         <mapping class="com.aixm.delorean.aixm51.schema.message.BasicMessageMemberAIXMPropertyType"/>

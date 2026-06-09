@@ -19,38 +19,26 @@ import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 @Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "Geodesic")
 @Table(name = "geodesic", schema = "gml")
-public class Geodesic extends Segment implements java.io.Serializable{
+public class Geodesic extends LinearSegment implements java.io.Serializable{
 
-    private static final long serialVersionUID = 20250910L;
-    protected PosList posList;
-    protected List<GmlPointType> gmlPoint;
-
-    @Embedded
-    @AttributeOverrides({
-        @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "srs_name", length = 255)),
-        @jakarta.persistence.AttributeOverride(name = "value", column = @Column(name = "pos_list", columnDefinition = "TEXT"))
-    })
-    public PosList getPosList() {
-        return posList;
+    /**
+     * Maps the PostGIS column so Hibernate creates it, but ignores it during read/write cycles.
+     * * - insertable = false, updatable = false: Tells Hibernate never to write to this column.
+     * - generatedAs: Instructs Hibernate's schema exporter to create it as a native generated column.
+     */
+    @Column(
+        name = "geom", 
+        columnDefinition = "geometry(LineString) GENERATED ALWAYS AS (CASE WHEN pos_list IS NOT NULL AND pos_list <> '' THEN ST_GeomFromText(pos_list, srs_name::integer) ELSE NULL END) STORED",
+        insertable = false, 
+        updatable = false
+    )
+    public String getGeom() {
+        return null; // Return null so Hibernate doesn't pass around any heavy spatial objects
     }
 
-    public void setPosList(PosList value) {
-        this.posList = value;
-    }
-
-    @OneToMany(targetEntity = GmlPointType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "gml_point_hjid", nullable = true)
-    public List<GmlPointType> getGmlPoint() {
-        if (gmlPoint == null) {
-            gmlPoint = new ArrayList<>();
-        }
-        return gmlPoint;
-    }
-
-    public void setGmlPoint(List<GmlPointType> gmlPoint) {
-        this.gmlPoint = gmlPoint;
+    public void setGeom(String geom) {
+        // No-op: Hibernate will never try to populate this unless forced, 
+        // and your Java layer ignores it.
     }
 
     @Override

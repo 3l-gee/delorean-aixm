@@ -38217,6 +38217,7 @@
     <!-- part : default -->
     <jaxb:bindings node="//xs:complexType[@name='AIXMBasicMessageType']">
       <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlRootElement</annox:annotate>
+      <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlType(name = "AIXMBasicMessageType", propOrder = {"hasMember"})</annox:annotate>
       <hj:entity>
         <orm:table name="aixm_message" schema="aixm"/>
       </hj:entity>
@@ -38229,6 +38230,18 @@
           <orm:inverse-join-column name="member_hjid" referenced-column-name="hjid"/>
         </orm:join-table>
       </hj:many-to-many>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:group[@name='AIXMBasicMessagePropertyGroup']//xs:element[@name='salt']">
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlTransient</annox:annotate>
+      <hj:basic>
+        <orm:column name="salt" nullable="true"/>
+      </hj:basic>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:group[@name='AIXMBasicMessagePropertyGroup']//xs:element[@name='saltDescription']">
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlTransient</annox:annotate>
+      <hj:basic>
+        <orm:column name="salt_description" nullable="true"/>
+      </hj:basic>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
       <annox:annotate target="class">@org.hibernate.annotations.FilterDef(name = "BMMHjidFilter", parameters = @org.hibernate.annotations.ParamDef(name = "ids", type = Long.class))</annox:annotate>

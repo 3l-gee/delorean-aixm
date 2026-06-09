@@ -50,6 +50,26 @@ public class Point extends AbstractGMLType {
         this.pos = value;
     }
 
+    /**
+     * Maps the PostGIS column so Hibernate creates it, but ignores it during read/write cycles.
+     * * - insertable = false, updatable = false: Tells Hibernate never to write to this column.
+     * - generatedAs: Instructs Hibernate's schema exporter to create it as a native generated column.
+     */
+    @Column(
+        name = "geom", 
+        columnDefinition = "geometry(Point) GENERATED ALWAYS AS (ST_GeomFromText(pos::text, pos_srs_name::integer)) STORED", 
+        insertable = false, 
+        updatable = false
+    )
+    public String getGeom() {
+        return null; // Return null so Hibernate doesn't pass around any heavy spatial objects
+    }
+
+    public void setGeom(String geom) {
+        // No-op: Hibernate will never try to populate this unless forced, 
+        // and your Java layer ignores it.
+    }
+
     public List<String> aggregateEpsgCode() {
         if (pos != null && pos.getSrsName() != null) {
             return List.of(pos.getSrsName());

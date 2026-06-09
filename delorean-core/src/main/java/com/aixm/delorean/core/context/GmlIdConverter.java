@@ -11,7 +11,7 @@ public class GmlIdConverter implements AttributeConverter<String, String> {
         if (!ContextWarehouse.hasActiveContext()) {
             return gmlId;
         }
-        return DeloreanUtility.generateHash(gmlId, ContextWarehouse.getActiveHash());
+        return DeloreanUtility.generateHash(gmlId, ContextWarehouse.getActiveSalt());
     }
 
     @Override

@@ -89,9 +89,17 @@ public class DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.setPassword(password);
         this.setHbm2ddl(hbm2ddl);
 
-        try (java.sql.Connection conn = java.sql.DriverManager.getConnection(url, username, password)) {
-            return true;
+        try {
+            Class.forName("org.postgresql.Driver");
+            
+            try (java.sql.Connection conn = java.sql.DriverManager.getConnection(url, username, password)) {
+                return true;
+            }
+        } catch (java.lang.ClassNotFoundException e) {
+            ConsoleLogger.error("PostgreSQL JDBC Driver not found on classpath!");
+            return false;
         } catch (java.sql.SQLException e) {
+            ConsoleLogger.error("Connection failed: " + e.getMessage());
             return false;
         }
     }

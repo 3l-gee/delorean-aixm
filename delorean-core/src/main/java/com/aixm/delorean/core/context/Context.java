@@ -7,15 +7,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Context {
     private final String ref;
     private final String salt;
-    private final String name;
     private final String description;
     private final ConcurrentHashMap<String, Integer> uuidIdMap;
     private final AtomicInteger sequenceCounter;
 
-    protected Context(String ref, String salt, String name, String description) {
+    protected Context(String ref, String salt, String description) {
         this.ref = ref;
         this.salt = salt;
-        this.name = name;
         this.description = description;
         this.uuidIdMap = new ConcurrentHashMap<>(50_000);
         this.sequenceCounter = new AtomicInteger(1);
@@ -25,12 +23,8 @@ public class Context {
         return this.ref;
     }
 
-    public String getHash() {
+    public String getSalt() {
         return this.salt;
-    }
-
-    public String getName() {
-        return this.name;
     }
 
     public String getDescription() {

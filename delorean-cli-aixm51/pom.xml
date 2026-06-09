@@ -55,6 +55,12 @@
             <artifactId>json-schema-validator</artifactId>
             <version>${json-schema-validator.version}</version>
         </dependency>
+        
+        <dependency>
+            <groupId>org.fusesource.jansi</groupId>
+            <artifactId>jansi</artifactId>
+            <version>${jansi.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
