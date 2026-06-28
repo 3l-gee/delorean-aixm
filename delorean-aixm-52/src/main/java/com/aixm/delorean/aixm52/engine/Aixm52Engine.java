@@ -37,8 +37,8 @@ public class Aixm52Engine extends com.aixm.delorean.core.engine.AbstractEngine<A
      * @param message The AIXM message to analyze.
      */
     @Override
-    public void info(AIXMBasicMessageType message) {
-        TemporalityInspector combinedInspector = new TemporalityInspector(Instant.MAX, Instant.MIN, Instant.MAX, Instant.MIN, 0, 0, 0, 0);
+    public void temporalityInspection(AIXMBasicMessageType message) {
+        TemporalityInspector combinedInspector = new TemporalityInspector(Instant.MAX, Instant.MIN, Instant.MAX, Instant.MIN, 0, 0, 0, 0,0,0);
 
         for (BasicMessageMemberAIXMPropertyType member : message.getHasMember()) { 
             AbstractAIXMFeatureType feature = member.getAbstractAIXMFeature().getValue();
@@ -48,7 +48,7 @@ public class Aixm52Engine extends com.aixm.delorean.core.engine.AbstractEngine<A
             }
         }
 
-        combinedInspector.printSummary();
+        combinedInspector.validateTemporality();
     }
 
     /**

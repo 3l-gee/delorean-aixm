@@ -133,7 +133,7 @@ public class RoundTripXmlAixm511E2E {
     @Order(30)
     void info(){
         // do
-        container.info();
+        container.temporalityInspection();
     }
 
     @Test

@@ -110,7 +110,7 @@ public class RoundTripZipAixm51E2E {
     @Order(30)
     void info(){
         // do
-        container.info();
+        container.temporalityInspection();
     }
 
     @Test

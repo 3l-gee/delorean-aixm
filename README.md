@@ -15,9 +15,11 @@ Delorean support all feature types found in aixm for the following aixm versions
 	* [x] Marshal
 		* [x] Zip
 		* [x] Plain
+		* [x] Url
 	* [x] Unmarshal
 		* [x] Zip
-		* [ ] Plain
+		* [x] Plain
+		* [x] Url
 	* [x] Persist
 	* [x] Extract
 	* [x] Predicate
@@ -121,6 +123,11 @@ mvn clean install -Pjaxb-core -Pjaxb-51 -Pjaxb-511 -Pjaxb-52
 Testing 
 ```bash
 mvn clean verify
+```
+
+Flame Graphing (aixm 5.1 cli yaml workflow exemple)
+```bash
+java -XX:StartFlightRecording=duration=60s,filename=.\profile.jfr -jar .\delorean-cli-aixm51\target\delorean-cli-aixm51-0.2.0.jar -y delorean-cli-aixm51\src\test\resources\task.yaml; java -jar jfr-converter.jar .\profile.jfr .\delorean-output.html
 ```
 
 ## Documentation

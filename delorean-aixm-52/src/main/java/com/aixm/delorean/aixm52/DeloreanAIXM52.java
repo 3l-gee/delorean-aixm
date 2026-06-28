@@ -77,8 +77,8 @@ public class DeloreanAIXM52 implements com.aixm.delorean.core.DeloreanProcessor 
      * Creates a new context with a random salt and sets it as active.
     */
     @Override
-    public void setContext(String name, String description) {
-        ContextWarehouse.getInstance().setContext(name, description);
+    public void setContext(String description) {
+        ContextWarehouse.getInstance().setContext( description);
     }
 
     /**
@@ -86,17 +86,8 @@ public class DeloreanAIXM52 implements com.aixm.delorean.core.DeloreanProcessor 
     * This allows for consistent ID generation across different runs or documents when the same salt is used.
     */
     @Override
-    public void registerContext(String salt, String name, String description) {
-        ContextWarehouse.getInstance().registerContext(salt, name, description);
-    }
-
-    /**
-     *  Removes the context with the given reference. If the removed context is currently active, it unsets the active context.
-     * @param ref The reference ID of the context to remove.
-     */
-    @Override
-    public void removeContext(String ref) {
-        ContextWarehouse.getInstance().removeContext(ref);
+    public void registerContext(String salt, String description) {
+        ContextWarehouse.getInstance().registerContext(salt, description);
     }
 
     /**

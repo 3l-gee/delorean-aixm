@@ -98,7 +98,7 @@ public class MergeAixm511E2E {
     @Order(30)
     void infoFirst(){
         // do
-        AContainer.info();
+        AContainer.temporalityInspection();
     }
 
     @Test
@@ -151,7 +151,7 @@ public class MergeAixm511E2E {
     @Order(70)
     void infoSecond(){
         // do
-        AContainer.info();
+        AContainer.temporalityInspection();
     }
 
     @Test
@@ -196,7 +196,7 @@ public class MergeAixm511E2E {
     @Order(110)
     void infoThird(){
         // do
-        BContainer.info();
+        BContainer.temporalityInspection();
     }
 
     @Test

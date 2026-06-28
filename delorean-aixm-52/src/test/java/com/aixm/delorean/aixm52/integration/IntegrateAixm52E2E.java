@@ -18,6 +18,7 @@ import java.io.File;
 /*
 
 */
+@Disabled("Until a AIXM 5.2 dataset is published")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class IntegrateAixm52E2E {

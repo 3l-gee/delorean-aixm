@@ -32,6 +32,7 @@ Simple lifecycle test for AIXM 5.1.1 Delorean container
     - extract data from DB
     - marshal XML
 */
+@Disabled("Until a AIXM 5.2 dataset is published")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RoundTripXmlAixm52E2E {
@@ -134,7 +135,7 @@ public class RoundTripXmlAixm52E2E {
     @Order(30)
     void info(){
         // do
-        container.info();
+        container.temporalityInspection();
     }
 
     @Test

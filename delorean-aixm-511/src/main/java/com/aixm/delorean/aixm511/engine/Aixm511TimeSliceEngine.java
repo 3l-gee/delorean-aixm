@@ -129,12 +129,15 @@ public class Aixm511TimeSliceEngine {
         Integer snapshotCount = 0;
         Integer tempDeltaCount = 0;
         Integer permDeltaCount = 0;
+        Integer featureCount = 1;
+        Integer timeSliceCount = null;
 
         if (feature == null) {
             return null;
         }
 
         List<AbstractAIXMTimeSliceType> listTimeSlice = Aixm511TimeSliceEngine.invokeTimeSlice(feature);
+        timeSliceCount = listTimeSlice.size();
 
         for (AbstractAIXMTimeSliceType timeSlice : listTimeSlice) {
             if (timeSlice != null) {
@@ -193,6 +196,6 @@ public class Aixm511TimeSliceEngine {
             }
         }
 
-        return new TemporalityInspector(EarliestfeatureLifetimeStart, LastestfeatureLifetimeEnd, earlistValidTimeStart, latestValidTimeEnd, baselineCount, snapshotCount, tempDeltaCount, permDeltaCount);
+        return new TemporalityInspector(EarliestfeatureLifetimeStart, LastestfeatureLifetimeEnd, earlistValidTimeStart, latestValidTimeEnd, baselineCount, snapshotCount, tempDeltaCount, permDeltaCount, featureCount, timeSliceCount);
     }
 }
