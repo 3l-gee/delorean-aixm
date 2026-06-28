@@ -61,22 +61,6 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
-
-        <!-- <dependency>
-            <groupId>com.aixm.delorean</groupId>
-            <artifactId>delorean-aixm-51</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aixm.delorean</groupId>
-            <artifactId>delorean-aixm-511</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aixm.delorean</groupId>
-            <artifactId>delorean-aixm-52</artifactId>
-            <version>${project.version}</version>
-        </dependency> -->
     </dependencies>
 
     <build>

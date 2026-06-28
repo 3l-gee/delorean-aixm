@@ -58,7 +58,7 @@ public class CurveGMLTest {
                         0L,
                         GisUtil.posList(
                             "4326", 
-                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                            "LINESTRING(13.377717264214601 52.51630693440871, -77.03654820204511 38.89763528280979)"
                         )
                     )
                 )
@@ -81,7 +81,7 @@ public class CurveGMLTest {
                         0L,
                         GisUtil.posList(
                             "4326",
-                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                            "LINESTRING(13.377717264214601 52.51630693440871, -77.03654820204511 38.89763528280979)"
                         )
                     )
                 )
@@ -109,7 +109,7 @@ public class CurveGMLTest {
                             0L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.POS,
                             null
@@ -119,7 +119,7 @@ public class CurveGMLTest {
                             1L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(38.89763528280979 -77.03654820204511)"
+                                "POINT(-77.03654820204511 38.89763528280979)"
                             ),
                             GeometricType.POS,
                             null
@@ -150,7 +150,7 @@ public class CurveGMLTest {
                             0L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.POS,
                             null
@@ -195,7 +195,7 @@ public class CurveGMLTest {
                         0L, 
                         GisUtil.posList(
                             "4326",
-                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                            "LINESTRING(13.377717264214601 52.51630693440871, -77.03654820204511 38.89763528280979)"
                         )
                     ),
                     GisUtil.line(
@@ -206,7 +206,7 @@ public class CurveGMLTest {
                             0L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(38.89763528280979 -77.03654820204511)"
+                                "POINT(-77.03654820204511 38.89763528280979)"
                             ),
                             GeometricType.POS,
                             null
@@ -216,7 +216,7 @@ public class CurveGMLTest {
                             1L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(-24.589287528217096 -70.1916580926402)"
+                                "POINT(-70.1916580926402 -24.589287528217096)"
                             ),
                             GeometricType.POS,
                             null
@@ -226,7 +226,7 @@ public class CurveGMLTest {
                         2L,
                         GisUtil.posList(
                             "4326",
-                            "LINESTRING(-24.589287528217096 -70.1916580926402, -33.85704607534651 151.21496554537183)"
+                            "LINESTRING(-70.1916580926402 -24.589287528217096, 151.21496554537183 -33.85704607534651)"
                         )
                     )
                 )
@@ -255,7 +255,7 @@ public class CurveGMLTest {
                             null,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.POS,
                             null
@@ -435,7 +435,7 @@ public class CurveGMLTest {
                             null,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(48.8566 2.3522)"
+                                "POINT(2.3522 48.8566)"
                             ),
                             GeometricType.POS,
                             null
@@ -501,7 +501,7 @@ public class CurveGMLTest {
                         0L,
                         GisUtil.posList(
                             "4326",
-                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                            "LINESTRING(13.377717264214601 52.51630693440871, -77.03654820204511 38.89763528280979)"
                         )
                     )
                 )
@@ -524,7 +524,7 @@ public class CurveGMLTest {
                         0L,
                         GisUtil.posList(
                             "4326",
-                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                            "LINESTRING(13.377717264214601 52.51630693440871, -77.03654820204511 38.89763528280979)"
                         )
                     )
                 )
@@ -547,7 +547,7 @@ public class CurveGMLTest {
                         0L,
                         GisUtil.posList(
                             "4326",
-                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                            "LINESTRING(13.377717264214601 52.51630693440871, -77.03654820204511 38.89763528280979)"
                         )
                     )
                 )
@@ -579,7 +579,7 @@ public class CurveGMLTest {
                             null,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.GML,
                             null
@@ -618,7 +618,7 @@ public class CurveGMLTest {
                             null,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.GML,
                             null
@@ -657,7 +657,7 @@ public class CurveGMLTest {
                             null,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.GML,
                             null
@@ -692,7 +692,7 @@ public class CurveGMLTest {
                             0L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.POS,
                             null
@@ -735,7 +735,7 @@ public class CurveGMLTest {
                             null,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.POS,
                             null
@@ -772,7 +772,7 @@ public class CurveGMLTest {
                             null,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.POS,
                             null
@@ -826,7 +826,7 @@ public class CurveGMLTest {
                         0L,
                         GisUtil.posList(
                             "4326",
-                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                            "LINESTRING(13.377717264214601 52.51630693440871, -77.03654820204511 38.89763528280979)"
                         )
                     )
                 ),
@@ -850,7 +850,7 @@ public class CurveGMLTest {
                         0L,
                         GisUtil.posList(
                             "4326",
-                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                            "LINESTRING(13.377717264214601 52.51630693440871, -77.03654820204511  38.89763528280979)"
                         )
                     )
                 ),
@@ -877,7 +877,7 @@ public class CurveGMLTest {
                             null,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.POS,
                             null
@@ -912,7 +912,7 @@ public class CurveGMLTest {
                             0L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.POS,
                             null
@@ -957,7 +957,7 @@ public class CurveGMLTest {
                             null,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.GML,
                             null
@@ -1097,7 +1097,7 @@ public class CurveGMLTest {
                         0L,
                         GisUtil.posList(
                             "4326",
-                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, 14.54568750430526 28.52536136261256)"
+                            "LINESTRING(13.377717264214601 52.51630693440871, -77.03654820204511 38.89763528280979, 28.52536136261256 14.54568750430526)"
                         )
                     )
                 )
@@ -1126,7 +1126,7 @@ public class CurveGMLTest {
                             0L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.POS,
                             null
@@ -1136,7 +1136,7 @@ public class CurveGMLTest {
                             1L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(38.89763528280979 -77.03654820204511)"
+                                "POINT(-77.03654820204511 38.89763528280979)"
                             ),
                             GeometricType.POS,
                             null
@@ -1146,7 +1146,7 @@ public class CurveGMLTest {
                             2L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(14.54568750430526 28.52536136261256)"
+                                "POINT(28.52536136261256 14.54568750430526)"
                             ),
                             GeometricType.POS,
                             null
@@ -1180,7 +1180,7 @@ public class CurveGMLTest {
                             0L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.GML,
                             null
@@ -1190,7 +1190,7 @@ public class CurveGMLTest {
                             1L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(38.89763528280979 -77.03654820204511)"
+                                "POINT(-77.03654820204511 38.89763528280979)"
                             ),
                             GeometricType.GML,
                             null
@@ -1200,7 +1200,7 @@ public class CurveGMLTest {
                             2L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(14.54568750430526 28.52536136261256)"
+                                "POINT(28.52536136261256 14.54568750430526)"
                             ),
                             GeometricType.GML,
                             null
@@ -1475,7 +1475,7 @@ public class CurveGMLTest {
                         0L,
                         GisUtil.posList(
                             null,
-                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                            "LINESTRING(13.377717264214601 52.51630693440871, -77.03654820204511 38.89763528280979)"
                         )
                     )
                 )
@@ -1494,7 +1494,7 @@ public class CurveGMLTest {
                             0L,
                             GisUtil.pos(
                                 null,
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.POS,
                             null
@@ -1504,7 +1504,7 @@ public class CurveGMLTest {
                             1L,
                             GisUtil.pos(
                                 null,
-                                "POINT(38.89763528280979 -77.03654820204511)"
+                                "POINT(-77.03654820204511 38.89763528280979)"
                             ),
                             GeometricType.POS,
                             null
@@ -1526,7 +1526,7 @@ public class CurveGMLTest {
                             0L,
                             GisUtil.pos(
                                 "4326",
-                                "POINT(52.51630693440871 13.377717264214601)"
+                                "POINT(13.377717264214601 52.51630693440871)"
                             ),
                             GeometricType.POS,
                             null
@@ -1536,7 +1536,7 @@ public class CurveGMLTest {
                             1L,
                             GisUtil.pos(
                                 null,
-                                "POINT(38.89763528280979 -77.03654820204511)"
+                                "POINT(-77.03654820204511 38.89763528280979)"
                             ),
                             GeometricType.POS,
                             null

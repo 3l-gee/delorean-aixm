@@ -42,7 +42,7 @@ public class PointGMLTest {
                 null,
                 GisUtil.pos(
                     "4326",
-                    "POINT(52.51630693440871 13.377717264214601)"   
+                    "POINT(13.377717264214601 52.51630693440871)"   
                 ),
                 null,
                 null
@@ -59,7 +59,7 @@ public class PointGMLTest {
                 null,
                 GisUtil.pos(
                     "4326",
-                    "POINT(52.51630693440871 13.377717264214601)"   
+                    "POINT(13.377717264214601 52.51630693440871)"   
                 ),
                 null,
                 null
@@ -76,7 +76,7 @@ public class PointGMLTest {
                 null,
                 GisUtil.pos(
                     "4326",
-                    "POINT(52.51630693440871 13.377717264214601)"
+                    "POINT(13.377717264214601 52.51630693440871)"
                 ),
                 null,
                 null
@@ -93,7 +93,7 @@ public class PointGMLTest {
                 null,
                 GisUtil.pos(
                     "4258",
-                    "POINT(52.51630693440871 13.377717264214601)"
+                    "POINT(13.377717264214601 52.51630693440871)"
                 ),
                 null,
                 null
@@ -110,7 +110,7 @@ public class PointGMLTest {
                 null,
                 GisUtil.pos(
                     "4326",
-                    "POINT(52.51630693440871 13.377717264214601)"
+                    "POINT(13.377717264214601 52.51630693440871)"
                 ),
                 null,
                 null
@@ -143,7 +143,7 @@ public class PointGMLTest {
                 null,
                 GisUtil.pos(
                     "4326",
-                    "POINT(52.51630693440871 13.377717264214601)"
+                    "POINT(13.377717264214601 52.51630693440871)"
                 ),
                 null,
                 null
@@ -160,7 +160,7 @@ public class PointGMLTest {
                 null,
                 GisUtil.pos(
                     "4326",
-                    "POINT(52.51630693440871 13.377717264214601)"
+                    "POINT(13.377717264214601 52.51630693440871)"
                 ),
                 null,
                 null

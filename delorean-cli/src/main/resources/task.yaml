@@ -6,32 +6,56 @@ logging: "DEBUG"
 containers:
   container-A:
     database:
-      url: "jdbc:postgresql://localhost:5433/aixm51"
+      url: "jdbc:postgresql://localhost:5433/test"
+      username: "postgres"
+      password: "postgres"
+      hbm2ddl: "create"
+
+  container-B:
+    database:
+      url: "jdbc:postgresql://localhost:5433/test"
       username: "postgres"
       password: "postgres"
       hbm2ddl: "create"
 
 pipeline:
-  set_context:
-    name: "AIXM 5.1 Context"
+  - action: "set_context"
     description: "Context for AIXM 5.1 processing"
 
-  unmarshal: 
+  - action: "unmarshal"
     target: "container-A"
-    path: "C:/Users/rapha/Downloads/aixm51/baseline.xml"
+    path: "https://data.geo.admin.ch/ch.bazl.luftfahrthindernis/luftfahrthindernis/luftfahrthindernis_4326.aixm.zip"
 
-  sax_validation: 
-    target: "container-A"
-
-  startup:
+  - action: "sax_inspection"
     target: "container-A"
 
-  persist:
+  - action: "temporality_inspection"
     target: "container-A"
 
-  extract:
+  - action: "startup"
     target: "container-A"
 
-  marshal: 
+  - action: "persist"
     target: "container-A"
-    path: "C:/Users/rapha/Downloads/aixm51/output.xml"
+
+  - action: "extract"
+    target: "container-A"
+    id : 1
+
+  - action: "marshal"
+    target: "container-A"
+    path: "C:/Users/rapha/Downloads/aixm51/extract.xml"
+
+  - action: "predicate"
+    target: "container-A"
+    id : 
+
+  - action: "marshal"
+    target: "container-A"
+    path: "C:/Users/rapha/Downloads/aixm51/predicate.xml"
+
+  - action: "shutdown"
+    target: "container-A"
+
+  - action: "summary_inspection"
+    target: "container-A"
