@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.validation;
+package com.aixm.delorean.core.inspection;
 
 public enum ValidationSeverity {
     INFO,

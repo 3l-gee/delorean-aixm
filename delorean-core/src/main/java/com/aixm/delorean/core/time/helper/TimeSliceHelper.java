@@ -1,5 +1,8 @@
 package com.aixm.delorean.core.time.helper;
 
+import com.aixm.delorean.core.inspection.InspectionBindingService;
+import com.aixm.delorean.core.inspection.ValidationSeverity;
+import com.aixm.delorean.core.inspection.InspectionSource;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractTimePrimitiveType;
 import com.aixm.delorean.core.org.gml.v_3_2.TimeEdgeType;
 import com.aixm.delorean.core.org.gml.v_3_2.TimeInstantType;
@@ -8,9 +11,6 @@ import com.aixm.delorean.core.org.gml.v_3_2.TimePeriodType;
 import com.aixm.delorean.core.org.gml.v_3_2.TimePositionType;
 import com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType;
 import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
-import com.aixm.delorean.core.validation.ValidationBindingService;
-import com.aixm.delorean.core.validation.ValidationSeverity;
-import com.aixm.delorean.core.validation.ValidationSource;
 import com.aixm.delorean.core.org.gml.v_3_2.TimeIndeterminateValueType;
 
 import jakarta.xml.bind.JAXBElement;
@@ -48,7 +48,7 @@ public class TimeSliceHelper {
 
         } else if (abstractTimePrimitive.getValue() instanceof TimeInstantType) {
             result = parseTimePeriodType((TimeInstantType) abstractTimePrimitive.getValue());
-            ValidationBindingService.recordEvent(ValidationSource.DELOREAN, ValidationSeverity.INFO, "ParseValidTime", "Converted TimeInstant to TimeSlice", abstractTimePrimitive.getValue().getId());
+            InspectionBindingService.recordEvent(InspectionSource.DELOREAN, ValidationSeverity.INFO, "ParseValidTime", "Converted TimeInstant to TimeSlice", abstractTimePrimitive.getValue().getId());
 
         } else if (abstractTimePrimitive.getValue() instanceof TimeNodeType) {
             throw new IllegalArgumentException("Unsupoorted type" + abstractTimePrimitive.getValue().getClass().getName());

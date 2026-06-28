@@ -1,10 +1,10 @@
 package com.aixm.delorean.core.container;
 
 import com.aixm.delorean.core.xml.XmlBindingService;
-import com.aixm.delorean.core.validation.ValidationBindingService;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.engine.AbstractEngine;
 import com.aixm.delorean.core.filter.AbstractFilterConfig;
+import com.aixm.delorean.core.inspection.InspectionBindingService;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 
@@ -21,6 +21,17 @@ import org.apache.commons.lang3.SerializationUtils;
 
 import com.aixm.delorean.core.DeloreanUtility;
 
+/**
+ * Core container managing the lifecycle, XML binding, database persistence,
+ * and processing engines for AIXM messages. This
+ *
+ * @param <ROOT>          The root message type.
+ * @param <MESSAGE>       The internal message type.
+ * @param <FEATURE>       The feature type.
+ * @param <TIMESLICE>     The timeslice type.
+ * @param <OBJECT>        The object type.
+ * @param <SEARCH_CONFIG> The configuration type for search operations.
+ */
 public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> {
     protected final String id;
     protected String name;
@@ -30,12 +41,12 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
     protected final Class<TIMESLICE> timeSliceClass;
     protected final Class<OBJECT> objectClass;
     protected ROOT message;
-    protected MessageType messageType;
     protected XmlBindingService<ROOT, FEATURE> xmlBinding;
     protected DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> databaseBinding;
     protected AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> deloreanEngine;
 
-    public Container(Class<ROOT> rootClass, Class<FEATURE> featureClass, Class<TIMESLICE> timeSliceClass, Class<OBJECT> objectClass, QName qName, String id) {
+    public Container(Class<ROOT> rootClass, Class<FEATURE> featureClass, Class<TIMESLICE> timeSliceClass,
+            Class<OBJECT> objectClass, QName qName, String id) {
         this.rootClass = rootClass;
         this.featureClass = featureClass;
         this.timeSliceClass = timeSliceClass;
@@ -45,68 +56,70 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
 
     }
 
+    /** @return Unique identifier of the container. */
     public String getId() {
         return this.id;
     }
 
+    /** @return Name of the currently loaded message or file. */
     public String getName() {
         return this.name;
     }
 
+    /** @param name Name to set for the container. */
     public void setName(String name) {
         this.name = name;
     }
 
+    /** @return The XML qualified name (QName) associated with the root element. */
     public QName getQName() {
         return this.qName;
     }
 
+    /** @return The class type of the root message. */
     public Class<?> getRootClass() {
         return this.rootClass;
     }
 
+    /** @return The class type of the features. */
     public Class<?> getFeatureClass() {
         return this.featureClass;
     }
 
+    /** @return The class type of the timeslices. */
     public Class<?> getTimeSliceClass() {
         return this.timeSliceClass;
     }
 
+    /** @return The class type of the base objects. */
     public Class<?> getObjectClass() {
         return this.objectClass;
     }
 
+    /** @return The root aixm message entity currently stored in memory. */
     public ROOT getMessage() {
         return this.message;
-    }   
+    }
 
+    /** @param message The root aixm message entity to set. */
     public void setMessage(ROOT message) {
         this.message = message;
     }
 
-
-    public void getPersitedMessage() {
-        this.databaseBinding.getPersitedMessage();
-    }
-
-    public MessageType getMessageType() {
-        return this.messageType;
-    }
-
-    public void setMessageType(MessageType messageType) {
-        this.messageType = messageType;
-    }
-
+    /** @param xmlBinding The XML marshal/unmarshal service to bind. */
     public void setXmlBinding(XmlBindingService<ROOT, FEATURE> xmlBinding) {
         this.xmlBinding = xmlBinding;
     }
 
-    public void SetCredentials(String url, String username, String password, String hbm2ddl){
+    /**
+     * Configures database credentials and attempts a test connection.
+     * * @throws RuntimeException if databaseBinding has not been initialized.
+     */
+    public void SetCredentials(String url, String username, String password, String hbm2ddl) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }
-        
+
         boolean success = this.databaseBinding.SetCredentials(url, username, password, hbm2ddl);
 
         if (success) {
@@ -116,74 +129,125 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
     }
 
+    /** @return The active XML binding service. */
     public XmlBindingService<ROOT, FEATURE> getXmlBinding() {
         return this.xmlBinding;
     }
 
+    /** @param databaseBinding The ORM/database mapping service to bind. */
     public void setDatabaseBinding(DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> databaseBinding) {
         this.databaseBinding = databaseBinding;
     }
 
+    /** @return The active database binding service. */
     public DatabaseBindingService<ROOT, FEATURE, TIMESLICE, OBJECT> getDatabaseBinding() {
         return this.databaseBinding;
     }
 
-    public void setDeloreanEngine(AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> deloreanEngine) {
+    /** @param deloreanEngine The processing engine to bind. */
+    public void setDeloreanEngine(
+            AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> deloreanEngine) {
         this.deloreanEngine = deloreanEngine;
     }
 
+    /** @return The active processing engine. */
     public AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> getDeloreanEngine() {
         return this.deloreanEngine;
     }
 
-    // Lifecycle methods
+    /**
+     * Unmarshals an XML document from a local or remote path (supports .zip) and
+     * loads it into memory.
+     * * @param path File path or URL to the source XML/ZIP.
+     * 
+     * @throws RuntimeException if xmlBinding is not configured.
+     */
     public void unmarshal(String path) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
         }
-        
+
         InputStream xmlStream;
-        if (path.toLowerCase().endsWith(".zip")) {
-            xmlStream = DeloreanUtility.absPathZipToInputStream(path);
+        String lowerCasePath = path != null ? path.trim().toLowerCase() : "";
+        boolean isRemote = lowerCasePath.startsWith("http://") || lowerCasePath.startsWith("https://");
+
+        if (lowerCasePath.endsWith(".zip")) {
+            xmlStream = isRemote ? DeloreanUtility.urlZipToInputStream(path)
+                    : DeloreanUtility.absPathZipToInputStream(path);
         } else {
-            xmlStream = DeloreanUtility.absPathToInputStream(path);
+            xmlStream = isRemote ? DeloreanUtility.urlToInputStream(path)
+                    : DeloreanUtility.absPathToInputStream(path);
         }
 
         if (xmlStream == null) {
             return;
-        } 
+        }
 
-        this.message = (ROOT) this.xmlBinding.unmarshal(xmlStream);
-        String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.info("Unmarshalled <" + rootClass.getSimpleName() + "> from: " + path + " stats: " + stats);
+        String fileName = "";
+        if (path != null && !path.isBlank()) {
+            try {
+                fileName = java.nio.file.Paths.get(path).getFileName().toString();
+            } catch (Exception e) {
+                fileName = path.substring(path.lastIndexOf('/') + 1);
+            }
+        }
 
+        try {
+            this.message = (ROOT) this.xmlBinding.unmarshal(xmlStream);
+            this.name = fileName;
+            String stats = this.deloreanEngine.statistics(this.message);
+            ConsoleLogger.info("Unmarshalled <" + this.name + "> from: " + path + " stats: " + stats);
+        } finally {
+            try {
+                xmlStream.close();
+            } catch (Exception e) {
+                // Quietly close to avoid masking unmarshal exceptions
+            }
+        }
     }
 
+    /** Internal helper to unmarshal a payload without mutating container state. */
     private ROOT doUnmarshal(String path) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
         }
 
         ROOT message = null;
-        
+
         InputStream xmlStream;
-        if (path.toLowerCase().endsWith(".zip")) {
-            xmlStream = DeloreanUtility.absPathZipToInputStream(path);
+        String lowerCasePath = path != null ? path.trim().toLowerCase() : "";
+        boolean isRemote = lowerCasePath.startsWith("http://") || lowerCasePath.startsWith("https://");
+
+        if (lowerCasePath.endsWith(".zip")) {
+            xmlStream = isRemote ? DeloreanUtility.urlZipToInputStream(path)
+                    : DeloreanUtility.absPathZipToInputStream(path);
         } else {
-            xmlStream = DeloreanUtility.absPathToInputStream(path);
+            xmlStream = isRemote ? DeloreanUtility.urlToInputStream(path)
+                    : DeloreanUtility.absPathToInputStream(path);
         }
 
         if (xmlStream == null) {
             return message;
-        } 
+        }
 
-        message = (ROOT) this.xmlBinding.unmarshal(xmlStream);
-        String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.info("Unmarshalled <" + rootClass.getSimpleName() + "> from: " + path + " stats: " + stats);
+        try {
+            message = (ROOT) this.xmlBinding.unmarshal(xmlStream);
+        } finally {
+            try {
+                xmlStream.close();
+            } catch (Exception e) {
+                // Quietly close
+            }
+        }
         return message;
     }
 
-    // Lifecycle methods
+    /**
+     * Marshals the current in-memory message structure out to an XML file.
+     * * @param path Absolute local destination path.
+     * 
+     * @throws RuntimeException if xmlBinding is not configured.
+     */
     public void marshal(String path) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
@@ -194,36 +258,70 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         }
         this.xmlBinding.marshal(this.message, pathObj, this.rootClass, this.qName);
         String stats = this.xmlBinding.statistics(path);
-        ConsoleLogger.info("Marshalled <" + rootClass.getSimpleName() + "> to: " + path + " stats: " + stats);
+        ConsoleLogger.info("Marshalled <" + this.name + "> to: " + path + " stats: " + stats);
     }
 
-    public void saxValidation() {
+    /**
+     * Internal helper to marshal a specific root message payload out to an XML
+     * file.
+     * * @param path Absolute local destination path.
+     * 
+     * @param message The root message entity graph to serialize.
+     * @throws RuntimeException if xmlBinding is not configured.
+     */
+    private void doMarshal(String path, ROOT message) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
         }
-        this.xmlBinding.saxValidate(this.message);
-        ConsoleLogger.info("SAX Validation <" + rootClass.getSimpleName() + ">");
+        FileOutputStream pathObj = DeloreanUtility.pathToOutputStream(path);
+        if (pathObj == null) {
+            return;
+        }
+        this.xmlBinding.marshal(message, pathObj, this.rootClass, this.qName);
     }
 
-    public void printValidation() {
-        ValidationBindingService.printSummary();
-    }
-
-
-    public void statistics() {
+    /**
+     * Inspects the database already persisted aixm messages. Generates statistic as
+     * an inspection report
+     */
+    public void persistedMessageinspection() {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }
-        this.deloreanEngine.statistics(this.message);
+
+        this.databaseBinding.persistedMessageinspection();
+        ConsoleLogger.info("Persisted Message Inspection <" + this.name + ">");
     }
 
-    public void info() {
+    /**
+     * Runs a SAX-based structure validation on the current in-memory message.
+     * Generates statistic as an inspection report
+     */
+    public void saxInspection() {
+        if (this.xmlBinding == null) {
+            throw new RuntimeException("XMLBinding is not set");
+        }
+        this.xmlBinding.saxInspect(this.message);
+        ConsoleLogger.info("SAX Inspection <" + this.name + ">");
+    }
+
+    /** Prints a global inspection summary report. */
+    public void inspectionSummary() {
+        InspectionBindingService.printSummary();
+    }
+
+    /**
+     * Performs temporal validity checks on the in memory message data. Generates
+     * statistic as an inspection report
+     */
+    public void temporalityInspection() {
         if (this.deloreanEngine == null) {
             throw new RuntimeException("DeloreanEngine is not set");
         }
-        this.deloreanEngine.info(this.message);
+        this.deloreanEngine.temporalityInspection(this.message);
     }
 
+    /** Start the database session factory layer. */
     public void startup() {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
@@ -233,6 +331,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         ConsoleLogger.info("Initialized <" + this.databaseBinding.getUrl() + ">");
     }
 
+    /** Tears down database connections and state. */
     public void shutdown() {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
@@ -241,43 +340,66 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         ConsoleLogger.info("Shutdown <" + this.databaseBinding.getUrl() + ">");
     }
 
+    /** Saves the full aixm message currently in-memory to the database. */
     public void persist() {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }
         this.databaseBinding.persist(this.message);
         String stats = this.databaseBinding.statistics();
-        ConsoleLogger.info("Persisted <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        ConsoleLogger.info("Persisted <" + this.name + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
+    /**
+     * merges the aixm message currently in-memory message into the database exiting
+     * message.
+     */
     public void merge() {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
-        }   
+        }
         this.databaseBinding.merge(this.message);
         String stats = this.databaseBinding.statistics();
-        ConsoleLogger.info("Merged <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        ConsoleLogger.info("Merged <" + this.name + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
+    /**
+     * Unmarshals an external dataset path and merges it temporally onto the current
+     * message. Resolves partial diff (delta) to full timeslices.
+     */
     public void integrate(String path) {
         ROOT newMessage = this.doUnmarshal(path);
         this.message = this.deloreanEngine.integrate(this.message, newMessage);
+        String stats = this.deloreanEngine.statistics(message);
+        ConsoleLogger.info("Diff applied to <" + this.name + "> stats: " + stats);
     }
 
+    /**
+     * Pulls a message entity graph out of the database matching the provided
+     * primary identifier.
+     */
     public void extract(Object id) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
-        }   
+        }
 
         this.message = (ROOT) this.databaseBinding.extract(this.rootClass, id);
         String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.info("Extracted <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        ConsoleLogger.info("Extracted <" + this.name + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
+    /**
+     * Pulls a message entity graph out of the database matching the provided
+     * primary identifier and valid timeslice that are valid and active later then
+     * the given date.
+     * * @param timeString ISO-8601 string payload or macro flags ["MIN", "MAX"].
+     * 
+     * @throws DateTimeParseException if format validation fails.
+     */
     public void predicate(String timeString) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
-        }   
+        }
 
         Instant time;
 
@@ -296,46 +418,63 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
                     time = Instant.parse(timeString);
                 } catch (DateTimeParseException e) {
                     throw new DateTimeParseException(
-                        "Time must be ISO-8601 (e.g. 2022-01-01T00:00:00Z) or one of [MIN, MAX]",
-                        timeString,
-                        e.getErrorIndex()
-                    );
+                            "Time must be ISO-8601 (e.g. 2022-01-01T00:00:00Z) or one of [MIN, MAX]",
+                            timeString,
+                            e.getErrorIndex());
                 }
         }
 
         this.message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time);
         String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.info("Predicated <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        ConsoleLogger
+                .info("Predicated <" + this.name + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
+    /** Internal slice lookup processing against a precise timestamp value. */
     @SuppressWarnings("unchecked")
     private ROOT doPredicate(Instant time) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
-        } 
+        }
 
         ROOT message = null;
 
         message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time);
         String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.info("Predicated <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
+        ConsoleLogger
+                .info("Predicated <" + this.name + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
         return message;
     }
 
-    public void diff(){
-        this.message = this.deloreanEngine.diff(this.message);
-        String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.info("Diff applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+    /**
+     * Computes modifications (deltas) on the current message and marshals the
+     * resulting diff payload to an XML file.
+     * * @param path Absolute local destination path for the generated XML diff.
+     */
+    public void diff(String path) {
+        message = this.deloreanEngine.diff(this.message);
+        this.doMarshal(path, message);
+        String stats = this.xmlBinding.statistics(path);
+        ConsoleLogger.info("Diff applied to <" + this.name + "> to: " + path + " stats: " + stats);
     }
 
+    /**
+     * Destructively filters the container's message properties against criteria.
+     */
     public void filter(AbstractFilterConfig config) {
         this.message = this.deloreanEngine.filter(this.message, config);
         String stats = this.deloreanEngine.statistics(this.message);
-        ConsoleLogger.info("Filter applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+        ConsoleLogger.info("Filter applied to <" + this.name + "> stats: " + stats);
     }
 
+    /**
+     * Non-destructively clones the environment structure and filters out its
+     * message elements.
+     * * @return A deep copy container variant hosting the isolated content dataset.
+     */
     public Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> prune(AbstractFilterConfig config) {
-        Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> newContainer = new Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>(this.rootClass, this.featureClass, this.timeSliceClass, this.objectClass, this.qName, id);
+        Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> newContainer = new Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>(
+                this.rootClass, this.featureClass, this.timeSliceClass, this.objectClass, this.qName, id);
         newContainer.setXmlBinding(this.xmlBinding);
         newContainer.setDatabaseBinding(this.databaseBinding);
         newContainer.setDeloreanEngine(this.deloreanEngine);
@@ -344,12 +483,18 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         ROOT filteredMessage = this.deloreanEngine.filter(clonedMessage, config);
         String stats = this.deloreanEngine.statistics(filteredMessage);
         newContainer.setMessage(filteredMessage);
-        ConsoleLogger.info("Prune applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+        ConsoleLogger.info("Prune applied to <" + this.name + "> stats: " + stats);
         return newContainer;
     }
 
+    /**
+     * Creates a deep cloned workspace instance replicating bindings and
+     * configuration states.
+     * * @return Fresh detached functional duplication mapping.
+     */
     public Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> clone() {
-        Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> newContainer = new Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>(this.rootClass, this.featureClass, this.timeSliceClass, this.objectClass, this.qName, id);
+        Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG> newContainer = new Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>(
+                this.rootClass, this.featureClass, this.timeSliceClass, this.objectClass, this.qName, id);
         newContainer.setXmlBinding(this.xmlBinding);
         newContainer.setDatabaseBinding(this.databaseBinding);
         newContainer.setDeloreanEngine(this.deloreanEngine);
@@ -357,16 +502,7 @@ public class Container<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, SEARCH_CONFIG>
         ROOT clonedMessage = this.deloreanEngine.clone(this.message);
         String stats = this.deloreanEngine.statistics(clonedMessage);
         newContainer.setMessage(clonedMessage);
-        ConsoleLogger.info("Clone applied to <" + rootClass.getSimpleName() + "> stats: " + stats);
+        ConsoleLogger.info("Clone applied to <" + this.name + "> stats: " + stats);
         return newContainer;
     }
-
-    // public void serialization(String path) {
-
-    // }
-
-    // public void mapping(){
-
-    // }
-
 }

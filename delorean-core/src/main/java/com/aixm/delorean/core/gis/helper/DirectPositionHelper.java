@@ -8,6 +8,8 @@ import com.aixm.delorean.core.gis.type.components.GeometricType;
 import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionListType;
 
+// GML EPSG:4326    [Lat, Lon]. 
+// PostGIS WKT      [Lon, Lat] / (X, Y)
 public class DirectPositionHelper {
 
     public static String parseDirectPosition (DirectPositionType pos, Boolean inverse) {
@@ -60,14 +62,14 @@ public class DirectPositionHelper {
             throw new IllegalArgumentException("POINT WKT must contain exactly two coordinates.");
         }
 
-        double x = Double.parseDouble(coords[0]);
-        double y = Double.parseDouble(coords[1]);
+        double x = Double.parseDouble(coords[0]); //lat
+        double y = Double.parseDouble(coords[1]); //lon
 
         DirectPositionType pos = new DirectPositionType();
         // pos.setSrsName(srsName);
         List<Double> values = new ArrayList<>();
-        values.add(x); // lon
-        values.add(y); // lat
+        values.add(y);
+        values.add(x);
         pos.setValue(values);
 
         return pos;
@@ -89,11 +91,11 @@ public class DirectPositionHelper {
                 throw new IllegalArgumentException("Each coordinate pair must contain exactly two values.");
             }
 
-            double x = Double.parseDouble(coords[0]);
-            double y = Double.parseDouble(coords[1]);
+            double x = Double.parseDouble(coords[0]); //lat
+            double y = Double.parseDouble(coords[1]); //lon
 
-            values.add(x); // lon
-            values.add(y); // lat   
+            values.add(y);
+            values.add(x);
         }
 
         DirectPositionListType posList = new DirectPositionListType();
@@ -116,15 +118,15 @@ public class DirectPositionHelper {
         StringBuilder wktBuilder = new StringBuilder();
 
         for (int i = 0; i < coordinates.size(); i += 2) {
-            double first = coordinates.get(i);
-            double second = coordinates.get(i + 1);
+            double lat = coordinates.get(i);
+            double lon = coordinates.get(i + 1);
 
             if (inverse) {
-                // CRS84 (lon, lat)
-                wktBuilder.append(second).append(" ").append(first);
+                // EPSG:4326 etc. (lon, lat)
+                wktBuilder.append(lon).append(" ").append(lat);
             } else {
-                // EPSG:4326 etc. (lat, lon)
-                wktBuilder.append(first).append(" ").append(second);
+                // CRS84 (lat, lon)
+                wktBuilder.append(lat).append(" ").append(lon);
             }
 
             if (i + 2 < coordinates.size()) {
@@ -149,13 +151,15 @@ public class DirectPositionHelper {
         }
 
         List<Double> coords = new ArrayList<>(coordinates);
+        double lat = coords.get(0);
+        double lon = coords.get(1);
 
         if (inverse) {
-            // CRS84 (lon, lat)
-            wkt = coords.get(1) + " " + coords.get(0);
+            // EPSG:4326 etc. (lon, lat)
+            wkt = lon + " " + lat;
         } else {
-            // EPSG:4326 etc. (lat, lon)
-            wkt = coords.get(0) + " " + coords.get(1);
+            // CRS84 (lat, lon)
+            wkt = lat + " " + lon;
         };
 
         return wkt;

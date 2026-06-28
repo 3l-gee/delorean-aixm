@@ -3,18 +3,11 @@ package com.aixm.delorean.core.gis.type;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aixm.delorean.core.gis.type.components.PosList;
 import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 
+import org.locationtech.jts.geom.Geometry;
 import jakarta.persistence.Access;
-import jakarta.persistence.AttributeOverrides;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 
@@ -22,7 +15,7 @@ import jakarta.persistence.Entity;
 @Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "LineString")
 @Table(name = "linestring", schema = "gml")
-public class LineString extends LinearSegment implements java.io.Serializable{
+public class LineString extends LinearSegment{
 
     /**
      * Maps the PostGIS column so Hibernate creates it, but ignores it during read/write cycles.
@@ -35,11 +28,11 @@ public class LineString extends LinearSegment implements java.io.Serializable{
         insertable = false, 
         updatable = false
     )
-    public String getGeom() {
+    public Geometry getGeom() {
         return null; // Return null so Hibernate doesn't pass around any heavy spatial objects
     }
 
-    public void setGeom(String geom) {
+    public void setGeom(Geometry geom) {
         // No-op: Hibernate will never try to populate this unless forced, 
         // and your Java layer ignores it.
     }

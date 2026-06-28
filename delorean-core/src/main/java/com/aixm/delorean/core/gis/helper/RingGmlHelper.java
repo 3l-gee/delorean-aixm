@@ -6,13 +6,13 @@ import com.aixm.delorean.core.gis.type.Ring;
 import com.aixm.delorean.core.gis.type.components.GeometricProperty;
 import com.aixm.delorean.core.gis.type.components.GeometricType;
 import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
+import com.aixm.delorean.core.inspection.InspectionBindingService;
+import com.aixm.delorean.core.inspection.ValidationSeverity;
+import com.aixm.delorean.core.inspection.InspectionSource;
 import com.aixm.delorean.core.org.gml.v_3_2.CompositeCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.OrientableCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.RingType;
 import com.aixm.delorean.core.unit.HrefHelper;
-import com.aixm.delorean.core.validation.ValidationBindingService;
-import com.aixm.delorean.core.validation.ValidationSeverity;
-import com.aixm.delorean.core.validation.ValidationSource;
 
 public class RingGmlHelper {
     
@@ -64,7 +64,7 @@ public class RingGmlHelper {
 
             } else if ( com.aixm.delorean.core.org.gml.v_3_2.CurveType.class.isAssignableFrom(curve.getAbstractCurve().getValue().getClass())) {
                 com.aixm.delorean.core.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.core.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
-                ValidationBindingService.recordEvent(ValidationSource.GEOMETRY, ValidationSeverity.WARNING, "Geometry parsing", "Delorean does not support <" + curve.getAbstractCurve().getValue().getClass().getName() + "> in <gml:RingType>. It will be converted to <gml:CurveType>.", curveType.getId());
+                InspectionBindingService.recordEvent(InspectionSource.GEOMETRY, ValidationSeverity.WARNING, "Geometry parsing", "Delorean does not support <" + curve.getAbstractCurve().getValue().getClass().getName() + "> in <gml:RingType>. It will be converted to <gml:CurveType>.", curveType.getId());
                 GmlCurveType parsed = CurveGmlHelper.parseGMLCurve(curveType, GmlCurveType.class, parentSrsName);
                 parsed.setIndex(curveIndex);
                 parsed.setGeometricType(GeometricType.GML);

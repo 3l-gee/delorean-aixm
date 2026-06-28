@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.validation;
+package com.aixm.delorean.core.inspection;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,26 +11,26 @@ import org.xml.sax.SAXParseException;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 
-public class ValidationBindingService {
+public class InspectionBindingService {
 
-    private static ValidationBindingService instance;
+    private static InspectionBindingService instance;
 
-    private final List<ValidationEvent> allEvents = new ArrayList<>();
-    private final Map<ValidationSeverity, List<ValidationEvent>> severityIndex = new EnumMap<>(ValidationSeverity.class);
-    private final Map<ValidationSource, List<ValidationEvent>> sourceIndex = new EnumMap<>(ValidationSource.class);
+    private final List<InspectionEvent> allEvents = new ArrayList<>();
+    private final Map<ValidationSeverity, List<InspectionEvent>> severityIndex = new EnumMap<>(ValidationSeverity.class);
+    private final Map<InspectionSource, List<InspectionEvent>> sourceIndex = new EnumMap<>(InspectionSource.class);
 
-    private ValidationBindingService() {
+    private InspectionBindingService() {
         for (ValidationSeverity severity : ValidationSeverity.values()) {
             severityIndex.put(severity, new ArrayList<>());
         }
-        for (ValidationSource source : ValidationSource.values()) {
+        for (InspectionSource source : InspectionSource.values()) {
             sourceIndex.put(source, new ArrayList<>());
         }
     }
 
-    public static synchronized ValidationBindingService getInstance() {
+    public static synchronized InspectionBindingService getInstance() {
         if (instance == null) {
-            instance = new ValidationBindingService();
+            instance = new InspectionBindingService();
         }
         return instance;
     }
@@ -38,26 +38,34 @@ public class ValidationBindingService {
     /**
      * Instance method to safely record and automatically index events.
      */
-    public static void recordEvent(ValidationSource source, ValidationSeverity severity, String method, String message, String location) {
-        ValidationEvent event = new ValidationEvent(source, severity, method, message, location);
+    public static void recordEvent(InspectionSource source, ValidationSeverity severity, String method, String message, String location) {
+        InspectionEvent event = new InspectionEvent(source, severity, method, message, location);
+        getInstance().addValidationEvent(event);
+    }
+
+    /**
+     * Instance method to safely record and automatically index events.
+     */
+    public static void recordEvent(InspectionSource source, ValidationSeverity severity, String method, String message) {
+        InspectionEvent event = new InspectionEvent(source, severity, method, message);
         getInstance().addValidationEvent(event);
     }
 
     /**
      * Overload instance method to map SAX Parse Exceptions natively.
      */
-    public static void recordEvent(ValidationSource source, ValidationSeverity severity, String method, SAXParseException e) {
+    public static void recordEvent(InspectionSource source, ValidationSeverity severity, String method, SAXParseException e) {
         String location = "Line: " + e.getLineNumber() + ", Col: " + e.getColumnNumber();
-        ValidationEvent event = new ValidationEvent(source, severity, method, e.getMessage(), location);
+        InspectionEvent event = new InspectionEvent(source, severity, method, e.getMessage(), location);
         getInstance().addValidationEvent(event);
     }
 
     /**
     * Overload instance method to map JAXB Validation Events natively.
     */
-    public static void recordEvent(ValidationSource source, ValidationSeverity severity, String method, jakarta.xml.bind.ValidationEvent error) {
+    public static void recordEvent(InspectionSource source, ValidationSeverity severity, String method, jakarta.xml.bind.ValidationEvent error) {
         String location = "Line: " + error.getLocator().getLineNumber() + ", Col: " + error.getLocator().getColumnNumber();
-        ValidationEvent event = new ValidationEvent(source, severity, method, error);
+        InspectionEvent event = new InspectionEvent(source, severity, method, error);
         getInstance().addValidationEvent(event);
     }
 
@@ -66,12 +74,12 @@ public class ValidationBindingService {
     */
     public static void recordEventGeometry(ValidationSeverity severity, String method, String error, String identifier) {
         String location = "gml:id : " + identifier;
-        ValidationEvent event = new ValidationEvent(ValidationSource.GEOMETRY, severity, method, error, location);
+        InspectionEvent event = new InspectionEvent(InspectionSource.GEOMETRY, severity, method, error, location);
         getInstance().addValidationEvent(event);
     }
 
     // Single synchronized entry point for adding elements to the main bucket and indexes
-    private synchronized void addValidationEvent(ValidationEvent event) {
+    private synchronized void addValidationEvent(InspectionEvent event) {
         allEvents.add(event);
         severityIndex.get(event.getSeverity()).add(event);
         sourceIndex.get(event.getSource()).add(event);
@@ -80,24 +88,24 @@ public class ValidationBindingService {
     /**
      * grabs all events matching a severity. 
      */
-    public List<ValidationEvent> getBySeverity(ValidationSeverity severity) {
+    public List<InspectionEvent> getBySeverity(ValidationSeverity severity) {
         return Collections.unmodifiableList(getInstance().severityIndex.get(severity));
     }
 
     /**
      * grabs all events matching a specific framework source origin.
      */
-    public List<ValidationEvent> getBySource(ValidationSource source) {
+    public List<InspectionEvent> getBySource(InspectionSource source) {
         return Collections.unmodifiableList(getInstance().sourceIndex.get(source));
     }
 
     /**
      * Filters by Source, Severity, and a keyword search 
      */
-    public static List<ValidationEvent> findEvents(ValidationSource source, ValidationSeverity severity, String methodKeyword) {
-        ValidationBindingService s = getInstance();
+    public static List<InspectionEvent> findEvents(InspectionSource source, ValidationSeverity severity, String methodKeyword) {
+        InspectionBindingService s = getInstance();
         // Performance optimization: Start with the smallest pre-indexed sub-bucket 
-        List<ValidationEvent> basePool;
+        List<InspectionEvent> basePool;
         
         if (severity != null) {
             basePool = s.severityIndex.get(severity);
@@ -115,19 +123,19 @@ public class ValidationBindingService {
                 .collect(Collectors.toList());
     }
 
-    public static List<ValidationEvent> getAllEvents() {
+    public static List<InspectionEvent> getAllEvents() {
         return Collections.unmodifiableList(getInstance().allEvents);
     }
 
     public static synchronized void clearEvents() {
-        ValidationBindingService s = getInstance();
+        InspectionBindingService s = getInstance();
         s.allEvents.clear();
         s.severityIndex.values().forEach(List::clear);
         s.sourceIndex.values().forEach(List::clear);
     }
 
     public static void printSummary() {
-        ValidationBindingService s = getInstance();
+        InspectionBindingService s = getInstance();
 
         if (s.allEvents.isEmpty()) {
             ConsoleLogger.info("Validation : 0 issues detected.");
@@ -137,12 +145,12 @@ public class ValidationBindingService {
         ConsoleLogger.info("Validation : " + s.allEvents.size() + " issue(s) detected.");
 
         // Grouping Hierarchy: Source -> Severity -> Message String -> Event List
-        Map<ValidationSource, Map<ValidationSeverity, Map<String, List<ValidationEvent>>>> groupedEvents = 
+        Map<InspectionSource, Map<ValidationSeverity, Map<String, List<InspectionEvent>>>> groupedEvents = 
             s.allEvents.stream().collect(Collectors.groupingBy(
-                ValidationEvent::getSource,
-                () -> new EnumMap<>(ValidationSource.class),
+                InspectionEvent::getSource,
+                () -> new EnumMap<>(InspectionSource.class),
                 Collectors.groupingBy(
-                    ValidationEvent::getSeverity,
+                    InspectionEvent::getSeverity,
                     () -> new EnumMap<>(ValidationSeverity.class),
                     Collectors.groupingBy(event -> {
                         String msg = event.getMessage();
@@ -157,21 +165,21 @@ public class ValidationBindingService {
                 severityMap.forEach((severity, messageMap) -> {
                     long totalSeverityCount = messageMap.values().stream().mapToLong(List::size).sum();
                     
-                    ConsoleLogger.info("  └──  Severity: [" + severity + "] (" + totalSeverityCount + " total instances)");
+                    ConsoleLogger.info("  |-- Severity: [" + severity + "] (" + totalSeverityCount + " total instances)");
                     
                     messageMap.forEach((message, instances) -> {
                         int occurrenceCount = instances.size();
-                        ValidationEvent sample = instances.get(0);
+                        InspectionEvent sample = instances.get(0);
                         
                         ConsoleLogger.info(String.format(
-                            "      ├── [x%d] %s -> %s", 
+                            "      |-- [x%d] %s -> %s",
                             occurrenceCount, 
                             sample.getMethod(), 
                             message
                         ));
                         
                         // Show a sample reference location spot so developers know where to look
-                        ConsoleLogger.info("      │   └──  Sample Location Trace: " + sample.getLocation());
+                        ConsoleLogger.info("      |   |--  Sample Location Trace: " + sample.getLocation());
                     });
                 });
         });

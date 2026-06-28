@@ -91,15 +91,6 @@ public class DeloreanAIXM511 implements com.aixm.delorean.core.DeloreanProcessor
     }
 
     /**
-     *  Removes the context with the given reference. If the removed context is currently active, it unsets the active context.
-     * @param ref The reference ID of the context to remove.
-     */
-    @Override
-    public void removeContext(String ref) {
-        ContextWarehouse.getInstance().removeContext(ref);
-    }
-
-    /**
      * Clears all contexts from the ContextWarehouse and unsets any active context.
      */
     @Override

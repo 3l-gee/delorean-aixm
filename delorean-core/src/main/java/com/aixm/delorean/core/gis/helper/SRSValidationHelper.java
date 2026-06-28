@@ -18,30 +18,30 @@ public class SRSValidationHelper {
     private static final Map<String, SRSInfo> ACCEPTED_SRS = new HashMap<>();
 
     static {
-        ACCEPTED_SRS.put("EPSG::4326", new SRSInfo("4326", false));
-        ACCEPTED_SRS.put("EPSG::4258", new SRSInfo("4258", false));
-        ACCEPTED_SRS.put("EPSG::4322", new SRSInfo("4322", false));
-        ACCEPTED_SRS.put("EPSG::4230", new SRSInfo("4230", false));
-        ACCEPTED_SRS.put("EPSG::4668", new SRSInfo("4668", false));
-        ACCEPTED_SRS.put("EPSG::4312", new SRSInfo("4312", false));
-        ACCEPTED_SRS.put("EPSG::4215", new SRSInfo("4215", false));
-        ACCEPTED_SRS.put("EPSG::4801", new SRSInfo("4801", false));
-        ACCEPTED_SRS.put("EPSG::4149", new SRSInfo("4149", false));
-        ACCEPTED_SRS.put("EPSG::4275", new SRSInfo("4275", false));
-        ACCEPTED_SRS.put("EPSG::4746", new SRSInfo("4746", false));
-        ACCEPTED_SRS.put("EPSG::4121", new SRSInfo("4121", false));
-        ACCEPTED_SRS.put("EPSG::4658", new SRSInfo("4658", false));
-        ACCEPTED_SRS.put("EPSG::4299", new SRSInfo("4299", false));
-        ACCEPTED_SRS.put("EPSG::4806", new SRSInfo("4806", false));
-        ACCEPTED_SRS.put("EPSG::4277", new SRSInfo("4277", false));
-        ACCEPTED_SRS.put("EPSG::4207", new SRSInfo("4207", false));
-        ACCEPTED_SRS.put("EPSG::4274", new SRSInfo("4274", false));
-        ACCEPTED_SRS.put("EPSG::4740", new SRSInfo("4740", false));
-        ACCEPTED_SRS.put("EPSG::4313", new SRSInfo("4313", false));
-        ACCEPTED_SRS.put("EPSG::4124", new SRSInfo("4124", false));
-        ACCEPTED_SRS.put("EPSG::4267", new SRSInfo("4267", false));
-        ACCEPTED_SRS.put("EPSG::4269", new SRSInfo("4269", false));
-        ACCEPTED_SRS.put("OGC:1.3:CRS84", new SRSInfo("4326", true));
+        ACCEPTED_SRS.put("EPSG::4326", new SRSInfo("4326", true));
+        ACCEPTED_SRS.put("EPSG::4258", new SRSInfo("4258", true));
+        ACCEPTED_SRS.put("EPSG::4322", new SRSInfo("4322", true));
+        ACCEPTED_SRS.put("EPSG::4230", new SRSInfo("4230", true));
+        ACCEPTED_SRS.put("EPSG::4668", new SRSInfo("4668", true));
+        ACCEPTED_SRS.put("EPSG::4312", new SRSInfo("4312", true));
+        ACCEPTED_SRS.put("EPSG::4215", new SRSInfo("4215", true));
+        ACCEPTED_SRS.put("EPSG::4801", new SRSInfo("4801", true));
+        ACCEPTED_SRS.put("EPSG::4149", new SRSInfo("4149", true));
+        ACCEPTED_SRS.put("EPSG::4275", new SRSInfo("4275", true));
+        ACCEPTED_SRS.put("EPSG::4746", new SRSInfo("4746", true));
+        ACCEPTED_SRS.put("EPSG::4121", new SRSInfo("4121", true));
+        ACCEPTED_SRS.put("EPSG::4658", new SRSInfo("4658", true));
+        ACCEPTED_SRS.put("EPSG::4299", new SRSInfo("4299", true));
+        ACCEPTED_SRS.put("EPSG::4806", new SRSInfo("4806", true));
+        ACCEPTED_SRS.put("EPSG::4277", new SRSInfo("4277", true));
+        ACCEPTED_SRS.put("EPSG::4207", new SRSInfo("4207", true));
+        ACCEPTED_SRS.put("EPSG::4274", new SRSInfo("4274", true));
+        ACCEPTED_SRS.put("EPSG::4740", new SRSInfo("4740", true));
+        ACCEPTED_SRS.put("EPSG::4313", new SRSInfo("4313", true));
+        ACCEPTED_SRS.put("EPSG::4124", new SRSInfo("4124", true));
+        ACCEPTED_SRS.put("EPSG::4267", new SRSInfo("4267", true));
+        ACCEPTED_SRS.put("EPSG::4269", new SRSInfo("4269", true));
+        ACCEPTED_SRS.put("OGC:1.3:CRS84", new SRSInfo("4326", false));
     };
 
     public static Boolean IsInverseAxisOrder(String srsName) {

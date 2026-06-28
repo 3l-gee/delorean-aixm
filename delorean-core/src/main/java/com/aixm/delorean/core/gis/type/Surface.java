@@ -20,7 +20,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 
-@Entity(name="Surface")
+@Entity(name = "Surface")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "surface", schema = "gml")
 public class Surface extends AbstractGMLType {
@@ -40,8 +40,8 @@ public class Surface extends AbstractGMLType {
         this.hjid = value;
     }
 
-    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "polygon_hjid")
+    @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "polygon_hjid", referencedColumnName = "hjid", nullable = false)
     public List<Polygon> getPolygon() {
         if (polygon == null) {
             polygon = new ArrayList<>();

@@ -19,11 +19,12 @@ import jakarta.persistence.Table;
 @Entity(name = "Segment")
 @Table(name = "segment", schema = "gml")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Segment{
+public class Segment {
 
     protected Long index;
     protected SegmentType segmentType;
     protected Long hjid;
+    protected Curve curve;
 
     @Column(name = "index")
     public Long getIndex() {
@@ -55,7 +56,6 @@ public class Segment{
     public void setHjid(Long value) {
         this.hjid = value;
     }
-
 
     public List<String> aggregateEpsgCode() {
         return null;

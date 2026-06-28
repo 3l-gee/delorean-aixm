@@ -19,7 +19,6 @@ public interface DeloreanProcessor {
     void removeContainerByName(String name);
     void setContext(String description);
     void registerContext(String salt,String description);
-    void removeContext(String ref);
     void clearContexts();
     void unSetActiveContext();
     List<String> listContainerId();

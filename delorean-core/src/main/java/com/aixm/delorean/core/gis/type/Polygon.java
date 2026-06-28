@@ -1,6 +1,5 @@
 package com.aixm.delorean.core.gis.type;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,10 +20,10 @@ import jakarta.persistence.Table;
 
 @Entity(name = "Polygon")
 @Table(name = "polygon", schema = "gml")
-public class Polygon implements java.io.Serializable{
-    
+public class Polygon implements java.io.Serializable {
+
     private static final long serialVersionUID = 20250910L;
-    protected Long hjid;    
+    protected Long hjid;
     protected Long index;
     protected Ring exterior;
     protected List<Ring> interior;
@@ -50,7 +49,7 @@ public class Polygon implements java.io.Serializable{
         this.index = index;
     }
 
-    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @JoinColumn(name = "exterior_hjid")
     public Ring getExterior() {
         return exterior;
@@ -60,8 +59,8 @@ public class Polygon implements java.io.Serializable{
         this.exterior = value;
     }
 
-    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "interior_hjid")
+    @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "interior_hjid", referencedColumnName = "hjid", nullable = true)
     public List<Ring> getInterior() {
         if (interior == null) {
             interior = new ArrayList<>();

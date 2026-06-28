@@ -19,7 +19,7 @@ public abstract class AbstractEngine<ROOT, MESSAGE, FEATURE, TIMESLICE, OBJECT, 
      * Computes information about the AIXM message like the earliest and latest feature lifetime, valid time, and counts of different slice types. It combines the temporality information of all features in the message to provide an overall summary.
      * @param message The AIXM message to analyze.
      */
-    public abstract void info(ROOT message);
+    public abstract void temporalityInspection(ROOT message);
 
     /**
      * Computes statistics about the AIXM message, such as the number of features and time slices.

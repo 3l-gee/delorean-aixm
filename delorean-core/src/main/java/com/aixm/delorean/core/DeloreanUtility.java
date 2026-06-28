@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.AccessDeniedException;
 import java.nio.file.Files;
@@ -16,7 +18,6 @@ import java.util.UUID;
 import java.util.Arrays;
 
 import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
 
 import java.nio.file.Path;
 
@@ -60,6 +61,98 @@ public class DeloreanUtility {
             return null;
         } catch (Exception e) {
             ConsoleLogger.error("An unexpected I/O error occurred while accessing: " + filePath + " - " + e.getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Loads a file from the disk (external file system) as an InputStream.
+     * @param filePath The absolute or relative path to the file.
+     * @return The InputStream for the file or the first entry of a zip.
+     * @throws Exception If the file is not found, access is denied, or any I/O error occurs.
+     */
+    public static InputStream urlToInputStream(String fileUrl) {
+        if (fileUrl == null || fileUrl.trim().isEmpty()) {
+            ConsoleLogger.error("File url cannot be null or empty.");
+            return null;
+        }
+
+        String trimmedUrl = fileUrl.trim().toLowerCase();
+
+        if (!trimmedUrl.startsWith("http://") || !trimmedUrl.startsWith("https://")) {
+            ConsoleLogger.error("File Url must be a valid Url:" + trimmedUrl);
+            return null;
+        }
+
+        try {
+            URI uri = new URI(trimmedUrl);
+            URL url = uri.toURL();
+            
+            return url.openStream();
+            
+        } catch (IllegalArgumentException e) {
+            ConsoleLogger.error("Malformed URL syntax: " + trimmedUrl);
+            return null;
+        } catch (FileNotFoundException e) {
+            ConsoleLogger.error("Remote file not found (404) at URL: " + trimmedUrl);
+            return null;
+        } catch (Exception e) {
+            ConsoleLogger.error("An error occurred while fetching remote URL: " + trimmedUrl + " - " + e.getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Connects to a remote URL, downloads the .zip dataset, 
+     * and returns the InputStream of the first file found inside the archive.
+     * * @param fileUrl The valid HTTP or HTTPS URL to the remote zip dataset.
+     * @return The InputStream for the first inner file entry, or null on failure.
+     */
+    public static InputStream urlZipToInputStream(String fileUrl) {
+        if (fileUrl == null || fileUrl.trim().isEmpty()) {
+            ConsoleLogger.error("File URL cannot be null or empty.");
+            return null;
+        }
+
+        String trimmedUrl = fileUrl.trim();
+
+        if (!trimmedUrl.startsWith("http://") && !trimmedUrl.startsWith("https://")) {
+            ConsoleLogger.error("URL must be a valid HTTP/HTTPS address: " + trimmedUrl);
+            return null;
+        }
+
+        if (!trimmedUrl.endsWith(".zip")) {
+            ConsoleLogger.error("URL does not point to a .zip file: " + trimmedUrl);
+            return null;
+        }
+
+        try {
+            URI uri = new URI(trimmedUrl);
+            URL url = uri.toURL();
+            
+            ZipInputStream zipStream = new ZipInputStream(url.openStream());
+            ZipEntry entry = zipStream.getNextEntry();
+            
+            while (entry != null && entry.isDirectory()) {
+                entry = zipStream.getNextEntry();
+            }
+            
+            if (entry == null) {
+                ConsoleLogger.error("The zip archive at the URL is empty or contains no files: " + trimmedUrl);
+                zipStream.close();
+                return null;
+            }
+            
+            return zipStream;
+            
+        } catch (IllegalArgumentException e) {
+            ConsoleLogger.error("Malformed URL syntax: " + trimmedUrl);
+            return null;
+        } catch (FileNotFoundException e) {
+            ConsoleLogger.error("Remote zip file not found (404) at URL: " + trimmedUrl);
+            return null;
+        } catch (Exception e) {
+            ConsoleLogger.error("An error occurred while fetching or processing remote zip: " + trimmedUrl + " - " + e.getMessage());
             return null;
         }
     }

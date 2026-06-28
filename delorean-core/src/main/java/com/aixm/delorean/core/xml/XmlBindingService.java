@@ -29,10 +29,10 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.ErrorHandler;
 import org.w3c.dom.Document;
 
-import com.aixm.delorean.core.validation.ValidationBindingService;
-import com.aixm.delorean.core.validation.ValidationSeverity;
-import com.aixm.delorean.core.validation.ValidationSource;
 import com.aixm.delorean.core.DeloreanUtility;
+import com.aixm.delorean.core.inspection.InspectionBindingService;
+import com.aixm.delorean.core.inspection.ValidationSeverity;
+import com.aixm.delorean.core.inspection.InspectionSource;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 
@@ -94,16 +94,16 @@ public class XmlBindingService<ROOT, FEATURE> {
     public boolean unmarshallerEventHandler(ValidationEvent event) {
         switch (event.getSeverity()) {
             case ValidationEvent.WARNING:
-                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.WARNING, "JAXB Validation", event);
+                InspectionBindingService.recordEvent(InspectionSource.JAXB, ValidationSeverity.WARNING, "JAXB Validation", event);
                 break;
             case ValidationEvent.ERROR:
-                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.ERROR, "JAXB Validation", event);
+                InspectionBindingService.recordEvent(InspectionSource.JAXB, ValidationSeverity.ERROR, "JAXB Validation", event);
                 break;
             case ValidationEvent.FATAL_ERROR:
-                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.FATAL, "JAXB Validation", event);
+                InspectionBindingService.recordEvent(InspectionSource.JAXB, ValidationSeverity.FATAL, "JAXB Validation", event);
                 break;
             default:
-                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.INFO, "JAXB Validation", event);
+                InspectionBindingService.recordEvent(InspectionSource.JAXB, ValidationSeverity.INFO, "JAXB Validation", event);
 
         }
 
@@ -113,23 +113,23 @@ public class XmlBindingService<ROOT, FEATURE> {
     public boolean marshallerEventHandler(ValidationEvent event) {
         switch (event.getSeverity()) {
             case ValidationEvent.WARNING:
-                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.WARNING, "JAXB Validation", event);
+                InspectionBindingService.recordEvent(InspectionSource.JAXB, ValidationSeverity.WARNING, "JAXB Validation", event);
                 break;
             case ValidationEvent.ERROR:
-                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.ERROR, "JAXB Validation", event);
+                InspectionBindingService.recordEvent(InspectionSource.JAXB, ValidationSeverity.ERROR, "JAXB Validation", event);
                 break;
             case ValidationEvent.FATAL_ERROR:
-                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.FATAL, "JAXB Validation", event);
+                InspectionBindingService.recordEvent(InspectionSource.JAXB, ValidationSeverity.FATAL, "JAXB Validation", event);
                 break;
             default:
-                ValidationBindingService.recordEvent(ValidationSource.JAXB_VALIDATION, ValidationSeverity.INFO, "JAXB Validation", event);
+                InspectionBindingService.recordEvent(InspectionSource.JAXB, ValidationSeverity.INFO, "JAXB Validation", event);
 
         }
 
         return true;
     }
 
-    public boolean saxValidate(Object object) {
+    public boolean saxInspect(Object object) {
         if (this.schema == null) {
             throw new IllegalStateException("Cannot validate object because no XML Schema is set for this XmlBindingService.");
         }
@@ -140,15 +140,15 @@ public class XmlBindingService<ROOT, FEATURE> {
             validator.setErrorHandler(new org.xml.sax.ErrorHandler() {
                 @Override
                 public void warning(org.xml.sax.SAXParseException e) {
-                    ValidationBindingService.recordEvent(ValidationSource.SAX_VALIDATION, ValidationSeverity.WARNING, "SAX Validation", e);
+                    InspectionBindingService.recordEvent(InspectionSource.SAX, ValidationSeverity.WARNING, "SAX Validation", e);
                 }
                 @Override
                 public void error(org.xml.sax.SAXParseException e) {
-                    ValidationBindingService.recordEvent(ValidationSource.SAX_VALIDATION, ValidationSeverity.ERROR, "SAX Validation", e);
+                    InspectionBindingService.recordEvent(InspectionSource.SAX, ValidationSeverity.ERROR, "SAX Validation", e);
                 }
                 @Override
                 public void fatalError(org.xml.sax.SAXParseException e) {
-                    ValidationBindingService.recordEvent(ValidationSource.SAX_VALIDATION, ValidationSeverity.FATAL, "SAX Validation", e);
+                    InspectionBindingService.recordEvent(InspectionSource.SAX, ValidationSeverity.FATAL, "SAX Validation", e);
                 }
             });
 

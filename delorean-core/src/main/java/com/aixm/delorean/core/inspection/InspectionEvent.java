@@ -1,18 +1,29 @@
-package com.aixm.delorean.core.validation;
+package com.aixm.delorean.core.inspection;
 
 import org.xml.sax.SAXParseException;
-import com.aixm.delorean.core.validation.ValidationSource;
+
+import com.aixm.delorean.core.inspection.InspectionSource;
+
 import javax.xml.bind.ValidationEventLocator;
 
-public class ValidationEvent {
-    ValidationSource source;
+public class InspectionEvent {
+    InspectionSource source;
     ValidationSeverity severity;
     String method;
     String message;
     String location;
 
     // Default constructor
-    public ValidationEvent(ValidationSource source, ValidationSeverity severity, String method, String message, String location) {
+    public InspectionEvent(InspectionSource source, ValidationSeverity severity, String method, String message) {
+        this.source = source;
+        this.severity = severity;
+        this.method = method;
+        this.message = message;
+        this.location = "";
+    }
+
+    // Default constructor
+    public InspectionEvent(InspectionSource source, ValidationSeverity severity, String method, String message, String location) {
         this.source = source;
         this.severity = severity;
         this.method = method;
@@ -21,7 +32,7 @@ public class ValidationEvent {
     }
 
     // Constructor to convert SAX Exceptions
-    public ValidationEvent(ValidationSource source, ValidationSeverity severity, String method, SAXParseException e) {
+    public InspectionEvent(InspectionSource source, ValidationSeverity severity, String method, SAXParseException e) {
         this.source = source;
         this.severity = severity;
         this.method = method;
@@ -34,7 +45,7 @@ public class ValidationEvent {
     }
 
     // Constructor to convert JAXB Exceptions
-    public ValidationEvent(ValidationSource source, ValidationSeverity severity, String method, jakarta.xml.bind.ValidationEvent error) {
+    public InspectionEvent(InspectionSource source, ValidationSeverity severity, String method, jakarta.xml.bind.ValidationEvent error) {
         this.source = source;
         this.severity = severity;
         this.method = method;
@@ -47,7 +58,7 @@ public class ValidationEvent {
     }
 
     // Getters
-    public ValidationSource getSource() {
+    public InspectionSource getSource() {
         return source; 
     }
 

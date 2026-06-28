@@ -11,6 +11,7 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
+import org.locationtech.jts.geom.Geometry;
 
 import java.util.List;
 
@@ -61,11 +62,11 @@ public class Point extends AbstractGMLType {
         insertable = false, 
         updatable = false
     )
-    public String getGeom() {
+    public Geometry getGeom() {
         return null; // Return null so Hibernate doesn't pass around any heavy spatial objects
     }
 
-    public void setGeom(String geom) {
+    public void setGeom(Geometry geom) {
         // No-op: Hibernate will never try to populate this unless forced, 
         // and your Java layer ignores it.
     }

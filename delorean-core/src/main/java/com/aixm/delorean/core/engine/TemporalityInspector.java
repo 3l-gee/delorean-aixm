@@ -2,6 +2,10 @@ package com.aixm.delorean.core.engine;
 
 import java.time.Instant;
 
+import com.aixm.delorean.core.inspection.InspectionBindingService;
+import com.aixm.delorean.core.inspection.ValidationSeverity;
+import com.aixm.delorean.core.inspection.InspectionSource;
+
 // Define this class/record once
 public record TemporalityInspector(
     Instant earliestFeatureLifetimeStart,
@@ -11,7 +15,9 @@ public record TemporalityInspector(
     Integer baselineCount,
     Integer snapshotCount,
     Integer tempDeltaCount,
-    Integer permDeltaCount) {
+    Integer permDeltaCount,
+    Integer featureCount,
+    Integer timeSliceCount) {
 
     public TemporalityInspector combine(TemporalityInspector other) {
         return new TemporalityInspector(
@@ -22,20 +28,25 @@ public record TemporalityInspector(
             baselineCount + other.baselineCount,
             snapshotCount + other.snapshotCount,
             tempDeltaCount + other.tempDeltaCount,
-            permDeltaCount + other.permDeltaCount
+            permDeltaCount + other.permDeltaCount,
+            featureCount + other.featureCount,
+            timeSliceCount + other.timeSliceCount
         );
     }
 
-    public void printSummary() {
+    public void validateTemporality() {
+
+        InspectionBindingService.recordEvent(InspectionSource.TEMPORALITY, ValidationSeverity.INFO, "Temporality Information", "Feature Lifetime fromm : " + earliestFeatureLifetimeStart + " to " + latestFeatureLifetimeStart);
+        InspectionBindingService.recordEvent(InspectionSource.TEMPORALITY, ValidationSeverity.INFO, "Temporality Information", "Time Slice Valid from : " + earliestFeatureLifetimeStart + " to " + latestFeatureLifetimeStart);
+        InspectionBindingService.recordEvent(InspectionSource.TEMPORALITY, ValidationSeverity.INFO, "Temporality Information", "Feature Count : " + featureCount);
+        InspectionBindingService.recordEvent(InspectionSource.TEMPORALITY, ValidationSeverity.INFO, "Temporality Information", "Time Slice Count : " + timeSliceCount);
         
-        System.out.println(" Summary of Temporality Inspection ");
-        System.out.println("Feature Lifetime from   : " + earliestFeatureLifetimeStart + " to " + latestFeatureLifetimeStart);
-        System.out.println("Time Slice Valid from   : " + earliestValidTimeStart + " to " + latestValidTimeEnd);
         int totalCount = baselineCount + snapshotCount + tempDeltaCount + permDeltaCount;
-        System.out.println("Baseline Count          : " + baselineCount + " (" + String.format("%.2f", baselineCount * 100.0 / totalCount) + "%)");
-        System.out.println("Snapshot Count          : " + snapshotCount + " (" + String.format("%.2f", snapshotCount * 100.0 / totalCount) + "%)");
-        System.out.println("Temporary Delta Count   : " + tempDeltaCount + " (" + String.format("%.2f", tempDeltaCount * 100.0 / totalCount) + "%)");
-        System.out.println("Permanent Delta Count   : " + permDeltaCount + " (" + String.format("%.2f", permDeltaCount * 100.0 / totalCount) + "%)");
+        InspectionBindingService.recordEvent(InspectionSource.TEMPORALITY, ValidationSeverity.INFO, "Temporality Information", "Baseline Count : " + baselineCount + " (" + String.format("%.2f", baselineCount * 100.0 / totalCount) + "%)");
+        InspectionBindingService.recordEvent(InspectionSource.TEMPORALITY, ValidationSeverity.INFO, "Temporality Information", "Snapshot Count : " + snapshotCount + " (" + String.format("%.2f", snapshotCount * 100.0 / totalCount) + "%)");
+        InspectionBindingService.recordEvent(InspectionSource.TEMPORALITY, ValidationSeverity.INFO, "Temporality Information", "Temporary Delta Count : " + tempDeltaCount + " (" + String.format("%.2f", tempDeltaCount * 100.0 / totalCount) + "%)");
+        InspectionBindingService.recordEvent(InspectionSource.TEMPORALITY, ValidationSeverity.INFO, "Temporality Information", "Permanent Delta Count : " + permDeltaCount + " (" + String.format("%.2f", permDeltaCount * 100.0 / totalCount) + "%)");
+
     }
 }
 

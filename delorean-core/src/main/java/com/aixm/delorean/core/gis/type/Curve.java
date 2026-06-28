@@ -14,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,9 +40,9 @@ public class Curve extends AbstractGMLType {
     }
 
     @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "curve_hjid")
+    @JoinColumn(name = "curve_hjid", referencedColumnName = "hjid", nullable = false)
     public List<Segment> getSegments() {
-        if (segments == null) { 
+        if (segments == null) {
             segments = new ArrayList<>();
         }
         return segments;
@@ -52,7 +51,6 @@ public class Curve extends AbstractGMLType {
     public void setSegments(List<Segment> segments) {
         this.segments = segments;
     }
-
 
     public List<String> aggregateEpsgCode() {
         List<String> epsgCodes = new ArrayList<>();
