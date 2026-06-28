@@ -343,16 +343,14 @@ public class GuidanceLineDirectionType extends AbstractAIXMObjectType implements
         }
         final GuidanceLineDirectionType that = ((GuidanceLineDirectionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheManoeuvringAreaAvailability();
-            boolean rhsFieldIsSet = that.isSetTheManoeuvringAreaAvailability();
-            JAXBElement<ManoeuvringAreaAvailabilityPropertyType> lhsField;
-            lhsField = this.getTheManoeuvringAreaAvailability();
-            JAXBElement<ManoeuvringAreaAvailabilityPropertyType> rhsField;
-            rhsField = that.getTheManoeuvringAreaAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theManoeuvringAreaAvailability",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theManoeuvringAreaAvailability",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -366,19 +364,6 @@ public class GuidanceLineDirectionType extends AbstractAIXMObjectType implements
             rhsField = that.getDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -405,6 +390,21 @@ public class GuidanceLineDirectionType extends AbstractAIXMObjectType implements
             rhsField = that.getCardinalDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cardinalDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cardinalDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheManoeuvringAreaAvailability();
+            boolean rhsFieldIsSet = that.isSetTheManoeuvringAreaAvailability();
+            JAXBElement<ManoeuvringAreaAvailabilityPropertyType> lhsField;
+            lhsField = this.getTheManoeuvringAreaAvailability();
+            JAXBElement<ManoeuvringAreaAvailabilityPropertyType> rhsField;
+            rhsField = that.getTheManoeuvringAreaAvailability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theManoeuvringAreaAvailability",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theManoeuvringAreaAvailability",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

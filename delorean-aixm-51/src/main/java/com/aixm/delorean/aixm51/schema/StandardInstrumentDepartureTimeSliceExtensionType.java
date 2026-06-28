@@ -246,16 +246,14 @@ public class StandardInstrumentDepartureTimeSliceExtensionType implements Serial
         }
         final StandardInstrumentDepartureTimeSliceExtensionType that = ((StandardInstrumentDepartureTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractStandardInstrumentDepartureExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractStandardInstrumentDepartureExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractStandardInstrumentDepartureExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractStandardInstrumentDepartureExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractStandardInstrumentDepartureExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractStandardInstrumentDepartureExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -274,14 +272,16 @@ public class StandardInstrumentDepartureTimeSliceExtensionType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractStandardInstrumentDepartureExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractStandardInstrumentDepartureExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractStandardInstrumentDepartureExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractStandardInstrumentDepartureExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractStandardInstrumentDepartureExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractStandardInstrumentDepartureExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

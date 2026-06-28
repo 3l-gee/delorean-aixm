@@ -440,32 +440,6 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
         }
         final LightGroupType that = ((LightGroupType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFromDistance();
-            boolean rhsFieldIsSet = that.isSetFromDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getFromDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getFromDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fromDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fromDistance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElement();
-            boolean rhsFieldIsSet = that.isSetElement();
-            List<LightElementPropertyType> lhsField;
-            lhsField = (this.isSetElement() ? this.getElement() : null);
-            List<LightElementPropertyType> rhsField;
-            rhsField = (that.isSetElement() ? that.getElement() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetToDistance();
             boolean rhsFieldIsSet = that.isSetToDistance();
             JAXBElement<ValDistanceType> lhsField;
@@ -479,14 +453,14 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<LightGroupExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<LightGroupExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetFromDistance();
+            boolean rhsFieldIsSet = that.isSetFromDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getFromDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getFromDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fromDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fromDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -505,14 +479,14 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDirection();
-            boolean rhsFieldIsSet = that.isSetDirection();
-            JAXBElement<CodeLightDirectionType> lhsField;
-            lhsField = this.getDirection();
-            JAXBElement<CodeLightDirectionType> rhsField;
-            rhsField = that.getDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
+            boolean lhsFieldIsSet = this.isSetElement();
+            boolean rhsFieldIsSet = that.isSetElement();
+            List<LightElementPropertyType> lhsField;
+            lhsField = (this.isSetElement() ? this.getElement() : null);
+            List<LightElementPropertyType> rhsField;
+            rhsField = (that.isSetElement() ? that.getElement() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -526,6 +500,32 @@ public class LightGroupType extends AbstractAIXMObjectType implements Serializab
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDirection();
+            boolean rhsFieldIsSet = that.isSetDirection();
+            JAXBElement<CodeLightDirectionType> lhsField;
+            lhsField = this.getDirection();
+            JAXBElement<CodeLightDirectionType> rhsField;
+            rhsField = that.getDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<LightGroupExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<LightGroupExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

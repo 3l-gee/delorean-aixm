@@ -527,14 +527,14 @@ public class AeronauticalGroundLightTimeSliceType extends AbstractAIXMTimeSliceT
         }
         final AeronauticalGroundLightTimeSliceType that = ((AeronauticalGroundLightTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlashing();
+            boolean rhsFieldIsSet = that.isSetFlashing();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlashing();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlashing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flashing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flashing", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -553,19 +553,6 @@ public class AeronauticalGroundLightTimeSliceType extends AbstractAIXMTimeSliceT
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStructureBeacon();
-            boolean rhsFieldIsSet = that.isSetStructureBeacon();
-            JAXBElement<VerticalStructurePropertyType> lhsField;
-            lhsField = this.getStructureBeacon();
-            JAXBElement<VerticalStructurePropertyType> rhsField;
-            rhsField = that.getStructureBeacon();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "structureBeacon", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "structureBeacon", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAixmName();
             boolean rhsFieldIsSet = that.isSetAixmName();
             JAXBElement<TextNameType> lhsField;
@@ -579,27 +566,40 @@ public class AeronauticalGroundLightTimeSliceType extends AbstractAIXMTimeSliceT
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlashing();
-            boolean rhsFieldIsSet = that.isSetFlashing();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlashing();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlashing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flashing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flashing", rhsField);
+            boolean lhsFieldIsSet = this.isSetColour();
+            boolean rhsFieldIsSet = that.isSetColour();
+            JAXBElement<CodeColourType> lhsField;
+            lhsField = this.getColour();
+            JAXBElement<CodeColourType> rhsField;
+            rhsField = that.getColour();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetStructureBeacon();
+            boolean rhsFieldIsSet = that.isSetStructureBeacon();
+            JAXBElement<VerticalStructurePropertyType> lhsField;
+            lhsField = this.getStructureBeacon();
+            JAXBElement<VerticalStructurePropertyType> rhsField;
+            rhsField = that.getStructureBeacon();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "structureBeacon", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "structureBeacon", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -631,14 +631,14 @@ public class AeronauticalGroundLightTimeSliceType extends AbstractAIXMTimeSliceT
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetColour();
-            boolean rhsFieldIsSet = that.isSetColour();
-            JAXBElement<CodeColourType> lhsField;
-            lhsField = this.getColour();
-            JAXBElement<CodeColourType> rhsField;
-            rhsField = that.getColour();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

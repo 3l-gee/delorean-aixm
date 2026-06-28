@@ -246,21 +246,6 @@ public class OnlineContactExtensionType implements Serializable, Equals, HashCod
         }
         final OnlineContactExtensionType that = ((OnlineContactExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPropertiesWithScheduleExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractPropertiesWithScheduleExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractPropertiesWithScheduleExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractOnlineContactExtension();
             boolean rhsFieldIsSet = that.isSetAbstractOnlineContactExtension();
             AbstractExtensionType lhsField;
@@ -271,6 +256,21 @@ public class OnlineContactExtensionType implements Serializable, Equals, HashCod
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOnlineContactExtension",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPropertiesWithScheduleExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPropertiesWithScheduleExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractPropertiesWithScheduleExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

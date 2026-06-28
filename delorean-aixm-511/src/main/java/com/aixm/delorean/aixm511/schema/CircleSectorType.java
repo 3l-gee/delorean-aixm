@@ -705,53 +705,14 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
         }
         final CircleSectorType that = ((CircleSectorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetArcDirection();
-            boolean rhsFieldIsSet = that.isSetArcDirection();
-            JAXBElement<CodeArcDirectionType> lhsField;
-            lhsField = this.getArcDirection();
-            JAXBElement<CodeArcDirectionType> rhsField;
-            rhsField = that.getArcDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLowerLimit();
-            boolean rhsFieldIsSet = that.isSetLowerLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getLowerLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getLowerLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimitReference();
-            boolean rhsFieldIsSet = that.isSetUpperLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getUpperLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getUpperLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetOuterDistance();
+            boolean rhsFieldIsSet = that.isSetOuterDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getOuterDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getOuterDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outerDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outerDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -770,6 +731,32 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetFromAngle();
+            boolean rhsFieldIsSet = that.isSetFromAngle();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getFromAngle();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getFromAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fromAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fromAngle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<CircleSectorExtensionType> lhsField;
@@ -783,27 +770,14 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
-            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getLowerLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOuterDistance();
-            boolean rhsFieldIsSet = that.isSetOuterDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getOuterDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getOuterDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outerDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outerDistance", rhsField);
+            boolean lhsFieldIsSet = this.isSetArcDirection();
+            boolean rhsFieldIsSet = that.isSetArcDirection();
+            JAXBElement<CodeArcDirectionType> lhsField;
+            lhsField = this.getArcDirection();
+            JAXBElement<CodeArcDirectionType> rhsField;
+            rhsField = that.getArcDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -822,6 +796,19 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetLowerLimit();
+            boolean rhsFieldIsSet = that.isSetLowerLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getLowerLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getLowerLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetUpperLimit();
             boolean rhsFieldIsSet = that.isSetUpperLimit();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -835,14 +822,14 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFromAngle();
-            boolean rhsFieldIsSet = that.isSetFromAngle();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getFromAngle();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getFromAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fromAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fromAngle", rhsField);
+            boolean lhsFieldIsSet = this.isSetUpperLimitReference();
+            boolean rhsFieldIsSet = that.isSetUpperLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getUpperLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getUpperLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -856,6 +843,19 @@ public class CircleSectorType extends AbstractAIXMObjectType implements Serializ
             rhsField = that.getAngleDirectionReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleDirectionReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleDirectionReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
+            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getLowerLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

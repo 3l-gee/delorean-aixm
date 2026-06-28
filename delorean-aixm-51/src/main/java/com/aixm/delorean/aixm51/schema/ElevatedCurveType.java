@@ -245,14 +245,14 @@ public class ElevatedCurveType extends CurveType implements Serializable {
         }
         final ElevatedCurveType that = ((ElevatedCurveType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ElevatedCurveTypeExtension> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ElevatedCurveTypeExtension> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetVerticalDatum();
+            boolean rhsFieldIsSet = that.isSetVerticalDatum();
+            JAXBElement<CodeVerticalDatumType> lhsField;
+            lhsField = this.getVerticalDatum();
+            JAXBElement<CodeVerticalDatumType> rhsField;
+            rhsField = that.getVerticalDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -297,14 +297,14 @@ public class ElevatedCurveType extends CurveType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVerticalDatum();
-            boolean rhsFieldIsSet = that.isSetVerticalDatum();
-            JAXBElement<CodeVerticalDatumType> lhsField;
-            lhsField = this.getVerticalDatum();
-            JAXBElement<CodeVerticalDatumType> rhsField;
-            rhsField = that.getVerticalDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ElevatedCurveTypeExtension> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ElevatedCurveTypeExtension> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

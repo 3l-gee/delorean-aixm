@@ -763,6 +763,19 @@ public class AngleType extends AbstractAIXMObjectType implements Serializable {
         }
         final AngleType that = ((AngleType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAngleType();
+            boolean rhsFieldIsSet = that.isSetAngleType();
+            JAXBElement<CodeBearingType> lhsField;
+            lhsField = this.getAngleType();
+            JAXBElement<CodeBearingType> rhsField;
+            rhsField = that.getAngleType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPointChoiceFixDesignatedPoint();
             boolean rhsFieldIsSet = that.isSetPointChoiceFixDesignatedPoint();
             JAXBElement<DesignatedPointPropertyType> lhsField;
@@ -773,6 +786,58 @@ public class AngleType extends AbstractAIXMObjectType implements Serializable {
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceFixDesignatedPoint",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getPointChoiceNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getPointChoiceRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getPointChoiceRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceAimingPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getPointChoiceAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getPointChoiceAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAngle();
+            boolean rhsFieldIsSet = that.isSetAngle();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getAngle();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -791,6 +856,34 @@ public class AngleType extends AbstractAIXMObjectType implements Serializable {
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetPointChoiceAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getPointChoiceAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getPointChoiceAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAirportReferencePoint",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAirportReferencePoint",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCardinalDirection();
+            boolean rhsFieldIsSet = that.isSetCardinalDirection();
+            JAXBElement<CodeCardinalDirectionType> lhsField;
+            lhsField = this.getCardinalDirection();
+            JAXBElement<CodeCardinalDirectionType> rhsField;
+            rhsField = that.getCardinalDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cardinalDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cardinalDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AngleExtensionType> lhsField;
@@ -804,40 +897,14 @@ public class AngleType extends AbstractAIXMObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAngleType();
-            boolean rhsFieldIsSet = that.isSetAngleType();
-            JAXBElement<CodeBearingType> lhsField;
-            lhsField = this.getAngleType();
-            JAXBElement<CodeBearingType> rhsField;
-            rhsField = that.getAngleType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoicePosition();
-            boolean rhsFieldIsSet = that.isSetPointChoicePosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getPointChoicePosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getPointChoicePosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoicePosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoicePosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getPointChoiceNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
+            boolean lhsFieldIsSet = this.isSetIndicationDirection();
+            boolean rhsFieldIsSet = that.isSetIndicationDirection();
+            JAXBElement<CodeDirectionReferenceType> lhsField;
+            lhsField = this.getIndicationDirection();
+            JAXBElement<CodeDirectionReferenceType> rhsField;
+            rhsField = that.getIndicationDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "indicationDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "indicationDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -869,81 +936,14 @@ public class AngleType extends AbstractAIXMObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCardinalDirection();
-            boolean rhsFieldIsSet = that.isSetCardinalDirection();
-            JAXBElement<CodeCardinalDirectionType> lhsField;
-            lhsField = this.getCardinalDirection();
-            JAXBElement<CodeCardinalDirectionType> rhsField;
-            rhsField = that.getCardinalDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cardinalDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cardinalDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getPointChoiceAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getPointChoiceAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAirportReferencePoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAirportReferencePoint",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIndicationDirection();
-            boolean rhsFieldIsSet = that.isSetIndicationDirection();
-            JAXBElement<CodeDirectionReferenceType> lhsField;
-            lhsField = this.getIndicationDirection();
-            JAXBElement<CodeDirectionReferenceType> rhsField;
-            rhsField = that.getIndicationDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "indicationDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "indicationDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceAimingPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getPointChoiceAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getPointChoiceAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getPointChoiceRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getPointChoiceRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAngle();
-            boolean rhsFieldIsSet = that.isSetAngle();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getAngle();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angle", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointChoicePosition();
+            boolean rhsFieldIsSet = that.isSetPointChoicePosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getPointChoicePosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getPointChoicePosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoicePosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoicePosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

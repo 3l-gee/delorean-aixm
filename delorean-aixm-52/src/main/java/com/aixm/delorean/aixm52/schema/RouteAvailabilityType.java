@@ -506,14 +506,14 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
         }
         final RouteAvailabilityType that = ((RouteAvailabilityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetDirection();
+            boolean rhsFieldIsSet = that.isSetDirection();
+            JAXBElement<CodeRouteDirectionType> lhsField;
+            lhsField = this.getDirection();
+            JAXBElement<CodeRouteDirectionType> rhsField;
+            rhsField = that.getDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -527,32 +527,6 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
             rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLevels();
-            boolean rhsFieldIsSet = that.isSetLevels();
-            List<AirspaceLayerPropertyType> lhsField;
-            lhsField = (this.isSetLevels() ? this.getLevels() : null);
-            List<AirspaceLayerPropertyType> rhsField;
-            rhsField = (that.isSetLevels() ? that.getLevels() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RouteAvailabilityExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RouteAvailabilityExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -584,14 +558,14 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDirection();
-            boolean rhsFieldIsSet = that.isSetDirection();
-            JAXBElement<CodeRouteDirectionType> lhsField;
-            lhsField = this.getDirection();
-            JAXBElement<CodeRouteDirectionType> rhsField;
-            rhsField = that.getDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RouteAvailabilityExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RouteAvailabilityExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -605,6 +579,32 @@ public class RouteAvailabilityType extends AbstractPropertiesWithScheduleType im
             rhsField = that.getStatus();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLevels();
+            boolean rhsFieldIsSet = that.isSetLevels();
+            List<AirspaceLayerPropertyType> lhsField;
+            lhsField = (this.isSetLevels() ? this.getLevels() : null);
+            List<AirspaceLayerPropertyType> rhsField;
+            rhsField = (that.isSetLevels() ? that.getLevels() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

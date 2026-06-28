@@ -347,6 +347,19 @@ public class CourseGroupType extends AbstractAIXMObjectType implements Serializa
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCourseDirection();
+            boolean rhsFieldIsSet = that.isSetCourseDirection();
+            JAXBElement<CodeDirectionReferenceType> lhsField;
+            lhsField = this.getCourseDirection();
+            JAXBElement<CodeDirectionReferenceType> rhsField;
+            rhsField = that.getCourseDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -355,19 +368,6 @@ public class CourseGroupType extends AbstractAIXMObjectType implements Serializa
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCourse();
-            boolean rhsFieldIsSet = that.isSetCourse();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getCourse();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getCourse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "course", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "course", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -386,14 +386,14 @@ public class CourseGroupType extends AbstractAIXMObjectType implements Serializa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCourseDirection();
-            boolean rhsFieldIsSet = that.isSetCourseDirection();
-            JAXBElement<CodeDirectionReferenceType> lhsField;
-            lhsField = this.getCourseDirection();
-            JAXBElement<CodeDirectionReferenceType> rhsField;
-            rhsField = that.getCourseDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "courseDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "courseDirection", rhsField);
+            boolean lhsFieldIsSet = this.isSetCourse();
+            boolean rhsFieldIsSet = that.isSetCourse();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getCourse();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getCourse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "course", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "course", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

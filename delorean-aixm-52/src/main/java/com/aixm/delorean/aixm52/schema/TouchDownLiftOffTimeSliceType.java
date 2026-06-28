@@ -858,144 +858,14 @@ public class TouchDownLiftOffTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetApproachTakeOffArea();
-            boolean rhsFieldIsSet = that.isSetApproachTakeOffArea();
-            JAXBElement<RunwayPropertyType> lhsField;
-            lhsField = this.getApproachTakeOffArea();
-            JAXBElement<RunwayPropertyType> rhsField;
-            rhsField = that.getApproachTakeOffArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachTakeOffArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachTakeOffArea", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
-            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
-            lhsField = this.getSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
-            rhsField = that.getSurfaceProperties();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGeometricCentre();
-            boolean rhsFieldIsSet = that.isSetGeometricCentre();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getGeometricCentre();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getGeometricCentre();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricCentre", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricCentre", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetContaminant();
-            boolean rhsFieldIsSet = that.isSetContaminant();
-            List<TouchDownLiftOffContaminationPropertyType> lhsField;
-            lhsField = (this.isSetContaminant() ? this.getContaminant() : null);
-            List<TouchDownLiftOffContaminationPropertyType> rhsField;
-            rhsField = (that.isSetContaminant() ? that.getContaminant() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contaminant", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contaminant", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAircraft();
-            boolean rhsFieldIsSet = that.isSetAircraft();
-            List<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetAircraft() ? this.getAircraft() : null);
-            List<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetAircraft() ? that.getAircraft() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLength();
-            boolean rhsFieldIsSet = that.isSetLength();
+            boolean lhsFieldIsSet = this.isSetWidth();
+            boolean rhsFieldIsSet = that.isSetWidth();
             JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLength();
+            lhsField = this.getWidth();
             JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ManoeuvringAreaAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<ManoeuvringAreaAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbandoned();
-            boolean rhsFieldIsSet = that.isSetAbandoned();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getAbandoned();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getAbandoned();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abandoned", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abandoned", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TouchDownLiftOffTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TouchDownLiftOffTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            rhsField = that.getWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1014,6 +884,123 @@ public class TouchDownLiftOffTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetLength();
+            boolean rhsFieldIsSet = that.isSetLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbandoned();
+            boolean rhsFieldIsSet = that.isSetAbandoned();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getAbandoned();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getAbandoned();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abandoned", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abandoned", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ManoeuvringAreaAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
+            List<ManoeuvringAreaAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TouchDownLiftOffTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<TouchDownLiftOffTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
+            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
+            lhsField = this.getSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
+            rhsField = that.getSurfaceProperties();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContaminant();
+            boolean rhsFieldIsSet = that.isSetContaminant();
+            List<TouchDownLiftOffContaminationPropertyType> lhsField;
+            lhsField = (this.isSetContaminant() ? this.getContaminant() : null);
+            List<TouchDownLiftOffContaminationPropertyType> rhsField;
+            rhsField = (that.isSetContaminant() ? that.getContaminant() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contaminant", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contaminant", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAircraft();
+            boolean rhsFieldIsSet = that.isSetAircraft();
+            List<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetAircraft() ? this.getAircraft() : null);
+            List<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetAircraft() ? that.getAircraft() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDesignator();
             boolean rhsFieldIsSet = that.isSetDesignator();
             JAXBElement<TextDesignatorType> lhsField;
@@ -1027,14 +1014,27 @@ public class TouchDownLiftOffTimeSliceType extends AbstractAIXMTimeSliceType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWidth();
-            boolean rhsFieldIsSet = that.isSetWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
+            boolean lhsFieldIsSet = this.isSetApproachTakeOffArea();
+            boolean rhsFieldIsSet = that.isSetApproachTakeOffArea();
+            JAXBElement<RunwayPropertyType> lhsField;
+            lhsField = this.getApproachTakeOffArea();
+            JAXBElement<RunwayPropertyType> rhsField;
+            rhsField = that.getApproachTakeOffArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachTakeOffArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachTakeOffArea", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeometricCentre();
+            boolean rhsFieldIsSet = that.isSetGeometricCentre();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getGeometricCentre();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getGeometricCentre();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricCentre", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricCentre", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

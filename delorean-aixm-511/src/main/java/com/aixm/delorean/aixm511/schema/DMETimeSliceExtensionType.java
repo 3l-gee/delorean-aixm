@@ -246,19 +246,6 @@ public class DMETimeSliceExtensionType implements Serializable, Equals, HashCode
         }
         final DMETimeSliceExtensionType that = ((DMETimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDMEExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDMEExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDMEExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDMEExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDMEExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDMEExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -282,6 +269,19 @@ public class DMETimeSliceExtensionType implements Serializable, Equals, HashCode
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractDMEExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDMEExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDMEExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDMEExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDMEExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDMEExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -203,14 +203,14 @@ public class CurveType extends com.aixm.delorean.core.org.gml.v_3_2.CurveType im
         }
         final CurveType that = ((CurveType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<CurveTypeExtension> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<CurveTypeExtension> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetHorizontalAccuracy();
+            boolean rhsFieldIsSet = that.isSetHorizontalAccuracy();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getHorizontalAccuracy();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getHorizontalAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAccuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -229,14 +229,14 @@ public class CurveType extends com.aixm.delorean.core.org.gml.v_3_2.CurveType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHorizontalAccuracy();
-            boolean rhsFieldIsSet = that.isSetHorizontalAccuracy();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getHorizontalAccuracy();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getHorizontalAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAccuracy", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<CurveTypeExtension> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<CurveTypeExtension> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

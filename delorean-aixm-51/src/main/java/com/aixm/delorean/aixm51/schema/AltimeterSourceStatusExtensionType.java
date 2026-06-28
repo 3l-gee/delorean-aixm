@@ -246,6 +246,21 @@ public class AltimeterSourceStatusExtensionType implements Serializable, Equals,
         }
         final AltimeterSourceStatusExtensionType that = ((AltimeterSourceStatusExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractAltimeterSourceStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAltimeterSourceStatusExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAltimeterSourceStatusExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAltimeterSourceStatusExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAltimeterSourceStatusExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAltimeterSourceStatusExtension",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -269,21 +284,6 @@ public class AltimeterSourceStatusExtensionType implements Serializable, Equals,
                     "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
                     "abstractPropertiesWithScheduleExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractAltimeterSourceStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAltimeterSourceStatusExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAltimeterSourceStatusExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAltimeterSourceStatusExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAltimeterSourceStatusExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAltimeterSourceStatusExtension",
-                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

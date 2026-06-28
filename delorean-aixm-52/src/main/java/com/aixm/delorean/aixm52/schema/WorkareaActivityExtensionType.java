@@ -259,21 +259,6 @@ public class WorkareaActivityExtensionType implements Serializable, Equals, Hash
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPropertiesWithScheduleExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractPropertiesWithScheduleExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractPropertiesWithScheduleExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractWorkareaActivityExtension();
             boolean rhsFieldIsSet = that.isSetAbstractWorkareaActivityExtension();
             AbstractExtensionType lhsField;
@@ -284,6 +269,21 @@ public class WorkareaActivityExtensionType implements Serializable, Equals, Hash
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractWorkareaActivityExtension",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPropertiesWithScheduleExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPropertiesWithScheduleExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractPropertiesWithScheduleExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

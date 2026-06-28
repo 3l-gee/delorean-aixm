@@ -396,6 +396,19 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetReferencedDME();
+            boolean rhsFieldIsSet = that.isSetReferencedDME();
+            JAXBElement<DMEPropertyType> lhsField;
+            lhsField = this.getReferencedDME();
+            JAXBElement<DMEPropertyType> rhsField;
+            rhsField = that.getReferencedDME();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referencedDME", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referencedDME", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<RouteDMETimeSliceExtensionType> lhsField;
@@ -404,6 +417,19 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApplicableRoutePortion();
+            boolean rhsFieldIsSet = that.isSetApplicableRoutePortion();
+            JAXBElement<RoutePortionPropertyType> lhsField;
+            lhsField = this.getApplicableRoutePortion();
+            JAXBElement<RoutePortionPropertyType> rhsField;
+            rhsField = that.getApplicableRoutePortion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableRoutePortion", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableRoutePortion", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -430,32 +456,6 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
             rhsField = that.getCriticalDME();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalDME", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalDME", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApplicableRoutePortion();
-            boolean rhsFieldIsSet = that.isSetApplicableRoutePortion();
-            JAXBElement<RoutePortionPropertyType> lhsField;
-            lhsField = this.getApplicableRoutePortion();
-            JAXBElement<RoutePortionPropertyType> rhsField;
-            rhsField = that.getApplicableRoutePortion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableRoutePortion", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableRoutePortion", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReferencedDME();
-            boolean rhsFieldIsSet = that.isSetReferencedDME();
-            JAXBElement<DMEPropertyType> lhsField;
-            lhsField = this.getReferencedDME();
-            JAXBElement<DMEPropertyType> rhsField;
-            rhsField = that.getReferencedDME();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referencedDME", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referencedDME", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

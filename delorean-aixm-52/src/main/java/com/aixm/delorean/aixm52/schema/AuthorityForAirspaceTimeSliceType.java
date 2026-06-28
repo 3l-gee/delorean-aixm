@@ -342,32 +342,6 @@ public class AuthorityForAirspaceTimeSliceType extends AbstractAIXMTimeSliceType
         }
         final AuthorityForAirspaceTimeSliceType that = ((AuthorityForAirspaceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAuthorityType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAuthorityType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetResponsibleOrganisation();
-            boolean rhsFieldIsSet = that.isSetResponsibleOrganisation();
-            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = this.getResponsibleOrganisation();
-            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = that.getResponsibleOrganisation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleOrganisation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleOrganisation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -376,6 +350,32 @@ public class AuthorityForAirspaceTimeSliceType extends AbstractAIXMTimeSliceType
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAssignedAirspace();
+            boolean rhsFieldIsSet = that.isSetAssignedAirspace();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getAssignedAirspace();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getAssignedAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "assignedAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "assignedAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAuthorityType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAuthorityType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -394,14 +394,14 @@ public class AuthorityForAirspaceTimeSliceType extends AbstractAIXMTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAssignedAirspace();
-            boolean rhsFieldIsSet = that.isSetAssignedAirspace();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getAssignedAirspace();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getAssignedAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "assignedAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "assignedAirspace", rhsField);
+            boolean lhsFieldIsSet = this.isSetResponsibleOrganisation();
+            boolean rhsFieldIsSet = that.isSetResponsibleOrganisation();
+            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = this.getResponsibleOrganisation();
+            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = that.getResponsibleOrganisation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleOrganisation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleOrganisation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

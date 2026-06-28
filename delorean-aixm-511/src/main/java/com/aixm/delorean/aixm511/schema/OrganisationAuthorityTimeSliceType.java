@@ -501,27 +501,14 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
         }
         final OrganisationAuthorityTimeSliceType that = ((OrganisationAuthorityTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMilitary();
-            boolean rhsFieldIsSet = that.isSetMilitary();
-            JAXBElement<CodeMilitaryOperationsType> lhsField;
-            lhsField = this.getMilitary();
-            JAXBElement<CodeMilitaryOperationsType> rhsField;
-            rhsField = that.getMilitary();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "military", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "military", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeOrganisationDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeOrganisationDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -540,6 +527,19 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetMilitary();
+            boolean rhsFieldIsSet = that.isSetMilitary();
+            JAXBElement<CodeMilitaryOperationsType> lhsField;
+            lhsField = this.getMilitary();
+            JAXBElement<CodeMilitaryOperationsType> rhsField;
+            rhsField = that.getMilitary();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "military", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "military", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAixmName();
             boolean rhsFieldIsSet = that.isSetAixmName();
             JAXBElement<TextNameType> lhsField;
@@ -548,6 +548,32 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
             rhsField = that.getAixmName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContact();
+            boolean rhsFieldIsSet = that.isSetContact();
+            List<ContactInformationPropertyType> lhsField;
+            lhsField = (this.isSetContact() ? this.getContact() : null);
+            List<ContactInformationPropertyType> rhsField;
+            rhsField = (that.isSetContact() ? that.getContact() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<OrganisationAuthorityTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<OrganisationAuthorityTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -568,40 +594,14 @@ public class OrganisationAuthorityTimeSliceType extends AbstractAIXMTimeSliceTyp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetContact();
-            boolean rhsFieldIsSet = that.isSetContact();
-            List<ContactInformationPropertyType> lhsField;
-            lhsField = (this.isSetContact() ? this.getContact() : null);
-            List<ContactInformationPropertyType> rhsField;
-            rhsField = (that.isSetContact() ? that.getContact() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeOrganisationDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeOrganisationDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<OrganisationAuthorityTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<OrganisationAuthorityTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

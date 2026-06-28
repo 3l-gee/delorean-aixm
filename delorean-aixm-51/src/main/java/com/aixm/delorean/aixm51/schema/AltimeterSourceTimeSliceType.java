@@ -359,19 +359,6 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIsRemote();
-            boolean rhsFieldIsSet = that.isSetIsRemote();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIsRemote();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIsRemote();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isRemote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isRemote", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -385,14 +372,14 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AltimeterSourceTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AltimeterSourceTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetIsRemote();
+            boolean rhsFieldIsSet = that.isSetIsRemote();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getIsRemote();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getIsRemote();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isRemote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isRemote", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -406,6 +393,19 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
             rhsField = that.getIsPrimary();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPrimary", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPrimary", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AltimeterSourceTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AltimeterSourceTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

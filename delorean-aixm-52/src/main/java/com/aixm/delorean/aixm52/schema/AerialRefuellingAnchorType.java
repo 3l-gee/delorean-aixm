@@ -758,29 +758,66 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
         }
         final AerialRefuellingAnchorType that = ((AerialRefuellingAnchorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRefuellingBaseLevelReference();
-            boolean rhsFieldIsSet = that.isSetRefuellingBaseLevelReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getRefuellingBaseLevelReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getRefuellingBaseLevelReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refuellingBaseLevelReference",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refuellingBaseLevelReference",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetVerticalExtent();
+            boolean rhsFieldIsSet = that.isSetVerticalExtent();
+            List<AirspaceLayerPropertyType> lhsField;
+            lhsField = (this.isSetVerticalExtent() ? this.getVerticalExtent() : null);
+            List<AirspaceLayerPropertyType> rhsField;
+            rhsField = (that.isSetVerticalExtent() ? that.getVerticalExtent() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRefuellingBaseLevel();
-            boolean rhsFieldIsSet = that.isSetRefuellingBaseLevel();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getRefuellingBaseLevel();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getRefuellingBaseLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refuellingBaseLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refuellingBaseLevel", rhsField);
+            boolean lhsFieldIsSet = this.isSetLegLength();
+            boolean rhsFieldIsSet = that.isSetLegLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLegLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLegLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legLength", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legLength", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTurnDirection();
+            boolean rhsFieldIsSet = that.isSetTurnDirection();
+            JAXBElement<CodeDirectionTurnType> lhsField;
+            lhsField = this.getTurnDirection();
+            JAXBElement<CodeDirectionTurnType> rhsField;
+            rhsField = that.getTurnDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOutboundCourse();
+            boolean rhsFieldIsSet = that.isSetOutboundCourse();
+            List<CourseGroupPropertyType> lhsField;
+            lhsField = (this.isSetOutboundCourse() ? this.getOutboundCourse() : null);
+            List<CourseGroupPropertyType> rhsField;
+            rhsField = (that.isSetOutboundCourse() ? that.getOutboundCourse() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourse", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPoint();
+            boolean rhsFieldIsSet = that.isSetPoint();
+            List<AerialRefuellingPointPropertyType> lhsField;
+            lhsField = (this.isSetPoint() ? this.getPoint() : null);
+            List<AerialRefuellingPointPropertyType> rhsField;
+            rhsField = (that.isSetPoint() ? that.getPoint() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -812,40 +849,14 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTurnDirection();
-            boolean rhsFieldIsSet = that.isSetTurnDirection();
-            JAXBElement<CodeDirectionTurnType> lhsField;
-            lhsField = this.getTurnDirection();
-            JAXBElement<CodeDirectionTurnType> rhsField;
-            rhsField = that.getTurnDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPoint();
-            boolean rhsFieldIsSet = that.isSetPoint();
-            List<AerialRefuellingPointPropertyType> lhsField;
-            lhsField = (this.isSetPoint() ? this.getPoint() : null);
-            List<AerialRefuellingPointPropertyType> rhsField;
-            rhsField = (that.isSetPoint() ? that.getPoint() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLegSeparation();
-            boolean rhsFieldIsSet = that.isSetLegSeparation();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLegSeparation();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLegSeparation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legSeparation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legSeparation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -864,19 +875,6 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSpeedLimit();
             boolean rhsFieldIsSet = that.isSetSpeedLimit();
             JAXBElement<ValSpeedType> lhsField;
@@ -890,40 +888,42 @@ public class AerialRefuellingAnchorType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVerticalExtent();
-            boolean rhsFieldIsSet = that.isSetVerticalExtent();
-            List<AirspaceLayerPropertyType> lhsField;
-            lhsField = (this.isSetVerticalExtent() ? this.getVerticalExtent() : null);
-            List<AirspaceLayerPropertyType> rhsField;
-            rhsField = (that.isSetVerticalExtent() ? that.getVerticalExtent() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalExtent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLegLength();
-            boolean rhsFieldIsSet = that.isSetLegLength();
+            boolean lhsFieldIsSet = this.isSetLegSeparation();
+            boolean rhsFieldIsSet = that.isSetLegSeparation();
             JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLegLength();
+            lhsField = this.getLegSeparation();
             JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLegLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legLength", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legLength", rhsField);
+            rhsField = that.getLegSeparation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legSeparation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legSeparation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOutboundCourse();
-            boolean rhsFieldIsSet = that.isSetOutboundCourse();
-            List<CourseGroupPropertyType> lhsField;
-            lhsField = (this.isSetOutboundCourse() ? this.getOutboundCourse() : null);
-            List<CourseGroupPropertyType> rhsField;
-            rhsField = (that.isSetOutboundCourse() ? that.getOutboundCourse() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourse", rhsField);
+            boolean lhsFieldIsSet = this.isSetRefuellingBaseLevelReference();
+            boolean rhsFieldIsSet = that.isSetRefuellingBaseLevelReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getRefuellingBaseLevelReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getRefuellingBaseLevelReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refuellingBaseLevelReference",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refuellingBaseLevelReference",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRefuellingBaseLevel();
+            boolean rhsFieldIsSet = that.isSetRefuellingBaseLevel();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getRefuellingBaseLevel();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getRefuellingBaseLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refuellingBaseLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refuellingBaseLevel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

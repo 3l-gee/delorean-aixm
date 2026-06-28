@@ -246,21 +246,6 @@ public class VisualGlideSlopeIndicatorTimeSliceExtensionType implements Serializ
         }
         final VisualGlideSlopeIndicatorTimeSliceExtensionType that = ((VisualGlideSlopeIndicatorTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractVisualGlideSlopeIndicatorExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractVisualGlideSlopeIndicatorExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractVisualGlideSlopeIndicatorExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractVisualGlideSlopeIndicatorExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractVisualGlideSlopeIndicatorExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractVisualGlideSlopeIndicatorExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
             boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
             AbstractExtensionType lhsField;
@@ -284,6 +269,21 @@ public class VisualGlideSlopeIndicatorTimeSliceExtensionType implements Serializ
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractVisualGlideSlopeIndicatorExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractVisualGlideSlopeIndicatorExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractVisualGlideSlopeIndicatorExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractVisualGlideSlopeIndicatorExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractVisualGlideSlopeIndicatorExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractVisualGlideSlopeIndicatorExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

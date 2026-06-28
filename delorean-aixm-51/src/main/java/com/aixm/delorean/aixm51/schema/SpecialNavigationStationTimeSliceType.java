@@ -594,6 +594,32 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
         }
         final SpecialNavigationStationTimeSliceType that = ((SpecialNavigationStationTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetFrequency();
+            boolean rhsFieldIsSet = that.isSetFrequency();
+            JAXBElement<ValFrequencyType> lhsField;
+            lhsField = this.getFrequency();
+            JAXBElement<ValFrequencyType> rhsField;
+            rhsField = that.getFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequency", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSystemChain();
+            boolean rhsFieldIsSet = that.isSetSystemChain();
+            JAXBElement<SpecialNavigationSystemPropertyType> lhsField;
+            lhsField = this.getSystemChain();
+            JAXBElement<SpecialNavigationSystemPropertyType> rhsField;
+            rhsField = that.getSystemChain();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "systemChain", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "systemChain", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<SpecialNavigationStationTimeSliceExtensionType> lhsField;
@@ -620,45 +646,6 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeSpecialNavigationStationType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeSpecialNavigationStationType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetResponsibleOrganisation();
-            boolean rhsFieldIsSet = that.isSetResponsibleOrganisation();
-            JAXBElement<AuthorityForSpecialNavigationStationPropertyType> lhsField;
-            lhsField = this.getResponsibleOrganisation();
-            JAXBElement<AuthorityForSpecialNavigationStationPropertyType> rhsField;
-            rhsField = that.getResponsibleOrganisation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleOrganisation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleOrganisation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFrequency();
-            boolean rhsFieldIsSet = that.isSetFrequency();
-            JAXBElement<ValFrequencyType> lhsField;
-            lhsField = this.getFrequency();
-            JAXBElement<ValFrequencyType> rhsField;
-            rhsField = that.getFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequency", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -667,19 +654,6 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEmission();
-            boolean rhsFieldIsSet = that.isSetEmission();
-            JAXBElement<CodeRadioEmissionType> lhsField;
-            lhsField = this.getEmission();
-            JAXBElement<CodeRadioEmissionType> rhsField;
-            rhsField = that.getEmission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emission", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -698,6 +672,32 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetResponsibleOrganisation();
+            boolean rhsFieldIsSet = that.isSetResponsibleOrganisation();
+            JAXBElement<AuthorityForSpecialNavigationStationPropertyType> lhsField;
+            lhsField = this.getResponsibleOrganisation();
+            JAXBElement<AuthorityForSpecialNavigationStationPropertyType> rhsField;
+            rhsField = that.getResponsibleOrganisation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleOrganisation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleOrganisation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEmission();
+            boolean rhsFieldIsSet = that.isSetEmission();
+            JAXBElement<CodeRadioEmissionType> lhsField;
+            lhsField = this.getEmission();
+            JAXBElement<CodeRadioEmissionType> rhsField;
+            rhsField = that.getEmission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emission", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAvailability();
             boolean rhsFieldIsSet = that.isSetAvailability();
             List<SpecialNavigationStationStatusPropertyType> lhsField;
@@ -711,14 +711,14 @@ public class SpecialNavigationStationTimeSliceType extends AbstractAIXMTimeSlice
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSystemChain();
-            boolean rhsFieldIsSet = that.isSetSystemChain();
-            JAXBElement<SpecialNavigationSystemPropertyType> lhsField;
-            lhsField = this.getSystemChain();
-            JAXBElement<SpecialNavigationSystemPropertyType> rhsField;
-            rhsField = that.getSystemChain();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "systemChain", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "systemChain", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeSpecialNavigationStationType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeSpecialNavigationStationType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

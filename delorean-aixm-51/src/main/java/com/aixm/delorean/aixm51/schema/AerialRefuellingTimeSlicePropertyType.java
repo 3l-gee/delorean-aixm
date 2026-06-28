@@ -219,19 +219,6 @@ public class AerialRefuellingTimeSlicePropertyType implements Serializable, Equa
         }
         final AerialRefuellingTimeSlicePropertyType that = ((AerialRefuellingTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAerialRefuellingTimeSlice();
-            boolean rhsFieldIsSet = that.isSetAerialRefuellingTimeSlice();
-            AerialRefuellingTimeSliceType lhsField;
-            lhsField = this.getAerialRefuellingTimeSlice();
-            AerialRefuellingTimeSliceType rhsField;
-            rhsField = that.getAerialRefuellingTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aerialRefuellingTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aerialRefuellingTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -240,6 +227,19 @@ public class AerialRefuellingTimeSlicePropertyType implements Serializable, Equa
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAerialRefuellingTimeSlice();
+            boolean rhsFieldIsSet = that.isSetAerialRefuellingTimeSlice();
+            AerialRefuellingTimeSliceType lhsField;
+            lhsField = this.getAerialRefuellingTimeSlice();
+            AerialRefuellingTimeSliceType rhsField;
+            rhsField = that.getAerialRefuellingTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aerialRefuellingTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aerialRefuellingTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

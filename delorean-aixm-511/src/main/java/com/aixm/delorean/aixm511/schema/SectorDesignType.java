@@ -381,19 +381,6 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
         }
         final SectorDesignType that = ((SectorDesignType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDesignGradient();
-            boolean rhsFieldIsSet = that.isSetDesignGradient();
-            JAXBElement<ValSlopeType> lhsField;
-            lhsField = this.getDesignGradient();
-            JAXBElement<ValSlopeType> rhsField;
-            rhsField = that.getDesignGradient();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designGradient", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designGradient", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTerminationAltitude();
             boolean rhsFieldIsSet = that.isSetTerminationAltitude();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -407,14 +394,14 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SectorDesignExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SectorDesignExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetDesignGradient();
+            boolean rhsFieldIsSet = that.isSetDesignGradient();
+            JAXBElement<ValSlopeType> lhsField;
+            lhsField = this.getDesignGradient();
+            JAXBElement<ValSlopeType> rhsField;
+            rhsField = that.getDesignGradient();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designGradient", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designGradient", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -433,19 +420,6 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTurnPermitted();
-            boolean rhsFieldIsSet = that.isSetTurnPermitted();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getTurnPermitted();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getTurnPermitted();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnPermitted", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnPermitted", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTurnDirection();
             boolean rhsFieldIsSet = that.isSetTurnDirection();
             JAXBElement<CodeDirectionTurnType> lhsField;
@@ -454,6 +428,32 @@ public class SectorDesignType extends AbstractAIXMObjectType implements Serializ
             rhsField = that.getTurnDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SectorDesignExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SectorDesignExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTurnPermitted();
+            boolean rhsFieldIsSet = that.isSetTurnPermitted();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getTurnPermitted();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getTurnPermitted();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnPermitted", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnPermitted", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -245,6 +245,19 @@ public class StandardLevelType extends AbstractAIXMObjectType implements Seriali
         }
         final StandardLevelType that = ((StandardLevelType) object);
         {
+            boolean lhsFieldIsSet = this.isSetVerticalDistance();
+            boolean rhsFieldIsSet = that.isSetVerticalDistance();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getVerticalDistance();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getVerticalDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDistance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -266,19 +279,6 @@ public class StandardLevelType extends AbstractAIXMObjectType implements Seriali
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVerticalDistance();
-            boolean rhsFieldIsSet = that.isSetVerticalDistance();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getVerticalDistance();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getVerticalDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

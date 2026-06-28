@@ -302,14 +302,14 @@ public class LandingTakeoffAreaCollectionType extends AbstractAIXMObjectType imp
         }
         final LandingTakeoffAreaCollectionType that = ((LandingTakeoffAreaCollectionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetTLOF();
+            boolean rhsFieldIsSet = that.isSetTLOF();
+            List<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = (this.isSetTLOF() ? this.getTLOF() : null);
+            List<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = (that.isSetTLOF() ? that.getTLOF() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tlof", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tlof", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -328,6 +328,19 @@ public class LandingTakeoffAreaCollectionType extends AbstractAIXMObjectType imp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<LandingTakeoffAreaCollectionExtensionType> lhsField;
@@ -336,19 +349,6 @@ public class LandingTakeoffAreaCollectionType extends AbstractAIXMObjectType imp
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTLOF();
-            boolean rhsFieldIsSet = that.isSetTLOF();
-            List<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = (this.isSetTLOF() ? this.getTLOF() : null);
-            List<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = (that.isSetTLOF() ? that.getTLOF() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tlof", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tlof", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

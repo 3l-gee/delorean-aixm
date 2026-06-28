@@ -543,6 +543,21 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
         }
         final ObstacleAreaTimeSliceType that = ((ObstacleAreaTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetObstructionIdSurfaceCondition();
+            boolean rhsFieldIsSet = that.isSetObstructionIdSurfaceCondition();
+            JAXBElement<CodeObstacleAssessmentSurfaceType> lhsField;
+            lhsField = this.getObstructionIdSurfaceCondition();
+            JAXBElement<CodeObstacleAssessmentSurfaceType> rhsField;
+            rhsField = that.getObstructionIdSurfaceCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstructionIdSurfaceCondition",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstructionIdSurfaceCondition",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetReferenceOwnerAirport();
             boolean rhsFieldIsSet = that.isSetReferenceOwnerAirport();
             JAXBElement<AirportHeliportPropertyType> lhsField;
@@ -556,14 +571,27 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetObstacle();
-            boolean rhsFieldIsSet = that.isSetObstacle();
-            List<VerticalStructurePropertyType> lhsField;
-            lhsField = (this.isSetObstacle() ? this.getObstacle() : null);
-            List<VerticalStructurePropertyType> rhsField;
-            rhsField = (that.isSetObstacle() ? that.getObstacle() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacle", rhsField);
+            boolean lhsFieldIsSet = this.isSetSurfaceExtent();
+            boolean rhsFieldIsSet = that.isSetSurfaceExtent();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getSurfaceExtent();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getSurfaceExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -595,21 +623,6 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetObstructionIdSurfaceCondition();
-            boolean rhsFieldIsSet = that.isSetObstructionIdSurfaceCondition();
-            JAXBElement<CodeObstacleAssessmentSurfaceType> lhsField;
-            lhsField = this.getObstructionIdSurfaceCondition();
-            JAXBElement<CodeObstacleAssessmentSurfaceType> rhsField;
-            rhsField = that.getObstructionIdSurfaceCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstructionIdSurfaceCondition",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstructionIdSurfaceCondition",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetReferenceOwnerRunway();
             boolean rhsFieldIsSet = that.isSetReferenceOwnerRunway();
             JAXBElement<RunwayDirectionPropertyType> lhsField;
@@ -623,14 +636,14 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetObstacle();
+            boolean rhsFieldIsSet = that.isSetObstacle();
+            List<VerticalStructurePropertyType> lhsField;
+            lhsField = (this.isSetObstacle() ? this.getObstacle() : null);
+            List<VerticalStructurePropertyType> rhsField;
+            rhsField = (that.isSetObstacle() ? that.getObstacle() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -644,19 +657,6 @@ public class ObstacleAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfaceExtent();
-            boolean rhsFieldIsSet = that.isSetSurfaceExtent();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getSurfaceExtent();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getSurfaceExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

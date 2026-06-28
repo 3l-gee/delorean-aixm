@@ -338,6 +338,19 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
         }
         final RidgeType that = ((RidgeType) object);
         {
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -346,6 +359,19 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDepth();
+            boolean rhsFieldIsSet = that.isSetDepth();
+            JAXBElement<ValDepthType> lhsField;
+            lhsField = this.getDepth();
+            JAXBElement<ValDepthType> rhsField;
+            rhsField = that.getDepth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "depth", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "depth", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -364,19 +390,6 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSide();
             boolean rhsFieldIsSet = that.isSetSide();
             JAXBElement<CodeSideType> lhsField;
@@ -385,19 +398,6 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
             rhsField = that.getSide();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "side", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "side", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDepth();
-            boolean rhsFieldIsSet = that.isSetDepth();
-            JAXBElement<ValDepthType> lhsField;
-            lhsField = this.getDepth();
-            JAXBElement<ValDepthType> rhsField;
-            rhsField = that.getDepth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "depth", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "depth", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

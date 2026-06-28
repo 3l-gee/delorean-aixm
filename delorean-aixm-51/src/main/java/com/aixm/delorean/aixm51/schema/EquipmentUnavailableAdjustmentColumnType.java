@@ -431,58 +431,6 @@ public class EquipmentUnavailableAdjustmentColumnType extends AbstractAIXMObject
         }
         final EquipmentUnavailableAdjustmentColumnType that = ((EquipmentUnavailableAdjustmentColumnType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGuidanceEquipment();
-            boolean rhsFieldIsSet = that.isSetGuidanceEquipment();
-            JAXBElement<CodeApproachType> lhsField;
-            lhsField = this.getGuidanceEquipment();
-            JAXBElement<CodeApproachType> rhsField;
-            rhsField = that.getGuidanceEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<EquipmentUnavailableAdjustmentColumnExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<EquipmentUnavailableAdjustmentColumnExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApproachLightingInoperative();
-            boolean rhsFieldIsSet = that.isSetApproachLightingInoperative();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getApproachLightingInoperative();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getApproachLightingInoperative();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachLightingInoperative", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachLightingInoperative", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLandingSystemLights();
-            boolean rhsFieldIsSet = that.isSetLandingSystemLights();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLandingSystemLights();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLandingSystemLights();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landingSystemLights", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landingSystemLights", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -517,6 +465,58 @@ public class EquipmentUnavailableAdjustmentColumnType extends AbstractAIXMObject
             rhsField = that.getVisibilityAdjustment();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibilityAdjustment", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibilityAdjustment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApproachLightingInoperative();
+            boolean rhsFieldIsSet = that.isSetApproachLightingInoperative();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getApproachLightingInoperative();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getApproachLightingInoperative();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachLightingInoperative", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachLightingInoperative", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGuidanceEquipment();
+            boolean rhsFieldIsSet = that.isSetGuidanceEquipment();
+            JAXBElement<CodeApproachType> lhsField;
+            lhsField = this.getGuidanceEquipment();
+            JAXBElement<CodeApproachType> rhsField;
+            rhsField = that.getGuidanceEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLandingSystemLights();
+            boolean rhsFieldIsSet = that.isSetLandingSystemLights();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getLandingSystemLights();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getLandingSystemLights();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landingSystemLights", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landingSystemLights", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<EquipmentUnavailableAdjustmentColumnExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<EquipmentUnavailableAdjustmentColumnExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -219,19 +219,6 @@ public class RunwayDirectionTimeSlicePropertyType implements Serializable, Equal
         }
         final RunwayDirectionTimeSlicePropertyType that = ((RunwayDirectionTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRunwayDirectionTimeSlice();
-            boolean rhsFieldIsSet = that.isSetRunwayDirectionTimeSlice();
-            RunwayDirectionTimeSliceType lhsField;
-            lhsField = this.getRunwayDirectionTimeSlice();
-            RunwayDirectionTimeSliceType rhsField;
-            rhsField = that.getRunwayDirectionTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayDirectionTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayDirectionTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -240,6 +227,19 @@ public class RunwayDirectionTimeSlicePropertyType implements Serializable, Equal
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRunwayDirectionTimeSlice();
+            boolean rhsFieldIsSet = that.isSetRunwayDirectionTimeSlice();
+            RunwayDirectionTimeSliceType lhsField;
+            lhsField = this.getRunwayDirectionTimeSlice();
+            RunwayDirectionTimeSliceType rhsField;
+            rhsField = that.getRunwayDirectionTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayDirectionTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayDirectionTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -367,19 +367,6 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAirportHeliportCollocationType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAirportHeliportCollocationType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetHostAirport();
             boolean rhsFieldIsSet = that.isSetHostAirport();
             JAXBElement<AirportHeliportPropertyType> lhsField;
@@ -388,6 +375,19 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
             rhsField = that.getHostAirport();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostAirport", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostAirport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAirportHeliportCollocationType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAirportHeliportCollocationType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

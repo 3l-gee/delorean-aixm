@@ -246,21 +246,6 @@ public class CheckpointINSTimeSliceExtensionType implements Serializable, Equals
         }
         final CheckpointINSTimeSliceExtensionType that = ((CheckpointINSTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractCheckpointINSExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractCheckpointINSExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractCheckpointINSExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractCheckpointINSExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCheckpointINSExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCheckpointINSExtension",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractNavigationSystemCheckpointExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavigationSystemCheckpointExtension();
             AbstractExtensionType lhsField;
@@ -271,6 +256,21 @@ public class CheckpointINSTimeSliceExtensionType implements Serializable, Equals
                     "abstractNavigationSystemCheckpointExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
                     "abstractNavigationSystemCheckpointExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractCheckpointINSExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractCheckpointINSExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractCheckpointINSExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractCheckpointINSExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCheckpointINSExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCheckpointINSExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

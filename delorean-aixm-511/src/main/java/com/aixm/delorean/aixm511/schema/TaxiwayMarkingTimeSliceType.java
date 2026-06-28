@@ -490,27 +490,14 @@ public class TaxiwayMarkingTimeSliceType extends AbstractAIXMTimeSliceType imple
         }
         final TaxiwayMarkingTimeSliceType that = ((TaxiwayMarkingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TaxiwayMarkingTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TaxiwayMarkingTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCondition();
-            boolean rhsFieldIsSet = that.isSetCondition();
-            JAXBElement<CodeMarkingConditionType> lhsField;
-            lhsField = this.getCondition();
-            JAXBElement<CodeMarkingConditionType> rhsField;
-            rhsField = that.getCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
+            boolean lhsFieldIsSet = this.isSetMarkingLocation();
+            boolean rhsFieldIsSet = that.isSetMarkingLocation();
+            JAXBElement<CodeTaxiwaySectionType> lhsField;
+            lhsField = this.getMarkingLocation();
+            JAXBElement<CodeTaxiwaySectionType> rhsField;
+            rhsField = that.getMarkingLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -529,6 +516,32 @@ public class TaxiwayMarkingTimeSliceType extends AbstractAIXMTimeSliceType imple
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkedTaxiway();
+            boolean rhsFieldIsSet = that.isSetMarkedTaxiway();
+            JAXBElement<TaxiwayPropertyType> lhsField;
+            lhsField = this.getMarkedTaxiway();
+            JAXBElement<TaxiwayPropertyType> rhsField;
+            rhsField = that.getMarkedTaxiway();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedTaxiway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedTaxiway", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetElement();
             boolean rhsFieldIsSet = that.isSetElement();
             List<MarkingElementPropertyType> lhsField;
@@ -542,14 +555,14 @@ public class TaxiwayMarkingTimeSliceType extends AbstractAIXMTimeSliceType imple
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TaxiwayMarkingTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<TaxiwayMarkingTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -568,27 +581,14 @@ public class TaxiwayMarkingTimeSliceType extends AbstractAIXMTimeSliceType imple
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkingLocation();
-            boolean rhsFieldIsSet = that.isSetMarkingLocation();
-            JAXBElement<CodeTaxiwaySectionType> lhsField;
-            lhsField = this.getMarkingLocation();
-            JAXBElement<CodeTaxiwaySectionType> rhsField;
-            rhsField = that.getMarkingLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarkedTaxiway();
-            boolean rhsFieldIsSet = that.isSetMarkedTaxiway();
-            JAXBElement<TaxiwayPropertyType> lhsField;
-            lhsField = this.getMarkedTaxiway();
-            JAXBElement<TaxiwayPropertyType> rhsField;
-            rhsField = that.getMarkedTaxiway();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedTaxiway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedTaxiway", rhsField);
+            boolean lhsFieldIsSet = this.isSetCondition();
+            boolean rhsFieldIsSet = that.isSetCondition();
+            JAXBElement<CodeMarkingConditionType> lhsField;
+            lhsField = this.getCondition();
+            JAXBElement<CodeMarkingConditionType> rhsField;
+            rhsField = that.getCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

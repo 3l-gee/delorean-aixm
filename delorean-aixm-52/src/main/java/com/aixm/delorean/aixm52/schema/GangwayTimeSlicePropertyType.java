@@ -218,19 +218,6 @@ public class GangwayTimeSlicePropertyType implements Serializable, Equals, HashC
         }
         final GangwayTimeSlicePropertyType that = ((GangwayTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGangwayTimeSlice();
-            boolean rhsFieldIsSet = that.isSetGangwayTimeSlice();
-            GangwayTimeSliceType lhsField;
-            lhsField = this.getGangwayTimeSlice();
-            GangwayTimeSliceType rhsField;
-            rhsField = that.getGangwayTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gangwayTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gangwayTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -239,6 +226,19 @@ public class GangwayTimeSlicePropertyType implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGangwayTimeSlice();
+            boolean rhsFieldIsSet = that.isSetGangwayTimeSlice();
+            GangwayTimeSliceType lhsField;
+            lhsField = this.getGangwayTimeSlice();
+            GangwayTimeSliceType rhsField;
+            rhsField = that.getGangwayTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gangwayTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gangwayTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -246,16 +246,16 @@ public class AirspaceLayerClassExtensionType implements Serializable, Equals, Ha
         }
         final AirspaceLayerClassExtensionType that = ((AirspaceLayerClassExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirspaceLayerClassExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirspaceLayerClassExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirspaceLayerClassExtension();
+            lhsField = this.getAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirspaceLayerClassExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceLayerClassExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceLayerClassExtension",
-                    rhsField);
+            rhsField = that.getAbstractPropertiesWithScheduleExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractPropertiesWithScheduleExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -274,16 +274,16 @@ public class AirspaceLayerClassExtensionType implements Serializable, Equals, Ha
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractAirspaceLayerClassExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirspaceLayerClassExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPropertiesWithScheduleExtension();
+            lhsField = this.getAbstractAirspaceLayerClassExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractPropertiesWithScheduleExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractPropertiesWithScheduleExtension", rhsField);
+            rhsField = that.getAbstractAirspaceLayerClassExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceLayerClassExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceLayerClassExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

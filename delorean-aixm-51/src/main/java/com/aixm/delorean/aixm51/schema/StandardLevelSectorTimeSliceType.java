@@ -491,19 +491,6 @@ public class StandardLevelSectorTimeSliceType extends AbstractAIXMTimeSliceType 
         }
         final StandardLevelSectorTimeSliceType that = ((StandardLevelSectorTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<StandardLevelSectorTimeSliceExtensionType> lhsField;
@@ -512,19 +499,6 @@ public class StandardLevelSectorTimeSliceType extends AbstractAIXMTimeSliceType 
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApplicableLevelColumn();
-            boolean rhsFieldIsSet = that.isSetApplicableLevelColumn();
-            JAXBElement<StandardLevelColumnPropertyType> lhsField;
-            lhsField = this.getApplicableLevelColumn();
-            JAXBElement<StandardLevelColumnPropertyType> rhsField;
-            rhsField = that.getApplicableLevelColumn();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableLevelColumn", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableLevelColumn", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -556,6 +530,45 @@ public class StandardLevelSectorTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAngleType();
+            boolean rhsFieldIsSet = that.isSetAngleType();
+            JAXBElement<CodeNorthReferenceType> lhsField;
+            lhsField = this.getAngleType();
+            JAXBElement<CodeNorthReferenceType> rhsField;
+            rhsField = that.getAngleType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApplicableLevelColumn();
+            boolean rhsFieldIsSet = that.isSetApplicableLevelColumn();
+            JAXBElement<StandardLevelColumnPropertyType> lhsField;
+            lhsField = this.getApplicableLevelColumn();
+            JAXBElement<StandardLevelColumnPropertyType> rhsField;
+            rhsField = that.getApplicableLevelColumn();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableLevelColumn", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableLevelColumn", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetFromTrack();
             boolean rhsFieldIsSet = that.isSetFromTrack();
             JAXBElement<ValBearingType> lhsField;
@@ -577,19 +590,6 @@ public class StandardLevelSectorTimeSliceType extends AbstractAIXMTimeSliceType 
             rhsField = that.getToTrack();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "toTrack", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "toTrack", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAngleType();
-            boolean rhsFieldIsSet = that.isSetAngleType();
-            JAXBElement<CodeNorthReferenceType> lhsField;
-            lhsField = this.getAngleType();
-            JAXBElement<CodeNorthReferenceType> rhsField;
-            rhsField = that.getAngleType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

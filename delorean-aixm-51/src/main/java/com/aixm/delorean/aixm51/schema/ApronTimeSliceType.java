@@ -499,6 +499,19 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
         }
         final ApronTimeSliceType that = ((ApronTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbandoned();
+            boolean rhsFieldIsSet = that.isSetAbandoned();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getAbandoned();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getAbandoned();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abandoned", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abandoned", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSurfaceProperties();
             boolean rhsFieldIsSet = that.isSetSurfaceProperties();
             JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
@@ -512,19 +525,6 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedAirportHeliport();
-            boolean rhsFieldIsSet = that.isSetAssociatedAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getAssociatedAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getAssociatedAirportHeliport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirportHeliport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirportHeliport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<ApronTimeSliceExtensionType> lhsField;
@@ -533,19 +533,6 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbandoned();
-            boolean rhsFieldIsSet = that.isSetAbandoned();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getAbandoned();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getAbandoned();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abandoned", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abandoned", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -577,6 +564,19 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ApronAreaAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
+            List<ApronAreaAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAixmName();
             boolean rhsFieldIsSet = that.isSetAixmName();
             JAXBElement<TextNameType> lhsField;
@@ -590,14 +590,14 @@ public class ApronTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ApronAreaAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<ApronAreaAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetAssociatedAirportHeliport();
+            boolean rhsFieldIsSet = that.isSetAssociatedAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getAssociatedAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getAssociatedAirportHeliport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirportHeliport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirportHeliport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

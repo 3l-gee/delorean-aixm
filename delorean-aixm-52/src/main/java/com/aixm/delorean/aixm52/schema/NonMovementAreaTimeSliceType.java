@@ -290,32 +290,6 @@ public class NonMovementAreaTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         final NonMovementAreaTimeSliceType that = ((NonMovementAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedAirportHeliport();
-            boolean rhsFieldIsSet = that.isSetAssociatedAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getAssociatedAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getAssociatedAirportHeliport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirportHeliport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirportHeliport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NonMovementAreaTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NonMovementAreaTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtent();
             boolean rhsFieldIsSet = that.isSetExtent();
             JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
@@ -337,6 +311,32 @@ public class NonMovementAreaTimeSliceType extends AbstractAIXMTimeSliceType impl
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAssociatedAirportHeliport();
+            boolean rhsFieldIsSet = that.isSetAssociatedAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getAssociatedAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getAssociatedAirportHeliport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirportHeliport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirportHeliport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NonMovementAreaTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<NonMovementAreaTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

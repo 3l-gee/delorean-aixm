@@ -430,27 +430,14 @@ public class VDBAntennaType extends AbstractAIXMObjectType implements Serializab
         }
         final VDBAntennaType that = ((VDBAntennaType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFrequency();
-            boolean rhsFieldIsSet = that.isSetFrequency();
-            JAXBElement<ValFrequencyType> lhsField;
-            lhsField = this.getFrequency();
-            JAXBElement<ValFrequencyType> rhsField;
-            rhsField = that.getFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequency", rhsField);
+            boolean lhsFieldIsSet = this.isSetPolarization();
+            boolean rhsFieldIsSet = that.isSetPolarization();
+            JAXBElement<CodeSignalPolarizationType> lhsField;
+            lhsField = this.getPolarization();
+            JAXBElement<CodeSignalPolarizationType> rhsField;
+            rhsField = that.getPolarization();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "polarization", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "polarization", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -469,14 +456,14 @@ public class VDBAntennaType extends AbstractAIXMObjectType implements Serializab
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPolarization();
-            boolean rhsFieldIsSet = that.isSetPolarization();
-            JAXBElement<CodeSignalPolarizationType> lhsField;
-            lhsField = this.getPolarization();
-            JAXBElement<CodeSignalPolarizationType> rhsField;
-            rhsField = that.getPolarization();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "polarization", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "polarization", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -516,6 +503,19 @@ public class VDBAntennaType extends AbstractAIXMObjectType implements Serializab
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrequency();
+            boolean rhsFieldIsSet = that.isSetFrequency();
+            JAXBElement<ValFrequencyType> lhsField;
+            lhsField = this.getFrequency();
+            JAXBElement<ValFrequencyType> rhsField;
+            rhsField = that.getFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequency", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -246,14 +246,14 @@ public class ArrivalLegTimeSliceExtensionType implements Serializable, Equals, H
         }
         final ArrivalLegTimeSliceExtensionType that = ((ArrivalLegTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSegmentLegExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSegmentLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -272,14 +272,14 @@ public class ArrivalLegTimeSliceExtensionType implements Serializable, Equals, H
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSegmentLegExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSegmentLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

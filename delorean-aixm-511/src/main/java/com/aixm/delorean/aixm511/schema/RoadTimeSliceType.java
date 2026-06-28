@@ -577,27 +577,14 @@ public class RoadTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
         }
         final RoadTimeSliceType that = ((RoadTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfaceExtent();
-            boolean rhsFieldIsSet = that.isSetSurfaceExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = this.getSurfaceExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = that.getSurfaceExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceExtent", rhsField);
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -611,6 +598,19 @@ public class RoadTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
             rhsField = that.getSurfaceProperties();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -642,6 +642,19 @@ public class RoadTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAssociatedAirport();
+            boolean rhsFieldIsSet = that.isSetAssociatedAirport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getAssociatedAirport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getAssociatedAirport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetStatus();
             boolean rhsFieldIsSet = that.isSetStatus();
             JAXBElement<CodeStatusOperationsType> lhsField;
@@ -650,19 +663,6 @@ public class RoadTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
             rhsField = that.getStatus();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -681,14 +681,14 @@ public class RoadTimeSliceType extends AbstractAIXMTimeSliceType implements Seri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedAirport();
-            boolean rhsFieldIsSet = that.isSetAssociatedAirport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getAssociatedAirport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getAssociatedAirport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedAirport", rhsField);
+            boolean lhsFieldIsSet = this.isSetSurfaceExtent();
+            boolean rhsFieldIsSet = that.isSetSurfaceExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = this.getSurfaceExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = that.getSurfaceExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

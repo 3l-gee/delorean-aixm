@@ -430,45 +430,6 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
         }
         final MeteorologyType that = ((MeteorologyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditions();
-            boolean rhsFieldIsSet = that.isSetFlightConditions();
-            JAXBElement<CodeMeteoConditionsType> lhsField;
-            lhsField = this.getFlightConditions();
-            JAXBElement<CodeMeteoConditionsType> rhsField;
-            rhsField = that.getFlightConditions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditions", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVisibilityInterpretation();
-            boolean rhsFieldIsSet = that.isSetVisibilityInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getVisibilityInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getVisibilityInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibilityInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibilityInterpretation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRunwayVisualRangeInterpretation();
             boolean rhsFieldIsSet = that.isSetRunwayVisualRangeInterpretation();
             JAXBElement<CodeValueInterpretationType> lhsField;
@@ -505,6 +466,45 @@ public class MeteorologyType extends AbstractAIXMObjectType implements Serializa
             rhsField = that.getVisibility();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibility", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibility", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightConditions();
+            boolean rhsFieldIsSet = that.isSetFlightConditions();
+            JAXBElement<CodeMeteoConditionsType> lhsField;
+            lhsField = this.getFlightConditions();
+            JAXBElement<CodeMeteoConditionsType> rhsField;
+            rhsField = that.getFlightConditions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVisibilityInterpretation();
+            boolean rhsFieldIsSet = that.isSetVisibilityInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getVisibilityInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getVisibilityInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibilityInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibilityInterpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -346,32 +346,6 @@ public class LightActivationType extends AbstractAIXMObjectType implements Seria
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActivation();
-            boolean rhsFieldIsSet = that.isSetActivation();
-            JAXBElement<CodeSystemActivationType> lhsField;
-            lhsField = this.getActivation();
-            JAXBElement<CodeSystemActivationType> rhsField;
-            rhsField = that.getActivation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClicks();
-            boolean rhsFieldIsSet = that.isSetClicks();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getClicks();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getClicks();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clicks", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clicks", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -393,6 +367,32 @@ public class LightActivationType extends AbstractAIXMObjectType implements Seria
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActivation();
+            boolean rhsFieldIsSet = that.isSetActivation();
+            JAXBElement<CodeSystemActivationType> lhsField;
+            lhsField = this.getActivation();
+            JAXBElement<CodeSystemActivationType> rhsField;
+            rhsField = that.getActivation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClicks();
+            boolean rhsFieldIsSet = that.isSetClicks();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getClicks();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getClicks();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clicks", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clicks", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

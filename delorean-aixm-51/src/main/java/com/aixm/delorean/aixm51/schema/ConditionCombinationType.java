@@ -587,32 +587,6 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
         }
         final ConditionCombinationType that = ((ConditionCombinationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWeather();
-            boolean rhsFieldIsSet = that.isSetWeather();
-            List<MeteorologyPropertyType> lhsField;
-            lhsField = (this.isSetWeather() ? this.getWeather() : null);
-            List<MeteorologyPropertyType> rhsField;
-            rhsField = (that.isSetWeather() ? that.getWeather() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weather", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weather", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<ConditionCombinationExtensionType> lhsField;
@@ -621,19 +595,6 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLogicalOperator();
-            boolean rhsFieldIsSet = that.isSetLogicalOperator();
-            JAXBElement<CodeLogicalOperatorType> lhsField;
-            lhsField = this.getLogicalOperator();
-            JAXBElement<CodeLogicalOperatorType> rhsField;
-            rhsField = that.getLogicalOperator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "logicalOperator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "logicalOperator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -652,6 +613,32 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetLogicalOperator();
+            boolean rhsFieldIsSet = that.isSetLogicalOperator();
+            JAXBElement<CodeLogicalOperatorType> lhsField;
+            lhsField = this.getLogicalOperator();
+            JAXBElement<CodeLogicalOperatorType> rhsField;
+            rhsField = that.getLogicalOperator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "logicalOperator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "logicalOperator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWeather();
+            boolean rhsFieldIsSet = that.isSetWeather();
+            List<MeteorologyPropertyType> lhsField;
+            lhsField = (this.isSetWeather() ? this.getWeather() : null);
+            List<MeteorologyPropertyType> rhsField;
+            rhsField = (that.isSetWeather() ? that.getWeather() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weather", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weather", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetFlight();
             boolean rhsFieldIsSet = that.isSetFlight();
             List<FlightCharacteristicPropertyType> lhsField;
@@ -665,14 +652,14 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAircraft();
-            boolean rhsFieldIsSet = that.isSetAircraft();
-            List<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetAircraft() ? this.getAircraft() : null);
-            List<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetAircraft() ? that.getAircraft() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -686,6 +673,19 @@ public class ConditionCombinationType extends AbstractPropertiesWithScheduleType
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAircraft();
+            boolean rhsFieldIsSet = that.isSetAircraft();
+            List<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetAircraft() ? this.getAircraft() : null);
+            List<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetAircraft() ? that.getAircraft() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

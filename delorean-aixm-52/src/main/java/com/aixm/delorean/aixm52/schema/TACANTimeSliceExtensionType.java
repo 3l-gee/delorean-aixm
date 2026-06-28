@@ -246,6 +246,19 @@ public class TACANTimeSliceExtensionType implements Serializable, Equals, HashCo
         }
         final TACANTimeSliceExtensionType that = ((TACANTimeSliceExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractTACANExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTACANExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTACANExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTACANExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTACANExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTACANExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -269,19 +282,6 @@ public class TACANTimeSliceExtensionType implements Serializable, Equals, HashCo
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension",
                     rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractTACANExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTACANExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTACANExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTACANExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTACANExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTACANExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

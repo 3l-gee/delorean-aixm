@@ -214,19 +214,6 @@ public class GBASTimeSliceExtensionType implements Serializable, Equals, HashCod
         }
         final GBASTimeSliceExtensionType that = ((GBASTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGBASExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGBASExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGBASExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGBASExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGBASExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGBASExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -235,6 +222,19 @@ public class GBASTimeSliceExtensionType implements Serializable, Equals, HashCod
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGBASExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGBASExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGBASExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGBASExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGBASExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGBASExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

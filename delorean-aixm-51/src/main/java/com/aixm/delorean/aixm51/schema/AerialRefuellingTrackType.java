@@ -355,19 +355,6 @@ public class AerialRefuellingTrackType extends AbstractAIXMObjectType implements
         }
         final AerialRefuellingTrackType that = ((AerialRefuellingTrackType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPoint();
-            boolean rhsFieldIsSet = that.isSetPoint();
-            List<AerialRefuellingPointPropertyType> lhsField;
-            lhsField = (this.isSetPoint() ? this.getPoint() : null);
-            List<AerialRefuellingPointPropertyType> rhsField;
-            rhsField = (that.isSetPoint() ? that.getPoint() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVerticalExtent();
             boolean rhsFieldIsSet = that.isSetVerticalExtent();
             List<AirspaceLayerPropertyType> lhsField;
@@ -389,6 +376,19 @@ public class AerialRefuellingTrackType extends AbstractAIXMObjectType implements
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPoint();
+            boolean rhsFieldIsSet = that.isSetPoint();
+            List<AerialRefuellingPointPropertyType> lhsField;
+            lhsField = (this.isSetPoint() ? this.getPoint() : null);
+            List<AerialRefuellingPointPropertyType> rhsField;
+            rhsField = (that.isSetPoint() ? that.getPoint() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

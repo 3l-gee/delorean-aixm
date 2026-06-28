@@ -246,16 +246,14 @@ public class CirclingRestrictionExtensionType implements Serializable, Equals, H
         }
         final CirclingRestrictionExtensionType that = ((CirclingRestrictionExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractCirclingRestrictionExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractCirclingRestrictionExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractCirclingRestrictionExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractCirclingRestrictionExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCirclingRestrictionExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCirclingRestrictionExtension",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -276,14 +274,16 @@ public class CirclingRestrictionExtensionType implements Serializable, Equals, H
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractCirclingRestrictionExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractCirclingRestrictionExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractCirclingRestrictionExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractCirclingRestrictionExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCirclingRestrictionExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCirclingRestrictionExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

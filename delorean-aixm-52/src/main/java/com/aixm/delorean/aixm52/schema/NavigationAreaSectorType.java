@@ -401,19 +401,6 @@ public class NavigationAreaSectorType extends AbstractAIXMObjectType implements 
         }
         final NavigationAreaSectorType that = ((NavigationAreaSectorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSectorDefinition();
-            boolean rhsFieldIsSet = that.isSetSectorDefinition();
-            JAXBElement<CircleSectorPropertyType> lhsField;
-            lhsField = this.getSectorDefinition();
-            JAXBElement<CircleSectorPropertyType> rhsField;
-            rhsField = that.getSectorDefinition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectorDefinition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectorDefinition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<NavigationAreaSectorExtensionType> lhsField;
@@ -435,6 +422,19 @@ public class NavigationAreaSectorType extends AbstractAIXMObjectType implements 
             rhsField = (that.isSetSignificantObstacle() ? that.getSignificantObstacle() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantObstacle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantObstacle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -466,14 +466,14 @@ public class NavigationAreaSectorType extends AbstractAIXMObjectType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            boolean lhsFieldIsSet = this.isSetSectorDefinition();
+            boolean rhsFieldIsSet = that.isSetSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> lhsField;
+            lhsField = this.getSectorDefinition();
+            JAXBElement<CircleSectorPropertyType> rhsField;
+            rhsField = that.getSectorDefinition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectorDefinition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectorDefinition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

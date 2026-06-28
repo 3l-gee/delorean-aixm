@@ -246,6 +246,21 @@ public class CheckpointVORTimeSliceExtensionType implements Serializable, Equals
         }
         final CheckpointVORTimeSliceExtensionType that = ((CheckpointVORTimeSliceExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractCheckpointVORExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractCheckpointVORExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractCheckpointVORExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractCheckpointVORExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCheckpointVORExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCheckpointVORExtension",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractNavigationSystemCheckpointExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavigationSystemCheckpointExtension();
             AbstractExtensionType lhsField;
@@ -269,21 +284,6 @@ public class CheckpointVORTimeSliceExtensionType implements Serializable, Equals
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractCheckpointVORExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractCheckpointVORExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractCheckpointVORExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractCheckpointVORExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCheckpointVORExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCheckpointVORExtension",
-                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

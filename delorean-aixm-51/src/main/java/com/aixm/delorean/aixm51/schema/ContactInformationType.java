@@ -485,6 +485,45 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPhoneFax();
+            boolean rhsFieldIsSet = that.isSetPhoneFax();
+            List<TelephoneContactPropertyType> lhsField;
+            lhsField = (this.isSetPhoneFax() ? this.getPhoneFax() : null);
+            List<TelephoneContactPropertyType> rhsField;
+            rhsField = (that.isSetPhoneFax() ? that.getPhoneFax() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phoneFax", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phoneFax", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAddress();
+            boolean rhsFieldIsSet = that.isSetAddress();
+            List<PostalAddressPropertyType> lhsField;
+            lhsField = (this.isSetAddress() ? this.getAddress() : null);
+            List<PostalAddressPropertyType> rhsField;
+            rhsField = (that.isSetAddress() ? that.getAddress() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "address", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "address", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetNetworkNode();
             boolean rhsFieldIsSet = that.isSetNetworkNode();
             List<OnlineContactPropertyType> lhsField;
@@ -506,45 +545,6 @@ public class ContactInformationType extends AbstractAIXMObjectType implements Se
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAddress();
-            boolean rhsFieldIsSet = that.isSetAddress();
-            List<PostalAddressPropertyType> lhsField;
-            lhsField = (this.isSetAddress() ? this.getAddress() : null);
-            List<PostalAddressPropertyType> rhsField;
-            rhsField = (that.isSetAddress() ? that.getAddress() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "address", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "address", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPhoneFax();
-            boolean rhsFieldIsSet = that.isSetPhoneFax();
-            List<TelephoneContactPropertyType> lhsField;
-            lhsField = (this.isSetPhoneFax() ? this.getPhoneFax() : null);
-            List<TelephoneContactPropertyType> rhsField;
-            rhsField = (that.isSetPhoneFax() ? that.getPhoneFax() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phoneFax", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phoneFax", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

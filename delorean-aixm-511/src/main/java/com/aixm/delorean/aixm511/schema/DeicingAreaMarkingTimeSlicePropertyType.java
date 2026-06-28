@@ -220,19 +220,6 @@ public class DeicingAreaMarkingTimeSlicePropertyType implements Serializable, Eq
         }
         final DeicingAreaMarkingTimeSlicePropertyType that = ((DeicingAreaMarkingTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDeicingAreaMarkingTimeSlice();
-            boolean rhsFieldIsSet = that.isSetDeicingAreaMarkingTimeSlice();
-            DeicingAreaMarkingTimeSliceType lhsField;
-            lhsField = this.getDeicingAreaMarkingTimeSlice();
-            DeicingAreaMarkingTimeSliceType rhsField;
-            rhsField = that.getDeicingAreaMarkingTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "deicingAreaMarkingTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "deicingAreaMarkingTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -241,6 +228,19 @@ public class DeicingAreaMarkingTimeSlicePropertyType implements Serializable, Eq
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDeicingAreaMarkingTimeSlice();
+            boolean rhsFieldIsSet = that.isSetDeicingAreaMarkingTimeSlice();
+            DeicingAreaMarkingTimeSliceType lhsField;
+            lhsField = this.getDeicingAreaMarkingTimeSlice();
+            DeicingAreaMarkingTimeSliceType rhsField;
+            rhsField = that.getDeicingAreaMarkingTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "deicingAreaMarkingTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "deicingAreaMarkingTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

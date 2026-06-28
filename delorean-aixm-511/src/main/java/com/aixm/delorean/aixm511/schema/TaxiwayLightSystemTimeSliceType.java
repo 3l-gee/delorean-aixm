@@ -546,19 +546,6 @@ public class TaxiwayLightSystemTimeSliceType extends AbstractAIXMTimeSliceType i
         }
         final TaxiwayLightSystemTimeSliceType that = ((TaxiwayLightSystemTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetEmergencyLighting();
-            boolean rhsFieldIsSet = that.isSetEmergencyLighting();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getEmergencyLighting();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getEmergencyLighting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emergencyLighting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emergencyLighting", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPosition();
             boolean rhsFieldIsSet = that.isSetPosition();
             JAXBElement<CodeTaxiwaySectionType> lhsField;
@@ -567,6 +554,19 @@ public class TaxiwayLightSystemTimeSliceType extends AbstractAIXMTimeSliceType i
             rhsField = that.getPosition();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElement();
+            boolean rhsFieldIsSet = that.isSetElement();
+            List<LightElementPropertyType> lhsField;
+            lhsField = (this.isSetElement() ? this.getElement() : null);
+            List<LightElementPropertyType> rhsField;
+            rhsField = (that.isSetElement() ? that.getElement() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -598,6 +598,19 @@ public class TaxiwayLightSystemTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetLightedTaxiway();
+            boolean rhsFieldIsSet = that.isSetLightedTaxiway();
+            JAXBElement<TaxiwayPropertyType> lhsField;
+            lhsField = this.getLightedTaxiway();
+            JAXBElement<TaxiwayPropertyType> rhsField;
+            rhsField = that.getLightedTaxiway();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightedTaxiway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightedTaxiway", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<TaxiwayLightSystemTimeSliceExtensionType> lhsField;
@@ -606,19 +619,6 @@ public class TaxiwayLightSystemTimeSliceType extends AbstractAIXMTimeSliceType i
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElement();
-            boolean rhsFieldIsSet = that.isSetElement();
-            List<LightElementPropertyType> lhsField;
-            lhsField = (this.isSetElement() ? this.getElement() : null);
-            List<LightElementPropertyType> rhsField;
-            rhsField = (that.isSetElement() ? that.getElement() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -637,14 +637,14 @@ public class TaxiwayLightSystemTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLightedTaxiway();
-            boolean rhsFieldIsSet = that.isSetLightedTaxiway();
-            JAXBElement<TaxiwayPropertyType> lhsField;
-            lhsField = this.getLightedTaxiway();
-            JAXBElement<TaxiwayPropertyType> rhsField;
-            rhsField = that.getLightedTaxiway();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightedTaxiway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightedTaxiway", rhsField);
+            boolean lhsFieldIsSet = this.isSetEmergencyLighting();
+            boolean rhsFieldIsSet = that.isSetEmergencyLighting();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getEmergencyLighting();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getEmergencyLighting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emergencyLighting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emergencyLighting", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

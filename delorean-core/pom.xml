@@ -98,11 +98,11 @@
             <artifactId>jakarta.el-api</artifactId>
             <version>6.0.1</version>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.glassfish.expressly</groupId>
             <artifactId>expressly</artifactId>
             <version>6.0.0</version>
-        </dependency>
+        </dependency> -->
 
         <!-- GIS Dependencies -->
         <dependency>
@@ -110,12 +110,12 @@
             <artifactId>jts-core</artifactId>
             <version>${jts.version}</version>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.locationtech.jts.io</groupId>
             <artifactId>jts-io-common</artifactId>
             <version>${jts.version}</version>
-        </dependency>
-        <dependency>
+        </dependency> -->
+        <!-- <dependency>
             <groupId>org.locationtech.proj4j</groupId>
             <artifactId>proj4j</artifactId>
             <version>${proj4.version}</version>
@@ -124,7 +124,7 @@
             <groupId>org.locationtech.proj4j</groupId>
             <artifactId>proj4j-epsg</artifactId>
             <version>${proj4.version}</version>
-        </dependency>
+        </dependency> -->
 
         <!-- Equals Dependencies-->
         <dependency>
@@ -134,18 +134,18 @@
         </dependency>
 
         <!-- XML templates Dependencies -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>${freemarker.version}</version>
-        </dependency>
+        </dependency> -->
 
         <!-- Mapping Dependencies -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
-        </dependency>
+        </dependency> -->
         
         <!-- Test Dependencies -->
         <dependency>

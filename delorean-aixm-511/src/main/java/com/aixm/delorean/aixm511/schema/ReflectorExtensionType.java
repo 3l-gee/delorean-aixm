@@ -214,19 +214,6 @@ public class ReflectorExtensionType implements Serializable, Equals, HashCode, T
         }
         final ReflectorExtensionType that = ((ReflectorExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractReflectorExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractReflectorExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractReflectorExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractReflectorExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractReflectorExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractReflectorExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -235,6 +222,19 @@ public class ReflectorExtensionType implements Serializable, Equals, HashCode, T
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractReflectorExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractReflectorExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractReflectorExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractReflectorExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractReflectorExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractReflectorExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

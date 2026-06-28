@@ -279,16 +279,14 @@ public class PrimarySurveillanceRadarTimeSliceExtensionType implements Serializa
         }
         final PrimarySurveillanceRadarTimeSliceExtensionType that = ((PrimarySurveillanceRadarTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSurveillanceRadarExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSurveillanceRadarExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSurveillanceRadarExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSurveillanceRadarExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurveillanceRadarExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurveillanceRadarExtension",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -309,14 +307,16 @@ public class PrimarySurveillanceRadarTimeSliceExtensionType implements Serializa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractSurveillanceRadarExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSurveillanceRadarExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSurveillanceRadarExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSurveillanceRadarExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurveillanceRadarExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurveillanceRadarExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

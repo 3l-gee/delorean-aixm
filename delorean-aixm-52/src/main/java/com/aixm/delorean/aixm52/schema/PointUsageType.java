@@ -560,66 +560,27 @@ public class PointUsageType extends AbstractPropertiesWithScheduleType implement
         }
         final PointUsageType that = ((PointUsageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            JAXBElement<CodePointUsageType> lhsField;
-            lhsField = this.getRole();
-            JAXBElement<CodePointUsageType> rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<PointUsageExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<PointUsageExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReportingATC();
-            boolean rhsFieldIsSet = that.isSetReportingATC();
-            JAXBElement<CodeATCReportingType> lhsField;
-            lhsField = this.getReportingATC();
-            JAXBElement<CodeATCReportingType> rhsField;
-            rhsField = that.getReportingATC();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reportingATC", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reportingATC", rhsField);
+            boolean lhsFieldIsSet = this.isSetReferenceAirportHeliport();
+            boolean rhsFieldIsSet = that.isSetReferenceAirportHeliport();
+            List<AirportHeliportPropertyType> lhsField;
+            lhsField = (this.isSetReferenceAirportHeliport() ? this.getReferenceAirportHeliport() : null);
+            List<AirportHeliportPropertyType> rhsField;
+            rhsField = (that.isSetReferenceAirportHeliport() ? that.getReferenceAirportHeliport() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceAirportHeliport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceAirportHeliport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -638,19 +599,6 @@ public class PointUsageType extends AbstractPropertiesWithScheduleType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLevels();
             boolean rhsFieldIsSet = that.isSetLevels();
             List<AirspaceLayerPropertyType> lhsField;
@@ -664,14 +612,66 @@ public class PointUsageType extends AbstractPropertiesWithScheduleType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetReferenceAirportHeliport();
-            boolean rhsFieldIsSet = that.isSetReferenceAirportHeliport();
-            List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetReferenceAirportHeliport() ? this.getReferenceAirportHeliport() : null);
-            List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetReferenceAirportHeliport() ? that.getReferenceAirportHeliport() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceAirportHeliport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceAirportHeliport", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReportingATC();
+            boolean rhsFieldIsSet = that.isSetReportingATC();
+            JAXBElement<CodeATCReportingType> lhsField;
+            lhsField = this.getReportingATC();
+            JAXBElement<CodeATCReportingType> rhsField;
+            rhsField = that.getReportingATC();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reportingATC", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reportingATC", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<PointUsageExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<PointUsageExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            JAXBElement<CodePointUsageType> lhsField;
+            lhsField = this.getRole();
+            JAXBElement<CodePointUsageType> rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

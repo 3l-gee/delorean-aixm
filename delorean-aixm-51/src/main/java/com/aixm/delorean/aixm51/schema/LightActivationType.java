@@ -346,14 +346,14 @@ public class LightActivationType extends AbstractAIXMObjectType implements Seria
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIntensityLevel();
-            boolean rhsFieldIsSet = that.isSetIntensityLevel();
-            JAXBElement<CodeLightIntensityType> lhsField;
-            lhsField = this.getIntensityLevel();
-            JAXBElement<CodeLightIntensityType> rhsField;
-            rhsField = that.getIntensityLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intensityLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intensityLevel", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<LightActivationExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<LightActivationExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -385,14 +385,14 @@ public class LightActivationType extends AbstractAIXMObjectType implements Seria
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<LightActivationExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<LightActivationExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetIntensityLevel();
+            boolean rhsFieldIsSet = that.isSetIntensityLevel();
+            JAXBElement<CodeLightIntensityType> lhsField;
+            lhsField = this.getIntensityLevel();
+            JAXBElement<CodeLightIntensityType> rhsField;
+            rhsField = that.getIntensityLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intensityLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intensityLevel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

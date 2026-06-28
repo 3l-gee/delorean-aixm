@@ -349,19 +349,6 @@ public class GeoBorderTimeSliceType extends AbstractAIXMTimeSliceType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetBorder();
-            boolean rhsFieldIsSet = that.isSetBorder();
-            JAXBElement<AIXMCurvePropertyType> lhsField;
-            lhsField = this.getBorder();
-            JAXBElement<AIXMCurvePropertyType> rhsField;
-            rhsField = that.getBorder();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "border", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "border", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeGeoBorderType> lhsField;
@@ -370,6 +357,19 @@ public class GeoBorderTimeSliceType extends AbstractAIXMTimeSliceType implements
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -388,14 +388,14 @@ public class GeoBorderTimeSliceType extends AbstractAIXMTimeSliceType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            boolean lhsFieldIsSet = this.isSetBorder();
+            boolean rhsFieldIsSet = that.isSetBorder();
+            JAXBElement<AIXMCurvePropertyType> lhsField;
+            lhsField = this.getBorder();
+            JAXBElement<AIXMCurvePropertyType> rhsField;
+            rhsField = that.getBorder();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "border", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "border", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

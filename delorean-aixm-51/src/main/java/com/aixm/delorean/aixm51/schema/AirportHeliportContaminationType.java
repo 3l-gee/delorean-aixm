@@ -779,27 +779,40 @@ public class AirportHeliportContaminationType extends AbstractSurfaceContaminati
         }
         final AirportHeliportContaminationType that = ((AirportHeliportContaminationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetLayer();
+            boolean rhsFieldIsSet = that.isSetLayer();
+            List<SurfaceContaminationLayerPropertyType> lhsField;
+            lhsField = (this.isSetLayer() ? this.getLayer() : null);
+            List<SurfaceContaminationLayerPropertyType> rhsField;
+            rhsField = (that.isSetLayer() ? that.getLayer() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layer", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layer", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDepth();
-            boolean rhsFieldIsSet = that.isSetDepth();
-            JAXBElement<ValDepthType> lhsField;
-            lhsField = this.getDepth();
-            JAXBElement<ValDepthType> rhsField;
-            rhsField = that.getDepth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "depth", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "depth", rhsField);
+            boolean lhsFieldIsSet = this.isSetFurtherClearanceTime();
+            boolean rhsFieldIsSet = that.isSetFurtherClearanceTime();
+            JAXBElement<TimeType> lhsField;
+            lhsField = this.getFurtherClearanceTime();
+            JAXBElement<TimeType> rhsField;
+            rhsField = that.getFurtherClearanceTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherClearanceTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherClearanceTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNextObservationTime();
+            boolean rhsFieldIsSet = that.isSetNextObservationTime();
+            JAXBElement<DateTimeType> lhsField;
+            lhsField = this.getNextObservationTime();
+            JAXBElement<DateTimeType> rhsField;
+            rhsField = that.getNextObservationTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nextObservationTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nextObservationTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -831,14 +844,40 @@ public class AirportHeliportContaminationType extends AbstractSurfaceContaminati
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFurtherClearanceTime();
-            boolean rhsFieldIsSet = that.isSetFurtherClearanceTime();
-            JAXBElement<TimeType> lhsField;
-            lhsField = this.getFurtherClearanceTime();
-            JAXBElement<TimeType> rhsField;
-            rhsField = that.getFurtherClearanceTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherClearanceTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherClearanceTime", rhsField);
+            boolean lhsFieldIsSet = this.isSetFrictionCoefficient();
+            boolean rhsFieldIsSet = that.isSetFrictionCoefficient();
+            JAXBElement<ValFrictionType> lhsField;
+            lhsField = this.getFrictionCoefficient();
+            JAXBElement<ValFrictionType> rhsField;
+            rhsField = that.getFrictionCoefficient();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionCoefficient", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionCoefficient", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDepth();
+            boolean rhsFieldIsSet = that.isSetDepth();
+            JAXBElement<ValDepthType> lhsField;
+            lhsField = this.getDepth();
+            JAXBElement<ValDepthType> rhsField;
+            rhsField = that.getDepth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "depth", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "depth", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -870,19 +909,6 @@ public class AirportHeliportContaminationType extends AbstractSurfaceContaminati
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFrictionCoefficient();
-            boolean rhsFieldIsSet = that.isSetFrictionCoefficient();
-            JAXBElement<ValFrictionType> lhsField;
-            lhsField = this.getFrictionCoefficient();
-            JAXBElement<ValFrictionType> rhsField;
-            rhsField = that.getFrictionCoefficient();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionCoefficient", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionCoefficient", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetObservationTime();
             boolean rhsFieldIsSet = that.isSetObservationTime();
             JAXBElement<DateTimeType> lhsField;
@@ -896,27 +922,14 @@ public class AirportHeliportContaminationType extends AbstractSurfaceContaminati
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLayer();
-            boolean rhsFieldIsSet = that.isSetLayer();
-            List<SurfaceContaminationLayerPropertyType> lhsField;
-            lhsField = (this.isSetLayer() ? this.getLayer() : null);
-            List<SurfaceContaminationLayerPropertyType> rhsField;
-            rhsField = (that.isSetLayer() ? that.getLayer() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layer", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layer", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNextObservationTime();
-            boolean rhsFieldIsSet = that.isSetNextObservationTime();
-            JAXBElement<DateTimeType> lhsField;
-            lhsField = this.getNextObservationTime();
-            JAXBElement<DateTimeType> rhsField;
-            rhsField = that.getNextObservationTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nextObservationTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nextObservationTime", rhsField);
+            boolean lhsFieldIsSet = this.isSetCriticalRidge();
+            boolean rhsFieldIsSet = that.isSetCriticalRidge();
+            List<RidgePropertyType> lhsField;
+            lhsField = (this.isSetCriticalRidge() ? this.getCriticalRidge() : null);
+            List<RidgePropertyType> rhsField;
+            rhsField = (that.isSetCriticalRidge() ? that.getCriticalRidge() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalRidge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalRidge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -930,19 +943,6 @@ public class AirportHeliportContaminationType extends AbstractSurfaceContaminati
             rhsField = that.getFurtherTotalClearance();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherTotalClearance", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherTotalClearance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCriticalRidge();
-            boolean rhsFieldIsSet = that.isSetCriticalRidge();
-            List<RidgePropertyType> lhsField;
-            lhsField = (this.isSetCriticalRidge() ? this.getCriticalRidge() : null);
-            List<RidgePropertyType> rhsField;
-            rhsField = (that.isSetCriticalRidge() ? that.getCriticalRidge() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalRidge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalRidge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

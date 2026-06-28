@@ -246,19 +246,6 @@ public class VORTimeSliceExtensionType implements Serializable, Equals, HashCode
         }
         final VORTimeSliceExtensionType that = ((VORTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractVORExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractVORExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractVORExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractVORExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVORExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVORExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -267,6 +254,19 @@ public class VORTimeSliceExtensionType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractVORExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractVORExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractVORExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractVORExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVORExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVORExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

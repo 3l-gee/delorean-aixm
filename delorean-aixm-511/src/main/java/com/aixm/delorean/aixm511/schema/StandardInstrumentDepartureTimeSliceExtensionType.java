@@ -246,6 +246,19 @@ public class StandardInstrumentDepartureTimeSliceExtensionType implements Serial
         }
         final StandardInstrumentDepartureTimeSliceExtensionType that = ((StandardInstrumentDepartureTimeSliceExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractProcedureExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractProcedureExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractProcedureExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractProcedureExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractProcedureExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractProcedureExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -269,19 +282,6 @@ public class StandardInstrumentDepartureTimeSliceExtensionType implements Serial
                     "abstractStandardInstrumentDepartureExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
                     "abstractStandardInstrumentDepartureExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractProcedureExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractProcedureExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractProcedureExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractProcedureExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractProcedureExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractProcedureExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

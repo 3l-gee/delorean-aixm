@@ -360,19 +360,6 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
         }
         final NavaidEquipmentMonitoringType that = ((NavaidEquipmentMonitoringType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMonitored();
-            boolean rhsFieldIsSet = that.isSetMonitored();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMonitored();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMonitored();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "monitored", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "monitored", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -381,19 +368,6 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
             rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavaidEquipmentMonitoringExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NavaidEquipmentMonitoringExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -412,6 +386,19 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NavaidEquipmentMonitoringExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<NavaidEquipmentMonitoringExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -420,6 +407,19 @@ public class NavaidEquipmentMonitoringType extends AbstractPropertiesWithSchedul
             rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMonitored();
+            boolean rhsFieldIsSet = that.isSetMonitored();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMonitored();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMonitored();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "monitored", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "monitored", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

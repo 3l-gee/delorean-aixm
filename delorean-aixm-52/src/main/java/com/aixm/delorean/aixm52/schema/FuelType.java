@@ -242,19 +242,6 @@ public class FuelType extends AbstractAIXMObjectType implements Serializable {
         }
         final FuelType that = ((FuelType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCategory();
-            boolean rhsFieldIsSet = that.isSetCategory();
-            JAXBElement<CodeFuelType> lhsField;
-            lhsField = this.getCategory();
-            JAXBElement<CodeFuelType> rhsField;
-            rhsField = that.getCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -263,6 +250,19 @@ public class FuelType extends AbstractAIXMObjectType implements Serializable {
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCategory();
+            boolean rhsFieldIsSet = that.isSetCategory();
+            JAXBElement<CodeFuelType> lhsField;
+            lhsField = this.getCategory();
+            JAXBElement<CodeFuelType> rhsField;
+            rhsField = that.getCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

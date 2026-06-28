@@ -246,21 +246,6 @@ public class TelephoneContactExtensionType implements Serializable, Equals, Hash
         }
         final TelephoneContactExtensionType that = ((TelephoneContactExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTelephoneContactExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTelephoneContactExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTelephoneContactExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTelephoneContactExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTelephoneContactExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTelephoneContactExtension",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -284,6 +269,21 @@ public class TelephoneContactExtensionType implements Serializable, Equals, Hash
                     "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
                     "abstractPropertiesWithScheduleExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTelephoneContactExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTelephoneContactExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTelephoneContactExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTelephoneContactExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTelephoneContactExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTelephoneContactExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

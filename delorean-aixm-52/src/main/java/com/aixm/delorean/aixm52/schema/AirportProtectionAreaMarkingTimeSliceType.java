@@ -447,27 +447,14 @@ public class AirportProtectionAreaMarkingTimeSliceType extends AbstractAIXMTimeS
         }
         final AirportProtectionAreaMarkingTimeSliceType that = ((AirportProtectionAreaMarkingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetElement();
-            boolean rhsFieldIsSet = that.isSetElement();
-            List<MarkingElementPropertyType> lhsField;
-            lhsField = (this.isSetElement() ? this.getElement() : null);
-            List<MarkingElementPropertyType> rhsField;
-            rhsField = (that.isSetElement() ? that.getElement() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirportProtectionAreaMarkingTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirportProtectionAreaMarkingTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -486,14 +473,27 @@ public class AirportProtectionAreaMarkingTimeSliceType extends AbstractAIXMTimeS
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetMarkedProtectionArea();
+            boolean rhsFieldIsSet = that.isSetMarkedProtectionArea();
+            JAXBElement<AirportHeliportProtectionAreaPropertyType> lhsField;
+            lhsField = this.getMarkedProtectionArea();
+            JAXBElement<AirportHeliportProtectionAreaPropertyType> rhsField;
+            rhsField = that.getMarkedProtectionArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedProtectionArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedProtectionArea", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElement();
+            boolean rhsFieldIsSet = that.isSetElement();
+            List<MarkingElementPropertyType> lhsField;
+            lhsField = (this.isSetElement() ? this.getElement() : null);
+            List<MarkingElementPropertyType> rhsField;
+            rhsField = (that.isSetElement() ? that.getElement() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -525,14 +525,14 @@ public class AirportProtectionAreaMarkingTimeSliceType extends AbstractAIXMTimeS
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkedProtectionArea();
-            boolean rhsFieldIsSet = that.isSetMarkedProtectionArea();
-            JAXBElement<AirportHeliportProtectionAreaPropertyType> lhsField;
-            lhsField = this.getMarkedProtectionArea();
-            JAXBElement<AirportHeliportProtectionAreaPropertyType> rhsField;
-            rhsField = that.getMarkedProtectionArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedProtectionArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedProtectionArea", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirportProtectionAreaMarkingTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirportProtectionAreaMarkingTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

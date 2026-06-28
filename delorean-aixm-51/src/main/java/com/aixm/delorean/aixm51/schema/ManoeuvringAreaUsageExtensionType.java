@@ -246,6 +246,21 @@ public class ManoeuvringAreaUsageExtensionType implements Serializable, Equals, 
         }
         final ManoeuvringAreaUsageExtensionType that = ((ManoeuvringAreaUsageExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractManoeuvringAreaUsageExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractManoeuvringAreaUsageExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractManoeuvringAreaUsageExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractManoeuvringAreaUsageExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractManoeuvringAreaUsageExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractManoeuvringAreaUsageExtension",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractUsageConditionExtension();
             boolean rhsFieldIsSet = that.isSetAbstractUsageConditionExtension();
             AbstractExtensionType lhsField;
@@ -269,21 +284,6 @@ public class ManoeuvringAreaUsageExtensionType implements Serializable, Equals, 
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractManoeuvringAreaUsageExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractManoeuvringAreaUsageExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractManoeuvringAreaUsageExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractManoeuvringAreaUsageExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractManoeuvringAreaUsageExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractManoeuvringAreaUsageExtension",
-                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

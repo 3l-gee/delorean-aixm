@@ -249,21 +249,6 @@ public class TaxiHoldingPositionLightSystemTimeSliceExtensionType implements Ser
         }
         final TaxiHoldingPositionLightSystemTimeSliceExtensionType that = ((TaxiHoldingPositionLightSystemTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTaxiHoldingPositionLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTaxiHoldingPositionLightSystemExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTaxiHoldingPositionLightSystemExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTaxiHoldingPositionLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractTaxiHoldingPositionLightSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractTaxiHoldingPositionLightSystemExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
             boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
             AbstractExtensionType lhsField;
@@ -287,6 +272,21 @@ public class TaxiHoldingPositionLightSystemTimeSliceExtensionType implements Ser
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTaxiHoldingPositionLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTaxiHoldingPositionLightSystemExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTaxiHoldingPositionLightSystemExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTaxiHoldingPositionLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractTaxiHoldingPositionLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractTaxiHoldingPositionLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -214,19 +214,6 @@ public class GeoBorderTimeSliceExtensionType implements Serializable, Equals, Ha
         }
         final GeoBorderTimeSliceExtensionType that = ((GeoBorderTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGeoBorderExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGeoBorderExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGeoBorderExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGeoBorderExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeoBorderExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeoBorderExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -235,6 +222,19 @@ public class GeoBorderTimeSliceExtensionType implements Serializable, Equals, Ha
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGeoBorderExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGeoBorderExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGeoBorderExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGeoBorderExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeoBorderExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeoBorderExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

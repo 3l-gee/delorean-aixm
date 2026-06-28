@@ -341,14 +341,14 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
         }
         final AirportHeliportCollocationTimeSliceType that = ((AirportHeliportCollocationTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetHostAirport();
+            boolean rhsFieldIsSet = that.isSetHostAirport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getHostAirport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getHostAirport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostAirport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -367,19 +367,6 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDependentAirport();
-            boolean rhsFieldIsSet = that.isSetDependentAirport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getDependentAirport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getDependentAirport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependentAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependentAirport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AirportHeliportCollocationTimeSliceExtensionType> lhsField;
@@ -393,14 +380,27 @@ public class AirportHeliportCollocationTimeSliceType extends AbstractAIXMTimeSli
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHostAirport();
-            boolean rhsFieldIsSet = that.isSetHostAirport();
+            boolean lhsFieldIsSet = this.isSetDependentAirport();
+            boolean rhsFieldIsSet = that.isSetDependentAirport();
             JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getHostAirport();
+            lhsField = this.getDependentAirport();
             JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getHostAirport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hostAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hostAirport", rhsField);
+            rhsField = that.getDependentAirport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependentAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependentAirport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -348,14 +348,27 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         final AltimeterSourceTimeSliceType that = ((AltimeterSourceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetIsPrimary();
-            boolean rhsFieldIsSet = that.isSetIsPrimary();
+            boolean lhsFieldIsSet = this.isSetIsRemote();
+            boolean rhsFieldIsSet = that.isSetIsRemote();
             JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIsPrimary();
+            lhsField = this.getIsRemote();
             JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIsPrimary();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPrimary", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPrimary", rhsField);
+            rhsField = that.getIsRemote();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isRemote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isRemote", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<AltimeterSourceStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
+            List<AltimeterSourceStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -387,27 +400,14 @@ public class AltimeterSourceTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<AltimeterSourceStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<AltimeterSourceStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIsRemote();
-            boolean rhsFieldIsSet = that.isSetIsRemote();
+            boolean lhsFieldIsSet = this.isSetIsPrimary();
+            boolean rhsFieldIsSet = that.isSetIsPrimary();
             JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIsRemote();
+            lhsField = this.getIsPrimary();
             JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIsRemote();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isRemote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isRemote", rhsField);
+            rhsField = that.getIsPrimary();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPrimary", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPrimary", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

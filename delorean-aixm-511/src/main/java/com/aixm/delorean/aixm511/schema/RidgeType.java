@@ -336,14 +336,14 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
         }
         final RidgeType that = ((RidgeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSide();
-            boolean rhsFieldIsSet = that.isSetSide();
-            JAXBElement<CodeSideType> lhsField;
-            lhsField = this.getSide();
-            JAXBElement<CodeSideType> rhsField;
-            rhsField = that.getSide();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "side", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "side", rhsField);
+            boolean lhsFieldIsSet = this.isSetDepth();
+            boolean rhsFieldIsSet = that.isSetDepth();
+            JAXBElement<ValDepthType> lhsField;
+            lhsField = this.getDepth();
+            JAXBElement<ValDepthType> rhsField;
+            rhsField = that.getDepth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "depth", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "depth", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -375,14 +375,14 @@ public class RidgeType extends AbstractAIXMObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDepth();
-            boolean rhsFieldIsSet = that.isSetDepth();
-            JAXBElement<ValDepthType> lhsField;
-            lhsField = this.getDepth();
-            JAXBElement<ValDepthType> rhsField;
-            rhsField = that.getDepth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "depth", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "depth", rhsField);
+            boolean lhsFieldIsSet = this.isSetSide();
+            boolean rhsFieldIsSet = that.isSetSide();
+            JAXBElement<CodeSideType> lhsField;
+            lhsField = this.getSide();
+            JAXBElement<CodeSideType> rhsField;
+            rhsField = that.getSide();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "side", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "side", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

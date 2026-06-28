@@ -825,19 +825,6 @@ public class HoldingAssessmentTimeSliceType extends AbstractAIXMTimeSliceType im
         }
         final HoldingAssessmentTimeSliceType that = ((HoldingAssessmentTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUnplannedHolding();
-            boolean rhsFieldIsSet = that.isSetUnplannedHolding();
-            JAXBElement<UnplannedHoldingPropertyType> lhsField;
-            lhsField = this.getUnplannedHolding();
-            JAXBElement<UnplannedHoldingPropertyType> rhsField;
-            rhsField = that.getUnplannedHolding();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unplannedHolding", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unplannedHolding", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetObstacleAssessment();
             boolean rhsFieldIsSet = that.isSetObstacleAssessment();
             List<ObstacleAssessmentAreaPropertyType> lhsField;
@@ -846,19 +833,6 @@ public class HoldingAssessmentTimeSliceType extends AbstractAIXMTimeSliceType im
             rhsField = (that.isSetObstacleAssessment() ? that.getObstacleAssessment() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleAssessment", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleAssessment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPatternTemplate();
-            boolean rhsFieldIsSet = that.isSetPatternTemplate();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getPatternTemplate();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getPatternTemplate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "patternTemplate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "patternTemplate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -877,14 +851,27 @@ public class HoldingAssessmentTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLegLengthAway();
-            boolean rhsFieldIsSet = that.isSetLegLengthAway();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLegLengthAway();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLegLengthAway();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legLengthAway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legLengthAway", rhsField);
+            boolean lhsFieldIsSet = this.isSetTurbulentAir();
+            boolean rhsFieldIsSet = that.isSetTurbulentAir();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getTurbulentAir();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getTurbulentAir();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turbulentAir", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turbulentAir", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHoldingPoint();
+            boolean rhsFieldIsSet = that.isSetHoldingPoint();
+            JAXBElement<SegmentPointPropertyType> lhsField;
+            lhsField = this.getHoldingPoint();
+            JAXBElement<SegmentPointPropertyType> rhsField;
+            rhsField = that.getHoldingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -903,27 +890,14 @@ public class HoldingAssessmentTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTurbulentAir();
-            boolean rhsFieldIsSet = that.isSetTurbulentAir();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getTurbulentAir();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getTurbulentAir();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turbulentAir", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turbulentAir", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLegLengthToward();
-            boolean rhsFieldIsSet = that.isSetLegLengthToward();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLegLengthToward();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLegLengthToward();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legLengthToward", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legLengthToward", rhsField);
+            boolean lhsFieldIsSet = this.isSetPatternTemplate();
+            boolean rhsFieldIsSet = that.isSetPatternTemplate();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getPatternTemplate();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getPatternTemplate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "patternTemplate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "patternTemplate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -942,14 +916,27 @@ public class HoldingAssessmentTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpeedLimit();
-            boolean rhsFieldIsSet = that.isSetSpeedLimit();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getSpeedLimit();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getSpeedLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedLimit", rhsField);
+            boolean lhsFieldIsSet = this.isSetLegLengthToward();
+            boolean rhsFieldIsSet = that.isSetLegLengthToward();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLegLengthToward();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLegLengthToward();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legLengthToward", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legLengthToward", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<HoldingAssessmentTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<HoldingAssessmentTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -981,14 +968,40 @@ public class HoldingAssessmentTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHoldingPoint();
-            boolean rhsFieldIsSet = that.isSetHoldingPoint();
-            JAXBElement<SegmentPointPropertyType> lhsField;
-            lhsField = this.getHoldingPoint();
-            JAXBElement<SegmentPointPropertyType> rhsField;
-            rhsField = that.getHoldingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpeedLimit();
+            boolean rhsFieldIsSet = that.isSetSpeedLimit();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getSpeedLimit();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getSpeedLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLegLengthAway();
+            boolean rhsFieldIsSet = that.isSetLegLengthAway();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLegLengthAway();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLegLengthAway();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "legLengthAway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "legLengthAway", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUnplannedHolding();
+            boolean rhsFieldIsSet = that.isSetUnplannedHolding();
+            JAXBElement<UnplannedHoldingPropertyType> lhsField;
+            lhsField = this.getUnplannedHolding();
+            JAXBElement<UnplannedHoldingPropertyType> rhsField;
+            rhsField = that.getUnplannedHolding();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unplannedHolding", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unplannedHolding", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1002,19 +1015,6 @@ public class HoldingAssessmentTimeSliceType extends AbstractAIXMTimeSliceType im
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<HoldingAssessmentTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<HoldingAssessmentTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

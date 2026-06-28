@@ -300,19 +300,6 @@ public class NoteType extends AbstractAIXMObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPurpose();
-            boolean rhsFieldIsSet = that.isSetPurpose();
-            JAXBElement<CodeNotePurposeType> lhsField;
-            lhsField = this.getPurpose();
-            JAXBElement<CodeNotePurposeType> rhsField;
-            rhsField = that.getPurpose();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "purpose", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "purpose", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<NoteExtensionType> lhsField;
@@ -334,6 +321,19 @@ public class NoteType extends AbstractAIXMObjectType implements Serializable {
             rhsField = that.getPropertyName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "propertyName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "propertyName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPurpose();
+            boolean rhsFieldIsSet = that.isSetPurpose();
+            JAXBElement<CodeNotePurposeType> lhsField;
+            lhsField = this.getPurpose();
+            JAXBElement<CodeNotePurposeType> rhsField;
+            rhsField = that.getPurpose();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "purpose", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "purpose", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

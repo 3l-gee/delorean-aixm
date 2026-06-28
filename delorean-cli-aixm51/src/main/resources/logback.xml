@@ -3,7 +3,7 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>[%black(%replace(%level){'INFO', '%blue(INFO)'}{'WARN', '%yellow(WARN)'}{'ERROR', '%red(ERROR)'})] %msg%n</pattern>
+            <pattern>[%highlight(%level)] %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -11,9 +11,9 @@
     <logger name="org.hibernate.metamodel" level="ERROR" />
     <logger name="org.hibernate.engine" level="ERROR" />
     <logger name="org.hibernate.orm" level="ERROR" />
-    <logger name="com.zaxxer.hikari" level="INFO" />
+    <logger name="com.zaxxer.hikari" level="ERROR" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
-</configuration>
+</configuration>    

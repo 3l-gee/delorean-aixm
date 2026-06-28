@@ -289,19 +289,6 @@ public class CallsignDetailType extends AbstractAIXMObjectType implements Serial
         }
         final CallsignDetailType that = ((CallsignDetailType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCallSign();
-            boolean rhsFieldIsSet = that.isSetCallSign();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getCallSign();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getCallSign();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "callSign", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "callSign", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<CallsignDetailExtensionType> lhsField;
@@ -336,6 +323,19 @@ public class CallsignDetailType extends AbstractAIXMObjectType implements Serial
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCallSign();
+            boolean rhsFieldIsSet = that.isSetCallSign();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getCallSign();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getCallSign();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "callSign", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "callSign", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

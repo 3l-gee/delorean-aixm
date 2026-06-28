@@ -290,27 +290,14 @@ public class AirspaceBorderCrossingTimeSliceType extends AbstractAIXMTimeSliceTy
         }
         final AirspaceBorderCrossingTimeSliceType that = ((AirspaceBorderCrossingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEnteredAirspace();
-            boolean rhsFieldIsSet = that.isSetEnteredAirspace();
+            boolean lhsFieldIsSet = this.isSetExitedAirspace();
+            boolean rhsFieldIsSet = that.isSetExitedAirspace();
             JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getEnteredAirspace();
+            lhsField = this.getExitedAirspace();
             JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getEnteredAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "enteredAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "enteredAirspace", rhsField);
+            rhsField = that.getExitedAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exitedAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exitedAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -329,14 +316,27 @@ public class AirspaceBorderCrossingTimeSliceType extends AbstractAIXMTimeSliceTy
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExitedAirspace();
-            boolean rhsFieldIsSet = that.isSetExitedAirspace();
+            boolean lhsFieldIsSet = this.isSetEnteredAirspace();
+            boolean rhsFieldIsSet = that.isSetEnteredAirspace();
             JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getExitedAirspace();
+            lhsField = this.getEnteredAirspace();
             JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getExitedAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exitedAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exitedAirspace", rhsField);
+            rhsField = that.getEnteredAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "enteredAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "enteredAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

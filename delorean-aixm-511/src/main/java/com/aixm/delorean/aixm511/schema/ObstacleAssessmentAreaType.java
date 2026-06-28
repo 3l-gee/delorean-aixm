@@ -782,32 +782,6 @@ public class ObstacleAssessmentAreaType extends AbstractAIXMObjectType implement
         }
         final ObstacleAssessmentAreaType that = ((ObstacleAssessmentAreaType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeObstacleAssessmentSurfaceType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeObstacleAssessmentSurfaceType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAircraftCategory();
-            boolean rhsFieldIsSet = that.isSetAircraftCategory();
-            List<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetAircraftCategory() ? this.getAircraftCategory() : null);
-            List<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetAircraftCategory() ? that.getAircraftCategory() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftCategory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftCategory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSignificantObstacle();
             boolean rhsFieldIsSet = that.isSetSignificantObstacle();
             List<ObstructionPropertyType> lhsField;
@@ -816,71 +790,6 @@ public class ObstacleAssessmentAreaType extends AbstractAIXMObjectType implement
             rhsField = (that.isSetSignificantObstacle() ? that.getSignificantObstacle() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantObstacle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantObstacle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurface();
-            boolean rhsFieldIsSet = that.isSetSurface();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getSurface();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getSurface();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surface", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surface", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGradientLowHigh();
-            boolean rhsFieldIsSet = that.isSetGradientLowHigh();
-            JAXBElement<ValSlopeType> lhsField;
-            lhsField = this.getGradientLowHigh();
-            JAXBElement<ValSlopeType> rhsField;
-            rhsField = that.getGradientLowHigh();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gradientLowHigh", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gradientLowHigh", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfaceZone();
-            boolean rhsFieldIsSet = that.isSetSurfaceZone();
-            JAXBElement<CodeObstructionIdSurfaceZoneType> lhsField;
-            lhsField = this.getSurfaceZone();
-            JAXBElement<CodeObstructionIdSurfaceZoneType> rhsField;
-            rhsField = that.getSurfaceZone();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceZone", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceZone", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSlope();
-            boolean rhsFieldIsSet = that.isSetSlope();
-            JAXBElement<ValSlopeType> lhsField;
-            lhsField = this.getSlope();
-            JAXBElement<ValSlopeType> rhsField;
-            rhsField = that.getSlope();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slope", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slope", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSlopeLowerAltitude();
-            boolean rhsFieldIsSet = that.isSetSlopeLowerAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getSlopeLowerAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getSlopeLowerAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slopeLowerAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slopeLowerAltitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -899,6 +808,84 @@ public class ObstacleAssessmentAreaType extends AbstractAIXMObjectType implement
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSafetyRegulation();
+            boolean rhsFieldIsSet = that.isSetSafetyRegulation();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getSafetyRegulation();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getSafetyRegulation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "safetyRegulation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "safetyRegulation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ObstacleAssessmentAreaExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ObstacleAssessmentAreaExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGradientLowHigh();
+            boolean rhsFieldIsSet = that.isSetGradientLowHigh();
+            JAXBElement<ValSlopeType> lhsField;
+            lhsField = this.getGradientLowHigh();
+            JAXBElement<ValSlopeType> rhsField;
+            rhsField = that.getGradientLowHigh();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gradientLowHigh", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gradientLowHigh", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurface();
+            boolean rhsFieldIsSet = that.isSetSurface();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getSurface();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getSurface();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surface", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSlopeLowerAltitude();
+            boolean rhsFieldIsSet = that.isSetSlopeLowerAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getSlopeLowerAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getSlopeLowerAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slopeLowerAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slopeLowerAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAircraftCategory();
+            boolean rhsFieldIsSet = that.isSetAircraftCategory();
+            List<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetAircraftCategory() ? this.getAircraftCategory() : null);
+            List<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetAircraftCategory() ? that.getAircraftCategory() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraftCategory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraftCategory", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSectionNumber();
             boolean rhsFieldIsSet = that.isSetSectionNumber();
             JAXBElement<NoNumberType> lhsField;
@@ -912,27 +899,27 @@ public class ObstacleAssessmentAreaType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeObstacleAssessmentSurfaceType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeObstacleAssessmentSurfaceType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSafetyRegulation();
-            boolean rhsFieldIsSet = that.isSetSafetyRegulation();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getSafetyRegulation();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getSafetyRegulation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "safetyRegulation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "safetyRegulation", rhsField);
+            boolean lhsFieldIsSet = this.isSetSlope();
+            boolean rhsFieldIsSet = that.isSetSlope();
+            JAXBElement<ValSlopeType> lhsField;
+            lhsField = this.getSlope();
+            JAXBElement<ValSlopeType> rhsField;
+            rhsField = that.getSlope();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "slope", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "slope", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -951,14 +938,27 @@ public class ObstacleAssessmentAreaType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ObstacleAssessmentAreaExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ObstacleAssessmentAreaExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurfaceZone();
+            boolean rhsFieldIsSet = that.isSetSurfaceZone();
+            JAXBElement<CodeObstructionIdSurfaceZoneType> lhsField;
+            lhsField = this.getSurfaceZone();
+            JAXBElement<CodeObstructionIdSurfaceZoneType> rhsField;
+            rhsField = that.getSurfaceZone();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceZone", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceZone", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -305,21 +305,6 @@ public class FireFightingServiceTimeSliceExtensionType implements Serializable, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirportGroundServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirportGroundServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirportGroundServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirportGroundServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportGroundServiceExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportGroundServiceExtension",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractFireFightingServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractFireFightingServiceExtension();
             AbstractExtensionType lhsField;
@@ -329,6 +314,21 @@ public class FireFightingServiceTimeSliceExtensionType implements Serializable, 
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFireFightingServiceExtension",
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFireFightingServiceExtension",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirportGroundServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirportGroundServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirportGroundServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirportGroundServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportGroundServiceExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportGroundServiceExtension",
                     rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;

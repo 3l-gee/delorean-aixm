@@ -51,7 +51,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DMEType", propOrder = {"timeSlice"})
+@XmlType(name = "DMEType", propOrder = { "timeSlice" })
 @Entity(name = "DMEType")
 @Table(name = "dme_f", schema = "navaids_point")
 public class DMEType extends AbstractNavaidEquipmentType implements Serializable {
@@ -84,7 +84,7 @@ public class DMEType extends AbstractNavaidEquipmentType implements Serializable
      *
      */
     @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
-    @OneToMany(targetEntity = DMETimeSlicePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = DMETimeSlicePropertyType.class, cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @JoinColumn(name = "timeslice_hjid", referencedColumnName = "hjid")
     public List<DMETimeSlicePropertyType> getTimeSlice() {
         if (timeSlice == null) {

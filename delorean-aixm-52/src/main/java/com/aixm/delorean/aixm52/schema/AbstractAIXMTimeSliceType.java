@@ -422,19 +422,6 @@ public abstract class AbstractAIXMTimeSliceType extends AbstractAIXMTimeSliceBas
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLifecycleStatus();
-            boolean rhsFieldIsSet = that.isSetLifecycleStatus();
-            String lhsField;
-            lhsField = this.getLifecycleStatus();
-            String rhsField;
-            rhsField = that.getLifecycleStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lifecycleStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lifecycleStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeSliceMetadata();
             boolean rhsFieldIsSet = that.isSetTimeSliceMetadata();
             FeatureTimeSliceMetadataPropertyType lhsField;
@@ -443,19 +430,6 @@ public abstract class AbstractAIXMTimeSliceType extends AbstractAIXMTimeSliceBas
             rhsField = that.getTimeSliceMetadata();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSliceMetadata", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSliceMetadata", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetInterpretation();
-            boolean rhsFieldIsSet = that.isSetInterpretation();
-            String lhsField;
-            lhsField = this.getInterpretation();
-            String rhsField;
-            rhsField = that.getInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -482,6 +456,32 @@ public abstract class AbstractAIXMTimeSliceType extends AbstractAIXMTimeSliceBas
             rhsField = that.getSequenceNumber();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceNumber", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInterpretation();
+            boolean rhsFieldIsSet = that.isSetInterpretation();
+            String lhsField;
+            lhsField = this.getInterpretation();
+            String rhsField;
+            rhsField = that.getInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLifecycleStatus();
+            boolean rhsFieldIsSet = that.isSetLifecycleStatus();
+            String lhsField;
+            lhsField = this.getLifecycleStatus();
+            String rhsField;
+            rhsField = that.getLifecycleStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lifecycleStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lifecycleStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

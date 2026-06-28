@@ -279,19 +279,6 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
         }
         final ProcedureTransitionLegType that = ((ProcedureTransitionLegType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSeqNumberARINC();
-            boolean rhsFieldIsSet = that.isSetSeqNumberARINC();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getSeqNumberARINC();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getSeqNumberARINC();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seqNumberARINC", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seqNumberARINC", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<ProcedureTransitionLegExtensionType> lhsField;
@@ -305,14 +292,14 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetSeqNumberARINC();
+            boolean rhsFieldIsSet = that.isSetSeqNumberARINC();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getSeqNumberARINC();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getSeqNumberARINC();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seqNumberARINC", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seqNumberARINC", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -326,6 +313,19 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
             rhsField = that.getTheSegmentLeg();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSegmentLeg", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSegmentLeg", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

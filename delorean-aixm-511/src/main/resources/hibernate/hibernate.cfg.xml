@@ -7,16 +7,17 @@
         <!-- Set database connection properties -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.provider_class">org.hibernate.hikaricp.internal.HikariCPConnectionProvider</property>
-        <property name="hibernate.hikari.minimumIdle">8</property>
-
+        <property name="hibernate.hikari.minimumIdle">2</property>
+        <property name="hibernate.hikari.maximumPoolSize">4</property>
+    
         <!-- Set Hibernate settings -->
-        <property name="hibernate.hikari.maximumPoolSize">32</property>
         <property name="hibernate.hikari.idleTimeout">300000</property>
         <property name="hibernate.hikari.connectionTimeout">300000</property>
         <property name="hibernate.hikari.maxLifetime">1800000</property>
         <property name="hibernate.hikari.keepaliveTime">300000</property>
         <property name="hibernate.hikari.poolName">delorean-aixm-pool</property>
         <property name="hibernate.hikari.autoCommit">false</property>
+
 
         <!-- Set Hibernate settings -->
         <property name="hibernate.show_sql">false</property>

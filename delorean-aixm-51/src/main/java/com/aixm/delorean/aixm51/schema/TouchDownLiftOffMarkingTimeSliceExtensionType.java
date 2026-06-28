@@ -246,6 +246,21 @@ public class TouchDownLiftOffMarkingTimeSliceExtensionType implements Serializab
         }
         final TouchDownLiftOffMarkingTimeSliceExtensionType that = ((TouchDownLiftOffMarkingTimeSliceExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffMarkingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffMarkingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTouchDownLiftOffMarkingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTouchDownLiftOffMarkingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractTouchDownLiftOffMarkingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractTouchDownLiftOffMarkingExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -267,21 +282,6 @@ public class TouchDownLiftOffMarkingTimeSliceExtensionType implements Serializab
             rhsField = that.getAbstractMarkingExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkingExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkingExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffMarkingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffMarkingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTouchDownLiftOffMarkingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTouchDownLiftOffMarkingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractTouchDownLiftOffMarkingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractTouchDownLiftOffMarkingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

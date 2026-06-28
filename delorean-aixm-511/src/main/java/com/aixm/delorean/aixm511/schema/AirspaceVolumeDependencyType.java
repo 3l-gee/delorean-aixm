@@ -278,27 +278,14 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
         }
         final AirspaceVolumeDependencyType that = ((AirspaceVolumeDependencyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheAirspace();
-            boolean rhsFieldIsSet = that.isSetTheAirspace();
-            AirspacePropertyType lhsField;
-            lhsField = this.getTheAirspace();
-            AirspacePropertyType rhsField;
-            rhsField = that.getTheAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDependency();
-            boolean rhsFieldIsSet = that.isSetDependency();
-            JAXBElement<CodeAirspaceDependencyType> lhsField;
-            lhsField = this.getDependency();
-            JAXBElement<CodeAirspaceDependencyType> rhsField;
-            rhsField = that.getDependency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependency", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceVolumeDependencyExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirspaceVolumeDependencyExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -317,14 +304,27 @@ public class AirspaceVolumeDependencyType extends AbstractAIXMObjectType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceVolumeDependencyExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirspaceVolumeDependencyExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetDependency();
+            boolean rhsFieldIsSet = that.isSetDependency();
+            JAXBElement<CodeAirspaceDependencyType> lhsField;
+            lhsField = this.getDependency();
+            JAXBElement<CodeAirspaceDependencyType> rhsField;
+            rhsField = that.getDependency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependency", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheAirspace();
+            boolean rhsFieldIsSet = that.isSetTheAirspace();
+            AirspacePropertyType lhsField;
+            lhsField = this.getTheAirspace();
+            AirspacePropertyType rhsField;
+            rhsField = that.getTheAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

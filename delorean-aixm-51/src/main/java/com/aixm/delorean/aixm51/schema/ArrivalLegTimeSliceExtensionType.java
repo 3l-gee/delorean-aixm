@@ -246,19 +246,6 @@ public class ArrivalLegTimeSliceExtensionType implements Serializable, Equals, H
         }
         final ArrivalLegTimeSliceExtensionType that = ((ArrivalLegTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractArrivalLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractArrivalLegExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractArrivalLegExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractArrivalLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractArrivalLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrivalLegExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -267,6 +254,19 @@ public class ArrivalLegTimeSliceExtensionType implements Serializable, Equals, H
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractArrivalLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractArrivalLegExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractArrivalLegExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractArrivalLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractArrivalLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrivalLegExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -315,19 +315,6 @@ public class LandingTakeoffAreaCollectionType extends AbstractAIXMObjectType imp
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTLOF();
-            boolean rhsFieldIsSet = that.isSetTLOF();
-            List<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = (this.isSetTLOF() ? this.getTLOF() : null);
-            List<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = (that.isSetTLOF() ? that.getTLOF() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tlof", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tlof", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<LandingTakeoffAreaCollectionExtensionType> lhsField;
@@ -349,6 +336,19 @@ public class LandingTakeoffAreaCollectionType extends AbstractAIXMObjectType imp
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTLOF();
+            boolean rhsFieldIsSet = that.isSetTLOF();
+            List<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = (this.isSetTLOF() ? this.getTLOF() : null);
+            List<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = (that.isSetTLOF() ? that.getTLOF() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tlof", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tlof", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -385,32 +385,6 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
         }
         final AltitudeAdjustmentType that = ((AltitudeAdjustmentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPrimaryAlternateMinimum();
-            boolean rhsFieldIsSet = that.isSetPrimaryAlternateMinimum();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getPrimaryAlternateMinimum();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getPrimaryAlternateMinimum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "primaryAlternateMinimum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "primaryAlternateMinimum", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AltitudeAdjustmentExtensionType> lhsField;
@@ -437,6 +411,19 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetPrimaryAlternateMinimum();
+            boolean rhsFieldIsSet = that.isSetPrimaryAlternateMinimum();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getPrimaryAlternateMinimum();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getPrimaryAlternateMinimum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "primaryAlternateMinimum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "primaryAlternateMinimum", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAltitudeAdjustment();
             boolean rhsFieldIsSet = that.isSetAltitudeAdjustment();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -445,6 +432,19 @@ public class AltitudeAdjustmentType extends AbstractAIXMObjectType implements Se
             rhsField = that.getAltitudeAdjustment();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeAdjustment", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeAdjustment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

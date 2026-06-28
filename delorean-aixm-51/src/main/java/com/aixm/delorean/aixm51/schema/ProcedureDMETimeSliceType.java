@@ -382,14 +382,14 @@ public class ProcedureDMETimeSliceType extends AbstractAIXMTimeSliceType impleme
         }
         final ProcedureDMETimeSliceType that = ((ProcedureDMETimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDME();
-            boolean rhsFieldIsSet = that.isSetDME();
-            JAXBElement<DMEPropertyType> lhsField;
-            lhsField = this.getDME();
-            JAXBElement<DMEPropertyType> rhsField;
-            rhsField = that.getDME();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dme", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dme", rhsField);
+            boolean lhsFieldIsSet = this.isSetSegmentLeg();
+            boolean rhsFieldIsSet = that.isSetSegmentLeg();
+            JAXBElement<SegmentLegPropertyType> lhsField;
+            lhsField = this.getSegmentLeg();
+            JAXBElement<SegmentLegPropertyType> rhsField;
+            rhsField = that.getSegmentLeg();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "segmentLeg", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "segmentLeg", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -408,14 +408,14 @@ public class ProcedureDMETimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCriticalDME();
-            boolean rhsFieldIsSet = that.isSetCriticalDME();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getCriticalDME();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getCriticalDME();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalDME", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalDME", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ProcedureDMETimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ProcedureDMETimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -434,27 +434,27 @@ public class ProcedureDMETimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSegmentLeg();
-            boolean rhsFieldIsSet = that.isSetSegmentLeg();
-            JAXBElement<SegmentLegPropertyType> lhsField;
-            lhsField = this.getSegmentLeg();
-            JAXBElement<SegmentLegPropertyType> rhsField;
-            rhsField = that.getSegmentLeg();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "segmentLeg", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "segmentLeg", rhsField);
+            boolean lhsFieldIsSet = this.isSetCriticalDME();
+            boolean rhsFieldIsSet = that.isSetCriticalDME();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getCriticalDME();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getCriticalDME();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalDME", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalDME", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ProcedureDMETimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ProcedureDMETimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetDME();
+            boolean rhsFieldIsSet = that.isSetDME();
+            JAXBElement<DMEPropertyType> lhsField;
+            lhsField = this.getDME();
+            JAXBElement<DMEPropertyType> rhsField;
+            rhsField = that.getDME();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dme", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dme", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

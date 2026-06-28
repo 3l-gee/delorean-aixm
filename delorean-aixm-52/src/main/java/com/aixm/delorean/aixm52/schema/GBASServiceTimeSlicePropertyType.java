@@ -219,19 +219,6 @@ public class GBASServiceTimeSlicePropertyType implements Serializable, Equals, H
         }
         final GBASServiceTimeSlicePropertyType that = ((GBASServiceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGBASServiceTimeSlice();
-            boolean rhsFieldIsSet = that.isSetGBASServiceTimeSlice();
-            GBASServiceTimeSliceType lhsField;
-            lhsField = this.getGBASServiceTimeSlice();
-            GBASServiceTimeSliceType rhsField;
-            rhsField = that.getGBASServiceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gbasServiceTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gbasServiceTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -240,6 +227,19 @@ public class GBASServiceTimeSlicePropertyType implements Serializable, Equals, H
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGBASServiceTimeSlice();
+            boolean rhsFieldIsSet = that.isSetGBASServiceTimeSlice();
+            GBASServiceTimeSliceType lhsField;
+            lhsField = this.getGBASServiceTimeSlice();
+            GBASServiceTimeSliceType rhsField;
+            rhsField = that.getGBASServiceTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gbasServiceTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gbasServiceTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

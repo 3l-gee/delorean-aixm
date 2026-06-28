@@ -292,14 +292,16 @@ public class IntermediateLegTimeSliceExtensionType implements Serializable, Equa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractIntermediateLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractIntermediateLegExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSegmentLegExtension();
+            lhsField = this.getAbstractIntermediateLegExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSegmentLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
+            rhsField = that.getAbstractIntermediateLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractIntermediateLegExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractIntermediateLegExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -320,16 +322,14 @@ public class IntermediateLegTimeSliceExtensionType implements Serializable, Equa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractIntermediateLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractIntermediateLegExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractIntermediateLegExtension();
+            lhsField = this.getAbstractSegmentLegExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractIntermediateLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractIntermediateLegExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractIntermediateLegExtension",
-                    rhsField);
+            rhsField = that.getAbstractSegmentLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

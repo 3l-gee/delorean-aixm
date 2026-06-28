@@ -217,19 +217,6 @@ public class CurveTypeExtension implements Serializable, Equals, HashCode, ToStr
         }
         final CurveTypeExtension that = ((CurveTypeExtension) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractCurveExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractCurveExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractCurveExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractCurveExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCurveExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCurveExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -238,6 +225,19 @@ public class CurveTypeExtension implements Serializable, Equals, HashCode, ToStr
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractCurveExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractCurveExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractCurveExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractCurveExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCurveExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCurveExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

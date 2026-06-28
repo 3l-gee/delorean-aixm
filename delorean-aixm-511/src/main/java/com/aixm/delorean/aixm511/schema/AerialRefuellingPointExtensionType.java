@@ -246,14 +246,16 @@ public class AerialRefuellingPointExtensionType implements Serializable, Equals,
         }
         final AerialRefuellingPointExtensionType that = ((AerialRefuellingPointExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSegmentPointExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSegmentPointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -274,16 +276,14 @@ public class AerialRefuellingPointExtensionType implements Serializable, Equals,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSegmentPointExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSegmentPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

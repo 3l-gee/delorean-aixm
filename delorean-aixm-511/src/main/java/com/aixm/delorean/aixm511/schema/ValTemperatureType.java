@@ -172,19 +172,6 @@ public class ValTemperatureType implements Serializable, Equals, HashCode, ToStr
         }
         final ValTemperatureType that = ((ValTemperatureType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUom();
-            boolean rhsFieldIsSet = that.isSetUom();
-            String lhsField;
-            lhsField = this.getUom();
-            String rhsField;
-            rhsField = that.getUom();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValue();
             boolean rhsFieldIsSet = that.isSetValue();
             BigDecimal lhsField;
@@ -193,6 +180,19 @@ public class ValTemperatureType implements Serializable, Equals, HashCode, ToStr
             rhsField = that.getValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUom();
+            boolean rhsFieldIsSet = that.isSetUom();
+            String lhsField;
+            lhsField = this.getUom();
+            String rhsField;
+            rhsField = that.getUom();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

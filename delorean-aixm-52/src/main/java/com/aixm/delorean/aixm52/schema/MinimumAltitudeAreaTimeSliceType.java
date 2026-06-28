@@ -810,27 +810,27 @@ public class MinimumAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType 
         }
         final MinimumAltitudeAreaTimeSliceType that = ((MinimumAltitudeAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAreaAltitudeType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAreaAltitudeType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetCentrePointRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getCentrePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getCentrePointRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointRunwayPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCentrePointAimingPoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getCentrePointAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getCentrePointAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointAimingPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<MinimumAltitudeAreaTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<MinimumAltitudeAreaTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -851,40 +851,53 @@ public class MinimumAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<MinimumAltitudeAreaTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<MinimumAltitudeAreaTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetSector();
+            boolean rhsFieldIsSet = that.isSetSector();
+            List<MinimumAltitudeAreaSectorPropertyType> lhsField;
+            lhsField = (this.isSetSector() ? this.getSector() : null);
+            List<MinimumAltitudeAreaSectorPropertyType> rhsField;
+            rhsField = (that.isSetSector() ? that.getSector() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetCentrePointAimingPoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getCentrePointAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getCentrePointAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointAimingPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCentrePointPosition();
-            boolean rhsFieldIsSet = that.isSetCentrePointPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getCentrePointPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getCentrePointPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointPosition", rhsField);
+            boolean lhsFieldIsSet = this.isSetCentrePointNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetCentrePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getCentrePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getCentrePointNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            List<AirportHeliportPropertyType> lhsField;
+            lhsField = (this.isSetLocation() ? this.getLocation() : null);
+            List<AirportHeliportPropertyType> rhsField;
+            rhsField = (that.isSetLocation() ? that.getLocation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -905,40 +918,40 @@ public class MinimumAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLowestTemperature();
-            boolean rhsFieldIsSet = that.isSetLowestTemperature();
-            JAXBElement<ValTemperatureType> lhsField;
-            lhsField = this.getLowestTemperature();
-            JAXBElement<ValTemperatureType> rhsField;
-            rhsField = that.getLowestTemperature();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowestTemperature", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowestTemperature", rhsField);
+            boolean lhsFieldIsSet = this.isSetCentrePointPosition();
+            boolean rhsFieldIsSet = that.isSetCentrePointPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getCentrePointPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getCentrePointPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetLocation() ? this.getLocation() : null);
-            List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetLocation() ? that.getLocation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAreaAltitudeType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAreaAltitudeType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetConcernedAirspace();
-            boolean rhsFieldIsSet = that.isSetConcernedAirspace();
-            List<AirspacePropertyType> lhsField;
-            lhsField = (this.isSetConcernedAirspace() ? this.getConcernedAirspace() : null);
-            List<AirspacePropertyType> rhsField;
-            rhsField = (that.isSetConcernedAirspace() ? that.getConcernedAirspace() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "concernedAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "concernedAirspace", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -957,40 +970,27 @@ public class MinimumAltitudeAreaTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCentrePointNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetCentrePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getCentrePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getCentrePointNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointNavaidSystem", rhsField);
+            boolean lhsFieldIsSet = this.isSetLowestTemperature();
+            boolean rhsFieldIsSet = that.isSetLowestTemperature();
+            JAXBElement<ValTemperatureType> lhsField;
+            lhsField = this.getLowestTemperature();
+            JAXBElement<ValTemperatureType> rhsField;
+            rhsField = that.getLowestTemperature();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowestTemperature", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowestTemperature", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSector();
-            boolean rhsFieldIsSet = that.isSetSector();
-            List<MinimumAltitudeAreaSectorPropertyType> lhsField;
-            lhsField = (this.isSetSector() ? this.getSector() : null);
-            List<MinimumAltitudeAreaSectorPropertyType> rhsField;
-            rhsField = (that.isSetSector() ? that.getSector() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getCentrePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getCentrePointRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointRunwayPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetConcernedAirspace();
+            boolean rhsFieldIsSet = that.isSetConcernedAirspace();
+            List<AirspacePropertyType> lhsField;
+            lhsField = (this.isSetConcernedAirspace() ? this.getConcernedAirspace() : null);
+            List<AirspacePropertyType> rhsField;
+            rhsField = (that.isSetConcernedAirspace() ? that.getConcernedAirspace() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "concernedAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "concernedAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

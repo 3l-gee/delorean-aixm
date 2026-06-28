@@ -219,19 +219,6 @@ public class WeatherSourceTimeSlicePropertyType implements Serializable, Equals,
         }
         final WeatherSourceTimeSlicePropertyType that = ((WeatherSourceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetWeatherSourceTimeSlice();
             boolean rhsFieldIsSet = that.isSetWeatherSourceTimeSlice();
             WeatherSourceTimeSliceType lhsField;
@@ -240,6 +227,19 @@ public class WeatherSourceTimeSlicePropertyType implements Serializable, Equals,
             rhsField = that.getWeatherSourceTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weatherSourceTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weatherSourceTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

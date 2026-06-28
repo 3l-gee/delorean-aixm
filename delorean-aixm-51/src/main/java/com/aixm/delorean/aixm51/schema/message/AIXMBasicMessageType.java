@@ -2,6 +2,7 @@
 package com.aixm.delorean.aixm51.schema.message;
 
 import com.aixm.delorean.aixm51.schema.AbstractAIXMMessageType;
+import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -70,6 +71,10 @@ public class AIXMBasicMessageType extends AbstractAIXMMessageType implements Ser
     @XmlElement(required = true)
     protected List<BasicMessageMemberAIXMPropertyType> hasMember;
     @XmlTransient
+    protected String salt;
+    @XmlTransient
+    protected String saltDescription;
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -125,6 +130,62 @@ public class AIXMBasicMessageType extends AbstractAIXMMessageType implements Ser
 
     public void unsetHasMember() {
         this.hasMember = null;
+    }
+
+    /**
+     * Gets the value of the salt property.
+     *
+     * @return possible object is {@link String }
+     *
+     */
+    @Basic
+    @Column(name = "salt", nullable = true, length = 255)
+    public String getSalt() {
+        return salt;
+    }
+
+    /**
+     * Sets the value of the salt property.
+     *
+     * @param value
+     *            allowed object is {@link String }
+     *
+     */
+    public void setSalt(String value) {
+        this.salt = value;
+    }
+
+    @Transient
+    public boolean isSetSalt() {
+        return (this.salt != null);
+    }
+
+    /**
+     * Gets the value of the saltDescription property.
+     *
+     * @return possible object is {@link String }
+     *
+     */
+    @Basic
+    @Column(name = "salt_description", nullable = true, length = 255)
+    public String getSaltDescription() {
+        return saltDescription;
+    }
+
+    /**
+     * Sets the value of the saltDescription property.
+     *
+     * @param value
+     *            allowed object is {@link String }
+     *
+     */
+    public void setSaltDescription(String value) {
+        this.saltDescription = value;
+    }
+
+    @Transient
+    public boolean isSetSaltDescription() {
+        return (this.saltDescription != null);
     }
 
     /**
@@ -201,6 +262,32 @@ public class AIXMBasicMessageType extends AbstractAIXMMessageType implements Ser
                 return false;
             }
         }
+        {
+            boolean lhsFieldIsSet = this.isSetSaltDescription();
+            boolean rhsFieldIsSet = that.isSetSaltDescription();
+            String lhsField;
+            lhsField = this.getSaltDescription();
+            String rhsField;
+            rhsField = that.getSaltDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "saltDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "saltDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSalt();
+            boolean rhsFieldIsSet = that.isSetSalt();
+            String lhsField;
+            lhsField = this.getSalt();
+            String rhsField;
+            rhsField = that.getSalt();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "salt", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "salt", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -214,6 +301,20 @@ public class AIXMBasicMessageType extends AbstractAIXMMessageType implements Ser
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "hasMember", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
+        {
+            boolean theFieldIsSet = this.isSetSalt();
+            String theField;
+            theField = this.getSalt();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "salt", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetSaltDescription();
+            String theField;
+            theField = this.getSaltDescription();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "saltDescription", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
         return currentHashCode;
     }
 
@@ -225,6 +326,18 @@ public class AIXMBasicMessageType extends AbstractAIXMMessageType implements Ser
             List<BasicMessageMemberAIXMPropertyType> theField;
             theField = (this.isSetHasMember() ? this.getHasMember() : null);
             strategy.appendField(locator, this, "hasMember", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetSalt();
+            String theField;
+            theField = this.getSalt();
+            strategy.appendField(locator, this, "salt", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetSaltDescription();
+            String theField;
+            theField = this.getSaltDescription();
+            strategy.appendField(locator, this, "saltDescription", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

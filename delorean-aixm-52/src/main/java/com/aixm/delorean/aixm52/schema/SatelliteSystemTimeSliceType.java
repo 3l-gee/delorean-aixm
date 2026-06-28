@@ -498,6 +498,19 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         final SatelliteSystemTimeSliceType that = ((SatelliteSystemTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetOperator();
+            boolean rhsFieldIsSet = that.isSetOperator();
+            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = this.getOperator();
+            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = that.getOperator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -506,32 +519,6 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEmission();
-            boolean rhsFieldIsSet = that.isSetEmission();
-            List<RadioFrequencyPropertyType> lhsField;
-            lhsField = (this.isSetEmission() ? this.getEmission() : null);
-            List<RadioFrequencyPropertyType> rhsField;
-            rhsField = (that.isSetEmission() ? that.getEmission() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emission", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -550,14 +537,40 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOperator();
-            boolean rhsFieldIsSet = that.isSetOperator();
-            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = this.getOperator();
-            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = that.getOperator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operator", rhsField);
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<TextDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<TextDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAugmentedSystem();
+            boolean rhsFieldIsSet = that.isSetAugmentedSystem();
+            List<SatelliteSystemPropertyType> lhsField;
+            lhsField = (this.isSetAugmentedSystem() ? this.getAugmentedSystem() : null);
+            List<SatelliteSystemPropertyType> rhsField;
+            rhsField = (that.isSetAugmentedSystem() ? that.getAugmentedSystem() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "augmentedSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "augmentedSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -576,27 +589,14 @@ public class SatelliteSystemTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<TextDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<TextDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAugmentedSystem();
-            boolean rhsFieldIsSet = that.isSetAugmentedSystem();
-            List<SatelliteSystemPropertyType> lhsField;
-            lhsField = (this.isSetAugmentedSystem() ? this.getAugmentedSystem() : null);
-            List<SatelliteSystemPropertyType> rhsField;
-            rhsField = (that.isSetAugmentedSystem() ? that.getAugmentedSystem() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "augmentedSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "augmentedSystem", rhsField);
+            boolean lhsFieldIsSet = this.isSetEmission();
+            boolean rhsFieldIsSet = that.isSetEmission();
+            List<RadioFrequencyPropertyType> lhsField;
+            lhsField = (this.isSetEmission() ? this.getEmission() : null);
+            List<RadioFrequencyPropertyType> rhsField;
+            rhsField = (that.isSetEmission() ? that.getEmission() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emission", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -293,19 +293,6 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
         }
         final ProcedureTransitionLegType that = ((ProcedureTransitionLegType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSeqNumberARINC();
-            boolean rhsFieldIsSet = that.isSetSeqNumberARINC();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getSeqNumberARINC();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getSeqNumberARINC();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seqNumberARINC", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seqNumberARINC", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -319,19 +306,6 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTheSegmentLeg();
-            boolean rhsFieldIsSet = that.isSetTheSegmentLeg();
-            JAXBElement<SegmentLegPropertyType> lhsField;
-            lhsField = this.getTheSegmentLeg();
-            JAXBElement<SegmentLegPropertyType> rhsField;
-            rhsField = that.getTheSegmentLeg();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSegmentLeg", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSegmentLeg", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<ProcedureTransitionLegExtensionType> lhsField;
@@ -340,6 +314,32 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSeqNumberARINC();
+            boolean rhsFieldIsSet = that.isSetSeqNumberARINC();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getSeqNumberARINC();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getSeqNumberARINC();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seqNumberARINC", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seqNumberARINC", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheSegmentLeg();
+            boolean rhsFieldIsSet = that.isSetTheSegmentLeg();
+            JAXBElement<SegmentLegPropertyType> lhsField;
+            lhsField = this.getTheSegmentLeg();
+            JAXBElement<SegmentLegPropertyType> rhsField;
+            rhsField = that.getTheSegmentLeg();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSegmentLeg", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSegmentLeg", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -204,14 +204,14 @@ public class ValDistanceSignedType implements Serializable, Equals, HashCode, To
         }
         final ValDistanceSignedType that = ((ValDistanceSignedType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUom();
-            boolean rhsFieldIsSet = that.isSetUom();
-            String lhsField;
-            lhsField = this.getUom();
-            String rhsField;
-            rhsField = that.getUom();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            BigDecimal lhsField;
+            lhsField = this.getValue();
+            BigDecimal rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -230,14 +230,14 @@ public class ValDistanceSignedType implements Serializable, Equals, HashCode, To
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            BigDecimal lhsField;
-            lhsField = this.getValue();
-            BigDecimal rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            boolean lhsFieldIsSet = this.isSetUom();
+            boolean rhsFieldIsSet = that.isSetUom();
+            String lhsField;
+            lhsField = this.getUom();
+            String rhsField;
+            rhsField = that.getUom();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

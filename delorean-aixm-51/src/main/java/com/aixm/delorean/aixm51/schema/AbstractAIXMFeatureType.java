@@ -66,8 +66,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AbstractAIXMFeatureType", propOrder = {"featureMetadata"})
-@XmlSeeAlso({RunwayDirectionType.class, RunwayCentrelinePointType.class, RunwayType.class, ArrestingGearType.class,
+@XmlType(name = "AbstractAIXMFeatureType", propOrder = { "featureMetadata" })
+@XmlSeeAlso({ RunwayDirectionType.class, RunwayCentrelinePointType.class, RunwayType.class, ArrestingGearType.class,
         RunwayElementType.class, RunwayVisualRangeType.class, RunwayBlastPadType.class, TaxiHoldingPositionType.class,
         TaxiwayType.class, TaxiwayElementType.class, GuidanceLineType.class, ApronType.class, ApronElementType.class,
         AircraftStandType.class, RoadType.class, DeicingAreaType.class, PassengerLoadingBridgeType.class,
@@ -88,7 +88,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
         AbstractProcedureType.class, NavigationAreaRestrictionType.class, AbstractSegmentLegType.class,
         ProcedureDMEType.class, SafeAltitudeAreaType.class, HoldingPatternType.class, UnplannedHoldingType.class,
         AirspaceBorderCrossingType.class, FlightRestrictionType.class, RouteSegmentType.class, RouteDMEType.class,
-        RouteType.class, ChangeOverPointType.class, AerialRefuellingType.class, RulesProceduresType.class})
+        RouteType.class, ChangeOverPointType.class, AerialRefuellingType.class, RulesProceduresType.class })
 @Entity(name = "AbstractAIXMFeatureType")
 @Table(name = "aixm_feature", schema = "aixm")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -119,7 +119,7 @@ public abstract class AbstractAIXMFeatureType extends AbstractAIXMFeatureBaseTyp
      * Sets the value of the featureMetadata property.
      *
      * @param value
-     *            allowed object is {@link FeatureMetadataPropertyType }
+     *              allowed object is {@link FeatureMetadataPropertyType }
      *
      */
     public void setFeatureMetadata(FeatureMetadataPropertyType value) {
@@ -147,7 +147,7 @@ public abstract class AbstractAIXMFeatureType extends AbstractAIXMFeatureBaseTyp
      * Sets the value of the lifecycleStatus property.
      *
      * @param value
-     *            allowed object is {@link String }
+     *              allowed object is {@link String }
      *
      */
     public void setLifecycleStatus(String value) {
@@ -177,7 +177,7 @@ public abstract class AbstractAIXMFeatureType extends AbstractAIXMFeatureBaseTyp
      *
      *
      * @param value
-     *            allowed object is {@link Long }
+     *              allowed object is {@link Long }
      *
      */
     public void sethjid(Long value) {
@@ -200,7 +200,7 @@ public abstract class AbstractAIXMFeatureType extends AbstractAIXMFeatureBaseTyp
      *
      *
      * @param value
-     *            allowed object is {@link Long }
+     *              allowed object is {@link Long }
      *
      */
     public void sethjversion(Long value) {
@@ -221,19 +221,6 @@ public abstract class AbstractAIXMFeatureType extends AbstractAIXMFeatureBaseTyp
         }
         final AbstractAIXMFeatureType that = ((AbstractAIXMFeatureType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLifecycleStatus();
-            boolean rhsFieldIsSet = that.isSetLifecycleStatus();
-            String lhsField;
-            lhsField = this.getLifecycleStatus();
-            String rhsField;
-            rhsField = that.getLifecycleStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lifecycleStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lifecycleStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFeatureMetadata();
             boolean rhsFieldIsSet = that.isSetFeatureMetadata();
             FeatureMetadataPropertyType lhsField;
@@ -242,6 +229,19 @@ public abstract class AbstractAIXMFeatureType extends AbstractAIXMFeatureBaseTyp
             rhsField = that.getFeatureMetadata();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureMetadata", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureMetadata", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLifecycleStatus();
+            boolean rhsFieldIsSet = that.isSetLifecycleStatus();
+            String lhsField;
+            lhsField = this.getLifecycleStatus();
+            String rhsField;
+            rhsField = that.getLifecycleStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lifecycleStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lifecycleStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -358,32 +358,6 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
         }
         final WorkareaActivityType that = ((WorkareaActivityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIsActive();
-            boolean rhsFieldIsSet = that.isSetIsActive();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIsActive();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIsActive();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isActive", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isActive", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -410,6 +384,19 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetIsActive();
+            boolean rhsFieldIsSet = that.isSetIsActive();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getIsActive();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getIsActive();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isActive", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isActive", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -418,6 +405,19 @@ public class WorkareaActivityType extends AbstractPropertiesWithScheduleType imp
             rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

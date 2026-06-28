@@ -398,19 +398,6 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
         }
         final ApronAreaUsageType that = ((ApronAreaUsageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeUsageLimitationType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeUsageLimitationType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSelection();
             boolean rhsFieldIsSet = that.isSetSelection();
             JAXBElement<ConditionCombinationPropertyType> lhsField;
@@ -419,32 +406,6 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
             rhsField = that.getSelection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPriorPermission();
-            boolean rhsFieldIsSet = that.isSetPriorPermission();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getPriorPermission();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getPriorPermission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApronAreaUsageExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApronAreaUsageExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -463,6 +424,19 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApronAreaUsageExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ApronAreaUsageExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetContact();
             boolean rhsFieldIsSet = that.isSetContact();
             List<ContactInformationPropertyType> lhsField;
@@ -471,6 +445,32 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
             rhsField = (that.isSetContact() ? that.getContact() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPriorPermission();
+            boolean rhsFieldIsSet = that.isSetPriorPermission();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getPriorPermission();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getPriorPermission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeUsageLimitationType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeUsageLimitationType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

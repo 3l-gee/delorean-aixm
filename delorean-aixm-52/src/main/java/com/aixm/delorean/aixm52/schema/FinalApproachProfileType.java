@@ -524,6 +524,71 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
         }
         final FinalApproachProfileType that = ((FinalApproachProfileType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTime();
+            boolean rhsFieldIsSet = that.isSetTime();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getTime();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "time", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "time", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRateOfDescent();
+            boolean rhsFieldIsSet = that.isSetRateOfDescent();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getRateOfDescent();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getRateOfDescent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rateOfDescent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rateOfDescent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FinalApproachProfileExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FinalApproachProfileExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEndPoint();
             boolean rhsFieldIsSet = that.isSetEndPoint();
             JAXBElement<CodeFinalSegmentPointType> lhsField;
@@ -550,45 +615,6 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpeedReference();
-            boolean rhsFieldIsSet = that.isSetSpeedReference();
-            JAXBElement<CodeSpeedReferenceType> lhsField;
-            lhsField = this.getSpeedReference();
-            JAXBElement<CodeSpeedReferenceType> rhsField;
-            rhsField = that.getSpeedReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRateOfDescent();
-            boolean rhsFieldIsSet = that.isSetRateOfDescent();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getRateOfDescent();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getRateOfDescent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rateOfDescent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rateOfDescent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FinalApproachProfileExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FinalApproachProfileExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetStartPoint();
             boolean rhsFieldIsSet = that.isSetStartPoint();
             JAXBElement<CodeFinalSegmentPointType> lhsField;
@@ -602,40 +628,14 @@ public class FinalApproachProfileType extends AbstractAIXMObjectType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTime();
-            boolean rhsFieldIsSet = that.isSetTime();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getTime();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "time", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "time", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpeedReference();
+            boolean rhsFieldIsSet = that.isSetSpeedReference();
+            JAXBElement<CodeSpeedReferenceType> lhsField;
+            lhsField = this.getSpeedReference();
+            JAXBElement<CodeSpeedReferenceType> rhsField;
+            rhsField = that.getSpeedReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

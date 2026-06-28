@@ -247,6 +247,21 @@ public class AircraftStandContaminationExtensionType implements Serializable, Eq
         }
         final AircraftStandContaminationExtensionType that = ((AircraftStandContaminationExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractAircraftStandContaminationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAircraftStandContaminationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAircraftStandContaminationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAircraftStandContaminationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractAircraftStandContaminationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractAircraftStandContaminationExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -270,21 +285,6 @@ public class AircraftStandContaminationExtensionType implements Serializable, Eq
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfaceContaminationExtension",
                     rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractAircraftStandContaminationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAircraftStandContaminationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAircraftStandContaminationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAircraftStandContaminationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractAircraftStandContaminationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractAircraftStandContaminationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -691,27 +691,66 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
         }
         final PointReferenceType that = ((PointReferenceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMaximumAuthorisedLimit();
-            boolean rhsFieldIsSet = that.isSetMaximumAuthorisedLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMaximumAuthorisedLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMaximumAuthorisedLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumAuthorisedLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumAuthorisedLimit", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<PointReferenceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<PointReferenceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetFixToleranceArea();
+            boolean rhsFieldIsSet = that.isSetFixToleranceArea();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getFixToleranceArea();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getFixToleranceArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fixToleranceArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fixToleranceArea", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistanceReference();
+            boolean rhsFieldIsSet = that.isSetDistanceReference();
+            List<DistancePropertyType> lhsField;
+            lhsField = (this.isSetDistanceReference() ? this.getDistanceReference() : null);
+            List<DistancePropertyType> rhsField;
+            rhsField = (that.isSetDistanceReference() ? that.getDistanceReference() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distanceReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distanceReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAngleReference();
+            boolean rhsFieldIsSet = that.isSetAngleReference();
+            List<AngleUsePropertyType> lhsField;
+            lhsField = (this.isSetAngleReference() ? this.getAngleReference() : null);
+            List<AngleUsePropertyType> rhsField;
+            rhsField = (that.isSetAngleReference() ? that.getAngleReference() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumReceptionLimit();
+            boolean rhsFieldIsSet = that.isSetMinimumReceptionLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumReceptionLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumReceptionLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumReceptionLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumReceptionLimit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -732,27 +771,14 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            JAXBElement<CodeReferenceRoleType> lhsField;
-            lhsField = this.getRole();
-            JAXBElement<CodeReferenceRoleType> rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistanceReference();
-            boolean rhsFieldIsSet = that.isSetDistanceReference();
-            List<DistancePropertyType> lhsField;
-            lhsField = (this.isSetDistanceReference() ? this.getDistanceReference() : null);
-            List<DistancePropertyType> rhsField;
-            rhsField = (that.isSetDistanceReference() ? that.getDistanceReference() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distanceReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distanceReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -771,42 +797,14 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAngleReference();
-            boolean rhsFieldIsSet = that.isSetAngleReference();
-            List<AngleUsePropertyType> lhsField;
-            lhsField = (this.isSetAngleReference() ? this.getAngleReference() : null);
-            List<AngleUsePropertyType> rhsField;
-            rhsField = (that.isSetAngleReference() ? that.getAngleReference() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFixToleranceArea();
-            boolean rhsFieldIsSet = that.isSetFixToleranceArea();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getFixToleranceArea();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getFixToleranceArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fixToleranceArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fixToleranceArea", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMaximumAuthorisedLimitReference();
-            boolean rhsFieldIsSet = that.isSetMaximumAuthorisedLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getMaximumAuthorisedLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getMaximumAuthorisedLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumAuthorisedLimitReference",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumAuthorisedLimitReference",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            JAXBElement<CodeReferenceRoleType> lhsField;
+            lhsField = this.getRole();
+            JAXBElement<CodeReferenceRoleType> rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -825,27 +823,29 @@ public class PointReferenceType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumReceptionLimit();
-            boolean rhsFieldIsSet = that.isSetMinimumReceptionLimit();
+            boolean lhsFieldIsSet = this.isSetMaximumAuthorisedLimit();
+            boolean rhsFieldIsSet = that.isSetMaximumAuthorisedLimit();
             JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumReceptionLimit();
+            lhsField = this.getMaximumAuthorisedLimit();
             JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumReceptionLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumReceptionLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumReceptionLimit", rhsField);
+            rhsField = that.getMaximumAuthorisedLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumAuthorisedLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumAuthorisedLimit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<PointReferenceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<PointReferenceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetMaximumAuthorisedLimitReference();
+            boolean rhsFieldIsSet = that.isSetMaximumAuthorisedLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getMaximumAuthorisedLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getMaximumAuthorisedLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumAuthorisedLimitReference",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumAuthorisedLimitReference",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

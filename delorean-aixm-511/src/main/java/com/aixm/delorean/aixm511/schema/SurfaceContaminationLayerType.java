@@ -347,19 +347,6 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
         }
         final SurfaceContaminationLayerType that = ((SurfaceContaminationLayerType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLayerOrder();
-            boolean rhsFieldIsSet = that.isSetLayerOrder();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getLayerOrder();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getLayerOrder();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layerOrder", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layerOrder", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeContaminationType> lhsField;
@@ -373,14 +360,14 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SurfaceContaminationLayerExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SurfaceContaminationLayerExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetLayerOrder();
+            boolean rhsFieldIsSet = that.isSetLayerOrder();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getLayerOrder();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getLayerOrder();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layerOrder", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layerOrder", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -394,6 +381,19 @@ public class SurfaceContaminationLayerType extends AbstractAIXMObjectType implem
             rhsField = (that.isSetExtent() ? that.getExtent() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SurfaceContaminationLayerExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SurfaceContaminationLayerExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

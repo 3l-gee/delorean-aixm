@@ -276,19 +276,6 @@ public class RadarComponentType extends AbstractAIXMObjectType implements Serial
         }
         final RadarComponentType that = ((RadarComponentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheRadarEquipment();
-            boolean rhsFieldIsSet = that.isSetTheRadarEquipment();
-            RadarEquipmentPropertyType lhsField;
-            lhsField = this.getTheRadarEquipment();
-            RadarEquipmentPropertyType rhsField;
-            rhsField = that.getTheRadarEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theRadarEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theRadarEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<RadarComponentExtensionType> lhsField;
@@ -297,6 +284,19 @@ public class RadarComponentType extends AbstractAIXMObjectType implements Serial
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheRadarEquipment();
+            boolean rhsFieldIsSet = that.isSetTheRadarEquipment();
+            RadarEquipmentPropertyType lhsField;
+            lhsField = this.getTheRadarEquipment();
+            RadarEquipmentPropertyType rhsField;
+            rhsField = that.getTheRadarEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theRadarEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theRadarEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -214,19 +214,6 @@ public class HoldingUseExtensionType implements Serializable, Equals, HashCode, 
         }
         final HoldingUseExtensionType that = ((HoldingUseExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractHoldingUseExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractHoldingUseExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractHoldingUseExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractHoldingUseExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractHoldingUseExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractHoldingUseExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -235,6 +222,19 @@ public class HoldingUseExtensionType implements Serializable, Equals, HashCode, 
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractHoldingUseExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractHoldingUseExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractHoldingUseExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractHoldingUseExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractHoldingUseExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractHoldingUseExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

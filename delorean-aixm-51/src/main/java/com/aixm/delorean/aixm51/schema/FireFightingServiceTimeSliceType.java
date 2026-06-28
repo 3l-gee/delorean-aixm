@@ -857,66 +857,14 @@ public class FireFightingServiceTimeSliceType extends AbstractAIXMTimeSliceType 
         }
         final FireFightingServiceTimeSliceType that = ((FireFightingServiceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetServiceProvider();
-            boolean rhsFieldIsSet = that.isSetServiceProvider();
-            JAXBElement<UnitPropertyType> lhsField;
-            lhsField = this.getServiceProvider();
-            JAXBElement<UnitPropertyType> rhsField;
-            rhsField = that.getServiceProvider();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serviceProvider", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serviceProvider", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCompliantICAO();
-            boolean rhsFieldIsSet = that.isSetCompliantICAO();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getCompliantICAO();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getCompliantICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compliantICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compliantICAO", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStandard();
-            boolean rhsFieldIsSet = that.isSetStandard();
-            JAXBElement<CodeAviationStandardsType> lhsField;
-            lhsField = this.getStandard();
-            JAXBElement<CodeAviationStandardsType> rhsField;
-            rhsField = that.getStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standard", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ServiceOperationalStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<ServiceOperationalStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetRadioCommunication();
+            boolean rhsFieldIsSet = that.isSetRadioCommunication();
+            List<RadioCommunicationChannelPropertyType> lhsField;
+            lhsField = (this.isSetRadioCommunication() ? this.getRadioCommunication() : null);
+            List<RadioCommunicationChannelPropertyType> rhsField;
+            rhsField = (that.isSetRadioCommunication() ? that.getRadioCommunication() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunication", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunication", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -935,6 +883,19 @@ public class FireFightingServiceTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FireFightingServiceTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FireFightingServiceTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAixmName();
             boolean rhsFieldIsSet = that.isSetAixmName();
             JAXBElement<TextNameType> lhsField;
@@ -948,27 +909,40 @@ public class FireFightingServiceTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCategory();
-            boolean rhsFieldIsSet = that.isSetCategory();
-            JAXBElement<CodeFireFightingType> lhsField;
-            lhsField = this.getCategory();
-            JAXBElement<CodeFireFightingType> rhsField;
-            rhsField = that.getCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
+            boolean lhsFieldIsSet = this.isSetStandard();
+            boolean rhsFieldIsSet = that.isSetStandard();
+            JAXBElement<CodeAviationStandardsType> lhsField;
+            lhsField = this.getStandard();
+            JAXBElement<CodeAviationStandardsType> rhsField;
+            rhsField = that.getStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standard", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FireFightingServiceTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FireFightingServiceTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetCompliantICAO();
+            boolean rhsFieldIsSet = that.isSetCompliantICAO();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getCompliantICAO();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getCompliantICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compliantICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compliantICAO", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -987,6 +961,32 @@ public class FireFightingServiceTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCategory();
+            boolean rhsFieldIsSet = that.isSetCategory();
+            JAXBElement<CodeFireFightingType> lhsField;
+            lhsField = this.getCategory();
+            JAXBElement<CodeFireFightingType> rhsField;
+            rhsField = that.getCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ServiceOperationalStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
+            List<ServiceOperationalStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetFlightOperations();
             boolean rhsFieldIsSet = that.isSetFlightOperations();
             JAXBElement<CodeFlightDestinationType> lhsField;
@@ -995,32 +995,6 @@ public class FireFightingServiceTimeSliceType extends AbstractAIXMTimeSliceType 
             rhsField = that.getFlightOperations();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightOperations", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightOperations", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCallSign();
-            boolean rhsFieldIsSet = that.isSetCallSign();
-            List<CallsignDetailPropertyType> lhsField;
-            lhsField = (this.isSetCallSign() ? this.getCallSign() : null);
-            List<CallsignDetailPropertyType> rhsField;
-            rhsField = (that.isSetCallSign() ? that.getCallSign() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "callSign", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "callSign", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRank();
-            boolean rhsFieldIsSet = that.isSetRank();
-            JAXBElement<CodeFacilityRankingType> lhsField;
-            lhsField = this.getRank();
-            JAXBElement<CodeFacilityRankingType> rhsField;
-            rhsField = that.getRank();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rank", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rank", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1039,14 +1013,40 @@ public class FireFightingServiceTimeSliceType extends AbstractAIXMTimeSliceType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRadioCommunication();
-            boolean rhsFieldIsSet = that.isSetRadioCommunication();
-            List<RadioCommunicationChannelPropertyType> lhsField;
-            lhsField = (this.isSetRadioCommunication() ? this.getRadioCommunication() : null);
-            List<RadioCommunicationChannelPropertyType> rhsField;
-            rhsField = (that.isSetRadioCommunication() ? that.getRadioCommunication() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunication", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunication", rhsField);
+            boolean lhsFieldIsSet = this.isSetServiceProvider();
+            boolean rhsFieldIsSet = that.isSetServiceProvider();
+            JAXBElement<UnitPropertyType> lhsField;
+            lhsField = this.getServiceProvider();
+            JAXBElement<UnitPropertyType> rhsField;
+            rhsField = that.getServiceProvider();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serviceProvider", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serviceProvider", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRank();
+            boolean rhsFieldIsSet = that.isSetRank();
+            JAXBElement<CodeFacilityRankingType> lhsField;
+            lhsField = this.getRank();
+            JAXBElement<CodeFacilityRankingType> rhsField;
+            rhsField = that.getRank();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rank", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rank", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCallSign();
+            boolean rhsFieldIsSet = that.isSetCallSign();
+            List<CallsignDetailPropertyType> lhsField;
+            lhsField = (this.isSetCallSign() ? this.getCallSign() : null);
+            List<CallsignDetailPropertyType> rhsField;
+            rhsField = (that.isSetCallSign() ? that.getCallSign() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "callSign", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "callSign", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

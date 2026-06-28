@@ -394,6 +394,19 @@ public class WeatherSourceTimeSliceType extends AbstractAIXMTimeSliceType implem
         }
         final WeatherSourceTimeSliceType that = ((WeatherSourceTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<TextDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<TextDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -402,19 +415,6 @@ public class WeatherSourceTimeSliceType extends AbstractAIXMTimeSliceType implem
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSensorType();
-            boolean rhsFieldIsSet = that.isSetSensorType();
-            JAXBElement<CodeWeatherSourceType> lhsField;
-            lhsField = this.getSensorType();
-            JAXBElement<CodeWeatherSourceType> rhsField;
-            rhsField = that.getSensorType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sensorType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sensorType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -446,6 +446,19 @@ public class WeatherSourceTimeSliceType extends AbstractAIXMTimeSliceType implem
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSensorType();
+            boolean rhsFieldIsSet = that.isSetSensorType();
+            JAXBElement<CodeWeatherSourceType> lhsField;
+            lhsField = this.getSensorType();
+            JAXBElement<CodeWeatherSourceType> rhsField;
+            rhsField = that.getSensorType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sensorType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sensorType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<WeatherSourceTimeSliceExtensionType> lhsField;
@@ -454,19 +467,6 @@ public class WeatherSourceTimeSliceType extends AbstractAIXMTimeSliceType implem
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<TextDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<TextDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

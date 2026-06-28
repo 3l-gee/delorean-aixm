@@ -1,0 +1,61 @@
+name: "Delorean CLI Task Example"
+version: "1.0"
+verbose: true
+logging: "DEBUG"
+
+containers:
+  - container: "container-A"
+    database:
+      url: "jdbc:postgresql://localhost:5433/test"
+      username: "postgres"
+      password: "postgres"
+      hbm2ddl: "create"
+
+pipeline:
+  - action: "set_context"
+    description: "Context for AIXM 5.1 processing"
+
+  - action: "unmarshal"
+    target: "container-A"
+    path: "delorean-cli-aixm51/src/test/resources/donlon-aixm-51.xml"
+
+  - action: "sax_inspection"
+    target: "container-A"
+
+  - action: "temporality_inspection"
+    target: "container-A"
+
+  - action: "startup"
+    target: "container-A"
+
+  - action: "persist"
+    target: "container-A"
+
+  - action: "inspect_persisted_message"
+    target: "container-A"
+
+  - action: "extract"
+    target: "container-A"
+    id : 1
+
+  - action: "marshal"
+    target: "container-A"
+    path: "C:/Users/rapha/Downloads/aixm51/extract.xml"
+
+  - action: "diff"
+    target: "container-A"
+    path: "C:/Users/rapha/Downloads/aixm51/extract.xml"
+
+  - action: "predicate"
+    target: "container-A"
+    time : "2017-07-01T00:00:00Z"
+
+  - action: "marshal"
+    target: "container-A"
+    path: "C:/Users/rapha/Downloads/aixm51/predicate.xml"
+
+  - action: "shutdown"
+    target: "container-A"
+
+  - action: "summary_inspection"
+    target: "container-A"

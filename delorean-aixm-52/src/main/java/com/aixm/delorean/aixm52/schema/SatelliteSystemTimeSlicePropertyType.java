@@ -219,19 +219,6 @@ public class SatelliteSystemTimeSlicePropertyType implements Serializable, Equal
         }
         final SatelliteSystemTimeSlicePropertyType that = ((SatelliteSystemTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSatelliteSystemTimeSlice();
             boolean rhsFieldIsSet = that.isSetSatelliteSystemTimeSlice();
             SatelliteSystemTimeSliceType lhsField;
@@ -240,6 +227,19 @@ public class SatelliteSystemTimeSlicePropertyType implements Serializable, Equal
             rhsField = that.getSatelliteSystemTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satelliteSystemTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satelliteSystemTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

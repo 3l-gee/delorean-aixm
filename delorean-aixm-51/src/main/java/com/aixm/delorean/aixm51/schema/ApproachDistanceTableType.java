@@ -398,14 +398,14 @@ public class ApproachDistanceTableType extends AbstractAIXMObjectType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApproachDistanceTableExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ApproachDistanceTableExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -424,14 +424,14 @@ public class ApproachDistanceTableType extends AbstractAIXMObjectType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApproachDistanceTableExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApproachDistanceTableExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetStartingMeasurementPoint();
+            boolean rhsFieldIsSet = that.isSetStartingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> lhsField;
+            lhsField = this.getStartingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> rhsField;
+            rhsField = that.getStartingMeasurementPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startingMeasurementPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startingMeasurementPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -450,14 +450,14 @@ public class ApproachDistanceTableType extends AbstractAIXMObjectType implements
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStartingMeasurementPoint();
-            boolean rhsFieldIsSet = that.isSetStartingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> lhsField;
-            lhsField = this.getStartingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> rhsField;
-            rhsField = that.getStartingMeasurementPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startingMeasurementPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startingMeasurementPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

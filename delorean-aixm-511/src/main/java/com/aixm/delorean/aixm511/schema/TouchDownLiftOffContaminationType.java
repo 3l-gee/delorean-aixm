@@ -780,14 +780,53 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
         }
         final TouchDownLiftOffContaminationType that = ((TouchDownLiftOffContaminationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetProportion();
-            boolean rhsFieldIsSet = that.isSetProportion();
-            JAXBElement<ValPercentType> lhsField;
-            lhsField = this.getProportion();
-            JAXBElement<ValPercentType> rhsField;
-            rhsField = that.getProportion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "proportion", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "proportion", rhsField);
+            boolean lhsFieldIsSet = this.isSetDepth();
+            boolean rhsFieldIsSet = that.isSetDepth();
+            JAXBElement<ValDepthType> lhsField;
+            lhsField = this.getDepth();
+            JAXBElement<ValDepthType> rhsField;
+            rhsField = that.getDepth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "depth", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "depth", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFurtherTotalClearance();
+            boolean rhsFieldIsSet = that.isSetFurtherTotalClearance();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFurtherTotalClearance();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFurtherTotalClearance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherTotalClearance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherTotalClearance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TouchDownLiftOffContaminationExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<TouchDownLiftOffContaminationExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrictionDevice();
+            boolean rhsFieldIsSet = that.isSetFrictionDevice();
+            JAXBElement<CodeFrictionDeviceType> lhsField;
+            lhsField = this.getFrictionDevice();
+            JAXBElement<CodeFrictionDeviceType> rhsField;
+            rhsField = that.getFrictionDevice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionDevice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionDevice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -806,27 +845,40 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDepth();
-            boolean rhsFieldIsSet = that.isSetDepth();
-            JAXBElement<ValDepthType> lhsField;
-            lhsField = this.getDepth();
-            JAXBElement<ValDepthType> rhsField;
-            rhsField = that.getDepth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "depth", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "depth", rhsField);
+            boolean lhsFieldIsSet = this.isSetProportion();
+            boolean rhsFieldIsSet = that.isSetProportion();
+            JAXBElement<ValPercentType> lhsField;
+            lhsField = this.getProportion();
+            JAXBElement<ValPercentType> rhsField;
+            rhsField = that.getProportion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "proportion", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "proportion", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFurtherClearanceTime();
-            boolean rhsFieldIsSet = that.isSetFurtherClearanceTime();
-            JAXBElement<TimeType> lhsField;
-            lhsField = this.getFurtherClearanceTime();
-            JAXBElement<TimeType> rhsField;
-            rhsField = that.getFurtherClearanceTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherClearanceTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherClearanceTime", rhsField);
+            boolean lhsFieldIsSet = this.isSetObscuredLights();
+            boolean rhsFieldIsSet = that.isSetObscuredLights();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getObscuredLights();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getObscuredLights();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obscuredLights", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obscuredLights", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrictionCoefficient();
+            boolean rhsFieldIsSet = that.isSetFrictionCoefficient();
+            JAXBElement<ValFrictionType> lhsField;
+            lhsField = this.getFrictionCoefficient();
+            JAXBElement<ValFrictionType> rhsField;
+            rhsField = that.getFrictionCoefficient();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionCoefficient", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionCoefficient", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -840,19 +892,6 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCriticalRidge();
-            boolean rhsFieldIsSet = that.isSetCriticalRidge();
-            List<RidgePropertyType> lhsField;
-            lhsField = (this.isSetCriticalRidge() ? this.getCriticalRidge() : null);
-            List<RidgePropertyType> rhsField;
-            rhsField = (that.isSetCriticalRidge() ? that.getCriticalRidge() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalRidge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalRidge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -884,45 +923,6 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TouchDownLiftOffContaminationExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TouchDownLiftOffContaminationExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetObscuredLights();
-            boolean rhsFieldIsSet = that.isSetObscuredLights();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getObscuredLights();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getObscuredLights();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obscuredLights", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obscuredLights", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFrictionDevice();
-            boolean rhsFieldIsSet = that.isSetFrictionDevice();
-            JAXBElement<CodeFrictionDeviceType> lhsField;
-            lhsField = this.getFrictionDevice();
-            JAXBElement<CodeFrictionDeviceType> rhsField;
-            rhsField = that.getFrictionDevice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionDevice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionDevice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNextObservationTime();
             boolean rhsFieldIsSet = that.isSetNextObservationTime();
             JAXBElement<DateTimeType> lhsField;
@@ -936,27 +936,27 @@ public class TouchDownLiftOffContaminationType extends AbstractSurfaceContaminat
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFrictionCoefficient();
-            boolean rhsFieldIsSet = that.isSetFrictionCoefficient();
-            JAXBElement<ValFrictionType> lhsField;
-            lhsField = this.getFrictionCoefficient();
-            JAXBElement<ValFrictionType> rhsField;
-            rhsField = that.getFrictionCoefficient();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionCoefficient", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionCoefficient", rhsField);
+            boolean lhsFieldIsSet = this.isSetFurtherClearanceTime();
+            boolean rhsFieldIsSet = that.isSetFurtherClearanceTime();
+            JAXBElement<TimeType> lhsField;
+            lhsField = this.getFurtherClearanceTime();
+            JAXBElement<TimeType> rhsField;
+            rhsField = that.getFurtherClearanceTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherClearanceTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherClearanceTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFurtherTotalClearance();
-            boolean rhsFieldIsSet = that.isSetFurtherTotalClearance();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFurtherTotalClearance();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFurtherTotalClearance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherTotalClearance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherTotalClearance", rhsField);
+            boolean lhsFieldIsSet = this.isSetCriticalRidge();
+            boolean rhsFieldIsSet = that.isSetCriticalRidge();
+            List<RidgePropertyType> lhsField;
+            lhsField = (this.isSetCriticalRidge() ? this.getCriticalRidge() : null);
+            List<RidgePropertyType> rhsField;
+            rhsField = (that.isSetCriticalRidge() ? that.getCriticalRidge() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalRidge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalRidge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

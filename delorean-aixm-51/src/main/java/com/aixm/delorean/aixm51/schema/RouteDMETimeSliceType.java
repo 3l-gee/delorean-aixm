@@ -396,14 +396,14 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RouteDMETimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RouteDMETimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetSatisfactory();
+            boolean rhsFieldIsSet = that.isSetSatisfactory();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getSatisfactory();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getSatisfactory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satisfactory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satisfactory", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -417,19 +417,6 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
             rhsField = that.getCriticalDME();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalDME", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalDME", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSatisfactory();
-            boolean rhsFieldIsSet = that.isSetSatisfactory();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getSatisfactory();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getSatisfactory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satisfactory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satisfactory", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -456,6 +443,19 @@ public class RouteDMETimeSliceType extends AbstractAIXMTimeSliceType implements 
             rhsField = that.getApplicableRoutePortion();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableRoutePortion", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableRoutePortion", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RouteDMETimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RouteDMETimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

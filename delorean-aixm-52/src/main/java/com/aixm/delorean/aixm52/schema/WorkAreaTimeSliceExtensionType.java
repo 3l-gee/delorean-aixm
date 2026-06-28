@@ -214,19 +214,6 @@ public class WorkAreaTimeSliceExtensionType implements Serializable, Equals, Has
         }
         final WorkAreaTimeSliceExtensionType that = ((WorkAreaTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractWorkAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractWorkAreaExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractWorkAreaExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractWorkAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractWorkAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractWorkAreaExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -235,6 +222,19 @@ public class WorkAreaTimeSliceExtensionType implements Serializable, Equals, Has
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractWorkAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractWorkAreaExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractWorkAreaExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractWorkAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractWorkAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractWorkAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

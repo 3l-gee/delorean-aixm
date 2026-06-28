@@ -362,32 +362,6 @@ public class RunwayVisualRangeTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RunwayVisualRangeTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RunwayVisualRangeTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReadingPosition();
-            boolean rhsFieldIsSet = that.isSetReadingPosition();
-            JAXBElement<CodeRVRReadingType> lhsField;
-            lhsField = this.getReadingPosition();
-            JAXBElement<CodeRVRReadingType> rhsField;
-            rhsField = that.getReadingPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "readingPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "readingPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAssociatedRunwayDirection();
             boolean rhsFieldIsSet = that.isSetAssociatedRunwayDirection();
             List<RunwayDirectionPropertyType> lhsField;
@@ -401,6 +375,19 @@ public class RunwayVisualRangeTimeSliceType extends AbstractAIXMTimeSliceType im
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RunwayVisualRangeTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RunwayVisualRangeTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLocation();
             boolean rhsFieldIsSet = that.isSetLocation();
             JAXBElement<AIXMElevatedPointPropertyType> lhsField;
@@ -409,6 +396,19 @@ public class RunwayVisualRangeTimeSliceType extends AbstractAIXMTimeSliceType im
             rhsField = that.getLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReadingPosition();
+            boolean rhsFieldIsSet = that.isSetReadingPosition();
+            JAXBElement<CodeRVRReadingType> lhsField;
+            lhsField = this.getReadingPosition();
+            JAXBElement<CodeRVRReadingType> rhsField;
+            rhsField = that.getReadingPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "readingPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "readingPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

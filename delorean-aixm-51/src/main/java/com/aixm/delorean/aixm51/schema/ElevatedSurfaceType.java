@@ -245,45 +245,6 @@ public class ElevatedSurfaceType extends SurfaceType implements Serializable {
         }
         final ElevatedSurfaceType that = ((ElevatedSurfaceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVerticalDatum();
-            boolean rhsFieldIsSet = that.isSetVerticalDatum();
-            JAXBElement<CodeVerticalDatumType> lhsField;
-            lhsField = this.getVerticalDatum();
-            JAXBElement<CodeVerticalDatumType> rhsField;
-            rhsField = that.getVerticalDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVerticalAccuracy();
-            boolean rhsFieldIsSet = that.isSetVerticalAccuracy();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getVerticalAccuracy();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getVerticalAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ElevatedSurfaceTypeExtension> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ElevatedSurfaceTypeExtension> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetGeoidUndulation();
             boolean rhsFieldIsSet = that.isSetGeoidUndulation();
             JAXBElement<ValDistanceSignedType> lhsField;
@@ -305,6 +266,45 @@ public class ElevatedSurfaceType extends SurfaceType implements Serializable {
             rhsField = that.getElevation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalAccuracy();
+            boolean rhsFieldIsSet = that.isSetVerticalAccuracy();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getVerticalAccuracy();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getVerticalAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalDatum();
+            boolean rhsFieldIsSet = that.isSetVerticalDatum();
+            JAXBElement<CodeVerticalDatumType> lhsField;
+            lhsField = this.getVerticalDatum();
+            JAXBElement<CodeVerticalDatumType> rhsField;
+            rhsField = that.getVerticalDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ElevatedSurfaceTypeExtension> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ElevatedSurfaceTypeExtension> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

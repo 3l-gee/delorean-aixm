@@ -279,34 +279,6 @@ public class AirTrafficControlServiceTimeSliceExtensionType implements Serializa
         }
         final AirTrafficControlServiceTimeSliceExtensionType that = ((AirTrafficControlServiceTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirTrafficControlServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirTrafficControlServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirTrafficControlServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirTrafficControlServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractAirTrafficControlServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractAirTrafficControlServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractTrafficSeparationServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractTrafficSeparationServiceExtension();
             AbstractExtensionType lhsField;
@@ -330,6 +302,34 @@ public class AirTrafficControlServiceTimeSliceExtensionType implements Serializa
             rhsField = that.getAbstractServiceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirTrafficControlServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirTrafficControlServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirTrafficControlServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirTrafficControlServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractAirTrafficControlServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractAirTrafficControlServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

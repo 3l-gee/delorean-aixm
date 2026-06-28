@@ -348,6 +348,32 @@ public class EquipmentUnavailableAdjustmentType extends AbstractAIXMObjectType i
         }
         final EquipmentUnavailableAdjustmentType that = ((EquipmentUnavailableAdjustmentType) object);
         {
+            boolean lhsFieldIsSet = this.isSetApproachLightingInoperative();
+            boolean rhsFieldIsSet = that.isSetApproachLightingInoperative();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getApproachLightingInoperative();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getApproachLightingInoperative();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachLightingInoperative", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachLightingInoperative", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeEquipmentUnavailableType> lhsField;
@@ -382,32 +408,6 @@ public class EquipmentUnavailableAdjustmentType extends AbstractAIXMObjectType i
             rhsField = (that.isSetAdjustmentINOPCol() ? that.getAdjustmentINOPCol() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "adjustmentINOPCol", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "adjustmentINOPCol", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApproachLightingInoperative();
-            boolean rhsFieldIsSet = that.isSetApproachLightingInoperative();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getApproachLightingInoperative();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getApproachLightingInoperative();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachLightingInoperative", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachLightingInoperative", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

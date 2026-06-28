@@ -500,6 +500,32 @@ public class GuidanceLineLightSystemTimeSliceType extends AbstractAIXMTimeSliceT
         }
         final GuidanceLineLightSystemTimeSliceType that = ((GuidanceLineLightSystemTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetColour();
+            boolean rhsFieldIsSet = that.isSetColour();
+            JAXBElement<CodeColourType> lhsField;
+            lhsField = this.getColour();
+            JAXBElement<CodeColourType> rhsField;
+            rhsField = that.getColour();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEmergencyLighting();
+            boolean rhsFieldIsSet = that.isSetEmergencyLighting();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getEmergencyLighting();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getEmergencyLighting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emergencyLighting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emergencyLighting", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAvailability();
             boolean rhsFieldIsSet = that.isSetAvailability();
             List<GroundLightingAvailabilityPropertyType> lhsField;
@@ -560,32 +586,6 @@ public class GuidanceLineLightSystemTimeSliceType extends AbstractAIXMTimeSliceT
             rhsField = (that.isSetElement() ? that.getElement() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEmergencyLighting();
-            boolean rhsFieldIsSet = that.isSetEmergencyLighting();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getEmergencyLighting();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getEmergencyLighting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emergencyLighting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emergencyLighting", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetColour();
-            boolean rhsFieldIsSet = that.isSetColour();
-            JAXBElement<CodeColourType> lhsField;
-            lhsField = this.getColour();
-            JAXBElement<CodeColourType> rhsField;
-            rhsField = that.getColour();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

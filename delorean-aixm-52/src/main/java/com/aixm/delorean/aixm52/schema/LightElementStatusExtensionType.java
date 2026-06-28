@@ -246,16 +246,16 @@ public class LightElementStatusExtensionType implements Serializable, Equals, Ha
         }
         final LightElementStatusExtensionType that = ((LightElementStatusExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractLightElementStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractLightElementStatusExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractLightElementStatusExtension();
+            lhsField = this.getAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractLightElementStatusExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLightElementStatusExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLightElementStatusExtension",
-                    rhsField);
+            rhsField = that.getAbstractPropertiesWithScheduleExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractPropertiesWithScheduleExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -274,16 +274,16 @@ public class LightElementStatusExtensionType implements Serializable, Equals, Ha
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractLightElementStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractLightElementStatusExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPropertiesWithScheduleExtension();
+            lhsField = this.getAbstractLightElementStatusExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractPropertiesWithScheduleExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractPropertiesWithScheduleExtension", rhsField);
+            rhsField = that.getAbstractLightElementStatusExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLightElementStatusExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLightElementStatusExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

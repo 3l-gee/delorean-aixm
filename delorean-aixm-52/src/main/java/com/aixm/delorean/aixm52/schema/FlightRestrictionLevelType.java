@@ -400,14 +400,14 @@ public class FlightRestrictionLevelType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUpperLevelReference();
-            boolean rhsFieldIsSet = that.isSetUpperLevelReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getUpperLevelReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getUpperLevelReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLevelReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLevelReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetUpperLevel();
+            boolean rhsFieldIsSet = that.isSetUpperLevel();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getUpperLevel();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getUpperLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLevel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -426,6 +426,19 @@ public class FlightRestrictionLevelType extends AbstractAIXMObjectType implement
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightRestrictionLevelExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FlightRestrictionLevelExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -439,27 +452,14 @@ public class FlightRestrictionLevelType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUpperLevel();
-            boolean rhsFieldIsSet = that.isSetUpperLevel();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getUpperLevel();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getUpperLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLevel", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightRestrictionLevelExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FlightRestrictionLevelExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetUpperLevelReference();
+            boolean rhsFieldIsSet = that.isSetUpperLevelReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getUpperLevelReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getUpperLevelReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLevelReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLevelReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

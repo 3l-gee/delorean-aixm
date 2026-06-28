@@ -547,19 +547,6 @@ public class RunwayProtectAreaLightSystemTimeSliceType extends AbstractAIXMTimeS
         }
         final RunwayProtectAreaLightSystemTimeSliceType that = ((RunwayProtectAreaLightSystemTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetIntensityLevel();
-            boolean rhsFieldIsSet = that.isSetIntensityLevel();
-            JAXBElement<CodeLightIntensityType> lhsField;
-            lhsField = this.getIntensityLevel();
-            JAXBElement<CodeLightIntensityType> rhsField;
-            rhsField = that.getIntensityLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intensityLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intensityLevel", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -573,27 +560,27 @@ public class RunwayProtectAreaLightSystemTimeSliceType extends AbstractAIXMTimeS
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RunwayProtectAreaLightSystemTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RunwayProtectAreaLightSystemTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetLightedArea();
+            boolean rhsFieldIsSet = that.isSetLightedArea();
+            JAXBElement<RunwayProtectAreaPropertyType> lhsField;
+            lhsField = this.getLightedArea();
+            JAXBElement<RunwayProtectAreaPropertyType> rhsField;
+            rhsField = that.getLightedArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightedArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightedArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEmergencyLighting();
-            boolean rhsFieldIsSet = that.isSetEmergencyLighting();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getEmergencyLighting();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getEmergencyLighting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emergencyLighting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emergencyLighting", rhsField);
+            boolean lhsFieldIsSet = this.isSetIntensityLevel();
+            boolean rhsFieldIsSet = that.isSetIntensityLevel();
+            JAXBElement<CodeLightIntensityType> lhsField;
+            lhsField = this.getIntensityLevel();
+            JAXBElement<CodeLightIntensityType> rhsField;
+            rhsField = that.getIntensityLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intensityLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intensityLevel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -607,6 +594,19 @@ public class RunwayProtectAreaLightSystemTimeSliceType extends AbstractAIXMTimeS
             rhsField = (that.isSetElement() ? that.getElement() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEmergencyLighting();
+            boolean rhsFieldIsSet = that.isSetEmergencyLighting();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getEmergencyLighting();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getEmergencyLighting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emergencyLighting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emergencyLighting", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -638,14 +638,14 @@ public class RunwayProtectAreaLightSystemTimeSliceType extends AbstractAIXMTimeS
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLightedArea();
-            boolean rhsFieldIsSet = that.isSetLightedArea();
-            JAXBElement<RunwayProtectAreaPropertyType> lhsField;
-            lhsField = this.getLightedArea();
-            JAXBElement<RunwayProtectAreaPropertyType> rhsField;
-            rhsField = that.getLightedArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lightedArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lightedArea", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RunwayProtectAreaLightSystemTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RunwayProtectAreaLightSystemTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

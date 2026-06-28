@@ -279,21 +279,6 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
         }
         final ArrivalFeederLegTimeSliceExtensionType that = ((ArrivalFeederLegTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApproachLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApproachLegExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApproachLegExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApproachLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachLegExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachLegExtension",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractArrivalFeederLegExtension();
             boolean rhsFieldIsSet = that.isSetAbstractArrivalFeederLegExtension();
             AbstractExtensionType lhsField;
@@ -304,6 +289,19 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrivalFeederLegExtension",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSegmentLegExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSegmentLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -322,14 +320,16 @@ public class ArrivalFeederLegTimeSliceExtensionType implements Serializable, Equ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractApproachLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApproachLegExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSegmentLegExtension();
+            lhsField = this.getAbstractApproachLegExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSegmentLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
+            rhsField = that.getAbstractApproachLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachLegExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachLegExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

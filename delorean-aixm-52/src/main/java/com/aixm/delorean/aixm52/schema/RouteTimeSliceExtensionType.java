@@ -214,19 +214,6 @@ public class RouteTimeSliceExtensionType implements Serializable, Equals, HashCo
         }
         final RouteTimeSliceExtensionType that = ((RouteTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRouteExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRouteExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRouteExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRouteExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRouteExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRouteExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -235,6 +222,19 @@ public class RouteTimeSliceExtensionType implements Serializable, Equals, HashCo
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRouteExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRouteExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRouteExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRouteExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRouteExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRouteExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

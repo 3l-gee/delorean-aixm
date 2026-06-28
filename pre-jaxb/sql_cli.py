@@ -63,7 +63,7 @@ def generate_union_sql(schema_class_dict: dict) -> str:
             aixm.aixm_timeslice.valid_time_begin, 
             aixm.aixm_timeslice.valid_time_end
             FROM aixm.aixm_feature
-            INNER JOIN aixm.message_member ON aixm.aixm_feature.hjid = aixm.message_member.feature_id
+            INNER JOIN aixm.message_member ON aixm.aixm_feature.hjid = aixm.message_member.feature_hjid
             INNER JOIN {schema}.{timesliceproperty} ON aixm.aixm_feature.hjid = {schema}.{timesliceproperty}.timeslice_hjid
             INNER JOIN aixm.aixm_timeslice ON {schema}.{timesliceproperty}.{timesliceproperty_ref_col} = aixm.aixm_timeslice.hjid
             """
