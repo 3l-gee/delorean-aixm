@@ -7,8 +7,6 @@ import java.lang.reflect.InvocationTargetException;
 import javax.xml.namespace.QName;
 import org.jvnet.hyperjaxb.item.Converter;
 
-import com.github.javaparser.resolution.types.ResolvedWildcard.BoundType;
-
 /*
  * This code is adapted from the HYPERJAXB project.
  * Original source: https://github.com/highsource/jaxb-tools

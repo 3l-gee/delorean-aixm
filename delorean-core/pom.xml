@@ -33,39 +33,24 @@
             <scope>provided</scope>
 		</dependency>
 
-        <!-- HiSrc Runtime Dependencies -->
+        <!-- JAXB XML Binding -->
 		<dependency>
 			<groupId>org.patrodyne.jvnet</groupId>
 			<artifactId>hisrc-basicjaxb-runtime</artifactId>
 			<version>${hisrc.version}</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.patrodyne.jvnet</groupId>
-			<artifactId>hisrc-hyperjaxb-ejb-runtime</artifactId>
-			<version>${hisrc-hyperjaxb.version}</version>
-		</dependency>
         <dependency>
-            <groupId>org.patrodyne.jvnet</groupId>
-            <artifactId>hisrc-hyperjaxb-opt-hibernate</artifactId>
-            <version>${hisrc-hyperjaxb.version}</version>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>${jakarta-xml-bind.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.patrodyne.jvnet</groupId>
-            <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
-            <version>${hisrc-hyperjaxb.version}</version>
-        </dependency> -->
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2.12</version>
+        </dependency>
 
         <!-- Database Dependencies -->
-		<!-- <dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>${postgresql.version}</version>
-		</dependency> -->
-        <!-- <dependency>
-            <groupId>net.postgis</groupId>
-            <artifactId>postgis-jdbc</artifactId>
-            <version>${postgis.version}</version>
-        </dependency> -->
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
@@ -98,11 +83,6 @@
             <artifactId>jakarta.el-api</artifactId>
             <version>6.0.1</version>
         </dependency>
-        <!-- <dependency>
-            <groupId>org.glassfish.expressly</groupId>
-            <artifactId>expressly</artifactId>
-            <version>6.0.0</version>
-        </dependency> -->
 
         <!-- GIS Dependencies -->
         <dependency>
@@ -110,21 +90,6 @@
             <artifactId>jts-core</artifactId>
             <version>${jts.version}</version>
         </dependency>
-        <!-- <dependency>
-            <groupId>org.locationtech.jts.io</groupId>
-            <artifactId>jts-io-common</artifactId>
-            <version>${jts.version}</version>
-        </dependency> -->
-        <!-- <dependency>
-            <groupId>org.locationtech.proj4j</groupId>
-            <artifactId>proj4j</artifactId>
-            <version>${proj4.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.locationtech.proj4j</groupId>
-            <artifactId>proj4j-epsg</artifactId>
-            <version>${proj4.version}</version>
-        </dependency> -->
 
         <!-- Equals Dependencies-->
         <dependency>
@@ -132,25 +97,23 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.14.0</version>
         </dependency>
-
-        <!-- XML templates Dependencies -->
-        <!-- <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>${freemarker.version}</version>
-        </dependency> -->
-
-        <!-- Mapping Dependencies -->
-        <!-- <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${mapstruct.version}</version>
-        </dependency> -->
         
         <!-- Test Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
@@ -179,23 +142,17 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Post-JAXB Codegen Fix Utility -->
-        <dependency>
-            <groupId>com.aixm.delorean</groupId>
-            <artifactId>post-jaxb</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        
+
         <!-- JSON serialisation-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.20.1</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-jaxb-annotations</artifactId>
-            <version>2.20.1</version>
+            <version>${jackson.version}</version>
         </dependency>
 
         <!-- Logging-->
@@ -273,76 +230,31 @@
 					<cleanupDaemonThreads>false</cleanupDaemonThreads>
 				</configuration>
 			</plugin>
+
+            <!-- Dependency analysis: suppress known runtime/SPI false positives -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <usedDependencies>
+                        <usedDependency>jakarta.annotation:jakarta.annotation-api</usedDependency>
+                        <usedDependency>com.zaxxer:HikariCP</usedDependency>
+                        <usedDependency>org.hibernate.orm:hibernate-hikaricp</usedDependency>
+                        <usedDependency>org.hibernate.orm:hibernate-spatial</usedDependency>
+                        <usedDependency>org.hibernate.validator:hibernate-validator</usedDependency>
+                        <usedDependency>jakarta.el:jakarta.el-api</usedDependency>
+                        <usedDependency>org.junit.jupiter:junit-jupiter-engine</usedDependency>
+                        <usedDependency>org.testcontainers:testcontainers-postgresql</usedDependency>
+                        <usedDependency>org.xmlunit:xmlunit-core</usedDependency>
+                        <usedDependency>ch.qos.logback:logback-classic</usedDependency>
+                    </usedDependencies>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
     <profiles>
-    <!-- <profile>
-            <id>fat-jar</id>
-            <build>
-                <plugins>
-                    Maven Shade Plugin to create a fat JAR
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-shade-plugin</artifactId>
-                        <version>3.5.0</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>shade</goal>
-                                </goals>
-                                <configuration>
-                                    <createDependencyReducedPom>true</createDependencyReducedPom>
-                                    <shadedArtifactAttached>true</shadedArtifactAttached>
-                                    <shadedClassifierName>fat</shadedClassifierName>
-                                    
-                                    Only include runtime deps
-                                    <artifactSet>
-                                        <excludes>
-                                            <exclude>junit:*</exclude>
-                                            <exclude>org.junit.jupiter:*</exclude>
-                                            <exclude>org.assertj:*</exclude>
-                                            <exclude>org.testcontainers:*</exclude>
-                                            <exclude>org.hamcrest:*</exclude>
-                                        </excludes>
-                                    </artifactSet>
-                                    
-                                    Strip signatures, licenses, docs
-                                    <filters>
-                                        <filter>
-                                            <artifact>*:*</artifact>
-                                            <excludes>
-                                                <exclude>META-INF/*.SF</exclude>
-                                                <exclude>META-INF/*.DSA</exclude>
-                                                <exclude>META-INF/*.RSA</exclude>
-                                                <exclude>META-INF/LICENSE*</exclude>
-                                                <exclude>META-INF/NOTICE*</exclude>
-                                                <exclude>**/*.html</exclude>
-                                                <exclude>**/*.txt</exclude>
-                                                <exclude>**/*.md</exclude>
-                                            </excludes>
-                                        </filter>
-                                    </filters>
-                                    
-                                    <artifactSet>
-                                        <includes>
-                                            <include>*:*</include>
-                                        </includes>
-                                    </artifactSet>
-                                    <transformers>
-                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                            <mainClass>com.aixm.delorean.Main</mainClass>
-                                        </transformer>
-                                    </transformers>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>-->
         <profile>
             <id>jaxb-core</id>
             <build>
@@ -443,6 +355,14 @@
                     </plugin>
                 </plugins>
             </build>
+            <dependencies>
+                <dependency>
+                    <groupId>com.aixm.delorean</groupId>
+                    <artifactId>post-jaxb</artifactId>
+                    <version>${project.parent.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
         </profile>
     </profiles>
 </project>

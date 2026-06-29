@@ -53,18 +53,23 @@
             <artifactId>hisrc-hyperjaxb-opt-hibernate</artifactId>
             <version>${hisrc.version}</version>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.patrodyne.jvnet</groupId>
             <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
             <version>${hisrc.version}</version>
+        </dependency> -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>${jakarta-xml-bind.version}</version>
         </dependency>
 
         <!-- Database Dependencies -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>${h2database.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -123,7 +128,19 @@
         <!-- Test Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
@@ -150,13 +167,6 @@
             <artifactId>xmlunit-assertj</artifactId>
             <version>2.11.0</version>
             <scope>test</scope>
-        </dependency>
-
-        <!-- Post-JAXB Codegen Fix Utility -->
-        <dependency>
-            <groupId>com.aixm.delorean</groupId>
-            <artifactId>post-jaxb</artifactId>
-            <version>${project.parent.version}</version>
         </dependency>
 
         <!-- JSON serialisation-->
@@ -234,6 +244,31 @@
 					<mainClass>com.aixm.delorean.Main</mainClass>
 					<cleanupDaemonThreads>false</cleanupDaemonThreads>
 				</configuration>
+            </plugin>
+
+            <!-- Dependency analysis: suppress known runtime/SPI false positives -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <usedDependencies>
+                        <usedDependency>jakarta.annotation:jakarta.annotation-api</usedDependency>
+                        <usedDependency>com.zaxxer:HikariCP</usedDependency>
+                        <usedDependency>org.hibernate.orm:hibernate-hikaricp</usedDependency>
+                        <usedDependency>org.hibernate.orm:hibernate-spatial</usedDependency>
+                        <usedDependency>org.hibernate.validator:hibernate-validator</usedDependency>
+                        <usedDependency>jakarta.el:jakarta.el-api</usedDependency>
+                        <usedDependency>org.glassfish.expressly:expressly</usedDependency>
+                        <usedDependency>org.patrodyne.jvnet:hisrc-hyperjaxb-opt-hibernate</usedDependency>
+                        <usedDependency>org.postgresql:postgresql</usedDependency>
+                        <usedDependency>net.postgis:postgis-jdbc</usedDependency>
+                        <usedDependency>org.slf4j:slf4j-simple</usedDependency>
+                        <usedDependency>org.junit.jupiter:junit-jupiter-engine</usedDependency>
+                        <usedDependency>org.xmlunit:xmlunit-core</usedDependency>
+                        <usedDependency>org.xmlunit:xmlunit-assertj</usedDependency>
+                    </usedDependencies>
+                </configuration>
             </plugin>
         </plugins>
 	</build>
@@ -388,6 +423,14 @@
                     </plugin>
                 </plugins>
             </build>
+            <dependencies>
+                <dependency>
+                    <groupId>com.aixm.delorean</groupId>
+                    <artifactId>post-jaxb</artifactId>
+                    <version>${project.parent.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
         </profile>
     </profiles>
 </project>
