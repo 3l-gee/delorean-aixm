@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.aixm.delorean</groupId>
+        <groupId>com.delorean-aixm</groupId>
         <artifactId>delorean-aixm</artifactId>
         <version>0.2.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -14,12 +14,12 @@
     <name>Delorean CLI AIXM 5.1</name>
     <dependencies>
         <dependency>
-            <groupId>com.aixm.delorean</groupId>
+            <groupId>com.delorean-aixm</groupId>
             <artifactId>delorean-core</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.aixm.delorean</groupId>
+            <groupId>com.delorean-aixm</groupId>
             <artifactId>delorean-cli</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -31,7 +31,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.aixm.delorean</groupId>
+            <groupId>com.delorean-aixm</groupId>
             <artifactId>delorean-aixm-51</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -78,7 +78,7 @@
                             <transformers>
                                 <transformer
                                     implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.aixm.delorean.cli.DeloreanCLIAIXM51</mainClass>
+                                    <mainClass>com.delorean.aixm.cli.DeloreanCLIAIXM51</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

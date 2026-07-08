@@ -1832,7 +1832,7 @@
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../AIXM_Features.xsd" node="/xs:schema">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.aixm.delorean.aixm511.schema"/>
+      <jaxb:package name="com.delorean.aixm.aixm511.schema"/>
     </jaxb:schemaBindings>
     <!-- section : manual -->
     <!-- part : default -->
@@ -1840,8 +1840,8 @@
       <xjc:noValidator/>
       <xjc:noValidatingUnmarshaller/>
       <jaxb:serializable uid="20251104"/>
-      <jaxb:javaType name="java.time.OffsetDateTime" xmlType="xs:dateTime" parseMethod="com.aixm.delorean.aixm511.time.adapter.XMLGregorianCalendarAdapter.unmarshal" printMethod="com.aixm.delorean.aixm511.time.adapter.XMLGregorianCalendarAdapter.marshal"/>
-      <jaxb:javaType name="java.time.OffsetDateTime" xmlType="xs:date" parseMethod="com.aixm.delorean.aixm511.time.adapter.XMLGregorianCalendarAdapter.unmarshal" printMethod="com.aixm.delorean.aixm511.time.adapter.XMLGregorianCalendarAdapter.marshal"/>
+      <jaxb:javaType name="java.time.OffsetDateTime" xmlType="xs:dateTime" parseMethod="com.delorean.aixm.aixm511.time.adapter.XMLGregorianCalendarAdapter.unmarshal" printMethod="com.delorean.aixm.aixm511.time.adapter.XMLGregorianCalendarAdapter.marshal"/>
+      <jaxb:javaType name="java.time.OffsetDateTime" xmlType="xs:date" parseMethod="com.delorean.aixm.aixm511.time.adapter.XMLGregorianCalendarAdapter.unmarshal" printMethod="com.delorean.aixm.aixm511.time.adapter.XMLGregorianCalendarAdapter.marshal"/>
     </jaxb:globalBindings>
     <hj:persistence>
       <hj:default-entity>
@@ -1874,9 +1874,9 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PointPropertyType']//xs:element[@name='Point']">
-      <jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmPointType"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Point", required = true, type = com.aixm.delorean.aixm511.schema.PointType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.PointTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.aixm511.gis.type.AixmPointType"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Point", required = true, type = com.delorean.aixm.aixm511.schema.PointType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.aixm511.gis.adapter.PointTypeAdapter.class)</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PointType']">
       <hj:ignored/>
@@ -1891,9 +1891,9 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedPointPropertyType']//xs:element[@name='ElevatedPoint']">
-      <jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmElevatedPointType"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedPoint", required = true, type = com.aixm.delorean.aixm511.schema.ElevatedPointType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.ElevatedPointTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.aixm511.gis.type.AixmElevatedPointType"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedPoint", required = true, type = com.delorean.aixm.aixm511.schema.ElevatedPointType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.aixm511.gis.adapter.ElevatedPointTypeAdapter.class)</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']">
       <hj:ignored/>
@@ -1925,9 +1925,9 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']//xs:element[@name='Curve']">
-      <jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmCurveType"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Curve", required = true, type = com.aixm.delorean.aixm511.schema.CurveType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.CurveTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.aixm511.gis.type.AixmCurveType"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Curve", required = true, type = com.delorean.aixm.aixm511.schema.CurveType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.aixm511.gis.adapter.CurveTypeAdapter.class)</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CurveType']">
       <hj:ignored/>
@@ -1942,9 +1942,9 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedCurvePropertyType']//xs:element[@name='ElevatedCurve']">
-      <jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmElevatedCurveType"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedCurve", required = true, type = com.aixm.delorean.aixm511.schema.ElevatedCurveType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.ElevatedCurveTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.aixm511.gis.type.AixmElevatedCurveType"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedCurve", required = true, type = com.delorean.aixm.aixm511.schema.ElevatedCurveType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.aixm511.gis.adapter.ElevatedCurveTypeAdapter.class)</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']">
       <hj:ignored/>
@@ -1976,9 +1976,9 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SurfacePropertyType']//xs:element[@name='Surface']">
-      <jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmSurfaceType"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Surface", required = true, type = com.aixm.delorean.aixm511.schema.SurfaceType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.SurfaceTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.aixm511.gis.type.AixmSurfaceType"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Surface", required = true, type = com.delorean.aixm.aixm511.schema.SurfaceType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.aixm511.gis.adapter.SurfaceTypeAdapter.class)</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SurfaceType']">
       <hj:ignored/>
@@ -1993,9 +1993,9 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfacePropertyType']//xs:element[@name='ElevatedSurface']">
-      <jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmElevatedSurfaceType"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedSurface", required = true, type = com.aixm.delorean.aixm511.schema.ElevatedSurfaceType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.ElevatedSurfaceTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.aixm511.gis.type.AixmElevatedSurfaceType"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedSurface", required = true, type = com.delorean.aixm.aixm511.schema.ElevatedSurfaceType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.aixm511.gis.adapter.ElevatedSurfaceTypeAdapter.class)</annox:annotate>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']">
       <hj:ignored/>
@@ -38216,9 +38216,9 @@
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='featureLifetime']">
-      <jaxb:javaType name="com.aixm.delorean.core.time.type.DeloreanTimeSliceType"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "featureLifetime",required = true, type = com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.time.adapter.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
+      <jaxb:javaType name="com.delorean.aixm.core.time.type.DeloreanTimeSliceType"/>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "featureLifetime",required = true, type = com.delorean.aixm.core.org.gml.v_3_2.TimePrimitivePropertyType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.aixm511.time.adapter.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
       <jaxb:property name="featureLifetime"/>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='lifecycleStatus']">
@@ -38231,8 +38231,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']//xs:element[@name='mdMetadata']">
       <jaxb:javaType name="com.fasterxml.jackson.databind.JsonNode"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd", type = com.aixm.delorean.core.org.gmd.v2007.MDMetadataType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.metadata.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd", type = com.delorean.aixm.core.org.gmd.v2007.MDMetadataType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.aixm511.metadata.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
       <jaxb:property name="mdMetadata"/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FeatureMetadataPropertyType']">
@@ -38242,8 +38242,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FeatureMetadataPropertyType']//xs:element[@name='mdMetadata']">
       <jaxb:javaType name="com.fasterxml.jackson.databind.JsonNode"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd", type = com.aixm.delorean.core.org.gmd.v2007.MDMetadataType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.metadata.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd", type = com.delorean.aixm.core.org.gmd.v2007.MDMetadataType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.aixm511.metadata.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
       <jaxb:property name="mdMetadata"/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FeatureTimeSliceMetadataPropertyType']">
@@ -38253,8 +38253,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FeatureTimeSliceMetadataPropertyType']//xs:element[@name='mdMetadata']">
       <jaxb:javaType name="com.fasterxml.jackson.databind.JsonNode"/>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd", type = com.aixm.delorean.core.org.gmd.v2007.MDMetadataType.class)</annox:annotate>
-      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.metadata.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd", type = com.delorean.aixm.core.org.gmd.v2007.MDMetadataType.class)</annox:annotate>
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.aixm511.metadata.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
       <jaxb:property name="mdMetadata"/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractExtensionType']">
@@ -38267,7 +38267,7 @@
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../message/AIXM_BasicMessage.xsd" node="/xs:schema">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.aixm.delorean.aixm511.schema.message"/>
+      <jaxb:package name="com.delorean.aixm.aixm511.schema.message"/>
     </jaxb:schemaBindings>
     <!-- section : manual -->
     <!-- part : default -->

@@ -57,7 +57,7 @@ class SimpleType:
         # if element_base == "date":
         #     node.append(Jaxb.simple(element.attrib["name"]))
         #     node.append(Jaxb.java_type("java.sql.Timestamp"))
-        #     node.append(Annox.field_add(Xml.adapter("com.aixm.delorean.core.adapter.date.XMLGregorianCalendarAdapter.class")))
+        #     node.append(Annox.field_add(Xml.adapter("com.delorean.aixm.core.adapter.date.XMLGregorianCalendarAdapter.class")))
         #     node.append(Jaxb.end)
         #     return node
         

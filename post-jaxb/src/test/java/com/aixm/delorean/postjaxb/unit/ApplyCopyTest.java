@@ -1,4 +1,4 @@
-package com.aixm.delorean.postjaxb.unit;
+package com.delorean.aixm.postjaxb.unit;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.params.provider.Arguments;
 
-import com.aixm.delorean.postjaxb.Copy;
+import com.delorean.aixm.postjaxb.Copy;
 
 public class ApplyCopyTest {
 

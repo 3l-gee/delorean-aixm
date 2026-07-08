@@ -190,7 +190,7 @@ change:
       - old: XmlJavaTypeAdapter
         new: [
           '@jakarta.xml.bind.annotation.XmlValue',
-          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)'
+          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.time.adapter.XMLGregorianCalendarAdapter.class)'
         ]
 
   - where: 
@@ -211,7 +211,7 @@ change:
       - old: XmlJavaTypeAdapter
         new: [
           '@jakarta.xml.bind.annotation.XmlValue',
-          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)'
+          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.time.adapter.XMLGregorianCalendarAdapter.class)'
         ]
 
   - where: 

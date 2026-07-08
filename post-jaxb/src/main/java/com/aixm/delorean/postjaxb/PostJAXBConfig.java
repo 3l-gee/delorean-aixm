@@ -1,4 +1,4 @@
-package com.aixm.delorean.postjaxb;
+package com.delorean.aixm.postjaxb;
 
 import java.util.List;
 

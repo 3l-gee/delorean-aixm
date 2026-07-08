@@ -43,7 +43,7 @@ regex:
         xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gco", namespaceURI = "http://www.isotc211.org/2005/gco")},
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gco.v2007;
+      package com.delorean.aixm.core.org.gco.v2007;
 
   - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gmd\v2007\package-info.java
     regex: "(?s)^.*$"
@@ -53,7 +53,7 @@ regex:
         xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gmd", namespaceURI = "http://www.isotc211.org/2005/gmd")},
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gmd.v2007;
+      package com.delorean.aixm.core.org.gmd.v2007;
 
   - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\package-info.java
     regex: "(?s)^.*$"
@@ -66,7 +66,7 @@ regex:
         },
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gml.v_3_2;
+      package com.delorean.aixm.core.org.gml.v_3_2;
 
   - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gsr\v2007\package-info.java
     regex: "(?s)^.*$"
@@ -76,7 +76,7 @@ regex:
         xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gsr", namespaceURI = "http://www.isotc211.org/2005/gsr")},
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gsr.v2007;
+      package com.delorean.aixm.core.org.gsr.v2007;
 
   - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gss\v2007\package-info.java
     regex: "(?s)^.*$"
@@ -86,7 +86,7 @@ regex:
         xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gss", namespaceURI = "http://www.isotc211.org/2005/gss")},
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gss.v2007;
+      package com.delorean.aixm.core.org.gss.v2007;
       
   - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gts\v2007\package-info.java
     regex: "(?s)^.*$"
@@ -96,7 +96,7 @@ regex:
         xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gts", namespaceURI = "http://www.isotc211.org/2005/gts")},
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gts.v2007;
+      package com.delorean.aixm.core.org.gts.v2007;
   
   - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\PointPropertyType.java
     regex: "JAXBElement<PointType>"

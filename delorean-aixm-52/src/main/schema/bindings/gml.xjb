@@ -553,10 +553,10 @@
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractTimeSliceType']//xs:element[@ref='gml:aixmValidTime']">
 			<annox:annotate target="field">
-				@jakarta.xml.bind.annotation.XmlElement(name = "validTime",required = true, type = com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType.class)
+				@jakarta.xml.bind.annotation.XmlElement(name = "validTime",required = true, type = com.delorean.aixm.core.org.gml.v_3_2.TimePrimitivePropertyType.class)
 			</annox:annotate>
 			<annox:annotate target="field">
-				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.TimePrimitivePropertyTypeAdapter.class)
+				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.time.adapter.TimePrimitivePropertyTypeAdapter.class)
 			</annox:annotate>
 			<jaxb:property name="validTime"/>
 		</jaxb:bindings>
@@ -857,7 +857,7 @@
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../gml/3.2.1/gml.xsd" node="/xs:schema">
 		<jaxb:schemaBindings>
-			<jaxb:package name="com.aixm.delorean.core.org.gml.v_3_2"/>
+			<jaxb:package name="com.delorean.aixm.core.org.gml.v_3_2"/>
 		</jaxb:schemaBindings>
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../gml/3.2.1/gmlBase.xsd" node="/xs:schema">
@@ -886,7 +886,7 @@
 		</jaxb:bindings>
 		<!-- <jaxb:bindings node="//xs:group[@name='StandardObjectProperties']//xs:element[@ref='gml:name']">
 			<annox:annotate target="field">
-				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.util.adapter.ListCodeTypeAdapter.class)
+				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.util.adapter.ListCodeTypeAdapter.class)
 			</annox:annotate>
 		</jaxb:bindings> -->
 		<jaxb:bindings node="//xs:complexType[@name='AssociationRoleType']">
@@ -990,7 +990,7 @@
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../gml/3.2.1/temporal.xsd" node="/xs:schema">
 		<jaxb:bindings node="xs:element[@name='aixmValidTime']">
-			<jaxb:javaType name="com.aixm.delorean.core.time.type.DeloreanTimeSliceType"/>
+			<jaxb:javaType name="com.delorean.aixm.core.time.type.DeloreanTimeSliceType"/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractTimeObjectType']">
 			<hj:ignored/>

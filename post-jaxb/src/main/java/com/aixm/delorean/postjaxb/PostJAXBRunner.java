@@ -1,4 +1,4 @@
-package com.aixm.delorean.postjaxb;
+package com.delorean.aixm.postjaxb;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;

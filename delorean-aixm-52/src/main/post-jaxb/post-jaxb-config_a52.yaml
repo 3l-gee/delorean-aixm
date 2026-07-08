@@ -97,7 +97,7 @@ change:
       - old: XmlJavaTypeAdapter
         new: [
           '@jakarta.xml.bind.annotation.XmlValue',
-          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)'
+          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.time.adapter.XMLGregorianCalendarAdapter.class)'
         ]
 
   - where: 
@@ -118,7 +118,7 @@ change:
       - old: XmlJavaTypeAdapter
         new: [
           '@jakarta.xml.bind.annotation.XmlValue',
-          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)'
+          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.time.adapter.XMLGregorianCalendarAdapter.class)'
         ]
 
   - where: 
@@ -260,7 +260,7 @@ regex:
           xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "message", namespaceURI = "http://www.aixm.aero/schema/5.2/message")},
           elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.aixm52.schema.message;
+      package com.delorean.aixm.aixm52.schema.message;
 
   - filePath: delorean-aixm-52\src\main\java\com\aixm\delorean\aixm52\schema\package-info.java
     regex: "(?s)^.*$"
@@ -270,7 +270,7 @@ regex:
           xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "aixm", namespaceURI = "http://www.aixm.aero/schema/5.2")},
           elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.aixm52.schema;
+      package com.delorean.aixm.aixm52.schema;
 
   - filePath: delorean-aixm-52\src\main\java\com\aixm\delorean\aixm52\schema\DateTimeType.java
     regex: import org.w3._2001.xmlschema.Adapter1;

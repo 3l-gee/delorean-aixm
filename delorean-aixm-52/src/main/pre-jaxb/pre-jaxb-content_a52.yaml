@@ -10,7 +10,7 @@ xsd:
     name: ../AIXM_Features
     path: src/main/schema/AIXM_Features.xsd
     strategy: feature
-    package: com.aixm.delorean.aixm52.schema
+    package: com.delorean.aixm.aixm52.schema
     manual: src/main/pre-jaxb/manual/AIXM_Features.xjb
 
   abstractxsd:
@@ -23,5 +23,5 @@ xsd:
     name: ../message/AIXM_BasicMessage
     path: src/main/schema/message/AIXM_BasicMessage.xsd
     strategy: other
-    package: com.aixm.delorean.aixm52.schema.message
+    package: com.delorean.aixm.aixm52.schema.message
     manual: src/main/pre-jaxb/manual/AIXM_BasicMessage.xjb

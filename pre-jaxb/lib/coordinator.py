@@ -134,7 +134,7 @@ class Coordinator:
         filename = f"{Config().version}_entities.txt"
         with open(filename, "w", encoding="utf-8") as f:
             for entity in sorted_entities:
-                f.write(f"com.aixm.delorean.XXXX.schema.{entity}.class,\n")
+                f.write(f"com.delorean.aixm.XXXX.schema.{entity}.class,\n")
 
         print("[INFO] Entities exported : " + filename)
 

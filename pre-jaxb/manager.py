@@ -112,7 +112,7 @@ feature = {
     "name" : "../AIXM_Features",
     "path" : "delorean-aixm-511/src/main/schema/AIXM_Features.xsd",
     "strategy" : Strategy.feature,
-    "package" : "com.aixm.delorean.aixm511.schema",
+    "package" : "com.delorean.aixm.aixm511.schema",
     "manual" : "pre-jaxb/manual/a5_1_1/AIXM_Features.xjb"
 }
 
@@ -134,7 +134,7 @@ message = {
     "name" : "../message/AIXM_BasicMessage",
     "path" : "delorean-aixm-511/src/main/schema/message/AIXM_BasicMessage.xsd",
     "strategy" : Strategy.other,
-    "package" : "com.aixm.delorean.aixm511.schema.message",
+    "package" : "com.delorean.aixm.aixm511.schema.message",
     "manual" : "pre-jaxb/manual/a5_1_1/AIXM_BasicMessage.xjb"
 }
 
@@ -249,7 +249,7 @@ feature = {
     "name" : "../aixm/AIXM_Features",
     "path" : "schema/aixm5_1/aixm/AIXM_Features.xsd",
     "strategy" : Strategy.feature,
-    "package" : "com.aixm.delorean.core.schema.a5_1.aixm",
+    "package" : "com.delorean.aixm.core.schema.a5_1.aixm",
     "manual" : "codegen/pre-jaxb/manual/a5_1/AIXM_Features.xjb"
 }
 
@@ -271,7 +271,7 @@ message = {
     "name" : "../aixm/message/AIXM_BasicMessage",
     "path" : "schema/aixm5_1/aixm/message/AIXM_BasicMessage.xsd",
     "strategy" : Strategy.other,
-    "package" : "com.aixm.delorean.core.schema.a5_1.aixm.message",
+    "package" : "com.delorean.aixm.core.schema.a5_1.aixm.message",
     "manual" : "codegen/pre-jaxb/manual/a5_1/AIXM_BasicMessage.xjb"
 }
 
@@ -377,7 +377,7 @@ feature = {
     "name" : "../aixm/AIXM_Features",
     "path" : "schema/aixm5_2/aixm/AIXM_Features.xsd",
     "strategy" : Strategy.feature,
-    "package" : "com.aixm.delorean.core.schema.a5_2.aixm",
+    "package" : "com.delorean.aixm.core.schema.a5_2.aixm",
     "manual" : "codegen/pre-jaxb/lib/manual/a5_2/AIXM_Features.xjb"
 }
 
@@ -399,7 +399,7 @@ message = {
     "name" : "../aixm/message/AIXM_BasicMessage",
     "path" : "schema/aixm5_2/aixm/message/AIXM_BasicMessage.xsd",
     "strategy" : Strategy.other,
-    "package" : "com.aixm.delorean.core.schema.a5_2.aixm.message",
+    "package" : "com.delorean.aixm.core.schema.a5_2.aixm.message",
     "manual" : "codegen/pre-jaxb/lib/manual/a5_2/AIXM_BasicMessage.xjb"
 }
 

@@ -1,4 +1,4 @@
-package com.aixm.delorean.postjaxb;
+package com.delorean.aixm.postjaxb;
 
 public class Delete {
 

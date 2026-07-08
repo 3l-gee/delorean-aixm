@@ -79,10 +79,10 @@
                 <annox:annotate target="field">@jakarta.persistence.Transient</annox:annotate>
             </jaxb:bindings>
             <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='featureLifetime']">
-                <jaxb:javaType name="com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType"/>
+                <jaxb:javaType name="com.delorean.aixm.core.adapter.type.time.AixmTimeSliceType"/>
                 <annox:annotate target="field">@jakarta.persistence.Embedded</annox:annotate>
-                <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "featureLifetime",required = true, type = com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType.class)</annox:annotate>
-                <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.time.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "featureLifetime",required = true, type = com.delorean.aixm.core.org.gml.v_3_2.TimePrimitivePropertyType.class)</annox:annotate>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.delorean.aixm.core.adapter.time.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
                 <annox:annotate target="field">@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_begin")), @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_end"))})</annox:annotate>
                 <jaxb:property name="featureLifetime"/>
             </jaxb:bindings>

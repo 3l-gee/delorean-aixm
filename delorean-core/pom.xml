@@ -7,7 +7,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.aixm.delorean</groupId>
+        <groupId>com.delorean-aixm</groupId>
         <artifactId>delorean-aixm</artifactId>
         <version>0.2.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -226,7 +226,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>3.1.0</version>
 				<configuration>
-					<mainClass>com.aixm.delorean.Main</mainClass>
+					<mainClass>com.delorean.aixm.Main</mainClass>
 					<cleanupDaemonThreads>false</cleanupDaemonThreads>
 				</configuration>
 			</plugin>
@@ -273,7 +273,7 @@
                                     <goal>java</goal>
                                 </goals>
                                 <configuration>
-                                    <mainClass>com.aixm.delorean.postjaxb.PostJAXBRunner</mainClass>
+                                    <mainClass>com.delorean.aixm.postjaxb.PostJAXBRunner</mainClass>
                                     <arguments>
                                         <argument>${project.basedir}/src/main/post-jaxb/post-jaxb-config_core.yaml</argument>
                                     </arguments>
@@ -357,7 +357,7 @@
             </build>
             <dependencies>
                 <dependency>
-                    <groupId>com.aixm.delorean</groupId>
+                    <groupId>com.delorean-aixm</groupId>
                     <artifactId>post-jaxb</artifactId>
                     <version>${project.parent.version}</version>
                     <scope>provided</scope>
