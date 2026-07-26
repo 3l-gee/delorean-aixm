@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for AirspaceLayerClassPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AirspaceLayerClassPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AirspaceLayerClassPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1}AirspaceLayerClass"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirspaceLayerClassPropertyType", propOrder = {"airspaceLayerClass"})
+@XmlType(name = "AirspaceLayerClassPropertyType", propOrder = {
+    "airspaceLayerClass"
+})
 @Entity(name = "AirspaceLayerClassPropertyType")
 @Table(name = "airspacelayerclass_p", schema = "airspace")
-public class AirspaceLayerClassPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class AirspaceLayerClassPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AirspaceLayerClass", required = true)
@@ -57,11 +56,15 @@ public class AirspaceLayerClassPropertyType extends AbstractAIXMPropertyType imp
 
     /**
      * Gets the value of the airspaceLayerClass property.
-     *
-     * @return possible object is {@link AirspaceLayerClassType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AirspaceLayerClassType }
+     *     
      */
-    @OneToOne(targetEntity = AirspaceLayerClassType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AirspaceLayerClassType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "airspacelayerclass_hjid", referencedColumnName = "hjid")
     public AirspaceLayerClassType getAirspaceLayerClass() {
         return airspaceLayerClass;
@@ -69,10 +72,11 @@ public class AirspaceLayerClassPropertyType extends AbstractAIXMPropertyType imp
 
     /**
      * Sets the value of the airspaceLayerClass property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AirspaceLayerClassType }
-     *
+     *     allowed object is
+     *     {@link AirspaceLayerClassType }
+     *     
      */
     public void setAirspaceLayerClass(AirspaceLayerClassType value) {
         this.airspaceLayerClass = value;
@@ -80,13 +84,12 @@ public class AirspaceLayerClassPropertyType extends AbstractAIXMPropertyType imp
 
     @Transient
     public boolean isSetAirspaceLayerClass() {
-        return (this.airspaceLayerClass != null);
+        return (this.airspaceLayerClass!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

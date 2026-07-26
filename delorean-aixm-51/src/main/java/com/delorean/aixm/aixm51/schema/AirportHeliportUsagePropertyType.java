@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for AirportHeliportUsagePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AirportHeliportUsagePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AirportHeliportUsagePropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}AirportHeliportUsage"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}AirportHeliportUsage"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirportHeliportUsagePropertyType", propOrder = {"airportHeliportUsage"})
+@XmlType(name = "AirportHeliportUsagePropertyType", propOrder = {
+    "airportHeliportUsage"
+})
 @Entity(name = "AirportHeliportUsagePropertyType")
 @Table(name = "airportheliportusage_p", schema = "airport_heliport")
-public class AirportHeliportUsagePropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class AirportHeliportUsagePropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AirportHeliportUsage", required = true)
@@ -58,11 +56,15 @@ public class AirportHeliportUsagePropertyType extends AbstractAIXMPropertyType i
 
     /**
      * Gets the value of the airportHeliportUsage property.
-     *
-     * @return possible object is {@link AirportHeliportUsageType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AirportHeliportUsageType }
+     *     
      */
-    @OneToOne(targetEntity = AirportHeliportUsageType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AirportHeliportUsageType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "airportheliportusage_hjid", referencedColumnName = "hjid")
     public AirportHeliportUsageType getAirportHeliportUsage() {
         return airportHeliportUsage;
@@ -70,10 +72,11 @@ public class AirportHeliportUsagePropertyType extends AbstractAIXMPropertyType i
 
     /**
      * Sets the value of the airportHeliportUsage property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AirportHeliportUsageType }
-     *
+     *     allowed object is
+     *     {@link AirportHeliportUsageType }
+     *     
      */
     public void setAirportHeliportUsage(AirportHeliportUsageType value) {
         this.airportHeliportUsage = value;
@@ -81,13 +84,12 @@ public class AirportHeliportUsagePropertyType extends AbstractAIXMPropertyType i
 
     @Transient
     public boolean isSetAirportHeliportUsage() {
-        return (this.airportHeliportUsage != null);
+        return (this.airportHeliportUsage!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

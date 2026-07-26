@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import com.delorean.aixm.core.org.gml.v_3_2.AbstractGMLType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,29 +18,19 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 
+
 /**
- * Base type for AIXM complex types that are NOT features. For example, City,
- * ContactInformation, AirspaceVolume, etc. It derives from AbstractGMLType so
- * that AIXM objects are recognised as GML objects, thus ensuring that GML-aware
- * applications recognise them properly. Retains only the mandatory gml:id
- * attribute.
- *
- * <p>
- * Java class for AbstractAIXMObjectType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * Base type for AIXM complex types that are NOT features. For example, City, ContactInformation, AirspaceVolume, etc. It derives from AbstractGMLType so that AIXM objects are recognised as GML objects, thus ensuring that GML-aware applications recognise them properly. Retains only the mandatory gml:id attribute.
+ * 
+ * <p>Java class for AbstractAIXMObjectType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AbstractAIXMObjectType">
  *   <complexContent>
@@ -53,40 +44,98 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractAIXMObjectType")
-@XmlSeeAlso({AbstractExtensionType.class, NavaidEquipmentDistanceType.class, RunwayDeclaredDistanceType.class,
-        LightActivationType.class, MarkingElementType.class, RidgeType.class, SurfaceContaminationLayerType.class,
-        AbstractSurfaceContaminationType.class, SurfaceCharacteristicsType.class, CityType.class,
-        AbstractUsageConditionType.class, AirspaceGeometryComponentType.class, AirspaceVolumeType.class,
-        AirspaceVolumeDependencyType.class, RadarComponentType.class, ReflectorType.class,
-        SurveillanceGroundStationType.class, ObstacleAssessmentAreaType.class, ObstructionType.class,
-        AltitudeAdjustmentType.class, ObstaclePlacementType.class, StandardLevelType.class,
-        ContactInformationType.class, AircraftCharacteristicType.class, FlightCharacteristicType.class,
-        LightElementType.class, AirspaceLayerType.class, CircleSectorType.class, TimesheetType.class,
-        MeteorologyType.class, CallsignDetailType.class, FuelType.class, NitrogenType.class, OilType.class,
-        OxygenType.class, PointReferenceType.class, AngleUseType.class, AuthorityForNavaidEquipmentType.class,
-        AuthorityForSpecialNavigationStationType.class, AuthorityForSpecialNavigationSystemType.class,
-        NavaidComponentType.class, NoteType.class, LinguisticNoteType.class, OrganisationAuthorityAssociationType.class,
-        UnitDependencyType.class, MinimaType.class, EquipmentUnavailableAdjustmentType.class,
-        EquipmentUnavailableAdjustmentColumnType.class, TerminalArrivalAreaSectorType.class, FASDataBlockType.class,
-        ApproachAltitudeTableType.class, ApproachDistanceTableType.class, ApproachTimingTableType.class,
-        FinalProfileType.class, MissedApproachGroupType.class, ApproachConditionType.class,
-        NavigationAreaSectorType.class, DepartureArrivalConditionType.class, SectorDesignType.class,
-        ProcedureTransitionType.class, HoldingUseType.class, ProcedureTransitionLegType.class,
-        LandingTakeoffAreaCollectionType.class, SafeAltitudeAreaSectorType.class, HoldingPatternDurationType.class,
-        HoldingPatternDistanceType.class, AbstractDirectFlightType.class, FlightConditionCircumstanceType.class,
-        FlightRestrictionLevelType.class, FlightRestrictionRouteType.class, FlightRoutingElementType.class,
-        FlightConditionElementType.class, AbstractPropertiesWithScheduleType.class, RoutePortionType.class,
-        AbstractSegmentPointType.class, AerialRefuellingAnchorType.class, AerialRefuellingTrackType.class,
-        AuthorityForAerialRefuellingType.class})
+@XmlSeeAlso({
+    AbstractExtensionType.class,
+    NavaidEquipmentDistanceType.class,
+    RunwayDeclaredDistanceType.class,
+    LightActivationType.class,
+    MarkingElementType.class,
+    RidgeType.class,
+    SurfaceContaminationLayerType.class,
+    AbstractSurfaceContaminationType.class,
+    SurfaceCharacteristicsType.class,
+    CityType.class,
+    AbstractUsageConditionType.class,
+    AirspaceGeometryComponentType.class,
+    AirspaceVolumeType.class,
+    AirspaceVolumeDependencyType.class,
+    RadarComponentType.class,
+    ReflectorType.class,
+    SurveillanceGroundStationType.class,
+    ObstacleAssessmentAreaType.class,
+    ObstructionType.class,
+    AltitudeAdjustmentType.class,
+    ObstaclePlacementType.class,
+    StandardLevelType.class,
+    ContactInformationType.class,
+    AircraftCharacteristicType.class,
+    FlightCharacteristicType.class,
+    LightElementType.class,
+    AirspaceLayerType.class,
+    CircleSectorType.class,
+    TimesheetType.class,
+    MeteorologyType.class,
+    CallsignDetailType.class,
+    FuelType.class,
+    NitrogenType.class,
+    OilType.class,
+    OxygenType.class,
+    PointReferenceType.class,
+    AngleUseType.class,
+    AuthorityForNavaidEquipmentType.class,
+    AuthorityForSpecialNavigationStationType.class,
+    AuthorityForSpecialNavigationSystemType.class,
+    NavaidComponentType.class,
+    NoteType.class,
+    LinguisticNoteType.class,
+    OrganisationAuthorityAssociationType.class,
+    UnitDependencyType.class,
+    MinimaType.class,
+    EquipmentUnavailableAdjustmentType.class,
+    EquipmentUnavailableAdjustmentColumnType.class,
+    TerminalArrivalAreaSectorType.class,
+    FASDataBlockType.class,
+    ApproachAltitudeTableType.class,
+    ApproachDistanceTableType.class,
+    ApproachTimingTableType.class,
+    FinalProfileType.class,
+    MissedApproachGroupType.class,
+    ApproachConditionType.class,
+    NavigationAreaSectorType.class,
+    DepartureArrivalConditionType.class,
+    SectorDesignType.class,
+    ProcedureTransitionType.class,
+    HoldingUseType.class,
+    ProcedureTransitionLegType.class,
+    LandingTakeoffAreaCollectionType.class,
+    SafeAltitudeAreaSectorType.class,
+    HoldingPatternDurationType.class,
+    HoldingPatternDistanceType.class,
+    AbstractDirectFlightType.class,
+    FlightConditionCircumstanceType.class,
+    FlightRestrictionLevelType.class,
+    FlightRestrictionRouteType.class,
+    FlightRoutingElementType.class,
+    FlightConditionElementType.class,
+    AbstractPropertiesWithScheduleType.class,
+    RoutePortionType.class,
+    AbstractSegmentPointType.class,
+    AerialRefuellingAnchorType.class,
+    AerialRefuellingTrackType.class,
+    AuthorityForAerialRefuellingType.class
+})
 @Entity(name = "AbstractAIXMObjectType")
 @Table(name = "aixm_object", schema = "aixm")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class AbstractAIXMObjectType extends AbstractGMLType implements Serializable {
+public abstract class AbstractAIXMObjectType
+    extends AbstractGMLType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlTransient
@@ -95,10 +144,12 @@ public abstract class AbstractAIXMObjectType extends AbstractGMLType implements 
     protected Long hjversion;
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -109,21 +160,24 @@ public abstract class AbstractAIXMObjectType extends AbstractGMLType implements 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -132,20 +186,20 @@ public abstract class AbstractAIXMObjectType extends AbstractGMLType implements 
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

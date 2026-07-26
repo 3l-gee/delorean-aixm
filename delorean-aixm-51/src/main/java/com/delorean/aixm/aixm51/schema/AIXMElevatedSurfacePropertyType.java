@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import com.delorean.aixm.aixm51.gis.adapter.ElevatedSurfaceTypeAdapter;
 import com.delorean.aixm.aixm51.gis.type.AixmElevatedSurfaceType;
 import jakarta.persistence.Entity;
@@ -11,45 +12,42 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ElevatedSurfacePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ElevatedSurfacePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ElevatedSurfacePropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element name="ElevatedSurface" type=
-"{http://www.w3.org/2001/XMLSchema}string"/>
+ *         <element name="ElevatedSurface" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ElevatedSurfacePropertyType", propOrder = {"elevatedSurface"})
+@XmlType(name = "ElevatedSurfacePropertyType", propOrder = {
+    "elevatedSurface"
+})
 @Entity(name = "AIXMElevatedSurfacePropertyType")
 @Table(name = "aixm_elevatedsurface_pt", schema = "gml")
-public class AIXMElevatedSurfacePropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class AIXMElevatedSurfacePropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ElevatedSurface", required = true, type = ElevatedSurfaceType.class)
@@ -58,22 +56,25 @@ public class AIXMElevatedSurfacePropertyType extends AbstractAIXMPropertyType im
 
     /**
      * Gets the value of the elevatedSurface property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
-    @jakarta.persistence.JoinColumn(name = "elevated_surface_hjid", referencedColumnName = "hjid")
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "elevated_surface_hjid", referencedColumnName = "hjid")
     public AixmElevatedSurfaceType getElevatedSurface() {
         return elevatedSurface;
     }
 
     /**
      * Sets the value of the elevatedSurface property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link String }
-     *
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setElevatedSurface(AixmElevatedSurfaceType value) {
         this.elevatedSurface = value;
@@ -81,13 +82,12 @@ public class AIXMElevatedSurfacePropertyType extends AbstractAIXMPropertyType im
 
     @Transient
     public boolean isSetElevatedSurface() {
-        return (this.elevatedSurface != null);
+        return (this.elevatedSurface!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

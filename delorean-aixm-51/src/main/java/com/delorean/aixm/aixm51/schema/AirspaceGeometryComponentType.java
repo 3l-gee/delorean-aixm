@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,42 +31,29 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for AirspaceGeometryComponentType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AirspaceGeometryComponentType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AirspaceGeometryComponentType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMObjectType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMObjectType">
  *       <sequence>
- *         <element name="operation" type=
-"{http://www.aixm.aero/schema/5.1}CodeAirspaceAggregationType" minOccurs="0"/>
- *         <element name="operationSequence" type=
-"{http://www.aixm.aero/schema/5.1}NoSequenceType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="theAirspaceVolume" type=
-"{http://www.aixm.aero/schema/5.1}AirspaceVolumePropertyType" minOccurs="0"/>
+ *         <element name="operation" type="{http://www.aixm.aero/schema/5.1}CodeAirspaceAggregationType" minOccurs="0"/>
+ *         <element name="operationSequence" type="{http://www.aixm.aero/schema/5.1}NoSequenceType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="theAirspaceVolume" type="{http://www.aixm.aero/schema/5.1}AirspaceVolumePropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractAirspaceGeometryComponentExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractAirspaceGeometryComponentExtension"/>
  *                 </sequence>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -76,15 +63,23 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirspaceGeometryComponentType", propOrder = {"operation", "operationSequence", "annotation",
-        "theAirspaceVolume", "extension"})
+@XmlType(name = "AirspaceGeometryComponentType", propOrder = {
+    "operation",
+    "operationSequence",
+    "annotation",
+    "theAirspaceVolume",
+    "extension"
+})
 @Entity(name = "AirspaceGeometryComponentType")
 @Table(name = "airspacegeometrycomponent_o", schema = "airspace")
-public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implements Serializable {
+public class AirspaceGeometryComponentType
+    extends AbstractAIXMObjectType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "operation", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
@@ -98,10 +93,11 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
 
     /**
      * Gets the value of the operation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAirspaceAggregationType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAirspaceAggregationType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAirspaceAggregationType> getOperation() {
@@ -110,11 +106,11 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
 
     /**
      * Sets the value of the operation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAirspaceAggregationType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAirspaceAggregationType }{@code >}
+     *     
      */
     public void setOperation(JAXBElement<CodeAirspaceAggregationType> value) {
         this.operation = value;
@@ -122,15 +118,16 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
 
     @Transient
     public boolean isSetOperation() {
-        return (this.operation != null);
+        return (this.operation!= null);
     }
 
     /**
      * Gets the value of the operationSequence property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link NoSequenceType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link NoSequenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<NoSequenceType> getOperationSequence() {
@@ -139,11 +136,11 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
 
     /**
      * Sets the value of the operationSequence property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link NoSequenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link NoSequenceType }{@code >}
+     *     
      */
     public void setOperationSequence(JAXBElement<NoSequenceType> value) {
         this.operationSequence = value;
@@ -151,36 +148,39 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
 
     @Transient
     public boolean isSetOperationSequence() {
-        return (this.operationSequence != null);
+        return (this.operationSequence!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcgmtrcmpnnttp_annttn_link", schema = "airspace", joinColumns = {
-            @JoinColumn(name = "airspacegeometrycomponent_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspcgmtrcmpnnttp_annttn_l", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "airspacegeometrycomponent_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -189,8 +189,8 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -198,7 +198,7 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -207,24 +207,31 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
 
     /**
      * Gets the value of the theAirspaceVolume property.
-     *
-     * @return possible object is {@link AirspaceVolumePropertyType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AirspaceVolumePropertyType }
+     *     
      */
-    @OneToOne(targetEntity = AirspaceVolumePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "arspcgmtrcmpnnttp_tharspcvlm_link", schema = "airspace", joinColumns = {
-            @JoinColumn(name = "airspacegeometrycomponent_o_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "theairspacevolume_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirspaceVolumePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "arspcgmtrcmpnnttp_tharspcvlm_l", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "airspacegeometrycomponent_o_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "theairspacevolume_hjid", referencedColumnName = "hjid")
+    })
     public AirspaceVolumePropertyType getTheAirspaceVolume() {
         return theAirspaceVolume;
     }
 
     /**
      * Sets the value of the theAirspaceVolume property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AirspaceVolumePropertyType }
-     *
+     *     allowed object is
+     *     {@link AirspaceVolumePropertyType }
+     *     
      */
     public void setTheAirspaceVolume(AirspaceVolumePropertyType value) {
         this.theAirspaceVolume = value;
@@ -232,34 +239,34 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
 
     @Transient
     public boolean isSetTheAirspaceVolume() {
-        return (this.theAirspaceVolume != null);
+        return (this.theAirspaceVolume!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirspaceGeometryComponentExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = AirspaceGeometryComponentExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "airspacegeometrycomponent_oe_hjid", referencedColumnName = "hjid")
     public List<AirspaceGeometryComponentExtensionType> getExtension() {
         if (extension == null) {
@@ -269,8 +276,8 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<AirspaceGeometryComponentExtensionType> extension) {
         this.extension = extension;
@@ -278,7 +285,7 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -286,35 +293,34 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "operation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "operationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "operation", columnDefinition = "codeairspaceaggregationbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "operationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeAirspaceAggregationType getOperationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAirspaceAggregationType.class, this.getOperation());
     }
 
     public void setOperationItem(CodeAirspaceAggregationType target) {
-        setOperation(XmlAdapterUtils.marshallJAXBElement(CodeAirspaceAggregationType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "operation"), AirspaceGeometryComponentType.class,
-                target));
+        setOperation(XmlAdapterUtils.marshallJAXBElement(CodeAirspaceAggregationType.class, new QName("http://www.aixm.aero/schema/5.1", "operation"), AirspaceGeometryComponentType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "operationsequence")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "operationsequencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "operationsequence", columnDefinition = "nosequencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "operationsequencenilreason", columnDefinition = "nilreason"))
+    })
     public NoSequenceType getOperationSequenceItem() {
         return XmlAdapterUtils.unmarshallSource(NoSequenceType.class, this.getOperationSequence());
     }
 
     public void setOperationSequenceItem(NoSequenceType target) {
-        setOperationSequence(XmlAdapterUtils.marshallJAXBElement(NoSequenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "operationSequence"), AirspaceGeometryComponentType.class,
-                target));
+        setOperationSequence(XmlAdapterUtils.marshallJAXBElement(NoSequenceType.class, new QName("http://www.aixm.aero/schema/5.1", "operationSequence"), AirspaceGeometryComponentType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -325,6 +331,19 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
         }
         final AirspaceGeometryComponentType that = ((AirspaceGeometryComponentType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceGeometryComponentExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AirspaceGeometryComponentExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOperationSequence();
             boolean rhsFieldIsSet = that.isSetOperationSequence();
             JAXBElement<NoSequenceType> lhsField;
@@ -333,32 +352,6 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
             rhsField = that.getOperationSequence();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationSequence", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationSequence", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceGeometryComponentExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirspaceGeometryComponentExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOperation();
-            boolean rhsFieldIsSet = that.isSetOperation();
-            JAXBElement<CodeAirspaceAggregationType> lhsField;
-            lhsField = this.getOperation();
-            JAXBElement<CodeAirspaceAggregationType> rhsField;
-            rhsField = that.getOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -380,11 +373,24 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperation();
+            boolean rhsFieldIsSet = that.isSetOperation();
+            JAXBElement<CodeAirspaceAggregationType> lhsField;
+            lhsField = this.getOperation();
+            JAXBElement<CodeAirspaceAggregationType> rhsField;
+            rhsField = that.getOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -412,7 +418,7 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -426,7 +432,7 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirspaceGeometryComponentExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -451,7 +457,7 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -463,7 +469,7 @@ public class AirspaceGeometryComponentType extends AbstractAIXMObjectType implem
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirspaceGeometryComponentExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

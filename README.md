@@ -127,7 +127,16 @@ mvn clean verify
 
 Flame Graphing (aixm 5.1 cli yaml workflow exemple)
 ```bash
-java -XX:StartFlightRecording=duration=60s,filename=.\profile.jfr -jar .\delorean-cli-aixm51\target\delorean-cli-aixm51-0.2.0.jar -y delorean-cli-aixm51\src\test\resources\task.yaml; java -jar jfr-converter.jar .\profile.jfr .\delorean-output.html
+sudo sysctl kernel.perf_event_paranoid=1
+sudo sysctl kernel.kptr_restrict=0
+
+java -agentpath:$HOME/async-profiler-3.0-linux-x64/lib/libasyncProfiler.so=start,event=cpu,file=cpu_profile.html -jar delorean-cli-aixm51/target/delorean-cli-aixm51-0.2.0.jar -y "delorean-cli-aixm51/src/test/resources/task.yaml"
+
+java -agentpath:$HOME/async-profiler-3.0-linux-x64/lib/libasyncProfiler.so=start,event=alloc,file=alloc_profile.html -jar delorean-cli-aixm51/target/delorean-cli-aixm51-0.2.0.jar -y "delorean-cli-aixm51/src/test/resources/task.yaml"
+
+java -agentpath:$HOME/async-profiler-3.0-linux-x64/lib/libasyncProfiler.so=start,event=wall,file=wall_profile.html -jar delorean-cli-aixm51/target/delorean-cli-aixm51-0.2.0.jar -y "delorean-cli-aixm51/src/test/resources/task.yaml"
+
+java -agentpath:$HOME/async-profiler-3.0-linux-x64/lib/libasyncProfiler.so=start,event=lock,file=lock_profile.html -jar delorean-cli-aixm51/target/delorean-cli-aixm51-0.2.0.jar -y "delorean-cli-aixm51/src/test/resources/task.yaml"
 ```
 
 ## Documentation

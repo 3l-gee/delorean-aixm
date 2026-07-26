@@ -1,6 +1,10 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -20,10 +24,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,60 +31,38 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
+
 /**
- * <p>
- * Java class for CheckpointVORTimeSliceType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for CheckpointVORTimeSliceType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="CheckpointVORTimeSliceType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <element name="category" type=
-"{http://www.aixm.aero/schema/5.1}CodeCheckpointCategoryType" minOccurs="0"/>
- *         <element name="upperLimit" type=
-"{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="upperLimitReference" type=
-"{http://www.aixm.aero/schema/5.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="lowerLimit" type=
-"{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
- *         <element name="lowerLimitReference" type=
-"{http://www.aixm.aero/schema/5.1}CodeVerticalReferenceType" minOccurs="0"/>
- *         <element name="altitudeInterpretation" type=
-"{http://www.aixm.aero/schema/5.1}CodeAltitudeUseType" minOccurs="0"/>
- *         <element name="distance" type=
-"{http://www.aixm.aero/schema/5.1}ValDistanceType" minOccurs="0"/>
- *         <element name="angle" type=
-"{http://www.aixm.aero/schema/5.1}ValBearingType" minOccurs="0"/>
- *         <element name="position" type=
-"{http://www.aixm.aero/schema/5.1}ElevatedPointPropertyType" minOccurs="0"/>
- *         <element name="airportHeliport" type=
-"{http://www.aixm.aero/schema/5.1}AirportHeliportPropertyType" minOccurs="0"/>
- *         <element name="annotation" type=
-"{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs=
-"unbounded" minOccurs="0"/>
- *         <element name="checkPointFacility" type=
-"{http://www.aixm.aero/schema/5.1}VORPropertyType" minOccurs="0"/>
+ *         <element name="category" type="{http://www.aixm.aero/schema/5.1}CodeCheckpointCategoryType" minOccurs="0"/>
+ *         <element name="upperLimit" type="{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="upperLimitReference" type="{http://www.aixm.aero/schema/5.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="lowerLimit" type="{http://www.aixm.aero/schema/5.1}ValDistanceVerticalType" minOccurs="0"/>
+ *         <element name="lowerLimitReference" type="{http://www.aixm.aero/schema/5.1}CodeVerticalReferenceType" minOccurs="0"/>
+ *         <element name="altitudeInterpretation" type="{http://www.aixm.aero/schema/5.1}CodeAltitudeUseType" minOccurs="0"/>
+ *         <element name="distance" type="{http://www.aixm.aero/schema/5.1}ValDistanceType" minOccurs="0"/>
+ *         <element name="angle" type="{http://www.aixm.aero/schema/5.1}ValBearingType" minOccurs="0"/>
+ *         <element name="position" type="{http://www.aixm.aero/schema/5.1}ElevatedPointPropertyType" minOccurs="0"/>
+ *         <element name="airportHeliport" type="{http://www.aixm.aero/schema/5.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="checkPointFacility" type="{http://www.aixm.aero/schema/5.1}VORPropertyType" minOccurs="0"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractCheckpointVORExtension"/>
- *                   <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractNavigationSystemCheckpointExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractCheckpointVORExtension"/>
+ *                   <element ref="{http://www.aixm.aero/schema/5.1}AbstractNavigationSystemCheckpointExtension"/>
  *                 </choice>
- *                 <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -94,16 +72,31 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CheckpointVORTimeSliceType", propOrder = {"category", "upperLimit", "upperLimitReference",
-        "lowerLimit", "lowerLimitReference", "altitudeInterpretation", "distance", "angle", "position",
-        "airportHeliport", "annotation", "checkPointFacility", "extension"})
+@XmlType(name = "CheckpointVORTimeSliceType", propOrder = {
+    "category",
+    "upperLimit",
+    "upperLimitReference",
+    "lowerLimit",
+    "lowerLimitReference",
+    "altitudeInterpretation",
+    "distance",
+    "angle",
+    "position",
+    "airportHeliport",
+    "annotation",
+    "checkPointFacility",
+    "extension"
+})
 @Entity(name = "CheckpointVORTimeSliceType")
 @Table(name = "checkpointvor_t", schema = "navaids_point")
-public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
+public class CheckpointVORTimeSliceType
+    extends AbstractAIXMTimeSliceType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "category", namespace = "http://www.aixm.aero/schema/5.1", type = JAXBElement.class, required = false)
@@ -134,10 +127,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Gets the value of the category property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeCheckpointCategoryType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeCheckpointCategoryType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeCheckpointCategoryType> getCategory() {
@@ -146,11 +140,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the category property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeCheckpointCategoryType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeCheckpointCategoryType }{@code >}
+     *     
      */
     public void setCategory(JAXBElement<CodeCheckpointCategoryType> value) {
         this.category = value;
@@ -158,15 +152,16 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetCategory() {
-        return (this.category != null);
+        return (this.category!= null);
     }
 
     /**
      * Gets the value of the upperLimit property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getUpperLimit() {
@@ -175,11 +170,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the upperLimit property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setUpperLimit(JAXBElement<ValDistanceVerticalType> value) {
         this.upperLimit = value;
@@ -187,15 +182,16 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetUpperLimit() {
-        return (this.upperLimit != null);
+        return (this.upperLimit!= null);
     }
 
     /**
      * Gets the value of the upperLimitReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getUpperLimitReference() {
@@ -204,11 +200,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the upperLimitReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setUpperLimitReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.upperLimitReference = value;
@@ -216,15 +212,16 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetUpperLimitReference() {
-        return (this.upperLimitReference != null);
+        return (this.upperLimitReference!= null);
     }
 
     /**
      * Gets the value of the lowerLimit property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceVerticalType> getLowerLimit() {
@@ -233,11 +230,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the lowerLimit property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceVerticalType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     *     
      */
     public void setLowerLimit(JAXBElement<ValDistanceVerticalType> value) {
         this.lowerLimit = value;
@@ -245,15 +242,16 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetLowerLimit() {
-        return (this.lowerLimit != null);
+        return (this.lowerLimit!= null);
     }
 
     /**
      * Gets the value of the lowerLimitReference property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeVerticalReferenceType> getLowerLimitReference() {
@@ -262,11 +260,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the lowerLimitReference property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeVerticalReferenceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeVerticalReferenceType }{@code >}
+     *     
      */
     public void setLowerLimitReference(JAXBElement<CodeVerticalReferenceType> value) {
         this.lowerLimitReference = value;
@@ -274,15 +272,16 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetLowerLimitReference() {
-        return (this.lowerLimitReference != null);
+        return (this.lowerLimitReference!= null);
     }
 
     /**
      * Gets the value of the altitudeInterpretation property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link CodeAltitudeUseType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link CodeAltitudeUseType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<CodeAltitudeUseType> getAltitudeInterpretation() {
@@ -291,11 +290,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the altitudeInterpretation property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link CodeAltitudeUseType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link CodeAltitudeUseType }{@code >}
+     *     
      */
     public void setAltitudeInterpretation(JAXBElement<CodeAltitudeUseType> value) {
         this.altitudeInterpretation = value;
@@ -303,15 +302,16 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetAltitudeInterpretation() {
-        return (this.altitudeInterpretation != null);
+        return (this.altitudeInterpretation!= null);
     }
 
     /**
      * Gets the value of the distance property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link ValDistanceType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValDistanceType> getDistance() {
@@ -320,11 +320,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the distance property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValDistanceType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     *     
      */
     public void setDistance(JAXBElement<ValDistanceType> value) {
         this.distance = value;
@@ -332,15 +332,16 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetDistance() {
-        return (this.distance != null);
+        return (this.distance!= null);
     }
 
     /**
      * Gets the value of the angle property.
-     *
-     * @return possible object is {@link JAXBElement }{@code <}{@link ValBearingType
-     *         }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<ValBearingType> getAngle() {
@@ -349,11 +350,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the angle property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link ValBearingType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link ValBearingType }{@code >}
+     *     
      */
     public void setAngle(JAXBElement<ValBearingType> value) {
         this.angle = value;
@@ -361,15 +362,16 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetAngle() {
-        return (this.angle != null);
+        return (this.angle!= null);
     }
 
     /**
      * Gets the value of the position property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AIXMElevatedPointPropertyType> getPosition() {
@@ -378,11 +380,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the position property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *     
      */
     public void setPosition(JAXBElement<AIXMElevatedPointPropertyType> value) {
         this.position = value;
@@ -390,15 +392,16 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetPosition() {
-        return (this.position != null);
+        return (this.position!= null);
     }
 
     /**
      * Gets the value of the airportHeliport property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getAirportHeliport() {
@@ -407,11 +410,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the airportHeliport property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *     
      */
     public void setAirportHeliport(JAXBElement<AirportHeliportPropertyType> value) {
         this.airportHeliport = value;
@@ -419,36 +422,39 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetAirportHeliport() {
-        return (this.airportHeliport != null);
+        return (this.airportHeliport!= null);
     }
 
     /**
      * Gets the value of the annotation property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the annotation property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the annotation property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getAnnotation().add(newItem);
+     *    getAnnotation().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     *
-     *
+     * 
+     * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "chckpntvortmslctp_annttn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "checkpointvor_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")})
+    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "chckpntvortmslctp_annttn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "checkpointvor_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "annotation_hjid", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -457,8 +463,8 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -466,7 +472,7 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation != null) && (!this.annotation.isEmpty()));
+        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -475,10 +481,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Gets the value of the checkPointFacility property.
-     *
-     * @return possible object is {@link JAXBElement
-     *         }{@code <}{@link VORPropertyType }{@code >}
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link VORPropertyType }{@code >}
+     *     
      */
     @Transient
     public JAXBElement<VORPropertyType> getCheckPointFacility() {
@@ -487,11 +494,11 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     /**
      * Sets the value of the checkPointFacility property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link JAXBElement
-     *            }{@code <}{@link VORPropertyType }{@code >}
-     *
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link VORPropertyType }{@code >}
+     *     
      */
     public void setCheckPointFacility(JAXBElement<VORPropertyType> value) {
         this.checkPointFacility = value;
@@ -499,34 +506,34 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetCheckPointFacility() {
-        return (this.checkPointFacility != null);
+        return (this.checkPointFacility!= null);
     }
 
     /**
      * Gets the value of the extension property.
-     *
+     * 
      * <p>
-     * This accessor method returns a reference to the live list, not a snapshot.
-     * Therefore any modification you make to the returned list will be present
-     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
-     * for the extension property.
-     *
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the extension property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
-     *
      * <pre>
-     * getExtension().add(newItem);
+     *    getExtension().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CheckpointVORTimeSliceExtensionType }
-     *
-     *
+     * 
+     * 
      */
     @OneToMany(targetEntity = CheckpointVORTimeSliceExtensionType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "checkpointvor_te_hjid", referencedColumnName = "hjid")
     public List<CheckpointVORTimeSliceExtensionType> getExtension() {
         if (extension == null) {
@@ -536,8 +543,8 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
     }
 
     /**
-     *
-     *
+     * 
+     * 
      */
     public void setExtension(List<CheckpointVORTimeSliceExtensionType> extension) {
         this.extension = extension;
@@ -545,7 +552,7 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension != null) && (!this.extension.isEmpty()));
+        return ((this.extension!= null)&&(!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -553,156 +560,163 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "category")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "categorynilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "category", columnDefinition = "codecheckpointcategorybase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "categorynilreason", columnDefinition = "nilreason"))
+    })
     public CodeCheckpointCategoryType getCategoryItem() {
         return XmlAdapterUtils.unmarshallSource(CodeCheckpointCategoryType.class, this.getCategory());
     }
 
     public void setCategoryItem(CodeCheckpointCategoryType target) {
-        setCategory(XmlAdapterUtils.marshallJAXBElement(CodeCheckpointCategoryType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "category"), CheckpointVORTimeSliceType.class, target));
+        setCategory(XmlAdapterUtils.marshallJAXBElement(CodeCheckpointCategoryType.class, new QName("http://www.aixm.aero/schema/5.1", "category"), CheckpointVORTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "upperlimit", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "upperlimituom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "upperlimit", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "upperlimituom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getUpperLimitItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getUpperLimit());
     }
 
     public void setUpperLimitItem(ValDistanceVerticalType target) {
-        setUpperLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "upperLimit"), CheckpointVORTimeSliceType.class, target));
+        setUpperLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1", "upperLimit"), CheckpointVORTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "upperlimitreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitreferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "upperlimitreference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "upperlimitreferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalReferenceType getUpperLimitReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getUpperLimitReference());
     }
 
     public void setUpperLimitReferenceItem(CodeVerticalReferenceType target) {
-        setUpperLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "upperLimitReference"), CheckpointVORTimeSliceType.class,
-                target));
+        setUpperLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1", "upperLimitReference"), CheckpointVORTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "lowerlimit", columnDefinition = "VARCHAR", length = 256)),
-            @AttributeOverride(name = "uom", column = @Column(name = "lowerlimituom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitnilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "lowerlimit", columnDefinition = "valdistanceverticalbase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "lowerlimituom", columnDefinition = "uomdistancevertical")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitnilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceVerticalType getLowerLimitItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getLowerLimit());
     }
 
     public void setLowerLimitItem(ValDistanceVerticalType target) {
-        setLowerLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "lowerLimit"), CheckpointVORTimeSliceType.class, target));
+        setLowerLimit(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1", "lowerLimit"), CheckpointVORTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "lowerlimitreference")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitreferencenilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "lowerlimitreference", columnDefinition = "codeverticalreferencebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "lowerlimitreferencenilreason", columnDefinition = "nilreason"))
+    })
     public CodeVerticalReferenceType getLowerLimitReferenceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalReferenceType.class, this.getLowerLimitReference());
     }
 
     public void setLowerLimitReferenceItem(CodeVerticalReferenceType target) {
-        setLowerLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "lowerLimitReference"), CheckpointVORTimeSliceType.class,
-                target));
+        setLowerLimitReference(XmlAdapterUtils.marshallJAXBElement(CodeVerticalReferenceType.class, new QName("http://www.aixm.aero/schema/5.1", "lowerLimitReference"), CheckpointVORTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "altitudeinterpretation")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "altitudeinterpretationnilreason"))})
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "altitudeinterpretation", columnDefinition = "codealtitudeusebase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "altitudeinterpretationnilreason", columnDefinition = "nilreason"))
+    })
     public CodeAltitudeUseType getAltitudeInterpretationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeAltitudeUseType.class, this.getAltitudeInterpretation());
     }
 
     public void setAltitudeInterpretationItem(CodeAltitudeUseType target) {
-        setAltitudeInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeAltitudeUseType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "altitudeInterpretation"),
-                CheckpointVORTimeSliceType.class, target));
+        setAltitudeInterpretation(XmlAdapterUtils.marshallJAXBElement(CodeAltitudeUseType.class, new QName("http://www.aixm.aero/schema/5.1", "altitudeInterpretation"), CheckpointVORTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "distance", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "uom", column = @Column(name = "distanceuom")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "distancenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "distance", columnDefinition = "valdistancebase")),
+        @AttributeOverride(name = "uom", column = @Column(name = "distanceuom", columnDefinition = "uomdistance")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "distancenilreason", columnDefinition = "nilreason"))
+    })
     public ValDistanceType getDistanceItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getDistance());
     }
 
     public void setDistanceItem(ValDistanceType target) {
-        setDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "distance"), CheckpointVORTimeSliceType.class, target));
+        setDistance(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1", "distance"), CheckpointVORTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "value", column = @Column(name = "angle", columnDefinition = "NUMERIC")),
-            @AttributeOverride(name = "nilReason", column = @Column(name = "anglenilreason"))})
+        @AttributeOverride(name = "value", column = @Column(name = "angle", columnDefinition = "valbearingbase")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "anglenilreason", columnDefinition = "nilreason"))
+    })
     public ValBearingType getAngleItem() {
         return XmlAdapterUtils.unmarshallSource(ValBearingType.class, this.getAngle());
     }
 
     public void setAngleItem(ValBearingType target) {
-        setAngle(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "angle"), CheckpointVORTimeSliceType.class, target));
+        setAngle(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1", "angle"), CheckpointVORTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "chckpntvortmslctp_pstn_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "checkpointvor_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "position_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "chckpntvortmslctp_pstn_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "checkpointvor_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "position_hjid", referencedColumnName = "hjid")
+    })
     public AIXMElevatedPointPropertyType getPositionItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getPosition());
     }
 
     public void setPositionItem(AIXMElevatedPointPropertyType target) {
-        setPosition(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "position"), CheckpointVORTimeSliceType.class, target));
+        setPosition(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "position"), CheckpointVORTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "chckpntvortmslctp_arprthlprt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "checkpointvor_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "airportheliport_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "chckpntvortmslctp_arprthlprt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "checkpointvor_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airportheliport_hjid", referencedColumnName = "hjid")
+    })
     public AirportHeliportPropertyType getAirportHeliportItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getAirportHeliport());
     }
 
     public void setAirportHeliportItem(AirportHeliportPropertyType target) {
-        setAirportHeliport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "airportHeliport"), CheckpointVORTimeSliceType.class,
-                target));
+        setAirportHeliport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "airportHeliport"), CheckpointVORTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = VORPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "chckpntvortmslctp_chckpntfclt_link", schema = "navaids_point", joinColumns = {
-            @JoinColumn(name = "checkpointvor_t_hjid", referencedColumnName = "hjid")}, inverseJoinColumns = {
-                    @JoinColumn(name = "checkpointfacility_hjid", referencedColumnName = "hjid")})
+    @OneToOne(targetEntity = VORPropertyType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinTable(name = "chckpntvortmslctp_chckpntfclt_l", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "checkpointvor_t_hjid", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "checkpointfacility_hjid", referencedColumnName = "hjid")
+    })
     public VORPropertyType getCheckPointFacilityItem() {
         return XmlAdapterUtils.unmarshallSource(VORPropertyType.class, this.getCheckPointFacility());
     }
 
     public void setCheckPointFacilityItem(VORPropertyType target) {
-        setCheckPointFacility(XmlAdapterUtils.marshallJAXBElement(VORPropertyType.class,
-                new QName("http://www.aixm.aero/schema/5.1", "checkPointFacility"), CheckpointVORTimeSliceType.class,
-                target));
+        setCheckPointFacility(XmlAdapterUtils.marshallJAXBElement(VORPropertyType.class, new QName("http://www.aixm.aero/schema/5.1", "checkPointFacility"), CheckpointVORTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -713,118 +727,14 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
         }
         final CheckpointVORTimeSliceType that = ((CheckpointVORTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
-            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getLowerLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCheckPointFacility();
-            boolean rhsFieldIsSet = that.isSetCheckPointFacility();
-            JAXBElement<VORPropertyType> lhsField;
-            lhsField = this.getCheckPointFacility();
-            JAXBElement<VORPropertyType> rhsField;
-            rhsField = that.getCheckPointFacility();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "checkPointFacility", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "checkPointFacility", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<CheckpointVORTimeSliceExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<CheckpointVORTimeSliceExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPosition();
-            boolean rhsFieldIsSet = that.isSetPosition();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getPosition();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimitReference();
-            boolean rhsFieldIsSet = that.isSetUpperLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getUpperLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getUpperLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLowerLimit();
-            boolean rhsFieldIsSet = that.isSetLowerLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getLowerLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getLowerLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAirportHeliport();
-            boolean rhsFieldIsSet = that.isSetAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getAirportHeliport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliport", rhsField);
+            boolean lhsFieldIsSet = this.isSetAngle();
+            boolean rhsFieldIsSet = that.isSetAngle();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getAngle();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -843,14 +753,79 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCategory();
-            boolean rhsFieldIsSet = that.isSetCategory();
-            JAXBElement<CodeCheckpointCategoryType> lhsField;
-            lhsField = this.getCategory();
-            JAXBElement<CodeCheckpointCategoryType> rhsField;
-            rhsField = that.getCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
+            boolean lhsFieldIsSet = this.isSetLowerLimit();
+            boolean rhsFieldIsSet = that.isSetLowerLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getLowerLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getLowerLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<CheckpointVORTimeSliceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<CheckpointVORTimeSliceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
+            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getLowerLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCheckPointFacility();
+            boolean rhsFieldIsSet = that.isSetCheckPointFacility();
+            JAXBElement<VORPropertyType> lhsField;
+            lhsField = this.getCheckPointFacility();
+            JAXBElement<VORPropertyType> rhsField;
+            rhsField = that.getCheckPointFacility();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "checkPointFacility", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "checkPointFacility", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -869,14 +844,53 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAngle();
-            boolean rhsFieldIsSet = that.isSetAngle();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getAngle();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angle", rhsField);
+            boolean lhsFieldIsSet = this.isSetPosition();
+            boolean rhsFieldIsSet = that.isSetPosition();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getPosition();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCategory();
+            boolean rhsFieldIsSet = that.isSetCategory();
+            JAXBElement<CodeCheckpointCategoryType> lhsField;
+            lhsField = this.getCategory();
+            JAXBElement<CodeCheckpointCategoryType> rhsField;
+            rhsField = that.getCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAirportHeliport();
+            boolean rhsFieldIsSet = that.isSetAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getAirportHeliport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpperLimitReference();
+            boolean rhsFieldIsSet = that.isSetUpperLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getUpperLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getUpperLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -960,7 +974,7 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -974,7 +988,7 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<CheckpointVORTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1047,7 +1061,7 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            theField = (this.isSetAnnotation()?this.getAnnotation():null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -1059,7 +1073,7 @@ public class CheckpointVORTimeSliceType extends AbstractAIXMTimeSliceType implem
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<CheckpointVORTimeSliceExtensionType> theField;
-            theField = (this.isSetExtension() ? this.getExtension() : null);
+            theField = (this.isSetExtension()?this.getExtension():null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

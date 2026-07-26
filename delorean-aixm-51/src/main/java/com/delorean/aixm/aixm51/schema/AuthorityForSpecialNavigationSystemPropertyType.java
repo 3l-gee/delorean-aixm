@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,45 +13,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for AuthorityForSpecialNavigationSystemPropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AuthorityForSpecialNavigationSystemPropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AuthorityForSpecialNavigationSystemPropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}AuthorityForSpecialNavigationSystem"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}AuthorityForSpecialNavigationSystem"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AuthorityForSpecialNavigationSystemPropertyType", propOrder = {"authorityForSpecialNavigationSystem"})
+@XmlType(name = "AuthorityForSpecialNavigationSystemPropertyType", propOrder = {
+    "authorityForSpecialNavigationSystem"
+})
 @Entity(name = "AuthorityForSpecialNavigationSystemPropertyType")
 @Table(name = "authorityforspecialnavigationsystem_p", schema = "navaids_point")
-public class AuthorityForSpecialNavigationSystemPropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class AuthorityForSpecialNavigationSystemPropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AuthorityForSpecialNavigationSystem", required = true)
@@ -58,12 +56,15 @@ public class AuthorityForSpecialNavigationSystemPropertyType extends AbstractAIX
 
     /**
      * Gets the value of the authorityForSpecialNavigationSystem property.
-     *
-     * @return possible object is {@link AuthorityForSpecialNavigationSystemType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AuthorityForSpecialNavigationSystemType }
+     *     
      */
     @OneToOne(targetEntity = AuthorityForSpecialNavigationSystemType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "authorityforspecialnavigationsystem_hjid", referencedColumnName = "hjid")
     public AuthorityForSpecialNavigationSystemType getAuthorityForSpecialNavigationSystem() {
         return authorityForSpecialNavigationSystem;
@@ -71,10 +72,11 @@ public class AuthorityForSpecialNavigationSystemPropertyType extends AbstractAIX
 
     /**
      * Sets the value of the authorityForSpecialNavigationSystem property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AuthorityForSpecialNavigationSystemType }
-     *
+     *     allowed object is
+     *     {@link AuthorityForSpecialNavigationSystemType }
+     *     
      */
     public void setAuthorityForSpecialNavigationSystem(AuthorityForSpecialNavigationSystemType value) {
         this.authorityForSpecialNavigationSystem = value;
@@ -82,13 +84,12 @@ public class AuthorityForSpecialNavigationSystemPropertyType extends AbstractAIX
 
     @Transient
     public boolean isSetAuthorityForSpecialNavigationSystem() {
-        return (this.authorityForSpecialNavigationSystem != null);
+        return (this.authorityForSpecialNavigationSystem!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -105,10 +106,8 @@ public class AuthorityForSpecialNavigationSystemPropertyType extends AbstractAIX
             lhsField = this.getAuthorityForSpecialNavigationSystem();
             AuthorityForSpecialNavigationSystemType rhsField;
             rhsField = that.getAuthorityForSpecialNavigationSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authorityForSpecialNavigationSystem",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authorityForSpecialNavigationSystem",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authorityForSpecialNavigationSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authorityForSpecialNavigationSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -123,8 +122,7 @@ public class AuthorityForSpecialNavigationSystemPropertyType extends AbstractAIX
             boolean theFieldIsSet = this.isSetAuthorityForSpecialNavigationSystem();
             AuthorityForSpecialNavigationSystemType theField;
             theField = this.getAuthorityForSpecialNavigationSystem();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "authorityForSpecialNavigationSystem",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "authorityForSpecialNavigationSystem", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         return currentHashCode;

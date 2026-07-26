@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
@@ -38,41 +38,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for AirspaceBorderCrossingTimeSlicePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for AirspaceBorderCrossingTimeSlicePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="AirspaceBorderCrossingTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}AirspaceBorderCrossingTimeSlice"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}AirspaceBorderCrossingTimeSlice"/>
  *       </sequence>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirspaceBorderCrossingTimeSlicePropertyType", propOrder = {"airspaceBorderCrossingTimeSlice"})
-@FilterDef(name = "TPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
+@XmlType(name = "AirspaceBorderCrossingTimeSlicePropertyType", propOrder = {
+    "airspaceBorderCrossingTimeSlice"
+})
+@FilterDef(name = "TPHjidFilter", parameters = {
+    @ParamDef(name = "ids", type = Long.class)
+})
 @Filter(name = "TPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AirspaceBorderCrossingTimeSlicePropertyType")
 @Table(name = "airspacebordercrossing_tp", schema = "route")
-public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
+public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AirspaceBorderCrossingTimeSlice", required = true)
@@ -86,12 +84,15 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
 
     /**
      * Gets the value of the airspaceBorderCrossingTimeSlice property.
-     *
-     * @return possible object is {@link AirspaceBorderCrossingTimeSliceType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AirspaceBorderCrossingTimeSliceType }
+     *     
      */
     @OneToOne(targetEntity = AirspaceBorderCrossingTimeSliceType.class, cascade = {
-            CascadeType.ALL}, fetch = FetchType.EAGER)
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "airspacebordercrossingtimeslice_hjid", referencedColumnName = "hjid")
     public AirspaceBorderCrossingTimeSliceType getAirspaceBorderCrossingTimeSlice() {
         return airspaceBorderCrossingTimeSlice;
@@ -99,10 +100,11 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
 
     /**
      * Sets the value of the airspaceBorderCrossingTimeSlice property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AirspaceBorderCrossingTimeSliceType }
-     *
+     *     allowed object is
+     *     {@link AirspaceBorderCrossingTimeSliceType }
+     *     
      */
     public void setAirspaceBorderCrossingTimeSlice(AirspaceBorderCrossingTimeSliceType value) {
         this.airspaceBorderCrossingTimeSlice = value;
@@ -110,14 +112,16 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
 
     @Transient
     public boolean isSetAirspaceBorderCrossingTimeSlice() {
-        return (this.airspaceBorderCrossingTimeSlice != null);
+        return (this.airspaceBorderCrossingTimeSlice!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -131,10 +135,11 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -142,7 +147,7 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -150,10 +155,12 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -164,21 +171,24 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link java.lang.Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -187,11 +197,12 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link java.lang.Long }
-     *
+     *     allowed object is
+     *     {@link java.lang.Long }
+     *     
      */
     public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
@@ -210,9 +221,8 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -220,29 +230,27 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
         }
         final AirspaceBorderCrossingTimeSlicePropertyType that = ((AirspaceBorderCrossingTimeSlicePropertyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAirspaceBorderCrossingTimeSlice();
             boolean rhsFieldIsSet = that.isSetAirspaceBorderCrossingTimeSlice();
             AirspaceBorderCrossingTimeSliceType lhsField;
             lhsField = this.getAirspaceBorderCrossingTimeSlice();
             AirspaceBorderCrossingTimeSliceType rhsField;
             rhsField = that.getAirspaceBorderCrossingTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airspaceBorderCrossingTimeSlice",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airspaceBorderCrossingTimeSlice",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airspaceBorderCrossingTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airspaceBorderCrossingTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -273,7 +281,7 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -311,7 +319,7 @@ public class AirspaceBorderCrossingTimeSlicePropertyType implements Serializable
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,41 +35,37 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractApproachLightingSystemExtension"/>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractGroundLightSystemExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}AbstractApproachLightingSystemExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}AbstractGroundLightSystemExtension"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"abstractApproachLightingSystemExtension", "abstractGroundLightSystemExtension"})
+@XmlType(name = "", propOrder = {
+    "abstractApproachLightingSystemExtension",
+    "abstractGroundLightSystemExtension"
+})
 @Entity(name = "ApproachLightingSystemTimeSliceExtensionType")
 @Table(name = "approachlightingsystem_te", schema = "airport_heliport")
-public class ApproachLightingSystemTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString {
+public class ApproachLightingSystemTimeSliceExtensionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractApproachLightingSystemExtension")
@@ -85,11 +81,15 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
 
     /**
      * Gets the value of the abstractApproachLightingSystemExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractapproachlightingsystemextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachLightingSystemExtension() {
         return abstractApproachLightingSystemExtension;
@@ -97,10 +97,11 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
 
     /**
      * Sets the value of the abstractApproachLightingSystemExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractApproachLightingSystemExtension(AbstractExtensionType value) {
         this.abstractApproachLightingSystemExtension = value;
@@ -108,16 +109,20 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
 
     @Transient
     public boolean isSetAbstractApproachLightingSystemExtension() {
-        return (this.abstractApproachLightingSystemExtension != null);
+        return (this.abstractApproachLightingSystemExtension!= null);
     }
 
     /**
      * Gets the value of the abstractGroundLightSystemExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractgroundlightsystemextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundLightSystemExtension() {
         return abstractGroundLightSystemExtension;
@@ -125,10 +130,11 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
 
     /**
      * Sets the value of the abstractGroundLightSystemExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractGroundLightSystemExtension(AbstractExtensionType value) {
         this.abstractGroundLightSystemExtension = value;
@@ -136,14 +142,16 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
 
     @Transient
     public boolean isSetAbstractGroundLightSystemExtension() {
-        return (this.abstractGroundLightSystemExtension != null);
+        return (this.abstractGroundLightSystemExtension!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -157,10 +165,11 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -168,7 +177,7 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -176,10 +185,12 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -190,21 +201,24 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -213,11 +227,12 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -236,9 +251,8 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -246,16 +260,14 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
         }
         final ApproachLightingSystemTimeSliceExtensionType that = ((ApproachLightingSystemTimeSliceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApproachLightingSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApproachLightingSystemExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApproachLightingSystemExtension();
+            lhsField = this.getAbstractGroundLightSystemExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApproachLightingSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "abstractApproachLightingSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "abstractApproachLightingSystemExtension", rhsField);
+            rhsField = that.getAbstractGroundLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -264,9 +276,9 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            lhsField = (this.isSetOwns()?this.getOwns():false);
             boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -274,16 +286,14 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractApproachLightingSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApproachLightingSystemExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGroundLightSystemExtension();
+            lhsField = this.getAbstractApproachLightingSystemExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGroundLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension",
-                    rhsField);
+            rhsField = that.getAbstractApproachLightingSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachLightingSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachLightingSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -308,22 +318,20 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
             boolean theFieldIsSet = this.isSetAbstractApproachLightingSystemExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractApproachLightingSystemExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractApproachLightingSystemExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractApproachLightingSystemExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractGroundLightSystemExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractGroundLightSystemExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractGroundLightSystemExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -356,8 +364,7 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
             boolean theFieldIsSet = this.isSetAbstractApproachLightingSystemExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractApproachLightingSystemExtension();
-            strategy.appendField(locator, this, "abstractApproachLightingSystemExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractApproachLightingSystemExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
@@ -368,7 +375,7 @@ public class ApproachLightingSystemTimeSliceExtensionType implements Serializabl
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

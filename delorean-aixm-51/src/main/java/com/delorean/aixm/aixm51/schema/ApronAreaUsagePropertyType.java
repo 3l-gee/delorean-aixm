@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,29 +13,22 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for ApronAreaUsagePropertyType complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for ApronAreaUsagePropertyType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="ApronAreaUsagePropertyType">
  *   <complexContent>
- *     <extension base=
-"{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
+ *     <extension base="{http://www.aixm.aero/schema/5.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1}ApronAreaUsage"/>
  *       </sequence>
@@ -42,14 +36,19 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ApronAreaUsagePropertyType", propOrder = {"apronAreaUsage"})
+@XmlType(name = "ApronAreaUsagePropertyType", propOrder = {
+    "apronAreaUsage"
+})
 @Entity(name = "ApronAreaUsagePropertyType")
 @Table(name = "apronareausage_p", schema = "airport_heliport")
-public class ApronAreaUsagePropertyType extends AbstractAIXMPropertyType implements Serializable {
+public class ApronAreaUsagePropertyType
+    extends AbstractAIXMPropertyType
+    implements Serializable
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ApronAreaUsage", required = true)
@@ -57,11 +56,15 @@ public class ApronAreaUsagePropertyType extends AbstractAIXMPropertyType impleme
 
     /**
      * Gets the value of the apronAreaUsage property.
-     *
-     * @return possible object is {@link ApronAreaUsageType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link ApronAreaUsageType }
+     *     
      */
-    @OneToOne(targetEntity = ApronAreaUsageType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ApronAreaUsageType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "apronareausage_hjid", referencedColumnName = "hjid")
     public ApronAreaUsageType getApronAreaUsage() {
         return apronAreaUsage;
@@ -69,10 +72,11 @@ public class ApronAreaUsagePropertyType extends AbstractAIXMPropertyType impleme
 
     /**
      * Sets the value of the apronAreaUsage property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link ApronAreaUsageType }
-     *
+     *     allowed object is
+     *     {@link ApronAreaUsageType }
+     *     
      */
     public void setApronAreaUsage(ApronAreaUsageType value) {
         this.apronAreaUsage = value;
@@ -80,13 +84,12 @@ public class ApronAreaUsagePropertyType extends AbstractAIXMPropertyType impleme
 
     @Transient
     public boolean isSetApronAreaUsage() {
-        return (this.apronAreaUsage != null);
+        return (this.apronAreaUsage!= null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {

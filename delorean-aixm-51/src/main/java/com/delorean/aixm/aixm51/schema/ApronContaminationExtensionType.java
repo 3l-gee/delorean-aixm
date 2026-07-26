@@ -1,6 +1,7 @@
 
 package com.delorean.aixm.aixm51.schema;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,41 +35,37 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
+
 /**
- * <p>
- * Java class for anonymous complex type
- * </p>
- * .
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * </p>
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractSurfaceContaminationExtension"/>
- *         <element ref=
-"{http://www.aixm.aero/schema/5.1}AbstractApronContaminationExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}AbstractSurfaceContaminationExtension"/>
+ *         <element ref="{http://www.aixm.aero/schema/5.1}AbstractApronContaminationExtension"/>
  *       </choice>
- *       <attGroup ref=
-"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"abstractSurfaceContaminationExtension", "abstractApronContaminationExtension"})
+@XmlType(name = "", propOrder = {
+    "abstractSurfaceContaminationExtension",
+    "abstractApronContaminationExtension"
+})
 @Entity(name = "ApronContaminationExtensionType")
 @Table(name = "aproncontamination_oe", schema = "airport_heliport")
-public class ApronContaminationExtensionType implements Serializable, Equals, HashCode, ToString {
+public class ApronContaminationExtensionType implements Serializable, Equals, HashCode, ToString
+{
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractSurfaceContaminationExtension")
@@ -85,11 +81,15 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
 
     /**
      * Gets the value of the abstractSurfaceContaminationExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractsurfacecontaminationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurfaceContaminationExtension() {
         return abstractSurfaceContaminationExtension;
@@ -97,10 +97,11 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
 
     /**
      * Sets the value of the abstractSurfaceContaminationExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractSurfaceContaminationExtension(AbstractExtensionType value) {
         this.abstractSurfaceContaminationExtension = value;
@@ -108,16 +109,20 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
 
     @Transient
     public boolean isSetAbstractSurfaceContaminationExtension() {
-        return (this.abstractSurfaceContaminationExtension != null);
+        return (this.abstractSurfaceContaminationExtension!= null);
     }
 
     /**
      * Gets the value of the abstractApronContaminationExtension property.
-     *
-     * @return possible object is {@link AbstractExtensionType }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link AbstractExtensionType }
+     *     
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractaproncontaminationextension_hjid", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApronContaminationExtension() {
         return abstractApronContaminationExtension;
@@ -125,10 +130,11 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
 
     /**
      * Sets the value of the abstractApronContaminationExtension property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link AbstractExtensionType }
-     *
+     *     allowed object is
+     *     {@link AbstractExtensionType }
+     *     
      */
     public void setAbstractApronContaminationExtension(AbstractExtensionType value) {
         this.abstractApronContaminationExtension = value;
@@ -136,14 +142,16 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
 
     @Transient
     public boolean isSetAbstractApronContaminationExtension() {
-        return (this.abstractApronContaminationExtension != null);
+        return (this.abstractApronContaminationExtension!= null);
     }
 
     /**
      * Gets the value of the owns property.
-     *
-     * @return possible object is {@link Boolean }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     @Basic
     @Column(name = "OWNS")
@@ -157,10 +165,11 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
 
     /**
      * Sets the value of the owns property.
-     *
+     * 
      * @param value
-     *            allowed object is {@link Boolean }
-     *
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -168,7 +177,7 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns != null);
+        return (this.owns!= null);
     }
 
     public void unsetOwns() {
@@ -176,10 +185,12 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Id
     @Column(name = "HJID")
@@ -190,21 +201,24 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     *
-     *
-     * @return possible object is {@link Long }
-     *
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
     @Version
     @Column(name = "hjversion")
@@ -213,11 +227,12 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
     }
 
     /**
-     *
-     *
+     * 
+     * 
      * @param value
-     *            allowed object is {@link Long }
-     *
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -236,9 +251,8 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
-            EqualsStrategy strategy) {
-        if ((object == null) || (this.getClass() != object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -246,31 +260,27 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
         }
         final ApronContaminationExtensionType that = ((ApronContaminationExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApronContaminationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApronContaminationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApronContaminationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApronContaminationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronContaminationExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronContaminationExtension",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractSurfaceContaminationExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSurfaceContaminationExtension();
             AbstractExtensionType lhsField;
             lhsField = this.getAbstractSurfaceContaminationExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractSurfaceContaminationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurfaceContaminationExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfaceContaminationExtension",
-                    rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurfaceContaminationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfaceContaminationExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractApronContaminationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApronContaminationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractApronContaminationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractApronContaminationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronContaminationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronContaminationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -279,9 +289,9 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            lhsField = (this.isSetOwns()?this.getOwns():false);
             boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -308,22 +318,20 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
             boolean theFieldIsSet = this.isSetAbstractSurfaceContaminationExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractSurfaceContaminationExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractSurfaceContaminationExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractSurfaceContaminationExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractApronContaminationExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractApronContaminationExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractApronContaminationExtension",
-                    theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractApronContaminationExtension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -356,8 +364,7 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
             boolean theFieldIsSet = this.isSetAbstractSurfaceContaminationExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractSurfaceContaminationExtension();
-            strategy.appendField(locator, this, "abstractSurfaceContaminationExtension", buffer, theField,
-                    theFieldIsSet);
+            strategy.appendField(locator, this, "abstractSurfaceContaminationExtension", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractApronContaminationExtension();
@@ -368,7 +375,7 @@ public class ApronContaminationExtensionType implements Serializable, Equals, Ha
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns() ? this.getOwns() : false);
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

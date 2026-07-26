@@ -9,7 +9,9 @@ import com.delorean.aixm.aixm51.schema.AbstractAIXMFeatureType;
 import com.delorean.aixm.aixm51.schema.AbstractAIXMTimeSliceType;
 import com.delorean.aixm.core.engine.TemporalityInspector;
 import com.delorean.aixm.core.time.type.DeloreanTimeSliceType;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class Aixm51TimeSliceEngine {
 
     /**
@@ -22,6 +24,8 @@ public class Aixm51TimeSliceEngine {
         if (feature == null) {
             return 0;
         }
+
+        log.atDebug().log("Counting TimeSlices for feature: {}", feature.getIdentifier().getValue());
 
         int count = 0;
         String name = feature.getClass().getSimpleName().replace("Type", "");
@@ -65,6 +69,8 @@ public class Aixm51TimeSliceEngine {
             throw new RuntimeException("Failed to inject Null timeSlice into feature");
         }
 
+        log.atDebug().log("Injecting TimeSlice into feature: {}", feature.getIdentifier().getValue());
+
         try {
             String featureName = feature.getClass().getSimpleName().replace("Type", "");
             Method getListMethod = feature.getClass().getMethod("getTimeSlice");
@@ -77,7 +83,7 @@ public class Aixm51TimeSliceEngine {
             setTsMethod.invoke(propertyWrapper, timeSlice);
             propertyList.add(propertyWrapper);
         } catch (Exception e) {
-            throw new RuntimeException("Failed to add TimeSlices to feature " + feature.getClass().getSimpleName(), e);
+            throw new RuntimeException("Failed to add TimeSlices to feature " + feature.getIdentifier().getValue(), e);
         }
     }
 
@@ -91,6 +97,8 @@ public class Aixm51TimeSliceEngine {
         if (feature == null) {
             return List.of();
         }
+
+        log.atDebug().log("Extracting TimeSlices from feature: {}", feature.getIdentifier().getValue());
 
         String name = feature.getClass().getSimpleName().replace("Type", "");
         List<AbstractAIXMTimeSliceType> listTimeSlice = new ArrayList<>();
@@ -116,8 +124,9 @@ public class Aixm51TimeSliceEngine {
                         timeSlicePropertyObj.getClass().getMethod("get" + name + "TimeSlice");
 
                 Object ts = getSpecificTimeSliceMethod.invoke(timeSlicePropertyObj);
-
+                
                 if (ts instanceof AbstractAIXMTimeSliceType timeSlice) {
+                    log.atDebug().log("Adding TimeSlice {} to feature: {}", timeSlice.getSequenceNumber(), feature.getIdentifier().getValue());
                     listTimeSlice.add(timeSlice);
                 }
 

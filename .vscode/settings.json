@@ -1,7 +1,7 @@
 {
     "files.exclude": {
         "**/target": true,
-        "**/.mvn": true
+        "**/.mvn": true,
     },
       "search.exclude": {
         "**/target": true
@@ -11,12 +11,15 @@
         "**/delorean-aixm-511/**",
         "**/delorean-aixm-52/**"
     ],
-    "java.configuration.updateBuildConfiguration": "interactive",
     "files.associations": {
         "*.xjb": "xml",
         "*.qgs": "xml",
         "*.qlr": "xml",
         "*.qml": "xml",
         "*.ftl": "xml"
-    }
+    },
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.autobuild.enabled": false,
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8G -Xms100m -Xlog:disable",
 }
